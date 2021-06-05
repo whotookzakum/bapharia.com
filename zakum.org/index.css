@@ -185,40 +185,25 @@ html, body {
     }
 }
 
-.socials {
-    right: 0;
-    top: 0;
-    position: absolute;
-}
-.socials > a {
-    text-decoration: none;
-}
-
-.iconother {
-    display: inline-block;
-    position: relative;
-    filter: brightness(0.9);
-    margin: 5px;
-}
-.iconother:hover {
-    filter: brightness(0.7);
-}
-
 
 /* ---------------- PAGES ---------------- */
 
-#container > div {
-    position: absolute;
+#container {
+    display: flex;
+    position: fixed;
     top: 10%;
     bottom: 10%;
     left: 10%;
     width: 80%;
+}
+#bg-default, #bg-af, #bg-ts, #bg-ba, #bg-sc, #bg-hs {
+    display: inherit;
+    position: inherit;
+    top: inherit;
+    bottom: inherit;
+    width: inherit;
     background-position: center 50%; 
     background-repeat: no-repeat;
-}
-
-#bg-default {
-    background-image: url(images/0.png);
 }
 
 .bg-default-animation {
@@ -242,33 +227,60 @@ html, body {
     z-index: 2;
 }
 
+
+
+
+/* ---------------- ABOUT & TRIVIA ---------------- */
+#pageAbout {
+    display: none;
+    background-color: #161211;
+    width: 40%;
+    z-index: 20;
+    margin:  auto;
+    border-radius: 20px;
+}
+#pageAbout > p {
+    font-family: "Mate SC";
+    text-align: center;
+    margin-bottom: 15px;
+    
+}
+
 #pageTrivia {
     display: none;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
     z-index: 5;
+    font: normal 18px "Mate SC";
+    
 }
 
 .triviaCategory {
-    font: italic 18px "Mate SC";
+    font: italic 14px "Mate SC";
     color: #b7b7b7;
 }
 
 .triviaQuestion {
-    font: normal 24px "Roboto";
+    text-transform: lowercase;
+    padding-bottom: 0.5em;
 }
 
 .triviaChoices {
     display: block;
-    background-color: #c8c8c8;
-    border: none;
-    border-radius: 8px;
-    color: black;
-    padding: 15px 32px;
-    margin-bottom: 10px;
+    background-color: #141010; /* #120e0e*/
+    color: #c8c8c8;
+    padding: 0.2em;
+    border-top: 1px solid #120e0e;
+    border-bottom: 1px solid #120e0e;
+    border-right: 2px solid #120e0e;
+    border-left: 2px solid #120e0e;
+    margin: auto;
     text-align: center;
     text-decoration: none;
     cursor: inherit;
+    width: 100%;
+    font: inherit;
+    text-transform: lowercase;
 }
 
 .triviaChoices:hover {
@@ -287,6 +299,11 @@ html, body {
     position: relative;
     font-size: 13px;
     margin-top: 0.9em;
+    
+}
+.copyright > p {
+    display: inline-block;
+    float: right;
 }
 
 .hitcounter {
@@ -297,4 +314,23 @@ html, body {
 
 .copyright:hover .hitcounter{
     visibility: visible;
+}
+
+.socials {
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+.socials > a {
+    text-decoration: none;
+}
+
+.iconother {
+    display: inline-block;
+    position: relative;
+    filter: brightness(0.9);
+    margin: 5px;
+}
+.iconother:hover {
+    filter: brightness(0.7);
 }

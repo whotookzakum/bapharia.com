@@ -50,9 +50,8 @@ jQuery(document).ready(function($){
             if (bg.css("background-image") != "url(images/0.png)") {
                 bg.stop().animate({opacity: '1'});
                 
-                if ($(this).is("#buttonGuide")) {
-                    openTrivia();
-                }
+                
+                // OPEN PAGES
                 
                 
             }
@@ -68,14 +67,13 @@ jQuery(document).ready(function($){
                 }
             });
         */
+        
     });
     
 
     // TRIVIA
     // Generate map names and skill names from a list
     // Automatically generate "what class's skill is __?" and " __ is an ability for what skill? questions
-    
-
     var triviaHolder = [
         { // 1
             category: "Technical",
@@ -407,19 +405,17 @@ jQuery(document).ready(function($){
             choice: ["20", "25", "15", "30"],
             answer: ["25"]
         },
-    ]
-    
-    
+    ]  
     
     function openTrivia() {
         var triviaQuestion = $(".triviaQuestion");
         var triviaCategory = $(".triviaCategory");
         var triviaChoices = $(".triviaChoices");
+        var buttonColor = $(".triviaChoices").css("background-color");
         var qIndex = 0;
         
-        // Display containers
-        $("#contentViewer").css("display","block");
-        $("#pageTrivia").css("display","inline-block");
+        // Display container
+        $("#pageTrivia").css("display","block");
         
         
         // Durstenfeld Shuffle
@@ -443,19 +439,21 @@ jQuery(document).ready(function($){
                 qIndex = 0;
             }
             
+            // Shuffle choices
+            shuffle(triviaHolder[qIndex].choice);
+            
             // Send category & question
             triviaCategory.html(triviaHolder[qIndex].category);
             triviaQuestion.html(triviaHolder[qIndex].question);
-
-            // Shuffle choices
-            shuffle(triviaHolder[qIndex].choice);
-
-            // Sends each choice once & resets color
+    
+            // Sends each choice once & resets button color
             triviaChoices.each(function(index) {
-                $(this).css("background-color", "#c8c8c8");
+                $(this).css("background-color", buttonColor);
                 $(this).html(triviaHolder[qIndex].choice[(index)]);
             });
-                
+            
+            // Enable clicking on an option
+            triviaChoices.prop("disabled", false);    
                 
         }
         
@@ -465,7 +463,10 @@ jQuery(document).ready(function($){
         triviaChoices.click(function (){
             var myAns = $(this);
             var correctAns = triviaHolder[qIndex].answer[0];
-
+            
+            // Disable clicking after choosing an option
+            triviaChoices.prop("disabled", true);
+            
             // Search choices for correct answer and turn it green; 
             triviaChoices.each(function() {
                 if ($(this).text() == correctAns) {
@@ -488,6 +489,16 @@ jQuery(document).ready(function($){
         
     } // End Trivia
     
+    
+    // ABOUT
+    $("#buttonAbout").click(function(){
+        if ($("#pageAbout").css("display")=="none") {
+            $("#pageAbout").css("display", "block")
+            openTrivia();
+        } else {
+            $("#pageAbout").css("display", "none");
+        }
+    });
     
     
     // MAP
