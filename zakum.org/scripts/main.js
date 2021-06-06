@@ -47,13 +47,14 @@ jQuery(document).ready(function($){
             bghs.stop().animate({opacity: '1'});
         }
         else {
+            // Change BG to default one
             if (bg.css("background-image") != "url(images/0.png)") {
                 bg.stop().animate({opacity: '1'});
-                
-                
-                // OPEN PAGES
-                
-                
+            }
+            // WORLD MAP
+            if ($(this).is("#buttonWorldMap")) {
+                // function closePages();
+                openWorldMap();
             }
         }
         
@@ -67,6 +68,118 @@ jQuery(document).ready(function($){
                 }
             });
         */
+        
+    });
+    
+    // MAP
+    function openWorldMap() {
+        $("#mapContainer").css("display", "block");
+        $("#contentViewer").css("display", "block");
+    }
+    $(".mapToggles").click(function(){
+        
+        // Toggle ON if off
+        if ($(this).hasClass("mapToggles-off")) {
+            // Restores toggle icon
+            $(this).removeClass("mapToggles-off");
+            
+            if ($(this).is("#toggleWarp")) {
+                $(".warpPortal").css("display", "initial");
+            }
+            if ($(this).is("#toggleClassMaster")) {
+                $(".mapClassMaster").css("display", "initial");
+            }
+            if ($(this).is("#toggleLiquidMemory")) {
+                $(".mapLiquidMemory").css("display", "initial");
+            }
+            if ($(this).is("#toggleExchange")) {
+                $(".mapExchange").css("display", "initial");
+            }
+            if ($(this).is("#togglePotion")) {
+                $(".mapPotion").css("display", "initial");
+            }
+            if ($(this).is("#toggleWeapon")) {
+                $(".mapWeapon").css("display", "initial");
+            }
+            if ($(this).is("#toggleEliteMonster")) {
+                $(".mapEliteMonster").css("display", "initial");
+            }
+            if ($(this).is("#toggleFreeExp")) {
+                $(".mapFreeExp").css("display", "initial");
+            }
+            if ($(this).is("#toggleRaid")) {
+                $(".mapRaid").css("display", "initial");
+            }
+            if ($(this).is("#toggleMSQ")) {
+                $(".mapMSQ").css("display", "initial");
+            }
+            if ($(this).is("#toggleImajinn")) {
+                $(".mapImajinnHouse").css("display", "initial");
+            }
+            if ($(this).is("#toggleCrafting")) {
+                $(".mapCrafting").css("display", "initial");
+            }
+            if ($(this).is("#toggleReconstructor")) {
+                $(".mapReconstructor").css("display", "initial");
+            }
+            if ($(this).is("#toggleStorage")) {
+                $(".mapStorage").css("display", "initial");
+            }
+            
+        } 
+        
+        // Toggle OFF if on
+        else {
+            // Darkens toggle icon
+            $(this).addClass("mapToggles-off");
+            
+            if ($(this).is("#toggleWarp")) {
+                $(".warpPortal").css("display", "none");
+                
+            }
+            if ($(this).is("#toggleWarp")) {
+                $(".warpPortal").css("display", "none");
+            }
+            if ($(this).is("#toggleClassMaster")) {
+                $(".mapClassMaster").css("display", "none");
+            }
+            if ($(this).is("#toggleLiquidMemory")) {
+                $(".mapLiquidMemory").css("display", "none");
+            }
+            if ($(this).is("#toggleExchange")) {
+                $(".mapExchange").css("display", "none");
+            }
+            if ($(this).is("#togglePotion")) {
+                $(".mapPotionShop").css("display", "none");
+            }
+            if ($(this).is("#toggleWeapon")) {
+                $(".mapWeaponShop").css("display", "none");
+            }
+            if ($(this).is("#toggleEliteMonster")) {
+                $(".mapEliteMonster").css("display", "none");
+            }
+            if ($(this).is("#toggleFreeExp")) {
+                $(".mapFreeExp").css("display", "none");
+            }
+            if ($(this).is("#toggleRaid")) {
+                $(".mapRaid").css("display", "none");
+            }
+            if ($(this).is("#toggleMSQ")) {
+                $(".mapMSQ").css("display", "none");
+            }
+            if ($(this).is("#toggleImajinn")) {
+                $(".mapImajinnHouse").css("display", "none");
+            }
+            if ($(this).is("#toggleCrafting")) {
+                $(".mapCrafting").css("display", "none");
+            }
+            if ($(this).is("#toggleReconstructor")) {
+                $(".mapReconstructor").css("display", "none");
+            }
+            if ($(this).is("#toggleStorage")) {
+                $(".mapStorage").css("display", "none");
+            }
+        }
         
     });
     
@@ -192,7 +305,7 @@ jQuery(document).ready(function($){
         { // 20
             category: "Story",
             question: "Who is the self-proclaimed “best of the best” adventurer?",
-            choice: ["Einrain", "Jake", "Main Character", "Arinse"],
+            choice: ["Einrain", "Jake", "Main Character", "Aerinse"],
             answer: ["Jake"]
         },
         { // 21
@@ -300,8 +413,8 @@ jQuery(document).ready(function($){
         { // 38
             category: "Gameplay",
             question: "How many warp portals are in Asterleeds?",
-            choice: ["6", "3", "5", "7"],
-            answer: ["7"]
+            choice: ["6", "7", "8", "9"],
+            answer: ["9"]
         },
         { // 39
             category: "Class",
@@ -501,7 +614,7 @@ jQuery(document).ready(function($){
     });
     
     
-    // MAP
+    
 
 
     // SKILL BUILDER

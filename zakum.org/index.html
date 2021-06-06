@@ -33,37 +33,37 @@
 
     <body>
         
-        <div id="header">
+        <div id="header" oncontextmenu="return false">
         
             <div class="navibar">
                 
                 <a class="menubutton">
-                    <img id="buttonBattleImajinn" class="navicon" src="images/battleimajinn3.svg"/>
+                    <img id="buttonBattleImajinn" class="navicon" src="images/battleimajinn3.svg" draggable="false"/>
                     <p class="menutext">Battle<br>Imagine</p>
                 </a>
                 
                 <a class="menubutton">
-                    <img id="buttonInnerImajinn" class="navicon" src="images/innerimajinn2.svg"/>
+                    <img id="buttonInnerImajinn" class="navicon" src="images/innerimajinn2.svg" draggable="false"/>
                     <p class="menutext">Inner<br>Imagine</p>
                 </a>
                 
                 <a class="menubutton">
-                    <img id="buttonCombat" class="navicon" src="images/combat2.svg"/>
+                    <img id="buttonCombat" class="navicon" src="images/combat2.svg" draggable="false"/>
                     <p class="menutext">Combat<br><br></p>
                 </a>
                 
                 <a class="menubutton">
-                    <img id="buttonStoryQuest" class="navicon" src="images/msq.svg"/>
+                    <img id="buttonStoryQuest" class="navicon" src="images/msq.svg" draggable="false"/>
                     <p class="menutext">Story<br>Quest</p>
                 </a>
                 
                 <a class="menubutton">
-                    <img id="buttonWorldMap" class="navicon" src="images/worldmap.svg"/>
+                    <img id="buttonWorldMap" class="navicon" src="images/worldmap.svg" draggable="false"/>
                     <p class="menutext">World<br>Map</p>
                 </a>
                 
                 <a class="menubutton">
-                    <img id="buttonGuide" class="navicon" src="images/guide.svg"/>
+                    <img id="buttonGuide" class="navicon" src="images/guide.svg" draggable="false"/>
                     <p class="menutext">Leveling<br>Guide</p>
                 </a>
                 <!-- 
@@ -71,31 +71,31 @@
                 Trivia
                 -->
                 <a class="menubutton">
-                    <img id="buttonCrafting" class="navicon" src="images/crafting.svg"/>
+                    <img id="buttonCrafting" class="navicon" src="images/crafting.svg" draggable="false"/>
                     <p class="menutext">Crafting<br><br></p>
                 </a>
                 <a class="menubutton">
-                    <img id="buttonLiquidMemory" class="navicon" src="images/liquidmemory.svg"/>
+                    <img id="buttonLiquidMemory" class="navicon" src="images/liquidmemory.svg" draggable="false"/>
                     <p class="menutext">Liquid<br>Memories</p>
                 </a>
                 <a class="menubutton">
-                    <img id="buttonAegis" class="navicon" src ="images/aficon.svg"/>
+                    <img id="buttonAegis" class="navicon" src ="images/aficon.svg" draggable="false"/>
                     <p class="menutext">Aegis<br>Fighter</p>
                 </a>
                 <a class="menubutton">
-                    <img id="buttonTwin" class="navicon" src ="images/tsicon.svg"/>
+                    <img id="buttonTwin" class="navicon" src ="images/tsicon.svg" draggable="false"/>
                     <p class="menutext">Twin<br>Striker</p>
                 </a>
                 <a class="menubutton">
-                    <img id="buttonBlast" class="navicon" src ="images/baicon.svg"/>
+                    <img id="buttonBlast" class="navicon" src ="images/baicon.svg" draggable="false"/>
                     <p class="menutext">Blast<br>Archer</p>
                 </a>
                 <a class="menubutton">
-                    <img id="buttonSpell" class="navicon" src ="images/scicon.svg"/>
+                    <img id="buttonSpell" class="navicon" src ="images/scicon.svg" draggable="false"/>
                     <p class="menutext">Spell<br>Caster</p>
                 </a>
                 <a class="menubutton">
-                    <img id="buttonHeavy" class="navicon" src ="images/hsicon.svg"/>
+                    <img id="buttonHeavy" class="navicon" src ="images/hsicon.svg" draggable="false"/>
                     <p class="menutext">Heavy<br>Smasher</p>
                 </a>
                 
@@ -108,15 +108,147 @@
         
         
         
-        <div id="container">
+        <div id="container" oncontextmenu="return false">
 
-            <!-- Background images-->
-            <div id="bg-default" class="bg-default-animation" style="background-image: url(images/0.png);"></div>
-            <div id="bg-af" style="background-image: url(images/af.png); opacity: 0;"></div>
-            <div id="bg-ts" style="background-image: url(images/ts.png); opacity: 0;"></div>
-            <div id="bg-ba" style="background-image: url(images/ba.png); opacity: 0;"></div>
-            <div id="bg-sc" style="background-image: url(images/sc.png); opacity: 0;"></div>
-            <div id="bg-hs" style="background-image: url(images/0.png); opacity: 0;"></div>
+            <!-- Background images
+            Could be rewritten to only need 2 dividers, active and new bg-->
+            <div id="bg-default" class="bg-default-animation" style="background-image: url(images/0.png);" draggable="false"></div>
+            <div id="bg-af" style="background-image: url(images/af.png); opacity: 0;" draggable="false"></div>
+            <div id="bg-ts" style="background-image: url(images/ts.png); opacity: 0;" draggable="false"></div>
+            <div id="bg-ba" style="background-image: url(images/ba.png); opacity: 0;" draggable="false"></div>
+            <div id="bg-sc" style="background-image: url(images/sc.png); opacity: 0;" draggable="false"></div>
+            <div id="bg-hs" style="background-image: url(images/0.png); opacity: 0;" draggable="false"></div>
+            
+            <!-- MAP -->
+            <div id="mapContainer">
+                
+                <!-- Search and Map list dropdown -->
+                <div id="mapToolbar">
+                    <input type="text" class="mapSearch" onkeyup="mapSearch()" placeholder="Search Map Name">
+                    
+                    <!-- Map Icon Toggles -->
+                    <div class="mapGrid">
+                        <p>Show/Hide</p>
+                        <div class="mapGridRow">
+                            
+                            <img id="toggleWarp" class="mapToggles" src="images/map/warpPortal.png" draggable="false">
+                            <img id="toggleMSQ" class="mapToggles mapToggles-off" src="images/map/msqavailable.png" draggable="false">
+                            
+                            
+                        </div>
+                        
+                        <div class="mapGridRow">
+                            <img id="toggleImajinn" class="mapToggles" src="images/map/imajinnHouse.png" draggable="false">
+                            <img id="toggleCrafting" class="mapToggles" src="images/map/crafting.png" draggable="false">
+                            <img id="toggleReconstructor" class="mapToggles" src="images/map/reconstructor.png" draggable="false">
+                            
+                            
+                            
+                        </div>
+                        
+                        <div class="mapGridRow">
+                            <img id="toggleClassMaster" class="mapToggles" src="images/map/classmaster.png" draggable="false">
+                            <img id="toggleLiquidMemory" class="mapToggles" src="images/map/liquidmemory.png" draggable="false">
+                            <img id="toggleExchange" class="mapToggles" src="images/map/exchange.png" draggable="false">
+                        </div>
+                        
+                        <div class="mapGridRow">
+                            
+                            <img id="togglePotion" class="mapToggles" src="images/map/potion.png" draggable="false">
+                            <img id="toggleWeapon" class="mapToggles" src="images/map/weapon.png" draggable="false">
+                            <img id="toggleStorage" class="mapToggles" src="images/map/storage.png" draggable="false">
+                            
+                        </div>
+                        <div class="mapGridRow">
+                            <img id="toggleEliteMonster" class="mapToggles" src="images/map/elitemonster.png" draggable="false">
+                            <img id="toggleFreeExp" class="mapToggles" src="images/map/freexploration.png" draggable="false">
+                            <img id="toggleRaid" class="mapToggles" src="images/map/raid.png" draggable="false">
+                        </div>
+                        <div class="mapGridRow">
+                            <img id="toggleGeology" class="mapToggles" src="images/map/rock.svg" draggable="false">
+                            <img id="toggleBotany" class="mapToggles" src="images/map/flower.svg" style="padding-right: 5px; padding-left: 5px" draggable="false">
+                            <img id="toggleOceanography" class="mapToggles" src="images/map/shell.svg" draggable="false">
+                        </div>
+                        
+                        <div class="mapGridRow">
+                            <img id="toggleExploration" class="mapToggles mapToggles-off" src="images/map/flag.svg" draggable="false">
+                            
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                
+                <!-- Could try stitching the region maps together, but they aren't to scale and have overlapping areas so abandoned the idea for now -->
+                
+                
+                <!-- Slider for Map Brightness -->
+                
+                <img class="mapImage" src="images/map/asterleeds.png" draggable="false">
+                
+                <div id="mapIconHolder">
+                    
+                    <!-- Storage -->
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 80%; left: 43.4%;">
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 37%; left: 45.8%;">
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 20.2%; left: 40.1%;">
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 48.45%; left: 53%;">
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 59.1%; left: 49.8%;">
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 68.45%; left: 49.8%;">
+                
+                    
+                    <!-- Liquid Memory Stands -->
+                    <img class="mapIcon mapLiquidMemory" src="images/map/liquidmemory.png" draggable="false" style="top: 65.8%; left: 32.3%;">
+                    <img class="mapIcon mapLiquidMemory" src="images/map/liquidmemory.png" draggable="false" style="top: 73%; left: 56.6%;">
+                    <img class="mapIcon mapLiquidMemory" src="images/map/liquidmemory.png" draggable="false" style="top: 27.4%; left: 43.9%;">
+                    
+                    
+                    <img class="mapIcon mapImajinnHouse" src="images/map/imajinnHouse.png" draggable="false" style="top: 60.4%; left: 50.1%;">
+                    
+                    <img class="mapIcon mapClassMaster" src="images/map/classmaster.png" draggable="false" style="top: 36%; left: 61.3%;">
+                    
+                    
+                    <!-- Shops -->
+                    <img class="mapIcon mapWeaponShop" src="images/map/weapon.png" draggable="false" style="top: 61.1%; left: 58.9%;">
+                    <img class="mapIcon mapPotionShop" src="images/map/potion.png" draggable="false" style="top: 56.4%; left: 58%;">
+                    
+                    
+                    <!-- Crafting -->
+                    <img class="mapIcon mapCrafting" src="images/map/crafting.png" draggable="false" style="top: 31.4%; left: 47.7%;">
+                    <img class="mapIcon mapCrafting" src="images/map/crafting.png" draggable="false" style="top: 32.3%; left: 47.2%;">
+                    
+        
+                    <!-- Reconstructor -->
+                    <img class="mapIcon mapReconstructor" src="images/map/reconstructor.png" draggable="false" style="top: 19.4%; left: 49.2%;">
+                    <img class="mapIcon mapReconstructor" src="images/map/reconstructor.png" draggable="false" style="top: 53.5%; left: 49.05%;">
+                    <img class="mapIcon mapReconstructor" src="images/map/reconstructor.png" draggable="false" style="top: 81.3%; left: 45.6%;">
+                    
+                    
+                    <!-- THE UNKNOWN ICON UNDERNEATH THE EXCHANGE -->
+                    <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 44.45%; left: 52.6%;">
+                    <img class="mapIcon mapExchange" src="images/map/exchange.png" draggable="false" style="top: 44%; left: 52.7%;">
+                    
+                    
+                    <!-- Warp Gates -->
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 47.4%; left: 48.9%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 32.7%; left: 41.5%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 40.6%; left: 33.7%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 69.4%; left: 30.4%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 15.1%; left: 41.55%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 62.8%; left: 48.9%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 75.3%; left: 43%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 64.6%; left: 57.1%;">
+                    <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 41.6%; left: 61.3%;">
+                    
+                </div>
+                       
+                
+            </div>
+                
+                
+                
+            
             
             <!-- Adds a background to display page on, might not be needed but might be useful for the animation later on? -->
             <div id="contentViewer"></div>
@@ -150,19 +282,19 @@
                 
                 
                 
-            </div>
+            
         </div>
            
         
         
         
         
-        <div id="footer">
+        <div id="footer" oncontextmenu="return false">
             
             <div class="copyright">
                 
                 <p>© 2021 Zakum.org. All rights reserved.</p>
-                <img id="buttonAbout" class="iconother" src="images/about2.svg" style="top: -0.6em; padding-right: 5px;"/>
+                <img id="buttonAbout" class="iconother" src="images/about2.svg" style="top: -0.6em; padding-right: 5px;" draggable="false"/>
                 <a class="hitcounter"><img src="https://www.worldflagcounter.com/hMM/" alt="Flag Counter"></a>
             </div>
             
@@ -170,19 +302,19 @@
             <div class="socials">
                 
                 <a href="https://discord.gg/blueprotocol" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/discord.webp"/>
+                    <img class="iconother" style="border:0;" src="images/discord.webp" draggable="false"/>
                 </a>
                 
                 <a href="https://youtube.com/zakum" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/youtube.webp"/>
+                    <img class="iconother" style="border:0;" src="images/youtube.webp" draggable="false"/>
                 </a>
                 
                 <a href="https://twitter.com/hmyawp" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/twitter.webp"/>
+                    <img class="iconother" style="border:0;" src="images/twitter.webp" draggable="false"/>
                 </a>
                 
                 <a href="https://reddit.com/r/BlueProtocolOnline" target="_blank" style="border:0;">
-                    <img class="iconother" src="images/reddit.webp"/>
+                    <img class="iconother" src="images/reddit.webp" draggable="false"/>
                 </a>
                 
             </div>

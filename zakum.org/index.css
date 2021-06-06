@@ -221,23 +221,118 @@ html, body {
 }
 
 #contentViewer {
+    width: 100%;
+    height: 100%;
     display: none;
+    position: absolute;
     background-color: #080605;
     opacity: 0.8;
     z-index: 2;
 }
 
+/* ---------------- MAP ---------------- */
+#mapContainer {
+    display: none;
+    position: relative;
+    width: 100%;
+    z-index: 4;
+    border-radius: 10px;
+    border: 0px solid transparent;
+}
+#mapToolbar {
+    display: inline;
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    font-family: "Mate SC";
+}
 
+.mapSearch {
+    display: inline-block;
+    width: 300px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: "Mate SC";
+    font-size: 18px;
+    padding: 11px;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    background-color: white;
+    z-index: 15;
+    filter: drop-shadow(0px 1px 2px);
+}
+.mapToggles {
+    display: inline-block;
+    vertical-align: middle;
+    transform: scale(1);
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.mapToggles:hover {
+    filter: brightness(0.8);
+}
+.mapToggles-off {
+    filter: saturate(0) brightness(0.5);
+}
+.mapToggles-off:hover {
+    filter: saturate(0)  brightness(0.3);
+}
 
+.mapImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+.mapIcon {
+    display: block;
+    max-width: 100%;
+    position: absolute;
+}
+.warpPortal {
+    filter: drop-shadow(0 0 4px black);
+}
+.warpPortal:hover {
+    filter: hue-rotate(-115deg) brightness(1.5) saturate(2) drop-shadow(0 0 2px #dbff00);
+}
+
+.mapGrid {
+    display: inline-block;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1.5rem;
+    justify-items: center;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding-top: 5px;
+    float: right;
+    background-color: #161211; /* #191919 */
+    border-radius: 12px;
+    text-align: center;
+    font-size: 18px;
+}
+.mapGridRow {
+    padding: .5rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+#mapIconHolder {
+    
+}
 
 /* ---------------- ABOUT & TRIVIA ---------------- */
 #pageAbout {
     display: none;
+    position: absolute;
     background-color: #161211;
     width: 40%;
-    z-index: 20;
+    top: 20%;
+    left: 30%;
+    z-index: 200;
     margin:  auto;
     border-radius: 20px;
+    filter: drop-shadow(0px 2px 2px black);
 }
 #pageAbout > p {
     font-family: "Mate SC";
@@ -323,6 +418,7 @@ html, body {
 }
 .socials > a {
     text-decoration: none;
+    cursor: inherit;
 }
 
 .iconother {
@@ -330,6 +426,7 @@ html, body {
     position: relative;
     filter: brightness(0.9);
     margin: 5px;
+    
 }
 .iconother:hover {
     filter: brightness(0.7);
