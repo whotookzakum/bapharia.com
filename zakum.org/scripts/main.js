@@ -1,6 +1,7 @@
 jQuery(document).ready(function($){
 
     // MENU BUTTONS 
+    var currentMap = $("#mapAsterleeds");
 
     
     // Background image change on menu button click
@@ -54,7 +55,7 @@ jQuery(document).ready(function($){
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
                 // function closePages();
-                openWorldMap();
+                openWorldMap(currentMap);
             }
         }
         
@@ -71,11 +72,37 @@ jQuery(document).ready(function($){
         
     });
     
+    
+    
+    
     // MAP
-    function openWorldMap() {
+    function openWorldMap(region) {
         $("#mapContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
+        region.css("display", "block");
     }
+    
+    
+    // Switch maps when a new one is clicked
+    $(".mapListItem").click(function(){
+        if ($(this).is("#listAsteriaPlain")){
+            currentMap.css("display", "none");
+            currentMap = $("#mapAsteriaPlain")
+            openWorldMap(currentMap);
+        }
+        if ($(this).is("#listBahamarHighlands")){
+            currentMap.css("display", "none");
+            currentMap = $("#mapBahamarHighlands")
+            openWorldMap(currentMap);
+        }
+        if ($(this).is("#listAsterleeds")){
+            currentMap.css("display", "none");
+            currentMap = $("#mapAsterleeds")
+            openWorldMap(currentMap);
+        }
+    });
+    
+    
     $(".mapToggles").click(function(){
         
         // Toggle ON if off
@@ -96,10 +123,10 @@ jQuery(document).ready(function($){
                 $(".mapExchange").css("display", "initial");
             }
             if ($(this).is("#togglePotion")) {
-                $(".mapPotion").css("display", "initial");
+                $(".mapPotionShop").css("display", "initial");
             }
             if ($(this).is("#toggleWeapon")) {
-                $(".mapWeapon").css("display", "initial");
+                $(".mapWeaponShop").css("display", "initial");
             }
             if ($(this).is("#toggleEliteMonster")) {
                 $(".mapEliteMonster").css("display", "initial");
@@ -124,6 +151,9 @@ jQuery(document).ready(function($){
             }
             if ($(this).is("#toggleStorage")) {
                 $(".mapStorage").css("display", "initial");
+            }
+            if ($(this).is("#toggleExploration")) {
+                $(".mapExploration").css("display", "initial");
             }
             
         } 
@@ -178,6 +208,9 @@ jQuery(document).ready(function($){
             }
             if ($(this).is("#toggleStorage")) {
                 $(".mapStorage").css("display", "none");
+            }
+            if ($(this).is("#toggleExploration")) {
+                $(".mapExploration").css("display", "none");
             }
         }
         
