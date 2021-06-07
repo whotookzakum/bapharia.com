@@ -1,8 +1,10 @@
 jQuery(document).ready(function($){
 
-    // MENU BUTTONS 
+    // MAP things
     var currentMap = $("#mapAsterleeds");
-
+    var mapTooltip = document.querySelectorAll(".mapTooltip");
+    document.addEventListener('mousemove', trackMouse, false);
+    // MENU BUTTONS
     
     // Background image change on menu button click
     // REWRITE TO BE THE FULL PAGE CHANGER
@@ -82,6 +84,14 @@ jQuery(document).ready(function($){
         region.css("display", "block");
     }
     
+    // Write a script to change color for mapIcon, i.e. if it contains("Exploration Point") in the text. Currently have it written as border-color for each element, an inefficient code that needs to be optimized.
+    
+    function trackMouse(e) {
+        for (var i=mapTooltip.length; i--;) {
+            mapTooltip[i].style.left = e.pageX + 20 + 'px';
+            mapTooltip[i].style.top = e.pageY + 20 + 'px';
+        }
+    }
     
     // Switch maps when a new one is clicked
     $(".mapListItem").click(function(){
@@ -362,13 +372,13 @@ jQuery(document).ready(function($){
         { // 24
             category: "Story",
             question: "What is the name of the NPC at Minsterhorn who tells you to go to the Pillar of Divinity?",
-            choice: ["Jake", "Millnae", "Melrophe", "Feste"],
-            answer: ["Millnae"]
+            choice: ["Jake", "Milrain", "Melrophe", "Feste"],
+            answer: ["Milrain"]
         },
         { // 25
             category: "Story",
             question: "What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?",
-            choice: ["Millnae", "Myulie", "Melroph", "Einrain"],
+            choice: ["Milrain", "Myulie", "Melroph", "Einrain"],
             answer: ["Myulie"]
         },
         { // 26

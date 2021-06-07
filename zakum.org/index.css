@@ -10,7 +10,7 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #080605;
-    font-family: "Roboto", Arial;
+    font-family: "Mate SC", "Roboto", Arial;
     color: #c8c8c8;
     cursor: url(images/cursor.png), pointer;
     
@@ -122,7 +122,7 @@ html, body {
 
 .menutext {
     visibility: hidden;
-    font-family: 'Mate SC'; font-size: 13px;
+    font-size: 13px;
     text-decoration: none;
     animation: fadeOutDrop 0.2s ease 0s 1 backwards;
 }
@@ -244,7 +244,6 @@ html, body {
     position: absolute;
     height: 50px;
     width: 100%;
-    font-family: "Mate SC";
 }
 
 .mapSearch {
@@ -351,6 +350,8 @@ html, body {
 }
 
 .mapGrid {
+    position: relative;
+    z-index: 50;
     display: inline-block;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 1.5rem;
@@ -379,6 +380,59 @@ html, body {
     filter: brightness(0.8);
 }
 
+.mapIconHolder {
+    height: 100%;
+    width: 100%;
+}
+
+.pointPicture {
+    visibility: none;
+    bottom: 0%; 
+    right: 0%;
+    background-color: #c8c8c8;
+    position: absolute;
+    width: 35%;
+    border: 6px solid #c8c8c8;
+    border-radius: 10px;
+    z-index: 0;
+    opacity: 0;
+    transition: all 0.15s ease-in;
+}
+.mapExploration:hover+.mapTooltip+.pointPicture{
+    visibility: visible;
+    opacity: 1;
+    z-index: 51;
+    transition: all 0.15s ease-out;
+}
+.mapTooltip {
+    display: none;
+    position: fixed;
+    font-size: 16px;
+    z-index: 55;
+}
+p.mapTooltip {
+    z-index: 60;
+    padding: 5px 10px 5px 7px;
+    width: auto;
+    color: #161211;
+    background-color: white;
+    border-left: 16px solid #30b0d1;
+    border-radius: 10px;
+    filter: drop-shadow(0 2px 2px black);
+}
+.mapIcon:hover+.mapTooltip{
+    display: block;
+}
+.mapName {
+    font-size: 25px;
+    color: #161211;
+    background-color: #c8c8c8; 
+    padding: 6px 40px;
+    border: 2px set #c8c8c8;
+    border-radius: 20px;
+    filter: drop-shadow(0 1px 2px black);
+}
+
 /* ---------------- ABOUT & TRIVIA ---------------- */
 #pageAbout {
     display: none;
@@ -393,7 +447,6 @@ html, body {
     filter: drop-shadow(0px 2px 2px black);
 }
 #pageAbout > p {
-    font-family: "Mate SC";
     text-align: center;
     margin-bottom: 15px;
     
@@ -455,8 +508,11 @@ html, body {
     
 }
 .copyright > p {
+    position: absolute;
+    width: 350px;
     display: inline-block;
-    float: right;
+    left: 30px;
+    top: 2px;
 }
 
 .hitcounter {
