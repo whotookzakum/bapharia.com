@@ -398,7 +398,7 @@ html, body {
     opacity: 0;
     transition: all 0.15s ease-in;
 }
-.mapExploration:hover+.mapTooltip+.pointPicture{
+.mapExploration:hover+.mapTooltip+.pointPicture, .mapEliteMonster:hover+.mapTooltip+.pointPicture {
     visibility: visible;
     opacity: 1;
     z-index: 51;
@@ -420,17 +420,21 @@ p.mapTooltip {
     border-radius: 10px;
     filter: drop-shadow(0 2px 2px black);
 }
-.mapIcon:hover+.mapTooltip{
+
+/* Show tooltips */
+.mapIcon:hover+.mapTooltip, .mapToggles:hover+p.mapTooltip{
     display: block;
 }
+
 .mapName {
-    font-size: 25px;
+    font-size: 20px;
     color: #161211;
-    background-color: #c8c8c8; 
-    padding: 6px 40px;
+    background-color: white; 
+    padding: 3px 14px;
     border: 2px set #c8c8c8;
     border-radius: 20px;
     filter: drop-shadow(0 1px 2px black);
+    opacity: 0.6;
 }
 
 /* ---------------- ABOUT & TRIVIA ---------------- */

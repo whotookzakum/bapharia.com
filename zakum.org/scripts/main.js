@@ -93,19 +93,61 @@ jQuery(document).ready(function($){
         }
     }
     
-    // Switch maps when a new one is clicked
+    // Map Switch
     $(".mapListItem").click(function(){
-        if ($(this).is("#listAsteriaPlain")){
+        
+        // Reset MAP NAME opacity and color to original values;
+        $(".mapName").css({"opacity": "0.6", "background-color": "#c8c8c8"});
+        
+        // Asteria Plains maps
+        if ($(this).is(".listAsteriaPlain")){
+            
+            // Highlight the map name if a specific map is chosen
+            if ($(this).is(":contains('Skyquake Fields')")) {
+                $(".mapName:contains('Skyquake Fields')").css({"opacity": "1", "background-color": "#4a9efa"});
+            } 
+            else if ($(this).is(":contains('Minster Hills')")) {
+                $(".mapName:contains('Minster Hills')").css({"opacity": "1", "background-color": "#4a9efa"});
+            } 
+            else if ($(this).is(":contains('Andra Basin')")) {
+                $(".mapName:contains('Andra Basin')").css({"opacity": "1", "background-color": "#4a9efa"});
+            }
+            else if ($(this).is(":contains('Calm Eve Terraces')")) {
+                $(".mapName:contains('Calm Eve Terraces')").css({"opacity": "1", "background-color": "#4a9efa"});
+            }
+            
+            // Open the map
             currentMap.css("display", "none");
             currentMap = $("#mapAsteriaPlain")
             openWorldMap(currentMap);
         }
-        if ($(this).is("#listBahamarHighlands")){
+        
+        
+        
+        // Bahamar Highlands maps
+        if ($(this).is(".listBahamarHighlands")){
+            
+            // Highlight the map name if a specific map is chosen
+            if ($(this).is(":contains('Divine Haven Hill')")) {
+                $(".mapName:contains('Divine Haven Hill')").css({"opacity": "1", "background-color": "#4a9efa"});
+            } 
+            else if ($(this).is(":contains('Fiel Pond')")) {
+                $(".mapName:contains('Fiel Pond')").css({"opacity": "1", "background-color": "#4a9efa"});
+            } 
+            else if ($(this).is(":contains('Soundless Foothills')")) {
+                $(".mapName:contains('Soundless Foothills')").css({"opacity": "1", "background-color": "#4a9efa"});
+            }
+            
+            // Open the map
             currentMap.css("display", "none");
             currentMap = $("#mapBahamarHighlands")
             openWorldMap(currentMap);
         }
-        if ($(this).is("#listAsterleeds")){
+        
+        
+        
+        // Asterleeds map
+        if ($(this).is(".listAsterleeds")){
             currentMap.css("display", "none");
             currentMap = $("#mapAsterleeds")
             openWorldMap(currentMap);
