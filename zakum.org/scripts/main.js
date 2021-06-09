@@ -6,8 +6,7 @@ jQuery(document).ready(function($){
     document.addEventListener('mousemove', trackMouse, false);
     // MENU BUTTONS
     
-    // Background image change on menu button click
-    // REWRITE TO BE THE FULL PAGE CHANGER
+    // Page change on menu button click
     $("img.navicon").click(function() {
         // There's probably a cleaner way to do this like:
         // 1.   if (this != .classButton) { bg-default opacity 1 }
@@ -84,14 +83,17 @@ jQuery(document).ready(function($){
         region.css("display", "block");
     }
     
-    // Write a script to change color for mapIcon, i.e. if it contains("Exploration Point") in the text. Currently have it written as border-color for each element, an inefficient code that needs to be optimized.
+    // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written as border-color for EACH element, an inefficient code that needs to be optimized.
     
+    
+    
+    // Map Tooltip - Mouse Tracker
     function trackMouse(e) {
         for (var i=mapTooltip.length; i--;) {
             mapTooltip[i].style.left = e.pageX + 20 + 'px';
             mapTooltip[i].style.top = e.pageY + 20 + 'px';
         }
-    }
+    }  
     
     // Map Switch
     $(".mapListItem").click(function(){
@@ -114,6 +116,9 @@ jQuery(document).ready(function($){
             }
             else if ($(this).is(":contains('Calm Eve Terraces')")) {
                 $(".mapName:contains('Calm Eve Terraces')").css({"opacity": "1", "background-color": "#4a9efa"});
+            } 
+            else if ($(this).is(":contains('Minsterhorn')")) {
+                $(".mapName:contains('Minsterhorn')").css({"opacity": "1", "background-color": "#4a9efa"});
             }
             
             // Open the map
@@ -137,6 +142,12 @@ jQuery(document).ready(function($){
             else if ($(this).is(":contains('Soundless Foothills')")) {
                 $(".mapName:contains('Soundless Foothills')").css({"opacity": "1", "background-color": "#4a9efa"});
             }
+            else if ($(this).is(":contains('Larpal')")) {
+                $(".mapName:contains('Larpal')").css({"opacity": "1", "background-color": "#4a9efa"});
+            }
+            else if ($(this).is(":contains('Bergmahl')")) {
+                $(".mapName:contains('Bergmahl')").css({"opacity": "1", "background-color": "#4a9efa"});
+            }
             
             // Open the map
             currentMap.css("display", "none");
@@ -154,7 +165,7 @@ jQuery(document).ready(function($){
         }
     });
     
-    
+    // Map Icon Toggles
     $(".mapToggles").click(function(){
         
         // Toggle ON if off

@@ -255,7 +255,7 @@ html, body {
     margin-left: 10px;
     font-family: "Mate SC";
     font-size: 18px;
-    padding: 11px;
+    padding: 11px 11px 11px 27px;
     border: 2px solid #ddd;
     border-radius: 20px;
     background-color: white;
@@ -274,7 +274,7 @@ html, body {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     max-height: 0;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.2s ease-out;
     overflow: hidden;
     background: #d5d5d5;
 }
@@ -283,19 +283,29 @@ html, body {
     display: block;
     margin: auto;
     padding: 3px;
-    background-color: #ddd;
-    color: #191919;
+    background-color: #161211;
+    color: #c8c8c8;
     text-align: left;
     font-size: 18px;
-    border-left: 2px solid #ddd;
-    border-right: 2px solid #ddd;
-    border-bottom: 2px solid #ddd;
+    border: 2px solid #161211;
+    border-top: none;
     text-decoration: none;
 }
 
-.mapSearch:hover+.mapList {
+.mapListItem-2nd {
+    background-color: #24201f;
+    border: 2px solid #24201f;
+    border-top: 0px;
+}
+.mapListItem-3rd {
+    background-color: #2c2928;
+    border: 2px solid #2c2928;
+    border-top: 0px;
+}
+
+.mapSearch:hover~.mapList, .searchIcons:hover~.mapList {
     max-height: 500px;
-    transition: max-height 0.3s ease-in;
+    transition: max-height 0.2s ease-in;
 }
 .mapList:hover {
     max-height: 500px;
@@ -398,12 +408,15 @@ html, body {
     opacity: 0;
     transition: all 0.15s ease-in;
 }
-.mapExploration:hover+.mapTooltip+.pointPicture, .mapEliteMonster:hover+.mapTooltip+.pointPicture {
+/* Screenshot of imajinn/exploration point/area map */
+.mapExploration:hover+.mapTooltip+.pointPicture, .mapEliteMonster:hover+.mapTooltip+.pointPicture, .mapMove:hover+.mapTooltip+.pointPicture {
     visibility: visible;
     opacity: 1;
     z-index: 51;
     transition: all 0.15s ease-out;
 }
+
+
 .mapTooltip {
     display: none;
     position: fixed;
@@ -414,8 +427,8 @@ p.mapTooltip {
     z-index: 60;
     padding: 5px 10px 5px 7px;
     width: auto;
-    color: #161211;
-    background-color: white;
+    background-color: #161211;
+    color: white;
     border-left: 16px solid #30b0d1;
     border-radius: 10px;
     filter: drop-shadow(0 2px 2px black);
@@ -426,7 +439,7 @@ p.mapTooltip {
     display: block;
 }
 
-.mapName {
+.mapName, .mapMove {
     font-size: 20px;
     color: #161211;
     background-color: white; 
@@ -436,6 +449,23 @@ p.mapTooltip {
     filter: drop-shadow(0 1px 2px black);
     opacity: 0.6;
 }
+
+.mapMove {
+    border: 0;
+    font-size: 15px;
+    background-color: skyblue;
+    opacity: 1;
+}
+.mapMove:hover {
+    filter: brightness(0.8) drop-shadow(0 1px 2px black);
+}
+.mapMove:active{
+    filter: brightness(0.6) drop-shadow(0 1px 2px black);
+}
+.mapTooltip-floatup {
+    margin-top: -14rem;
+}
+
 
 /* ---------------- ABOUT & TRIVIA ---------------- */
 #pageAbout {

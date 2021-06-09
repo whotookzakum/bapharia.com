@@ -121,24 +121,33 @@
                 <!-- Search and Map list dropdown -->
                 <div id="mapToolbar">
                     
-                    <input type="text" class="mapSearch" onkeyup="mapSearch()" placeholder="Search Map Name">
+                    <!-- Search Bar -->
+                    <img class="searchIcons" style="position: absolute; z-index: 40; left: 1.34%; top: 37.23%; filter: invert() brightness(1.1); transform: scale(1.2)" src="images/map/search.svg" draggable="false">
+                    <input type="text" class="mapSearch" onkeyup="mapSearch()" placeholder="Search Map or Area Name" draggable="false">
+                    <img class="searchIcons" style="position: absolute; z-index: 40; left: 17.2em; top: 21%; filter: invert() brightness(0.6); transform: scale(0.5);" src="images/map/dropdown.svg" draggable="false">
+                    
+                    <!-- List of area names -->
                     <div class="mapList">
-                        <p class="listAsterleeds mapListItem"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; filter: invert();">Asterleeds<br></p>
+                        
+                        <p class="listAsterleeds mapListItem"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0;">Asterleeds<br></p>
                         
                         
                         
-                        <p class="listAsteriaPlain mapListItem" style="border-top: 1px solid gray;"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Asteria Plain</p>
-                        <p class="listAsteriaPlain mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert(); ">Andra Basin</p>
-                        <p class="listAsteriaPlain mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Calm Eve Terraces</p>
-                        <p class="listAsteriaPlain mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Minster Hills</p>
-                        <p class="listAsteriaPlain mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Skyquake Fields</p>
+                        <p class="listAsteriaPlain mapListItem" style="border-top: 1px solid #636060;"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Asteria Plain</p>
+                        <p class="listAsteriaPlain mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Andra Basin</p>
+                        <p class="listAsteriaPlain mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Calm Eve Terraces</p>
+                        <p class="listAsteriaPlain mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Minster Hills</p>
+                        <p class="listAsteriaPlain mapListItem mapListItem-3rd"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em;">Minsterhorn</p>
+                        <p class="listAsteriaPlain mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Skyquake Fields</p>
                         
                         
                         
-                        <p class="listBahamarHighlands mapListItem" style="border-top: 1px solid gray;"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Bahamar Highlands</p>
-                        <p class="listBahamarHighlands mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Divine Haven Hill</p>
-                        <p class="listBahamarHighlands mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Fiel Pond</p>
-                        <p class="listBahamarHighlands mapListItem" style="background-color: #fff; border: 2px solid #fff; border-top: 0px;"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; filter: invert();">Soundless Foothills</p>
+                        <p class="listBahamarHighlands mapListItem" style="border-top: 1px solid #636060"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Bahamar Highlands</p>
+                        <p class="listBahamarHighlands mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Divine Haven Hill</p>
+                        <p class="listBahamarHighlands mapListItem mapListItem-3rd"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em;">Larpal</p>
+                        <p class="listBahamarHighlands mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Fiel Pond</p>
+                        <p class="listBahamarHighlands mapListItem mapListItem-2nd"><img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0;">Soundless Foothills</p>
+                        <p class="listBahamarHighlands mapListItem mapListItem-3rd"><img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em;">Bergmahl</p>
                     </div>
                     
                     
@@ -158,7 +167,7 @@
                         
                         <div class="mapGridRow">
                             <img id="toggleImajinn" class="mapToggles" src="images/map/imajinnHouse.png" draggable="false">
-                            <p class="mapTooltip" style="border-color: #da9126;">Imagine Research Institute</p>
+                            <p class="mapTooltip" style="border-color: #da9126;">Imagine Research Facility</p>
                             <img id="toggleCrafting" class="mapToggles" src="images/map/crafting.png" draggable="false">
                             <p class="mapTooltip" style="border-color: #da9126">Crafting Machine</p>
                             <img id="toggleReconstructor" class="mapToggles" src="images/map/reconstructor.png" draggable="false">
@@ -207,6 +216,8 @@
                         <div class="mapGridRow">
                             <img id="toggleExploration" class="mapToggles mapToggles-off" src="images/map/flag.svg" draggable="false">
                             <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br></p>
+                            <img id="toggleExploration" class="mapToggles mapToggles-off" src="images/liquidmemory2.png" draggable="false">
+                            <p class="mapTooltip" style="border-color: #bfbfbf">Liquid Memory<br></p>
                             
                         </div>
                     </div>
@@ -220,17 +231,66 @@
                 
                 <!-- Slider for Map Brightness -->
                 
-                
+                <img class="mapImage" src="images/map/mapbg.png" draggable="false" style="border: 5px solid sandybrown; border-radius: 10px;">
                 
                 
                 <!-- ASTERIA PLAINS -->
                 <div id="mapAsteriaPlain">
                     <img class="mapImage" src="images/map/asteriaPlain.png" draggable="false">
+                    
     
                     <div class="mapIconHolder">
                         
+                        <!-- To Asterleeds -->
+                        <p class="mapIcon mapMove mapListItem listAsterleeds" draggable="false" style="top: 94.2%; left: 47.9%;">To Asterleeds</p>
+                        <!-- Asterleeds Tooltip -->
+                        <p class="mapTooltip mapTooltip-floatup">
+                            <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em;">Warp Gate<br>
+                            <img src="images/map/imajinnHouse.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Imagine Research Facility<br>
+                            <img src="images/map/crafting.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Crafting Machine<br>
+                            <img src="images/map/reconstructor.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Weapon Reconstructor<br>
+                            <img src="images/map/classmaster.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Class Master<br>
+                            <img src="images/map/liquidmemory.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Liquid Memory Stand<br>
+                            <img src="images/map/exchange.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">GC Shop<br>
+                            <img src="images/map/potion.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Potion Shop<br>
+                            <img src="images/map/weapon.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Weapon Shop<br>
+                            <img src="images/map/storage.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em;">Storage<br>
+                            
+                        </p>
+                        
+                        <img class="pointPicture" src="images/map/asterleeds.png" style="width: 30%;">
+                        
+                        <!-- To Divine Haven Hill --> 
+                        <p class="mapIcon mapMove mapListItem listBahamarHighlands" draggable="false" style="top: 7.5%; left: 54.4%;">To Divine Haven Hill</p>
+                        <!-- Divine Haven Hill Tooltip -->
+                        <p class="mapTooltip">
+                            <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em;">Warp Gate - Larpal<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Sapphire Trot<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Flaming Horns<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Highland Fox<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Horned Goat<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Kaiser Elk<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Smoky Moss<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Blessio Fruit<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Beartree Leaf<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Large Fang Fossil<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Baha Ore<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Sandsilver<br>
+                        </p>
+                        
+                        <img class="pointPicture" src="images/map/moveDivineHavenHill.png" style="width: 30%;">
+                        
                         <!-- Skyquake Fields -->
                         <p class="mapIcon mapName" draggable="false" style="top: 74.2%; left: 43.9%;">Skyquake Fields</p>
+                        <!-- Zone Tooltip -->
+                        <p class="mapTooltip">
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Pink Piglet<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Piglet<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Land Fox<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Lamusa Flower<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Iron Ore<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Ripple Stone<br>
+                        </p>
                         
                         <img class="mapIcon mapExploration" src="images/map/flag.svg" draggable="false" style="top: 83.4%; left: 50.8%; display: none;">
                         <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br>Skyquake Fields 1</p>
@@ -251,13 +311,25 @@
                         <!-- Pink Piglet -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 66.2%; left: 51.3%;">
                         <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Pink Piglet</p>
-                        <img class="pointPicture" style="width: 30%;" src="images/map/pink piglet.png">
+                        <img class="pointPicture" style="width: 30%;" src="images/map/pinkpiglet.gif">
 
                         
                         
                         
                         <!-- Andra Basin -->
                         <p class="mapIcon mapName" draggable="false" style="top: 55.2%; left: 36.2%;">Andra Basin</p>
+                        <!-- Zone Tooltip -->
+                        <p class="mapTooltip">
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Deep Green Fang<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Iron Fang<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em;">Rumble Boar<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em;">Tyrant Boar<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em;">Goblin<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em;">Elder Goblin<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Andra Cedar Twig<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Long Grass<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Jira Crystal<br>
+                        </p>
                         
                         <img class="mapIcon mapExploration" src="images/map/flag.svg" draggable="false" style="top: 52.7%; left: 30.2%; display: none;">
                         <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br>Andra Basin 1</p>
@@ -286,6 +358,22 @@
                         
                         <!-- Calm Eve Terraces -->
                         <p class="mapIcon mapName" draggable="false" style="top: 84.0%; left: 26.7%;">Calm Eve Terraces</p>
+                        <!-- Zone Tooltip -->
+                        <p class="mapTooltip mapTooltip-floatup">
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Ferocious Gold<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Flame Prison<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Goblin<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Elder Goblin<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Tyrant Boar<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Glowing Tyrant Boar<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Ogre<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Sunset Cedar Twig<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Stardust Grass<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Boule Fruit<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Meteorite Fragment<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Magnamoss Fossil<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Rimeril Ore<br>
+                        </p>
                         
                         <img class="mapIcon mapExploration" src="images/map/flag.svg" draggable="false" style="top: 85.2%; left: 23.05%; display: none;">
                         <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br>Calm Eve Terraces 3</p>
@@ -297,9 +385,9 @@
                         <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br>Calm Eve Terraces 2</p>
                         <img class="pointPicture" src="images/map/calmeve2.png">
                         
-                        <!-- Flaming Prison -->
+                        <!-- Flame Prison -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 81.6%; left: 19%;">
-                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Flaming Prison</p>
+                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Flame Prison</p>
                         <img class="pointPicture" style="width: 30%;" src="images/map/flamingprison.png">
                         <!-- Ferocious Gold -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 76.7%; left: 27.4%;">
@@ -308,8 +396,33 @@
 
                         
                         
+                        
+                        
+                        
                         <!-- Minster Hills -->
                         <p class="mapIcon mapName" draggable="false" style="top: 30.2%; left: 57.8%;">Minster Hills</p>
+                        <!-- Zone Tooltip -->
+                        <p class="mapTooltip">
+                            <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em;">Warp Gate - Minsterhorn<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Ferocious Beast<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Red Splash<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Piglet<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Land Fox<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Goblin<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Dawngrass<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Andra Cedar Twig<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Iron Ore<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Asterium Ore<br>
+                            <img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em;">Asterbass<br>
+                        </p>
+                        <p class="mapIcon mapName" draggable="false" style="top: 45.2%; left: 50.8%; font-size: 15px;">Minsterhorn</p>
+                        <!-- Zone Tooltip -->
+                        <p class="mapTooltip">
+                            npc Milrain<br>
+                            npc Stadst<br>
+                            npc Feste<br>
+                        </p>
+                        
                         
                         <img class="mapIcon mapExploration" src="images/map/flag.svg" draggable="false" style="top: 33.1%; left: 76.24%; display: none;">
                         <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br>Minster Hills 8</p>
@@ -349,6 +462,9 @@
                         <img class="mapIcon mapFreeExp" src="images/map/freexploration.png" draggable="false" style="top: 17%; left: 79.4%;">
                         <p class="mapTooltip" style="border-color: #4a9efa">Dragonclaw Valley<br>[Free Exploration]</p>
                         
+                        <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 43.6%; left: 53.3%;">
+                        <p class="mapTooltip">Warp Gate<br>Minsterhorn</p>
+                        
 
                     </div>
                 </div>
@@ -360,9 +476,43 @@
                     
                     <div class="mapIconHolder">
                         
+                        <!-- To Minster Hills --> 
+                        <p class="mapIcon mapMove mapListItem listAsteriaPlain" draggable="false" style="top: 87.8%; left: 24%;">To Minster Hills</p>
+                        <!-- Minter Hills Tooltip -->
+                        <p class="mapTooltip mapTooltip-floatup">
+                            <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em;">Warp Gate - Minsterhorn<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Ferocious Beast<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Red Splash<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Piglet<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Land Fox<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Goblin<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Dawngrass<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Andra Cedar Twig<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Iron Ore<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Asterium Ore<br>
+                            <img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em;">Asterbass<br>
+                        </p>
+                        <img class="pointPicture" src="images/map/moveMinsterHills.png" style="width: 30%;">
                         
                         <!-- Divine Haven Hill -->
                         <p class="mapIcon mapName" draggable="false" style="top: 66.2%; left: 26.9%;">Divine Haven Hill</p>
+                         <p class="mapTooltip">
+                            <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em;">Warp Gate - Larpal<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Sapphire Trot<br>
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Flaming Horns<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Highland Fox<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Horned Goat<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Kaiser Elk<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Smoky Moss<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Blessio Fruit<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Beartree Leaf<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Large Fang Fossil<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Baha Ore<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Sandsilver<br>
+                        </p>
+                        
+                        <p class="mapIcon mapName" draggable="false" style="top: 69.7%; left: 50.7%; font-size: 15px;">Larpal</p>
+                        
                         
                         <img class="mapIcon mapExploration" src="images/map/flag.svg" draggable="false" style="top: 43.5%; left: 12.4%; display: none;">
                         <p class="mapTooltip" style="border-color: #bfbfbf">Exploration Point<br>Divine Haven Hill 3</p>
@@ -376,24 +526,30 @@
                         
                         <!-- Sapphire Trot -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 69.6%; left: 25.9%;">
-                        <p class="mapTooltip">Elite Monster<br>Sapphire Trot</p>
+                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Sapphire Trot</p>
                         <img class="pointPicture" style="width: 30%;" src="images/map/sapphiretrot.png">
-                        <!-- Flaming Horn -->
+                        <!-- Flaming Horns -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 59.6%; left: 10.6%;">
-                        <p class="mapTooltip">Elite Monster<br>Flaming Horns</p>
+                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Flaming Horns</p>
                         <img class="pointPicture" style="width: 30%;" src="images/map/flaminghorns.png">
+                        
+                        <img class="mapIcon warpPortal" src="images/map/warpPortal.png" draggable="false" style="top: 56.6%; left: 53.7%;">
+                        <p class="mapTooltip">Warp Gate<br>Larpal</p>
 
+                        
+                        
 
                         <!-- Soundless Foothills -->
                         <p class="mapIcon mapName" draggable="false" style="top: 40.2%; left: 62.9%;">Soundless Foothills</p>
+                        <p class="mapIcon mapName" draggable="false" style="top: 21.6%; left: 68.2%; font-size: 15px;">Bergmahl</p>
                         
                         <!-- Spooky Goat -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 24.6%; left: 59.6%;">
-                        <p class="mapTooltip">Elite Monster<br>Spooky Goat</p>
+                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Spooky Goat</p>
                         <img class="pointPicture" style="width: 30%;" src="images/map/spookygoat.png">
                         <!-- Evil Healer -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 50.6%; left: 68.6%;">
-                        <p class="mapTooltip">Elite Monster<br>Evil Healer</p>
+                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Evil Healer</p>
                         <img class="pointPicture" style="width: 30%;" src="images/map/evilhealer.png">
                         
                         <img class="mapIcon mapExploration" src="images/map/flag.svg" draggable="false" style="top: 52.1%; left: 69.9%; display: none;">
@@ -421,7 +577,7 @@
                         
                         <!-- Trick Elder -->
                         <img class="mapIcon mapEliteMonster" src="images/map/elitemonster.png" draggable="false" style="top: 41.2%; left: 38.9%;">
-                        <p class="mapTooltip">Elite Monster<br>Trick Elder</p>
+                        <p class="mapTooltip" style="border-color: #ff701d">Elite Monster<br>Trick Elder</p>
                         <img class="pointPicture" style="width: 30%;" src="images/map/trickelder.png">
 
                         
@@ -444,6 +600,19 @@
                 
                     <div class="mapIconHolder">
                         
+                        <!-- To Skyquake Fields -->
+                        <p class="mapIcon mapMove mapListItem listAsteriaPlain" draggable="false" style="top: 24.9%; left: 0.4%;">To Skyquake Fields</p>
+                        <!-- Skyquake Fields Tooltip -->
+                        <p class="mapTooltip">
+                            <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">Pink Piglet<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Piglet<br>
+                            <img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em;">Land Fox<br>
+                            <img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em;">Lamusa Flower<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Iron Ore<br>
+                            <img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em;">Ripple Stone<br>
+                        </p>
+                        
+                        <img class="pointPicture" src="images/map/moveSkyquakeFields.png" style="width: 30%;">
                         
                         <!-- Storage -->
                         <img class="mapIcon mapStorage" src="images/map/storage.png" draggable="false" style="top: 80%; left: 43.4%;">
@@ -470,7 +639,7 @@
 
 
                         <img class="mapIcon mapImajinnHouse" src="images/map/imajinnHouse.png" draggable="false" style="top: 60.4%; left: 50.1%;">
-                        <p class="mapTooltip" style="border-color: #da9126">Imagine Research Institute</p>
+                        <p class="mapTooltip" style="border-color: #da9126">Imagine Research Facility</p>
 
                         <img class="mapIcon mapClassMaster" src="images/map/classmaster.png" draggable="false" style="top: 36%; left: 61.3%;">
                         <p class="mapTooltip" style="border-color: #da9126">Class Master</p>
