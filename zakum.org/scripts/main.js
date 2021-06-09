@@ -95,7 +95,7 @@ jQuery(document).ready(function($){
         }
     }  
     
-    // Map Switch
+    // Map Switcher
     $(".mapListItem").click(function(){
         
         // Reset MAP NAME opacity and color to original values;
@@ -129,7 +129,7 @@ jQuery(document).ready(function($){
         
         
         
-        // Bahamar Highlands maps
+        // Bajamar Highlands maps
         if ($(this).is(".listBahamarHighlands")){
             
             // Highlight the map name if a specific map is chosen
@@ -226,10 +226,6 @@ jQuery(document).ready(function($){
             // Darkens toggle icon
             $(this).addClass("mapToggles-off");
             
-            if ($(this).is("#toggleWarp")) {
-                $(".warpPortal").css("display", "none");
-                
-            }
             if ($(this).is("#toggleWarp")) {
                 $(".warpPortal").css("display", "none");
             }
@@ -503,7 +499,7 @@ jQuery(document).ready(function($){
         { // 37
             category: "Lore",
             question: "What is the world of BLUE PROTOCOL called?",
-            choice: ["Asteria", "Bahamar", "Regnus", "Prectus"],
+            choice: ["Asteria", "Bajamar", "Regnus", "Prectus"],
             answer: ["Regnus"]
         },
         { // 38
