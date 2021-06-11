@@ -86,6 +86,34 @@ jQuery(document).ready(function($){
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written as border-color for EACH element, an inefficient code that needs to be optimized.
     
     
+    // Search by typing
+    $("#mapSearch").keyup(function(event){
+        var input = event.key.toUpperCase();
+        console.log("Key: " + input);
+        var items = document.querySelectorAll("p.mapListItem");
+        
+        // Test for input matching
+        for (var i = 0; i < items.length; i++){
+            
+            
+            
+            // Match found = keep displayed
+            if (items[i].textContent.toUpperCase().indexOf(input) > -1) {
+                console.log("found: " + items[i].textContent.toUpperCase());
+            }
+            // No match = hide
+            if (items[i].textContent.toUpperCase().indexOf(input) == -1) {
+                $(this).toggleClass("display-off");
+                console.log("no match: " + items[i].textContent.toUpperCase());
+            }
+            
+            
+                
+        }
+        
+        
+    });
+    
     
     // Map Tooltip - Mouse Tracker
     function trackMouse(e) {
@@ -179,8 +207,8 @@ jQuery(document).ready(function($){
             if ($(this).is("#toggleClassMaster")) {
                 $(".mapClassMaster").css("display", "initial");
             }
-            if ($(this).is("#toggleLiquidMemory")) {
-                $(".mapLiquidMemory").css("display", "initial");
+            if ($(this).is("#toggleLiquidMemoryStand")) {
+                $(".mapLiquidMemoryStand").css("display", "initial");
             }
             if ($(this).is("#toggleExchange")) {
                 $(".mapExchange").css("display", "initial");
@@ -218,6 +246,12 @@ jQuery(document).ready(function($){
             if ($(this).is("#toggleExploration")) {
                 $(".mapExploration").css("display", "initial");
             }
+            if ($(this).is("#toggleTimedQuest")) {
+                $(".mapTimedQuest").css("display", "initial");
+            }
+            if ($(this).is("#toggleLiquidMemories")) {
+                $(".mapLiquidMemories").css("display", "initial");
+            }
             
         } 
         
@@ -232,8 +266,8 @@ jQuery(document).ready(function($){
             if ($(this).is("#toggleClassMaster")) {
                 $(".mapClassMaster").css("display", "none");
             }
-            if ($(this).is("#toggleLiquidMemory")) {
-                $(".mapLiquidMemory").css("display", "none");
+            if ($(this).is("#toggleLiquidMemoryStand")) {
+                $(".mapLiquidMemoryStand").css("display", "none");
             }
             if ($(this).is("#toggleExchange")) {
                 $(".mapExchange").css("display", "none");
@@ -270,6 +304,12 @@ jQuery(document).ready(function($){
             }
             if ($(this).is("#toggleExploration")) {
                 $(".mapExploration").css("display", "none");
+            }
+            if ($(this).is("#toggleTimedQuest")) {
+                $(".mapTimedQuest").css("display", "none");
+            }
+            if ($(this).is("#toggleLiquidMemories")) {
+                $(".mapLiquidMemories").css("display", "none");
             }
         }
         
