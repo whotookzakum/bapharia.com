@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 jQuery(document).ready(function($){
 
     // MAP things
