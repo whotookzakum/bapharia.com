@@ -2,8 +2,28 @@ jQuery(document).ready(function($){
 
     // MAP things
     var currentMap = $("#mapAsterleeds");
-    var mapTooltip = document.querySelectorAll(".mapTooltip");
+    var tooltip = document.querySelectorAll(".tooltip");
     document.addEventListener('mousemove', trackMouse, false);
+    
+    // Page switching
+    
+    var currentPage;
+    function closePages() {
+        if (currentPage == "Map") {
+            $("#mapContainer").css("display", "none");
+            $("#contentViewer").css("display", "none");
+        }
+        if (currentPage == "Crafting") {
+            $("#craftingContainer").css("display", "none");
+            $("#contentViewer").css("display", "none");
+        }
+    }
+    
+    
+    // Crafting class selector
+    var currentWepList = $("#aegisWeapons");
+    
+    
     // MENU BUTTONS
     
     // Page change on menu button click
@@ -32,21 +52,29 @@ jQuery(document).ready(function($){
         bghs.stop().animate({opacity: '0'});
         bg.stop().animate({opacity: '0'});
         
+        // Close open page
+        closePages();
+        
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
             bgts.stop().animate({opacity: '1'});
+            currentPage = "Twin Striker";
         } 
         else if ($(this).is("#buttonAegis")) {
             bgaf.stop().animate({opacity: '1'});
+            currentPage = "Aegis Fighter";
         }
         else if ($(this).is("#buttonBlast")) {
-            bgba.stop().animate({opacity: '1'});    
+            bgba.stop().animate({opacity: '1'}); 
+            currentPage = "Blast Archer";
         }
         else if ($(this).is("#buttonSpell")) {
             bgsc.stop().animate({opacity: '1'});
+            currentPage = "Spell Caster";
         }
         else if ($(this).is("#buttonHeavy")) {
             bghs.stop().animate({opacity: '1'});
+            currentPage = "Heavy Smasher";
         }
         else {
             // Change BG to default one
@@ -55,21 +83,80 @@ jQuery(document).ready(function($){
             }
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
-                // function closePages();
                 openWorldMap(currentMap);
+                currentPage = "Map";
+            }
+            // BATTLE IMAJINN
+            if ($(this).is("#buttonBattleImajinn")) {
+                currentPage = "Battle Imajinn";
+            }
+            // INNER IMAJINN
+            if ($(this).is("#buttonInnerImajinn")) {
+                currentPage = "Inner Imajinn";
+            }
+            // COMBAT
+            if ($(this).is("#buttonCombat")) {
+                currentPage = "Combat";
+            }
+            // MSQ
+            if ($(this).is("#buttonMSQ")) {
+                currentPage = "MSQ";
+            }
+            // GUIDE
+            if ($(this).is("#buttonGuide")) {
+                currentPage = "Guide";
+            }
+            // CRAFTING
+            if ($(this).is("#buttonCrafting")) {
+                openCrafting();
+                currentPage = "Crafting";
+            }
+            // LIQUID MEMORY
+            if ($(this).is("#buttonLiquidMemory")) {
+                currentPage = "Liquid Memory";
             }
         }
+    });
+    
+    
+    // CRAFTING 
+    function openCrafting() {
+        $("#craftingContainer").css("display", "block");
+        $("#contentViewer").css("display", "block");
+    }
+    
+    // Change weapon lists
+    $("#class-selector").click(function(){
         
-        /* Alternative way to get the element you clicked on
-            $("img.navicon").click(function(event) {
-                var id = event.target.id;
-                console.log('id = ' + id);
+        // Hide current list
+        //currentWepList.css("display","none");
         
-                if (id === "buttonAegis") {
-                $("#background").css("background-image", "url(images/af.png)");
-                }
-            });
-        */
+        console.log("MADE IT IN CLICK" + $(this));
+        
+        if ($(this).is("toggleAegisWep")){
+            console.log("MADE IT INTO IF");
+            $("#aegisWeapons").css("display", "none");
+            console.log("MADE IT PAST CSS");
+            //currentWepList = $("#toggleAegisWep");
+        } 
+        
+        /*
+        else if ($(this).is("#toggleTwinWep")){
+            $("#twinWeapons").css("display","initial");
+            currentWepList = $("#toggleTwinWep");
+        } 
+        else if ($(this).is("#toggleBlastWep")){
+            $("#blastWeapons").css("display","initial");
+            currentWepList = $("#toggleBlastWep");
+        } 
+        else if ($(this).is("#toggleSpellWep")){
+            $("#spellWeapons").css("display","initial");
+            currentWepList = $("#toggleSpellWep");
+        } 
+        else if ($(this).is("#toggleHeavyWep")){
+            $("#heavyWeapons").css("display","initial");
+            currentWepList = $("#toggleHeavyWep");
+        }*/
         
     });
     
@@ -115,9 +202,9 @@ jQuery(document).ready(function($){
     
     // Map Tooltip - Mouse Tracker
     function trackMouse(e) {
-        for (var i=mapTooltip.length; i--;) {
-            mapTooltip[i].style.left = e.pageX + 20 + 'px';
-            mapTooltip[i].style.top = e.pageY + 20 + 'px';
+        for (var i=tooltip.length; i--;) {
+            tooltip[i].style.left = e.pageX + 20 + 'px';
+            tooltip[i].style.top = e.pageY + 20 + 'px';
         }
     }  
     
