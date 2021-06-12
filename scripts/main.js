@@ -74,8 +74,6 @@ jQuery(document).ready(function($){
     });
     
     
-    
-    
     // MAP
     function openWorldMap(region) {
         $("#mapContainer").css("display", "block");
@@ -745,10 +743,6 @@ jQuery(document).ready(function($){
         }
     });
     
-    
-    
-
 
     // SKILL BUILDER
-    
     });
