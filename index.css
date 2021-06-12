@@ -96,7 +96,8 @@ html, body {
 
 .navibar {
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 1.5%;
+    height: 70%;
 }
 
 .navicon {
@@ -124,6 +125,7 @@ html, body {
     visibility: hidden;
     font-size: 13px;
     text-decoration: none;
+    height: 10px;
     animation: fadeOutDrop 0.2s ease 0s 1 backwards;
 }
 
@@ -439,7 +441,7 @@ html, body {
 }
 
 .pointPicture {
-    visibility: none;
+    display: none;
     bottom: 0%; 
     right: 0%;
     background-color: #c8c8c8;
@@ -452,20 +454,21 @@ html, body {
     transition: all 0.15s ease-in;
 }
 /* Screenshot of imajinn/exploration point/area map */
-.mapExploration:hover+.mapTooltip+.pointPicture, .mapEliteMonster:hover+.mapTooltip+.pointPicture, .mapMove:hover+.mapTooltip+.pointPicture {
-    visibility: visible;
+.mapExploration:hover+.tooltip+.pointPicture, .mapEliteMonster:hover+.tooltip+.pointPicture, .mapMove:hover+.tooltip+.pointPicture {
+    display: initial;
     opacity: 1;
+    z-index: 51;
     transition: all 0.15s ease-out;
 }
 
-
-.mapTooltip {
+/* tooltip */
+.tooltip {
     display: none;
     position: fixed;
     font-size: 16px;
     z-index: 55;
 }
-p.mapTooltip {
+p.tooltip {
     z-index: 60;
     padding: 5px 10px 5px 7px;
     width: auto;
@@ -475,9 +478,8 @@ p.mapTooltip {
     border-radius: 10px;
     filter: drop-shadow(0 2px 2px black);
 }
-
 /* Show tooltips */
-.mapIcon:hover+.mapTooltip, .mapToggles:hover+p.mapTooltip{
+.mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip{
     display: block;
 }
 
@@ -523,6 +525,142 @@ p.mapTooltip {
 .display-off {
     display: none;
 }
+
+
+
+
+/* ---------------- CRAFTING ------------ */
+#craftingContainer {
+    display: none;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+#class-selector {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    z-index: 5;
+}
+#class-selector p {
+    width: 19.75%;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 0 5px 0;
+    background-color: gray;
+}
+#toggleAegisWep:hover, #toggleTwinWep:hover, #toggleBlastWep:hover, #toggleSpellWep:hover, #toggleHeavyWep:hover {
+    filter: brightness(0.8);
+}
+#aegisWeapons, #twinWeapons, #blastWeapons, #spellWeapons, #heavyWeapons {
+    display: none;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    z-index: 4;
+    background-color: #161211;
+}
+#aegisWeapons {
+    display: block;
+}
+.listSelected {
+    filter: brightness(1.2);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.craftRow {
+    width: 100%;
+    display: inline-block;
+    margin: 0.7em 0 0 0;
+    padding-bottom: 0.3em;
+    background-color: #161211;
+}
+.craftRow:hover {
+    filter: brightness(0.9);
+}
+.craftHeader, .craftHeader:hover {
+    filter: brightness(1.2);
+}
+.craftIcon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.8em;
+}
+
+.craftRow > p, .craftRow > ul {
+    display: inline-block;
+    
+}
+.col-name, .col-ar, .col-maxlv, .col-ele, .col-stats, .col-abil, .col-recipe {
+    display: inline-block;
+    vertical-align: middle;
+    list-style-type: none;
+}
+.col-name{
+    width: 180px;
+    font-weight: bold;
+    margin-left: 0.8em;
+}
+.col-ar {
+    width: 50px;
+}
+.col-maxlv {
+    width: 50px;
+}
+.col-ele {
+    width: 30px;
+    text-align: center;
+}
+.col-stats {
+    width: 130px;
+    font-size: 13px;
+    margin-left: 4em;
+    
+}
+.col-abil {
+    width: 150px;
+}
+.col-recipe {
+    width: 250px;
+}
+.ele-desc {
+    border-radius: 10px;
+    filter:drop-shadow(0 2px 2px black);
+    display: none;
+    position: absolute;
+    z-index: 60;
+}
+.col-ele:hover+.ele-desc {
+    display: initial;
+}
+
+.recipe-desc {
+    display: none;
+    position: absolute;
+    z-index: 60;
+    padding: 5px 10px 5px 7px;
+    width: auto;
+    background-color: white;
+    color: black;
+    border-left: 16px solid crimson;
+    border-radius: 10px;
+    filter: drop-shadow(0 2px 2px black);
+}
+.mat {
+    font-size: 14px;
+}
+.mat:hover {
+    filter: brightness(1.5);
+}
+.mat:hover+.recipe-desc {
+    display: block;
+}
+
 
 /* ---------------- ABOUT & TRIVIA ---------------- */
 #pageAbout {
