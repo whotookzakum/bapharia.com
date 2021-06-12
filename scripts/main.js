@@ -19,11 +19,6 @@ jQuery(document).ready(function($){
         }
     }
     
-    
-    // Crafting class selector
-    var currentWepList = $("#aegisWeapons");
-    
-    
     // MENU BUTTONS
     
     // Page change on menu button click
@@ -126,37 +121,34 @@ jQuery(document).ready(function($){
     }
     
     // Change weapon lists
-    $("#class-selector").click(function(){
+    $(".wepOption").click(function(){
+        $("#aegisWeapons").css("display","none");
+        $("#twinWeapons").css("display","none");
+        $("#blastWeapons").css("display","none");
+        $("#spellWeapons").css("display","none");
+        $("#heavyWeapons").css("display","none");
+        $("#toggleAegisWep").removeClass("listSelected");
+        $("#toggleTwinWep").removeClass("listSelected");
+        $("#toggleBlastWep").removeClass("listSelected");
+        $("#toggleSpellWep").removeClass("listSelected");
+        $("#toggleHeavyWep").removeClass("listSelected");
         
-        // Hide current list
-        //currentWepList.css("display","none");
-        
-        console.log("MADE IT IN CLICK" + $(this));
-        
-        if ($(this).is("toggleAegisWep")){
-            console.log("MADE IT INTO IF");
-            $("#aegisWeapons").css("display", "none");
-            console.log("MADE IT PAST CSS");
-            //currentWepList = $("#toggleAegisWep");
+        if ($(this).is("#toggleAegisWep")){
+            $("#aegisWeapons").css("display","block");
         } 
-        
-        /*
-        else if ($(this).is("#toggleTwinWep")){
-            $("#twinWeapons").css("display","initial");
-            currentWepList = $("#toggleTwinWep");
+        if ($(this).is("#toggleTwinWep")){
+            $("#twinWeapons").css("display","block");
+        }
+        if ($(this).is("#toggleBlastWep")){
+            $("#blastWeapons").css("display","block");
         } 
-        else if ($(this).is("#toggleBlastWep")){
-            $("#blastWeapons").css("display","initial");
-            currentWepList = $("#toggleBlastWep");
+        if ($(this).is("#toggleSpellWep")){
+            $("#spellWeapons").css("display","block");
         } 
-        else if ($(this).is("#toggleSpellWep")){
-            $("#spellWeapons").css("display","initial");
-            currentWepList = $("#toggleSpellWep");
-        } 
-        else if ($(this).is("#toggleHeavyWep")){
-            $("#heavyWeapons").css("display","initial");
-            currentWepList = $("#toggleHeavyWep");
-        }*/
+        if ($(this).is("#toggleHeavyWep")){
+            $("#heavyWeapons").css("display","block");
+        }
+        $(this).addClass("listSelected");
         
     });
     
