@@ -7,16 +7,10 @@ jQuery(document).ready(function($){
     
     // Page switching
     
-    var currentPage;
+    var currentPage = $("#mapContainer");
     function closePages() {
-        if (currentPage == "Map") {
-            $("#mapContainer").css("display", "none");
-            $("#contentViewer").css("display", "none");
-        }
-        if (currentPage == "Crafting") {
-            $("#craftingContainer").css("display", "none");
-            $("#contentViewer").css("display", "none");
-        }
+        currentPage.css("display", "none");
+        $("#contentViewer").css("display", "none");
     }
     
     // MENU BUTTONS
@@ -53,23 +47,23 @@ jQuery(document).ready(function($){
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
             bgts.stop().animate({opacity: '1'});
-            currentPage = "Twin Striker";
+            
         } 
         else if ($(this).is("#buttonAegis")) {
             bgaf.stop().animate({opacity: '1'});
-            currentPage = "Aegis Fighter";
+            
         }
         else if ($(this).is("#buttonBlast")) {
             bgba.stop().animate({opacity: '1'}); 
-            currentPage = "Blast Archer";
+            
         }
         else if ($(this).is("#buttonSpell")) {
             bgsc.stop().animate({opacity: '1'});
-            currentPage = "Spell Caster";
+            
         }
         else if ($(this).is("#buttonHeavy")) {
             bghs.stop().animate({opacity: '1'});
-            currentPage = "Heavy Smasher";
+            
         }
         else {
             // Change BG to default one
@@ -79,36 +73,37 @@ jQuery(document).ready(function($){
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
                 openWorldMap(currentMap);
-                currentPage = "Map";
+                currentPage = $("#mapContainer");
             }
             // BATTLE IMAJINN
             if ($(this).is("#buttonBattleImajinn")) {
-                currentPage = "Battle Imajinn";
+                openbImajinn();
+                currentPage = $("#bImajinnContainer");
             }
             // INNER IMAJINN
             if ($(this).is("#buttonInnerImajinn")) {
-                currentPage = "Inner Imajinn";
+                
             }
             // COMBAT
             if ($(this).is("#buttonCombat")) {
-                currentPage = "Combat";
+                
             }
             // MSQ
             if ($(this).is("#buttonMSQ")) {
-                currentPage = "MSQ";
+                
             }
             // GUIDE
             if ($(this).is("#buttonGuide")) {
-                currentPage = "Guide";
+                
             }
             // CRAFTING
             if ($(this).is("#buttonCrafting")) {
                 openCrafting();
-                currentPage = "Crafting";
+                currentPage = $("#craftingContainer");
             }
             // LIQUID MEMORY
             if ($(this).is("#buttonLiquidMemory")) {
-                currentPage = "Liquid Memory";
+                
             }
         }
     });
@@ -151,6 +146,13 @@ jQuery(document).ready(function($){
         $(this).addClass("listSelected");
         
     });
+    
+    
+    // BATTLE IMAJINN
+    function openbImajinn() {
+        $("#bImajinnContainer").css("display", "block");
+        $("#contentViewer").css("display", "block");
+    }
     
     
     // MAP
