@@ -77,8 +77,8 @@ jQuery(document).ready(function($){
             }
             // BATTLE IMAJINN
             if ($(this).is("#buttonBattleImajinn")) {
-                openbImajinn();
-                currentPage = $("#bImajinnContainer");
+                openImajinn();
+                currentPage = $("#ImajinnContainer");
             }
             // INNER IMAJINN
             if ($(this).is("#buttonInnerImajinn")) {
@@ -149,8 +149,8 @@ jQuery(document).ready(function($){
     
     
     // BATTLE IMAJINN
-    function openbImajinn() {
-        $("#bImajinnContainer").css("display", "block");
+    function openImajinn() {
+        $("#ImajinnContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
     }
     

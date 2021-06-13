@@ -649,15 +649,7 @@ p.tooltip {
     border-radius: 10px;
     filter: drop-shadow(0 2px 2px black);
 }
-.mat {
-    font-size: 14px;
-}
-.mat:hover {
-    filter: brightness(1.5);
-}
-.mat:hover+.recipe-desc {
-    display: block;
-}
+
 
 .recipe-mob {
     transform: scale(0.45); 
@@ -684,28 +676,261 @@ p.tooltip {
 
 /* ------------ BATTLE IMAJINN ----------- */
 
-#bImajinnContainer {
+#ImajinnContainer {
     display: none;
-    width: 80%;
+    width: 100%;
     height: 100%;
     margin: auto;
     overflow-y: scroll;
     border-radius: 20px;
+    background-color: red;
 }
-#bImajList {
+.listHolder {
+    display: block;
+    position: absolute;
+    width: 28%;
+    height: 100%;
+    /*background: url(images/map/mapbg.png);*/
+}
+.craftListContainer {
     display: block;
     position: relative;
-    width: 100%;
+    top: 14%;
+    width: 23.08rem;
     margin: auto;
-    z-index: 4;
-    background-color: #161211;
+    height: 80%;
+    vertical-align: center;
+    overflow: scroll;
+    z-index: 20;
 }
 
-.col-type {
-    width: 50px;
+
+#ImajList {
+    width: 100%;
+    margin: auto;
+    z-index: 20;
 }
-.col-skill {
-    width: 100 px;
+
+
+#imajinnInfo {
+    position: absolute;
+    z-index: 5;
+    width: 68%;
+    top: 2%;
+    left: 28%;
+    height: 98%;
+}
+.i-infoName {
+    font-size: 40px;
+    text-align: center;
+    background: repeat-y url(images/crafting/craftBG.png);
+    color: white;
+}
+.i-infoHolder {
+    margin: 20px 0;
+    height: 35%;
+    background-color: #c8c8c8;
+}
+
+
+
+.i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoSTR, .i-infoINT, .i-infoHP, .i-infoVIT, .i-infoMND, .i-infoATK, .i-infoDEX, .i-infoElePower {
+    border-left: 6px solid #343330;
+    padding-left: 10px;
+    margin: 10px 0 5px 0;
+    color: #343330;
+    font-size: 20px;
+    position: relative;
+    left: 35%;
+    top: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.i-infoRow {
+    display: block;
+}
+
+.i-infoLv {
+    font-size: 25px;
+}
+
+.i-infoEle {
+    width: 140px;
+}
+.i-infoElePower {
+    width: 220px;
+}
+.i-infoSkill, .i-infoAbil {
+    width: 364px;
+}
+
+
+.i-infoStats {
+    margin-top: 10px;
+}
+.i-infoSTR, .i-infoINT, .i-infoHP, .i-infoVIT, .i-infoMND, .i-infoATK, .i-infoDEX {
+    margin: 0;
+    width: 210px;
+}
+
+.recipeHolder {
+    margin: 20px 0 5px 0 ;
+    width: 45%;
+    background-color: #c8c8c8;
+    padding: 20px 0;
+    background-color: none;
+    border-left: 14px solid #464444;
+    border-top: 40px solid #464444;
+    display: inline-block;
+}
+.mat, .abil, .reqLuno {
+    color: #343330;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 0 0 15px;
+}
+
+.abilityHolder {
+    margin: 0 0 0 5px;
+    width: 45%;
+    background-color: #c8c8c8;
+    padding: 20px 0;
+    background-color: none;
+    border-top: 40px solid #464444;
+    display: inline-block;
+}
+
+.lunoHolder {
+    width: 45%;
+    margin-top: 5px;
+    background-color: #c8c8c8;
+    padding: 20px 0;
+    background-color: none;
+    border-left: 14px solid #464444;
+    border-top: 40px solid #464444;
+    display: inline-block;
+}
+
+.reqLuno {
+    font-family: "Roboto";
+    font-weight:600;
+    font-size: 50px;
+    background-color: #c8c8c8;
+    float: right;
+    text-align: right;
+    position: relative;
+    margin: -50px 0 -19px 0;
+    width: 300px;
+    padding: 0 25px 0 0;
+}
+
+.listItem {
+    width: 100%;
+    height: 84px;
+    margin-bottom: 10px;
+}
+
+.listItem:hover>div {
+    border-radius: 5px;
+    border: 3px solid whitesmoke; 
+}
+.listItem:active>div {
+    border-radius: 5px;
+    border: 3px solid #e7f837;
+}
+.listItem:hover img:nth-child(1) {
+    padding: 7px 10px 7px 7px;
+    border-radius: 0px;
+}
+.listItem:hover p.listItem-name {
+    width: 197px;
+    padding-top: 7px;
+    border-radius: 0px;
+}
+.listItem:hover p.listItem-type {
+    border-radius: 0px;
+    width: 197px;
+    margin-left: -3px;
+    margin-top: 3px
+}
+.listItem:hover p.listItem-reqAR {
+    border-radius: 0px;
+    padding: 2px 0 5px 0;
+    
+}
+.listItem:hover p.listItem-reqAR2 {
+    border-radius: 0px;
+}
+
+.listItem-desc {
+    
+    background-color: #c8c8c8;
+    display: inline-block;
+    max-width: 284px;
+    height: 84px;
+    border-radius: 5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.listItem-icon {
+    background-color: black;
+    padding: 10px 10px 10px 10px;
+    display: inline-block;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.listItem-name {
+    background-color: #11100f;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 10px 5px 10px;
+    font-size: 18px;
+    width: 200px;
+    border-top-right-radius: 5px;
+    position: relative;
+    
+}
+.listItem-type {
+    background-color: #11100f;
+    display: block;
+    position: relative;
+    top: -51px;
+    left: 84px;
+    width: 200px;
+    padding: 0 0 5px 10px;
+    font-size: 14px;
+}
+
+.listItemAR {
+
+    display: inline-block;
+    position: absolute;
+    margin-left: 5px;
+    height: 84px;
+    width: 80px;
+    background-color: #c8c8c8;
+    border-radius: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.listItem-reqAR {
+    background-color: black;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.listItem-reqAR2 {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    color: #4d4b4b;
+    padding: auto;
+    vertical-align: bottom;
 }
 
 
