@@ -395,6 +395,95 @@ jQuery(document).ready(function($){
     });
     
 
+    var spacing1 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    
+    var biHolder = [
+        { // Pink Piglet
+            name: "Pink Piglet",
+            level: "Starting Lv 1~1 (Max Lv: 15)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Piglet's Tranquility (heal type)","effectiveness", "175"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+18",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+9",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["1 Pink Piglet's Idea","3 Ripple Stone","1 Piglet Skin","2,000"],
+            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
+        },
+        { // Ferocious Beast
+            name: "Ferocious Beast",
+            level: "Starting Lv 1~1 (Max Lv: 15)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support type)","effectiveness", "175"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+18",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+9",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["1 Pink Piglet's Idea","3 Ripple Stone","1 Piglet Skin","2,000"],
+            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
+        },
+        
+    ]
+    
+    // Select a battle imajinn
+    $(".listItem").click(function(){
+        var name = $(".i-infoName");
+        var element = $(".i-infoEle");
+        var elePower = $(".i-infoElePower");
+        var cd = $(".i-infoCD");
+        var skill = $(".i-infoSkill");
+        var skillPower = $(".i-infoSkillPower");
+        var abil = $(".i-infoAbil");
+        var abilPower = $(".i-infoAbilPower");
+        var statVal = $(".i-infoStatVal");
+        var mat = $(".matItem");
+        var luno = $(".reqLuno");
+        var abilList = $(".abil");
+        // Index of the clicked item
+        var i = $(".listItem").index(this);
+
+        
+        // Send item info
+        name.html(biHolder[i].name);
+        element.html(biHolder[i].element[0]);
+        elePower.html(biHolder[i].element[1]);
+        cd.html(biHolder[i].cooldown[0] + biHolder[i].cooldown[1]);
+        skill.html(biHolder[i].skill[0] + biHolder[i].skill[1]);
+        skillPower.html(biHolder[i].skill[2] + spacing1 + biHolder[i].skill[3]);
+        abil.html(biHolder[i].ability[0] + spacing1 + biHolder[i].ability[1]);
+        abilPower.html(biHolder[i].ability[2] + spacing1 + biHolder[i].ability[3]);
+        
+        // Send stats
+        statVal.each(function(index){
+            $(this).html(biHolder[i].stats[(index)]);
+        });
+        
+        // Send recipe materials
+        mat.each(function (index) {
+           $(this).html(biHolder[i].recipe[(index)]); 
+        });
+        luno.html(biHolder[i].recipe[(biHolder[i].recipe.length - 1)]);
+        
+        // Send ability list
+        abilList.each(function(index){
+           $(this).html(biHolder[i].abilList[(index)]);
+        });
+
+    });
+    
+
     // TRIVIA
     // Generate map names and skill names from a list
     // Automatically generate "what class's skill is __?" and " __ is an ability for what skill? questions

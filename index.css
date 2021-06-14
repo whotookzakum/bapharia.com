@@ -734,7 +734,7 @@ p.tooltip {
 
 
 
-.i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoSTR, .i-infoINT, .i-infoHP, .i-infoVIT, .i-infoMND, .i-infoATK, .i-infoDEX, .i-infoElePower {
+.i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoStatRow, .i-infoElePower {
     border-left: 6px solid #343330;
     padding-left: 10px;
     margin: 10px 0 5px 0;
@@ -769,9 +769,25 @@ p.tooltip {
 .i-infoStats {
     margin-top: 10px;
 }
-.i-infoSTR, .i-infoINT, .i-infoHP, .i-infoVIT, .i-infoMND, .i-infoATK, .i-infoDEX {
+.i-infoStatRow {
     margin: 0;
     width: 210px;
+    display: inline-flex;
+}
+
+.statName {
+    width: 155px;
+}
+
+.i-infoStatVal {
+    margin: 0;
+    width: 30px;
+    height: 20px;
+    border: none;
+    color: #343330; 
+    font-size: 20px;
+    font-weight: bold;
+    float: right;
 }
 
 .recipeHolder {
@@ -784,7 +800,7 @@ p.tooltip {
     border-top: 40px solid #464444;
     display: inline-block;
 }
-.mat, .abil, .reqLuno {
+.matItem, .abil, .reqLuno {
     color: #343330;
     font-size: 24px;
     font-weight: bold;
