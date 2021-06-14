@@ -100,7 +100,6 @@ html, body {
 }
 
 .navicon {
-    position: relative;
     padding-left: 7px;
     padding-right: 7px;
     padding-bottom: 7px;
@@ -116,9 +115,11 @@ html, body {
     animation: fadeInRise 0.2s ease 0s 1 forwards;
 }
 
+
 .menubutton {
     display: inline-block;
 }
+
 
 .menutext {
     visibility: hidden;
@@ -683,7 +684,7 @@ p.tooltip {
     margin: auto;
     overflow-y: scroll;
     border-radius: 20px;
-    background-color: red;
+    
 }
 .listHolder {
     display: block;
@@ -729,10 +730,15 @@ p.tooltip {
 .i-infoHolder {
     margin: 20px 0;
     height: 35%;
-    background-color: #c8c8c8;
+    background-color: #cdccc9;
+    position: relative;
 }
 
-
+.i-infoPic {
+    position: absolute;
+    top: 10%;
+    width: 366px;
+}
 
 .i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoStatRow, .i-infoElePower {
     border-left: 6px solid #343330;
@@ -791,26 +797,55 @@ p.tooltip {
 }
 
 .recipeHolder {
-    margin: 20px 0 5px 0 ;
+    margin: 20px 0 5px 0;
     width: 45%;
-    background-color: #c8c8c8;
+    background-color: #cdccc9;
     padding: 20px 0;
     background-color: none;
     border-left: 14px solid #464444;
     border-top: 40px solid #464444;
     display: inline-block;
 }
-.matItem, .abil, .reqLuno {
+
+.infoBoxHeader {
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    margin-top: -56px;
+    margin-left: 5px;
+}
+
+.matItem, .abil, .reqLuno, .matCount {
     color: #343330;
     font-size: 24px;
     font-weight: bold;
     padding: 0 0 0 15px;
 }
+.matItem {
+    width: 340px;
+    display: inline-block;
+}
+.matIcon {
+    transform: scale(0.5);
+    display: inline-block;
+    height: auto;
+    width: auto;
+    vertical-align: top;
+    margin-top: -5px;
+    margin-bottom: -50px;
+    filter: drop-shadow(0 2px 3px black);
+}
+.matIcon:hover {
+    filter: brightness(0.8) drop-shadow(0 2px 3px black);
+}
+.matCount {
+    display: inline-block;
+}
 
 .abilityHolder {
     margin: 0 0 0 5px;
     width: 45%;
-    background-color: #c8c8c8;
+    background-color: #cdccc9;
     padding: 20px 0;
     background-color: none;
     border-top: 40px solid #464444;
@@ -820,7 +855,7 @@ p.tooltip {
 .lunoHolder {
     width: 45%;
     margin-top: 5px;
-    background-color: #c8c8c8;
+    background-color: #cdccc9;
     padding: 20px 0;
     background-color: none;
     border-left: 14px solid #464444;

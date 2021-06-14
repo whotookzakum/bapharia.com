@@ -6,15 +6,33 @@ jQuery(document).ready(function($){
     document.addEventListener('mousemove', trackMouse, false);
     
     // Page switching
-    
     var currentPage = $("#mapContainer");
     function closePages() {
         currentPage.css("display", "none");
         $("#contentViewer").css("display", "none");
     }
     
-    // MENU BUTTONS
+    // BATTLE IMAJINN
+    var biIndex = 0;
+    var name = $(".i-infoName");
+    var image = $(".i-infoPic");
+    var level = $(".i-infoLv");
+    var element = $(".i-infoEle");
+    var elePower = $(".i-infoElePower");
+    var cd = $(".i-infoCD");
+    var skill = $(".i-infoSkill");
+    var skillPower = $(".i-infoSkillPower");
+    var abil = $(".i-infoAbil");
+    var abilPower = $(".i-infoAbilPower");
+    var statVal = $(".i-infoStatVal");
+    var mat = $(".matItem");
+    var matIcon = $(".matIcon");
+    var matCount = $(".matCount");
+    var luno = $(".reqLuno");
+    var abilList = $(".abil");
     
+    
+    // MENU BUTTONS
     // Page change on menu button click
     $("img.navicon").click(function() {
         // There's probably a cleaner way to do this like:
@@ -28,7 +46,7 @@ jQuery(document).ready(function($){
         var bgts = $("#bg-ts");
         var bgba = $("#bg-ba");
         var bgsc = $("#bg-sc");
-        var bghs = $("#bg-hs");
+        var bghs = $("#bg-hs");    
         
         // Remove the initial fade in effect for bg-default
         bg.removeClass("bg-default-animation");
@@ -47,7 +65,6 @@ jQuery(document).ready(function($){
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
             bgts.stop().animate({opacity: '1'});
-            
         } 
         else if ($(this).is("#buttonAegis")) {
             bgaf.stop().animate({opacity: '1'});
@@ -75,13 +92,10 @@ jQuery(document).ready(function($){
                 openWorldMap(currentMap);
                 currentPage = $("#mapContainer");
             }
-            // BATTLE IMAJINN
-            if ($(this).is("#buttonBattleImajinn")) {
+            // IMAJINN
+            if ($(this).is("#buttonImajinn")) {
                 openImajinn();
                 currentPage = $("#ImajinnContainer");
-            }
-            // INNER IMAJINN
-            if ($(this).is("#buttonInnerImajinn")) {
                 
             }
             // COMBAT
@@ -152,6 +166,7 @@ jQuery(document).ready(function($){
     function openImajinn() {
         $("#ImajinnContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
+        dispImajinn();
     }
     
     
@@ -397,12 +412,16 @@ jQuery(document).ready(function($){
 
     var spacing1 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
     
+    // BATTLE IMAJINN LIST
     var biHolder = [
-        { // Pink Piglet
+        // Pink Piglet ピンクウリボ
+        { 
             name: "Pink Piglet",
+            image: "images/map/pinkpiglet.gif",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // ウリボの安らぎ
             skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Piglet's Tranquility (heal type)","effectiveness", "175"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
@@ -413,75 +432,499 @@ jQuery(document).ready(function($){
                     /*ATK*/"+9",
                     /*DEX*/"+2"
                    ],
-            recipe: ["1 Pink Piglet's Idea","3 Ripple Stone","1 Piglet Skin","2,000"],
+            recipe: ["Pink Piglet's Idea","Ripple Stone","Piglet Skin","2,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["1","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
         },
-        { // Ferocious Beast
+        // Ferocious Beast 猛る獣
+        { 
             name: "Ferocious Beast",
+            image: "images/map/ferociousbeast.gif",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support type)","effectiveness", "175"],
+            // アクトクライ
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support type)","effectiveness", "150"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+16",
+                    /*VIT*/"+3",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Ferocious Beast's Idea","Dawngrass","Rumble Boar's Skin","7,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            amt: ["2","3","1"],
+            abilList: ["Max stamina increase","DEX increase", "<br>"]
+        },
+        // Red Splash 赤い飛沫
+        { 
+            name: "Red Splash",
+            image: "images/map/redsplash.gif",
+            level: "Starting Lv 1~1 (Max Lv: 15)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // 兜割り
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Helm Splitter (attack type)","effectiveness", "422"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+17",
+                    /*VIT*/"+2",
+                    /*MND*/"+4",
+                    /*ATK*/"+8",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Red Splash's Idea","Plateau Lily","Highland Fox Nail","15,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            amt: ["2","3","1"],
+            abilList: ["Damage increase (regular attack)","STR increase", "<br>"]
+        },
+        // Deep Green Fang 深緑の牙
+        { 
+            name: "Deep Green Fang",
+            image: "images/map/deepgreenfang.gif",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // 猪突猛進
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Boar Rush (attack type)","effectiveness", "514"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
-                    /*HP*/"+18",
+                    /*HP*/"+22",
                     /*VIT*/"+4",
                     /*MND*/"+2",
-                    /*ATK*/"+9",
+                    /*ATK*/"+13",
                     /*DEX*/"+2"
                    ],
-            recipe: ["1 Pink Piglet's Idea","3 Ripple Stone","1 Piglet Skin","2,000"],
+            recipe: ["Deep Green Fang's Idea","Asterbass","Tyrant Boar's Skin","17,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/shell2.svg","images/map/combat2.svg"],
+            amt: ["3","3","3"],
+            abilList: ["Damage increase (ultimate)","ATK increase", "<br>"]
+        },
+        // Iron Fang 鉄牙
+        { 
+            name: "Iron Fang",
+            image: "images/map/ironfang.gif",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // マウンテンスロー
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Mountain Throw (attack type)","effectiveness", "524"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Iron Fang's Idea","Beartree Leaf","Goblin Mane","20,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            amt: ["3","3","3"],
+            abilList: ["Damage increase (close-range)","ATK increase", "<br>"]
+        },
+        // Flame Prison 炎獄
+        { 
+            name: "Flame Prison",
+            image: "images/map/flamingprison.gif",
+            level: "Starting Lv 1~1 (Max Lv: 30)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // パワースイング
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Power Swing (attack type)","effectiveness", "710"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+3",
+                    /*HP*/"+31",
+                    /*VIT*/"+4",
+                    /*MND*/"+3",
+                    /*ATK*/"+19",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Flame Prison's Idea","Jasper Stone","Glowing Goblin's Mane","86,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["5","3","3"],
+            abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"]
+        },
+        // Ferocious Gold 猛る金色
+        { 
+            name: "Ferocious Gold",
+            image: "images/map/ferociousgold.gif",
+            level: "Starting Lv 1~1 (Max Lv: 30)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // デスタックル
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Death Tackle (attack type)","effectiveness", "696"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+?",
+                    /*VIT*/"+5",
+                    /*MND*/"+3",
+                    /*ATK*/"+18",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ferocious Gold's Idea","Nectar Seed","Ferocious Beast's Tail","85,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            amt: ["5","3","1"],
+            abilList: ["Damage increase (close-range)","ATK increase", "<br>"]
+        },
+        // Sapphire Trot サファイアトロット
+        { 
+            name: "Sapphire Trot",
+            image: "images/map/sapphiretrot.gif",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // 落石牙
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Stone Fang Drop (attack type)","effectiveness", "483"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+19",
+                    /*VIT*/"+3",
+                    /*MND*/"+4",
+                    /*ATK*/"+10",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Sapphire Trot's Idea","Andra Cedar Twig","Elder Goblin's Mane","25,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            amt: ["3","3","3"],
+            abilList: ["Crit rate increase","DEX increase", "<br>"]
+        },
+        // Flaming Horns 炎角
+        { 
+            name: "Flaming Horns",
+            image: "images/map/flaminghorns.gif",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // カイザーブラスト
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Kaiser Blast (attack type)","effectiveness", "493"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+23",
+                    /*VIT*/"+2",
+                    /*MND*/"+4",
+                    /*ATK*/"+12",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Flaming Horns' Idea","Blesio Nut","Goblin Sage's Mane","26,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            amt: ["3","3","3"],
+            abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"]
+        },
+        // Spooky Goat スプーキーゴート
+        { 
+            name: "Spooky Goat",
+            image: "images/map/spookygoat.gif",
+            level: "Starting Lv 1~1 (Max Lv: 25)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // ゴートヘイスト
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goat Haste (support type)","effectiveness", "130"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+27",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+14",
+                    /*DEX*/"+5"
+                   ],
+            recipe: ["Spooky Goat's Idea","Sunset Cedar Twig","Glowing Tyrant Boar Skin","45,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            amt: ["4","3","3"],
+            abilList: ["Max stamina increase","DEX increase", "<br>"]
+        },
+        // Evil Healer 悪しき癒し手
+        { 
+            name: "Evil Healer",
+            image: "images/map/evilhealer.gif",
+            level: "Starting Lv 1~1 (Max Lv: 25)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // エリアヒール
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Area Heal (heal type)","effectiveness", "?"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Evil Healer's Idea","Rimeril Ore","Ogre Bone","56,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["4","3","3"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
         },
-        
+        // Trick Elder トリックエルダー
+        { 
+            name: "Trick Elder",
+            image: "images/map/trickelder.gif",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // エルダークリスタル
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Elder Crystal (attack type)","effectiveness", "741"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+5",
+                    /*HP*/"+32",
+                    /*VIT*/"+4",
+                    /*MND*/"+6",
+                    /*ATK*/"+18",
+                    /*DEX*/"+6"
+                   ],
+            recipe: ["Trick Elder's Idea","Dragon Venom","Deep Green Fang's Skin","130,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower.svg","images/map/elitemonster.svg"],
+            amt: ["3","3","1"],
+            abilList: ["Damage increase (long-range)","INT increase", "<br>"]
+        },
+        // Elder Goblin エルダーゴブリン
+        { 
+            name: "Elder Goblin",
+            image: "images/map/eldergoblin.gif",
+            level: "Starting Lv 1~1 (Max Lv: 25)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // ファイアボール
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Fireball (attack type)","effectiveness", "?"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+?",
+                    /*INT*/"+?",
+                    /*HP*/"+?",
+                    /*VIT*/"+?",
+                    /*MND*/"+?",
+                    /*ATK*/"+?",
+                    /*DEX*/"+?"
+                   ],
+            recipe: ["Elder Goblin's Idea","Magna Moss Fossil","Kaiser Elk Fur","43,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["4","3","3"],
+            abilList: ["Damage increase (long-range)","INT increase", "<br>"]
+        },
+        // Goblin ゴブリン
+        { 
+            name: "Goblin",
+            image: "images/map/goblin.gif",
+            level: "Starting Lv 1~1 (Max Lv: 15)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // ゴブリンスタブ
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Stab (attack type)","effectiveness", "414"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+17",
+                    /*VIT*/"+2",
+                    /*MND*/"+4",
+                    /*ATK*/"+8",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Goblin's Idea","Iron Ore","Land Fox Tail","9,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["2","3","1"],
+            abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"]
+        },
+        // Land Fox ランドフォックス
+        { 
+            name: "Land Fox",
+            image: "images/map/landfox.gif",
+            level: "Starting Lv 1~1 (Max Lv: 30)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // クラウンストライク
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Crown Strike (attack type)","effectiveness", "669"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+16",
+                    /*VIT*/"+3",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Land Fox's Idea","Lamusa Flower","Pink Piglet's Skin","1,500"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            amt: ["1","3","1"],
+            abilList: ["Crit damage increase","DEX increase", "<br>"]
+        },
+        // Tyrant Boar タイラントボア
+        { 
+            name: "Tyrant Boar",
+            image: "images/map/tyrantboar.gif",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // 猟犬殺し
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Hound Killer (attack type)","effectiveness", "504"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Tyrant Boar's Idea","Sandsilver","Horn Goat's Fur","45,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["2","3","3"],
+            abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"]
+        },
+        // Horned Goat ホーンゴート
+        { 
+            name: "Horned Goat",
+            image: "images/map/horngoat.gif",
+            level: "Starting Lv 1~1 (Max Lv: 25)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // ビハインドキック
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Back Kick (attack type)","effectiveness", "593"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+3",
+                    /*HP*/"+27",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+14",
+                    /*DEX*/"+5"
+                   ],
+            recipe: ["Horned Goat's Idea","Silver Ore","Glowing Elder Goblin's Mane","83,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            amt: ["3","3","3"],
+            abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"]
+        },
+        // Goblin Sage ゴブリンセージ
+        { 
+            name: "Goblin Sage",
+            image: "images/map/goblinsage.gif",
+            level: "Starting Lv 1~1 (Max Lv: 30)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // ゴブリンセージの調律
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Sage's Tuning (heal type)","effectiveness", "323"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+28",
+                    /*VIT*/"+3",
+                    /*MND*/"+5",
+                    /*ATK*/"+16",
+                    /*DEX*/"+5"
+                   ],
+            recipe: ["Goblin Sage's Idea","Spike Fish","Sapphire Trot's Fang","120,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
+            amt: ["5","3","1"],
+            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
+        },
+        // Kaiser Elk カイザーエルク
+        { 
+            name: "Kaiser Elk",
+            image: "images/map/kaiserelk.gif",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // クラッパーホーン
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Clapper Horn (attack type)","effectiveness", "756"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+5",
+                    /*HP*/"+35",
+                    /*VIT*/"+4",
+                    /*MND*/"+6",
+                    /*ATK*/"+19",
+                    /*DEX*/"+6"
+                   ],
+            recipe: ["Kaiser Elk's Idea","Longan Flower","Evil Healer's Mane","140,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
+            amt: ["7","3","1"],
+            abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"]
+        },
+        // Raging Kingfang 荒ぶる牙王
+        { 
+            name: "Raging Kingfang",
+            image: "images/map/ragingkingfang.gif",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // タイラントアサルト
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Tyrant Assault (attack type)","effectiveness", "787"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+5",
+                    /*HP*/"+34",
+                    /*VIT*/"+6",
+                    /*MND*/"+4",
+                    /*ATK*/"+20",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Raging Kingfang's Idea","Shell Fossil","Flame Prison's Bone","190,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/elitemonster.png"],
+            amt: ["7","3","1"],
+            abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"]
+        },
     ]
     
     // Select a battle imajinn
     $(".listItem").click(function(){
-        var name = $(".i-infoName");
-        var element = $(".i-infoEle");
-        var elePower = $(".i-infoElePower");
-        var cd = $(".i-infoCD");
-        var skill = $(".i-infoSkill");
-        var skillPower = $(".i-infoSkillPower");
-        var abil = $(".i-infoAbil");
-        var abilPower = $(".i-infoAbilPower");
-        var statVal = $(".i-infoStatVal");
-        var mat = $(".matItem");
-        var luno = $(".reqLuno");
-        var abilList = $(".abil");
+        
         // Index of the clicked item
-        var i = $(".listItem").index(this);
+        biIndex = $(".listItem").index(this);
 
+        dispImajinn();
+
+    });
+    
+    
+    // Display Battle Imajinn
+    function dispImajinn() {
         
         // Send item info
-        name.html(biHolder[i].name);
-        element.html(biHolder[i].element[0]);
-        elePower.html(biHolder[i].element[1]);
-        cd.html(biHolder[i].cooldown[0] + biHolder[i].cooldown[1]);
-        skill.html(biHolder[i].skill[0] + biHolder[i].skill[1]);
-        skillPower.html(biHolder[i].skill[2] + spacing1 + biHolder[i].skill[3]);
-        abil.html(biHolder[i].ability[0] + spacing1 + biHolder[i].ability[1]);
-        abilPower.html(biHolder[i].ability[2] + spacing1 + biHolder[i].ability[3]);
+        name.html(biHolder[biIndex].name);
+        image.attr("src", biHolder[biIndex].image);
+        level.html(biHolder[biIndex].level);
+        element.html(biHolder[biIndex].element[0]);
+        elePower.html(biHolder[biIndex].element[1]);
+        cd.html(biHolder[biIndex].cooldown[0] + biHolder[biIndex].cooldown[1]);
+        skill.html(biHolder[biIndex].skill[0] + biHolder[biIndex].skill[1]);
+        skillPower.html(biHolder[biIndex].skill[2] + spacing1 + biHolder[biIndex].skill[3]);
+        abil.html(biHolder[biIndex].ability[0] + spacing1 + biHolder[biIndex].ability[1]);
+        abilPower.html(biHolder[biIndex].ability[2] + spacing1 + biHolder[biIndex].ability[3]);
         
         // Send stats
         statVal.each(function(index){
-            $(this).html(biHolder[i].stats[(index)]);
+            $(this).html(biHolder[biIndex].stats[(index)]);
         });
         
         // Send recipe materials
         mat.each(function (index) {
-           $(this).html(biHolder[i].recipe[(index)]); 
+           $(this).html(biHolder[biIndex].recipe[(index)]); 
         });
-        luno.html(biHolder[i].recipe[(biHolder[i].recipe.length - 1)]);
+        matIcon.each(function (index) {
+           $(this).attr("src", biHolder[biIndex].iconSrc[(index)]); 
+        });
+        matCount.each(function (index) {
+           $(this).html(biHolder[biIndex].amt[(index)]); 
+        });
+        luno.html(biHolder[biIndex].recipe[(biHolder[biIndex].recipe.length - 1)]);
         
         // Send ability list
         abilList.each(function(index){
-           $(this).html(biHolder[i].abilList[(index)]);
+           $(this).html(biHolder[biIndex].abilList[(index)]);
         });
-
-    });
+        
+    }
     
 
     // TRIVIA
