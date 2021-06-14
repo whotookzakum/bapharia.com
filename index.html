@@ -7,10 +7,10 @@
         <meta name="robots" content="index,follow"/>
         
         <!-- Site title, mini icon, keywords -->
-        <title>Blue Protocol Resources</title> 
+        <title>Zakum.org | BP Resources</title> 
         <meta name="description" content=""/>
-        <meta name="keywords" content="blue protocol,skills,skill build,skill calculator,region map,english,translation,translated,japanese,aegis fighter,blast archer,spell caster,twin striker"/>
-        <link rel="icon" href="images/0.png">
+        <meta name="keywords" content="blue protocol,skills,skill build,skill calculator,region map,english,translation,translated,japanese,aegis fighter,blast archer,spell caster,twin striker, jrpg, game, video game, zakum, zakum.org, skill builder, world map, map, interactive map, imajinn, imagine, battle, inner, liquid memory, liquid, memory, liquid memories, memories"/>
+        <link rel="icon" href="images/z.png">
         
         <!-- Font -->
         <link href='https://fonts.googleapis.com/css?family=Mate SC' rel='stylesheet'>
@@ -38,13 +38,8 @@
             <div class="navibar">
                 
                 <a class="menubutton">
-                    <img id="buttonBattleImajinn" class="navicon" src="images/battleimajinn3.svg" draggable="false"/>
-                    <p class="menutext">Battle<br>Imagine</p>
-                </a>
-                
-                <a class="menubutton">
-                    <img id="buttonInnerImajinn" class="navicon" src="images/innerimajinn2.svg" draggable="false"/>
-                    <p class="menutext">Inner<br>Imagine</p>
+                    <img id="buttonImajinn" class="navicon" src="images/imajinn.svg" draggable="false"/>
+                    <p class="menutext">Imagine<br><br></p>
                 </a>
                 
                 <a class="menubutton">
@@ -1767,454 +1762,398 @@
                 
             </div> <!-- End Crafting -->
             
-            <!-- BATTLE IMAJINN -->
-            <div id="bImajinnContainer">
+            
+            
+            
+            
+            
+            
+            <!-- IMAJINN -->
+            <div id="ImajinnContainer">
                 
-                <!-- Battle Imajinn -->
-                <div id="bImajList">
-                    <div class="craftRow craftHeader" style="margin-top: 0; background-color: gray;">
-                        <p style="width: 15rem; text-align: center;">weapon</p>
-                        <p style="margin-left: -2.5rem; text-align: right;">adventurer<br>rank</p>
-                        <p style="margin-left: 1.2rem; text-align: right;">max<br>lv.</p>
-                        <p style="margin-left: 1.8rem; text-align: center;">element</p>
-                        <p style="font-size: 15px; margin-left: 2.7rem; text-align: right;">stats (max lv.)</p>
-                        <p style="margin-left: 3.6rem; text-align: center;">possible<br>abilities</p>
-                        <p style="margin-left: 16rem; text-align: center;">recipe</p>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi1.png" draggable="false">
-                        <p class="col-name">Pink Piglet</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">15</p>
-                        <p class="col-stats">Effectiveness 175<br>ATK 9<br>STR 4<br>INT 3<br>DEX 2<br>MND 2<br>VIT 4<br>HP 18</p>
-                        <p class="col-abil">Increased healing (battle imagine)<br>Increased healing</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Pink Piglet's Idea</p>
-                            <p class="recipe-desc">Pink Piglet at Skyquake Fields</p>
+                
+                <!-- Current Imajinn Info -->
+                <div id="imajinnInfo">
+                    <p class="i-infoName">Pink Piglet</p>
+                    
+                    <!-- Stats -->
+                    <div class="i-infoHolder">
                         
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Ripple Stone</p>
-                            <p class="recipe-desc">Gather at Skyquake Fields</p>
+                        <img class="i-infoPic" src="images/map/pinkpiglet.gif">
                         
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">1 Piglet Skin</p>
-                            <p class="recipe-desc">Piglet at Skyquake Fields</p>
                         
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">2,000 Luno</p>
+                        <div class="i-infoRow">
+                            <p class="i-infoLv">Starting Lv 1~1 (Max Lv: 15)</p>
+                        </div>
+                        <div class="i-infoRow">
+                            <p class="i-infoEle">element -</p>
+                            <p class="i-infoElePower">&nbsp;</p>
+                            <p class="i-infoCD">cooldown</p>
+                        </div>
+                        <div class="i-infoRow">
+                            <p class="i-infoSkill">skill</p>
+                            <p class="i-infoSkillPower">effectiveness</p>
+                        </div>
+                        <div class="i-infoRow">
+                            <p class="i-infoAbil">ability</p>
+                            <p class="i-infoAbilPower">effectiveness</p>
+                        </div>
+                        
+                        
+                        <div class="i-infoStats">
+                            <div class="i-infoRow">
+                                <div class="i-infoStatRow">
+                                    <p class="statName">str</p>
+                                    <p class="i-infoStatVal">+3</p></div>
+                                <div class="i-infoStatRow">
+                                    <p class="statName">int</p>
+                                    <p class="i-infoStatVal">+3</p>
+                                </div>
+                                <div class="i-infoStatRow">
+                                    <p class="statName">max hp</p>
+                                    <p class="i-infoStatVal">+3</p>
+                                </div>
+                            </div>
+                            <div class="i-infoRow">
+                                <div class="i-infoStatRow">
+                                    <p class="statName">vit</p>
+                                    <p class="i-infoStatVal">+3</p>
+                                </div>
+                                <div class="i-infoStatRow">
+                                    <p class="statName">mnd</p>
+                                    <p class="i-infoStatVal">+3</p>
+                                </div>
+                                <div class="i-infoStatRow">
+                                    <p class="statName">atk</p>
+                                    <p class="i-infoStatVal">+3</p>
+                                </div>
+                            </div>
+                            <div class="i-infoRow">
+                                <div class="i-infoStatRow">
+                                    <p class="statName">dex</p>
+                                    <p class="i-infoStatVal">+3</p>
+                                </div>
+                            </div>
+          
+                        </div> <!-- End infoStats -->
+                        
+                    </div> <!-- end infoHolder -->
+                    
+                    <!-- Recipe -->
+                    <div class="recipeHolder">
+                        <p class="infoBoxHeader">Required items</p>
+                        <div>
+                            <p class="matItem">material</p>
+                            <img class="matIcon" src="images/map/elitemonster.png">
+                            <div class="recipeTooltip1">
+                                <img class="recipeToolImg" src="images/map/elitemonster.png" style="transform: translate(220px, 120px) scale(0.5)">
+                                <p class="recipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="matCount">1</p>
+                            
+                        </div>
+                        <div>
+                            <p class="matItem">material</p>
+                            <img class="matIcon" src="images/map/elitemonster.png">
+                            <div class="recipeTooltip2">
+                                <p class="recipeToolText">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                            </div>
+                            <p class="matCount">1</p>
+                        </div>
+                        <div>
+                            <p class="matItem">material</p>
+                            <img class="matIcon" src="images/map/elitemonster.png">
+                            <div class="recipeTooltip3">
+                                <p class="recipeToolText">Hello</p>
+                            </div>
+                            <p class="matCount">1</p>
+                            
                         </div>
                     </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi2.png" draggable="false">
-                        <p class="col-name">Ferocious Beast</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">15</p>
-                        <p class="col-stats">
-                            Effectiveness 150<br>ATK 7<br>STR 3<br>INT 4<br>DEX 4<br>MND 4<br>VIT 3<br>HP 16</p>
-                        <p class="col-abil">Max Stamina increase<br>DEX increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">2 Ferocious Beast's Idea</p>
-                            <p class="recipe-desc">Ferocious Beast at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Dawngrass</p>
-                            <p class="recipe-desc">Gather at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">1 Rumble Boar's Skin</p>
-                            <p class="recipe-desc">Rumble Boars at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">7,000 Luno</p>
-                        </div>
+                    
+                    <!-- Abilities -->
+                    <div class="abilityHolder">
+                        <p class="infoBoxHeader" style="margin-left: 10px;">Possible abilities</p>
+                        <p class="abil">DEX increase</p>
+                        <p class="abil">Recude damage taken (close-range)</p>
+                        <p class="abil"><br></p>
                     </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi3.png" draggable="false">
-                        <p class="col-name">Goblin</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">15</p>
-                        <p class="col-stats">Effectiveness 414<br>ATK 8<br>STR 4<br>INT 3<br>DEX 4<br>MND 4<br>VIT 2<br>HP 17</p>
-                        <p class="col-abil">Damage increase (tactical skill 1)<br>STR increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">2 Goblin's Idea</p>
-                            <p class="recipe-desc">Valley Raider at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Iron Ore</p>
-                            <p class="recipe-desc">Gather at Skyquake Fields</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">1 Land Fox Tail</p>
-                            <p class="recipe-desc">Land Fox at Skyquake Fields</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">9,000 Luno</p>
-                        </div>
+                
+                    <!-- Luno -->
+                    <div class="lunoHolder">
+                        <p class="infoBoxHeader">Req. luno</p>
+                        <p class="reqLuno">31,500,000</p>
                     </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi4.png" draggable="false">
-                        <p class="col-name">Red Splash</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">15</p>
-                        <p class="col-stats">Effectiveness 422<br>ATK 8<br>STR 2<br>INT 3<br>DEX 4<br>MND 4<br>VIT 2<br>HP 17</p>
-                        <p class="col-abil">Damage increase (regular attack)<br>STR increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">2 Red Splash's Idea</p>
-                            <p class="recipe-desc">Red Splash at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Plateau Lily</p>
-                            <p class="recipe-desc">Gather at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">1 Highland Fox Nail</p>
-                            <p class="recipe-desc">Highland Fox at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">15,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi5.png" draggable="false">
-                        <p class="col-name">Tyrant Boar</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-stats">Effectiveness 504<br>ATK 13<br>STR 4<br>INT 3<br>DEX 2<br>MND 2<br>VIT 4<br>HP 22</p>
-                        <p class="col-abil">Damage increase (battle imagine)<br>ATK increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">2 Tyrant Boar's Idea</p>
-                            <p class="recipe-desc">Clear Arena [C Rank]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Sandsilver</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Horn Goat's Fur</p>
-                            <p class="recipe-desc">Horn Goat at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">45,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi6.png" draggable="false">
-                        <p class="col-name">Deep Green Fang</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-stats">Effectiveness 514<br>ATK 13<br>STR 4<br>INT 3<br>DEX 2<br>MND 2<br>VIT 4<br>HP 22</p>
-                        <p class="col-abil">Damage increase (ultimate)<br>ATK increase
-                        </p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">3 Deep Green Fang's Idea</p>
-                            <p class="recipe-desc">Deep Green Fang at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em;">3 Asterbass</p>
-                            <p class="recipe-desc">Gather at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Tyrant Boar's Skin</p>
-                            <p class="recipe-desc">Tyrant Boars at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">17,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi7.png" draggable="false">
-                        <p class="col-name">Iron Fang</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-stats">Effectiveness 524<br>ATK 13<br>STR 4<br>INT 3<br>DEX 2<br>MND 2<br>VIT 4<br>HP 22</p>
-                        <p class="col-abil">Damage increase (close-range)<br>ATK increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">3 Iron Fang's Idea</p>
-                            <p class="recipe-desc">Iron Fang at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Beartree Leaf</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Goblin Mane</p>
-                            <p class="recipe-desc">Goblin at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">20,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi8.png" draggable="false">
-                        <p class="col-name">Evil Healer</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <p class="col-stats">Effectiveness ?<br>ATK 13<br>STR 5<br>INT 4<br>DEX 2<br>MND 2<br>VIT 4<br>HP 22</p>
-                        <p class="col-abil">Increased healing (battle imagine)<br>Increased healing</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">4 Evil Healer's Idea</p>
-                            <p class="recipe-desc">Evil Healer at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Rimeril Ore</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Ogre Bone</p>
-                            <p class="recipe-desc">Ogres at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">56,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi9.png" draggable="false">
-                        <p class="col-name">Goblin Sage</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <p class="col-stats">
-                            Effectiveness 323<br>ATK 16<br>STR 5<br>INT 4<br>DEX 5<br>MND 5<br>VIT 3<br>HP 28</p>
-                        <p class="col-abil">Increased healing (battle imagine)<br>Increased healing</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">5 Goblin Sage's Idea</p>
-                            <p class="recipe-desc">Clear Arena [A Rank]</p>
-                        
-                            <p class="mat"><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em;">3 Spike Fish</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Sapphire Trot's Fang</p>
-                            <p class="recipe-desc">Sapphire Trot at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">120,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi10.png" draggable="false">
-                        <p class="col-name">Spooky Goat</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <p class="col-stats">Effectiveness 130<br>ATK 14<br>STR 3<br>INT 4<br>DEX 5<br>MND 5<br>VIT 3<br>HP 27</p>
-                        <p class="col-abil">Max Stamina increase<br>DEX increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">4 Spooky Goat's Idea</p>
-                            <p class="recipe-desc">Spooky Goat at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Sunset Cedar Twig</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Glowing Tyrant Boar Skin</p>
-                            <p class="recipe-desc">Glowing Tyrant Boar at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">45,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi11.png" draggable="false">
-                        <p class="col-name">Sapphire Trot</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-stats">Effectiveness 483<br>ATK 10<br>STR 3<br>INT 4<br>DEX 4<br>MND 4<br>VIT 3<br>HP 19</p>
-                        <p class="col-abil">Crit rate increase<br>DEX increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">3 Sapphire Trot's Idea</p>
-                            <p class="recipe-desc">Sapphire Trot at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Andra Cedar Twig</p>
-                            <p class="recipe-desc">Gather at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Elder Goblin's Mane</p>
-                            <p class="recipe-desc">Elder Goblin at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">25,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi12.png" draggable="false">
-                        <p class="col-name">Flaming Horns</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-stats">Effectiveness 493<br>ATK 12<br>STR 2<br>INT 3<br>DEX 4<br>MND 4<br>VIT 2<br>HP 23</p>
-                        <p class="col-abil">Reduce damage taken (close-range)<br>DEF increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">3 Flaming Horns' Idea</p>
-                            <p class="recipe-desc">Flaming Horns at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Blesio Nut</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Goblin Sage's Mane</p>
-                            <p class="recipe-desc">Goblin Sage at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">26,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi13.png" draggable="false">
-                        <p class="col-name">Horn Goat</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <p class="col-stats">Effectiveness 593<br>ATK 14<br>STR 3<br>INT 3<br>DEX 5<br>MND 5<br>VIT 4<br>HP 27</p>
-                        <p class="col-abil">Reduce damage taken (long-range)<br>DEF increase
-                        </p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Horn Goat's Idea</p>
-                            <p class="recipe-desc">Clear Arena [B Rank]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Silver Ore</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Glowing Elder Goblin's Mane</p>
-                            <p class="recipe-desc">Glowing Elder Goblin at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">83,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi14.png" draggable="false">
-                        <p class="col-name">Elder Goblin</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <p class="col-stats">Effectiveness ?<br>ATK ?<br>STR ?<br>INT ?<br>DEX ?<br>MND ?<br>VIT ?<br>HP ?</p>
-                        <p class="col-abil">Damage increase (long-range)<br>INT increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">4 Elder Goblin's Idea</p>
-                            <p class="recipe-desc">Arrogant Conjurer at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Magna Moss Fossil</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Kaiser Elk Fur</p>
-                            <p class="recipe-desc">Kaiser Elk at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">43,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi15.png" draggable="false">
-                        <p class="col-name">Land Fox</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <p class="col-stats">Effectiveness 669<br>ATK 7<br>STR 3<br>INT 4<br>DEX 4<br>MND 4<br>VIT 3<br>HP 16</p>
-                        <p class="col-abil">Crit damage increase<br>DEX increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Land Fox's Idea</p>
-                            <p class="recipe-desc">Loudshout at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Lamusa Flower</p>
-                            <p class="recipe-desc">Gather at Skyquake Fields</p>
-                        
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Pink Piglet's Skin</p>
-                            <p class="recipe-desc">Pink Piglet at Skyquake Fields</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">1,500 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi16.png" draggable="false">
-                        <p class="col-name">Ferocious Gold</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <p class="col-stats">
-                            Effectiveness 696<br>ATK 18<br>STR 5<br>INT 4<br>DEX 3<br>MND 3<br>VIT 5<br>HP ?</p>
-                        <p class="col-abil">Damage increase (close-range)<br>ATK increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">5 Ferocious Gold's Idea</p>
-                            <p class="recipe-desc">Ferocious Gold at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Nectar Seed</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Ferocious Beast's Tail</p>
-                            <p class="recipe-desc">Ferocious Beast at Minster Hills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">85,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi17.png" draggable="false">
-                        <p class="col-name">Flame Prison</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <p class="col-stats">Effectiveness 710<br>ATK 19<br>STR 5<br>INT 3<br>DEX 4<br>MND 3<br>VIT 4<br>HP 31</p>
-                        <p class="col-abil">Reduce cooldown (battle imagine)<br>Max HP increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">5 Flame Prison's Idea</p>
-                            <p class="recipe-desc">Flame Prison at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Jasper Stone</p>
-                            <p class="recipe-desc">Gather at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">3 Glowing Goblin's Mane</p>
-                            <p class="recipe-desc">Glowing Goblin at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">86,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi18.png" draggable="false">
-                        <p class="col-name">Trick Elder</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <p class="col-stats">Effectiveness 741<br>ATK 18<br>STR 6<br>INT 5<br>DEX 6<br>MND 6<br>VIT 4<br>HP 32</p>
-                        <p class="col-abil">Damage increase (long-range)<br>INT increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">5 Trick Elder's Idea</p>
-                            <p class="recipe-desc">Trick Elder at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Dragon Venom</p>
-                            <p class="recipe-desc">Gather at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Deep Green Fang's Skin</p>
-                            <p class="recipe-desc">Deep Green Fang at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">130,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi19.png" draggable="false">
-                        <p class="col-name">Kaiser Elk</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <p class="col-stats">Effectiveness 756<br>ATK 19<br>STR 6<br>INT 5<br>DEX 6<br>MND 6<br>VIT 4<br>HP 35</p>
-                        <p class="col-abil">Reduce damage taken (close-range)<br>DEF increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.2em;" draggable="false">7 Kaiser Elk's Idea</p>
-                            <p class="recipe-desc">Clear Arena [S Rank]</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.3em -0.78em 0em;" draggable="false">3 Longan Flower</p>
-                            <p class="recipe-desc">Gather at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Evil Healer's Mane</p>
-                            <p class="recipe-desc">Evil Healer at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">140,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi20.png" draggable="false">
-                        <p class="col-name">Plidoke</p>
-                        <p class="col-ar">?</p>
-                        <p class="col-maxlv">35</p>
-                        <p class="col-stats">Effectiveness 772<br>ATK 20<br>STR 5<br>INT 4<br>DEX 5<br>MND 4<br>VIT 6<br>HP 37</p>
-                        <p class="col-abil">-</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/quest.svg" style="transform: scale(0.6); margin: 0em -0em -0.5em 0.2em;" draggable="false">Acquired through quest ""</p>
-                            <p class="recipe-desc">No data</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi21.png" draggable="false">
-                        <p class="col-name">Raging Kingfang</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <p class="col-stats">Effectiveness 787<br>ATK 20<br>STR 6<br>INT 5<br>DEX 4<br>MND 4<br>VIT 6<br>HP 34</p>
-                        <p class="col-abil">Reduce cooldown (ultimate)<br>ATK increase</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">7 Raging Kingfang's Idea</p>
-                            <p class="recipe-desc">Raging Kingfang at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.15em -0.78em -0.084em;" draggable="false">3 Shell Fossil</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em;">1 Flame Prison's Bone</p>
-                            <p class="recipe-desc">Flame Prison at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" style="transform: scale(0.5); margin: -0.3em -0em -0.9em -0.2em;" draggable="false">190,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bi22.png" draggable="false">
-                        <p class="col-name">Sealed Tyranny</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <p class="col-stats">Effectiveness 802<br>ATK 21<br>STR 6<br>INT 4<br>DEX 5<br>MND 4<br>VIT 5<br>HP 35</p>
-                        <p class="col-abil">-</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/quest.svg" style="transform: scale(0.6); margin: 0em -0em -0.5em 0.2em;" draggable="false">Acquired through quest ""</p>
-                            <p class="recipe-desc">Craft every other battle imagine</p>
-                        </div>
-                    </div>
+                    
+                </div>
+                
+                <!-- Imajinn List -->
+                <div class="listHolder">
+                    
+                    <div class="craftListContainer">
+
+                        <div id="ImajList">
+
+                            <!-- Pink Piglet -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi1.png" draggable="false"><p class="listItem-name">Pink Piglet</p>
+                                    <p class="listItem-type">Heal type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Ferocious Beast -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi2.png" draggable="false"><p class="listItem-name">Ferocious Beast</p>
+                                    <p class="listItem-type">Support type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Red Splash -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi4.png" draggable="false"><p class="listItem-name">Red Splash</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Deep Green Fang -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi6.png" draggable="false"><p class="listItem-name">Deep Green Fang</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Iron Fang -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi7.png" draggable="false"><p class="listItem-name">Iron Fang</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Flame Prison -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi17.png" draggable="false"><p class="listItem-name">Flame Prison</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Ferocious Gold -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi16.png" draggable="false"><p class="listItem-name">Ferocious Gold</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Sapphire Trot -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi11.png" draggable="false"><p class="listItem-name">Sapphire Trot</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Flaming Horns -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi12.png" draggable="false"><p class="listItem-name">Flaming Horns</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Spooky Goat -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi10.png" draggable="false"><p class="listItem-name">Spooky Goat</p>
+                                    <p class="listItem-type">Support type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Evil Healer -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi8.png" draggable="false"><p class="listItem-name">Evil Healer</p>
+                                    <p class="listItem-type">Heal type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Trick Elder -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi18.png" draggable="false"><p class="listItem-name">Trick Elder</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Elder Goblin -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi14.png" draggable="false"><p class="listItem-name">Elder Goblin</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Goblin -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi3.png" draggable="false"><p class="listItem-name">Goblin</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Land Fox -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi15.png" draggable="false"><p class="listItem-name">Land Fox</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Tyrant Boar -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi5.png" draggable="false"><p class="listItem-name">Tyrant Boar</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">2+</p>
+                                </div>
+                            </div>
+                            <!-- Horned Goat -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi13.png" draggable="false"><p class="listItem-name">Horned Goat</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Goblin Sage -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi9.png" draggable="false"><p class="listItem-name">Goblin Sage</p>
+                                    <p class="listItem-type">Heal type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Kaiser Elk -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi19.png" draggable="false"><p class="listItem-name">Kaiser Elk</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Raging Kingfang -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi21.png" draggable="false"><p class="listItem-name">Raging Kingfang</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Sealed Atrocity -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi22.png" draggable="false"><p class="listItem-name">Sealed Atrocity</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            <!-- Plidoke -->
+                            <div class="listItem">
+                                <div class="listItem-desc">
+                                    <img class="listItem-icon" src="images/crafting/bi20.png" draggable="false"><p class="listItem-name">Plidoke</p>
+                                    <p class="listItem-type">Attack type</p>
+                                </div>
+                                <div class="listItemAR">
+                                    <p class="listItem-reqAR">Req. AR</p>
+                                    <p class="listItem-reqAR2">3+</p>
+                                </div>
+                            </div>
+                            
+
+                        </div> <!-- End of ImajList -->
+                
+                
+                    </div> <!-- End of CraftListContainer -->
                 
                 
                 
-                </div> <!-- End of Aegis -->
-            </div>
+                
+                </div> <!-- End of listHolder -->
+                
+                
+                
+                
+                
+                
+            </div> <!-- End of IMAJINN -->
             
             <!-- Adds a background to display page on, might not be needed but might be useful for the animation later on? -->
             <div id="contentViewer"></div>
