@@ -28,6 +28,7 @@ jQuery(document).ready(function($){
     var mat = $(".matItem");
     var matIcon = $(".matIcon");
     var matCount = $(".matCount");
+    var recipeToolText = $(".recipeToolText");
     var luno = $(".reqLuno");
     var abilList = $(".abil");
     
@@ -435,7 +436,9 @@ jQuery(document).ready(function($){
             recipe: ["Pink Piglet's Idea","Ripple Stone","Piglet Skin","2,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["1","3","1"],
-            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
+            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
+            tooltipText: ["Pink Piglet<br>Skyquake Fields","Gather<br>Skyquake Fields","Piglet<br>Skyquake Fields"],
+            tooltipImg: []
         },
         // Ferocious Beast 猛る獣
         { 
@@ -458,7 +461,9 @@ jQuery(document).ready(function($){
             recipe: ["Ferocious Beast's Idea","Dawngrass","Rumble Boar's Skin","7,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["2","3","1"],
-            abilList: ["Max stamina increase","DEX increase", "<br>"]
+            abilList: ["Max stamina increase","DEX increase", "<br>"],
+            tooltipText: ["Ferocious Beast<br>Minster Hills","Gather<br>Minster Hills","Rumble Boar<br>Andra Basin"],
+            tooltipImg: []
         },
         // Red Splash 赤い飛沫
         { 
@@ -481,7 +486,9 @@ jQuery(document).ready(function($){
             recipe: ["Red Splash's Idea","Plateau Lily","Highland Fox Nail","15,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["2","3","1"],
-            abilList: ["Damage increase (regular attack)","STR increase", "<br>"]
+            abilList: ["Damage increase (regular attack)","STR increase", "<br>"],
+            tooltipText: ["Red Splash<br>Minster Hills","Gather<br>Soundless Foothills","Highland Fox<br>Divine Haven Hill"],
+            tooltipImg: []
         },
         // Deep Green Fang 深緑の牙
         { 
@@ -504,7 +511,9 @@ jQuery(document).ready(function($){
             recipe: ["Deep Green Fang's Idea","Asterbass","Tyrant Boar's Skin","17,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/shell2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
-            abilList: ["Damage increase (ultimate)","ATK increase", "<br>"]
+            abilList: ["Damage increase (ultimate)","ATK increase", "<br>"],
+            tooltipText: ["Deep Green Fang<br>Andra Basin","Gather<br>Minster Hills","Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipImg: []
         },
         // Iron Fang 鉄牙
         { 
@@ -527,7 +536,9 @@ jQuery(document).ready(function($){
             recipe: ["Iron Fang's Idea","Beartree Leaf","Goblin Mane","20,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
-            abilList: ["Damage increase (close-range)","ATK increase", "<br>"]
+            abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
+            tooltipText: ["Iron Fang<br>Andra Basin","Gather<br>Divine Haven Hill","Goblin<br>Minster hills"],
+            tooltipImg: []
         },
         // Flame Prison 炎獄
         { 
@@ -550,7 +561,9 @@ jQuery(document).ready(function($){
             recipe: ["Flame Prison's Idea","Jasper Stone","Glowing Goblin's Mane","86,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["5","3","3"],
-            abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"]
+            abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"],
+            tooltipText: ["Flame Prison<br>Calm Eve Terraces","Gather<br>Soundless Foothills","Glowing Goblin<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipImg: []
         },
         // Ferocious Gold 猛る金色
         { 
@@ -573,7 +586,9 @@ jQuery(document).ready(function($){
             recipe: ["Ferocious Gold's Idea","Nectar Seed","Ferocious Beast's Tail","85,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["5","3","1"],
-            abilList: ["Damage increase (close-range)","ATK increase", "<br>"]
+            abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
+            tooltipText: ["Ferocious Gold<br>Calm Eve Terraces","Gather<br>Fiel Pond","Ferocious Beast<br>Minster Hills"],
+            tooltipImg: []
         },
         // Sapphire Trot サファイアトロット
         { 
@@ -596,7 +611,9 @@ jQuery(document).ready(function($){
             recipe: ["Sapphire Trot's Idea","Andra Cedar Twig","Elder Goblin's Mane","25,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
-            abilList: ["Crit rate increase","DEX increase", "<br>"]
+            abilList: ["Crit rate increase","DEX increase", "<br>"],
+            tooltipText: ["Sapphire Trot<br>Divine Haven Hill","Gather<br>Minster Hills","Elder Goblin<br>Andra Basin"],
+            tooltipImg: []
         },
         // Flaming Horns 炎角
         { 
@@ -619,7 +636,9 @@ jQuery(document).ready(function($){
             recipe: ["Flaming Horns' Idea","Blesio Nut","Goblin Sage's Mane","26,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
-            abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"]
+            abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
+            tooltipText: ["Flaming Horns<br>Divine Haven Hill","Gather<br>Divine Haven Hill","Goblin Sage<br>Soundless Foothills"],
+            tooltipImg: []
         },
         // Spooky Goat スプーキーゴート
         { 
@@ -642,7 +661,9 @@ jQuery(document).ready(function($){
             recipe: ["Spooky Goat's Idea","Sunset Cedar Twig","Glowing Tyrant Boar Skin","45,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["4","3","3"],
-            abilList: ["Max stamina increase","DEX increase", "<br>"]
+            abilList: ["Max stamina increase","DEX increase", "<br>"],
+            tooltipText: ["Spooky Goat<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Glowing Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipImg: []
         },
         // Evil Healer 悪しき癒し手
         { 
@@ -665,7 +686,9 @@ jQuery(document).ready(function($){
             recipe: ["Evil Healer's Idea","Rimeril Ore","Ogre Bone","56,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["4","3","3"],
-            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
+            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
+            tooltipText: ["Evil Healer<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Ogre<br>Calm Eve Terraces"],
+            tooltipImg: []
         },
         // Trick Elder トリックエルダー
         { 
@@ -686,9 +709,11 @@ jQuery(document).ready(function($){
                     /*DEX*/"+6"
                    ],
             recipe: ["Trick Elder's Idea","Dragon Venom","Deep Green Fang's Skin","130,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower.svg","images/map/elitemonster.svg"],
+            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["3","3","1"],
-            abilList: ["Damage increase (long-range)","INT increase", "<br>"]
+            abilList: ["Damage increase (long-range)","INT increase", "<br>"],
+            tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Dragonclaw Valley [Free Exploration]","Deep Green Fang<br>Andra Basin"],
+            tooltipImg: []
         },
         // Elder Goblin エルダーゴブリン
         { 
@@ -711,7 +736,9 @@ jQuery(document).ready(function($){
             recipe: ["Elder Goblin's Idea","Magna Moss Fossil","Kaiser Elk Fur","43,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["4","3","3"],
-            abilList: ["Damage increase (long-range)","INT increase", "<br>"]
+            abilList: ["Damage increase (long-range)","INT increase", "<br>"],
+            tooltipText: ["Arrogant Conjurer<br>Dragonclaw Valley [Free Exploration]","Gather<br>Calm Eve Terraces","Kaiser Elk<br>Divine Haven Hill"],
+            tooltipImg: []
         },
         // Goblin ゴブリン
         { 
@@ -734,7 +761,9 @@ jQuery(document).ready(function($){
             recipe: ["Goblin's Idea","Iron Ore","Land Fox Tail","9,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["2","3","1"],
-            abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"]
+            abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"],
+            tooltipText: ["Valley Raider<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Land Fox<br>Skyquake Fields"],
+            tooltipImg: []
         },
         // Land Fox ランドフォックス
         { 
@@ -757,7 +786,9 @@ jQuery(document).ready(function($){
             recipe: ["Land Fox's Idea","Lamusa Flower","Pink Piglet's Skin","1,500"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["1","3","1"],
-            abilList: ["Crit damage increase","DEX increase", "<br>"]
+            abilList: ["Crit damage increase","DEX increase", "<br>"],
+            tooltipText: ["Loudshot<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Pink Piglet<br>Skyquake Fields"],
+            tooltipImg: []
         },
         // Tyrant Boar タイラントボア
         { 
@@ -780,7 +811,9 @@ jQuery(document).ready(function($){
             recipe: ["Tyrant Boar's Idea","Sandsilver","Horn Goat's Fur","45,000"],
             iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["2","3","3"],
-            abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"]
+            abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"],
+            tooltipText: ["Clear Arena [C Rank]","Gather<br>Divine Haven Hill","Horned Goat<br>Fiel Pond"],
+            tooltipImg: []
         },
         // Horned Goat ホーンゴート
         { 
@@ -803,7 +836,9 @@ jQuery(document).ready(function($){
             recipe: ["Horned Goat's Idea","Silver Ore","Glowing Elder Goblin's Mane","83,000"],
             iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
-            abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"]
+            abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"],
+            tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipImg: []
         },
         // Goblin Sage ゴブリンセージ
         { 
@@ -826,7 +861,9 @@ jQuery(document).ready(function($){
             recipe: ["Goblin Sage's Idea","Spike Fish","Sapphire Trot's Fang","120,000"],
             iconSrc: ["images/map/combat2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
             amt: ["5","3","1"],
-            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"]
+            abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
+            tooltipText: ["Clear Arena [A Rank]","Gather<br>Fiel Pond","Sapphire Trot<br>Divine Haven Hill"],
+            tooltipImg: []
         },
         // Kaiser Elk カイザーエルク
         { 
@@ -849,7 +886,9 @@ jQuery(document).ready(function($){
             recipe: ["Kaiser Elk's Idea","Longan Flower","Evil Healer's Mane","140,000"],
             iconSrc: ["images/map/combat2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["7","3","1"],
-            abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"]
+            abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
+            tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragonclaw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
+            tooltipImg: []
         },
         // Raging Kingfang 荒ぶる牙王
         { 
@@ -872,7 +911,60 @@ jQuery(document).ready(function($){
             recipe: ["Raging Kingfang's Idea","Shell Fossil","Flame Prison's Bone","190,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/elitemonster.png"],
             amt: ["7","3","1"],
-            abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"]
+            abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"],
+            tooltipText: ["Raging Kingfang<br>Dragonclaw Valley [Free Exploration]","Gather<br>Fiel Pond","Flame Prison<br>Calm Eve Terraces"],
+            tooltipImg: []
+        },
+        
+        // Sealed Atrocity 封印されし暴虐
+        { 
+            name: "Sealed Atrocity",
+            image: "",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // アースクエイク
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Earthquake (attack type)","effectiveness", "802"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+4",
+                    /*HP*/"+35",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+21",
+                    /*DEX*/"+5"
+                   ],
+            recipe: ["Obtained as a Quest Reward", "<br>", "<br>", "0"],
+            iconSrc: ["images/map/quest2.svg","",""],
+            amt: ["<br>","<br>","<br>"],
+            abilList: ["-","<br>", "<br>"],
+            tooltipText: ['Complete quest "Collect Battle Imagine! #2"<br><br>After completing "Collect Battle Imagine! #1", craft Deep Green Fang, Iron Fang, Sapphire Trot, and Spooky Goat',"<br>","<br>"],
+            tooltipImg: []
+        },
+        // Plidoke プリドーク
+        { 
+            name: "Plidoke",
+            image: "",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
+            // スライサーアーム
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Slicer Arm (attack type)","effectiveness", "772"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+37",
+                    /*VIT*/"+6",
+                    /*MND*/"+4",
+                    /*ATK*/"+20",
+                    /*DEX*/"+5"
+                   ],
+            recipe: ["Obtained as a Quest Reward", "<br>", "<br>", "0"],
+            iconSrc: ["images/map/quest2.svg","",""],
+            amt: ["<br>","<br>","<br>"],
+            abilList: ["-","<br>", "<br>"],
+            tooltipText: ['Complete quest "Collect Battle Imagine! #3"<br><br>After completing "Collect Battle Imagine! #2", craft ',"<br>","<br>"],
+            tooltipImg: []
         },
     ]
     
@@ -918,6 +1010,11 @@ jQuery(document).ready(function($){
            $(this).html(biHolder[biIndex].amt[(index)]); 
         });
         luno.html(biHolder[biIndex].recipe[(biHolder[biIndex].recipe.length - 1)]);
+        
+        // Send recipe hints
+        recipeToolText.each(function (index) {
+           $(this).html(biHolder[biIndex].tooltipText[(index)]); 
+        });
         
         // Send ability list
         abilList.each(function(index){

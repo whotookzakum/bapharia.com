@@ -451,6 +451,7 @@ html, body {
     z-index: 51;
     opacity: 0;
     transition: all 0.15s ease-in;
+    filter: drop-shadow(0 -2px 10px black);
 }
 /* Screenshot of imajinn/exploration point/area map */
 .mapExploration:hover+.tooltip+.pointPicture, .mapEliteMonster:hover+.tooltip+.pointPicture, .mapMove:hover+.tooltip+.pointPicture {
@@ -467,7 +468,7 @@ html, body {
     font-size: 16px;
     z-index: 55;
 }
-p.tooltip {
+p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     z-index: 60;
     padding: 5px 10px 5px 7px;
     width: auto;
@@ -805,6 +806,7 @@ p.tooltip {
     border-left: 14px solid #464444;
     border-top: 40px solid #464444;
     display: inline-block;
+    position: relative;
 }
 
 .infoBoxHeader {
@@ -840,6 +842,30 @@ p.tooltip {
 }
 .matCount {
     display: inline-block;
+}
+
+.recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
+    background: url(images/map/moveDivineHavenHill.png) no-repeat -70px -0px;
+    background-size: 600px;
+    border: none;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    z-index: 70;
+    margin-top: -330px;
+    left: 13%;
+    display: none;
+}
+.matIcon:hover+div {
+    display: block;
+}
+.recipeToolText {
+    filter: drop-shadow(0 2px 1px black);
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding-bottom:10px;
+    width: 285px;
 }
 
 .abilityHolder {
