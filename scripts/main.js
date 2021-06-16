@@ -13,7 +13,7 @@ jQuery(document).ready(function($){
     }
     
     // BATTLE IMAJINN
-    var biIndex = 0;
+    var iIndex = 0;
     var name = $(".i-infoName");
     var image = $(".i-infoPic");
     var level = $(".i-infoLv");
@@ -31,6 +31,7 @@ jQuery(document).ready(function($){
     var recipeToolText = $(".recipeToolText");
     var luno = $(".reqLuno");
     var abilList = $(".abil");
+    var listHolder = biHolder;
     
     
     // MENU BUTTONS
@@ -97,7 +98,6 @@ jQuery(document).ready(function($){
             if ($(this).is("#buttonImajinn")) {
                 openImajinn();
                 currentPage = $("#ImajinnContainer");
-                
             }
             // COMBAT
             if ($(this).is("#buttonCombat")) {
@@ -163,12 +163,7 @@ jQuery(document).ready(function($){
     });
     
     
-    // BATTLE IMAJINN
-    function openImajinn() {
-        $("#ImajinnContainer").css("display", "block");
-        $("#contentViewer").css("display", "block");
-        dispImajinn();
-    }
+   
     
     
     // MAP
@@ -209,7 +204,7 @@ jQuery(document).ready(function($){
         
     });
     
-    
+
     // Map Tooltip - Mouse Tracker
     function trackMouse(e) {
         for (var i=tooltip.length; i--;) {
@@ -968,61 +963,313 @@ jQuery(document).ready(function($){
         },
     ]
     
+    // INNER IMAJINN LIST
+    var iiHolder = [
+        
+        // Dyranks
+        { 
+            name: "Dyranks (courage)",
+            image: "images/crafting/ii1L.png",
+            level: "Starting Lv 1~1 (Max Lv: 7)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Courage"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+12",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+5",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
+            iconSrc: ["images/map/combat2.svg","",""],
+            amt: ["1","<br>","<br>"],
+            abilList: ["Max HP increase","<br>", "<br>"],
+            tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
+            tooltipImg: []
+        },
+        // Corjun
+        { 
+            name: "Corjun (mystery)",
+            image: "images/crafting/ii2L.png",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Mystery"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+0",
+                    /*INT*/"+5",
+                    /*HP*/"+20",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+6",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Land Fox Nail","Asterium Ore","<br>","9,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            amt: ["8","15","<br>"],
+            abilList: ["ATK increase","<br>", "<br>"],
+            tooltipText: ["Land Fox<br>Minster Hills","Gather<br>Minster Hills","<br>"],
+            tooltipImg: []
+        },
+        // Mipect
+        { 
+            name: "Mipect (hope)",
+            image: "images/crafting/ii3L.png",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Hope"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+3",
+                    /*HP*/"+25",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+0"
+                   ],
+            recipe: ["Goblin Nail","Jira Crystal","<br>","10,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            amt: ["10","10","<br>"],
+            abilList: ["Max Stamina increase","<br>", "<br>"],
+            tooltipText: ["Goblin<br>Andra Basin","Gather<br>Andra Basin","<br>"],
+            tooltipImg: []
+        },
+        // Proxyx
+        { 
+            name: "Proxyx (courage)",
+            image: "images/crafting/ii4L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Courage"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+0",
+                    /*HP*/"+36",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+13",
+                    /*DEX*/"+4"
+                   ],
+            recipe: ["Horned Goat Bone","Smoky Moss","<br>","60,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
+            amt: ["12","20","<br>"],
+            abilList: ["Max HP increase","VIT increase", "STR increase"],
+            tooltipText: ["Horned Goat<br>Soundless Foothills","Gather<br>Divine Haven Hill","<br>"],
+            tooltipImg: []
+        },
+        // Latepect
+        { 
+            name: "Latepect (hope)",
+            image: "images/crafting/ii5L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Hope"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+4",
+                    /*HP*/"+38",
+                    /*VIT*/"+6",
+                    /*MND*/"+5",
+                    /*ATK*/"+11",
+                    /*DEX*/"+0"
+                   ],
+            recipe: ["Large Fang Fossil","<br>","<br>","85,000"],
+            iconSrc: ["images/map/rock2.svg","",""],
+            amt: ["25","<br>","<br>"],
+            abilList: ["Max Stamina increase","INT increase", "MND increase"],
+            tooltipText: ["Gather<br>Divine Haven Hill","<br>","<br>"],
+            tooltipImg: []
+        },
+        // Carcon
+        { 
+            name: "Carcon (mystery)",
+            image: "images/crafting/ii6L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Mystery"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+?",
+                    /*INT*/"+?",
+                    /*HP*/"+?",
+                    /*VIT*/"+?",
+                    /*MND*/"+?",
+                    /*ATK*/"+?",
+                    /*DEX*/"+?"
+                   ],
+            recipe: ["Glowing Goblin's Nail","Pterosaur Fossil","<br>","240,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            amt: ["10","35","<br>"],
+            abilList: ["ATK increase","STR increase", "DEX increase"],
+            tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
+            tooltipImg: []
+        },
+        // Parbury
+        { 
+            name: "Parbury (ambition)",
+            image: "images/crafting/ii7L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Ambition"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+4",
+                    /*HP*/"+34",
+                    /*VIT*/"+4",
+                    /*MND*/"+0",
+                    /*ATK*/"+12",
+                    /*DEX*/"+6"
+                   ],
+            recipe: ["Glowing Tyrant Boar's Fang","Stardust Grass","<br>","500,000"],
+            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
+            amt: ["15","40","<br>"],
+            abilList: ["DEF increase","DEX increase", "VIT increase"],
+            tooltipText: ["Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces","<br>"],
+            tooltipImg: []
+        },
+        // Sanak'ta
+        { 
+            name: "Sanak'ta (affection)",
+            image: "images/crafting/ii8L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","Affection"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+5",
+                    /*HP*/"+30",
+                    /*VIT*/"+0",
+                    /*MND*/"+6",
+                    /*ATK*/"+10",
+                    /*DEX*/"+6"
+                   ],
+            recipe: ["Trick Elder's Nail","Welling Water Stone","<br>","900,000"],
+            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg",""],
+            amt: ["1","50","<br>"],
+            abilList: ["Healing increase","MND increase", "INT increase"],
+            tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Fiel Pond","<br>"],
+            tooltipImg: []
+        }
+    ]
+    
+    // Check if battle or inner imajinn was clicked, assign listHolder
+    // Show Inner Imajinn
+    $(".iiSelImg").click(function(){
+        iIndex = 0;
+        $("#ImajList").css("display", "none");
+        $("#InnerList").css("display", "initial");
+        listHolder = iiHolder;
+        dispImajinn(listHolder);
+    });
+    // Show Battle Imajinn
+    $(".biSelImg").click(function(){
+        iIndex = 0;
+        $("#ImajList").css("display", "initial");
+        $("#InnerList").css("display", "none");
+        listHolder = biHolder;
+        dispImajinn(listHolder);
+    });
+    
     // Select a battle imajinn
     $(".listItem").click(function(){
         
-        // Index of the clicked item
-        biIndex = $(".listItem").index(this);
+        if (listHolder == biHolder) {
+            // Index of the clicked item
+            iIndex = $(".biList").index(this);
+        }
+        else if (listHolder == iiHolder) {
+            // Index of the clicked item
+            iIndex = $(".iiList").index(this);
+        }
 
-        dispImajinn();
+        dispImajinn(listHolder);
 
     });
     
     
+    
     // Display Battle Imajinn
-    function dispImajinn() {
+    function dispImajinn(holder) {
         
         // Send item info
-        name.html(biHolder[biIndex].name);
-        image.attr("src", biHolder[biIndex].image);
-        level.html(biHolder[biIndex].level);
-        element.html(biHolder[biIndex].element[0]);
-        elePower.html(biHolder[biIndex].element[1]);
-        cd.html(biHolder[biIndex].cooldown[0] + biHolder[biIndex].cooldown[1]);
-        skill.html(biHolder[biIndex].skill[0] + biHolder[biIndex].skill[1]);
-        skillPower.html(biHolder[biIndex].skill[2] + spacing1 + biHolder[biIndex].skill[3]);
-        abil.html(biHolder[biIndex].ability[0] + spacing1 + biHolder[biIndex].ability[1]);
-        abilPower.html(biHolder[biIndex].ability[2] + spacing1 + biHolder[biIndex].ability[3]);
+        name.html(holder[iIndex].name);
+        image.attr("src", holder[iIndex].image);
+        level.html(holder[iIndex].level);
+        element.html(holder[iIndex].element[0]);
+        elePower.html(holder[iIndex].element[1]);
+        
+        // Battle imajinn displays cd, skill, skillpower
+        if (holder == biHolder) {
+            cd.css("display","initial");
+            skillPower.css("display","initial");
+            
+            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
+            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
+            skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
+        } 
+        // Inner imajinn displays slot
+        else if (holder == iiHolder) {
+            cd.css("display","none");
+            skillPower.css("display","none");
+            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;" + holder[iIndex].slot[1]);
+        }
+        
+        abil.html(holder[iIndex].ability[0] + spacing1 + holder[iIndex].ability[1]);
+        abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
         
         // Send stats
         statVal.each(function(index){
-            $(this).html(biHolder[biIndex].stats[(index)]);
+            $(this).html(holder[iIndex].stats[(index)]);
         });
         
         // Send recipe materials
         mat.each(function (index) {
-           $(this).html(biHolder[biIndex].recipe[(index)]); 
+           $(this).html(holder[iIndex].recipe[(index)]); 
         });
         matIcon.each(function (index) {
-           $(this).attr("src", biHolder[biIndex].iconSrc[(index)]); 
+           $(this).attr("src", holder[iIndex].iconSrc[(index)]); 
         });
         matCount.each(function (index) {
-           $(this).html(biHolder[biIndex].amt[(index)]); 
+           $(this).html(holder[iIndex].amt[(index)]); 
         });
-        luno.html(biHolder[biIndex].recipe[(biHolder[biIndex].recipe.length - 1)]);
+        luno.html(holder[iIndex].recipe[(holder[iIndex].recipe.length - 1)]);
         
         // Send recipe hints
         recipeToolText.each(function (index) {
-           $(this).html(biHolder[biIndex].tooltipText[(index)]); 
+           $(this).html(holder[iIndex].tooltipText[(index)]); 
         });
         
         // Send ability list
         abilList.each(function(index){
-           $(this).html(biHolder[biIndex].abilList[(index)]);
+           $(this).html(holder[iIndex].abilList[(index)]);
         });
         
     }
     
+     // BATTLE IMAJINN
+    function openImajinn() {
+        // if battle or inner imaj page, select that container and display
+        $("#ImajinnContainer").css("display", "block");
+        $("#contentViewer").css("display", "block");
+    
+        dispImajinn(listHolder);
+    }
 
     // TRIVIA
     // Generate map names and skill names from a list
