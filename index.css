@@ -467,21 +467,21 @@ html, body {
 .tooltip {
     display: none;
     position: fixed;
-    font-size: 16px;
+    font-size: 16px; /* 16px */
     z-index: 55;
 }
 p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     z-index: 60;
-    padding: 5px 10px 5px 7px;
+    padding: 0.26vw 0.52vw 0.26vw 0.52vw;
     width: auto;
     background-color: #161211;
     color: white;
-    border-left: 16px solid #30b0d1;
+    border-left: 0.84vw solid #30b0d1;
     border-radius: 10px;
     filter: drop-shadow(0 2px 2px black);
 }
 /* Show tooltips */
-.mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip{
+.mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip, .i-infoSkill:hover+p.skillTooltip, .i-slotIcon:hover+p.tooltip{
     display: block;
 }
 
@@ -514,7 +514,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     font-weight: bold; 
     color: white; 
     position: absolute;
-    font-size: 16px;
+    font-size: 0.83vw; /* 16px */
     /*padding: 13px 0 0 16.5px;*/
     background: url(images/map/msqblank.png) no-repeat center;
     width: 51px;
@@ -725,13 +725,13 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     height: 98%;
 }
 .i-infoName {
-    font-size: 40px;
+    font-size: 2.09vw;; /* 40px */
     text-align: center;
     background: repeat-y url(images/crafting/craftBG.png);
     color: white;
 }
 .i-infoHolder {
-    margin: 20px 0;
+    margin: 1.05vw 0;
     height: 35%;
     background-color: #cdccc9;
     position: relative;
@@ -739,7 +739,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 }
 
 .i-infoImgHolder {
-    height: 0%;
+    height: 0;
     width: 100%;
 }
 .i-infoTextHolder {
@@ -756,7 +756,12 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 }
 .i-infoImg {
     display: none;
-    width: 37%;
+    text-align: center;
+    height: auto;
+    position: absolute;
+    top: 1.7rem;
+    left: 6%;
+    width: 12vw;
 }
 
 .i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoStatRow, .i-infoElePower {
@@ -790,7 +795,14 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .i-infoSkill, .i-infoAbil {
     width: 18.96vw; /* 364px */
 }
-
+.i-slotIcon {
+    position: absolute;
+    display: inline-block;
+    top: 0.95vw;
+    left: 5.28vw;
+    width: 1.4vw;
+    height: auto;
+}
 
 .i-infoStats {
     margin-top: 0.3vw;
@@ -799,7 +811,6 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     margin: 0;
     min-width: 10.8vw; /* 210px, 10.939vw */
     display: inline-block;
-    border-right: 1px solid red;
 }
 
 .statName {
@@ -819,14 +830,14 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 }
 
 .recipeHolder {
-    margin: 20px 0 5px 0;
+    margin: 1.05vw 0 0.26vw 0; /* 20px 0 5px 0 */
     width: 45%;
     height: auto;
     background-color: #cdccc9;
-    padding: 20px 0;
+    padding: 1.05vw 0; /* 20px 0 */
     background-color: none;
-    border-left: 14px solid #464444;
-    border-top: 40px solid #464444;
+    border-left: 0.73vw solid #464444; /* 14px */
+    border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
     position: relative;
 }
@@ -835,8 +846,8 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     position: absolute;
     color: white;
     font-size: 1.3vw; /* 25px */
-    margin-top: -56px;
-    margin-left: 5px;
+    margin-top: -2.915vw; /* -56px */
+    margin-left: 0.26vw; /* 5px */
 }
 
 .matItem, .abil, .reqLuno, .matCount {
@@ -853,12 +864,12 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     transform: scale(0.5);
     display: inline-block;
     height: auto;
-    width: auto;
+    width: 2.09vw;
     vertical-align: top;
     margin-right: none;
     margin-left: none;
-    margin-top: -5px;
-    margin-bottom: -50px;
+    margin-top: -0.26vw;
+    margin-bottom: -2.6vw;
     filter: drop-shadow(0 2px 3px black);
 }
 .matIcon:hover {
@@ -874,37 +885,41 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 }
 
 .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
-    background: url(images/map/moveDivineHavenHill.png) no-repeat -70px -0px;
-    background-size: 600px;
+    background: url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw; /* 600px, 31.25vw */
     border: none;
-    width: 300px;
-    height: 300px;
+    width: 15.5803vw; /* 300px */
+    height: 15.5803vw;
     position: absolute;
     z-index: 70;
-    margin-top: -330px;
+    margin-top: -17vw; /* 330px */
     left: 13%;
     display: none;
 }
 .matIcon:hover+div {
     display: block;
 }
+.recipeToolImg {
+    width: 1.04vw; /* 20px */
+    height: auto;
+}
 .recipeToolText {
+    font-size: 0.83vw; /* 16px */
     filter: drop-shadow(0 2px 1px black);
     position: absolute;
     bottom: 0;
     text-align: center;
-    padding-bottom:10px;
-    width: 285px;
+    padding-bottom: 0.56vw;
+    width: 15vw; /* 285px */
 }
 
 .abilityHolder {
-    margin: 0 0 0 5px;
+    margin: 0 0 0 0.26vw;
     width: 45%;
     height: auto;
     background-color: #cdccc9;
-    padding: 20px 0;
+    padding: 1.05vw 0;
     background-color: none;
-    border-top: 40px solid #464444;
+    border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
 }
 
@@ -913,10 +928,10 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     width: 45%;
     margin-top: 5px;
     background-color: #cdccc9;
-    padding: 20px 0;
+    padding: 1.05vw 0; /* 20px 0 */
     background-color: none;
-    border-left: 14px solid #464444;
-    border-top: 40px solid #464444;
+    border-left: 0.73vw solid #464444; /* 14px */
+    border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
 }
 
@@ -928,10 +943,10 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     float: right;
     text-align: right;
     position: relative;
-    margin: -50px 0 -19px 0;
+    margin: -2.605vw 0 -1.05vw 0; /* -50px 0 -19px 0 */
     width: 15.65vw; /* 300px */
     height: auto;
-    padding: 0 25px 0 0;
+    padding-right: 1.3vw; /* 25px */
 }
 
 .listItem {
@@ -942,34 +957,35 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 
 .listItem:hover>div {
     border-radius: 5px;
-    border: 3px solid whitesmoke;
+    border: 0.16vw solid whitesmoke; /* 3px */
 }
 .listItem:active>div {
     border-radius: 5px;
-    border: 3px solid #e7f837;
+    border: 0.16vw solid #e7f837;
 }
 .listItem:hover img:nth-child(1) {
-    padding: 7px 10px 7px 7px;
-    border-radius: 0px;
+    padding: 0.36vw 0.52vw 0.36vw 0.36vw;
+    width: 4.17vw;
+    height: 4.05vw;
+    margin-right: -0.32vw;
 }
-.listItem:hover p.listItem-name {
-    width: 197px;
-    padding-top: 7px;
-    border-radius: 0px;
+
+.listItem:hover .listItem-desc {
+    width: 14.77vw;
+    height:auto;
 }
-.listItem:hover p.listItem-type {
-    border-radius: 0px;
-    width: 197px;
-    margin-left: -3px;
-    margin-top: 3px
+.listItem:hover p.listItem-name, .listItem:active p.listItem-name {
+    width: 10.27vw;
+    padding-top: 0.36vw;
+    margin-left: 0.36vw;
 }
-.listItem:hover p.listItem-reqAR {
-    border-radius: 0px;
-    padding: 2px 0 5px 0;
+.listItem:hover p.listItem-type, .listItem:active p.listItem-type {
+    width: 10.27vw;
+    margin-left: 0.36vw;
     
 }
-.listItem:hover p.listItem-reqAR2 {
-    border-radius: 0px;
+.listItem:hover p.listItem-reqAR, .listItem:active p.listItem-reqAR {
+    padding: 2px 0 5px 0;
 }
 
 .listItem-desc {
@@ -988,6 +1004,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     background-color: black;
     padding: 0.52vw; /* 10px */
     width: 4.37vw; /* 84px */
+    max-width: 4.37vw;
     display: inline-block;
     float:left;
     border-top-left-radius: 5px;
@@ -1047,26 +1064,33 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .imajType {
     background-color: #11100f;
     border-radius: 12px;
-    width: 200px;
+    width: 10.416vw;
+    height: auto;
     position: absolute;
     z-index: 200;
-    left: 2em;
-    top: 1em;
+    left: 2vw;
+    top: 1vw;
     display: inline-block;
 }
 .iiSelector, .biSelector {
     text-align: center;
-    margin: 5px 0px 5px 15px;
+    margin: 0.26vw 0px 0.26vw 0.78vw;
     display: inline-block;
-    font-size: 13px;
+    font-size: 0.6775vw; /* 13px */
+    filter: brightness(0.8);
 }
-.iiSelector img:hover, .biSelector img:hover {
-    filter: drop-shadow(0 0 3px yellow);
-    transform: scale(1.1);
+.iiSelImg, .biSelImg {
+    width: 2.1vw;
+    height: auto;
 }
-.iiSelector img:active, .biSelector img:active {
+.iiSelector:hover, .biSelector:hover {
+    filter: brightness(1.5);
+}
+.listSelected {
+    filter: brightness(1.5);
+}
+.listSelected>img {
     filter: drop-shadow(0 0 3px yellow);
-    transform: scale(1.0);
 }
 
 
