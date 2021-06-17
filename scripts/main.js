@@ -13,9 +13,11 @@ jQuery(document).ready(function($){
     }
     
     // BATTLE IMAJINN
-    var iIndex = 0;
+    var iiIndex = 0;
+    var biIndex = 0;
     var name = $(".i-infoName");
-    var image = $(".i-infoPic");
+    var vid = $(".i-infoVid");
+    var img = $(".i-infoImg");
     var level = $(".i-infoLv");
     var element = $(".i-infoEle");
     var elePower = $(".i-infoElePower");
@@ -91,13 +93,14 @@ jQuery(document).ready(function($){
             }
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
-                openWorldMap(currentMap);
                 currentPage = $("#mapContainer");
+                openWorldMap(currentMap);
             }
             // IMAJINN
             if ($(this).is("#buttonImajinn")) {
-                openImajinn();
+                listHolder = biHolder;
                 currentPage = $("#ImajinnContainer");
+                openImajinn();
             }
             // COMBAT
             if ($(this).is("#buttonCombat")) {
@@ -413,7 +416,7 @@ jQuery(document).ready(function($){
         // Pink Piglet ピンクウリボ
         { 
             name: "Pink Piglet",
-            image: "images/map/pinkpiglet.gif",
+            image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
@@ -438,7 +441,7 @@ jQuery(document).ready(function($){
         // Ferocious Beast 猛る獣
         { 
             name: "Ferocious Beast",
-            image: "images/map/ferociousbeast.gif",
+            image: "images/map/ferociousbeast.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
@@ -463,7 +466,7 @@ jQuery(document).ready(function($){
         // Red Splash 赤い飛沫
         { 
             name: "Red Splash",
-            image: "images/map/redsplash.gif",
+            image: "images/map/redsplash.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -488,7 +491,7 @@ jQuery(document).ready(function($){
         // Deep Green Fang 深緑の牙
         { 
             name: "Deep Green Fang",
-            image: "images/map/deepgreenfang.gif",
+            image: "images/map/deepgreenfang.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -513,7 +516,7 @@ jQuery(document).ready(function($){
         // Iron Fang 鉄牙
         { 
             name: "Iron Fang",
-            image: "images/map/ironfang.gif",
+            image: "images/map/ironfang.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -538,7 +541,7 @@ jQuery(document).ready(function($){
         // Flame Prison 炎獄
         { 
             name: "Flame Prison",
-            image: "images/map/flamingprison.gif",
+            image: "images/map/flamingprison.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -563,7 +566,7 @@ jQuery(document).ready(function($){
         // Ferocious Gold 猛る金色
         { 
             name: "Ferocious Gold",
-            image: "images/map/ferociousgold.gif",
+            image: "images/map/ferociousgold.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -588,7 +591,7 @@ jQuery(document).ready(function($){
         // Sapphire Trot サファイアトロット
         { 
             name: "Sapphire Trot",
-            image: "images/map/sapphiretrot.gif",
+            image: "images/map/sapphiretrot.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -613,7 +616,7 @@ jQuery(document).ready(function($){
         // Flaming Horns 炎角
         { 
             name: "Flaming Horns",
-            image: "images/map/flaminghorns.gif",
+            image: "images/map/flaminghorns.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -638,7 +641,7 @@ jQuery(document).ready(function($){
         // Spooky Goat スプーキーゴート
         { 
             name: "Spooky Goat",
-            image: "images/map/spookygoat.gif",
+            image: "images/map/spookygoat.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
@@ -663,7 +666,7 @@ jQuery(document).ready(function($){
         // Evil Healer 悪しき癒し手
         { 
             name: "Evil Healer",
-            image: "images/map/evilhealer.gif",
+            image: "images/map/evilhealer.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
@@ -688,7 +691,7 @@ jQuery(document).ready(function($){
         // Trick Elder トリックエルダー
         { 
             name: "Trick Elder",
-            image: "images/map/trickelder.gif",
+            image: "images/map/trickelder.mp4",
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -713,7 +716,7 @@ jQuery(document).ready(function($){
         // Elder Goblin エルダーゴブリン
         { 
             name: "Elder Goblin",
-            image: "images/map/eldergoblin.gif",
+            image: "images/map/eldergoblin.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -738,7 +741,7 @@ jQuery(document).ready(function($){
         // Goblin ゴブリン
         { 
             name: "Goblin",
-            image: "images/map/goblin.gif",
+            image: "images/map/goblin.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -763,7 +766,7 @@ jQuery(document).ready(function($){
         // Land Fox ランドフォックス
         { 
             name: "Land Fox",
-            image: "images/map/landfox.gif",
+            image: "images/map/landfox.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -788,7 +791,7 @@ jQuery(document).ready(function($){
         // Tyrant Boar タイラントボア
         { 
             name: "Tyrant Boar",
-            image: "images/map/tyrantboar.gif",
+            image: "images/map/tyrantboar.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -804,7 +807,7 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["Tyrant Boar's Idea","Sandsilver","Horn Goat's Fur","45,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["2","3","3"],
             abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"],
             tooltipText: ["Clear Arena [C Rank]","Gather<br>Divine Haven Hill","Horned Goat<br>Fiel Pond"],
@@ -813,7 +816,7 @@ jQuery(document).ready(function($){
         // Horned Goat ホーンゴート
         { 
             name: "Horned Goat",
-            image: "images/map/horngoat.gif",
+            image: "images/map/horngoat.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -829,7 +832,7 @@ jQuery(document).ready(function($){
                     /*DEX*/"+5"
                    ],
             recipe: ["Horned Goat's Idea","Silver Ore","Glowing Elder Goblin's Mane","83,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]"],
@@ -838,7 +841,7 @@ jQuery(document).ready(function($){
         // Goblin Sage ゴブリンセージ
         { 
             name: "Goblin Sage",
-            image: "images/map/goblinsage.gif",
+            image: "images/map/goblinsage.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
@@ -854,7 +857,7 @@ jQuery(document).ready(function($){
                     /*DEX*/"+5"
                    ],
             recipe: ["Goblin Sage's Idea","Spike Fish","Sapphire Trot's Fang","120,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
             amt: ["5","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Clear Arena [A Rank]","Gather<br>Fiel Pond","Sapphire Trot<br>Divine Haven Hill"],
@@ -863,7 +866,7 @@ jQuery(document).ready(function($){
         // Kaiser Elk カイザーエルク
         { 
             name: "Kaiser Elk",
-            image: "images/map/kaiserelk.gif",
+            image: "images/map/kaiserelk.mp4",
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -879,7 +882,7 @@ jQuery(document).ready(function($){
                     /*DEX*/"+6"
                    ],
             recipe: ["Kaiser Elk's Idea","Longan Flower","Evil Healer's Mane","140,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["7","3","1"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragonclaw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
@@ -888,7 +891,7 @@ jQuery(document).ready(function($){
         // Raging Kingfang 荒ぶる牙王
         { 
             name: "Raging Kingfang",
-            image: "images/map/ragingkingfang.gif",
+            image: "images/map/ragingkingfang.mp4",
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
@@ -985,7 +988,7 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
-            iconSrc: ["images/map/combat2.svg","",""],
+            iconSrc: ["images/map/dungeon2.svg","",""],
             amt: ["1","<br>","<br>"],
             abilList: ["Max HP increase","<br>", "<br>"],
             tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
@@ -1171,17 +1174,11 @@ jQuery(document).ready(function($){
     // Check if battle or inner imajinn was clicked, assign listHolder
     // Show Inner Imajinn
     $(".iiSelImg").click(function(){
-        iIndex = 0;
-        $("#ImajList").css("display", "none");
-        $("#InnerList").css("display", "initial");
         listHolder = iiHolder;
         dispImajinn(listHolder);
     });
     // Show Battle Imajinn
     $(".biSelImg").click(function(){
-        iIndex = 0;
-        $("#ImajList").css("display", "initial");
-        $("#InnerList").css("display", "none");
         listHolder = biHolder;
         dispImajinn(listHolder);
     });
@@ -1191,11 +1188,11 @@ jQuery(document).ready(function($){
         
         if (listHolder == biHolder) {
             // Index of the clicked item
-            iIndex = $(".biList").index(this);
+            biIndex = $(".biList").index(this);
         }
         else if (listHolder == iiHolder) {
             // Index of the clicked item
-            iIndex = $(".iiList").index(this);
+            iiIndex = $(".iiList").index(this);
         }
 
         dispImajinn(listHolder);
@@ -1206,29 +1203,58 @@ jQuery(document).ready(function($){
     
     // Display Battle Imajinn
     function dispImajinn(holder) {
+        var iIndex;
+        
+        // If battle imajinn, hide inner
+        if (listHolder == biHolder) {
+            iIndex = biIndex;
+            $("#ImajList").css("display", "initial");
+            $("#InnerList").css("display", "none");
+            
+            // display CD, SKILL, SKILL PWR, VID
+            // hide IMG
+            cd.css("display","initial");
+            skillPower.css("display","initial");
+            img.css("display","none");
+            vid.css("display","block");
+        
+            
+            // Send values
+            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
+            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
+            skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
+            vid.attr("src", holder[iIndex].image);
+            
+        }
+        
+        // If inner imajinn, hide battle
+        if (listHolder == iiHolder) {
+            iIndex = iiIndex;
+            $("#ImajList").css("display", "none");
+            $("#InnerList").css("display", "initial");
+            
+            // display SLOT, IMG
+            // hide VID
+            cd.css("display","none");
+            skillPower.css("display","none");
+            vid.css("display","none");
+            img.css("display","block");
+            
+            
+            // Send values
+            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;" + holder[iIndex].slot[1]);
+            img.attr("src", holder[iIndex].image);
+            
+        }
+        
         
         // Send item info
         name.html(holder[iIndex].name);
-        image.attr("src", holder[iIndex].image);
+        
         level.html(holder[iIndex].level);
         element.html(holder[iIndex].element[0]);
         elePower.html(holder[iIndex].element[1]);
         
-        // Battle imajinn displays cd, skill, skillpower
-        if (holder == biHolder) {
-            cd.css("display","initial");
-            skillPower.css("display","initial");
-            
-            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
-            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
-            skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
-        } 
-        // Inner imajinn displays slot
-        else if (holder == iiHolder) {
-            cd.css("display","none");
-            skillPower.css("display","none");
-            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;" + holder[iIndex].slot[1]);
-        }
         
         abil.html(holder[iIndex].ability[0] + spacing1 + holder[iIndex].ability[1]);
         abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
