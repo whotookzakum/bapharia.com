@@ -13,15 +13,18 @@ jQuery(document).ready(function($){
     }
     
     // BATTLE IMAJINN
-    var iIndex = 0;
+    var iiIndex = 0;
+    var biIndex = 0;
     var name = $(".i-infoName");
-    var image = $(".i-infoPic");
+    var vid = $(".i-infoVid");
+    var img = $(".i-infoImg");
     var level = $(".i-infoLv");
     var element = $(".i-infoEle");
     var elePower = $(".i-infoElePower");
     var cd = $(".i-infoCD");
     var skill = $(".i-infoSkill");
     var skillPower = $(".i-infoSkillPower");
+    var slotIcon = $(".i-slotIcon");
     var abil = $(".i-infoAbil");
     var abilPower = $(".i-infoAbilPower");
     var statVal = $(".i-infoStatVal");
@@ -91,13 +94,14 @@ jQuery(document).ready(function($){
             }
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
-                openWorldMap(currentMap);
                 currentPage = $("#mapContainer");
+                openWorldMap(currentMap);
             }
             // IMAJINN
             if ($(this).is("#buttonImajinn")) {
-                openImajinn();
+                listHolder = biHolder;
                 currentPage = $("#ImajinnContainer");
+                openImajinn();
             }
             // COMBAT
             if ($(this).is("#buttonCombat")) {
@@ -413,12 +417,12 @@ jQuery(document).ready(function($){
         // Pink Piglet ピンクウリボ
         { 
             name: "Pink Piglet",
-            image: "images/map/pinkpiglet.gif",
+            image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // ウリボの安らぎ
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Piglet's Tranquility (heal type)","effectiveness", "175"],
+            // ウリボの安らぎ・ピンクウリボのイマジンを召喚しピンクウリボの周囲に回復エリアを生成する
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Piglet's Tranquility (heal type)","effectiveness", "175","Summons Pink Piglet's Imagine<br>who creates a healing field around itself"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -433,17 +437,20 @@ jQuery(document).ready(function($){
             amt: ["1","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Pink Piglet<br>Skyquake Fields","Gather<br>Skyquake Fields","Piglet<br>Skyquake Fields"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw"]
         },
         // Ferocious Beast 猛る獣
         { 
             name: "Ferocious Beast",
-            image: "images/map/ferociousbeast.gif",
+            image: "images/map/ferociousbeast.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // アクトクライ
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support type)","effectiveness", "150"],
+            // アクトクライ・猛る獣のイマジンを召喚し召喚者の攻撃力を一定時間上昇させる
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support type)","effectiveness", "150","Summons Ferocious Beast's Imagine<br>who gives the summoner a temporary ATK increase"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -458,17 +465,20 @@ jQuery(document).ready(function($){
             amt: ["2","3","1"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
             tooltipText: ["Ferocious Beast<br>Minster Hills","Gather<br>Minster Hills","Rumble Boar<br>Andra Basin"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
+                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw"]
         },
         // Red Splash 赤い飛沫
         { 
             name: "Red Splash",
-            image: "images/map/redsplash.gif",
+            image: "images/map/redsplash.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // 兜割り
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Helm Splitter (attack type)","effectiveness", "422"],
+            // 兜割り・赤い飛沫のイマジンを召喚しターゲットの頭上を目掛けて棍棒を叩きつける。
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Helm Splitter (attack type)","effectiveness", "422","Summons Red Splash's Imagine<br>who targets and strikes the target's head with its club"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+2",
                     /*INT*/"+3",
@@ -483,17 +493,20 @@ jQuery(document).ready(function($){
             amt: ["2","3","1"],
             abilList: ["Damage increase (regular attack)","STR increase", "<br>"],
             tooltipText: ["Red Splash<br>Minster Hills","Gather<br>Soundless Foothills","Highland Fox<br>Divine Haven Hill"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw"]
         },
         // Deep Green Fang 深緑の牙
         { 
             name: "Deep Green Fang",
-            image: "images/map/deepgreenfang.gif",
+            image: "images/map/deepgreenfang.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // 猪突猛進
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Boar Rush (attack type)","effectiveness", "514"],
+            // 猪突猛進・深緑の牙のイマジンを召喚しターゲットを中心に突進攻撃を行う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Boar Rush (attack type)","effectiveness", "514","Summons Deep Green Fang's Imagine<br>who performs a charge attack towards the center of the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -508,17 +521,20 @@ jQuery(document).ready(function($){
             amt: ["3","3","3"],
             abilList: ["Damage increase (ultimate)","ATK increase", "<br>"],
             tooltipText: ["Deep Green Fang<br>Andra Basin","Gather<br>Minster Hills","Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
         },
         // Iron Fang 鉄牙
         { 
             name: "Iron Fang",
-            image: "images/map/ironfang.gif",
+            image: "images/map/ironfang.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // マウンテンスロー
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Mountain Throw (attack type)","effectiveness", "524"],
+            // マウンテンスロー・鉄牙のイマジンを召喚し大きな牙でターゲットをすくい上げで打ち上げる
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Mountain Throw (attack type)","effectiveness", "524","Summons Iron Fang's Imagine<br>who throws enemies into the air with its large fangs"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -533,17 +549,20 @@ jQuery(document).ready(function($){
             amt: ["3","3","3"],
             abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
             tooltipText: ["Iron Fang<br>Andra Basin","Gather<br>Divine Haven Hill","Goblin<br>Minster hills"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw"]
         },
         // Flame Prison 炎獄
         { 
             name: "Flame Prison",
-            image: "images/map/flamingprison.gif",
+            image: "images/map/flamingprison.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // パワースイング
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Power Swing (attack type)","effectiveness", "710"],
+            // パワースイング・炎獄のイマジンを召喚し前方に棍棒を振り払う攻撃を行う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Power Swing (attack type)","effectiveness", "710","Summons Flame Prison's Imagine<br>who swings its club to enemies in front of it"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+3",
@@ -558,17 +577,20 @@ jQuery(document).ready(function($){
             amt: ["5","3","3"],
             abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"],
             tooltipText: ["Flame Prison<br>Calm Eve Terraces","Gather<br>Soundless Foothills","Glowing Goblin<br>Dragonclaw Valley [Free Exploration]"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
         },
         // Ferocious Gold 猛る金色
         { 
             name: "Ferocious Gold",
-            image: "images/map/ferociousgold.gif",
+            image: "images/map/ferociousgold.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // デスタックル
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Death Tackle (attack type)","effectiveness", "696"],
+            // デスタックル・猛る金色のイマジンを召喚しターゲットを中心に突進攻撃を行う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Death Tackle (attack type)","effectiveness", "696","Summons Ferocious Gold's Imagine<br>who performs a charge attack towards the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -583,17 +605,19 @@ jQuery(document).ready(function($){
             amt: ["5","3","1"],
             abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
             tooltipText: ["Ferocious Gold<br>Calm Eve Terraces","Gather<br>Fiel Pond","Ferocious Beast<br>Minster Hills"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
+                        "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
+                        "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw"]
         },
         // Sapphire Trot サファイアトロット
         { 
             name: "Sapphire Trot",
-            image: "images/map/sapphiretrot.gif",
+            image: "images/map/sapphiretrot.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // 落石牙
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Stone Fang Drop (attack type)","effectiveness", "483"],
+            // 落石牙・サファイアトロットのイマジンを召喚しターゲットに飛び掛かり噛みつく
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Stone Fang Drop (attack type)","effectiveness", "483","Summons Sapphire Trot's Imagine<br>who lunges at an enemy and bites them"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -608,17 +632,19 @@ jQuery(document).ready(function($){
             amt: ["3","3","3"],
             abilList: ["Crit rate increase","DEX increase", "<br>"],
             tooltipText: ["Sapphire Trot<br>Divine Haven Hill","Gather<br>Minster Hills","Elder Goblin<br>Andra Basin"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
+                        "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
+                        "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw"]
         },
         // Flaming Horns 炎角
         { 
             name: "Flaming Horns",
-            image: "images/map/flaminghorns.gif",
+            image: "images/map/flaminghorns.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // カイザーブラスト
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Kaiser Blast (attack type)","effectiveness", "493"],
+            // カイザーブラスト・炎角のイマジンを召喚しターゲットを中心に雷属性の突進攻撃を行う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Kaiser Blast (attack type)","effectiveness", "493","Summons Flaming Horns' Imagine<br>who performs a Lightning elemental charge attack towards the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+2",
                     /*INT*/"+3",
@@ -633,17 +659,19 @@ jQuery(document).ready(function($){
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Flaming Horns<br>Divine Haven Hill","Gather<br>Divine Haven Hill","Goblin Sage<br>Soundless Foothills"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
+                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
+                       "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw"]
         },
         // Spooky Goat スプーキーゴート
         { 
             name: "Spooky Goat",
-            image: "images/map/spookygoat.gif",
+            image: "images/map/spookygoat.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // ゴートヘイスト
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goat Haste (support type)","effectiveness", "130"],
+            // ゴートヘイスト・スプーキーゴートのイマジンを召喚し召喚者の移動速度を一定時間上昇させる
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goat Haste (support type)","effectiveness", "130","Summons Spooky Goat's Imagine<br>who gives the summoner a temporary movement speed increase"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -658,17 +686,19 @@ jQuery(document).ready(function($){
             amt: ["4","3","3"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
             tooltipText: ["Spooky Goat<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Glowing Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
+                       "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
         },
         // Evil Healer 悪しき癒し手
         { 
             name: "Evil Healer",
-            image: "images/map/evilhealer.gif",
+            image: "images/map/evilhealer.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // エリアヒール
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Area Heal (heal type)","effectiveness", "?"],
+            // エリアヒール・悪しき癒し手のイマジンを召喚し悪しき癒し手の周囲の味方のHPを回復
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Area Heal (heal type)","effectiveness", "?","Summons Evil Healer's Imagine<br>who heals the HP allies around it"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -683,17 +713,19 @@ jQuery(document).ready(function($){
             amt: ["4","3","3"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Evil Healer<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Ogre<br>Calm Eve Terraces"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw"]
         },
         // Trick Elder トリックエルダー
         { 
             name: "Trick Elder",
-            image: "images/map/trickelder.gif",
+            image: "images/map/trickelder.mp4",
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // エルダークリスタル
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Elder Crystal (attack type)","effectiveness", "741"],
+            // エルダークリスタル・トリックエルダーのイマジンを召喚しターゲットに対して氷柱を3発飛ばす
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Elder Crystal (attack type)","effectiveness", "741","Summons Trick Elder's Imagine<br>who launches 3 icicles at the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -708,17 +740,19 @@ jQuery(document).ready(function($){
             amt: ["3","3","1"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
             tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Dragonclaw Valley [Free Exploration]","Deep Green Fang<br>Andra Basin"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
+                       "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                       "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw"]
         },
         // Elder Goblin エルダーゴブリン
         { 
             name: "Elder Goblin",
-            image: "images/map/eldergoblin.gif",
+            image: "images/map/eldergoblin.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // ファイアボール
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Fireball (attack type)","effectiveness", "?"],
+            // ファイアボール・エルダーゴブリンのイマジンを召喚しターゲットに火球を1発飛ばす
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Fireball (attack type)","effectiveness", "?","Summons Elder Goblin's Imagine<br>who blasts one fireball at the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+?",
                     /*INT*/"+?",
@@ -733,17 +767,19 @@ jQuery(document).ready(function($){
             amt: ["4","3","3"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
             tooltipText: ["Arrogant Conjurer<br>Dragonclaw Valley [Free Exploration]","Gather<br>Calm Eve Terraces","Kaiser Elk<br>Divine Haven Hill"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
+                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw"]
         },
         // Goblin ゴブリン
         { 
             name: "Goblin",
-            image: "images/map/goblin.gif",
+            image: "images/map/goblin.mp4",
             level: "Starting Lv 1~1 (Max Lv: 15)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // ゴブリンスタブ
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Stab (attack type)","effectiveness", "414"],
+            // ゴブリンスタブ・ゴブリンのイマジンを召喚しターゲットを棍棒で突進状態で突く
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Stab (attack type)","effectiveness", "414","Summons Goblin's Imagine<br>who stabs the target with its club"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -758,17 +794,19 @@ jQuery(document).ready(function($){
             amt: ["2","3","1"],
             abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"],
             tooltipText: ["Valley Raider<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Land Fox<br>Skyquake Fields"],
-            tooltipImg: []
+            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
+                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw"]
         },
         // Land Fox ランドフォックス
         { 
             name: "Land Fox",
-            image: "images/map/landfox.gif",
+            image: "images/map/landfox.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // クラウンストライク
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Crown Strike (attack type)","effectiveness", "669"],
+            // クラウンストライク・ランドフォックスのイマジンを召喚しターゲットに飛び掛かりタックルを行う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Crown Strike (attack type)","effectiveness", "669","Summons Land Fox's Imagine<br>who performs a leaping tackle at enemies"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -783,17 +821,20 @@ jQuery(document).ready(function($){
             amt: ["1","3","1"],
             abilList: ["Crit damage increase","DEX increase", "<br>"],
             tooltipText: ["Loudshot<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Pink Piglet<br>Skyquake Fields"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw"]
         },
         // Tyrant Boar タイラントボア
         { 
             name: "Tyrant Boar",
-            image: "images/map/tyrantboar.gif",
+            image: "images/map/tyrantboar.mp4",
             level: "Starting Lv 1~1 (Max Lv: 20)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // 猟犬殺し
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Hound Killer (attack type)","effectiveness", "504"],
+            // 猟犬殺し・タイラントボアのイマジンを召喚しターゲットを頭突きで攻撃する
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Hound Killer (attack type)","effectiveness", "504","Summons Tyrant Boar<br>who attacks the target with a headbutt"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -804,21 +845,24 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["Tyrant Boar's Idea","Sandsilver","Horn Goat's Fur","45,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["2","3","3"],
             abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"],
             tooltipText: ["Clear Arena [C Rank]","Gather<br>Divine Haven Hill","Horned Goat<br>Fiel Pond"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw"]
         },
         // Horned Goat ホーンゴート
         { 
             name: "Horned Goat",
-            image: "images/map/horngoat.gif",
+            image: "images/map/horngoat.mp4",
             level: "Starting Lv 1~1 (Max Lv: 25)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // ビハインドキック
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Back Kick (attack type)","effectiveness", "593"],
+            // ビハインドキック・ホーンゴートのイマジンを召喚しターゲットを後ろ足で蹴り飛ばす
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Back Kick (attack type)","effectiveness", "593","Summons Horned Goat's Imagine<br>who kicks back enemies with its rear legs"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+3",
@@ -829,21 +873,24 @@ jQuery(document).ready(function($){
                     /*DEX*/"+5"
                    ],
             recipe: ["Horned Goat's Idea","Silver Ore","Glowing Elder Goblin's Mane","83,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
         },
         // Goblin Sage ゴブリンセージ
         { 
             name: "Goblin Sage",
-            image: "images/map/goblinsage.gif",
+            image: "images/map/goblinsage.mp4",
             level: "Starting Lv 1~1 (Max Lv: 30)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // ゴブリンセージの調律
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Sage's Tuning (heal type)","effectiveness", "323"],
+            // ゴブリンセージの調律・ゴブリンセージのイマジンを召喚し召喚者のHPを回復させる
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Sage's Tuning (heal type)","effectiveness", "323","Summons Goblin Sage<br>who heals the HP of the summoner"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -854,21 +901,24 @@ jQuery(document).ready(function($){
                     /*DEX*/"+5"
                    ],
             recipe: ["Goblin Sage's Idea","Spike Fish","Sapphire Trot's Fang","120,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
             amt: ["5","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Clear Arena [A Rank]","Gather<br>Fiel Pond","Sapphire Trot<br>Divine Haven Hill"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw"]
         },
         // Kaiser Elk カイザーエルク
         { 
             name: "Kaiser Elk",
-            image: "images/map/kaiserelk.gif",
+            image: "images/map/kaiserelk.mp4",
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // クラッパーホーン
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Clapper Horn (attack type)","effectiveness", "756"],
+            // クラッパーホーン・カイザーエルクのイマジンを召喚しターゲットを角で振り払う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Clapper Horn (attack type)","effectiveness", "756","Summons Kaiser Elk's Imagine<br>who attacks enemies with its horns"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -879,21 +929,24 @@ jQuery(document).ready(function($){
                     /*DEX*/"+6"
                    ],
             recipe: ["Kaiser Elk's Idea","Longan Flower","Evil Healer's Mane","140,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: ["images/map/dungeon2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["7","3","1"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragonclaw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw"]
         },
         // Raging Kingfang 荒ぶる牙王
         { 
             name: "Raging Kingfang",
-            image: "images/map/ragingkingfang.gif",
+            image: "images/map/ragingkingfang.mp4",
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // タイラントアサルト
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Tyrant Assault (attack type)","effectiveness", "787"],
+            // タイラントアサルト・荒ぶる牙王のイマジンを召喚しターゲットを中心に広範囲の突進攻撃を行う
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Tyrant Assault (attack type)","effectiveness", "787","Summons Raging Kingfang<br>who performs a wide-range charge attack towards the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -908,7 +961,10 @@ jQuery(document).ready(function($){
             amt: ["7","3","1"],
             abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"],
             tooltipText: ["Raging Kingfang<br>Dragonclaw Valley [Free Exploration]","Gather<br>Fiel Pond","Flame Prison<br>Calm Eve Terraces"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw"]
         },
         
         // Sealed Atrocity 封印されし暴虐
@@ -934,7 +990,8 @@ jQuery(document).ready(function($){
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['Complete quest "Collect Battle Imagine! #2"<br><br>After completing "Collect Battle Imagine! #1", craft Deep Green Fang, Iron Fang, Sapphire Trot, and Spooky Goat',"<br>","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAsterleeds.jpg) no-repeat -440px -140px/55.25vw","",""]
         },
         // Plidoke プリドーク
         { 
@@ -958,8 +1015,9 @@ jQuery(document).ready(function($){
             iconSrc: ["images/map/quest2.svg","",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
-            tooltipText: ['Complete quest "Collect Battle Imagine! #3"<br><br>After completing "Collect Battle Imagine! #2", craft ',"<br>","<br>"],
-            tooltipImg: []
+            tooltipText: ['Complete quest "Collect Battle Imagine! #3"<br><br>After completing "Collect Battle Imagine! #2", craft ???',"<br>","<br>"],
+            tooltipBg: [
+                "url(images/map/moveAsterleeds.jpg) no-repeat -440px -140px/55.25vw","",""]
         },
     ]
     
@@ -974,7 +1032,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Courage"],
+            slot: ["slot","images/crafting/slot1.svg","Courage"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+0",
@@ -985,11 +1043,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
-            iconSrc: ["images/map/combat2.svg","",""],
+            iconSrc: ["images/map/dungeon2.svg","",""],
             amt: ["1","<br>","<br>"],
             abilList: ["Max HP increase","<br>", "<br>"],
             tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw","",""]
         },
         // Corjun
         { 
@@ -999,7 +1058,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Mystery"],
+            slot: ["slot","images/crafting/slot3.svg","Mystery"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+0",
                     /*INT*/"+5",
@@ -1014,7 +1073,9 @@ jQuery(document).ready(function($){
             amt: ["8","15","<br>"],
             abilList: ["ATK increase","<br>", "<br>"],
             tooltipText: ["Land Fox<br>Minster Hills","Gather<br>Minster Hills","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",""]
         },
         // Mipect
         { 
@@ -1024,7 +1085,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Hope"],
+            slot: ["slot","images/crafting/slot2.svg","Hope"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+3",
@@ -1039,7 +1100,9 @@ jQuery(document).ready(function($){
             amt: ["10","10","<br>"],
             abilList: ["Max Stamina increase","<br>", "<br>"],
             tooltipText: ["Goblin<br>Andra Basin","Gather<br>Andra Basin","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",
+                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",""]
         },
         // Proxyx
         { 
@@ -1049,7 +1112,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Courage"],
+            slot: ["slot","images/crafting/slot1.svg","Courage"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+0",
@@ -1064,7 +1127,9 @@ jQuery(document).ready(function($){
             amt: ["12","20","<br>"],
             abilList: ["Max HP increase","VIT increase", "STR increase"],
             tooltipText: ["Horned Goat<br>Soundless Foothills","Gather<br>Divine Haven Hill","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",""]
         },
         // Latepect
         { 
@@ -1074,7 +1139,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Hope"],
+            slot: ["slot","images/crafting/slot2.svg","Hope"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+4",
@@ -1089,7 +1154,8 @@ jQuery(document).ready(function($){
             amt: ["25","<br>","<br>"],
             abilList: ["Max Stamina increase","INT increase", "MND increase"],
             tooltipText: ["Gather<br>Divine Haven Hill","<br>","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw","",""]
         },
         // Carcon
         { 
@@ -1099,7 +1165,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Mystery"],
+            slot: ["slot","images/crafting/slot3.svg","Mystery"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+?",
                     /*INT*/"+?",
@@ -1114,7 +1180,9 @@ jQuery(document).ready(function($){
             amt: ["10","35","<br>"],
             abilList: ["ATK increase","STR increase", "DEX increase"],
             tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",""]
         },
         // Parbury
         { 
@@ -1124,7 +1192,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Ambition"],
+            slot: ["slot","images/crafting/slot4.svg","Ambition"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+4",
@@ -1139,7 +1207,9 @@ jQuery(document).ready(function($){
             amt: ["15","40","<br>"],
             abilList: ["DEF increase","DEX increase", "VIT increase"],
             tooltipText: ["Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw", ""]
         },
         // Sanak'ta
         { 
@@ -1149,7 +1219,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // 
-            slot: ["slot","Affection"],
+            slot: ["slot","images/crafting/slot5.svg","Affection"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+5",
@@ -1164,24 +1234,20 @@ jQuery(document).ready(function($){
             amt: ["1","50","<br>"],
             abilList: ["Healing increase","MND increase", "INT increase"],
             tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Fiel Pond","<br>"],
-            tooltipImg: []
+            tooltipBg: [
+                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",""]
         }
     ]
     
     // Check if battle or inner imajinn was clicked, assign listHolder
     // Show Inner Imajinn
     $(".iiSelImg").click(function(){
-        iIndex = 0;
-        $("#ImajList").css("display", "none");
-        $("#InnerList").css("display", "initial");
         listHolder = iiHolder;
         dispImajinn(listHolder);
     });
     // Show Battle Imajinn
     $(".biSelImg").click(function(){
-        iIndex = 0;
-        $("#ImajList").css("display", "initial");
-        $("#InnerList").css("display", "none");
         listHolder = biHolder;
         dispImajinn(listHolder);
     });
@@ -1191,11 +1257,11 @@ jQuery(document).ready(function($){
         
         if (listHolder == biHolder) {
             // Index of the clicked item
-            iIndex = $(".biList").index(this);
+            biIndex = $(".biList").index(this);
         }
         else if (listHolder == iiHolder) {
             // Index of the clicked item
-            iIndex = $(".iiList").index(this);
+            iiIndex = $(".iiList").index(this);
         }
 
         dispImajinn(listHolder);
@@ -1204,31 +1270,76 @@ jQuery(document).ready(function($){
     
     
     
-    // Display Battle Imajinn
+    // Display Imajinn
     function dispImajinn(holder) {
+        var iIndex;
+        
+        // If battle imajinn, hide inner
+        if (listHolder == biHolder) {
+            iIndex = biIndex;
+            $("#ImajList").css("display", "initial");
+            $("#InnerList").css("display", "none");
+            
+            // display CD, SKILL PWR, VID, SKILL TOOLTIP
+            // hide IMG, SLOT ICN
+            cd.css("display","initial");
+            skillPower.css("display","initial");
+            $("#skillDesc").addClass("skillTooltip");
+            vid.css("display","block");
+            img.css("display","none");
+            slotIcon.css("display","none");
+            
+            
+            // Glow the selector image
+            $(".iiSelector").removeClass("listSelected");
+            $(".biSelector").addClass("listSelected");
+            
+            // Send values
+            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
+            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
+            skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
+            vid.attr("src", holder[iIndex].image);
+            $(".skillTooltip").html(holder[iIndex].skill[(holder[iIndex].skill.length-1)]);
+            
+        }
+        
+        // If inner imajinn, hide battle
+        if (listHolder == iiHolder) {
+            iIndex = iiIndex;
+            $("#ImajList").css("display", "none");
+            $("#InnerList").css("display", "initial");
+            
+            // display IMG, SLOT ICN
+            // hide VID, CD, SKILL PWR, SKILL TOOLTIP
+            cd.css("display","none");
+            skillPower.css("display","none");
+            vid.css("display","none");
+            $("#skillDesc").removeClass("skillTooltip");
+            img.css("display","block");
+            slotIcon.css("display","block");
+            
+            
+            // Glow the selector image
+            $(".biSelector").removeClass("listSelected");
+            $(".iiSelector").addClass("listSelected");
+            
+            
+            // Send values
+            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;");
+            img.attr("src", holder[iIndex].image);
+            slotIcon.attr("src", holder[iIndex].slot[1])
+            $(".slotTooltip").html(holder[iIndex].slot[2]);
+            
+        }
+        
         
         // Send item info
         name.html(holder[iIndex].name);
-        image.attr("src", holder[iIndex].image);
+        
         level.html(holder[iIndex].level);
         element.html(holder[iIndex].element[0]);
         elePower.html(holder[iIndex].element[1]);
         
-        // Battle imajinn displays cd, skill, skillpower
-        if (holder == biHolder) {
-            cd.css("display","initial");
-            skillPower.css("display","initial");
-            
-            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
-            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
-            skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
-        } 
-        // Inner imajinn displays slot
-        else if (holder == iiHolder) {
-            cd.css("display","none");
-            skillPower.css("display","none");
-            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;" + holder[iIndex].slot[1]);
-        }
         
         abil.html(holder[iIndex].ability[0] + spacing1 + holder[iIndex].ability[1]);
         abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
@@ -1259,6 +1370,12 @@ jQuery(document).ready(function($){
         abilList.each(function(index){
            $(this).html(holder[iIndex].abilList[(index)]);
         });
+        
+        
+        // Recipe tooltips
+        $(".recipeTooltip1").css("background",holder[iIndex].tooltipBg[0]);
+        $(".recipeTooltip2").css("background",holder[iIndex].tooltipBg[1]);
+        $(".recipeTooltip3").css("background",holder[iIndex].tooltipBg[2]);
         
     }
     
