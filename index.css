@@ -771,7 +771,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     color: #343330;
     font-size: 1.05vw;
     position: relative;
-    top: 10px;
+    top: 0.52vw;
     display: inline-block;
     font-weight: bold;
 }
@@ -795,6 +795,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .i-infoSkill, .i-infoAbil {
     width: 18.96vw; /* 364px */
 }
+
 .i-slotIcon {
     position: absolute;
     display: inline-block;
@@ -861,19 +862,15 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     display: inline-block;
 }
 .matIcon {
-    transform: scale(0.5);
     display: inline-block;
     height: auto;
-    width: 2.09vw;
+    width: 1.042vw;
     vertical-align: top;
-    margin-right: none;
-    margin-left: none;
-    margin-top: -0.26vw;
-    margin-bottom: -2.6vw;
-    filter: drop-shadow(0 2px 3px black);
+    margin-top: 0.26vw;
+    filter: drop-shadow(0 2px 2px #161211);
 }
 .matIcon:hover {
-    filter: brightness(0.8) drop-shadow(0 2px 3px black);
+    filter: brightness(0.8) drop-shadow(0 2px 2px #161211);
 }
 .matCount {
     display: inline-block;
@@ -899,9 +896,10 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     display: block;
 }
 .recipeToolImg {
-    width: 1.04vw; /* 20px */
+    width: 1.042vw; /* 20px */
     height: auto;
-}
+    filter: drop-shadow(0px 2px 3px black);
+;}
 .recipeToolText {
     font-size: 0.83vw; /* 16px */
     filter: drop-shadow(0 2px 1px black);
@@ -1082,6 +1080,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .iiSelImg, .biSelImg {
     width: 2.1vw;
     height: auto;
+    
 }
 .iiSelector:hover, .biSelector:hover {
     filter: brightness(1.5);
@@ -1092,6 +1091,77 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .listSelected>img {
     filter: drop-shadow(0 0 3px yellow);
 }
+
+.levelToggle {
+    display: inline-block;
+    margin: 0.26vw 0px 0.26vw 0.78vw;
+}
+
+
+/* ---------------- Toggle button ------------------ */
+.switch {
+    position: relative;
+    display: inline-block;
+    z-index: 201;
+    width: 1.963vw;;
+    height: 2.5vw;
+}
+
+.switch+p {
+    text-align: center;
+    margin-top: 0.26vw;
+    font-size: 0.6775vw;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    border-radius: 5px;
+    cursor: url(images/cursor.png), pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #c8c8c8;
+    -webkit-transition: .4s;
+    transition: .4s;
+    filter: brightness(0.7);
+}
+.slider:before {
+    position: absolute;
+    content: "MIN";
+    font-size: 0.5vw;
+    font-family: "Roboto";
+    color: #464444;
+    height: 1.146vw;
+    width: 1.546vw;
+    left: 0.208vw;
+    bottom: 0.208vw;
+    background-color: #161211;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5px;
+    line-height: 1.246vw;
+    box-sizing: border-box;
+    text-align: center;
+}
+input:checked + .slider {
+    background-color: crimson;
+    filter: brightness(1);
+    box-shadow: 0 0 10px crimson;
+}
+input:checked + .slider:before {
+    -webkit-transform: translateY(-0.938vw);
+    -ms-transform: translateY(-0.938vw);
+    transform: translateY(-0.938vw);
+    content: "MAX";
+    filter: brightness(1);
+}
+
 
 
 /* ---------------- ABOUT & TRIVIA ---------------- */

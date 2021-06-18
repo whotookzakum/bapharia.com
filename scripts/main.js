@@ -34,7 +34,8 @@ jQuery(document).ready(function($){
     var recipeToolText = $(".recipeToolText");
     var luno = $(".reqLuno");
     var abilList = $(".abil");
-    var listHolder = biHolder;
+    var listHolder = biHolder; // The current list being shown
+    var statLvSelector = 0;
     
     
     // MENU BUTTONS
@@ -422,7 +423,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // ウリボの安らぎ・ピンクウリボのイマジンを召喚しピンクウリボの周囲に回復エリアを生成する
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Piglet's Tranquility (heal type)","effectiveness", "175","Summons Pink Piglet's Imagine<br>who creates a healing field around itself"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Piglet's Tranquility (heal)","effectiveness", "175","67","Summons Pink Piglet's Imagine<br>who creates a healing field around itself"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -432,15 +433,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+9",
                     /*DEX*/"+2"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Pink Piglet's Idea","Ripple Stone","Piglet Skin","2,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["1","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Pink Piglet<br>Skyquake Fields","Gather<br>Skyquake Fields","Piglet<br>Skyquake Fields"],
             tooltipBg: [
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw"]
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+            tooltipIcn: ["transform: translate(7vw, 7.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Ferocious Beast 猛る獣
         { 
@@ -450,7 +461,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // アクトクライ・猛る獣のイマジンを召喚し召喚者の攻撃力を一定時間上昇させる
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support type)","effectiveness", "150","Summons Ferocious Beast's Imagine<br>who gives the summoner a temporary ATK increase"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Act Cry (support)","effectiveness", "150","150","Summons Ferocious Beast's Imagine<br>who gives the summoner a temporary ATK increase"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -460,15 +471,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+7",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Ferocious Beast's Idea","Dawngrass","Rumble Boar's Skin","7,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["2","3","1"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
             tooltipText: ["Ferocious Beast<br>Minster Hills","Gather<br>Minster Hills","Rumble Boar<br>Andra Basin"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
-                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw"]
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
+                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipIcn: ["transform: translate(7.4vw, 8vw)","visibility: hidden","visibility: hidden"]
         },
         // Red Splash 赤い飛沫
         { 
@@ -478,7 +499,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // 兜割り・赤い飛沫のイマジンを召喚しターゲットの頭上を目掛けて棍棒を叩きつける。
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Helm Splitter (attack type)","effectiveness", "422","Summons Red Splash's Imagine<br>who targets and strikes the target's head with its club"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Helm Splitter (attack)","effectiveness", "422","166","Summons Red Splash's Imagine<br>who targets and strikes the target's head with its club"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+2",
                     /*INT*/"+3",
@@ -488,15 +509,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+8",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Red Splash's Idea","Plateau Lily","Highland Fox Nail","15,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["2","3","1"],
             abilList: ["Damage increase (regular attack)","STR increase", "<br>"],
             tooltipText: ["Red Splash<br>Minster Hills","Gather<br>Soundless Foothills","Highland Fox<br>Divine Haven Hill"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw"]
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+            tooltipIcn: ["transform: translate(9.2vw, 2.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Deep Green Fang 深緑の牙
         { 
@@ -506,7 +537,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // 猪突猛進・深緑の牙のイマジンを召喚しターゲットを中心に突進攻撃を行う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Boar Rush (attack type)","effectiveness", "514","Summons Deep Green Fang's Imagine<br>who performs a charge attack towards the center of the target"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Boar Rush (attack)","effectiveness", "514","166","Summons Deep Green Fang's Imagine<br>who performs a charge attack towards the center of the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -516,15 +547,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+13",
                     /*DEX*/"+2"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Deep Green Fang's Idea","Asterbass","Tyrant Boar's Skin","17,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/shell2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Damage increase (ultimate)","ATK increase", "<br>"],
             tooltipText: ["Deep Green Fang<br>Andra Basin","Gather<br>Minster Hills","Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
+                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+            tooltipIcn: ["transform: translate(5.8vw, 11vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Iron Fang 鉄牙
         { 
@@ -534,7 +575,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // マウンテンスロー・鉄牙のイマジンを召喚し大きな牙でターゲットをすくい上げで打ち上げる
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Mountain Throw (attack type)","effectiveness", "524","Summons Iron Fang's Imagine<br>who throws enemies into the air with its large fangs"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Mountain Throw (attack)","effectiveness", "524","169","Summons Iron Fang's Imagine<br>who throws enemies into the air with its large fangs"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -544,15 +585,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+13",
                     /*DEX*/"+2"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Iron Fang's Idea","Beartree Leaf","Goblin Mane","20,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
             tooltipText: ["Iron Fang<br>Andra Basin","Gather<br>Divine Haven Hill","Goblin<br>Minster hills"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw"]
+                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw"],
+            tooltipIcn: ["transform: translate(2vw, 3.1vw)","visibility: hidden","visibility: hidden"]
         },
         // Flame Prison 炎獄
         { 
@@ -562,7 +613,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // パワースイング・炎獄のイマジンを召喚し前方に棍棒を振り払う攻撃を行う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Power Swing (attack type)","effectiveness", "710","Summons Flame Prison's Imagine<br>who swings its club to enemies in front of it"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Power Swing (attack)","effectiveness", "710","169","Summons Flame Prison's Imagine<br>who swings its club to enemies in front of it"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+3",
@@ -572,15 +623,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+19",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+1",
+                    /*HP*/"+7",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+5",
+                    /*DEX*/"+2"
+                   ],
             recipe: ["Flame Prison's Idea","Jasper Stone","Glowing Goblin's Mane","86,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["5","3","3"],
             abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"],
             tooltipText: ["Flame Prison<br>Calm Eve Terraces","Gather<br>Soundless Foothills","Glowing Goblin<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+            tooltipIcn: ["transform: translate(0.5vw, 9.5vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Ferocious Gold 猛る金色
         { 
@@ -590,7 +651,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // デスタックル・猛る金色のイマジンを召喚しターゲットを中心に突進攻撃を行う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Death Tackle (attack type)","effectiveness", "696","Summons Ferocious Gold's Imagine<br>who performs a charge attack towards the target"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Death Tackle (attack)","effectiveness", "696","166","Summons Ferocious Gold's Imagine<br>who performs a charge attack towards the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -600,14 +661,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+18",
                     /*DEX*/"+3"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Ferocious Gold's Idea","Nectar Seed","Ferocious Beast's Tail","85,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["5","3","1"],
             abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
             tooltipText: ["Ferocious Gold<br>Calm Eve Terraces","Gather<br>Fiel Pond","Ferocious Beast<br>Minster Hills"],
-            tooltipBg: ["url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
-                        "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
-                        "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw"]
+            tooltipBg: ["url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
+                        "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
+                        "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw"],
+            tooltipIcn: ["transform: translate(4.8vw, 8.2vw)","visibility: hidden","transform: translate(7.4vw, 8vw)"]
         },
         // Sapphire Trot サファイアトロット
         { 
@@ -617,7 +688,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // 落石牙・サファイアトロットのイマジンを召喚しターゲットに飛び掛かり噛みつく
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Stone Fang Drop (attack type)","effectiveness", "483","Summons Sapphire Trot's Imagine<br>who lunges at an enemy and bites them"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Stone Fang Drop (attack)","effectiveness", "483","156","Summons Sapphire Trot's Imagine<br>who lunges at an enemy and bites them"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -627,14 +698,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+10",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Sapphire Trot's Idea","Andra Cedar Twig","Elder Goblin's Mane","25,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Crit rate increase","DEX increase", "<br>"],
             tooltipText: ["Sapphire Trot<br>Divine Haven Hill","Gather<br>Minster Hills","Elder Goblin<br>Andra Basin"],
-            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
-                        "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
-                        "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw"]
+            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
+                        "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
+                        "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipIcn: ["transform: translate(4.7vw, 10.8vw)","visibility: hidden","visibility: hidden"]
         },
         // Flaming Horns 炎角
         { 
@@ -644,7 +725,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // カイザーブラスト・炎角のイマジンを召喚しターゲットを中心に雷属性の突進攻撃を行う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Kaiser Blast (attack type)","effectiveness", "493","Summons Flaming Horns' Imagine<br>who performs a Lightning elemental charge attack towards the target"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Kaiser Blast (attack)","effectiveness", "493","159","Summons Flaming Horns' Imagine<br>who performs a Lightning elemental charge attack towards the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+2",
                     /*INT*/"+3",
@@ -654,14 +735,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+12",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Flaming Horns' Idea","Blesio Nut","Goblin Sage's Mane","26,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Flaming Horns<br>Divine Haven Hill","Gather<br>Divine Haven Hill","Goblin Sage<br>Soundless Foothills"],
-            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
-                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
-                       "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw"]
+            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -80px/39.25vw",
+                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
+                       "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw"],
+            tooltipIcn: ["transform: translate(0.8vw, 7.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Spooky Goat スプーキーゴート
         { 
@@ -671,7 +762,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // ゴートヘイスト・スプーキーゴートのイマジンを召喚し召喚者の移動速度を一定時間上昇させる
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goat Haste (support type)","effectiveness", "130","Summons Spooky Goat's Imagine<br>who gives the summoner a temporary movement speed increase"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goat Haste (support)","effectiveness", "130","130","Summons Spooky Goat's Imagine<br>who gives the summoner a temporary movement speed increase"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -681,14 +772,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+14",
                     /*DEX*/"+5"
                    ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Spooky Goat's Idea","Sunset Cedar Twig","Glowing Tyrant Boar Skin","45,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
             amt: ["4","3","3"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
             tooltipText: ["Spooky Goat<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Glowing Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
-            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
-                       "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
+            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
+                       "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+            tooltipIcn: ["transform: translate(2.5vw, 4.9vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Evil Healer 悪しき癒し手
         { 
@@ -698,7 +799,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // エリアヒール・悪しき癒し手のイマジンを召喚し悪しき癒し手の周囲の味方のHPを回復
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Area Heal (heal type)","effectiveness", "?","Summons Evil Healer's Imagine<br>who heals the HP allies around it"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Area Heal (heal)","effectiveness", "267","71","Summons Evil Healer's Imagine<br>who heals the HP allies around it"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -708,14 +809,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+13",
                     /*DEX*/"+2"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Evil Healer's Idea","Rimeril Ore","Ogre Bone","56,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["4","3","3"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Evil Healer<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Ogre<br>Calm Eve Terraces"],
-            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw"]
+            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw"],
+            tooltipIcn: ["transform: translate(6vw, 10vw)","visibility: hidden","visibility: hidden"]
         },
         // Trick Elder トリックエルダー
         { 
@@ -725,7 +836,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // エルダークリスタル・トリックエルダーのイマジンを召喚しターゲットに対して氷柱を3発飛ばす
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Elder Crystal (attack type)","effectiveness", "741","Summons Trick Elder's Imagine<br>who launches 3 icicles at the target"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Elder Crystal (attack)","effectiveness", "741","156","Summons Trick Elder's Imagine<br>who launches 3 icicles at the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -735,14 +846,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+18",
                     /*DEX*/"+6"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Trick Elder's Idea","Dragon Venom","Deep Green Fang's Skin","130,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["3","3","1"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
             tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Dragonclaw Valley [Free Exploration]","Deep Green Fang<br>Andra Basin"],
-            tooltipBg: ["url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
-                       "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                       "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw"]
+            tooltipBg: ["url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
+                       "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                       "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(5.8vw, 11vw)"]
         },
         // Elder Goblin エルダーゴブリン
         { 
@@ -752,24 +873,34 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // ファイアボール・エルダーゴブリンのイマジンを召喚しターゲットに火球を1発飛ばす
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Fireball (attack type)","effectiveness", "?","Summons Elder Goblin's Imagine<br>who blasts one fireball at the target"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Fireball (attack)","effectiveness", "604","166","Summons Elder Goblin's Imagine<br>who blasts one fireball at the target"],
             ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+?",
-                    /*INT*/"+?",
-                    /*HP*/"+?",
-                    /*VIT*/"+?",
-                    /*MND*/"+?",
-                    /*ATK*/"+?",
-                    /*DEX*/"+?"
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+24",
+                    /*VIT*/"+3",
+                    /*MND*/"+5",
+                    /*ATK*/"+13",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
                    ],
             recipe: ["Elder Goblin's Idea","Magna Moss Fossil","Kaiser Elk Fur","43,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["4","3","3"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
             tooltipText: ["Arrogant Conjurer<br>Dragonclaw Valley [Free Exploration]","Gather<br>Calm Eve Terraces","Kaiser Elk<br>Divine Haven Hill"],
-            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
-                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw"]
+            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
+                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
         },
         // Goblin ゴブリン
         { 
@@ -779,7 +910,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // ゴブリンスタブ・ゴブリンのイマジンを召喚しターゲットを棍棒で突進状態で突く
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Stab (attack type)","effectiveness", "414","Summons Goblin's Imagine<br>who stabs the target with its club"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Stab (attack)","effectiveness", "414","163","Summons Goblin's Imagine<br>who stabs the target with its club"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -789,14 +920,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+8",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Goblin's Idea","Iron Ore","Land Fox Tail","9,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["2","3","1"],
             abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"],
             tooltipText: ["Valley Raider<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Land Fox<br>Skyquake Fields"],
-            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
-                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw"]
+            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
+                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
         },
         // Land Fox ランドフォックス
         { 
@@ -806,7 +947,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // クラウンストライク・ランドフォックスのイマジンを召喚しターゲットに飛び掛かりタックルを行う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Crown Strike (attack type)","effectiveness", "669","Summons Land Fox's Imagine<br>who performs a leaping tackle at enemies"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Crown Strike (attack)","effectiveness", "669","159","Summons Land Fox's Imagine<br>who performs a leaping tackle at enemies"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -816,15 +957,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+7",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Land Fox's Idea","Lamusa Flower","Pink Piglet's Skin","1,500"],
             iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["1","3","1"],
             abilList: ["Crit damage increase","DEX increase", "<br>"],
             tooltipText: ["Loudshot<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Pink Piglet<br>Skyquake Fields"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw"]
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(7vw, 7.7vw)"]
         },
         // Tyrant Boar タイラントボア
         { 
@@ -834,7 +985,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // 猟犬殺し・タイラントボアのイマジンを召喚しターゲットを頭突きで攻撃する
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Hound Killer (attack type)","effectiveness", "504","Summons Tyrant Boar<br>who attacks the target with a headbutt"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Hound Killer (attack)","effectiveness", "504","163","Summons Tyrant Boar<br>who attacks the target with a headbutt"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -844,15 +995,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+13",
                     /*DEX*/"+2"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Tyrant Boar's Idea","Sandsilver","Horn Goat's Fur","45,000"],
-            iconSrc: ["images/map/dungeon2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: ["images/map/dungeon2.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["2","3","3"],
             abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"],
             tooltipText: ["Clear Arena [C Rank]","Gather<br>Divine Haven Hill","Horned Goat<br>Fiel Pond"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw"]
+                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw"],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","visibility: hidden"]
         },
         // Horned Goat ホーンゴート
         { 
@@ -862,7 +1023,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // ビハインドキック・ホーンゴートのイマジンを召喚しターゲットを後ろ足で蹴り飛ばす
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Back Kick (attack type)","effectiveness", "593","Summons Horned Goat's Imagine<br>who kicks back enemies with its rear legs"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Back Kick (attack)","effectiveness", "593","163","Summons Horned Goat's Imagine<br>who kicks back enemies with its rear legs"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+3",
@@ -872,15 +1033,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+14",
                     /*DEX*/"+5"
                    ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Horned Goat's Idea","Silver Ore","Glowing Elder Goblin's Mane","83,000"],
-            iconSrc: ["images/map/dungeon2.svg","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: ["images/map/dungeon2.png","images/map/rock2.svg","images/map/combat2.svg"],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw"]
+                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Goblin Sage ゴブリンセージ
         { 
@@ -890,7 +1061,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
             // ゴブリンセージの調律・ゴブリンセージのイマジンを召喚し召喚者のHPを回復させる
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Sage's Tuning (heal type)","effectiveness", "323","Summons Goblin Sage<br>who heals the HP of the summoner"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Goblin Sage's Tuning (heal)","effectiveness", "323","74","Summons Goblin Sage's Imagine<br>who heals the HP of the summoner"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -900,15 +1071,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+16",
                     /*DEX*/"+5"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Goblin Sage's Idea","Spike Fish","Sapphire Trot's Fang","120,000"],
-            iconSrc: ["images/map/dungeon2.svg","images/map/shell2.svg","images/map/elitemonster.png"],
+            iconSrc: ["images/map/dungeon2.png","images/map/shell2.svg","images/map/elitemonster.png"],
             amt: ["5","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Clear Arena [A Rank]","Gather<br>Fiel Pond","Sapphire Trot<br>Divine Haven Hill"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw"]
+                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(4.7vw, 10.8vw)"]
         },
         // Kaiser Elk カイザーエルク
         { 
@@ -918,7 +1099,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // クラッパーホーン・カイザーエルクのイマジンを召喚しターゲットを角で振り払う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Clapper Horn (attack type)","effectiveness", "756","Summons Kaiser Elk's Imagine<br>who attacks enemies with its horns"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Clapper Horn (attack)","effectiveness", "756","159","Summons Kaiser Elk's Imagine<br>who attacks enemies with its horns"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -928,15 +1109,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+19",
                     /*DEX*/"+6"
                    ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Kaiser Elk's Idea","Longan Flower","Evil Healer's Mane","140,000"],
-            iconSrc: ["images/map/dungeon2.svg","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: ["images/map/dungeon2.png","images/map/flower2.svg","images/map/elitemonster.png"],
             amt: ["7","3","1"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragonclaw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -400px -140px/45.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw"]
+                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw"],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(6vw, 10vw)"]
         },
         // Raging Kingfang 荒ぶる牙王
         { 
@@ -946,7 +1137,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // タイラントアサルト・荒ぶる牙王のイマジンを召喚しターゲットを中心に広範囲の突進攻撃を行う
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Tyrant Assault (attack type)","effectiveness", "787","Summons Raging Kingfang<br>who performs a wide-range charge attack towards the target"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Tyrant Assault (attack)","effectiveness", "787","166","Summons Raging Kingfang's Imagine<br>who performs a wide-range charge attack towards the target"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -956,15 +1147,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+20",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Raging Kingfang's Idea","Shell Fossil","Flame Prison's Bone","190,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/elitemonster.png"],
             amt: ["7","3","1"],
             abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"],
             tooltipText: ["Raging Kingfang<br>Dragonclaw Valley [Free Exploration]","Gather<br>Fiel Pond","Flame Prison<br>Calm Eve Terraces"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw"]
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw"],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(0.5vw, 9.5vw)"]
         },
         
         // Sealed Atrocity 封印されし暴虐
@@ -975,7 +1176,7 @@ jQuery(document).ready(function($){
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
             // アースクエイク
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Earthquake (attack type)","effectiveness", "802"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Earthquake (attack)","effectiveness", "802","?","Summons Sealed Atrocity's Imagine<br>who performs a large Earth elemental attack with centered around itself"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+4",
@@ -985,13 +1186,23 @@ jQuery(document).ready(function($){
                     /*ATK*/"+21",
                     /*DEX*/"+5"
                    ],
+            minStats: [
+                    /*STR*/"+?",
+                    /*INT*/"+?",
+                    /*HP*/"+?",
+                    /*VIT*/"+?",
+                    /*MND*/"+?",
+                    /*ATK*/"+?",
+                    /*DEX*/"+?"
+                   ],
             recipe: ["Obtained as a Quest Reward", "<br>", "<br>", "0"],
-            iconSrc: ["images/map/quest2.svg","",""],
+            iconSrc: ["images/map/quest2.png","",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['Complete quest "Collect Battle Imagine! #2"<br><br>After completing "Collect Battle Imagine! #1", craft Deep Green Fang, Iron Fang, Sapphire Trot, and Spooky Goat',"<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -440px -140px/55.25vw","",""]
+                "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw","",""],
+            tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
         // Plidoke プリドーク
         { 
@@ -1000,8 +1211,8 @@ jQuery(document).ready(function($){
             level: "Starting Lv 1~1 (Max Lv: 35)",
             element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;30 sec"],
-            // スライサーアーム
-            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Slicer Arm (attack type)","effectiveness", "772"],
+            // スライサーアーム・プリドークのイマジンを召喚し前方のターゲットに両手の剣を突き刺す
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Slicer Arm (attack)","effectiveness", "772","?","Summons Plidoke's Imagine<br>who pierces enemies in front of it with its sword arms"],
             ability: ["ability", "????","effectiveness", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -1011,20 +1222,30 @@ jQuery(document).ready(function($){
                     /*ATK*/"+20",
                     /*DEX*/"+5"
                    ],
+            minStats: [
+                    /*STR*/"+?",
+                    /*INT*/"+?",
+                    /*HP*/"+?",
+                    /*VIT*/"+?",
+                    /*MND*/"+?",
+                    /*ATK*/"+?",
+                    /*DEX*/"+?"
+                   ],
             recipe: ["Obtained as a Quest Reward", "<br>", "<br>", "0"],
-            iconSrc: ["images/map/quest2.svg","",""],
+            iconSrc: ["images/map/quest2.png","",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['Complete quest "Collect Battle Imagine! #3"<br><br>After completing "Collect Battle Imagine! #2", craft ???',"<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -440px -140px/55.25vw","",""]
+                "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw","",""],
+            tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
     ]
     
     // INNER IMAJINN LIST
     var iiHolder = [
         
-        // Dyranks
+        // Dyranks/Dylanx
         { 
             name: "Dyranks (courage)",
             image: "images/crafting/ii1L.png",
@@ -1042,15 +1263,25 @@ jQuery(document).ready(function($){
                     /*ATK*/"+5",
                     /*DEX*/"+1"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+8",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+3",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
-            iconSrc: ["images/map/dungeon2.svg","",""],
+            iconSrc: ["images/map/dungeon2.png","",""],
             amt: ["1","<br>","<br>"],
             abilList: ["Max HP increase","<br>", "<br>"],
             tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -320px -140px/45.25vw","",""]
+                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw","",""],
+            tooltipIcn: ["transform: translate(11.4vw, 4.5vw)","visibility: hidden","visibility: hidden"]
         },
-        // Corjun
+        // Corjun/Corsion
         { 
             name: "Corjun (mystery)",
             image: "images/crafting/ii2L.png",
@@ -1068,14 +1299,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+6",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+0",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+2"
+                   ],
             recipe: ["Land Fox Nail","Asterium Ore","<br>","9,000"],
             iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
             amt: ["8","15","<br>"],
             abilList: ["ATK increase","<br>", "<br>"],
             tooltipText: ["Land Fox<br>Minster Hills","Gather<br>Minster Hills","<br>"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -340px 0px/39.25vw",""]
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Mipect
         { 
@@ -1095,16 +1336,26 @@ jQuery(document).ready(function($){
                     /*ATK*/"+7",
                     /*DEX*/"+0"
                    ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+1",
+                    /*HP*/"+9",
+                    /*VIT*/"+3",
+                    /*MND*/"+2",
+                    /*ATK*/"+2",
+                    /*DEX*/"+0"
+                   ],
             recipe: ["Goblin Nail","Jira Crystal","<br>","10,000"],
             iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
             amt: ["10","10","<br>"],
             abilList: ["Max Stamina increase","<br>", "<br>"],
             tooltipText: ["Goblin<br>Andra Basin","Gather<br>Andra Basin","<br>"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",
-                "url(images/map/moveAndraBasin.jpg) no-repeat -215px -80px/45.25vw",""]
+                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
+                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
-        // Proxyx
+        // Proxyx/Procsyx
         { 
             name: "Proxyx (courage)",
             image: "images/crafting/ii4L.png",
@@ -1122,16 +1373,26 @@ jQuery(document).ready(function($){
                     /*ATK*/"+13",
                     /*DEX*/"+4"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+8",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+3",
+                    /*DEX*/"+1"
+                   ],
             recipe: ["Horned Goat Bone","Smoky Moss","<br>","60,000"],
             iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
             amt: ["12","20","<br>"],
             abilList: ["Max HP increase","VIT increase", "STR increase"],
             tooltipText: ["Horned Goat<br>Soundless Foothills","Gather<br>Divine Haven Hill","<br>"],
             tooltipBg: [
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -410px 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw",""]
+                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
-        // Latepect
+        // Latepect/Latepecht
         { 
             name: "Latepect (hope)",
             image: "images/crafting/ii5L.png",
@@ -1149,13 +1410,23 @@ jQuery(document).ready(function($){
                     /*ATK*/"+11",
                     /*DEX*/"+0"
                    ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+1",
+                    /*HP*/"+9",
+                    /*VIT*/"+3",
+                    /*MND*/"+2",
+                    /*ATK*/"+2",
+                    /*DEX*/"+0"
+                   ],
             recipe: ["Large Fang Fossil","<br>","<br>","85,000"],
             iconSrc: ["images/map/rock2.svg","",""],
             amt: ["25","<br>","<br>"],
             abilList: ["Max Stamina increase","INT increase", "MND increase"],
             tooltipText: ["Gather<br>Divine Haven Hill","<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -0px/31.25vw","",""]
+                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw","",""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Carcon
         { 
@@ -1167,13 +1438,22 @@ jQuery(document).ready(function($){
             // 
             slot: ["slot","images/crafting/slot3.svg","Mystery"],
             ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+?",
-                    /*INT*/"+?",
-                    /*HP*/"+?",
-                    /*VIT*/"+?",
-                    /*MND*/"+?",
-                    /*ATK*/"+?",
-                    /*DEX*/"+?"
+            stats: [/*STR*/"+0",
+                    /*INT*/"+6",
+                    /*HP*/"+32",
+                    /*VIT*/"+5",
+                    /*MND*/"+6",
+                    /*ATK*/"+9",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+0",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+2"
                    ],
             recipe: ["Glowing Goblin's Nail","Pterosaur Fossil","<br>","240,000"],
             iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
@@ -1181,8 +1461,9 @@ jQuery(document).ready(function($){
             abilList: ["ATK increase","STR increase", "DEX increase"],
             tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw",""]
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
+                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",""],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","transform: translate(11.4vw, 4.4vw)","visibility: hidden"]
         },
         // Parbury
         { 
@@ -1202,14 +1483,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+12",
                     /*DEX*/"+6"
                    ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+1",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+0",
+                    /*ATK*/"+2",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Glowing Tyrant Boar's Fang","Stardust Grass","<br>","500,000"],
             iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
             amt: ["15","40","<br>"],
             abilList: ["DEF increase","DEX increase", "VIT increase"],
             tooltipText: ["Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces","<br>"],
             tooltipBg: [
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw",
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -245px -140px/48.25vw", ""]
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
+                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw", ""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Sanak'ta
         { 
@@ -1229,14 +1520,24 @@ jQuery(document).ready(function($){
                     /*ATK*/"+10",
                     /*DEX*/"+6"
                    ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+2",
+                    /*HP*/"+5",
+                    /*VIT*/"+0",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+3"
+                   ],
             recipe: ["Trick Elder's Nail","Welling Water Stone","<br>","900,000"],
             iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg",""],
             amt: ["1","50","<br>"],
             abilList: ["Healing increase","MND increase", "INT increase"],
             tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Fiel Pond","<br>"],
             tooltipBg: [
-                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -130px 0px/39.25vw",""]
+                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
+                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",""],
+            tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
         }
     ]
     
@@ -1252,7 +1553,7 @@ jQuery(document).ready(function($){
         dispImajinn(listHolder);
     });
     
-    // Select a battle imajinn
+    // Click on imajinn list
     $(".listItem").click(function(){
         
         if (listHolder == biHolder) {
@@ -1268,11 +1569,42 @@ jQuery(document).ready(function($){
 
     });
     
+    // Toggle Imajinn Level
+    $(".slider").click(function(){
+        
+        // Max lv stats
+        if (!$(".toggleCheck").is(":checked")) {
+            statLvSelector = 1;
+            
+            if (listHolder == biHolder) {
+                skillPower.html(listHolder[iIndex].skill[2] + spacing1 + listHolder[iIndex].skill[3]);
+            }
+            
+            statVal.each(function(index){
+                $(this).html(listHolder[iIndex].stats[(index)]);
+            });
+        }
+        
+        // Lv 1 stats
+        else {
+            statLvSelector = 0;
+            
+            if (listHolder == biHolder) {
+                skillPower.html(listHolder[iIndex].skill[2] + spacing1 + listHolder[iIndex].skill[4]);
+            }
+            
+            statVal.each(function(index){
+                $(this).html(listHolder[iIndex].minStats[(index)]);
+            });
+        }
+
+    });
     
     
+    var iIndex;
     // Display Imajinn
     function dispImajinn(holder) {
-        var iIndex;
+        
         
         // If battle imajinn, hide inner
         if (listHolder == biHolder) {
@@ -1290,18 +1622,30 @@ jQuery(document).ready(function($){
             slotIcon.css("display","none");
             
             
-            // Glow the selector image
+            // Change selector image
             $(".iiSelector").removeClass("listSelected");
             $(".biSelector").addClass("listSelected");
             
             // Send values
             cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
             skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
-            skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
+            
+            // Skill power Lv 1
+            if (statLvSelector == 0) {
+                // Send skill power
+                skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[4]);
+            }
+            // Skill power max level
+            else if (statLvSelector == 1) {
+                // Send skill power
+                skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
+            }
+            
+            
             vid.attr("src", holder[iIndex].image);
             $(".skillTooltip").html(holder[iIndex].skill[(holder[iIndex].skill.length-1)]);
             
-        }
+        } // end Battle Imajinn exclusives
         
         // If inner imajinn, hide battle
         if (listHolder == iiHolder) {
@@ -1319,7 +1663,7 @@ jQuery(document).ready(function($){
             slotIcon.css("display","block");
             
             
-            // Glow the selector image
+            // Change selector image
             $(".biSelector").removeClass("listSelected");
             $(".iiSelector").addClass("listSelected");
             
@@ -1330,23 +1674,35 @@ jQuery(document).ready(function($){
             slotIcon.attr("src", holder[iIndex].slot[1])
             $(".slotTooltip").html(holder[iIndex].slot[2]);
             
+        } // end Inner Imajinn exclusives
+        
+        // Lv 1 = send lv 1 stats
+        if (statLvSelector == 0) {
+            // Send stats
+            statVal.each(function(index){
+                $(this).html(holder[iIndex].minStats[(index)]);
+            });
+        } 
+        // Max level = send max stats
+        else if (statLvSelector == 1) {
+            // Send stats
+            statVal.each(function(index){
+                $(this).html(holder[iIndex].stats[(index)]);
+            });
         }
         
         
-        // Send item info
+        // Send stat info
         name.html(holder[iIndex].name);
-        
         level.html(holder[iIndex].level);
         element.html(holder[iIndex].element[0]);
         elePower.html(holder[iIndex].element[1]);
-        
-        
         abil.html(holder[iIndex].ability[0] + spacing1 + holder[iIndex].ability[1]);
         abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
-        
-        // Send stats
-        statVal.each(function(index){
-            $(this).html(holder[iIndex].stats[(index)]);
+
+        // Send ability list
+        abilList.each(function(index){
+           $(this).html(holder[iIndex].abilList[(index)]);
         });
         
         // Send recipe materials
@@ -1361,21 +1717,21 @@ jQuery(document).ready(function($){
         });
         luno.html(holder[iIndex].recipe[(holder[iIndex].recipe.length - 1)]);
         
-        // Send recipe hints
+        // Send recipe tooltip text
         recipeToolText.each(function (index) {
            $(this).html(holder[iIndex].tooltipText[(index)]); 
         });
-        
-        // Send ability list
-        abilList.each(function(index){
-           $(this).html(holder[iIndex].abilList[(index)]);
-        });
-        
-        
-        // Recipe tooltips
+
+        // Recipe tooltip backgrounds
         $(".recipeTooltip1").css("background",holder[iIndex].tooltipBg[0]);
         $(".recipeTooltip2").css("background",holder[iIndex].tooltipBg[1]);
         $(".recipeTooltip3").css("background",holder[iIndex].tooltipBg[2]);
+        
+        // Recipe tooltip icons
+        $(".recipeToolImg").each(function(index){
+            $(this).attr("src", holder[iIndex].iconSrc[(index)]);
+            $(this).attr("style", holder[iIndex].tooltipIcn[(index)]);
+        });
         
     }
     
