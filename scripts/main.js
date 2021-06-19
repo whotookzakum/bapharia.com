@@ -131,15 +131,22 @@ jQuery(document).ready(function($){
     
     // Crafting selector variables
     var wIndex = 0;
-    var wName = $(".wlistItem-name");//name
+    var wepLvSelector = 0;
+    var wListName = $(".wlistItem-name");//name
     var wType = $(".wlistItem-type");//type
     var wIcon = $(".wlistItem-icon");//icon
-    //image
-    //level
-    //element
-    //slotCount
-    //stats
-    //minStats
+    var wName = $(".w-infoName");
+    var wImg = $(".w-infoImg");//image, change the src
+    var wLevel = $(".w-infoLevel");//level
+    var wEleImg = $(".w-infoEleImg");//element
+    // Slots currently all "?" var wSlots = $(".w-slotCount");
+    var wStats = $(".w-infoStatVal");//stats
+    var wmat = $(".wmatItem");
+    var wmatIcon = $(".wmatIcon");
+    var wmatCount = $(".wmatCount");
+    var wluno = $(".wreqLuno");
+    var eleDesc = $(".eleTooltip");
+    
     //recipe
     //amt
     //tooltipText
@@ -151,11 +158,11 @@ jQuery(document).ready(function($){
         // 1 Novice Sword
         { 
             name: "Novice Sword", //ノービスソード
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword1.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+77",
                     /*STR*/"+0",
@@ -174,7 +181,7 @@ jQuery(document).ready(function($){
                     /*MND*/"+0",
                     /*HP*/"+9",
                    ],
-            recipe: ["Purchase at weapon shop","","","0"],
+            recipe: ["Purchase at weapon shop","<br>","<br>","0"],
             iconSrc: [iLuno,"",""],
             amt: ["","",""],
             tooltipText: ["","",""],
@@ -182,35 +189,36 @@ jQuery(document).ready(function($){
                 "",
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 1 Battle Axe
         { 
             name: "Battle Axe", //バトルアックス
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe1.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
-            stats: [/*ATK*/"+0",
+            stats: [/*ATK*/"+85",
                     /*STR*/"+0",
-                    /*VIT*/"+0",
+                    /*VIT*/"+2",
                     /*DEX*/"+0",
                     /*INT*/"+0",
                     /*MND*/"+0",
-                    /*HP*/"+0",
+                    /*HP*/"+13",
                    ],
             minStats: [
-                    /*ATK*/"+0",
+                    /*ATK*/"+51",
                     /*STR*/"+0",
-                    /*VIT*/"+0",
+                    /*VIT*/"+2",
                     /*DEX*/"+0",
                     /*INT*/"+0",
                     /*MND*/"+0",
-                    /*HP*/"+0",
+                    /*HP*/"+8",
                    ],
-            recipe: ["","","","0"],
+            recipe: ["Purchase at weapon shop","<br>","<br>","0"],
             iconSrc: [iLuno,"",""],
             amt: ["","",""],
             tooltipText: ["","",""],
@@ -218,35 +226,36 @@ jQuery(document).ready(function($){
                 "",
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 1 Hunter Bow
         { 
             name: "Hunter Bow", //ハンターボウ
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow1.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
-            stats: [/*ATK*/"+0",
+            stats: [/*ATK*/"+60",
                     /*STR*/"+0",
-                    /*VIT*/"+0",
+                    /*VIT*/"+2",
                     /*DEX*/"+0",
                     /*INT*/"+0",
                     /*MND*/"+0",
-                    /*HP*/"+0",
+                    /*HP*/"+12",
                    ],
             minStats: [
-                    /*ATK*/"+0",
+                    /*ATK*/"+42",
                     /*STR*/"+0",
-                    /*VIT*/"+0",
+                    /*VIT*/"+2",
                     /*DEX*/"+0",
                     /*INT*/"+0",
                     /*MND*/"+0",
-                    /*HP*/"+0",
+                    /*HP*/"+7",
                    ],
-            recipe: ["","","","0"],
+            recipe: ["Purchase at weapon shop","<br>","<br>","0"],
             iconSrc: [iLuno,"",""],
             amt: ["","",""],
             tooltipText: ["","",""],
@@ -254,35 +263,36 @@ jQuery(document).ready(function($){
                 "",
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 1 Training Rod
         { 
             name: "Training Rod", //トレーニングロッド
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff1.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
-            stats: [/*ATK*/"+0",
+            stats: [/*ATK*/"+78",
                     /*STR*/"+0",
-                    /*VIT*/"+0",
+                    /*VIT*/"+2",
                     /*DEX*/"+0",
                     /*INT*/"+0",
                     /*MND*/"+0",
-                    /*HP*/"+0",
+                    /*HP*/"+12",
                    ],
             minStats: [
-                    /*ATK*/"+0",
+                    /*ATK*/"+47",
                     /*STR*/"+0",
-                    /*VIT*/"+0",
+                    /*VIT*/"+2",
                     /*DEX*/"+0",
                     /*INT*/"+0",
                     /*MND*/"+0",
-                    /*HP*/"+0",
+                    /*HP*/"+6",
                    ],
-            recipe: ["","","","0"],
+            recipe: ["Purchase at weapon shop","<br>","<br>","0"],
             iconSrc: [iLuno,"",""],
             amt: ["","",""],
             tooltipText: ["","",""],
@@ -290,17 +300,18 @@ jQuery(document).ready(function($){
                 "",
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         
         // 2 Fanged Sword
         { 
             name: "Fanged Sword", //爪牙剣
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword2.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+103",
                     /*STR*/"+4",
@@ -327,16 +338,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipAndra,
                 tooltipAndra],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 2 Mist Cutter
         { 
             name: "Mist Cutter", //霧払い
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe2.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -363,16 +375,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipAndra,
                 tooltipAndra],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 2 Flashwing Bow
         { 
             name: "Flashwing Bow", //閃翼の弓｀
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow2.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+93",
                     /*STR*/"+4",
@@ -399,16 +412,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipAndra,
                 tooltipAndra],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 2 Ancient Staff
         { 
             name: "Ancient Staff", //往古の杖
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff2.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -435,17 +449,18 @@ jQuery(document).ready(function($){
                 "",
                 tooltipAndra,
                 tooltipAndra],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         
         // 3 Tower's Blade
         { 
             name: "Tower's Blade", //タワーズブレイド
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword3.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -472,16 +487,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDivine,
                 tooltipDivine],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 3 Dual Raster
         { 
             name: "Dual Raster", //デュアルラスター
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe3.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -508,16 +524,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDivine,
                 tooltipDivine],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 3 Alpha Genesis
         { 
             name: "Alpha Genesis", //アルファジェネシス｀
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow3.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -544,16 +561,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDivine,
                 tooltipDivine],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         // 3 Missionary
         { 
             name: "Missionary", //ミショナリー
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff3.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -580,17 +598,18 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDivine,
                 tooltipDivine],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
         },
         
         // 4 Red Steel Blade
         { 
             name: "Red Steel Blade", //鋼の赤刃
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword4.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+143",
                     /*STR*/"+3",
@@ -601,7 +620,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+26",
                    ],
             minStats: [
-                    /*ATK*/"47",
+                    /*ATK*/"+47",
                     /*STR*/"+2",
                     /*VIT*/"+3",
                     /*DEX*/"+1",
@@ -617,16 +636,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipSoundless,
                 tooltipSoundless],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
         },
         // 4 Ancient Flame-hardened Axe
         { 
             name: "Ancient Flame-hardened Axe", //古代の火打ち斧
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe4.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+158",
                     /*STR*/"+3",
@@ -653,16 +673,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipSoundless,
                 tooltipSoundless],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
         },
         // 4 Mechanical Firecarved Bow
         { 
             name: "Mechanical Firecarved Bow", //機跡の炎刻弓｀
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow4.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+129",
                     /*STR*/"+3",
@@ -689,16 +710,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipSoundless,
                 tooltipSoundless],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
         },
         // 4 Blazing Staff
         { 
             name: "Blazing Staff", //焼尽の杖
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff4.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+?",
                     /*STR*/"+?",
@@ -725,17 +747,18 @@ jQuery(document).ready(function($){
                 "",
                 tooltipSoundless,
                 tooltipSoundless],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
         },
         
         // 5 Scaleclaw Sword
         { 
             name: "Scaleclaw Sword", //鋼の赤刃
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword5.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+169",
                     /*STR*/"+5",
@@ -746,7 +769,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+30",
                    ],
             minStats: [
-                    /*ATK*/"48",
+                    /*ATK*/"+48",
                     /*STR*/"+3",
                     /*VIT*/"+0",
                     /*DEX*/"+2",
@@ -762,21 +785,22 @@ jQuery(document).ready(function($){
                 "",
                 tooltipCalmEve,
                 tooltipCalmEve],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
         },
         // 5 Cliff Breaker
         { 
             name: "Cliff Breaker", //懸崖崩し
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe5.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+188",
                     /*STR*/"+5",
                     /*VIT*/"+0",
-                    /*DEX*/"+5",
+                    /*DEX*/"+4",
                     /*INT*/"+0",
                     /*MND*/"+3",
                     /*HP*/"+28",
@@ -798,16 +822,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipCalmEve,
                 tooltipCalmEve],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
         },
         // 5 Brilliant Thunderwing Bow
         { 
             name: "Brilliant Thunderwing Bow", //雷翼の豪弓
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow5.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+153",
                     /*STR*/"+5",
@@ -834,16 +859,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipCalmEve,
                 tooltipCalmEve],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
         },
         // 5 Old Dragon's Staff
         { 
             name: "Old Dragon's Staff", //古竜の杖
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff5.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+174",
                     /*STR*/"+0",
@@ -870,17 +896,18 @@ jQuery(document).ready(function($){
                 "",
                 tooltipCalmEve,
                 tooltipCalmEve],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
         },
         
         // 6 Bapharia's Guidance
         { 
             name: "Bapharia's Guidance", //バファリアの標
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword6.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+190",
                     /*STR*/"+3",
@@ -891,7 +918,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+37",
                    ],
             minStats: [
-                    /*ATK*/"46",
+                    /*ATK*/"+46",
                     /*STR*/"+1",
                     /*VIT*/"+2",
                     /*DEX*/"+0",
@@ -907,16 +934,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipFiel,
                 tooltipFiel],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
         },
         // 6 Wild Ice Edge
         { 
             name: "Wild Ice Edge", //アイスエッジワイルド
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe6.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+211",
                     /*STR*/"+3",
@@ -943,16 +971,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipFiel,
                 tooltipFiel],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
         },
         // 6 Glacial Arch
         { 
             name: "Glacial Arch", //グレイシャルアーチ
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow6.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+172",
                     /*STR*/"+3",
@@ -979,16 +1008,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipFiel,
                 tooltipFiel],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
         },
         // 6 Retribution
         { 
             name: "Retribution", //リトリビューション
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff6.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+195",
                     /*STR*/"+0",
@@ -1015,18 +1045,19 @@ jQuery(document).ready(function($){
                 "",
                 tooltipFiel,
                 tooltipFiel],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
         },
         
         
         // 7 Sharp Edged Sword
         { 
             name: "Sharp Edged Sword", //鋭刃剣
-            type: "Sword (weapon)", //剣（武器）
+            type: "Sword", //剣（武器）
             icon: "images/crafting/sword7.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+218",
                     /*STR*/"+5",
@@ -1037,7 +1068,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+41",
                    ],
             minStats: [
-                    /*ATK*/"47",
+                    /*ATK*/"+47",
                     /*STR*/"+2",
                     /*VIT*/"+3",
                     /*DEX*/"+1",
@@ -1053,16 +1084,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDragonclaw,
                 tooltipDragonclaw],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
         },
         // 7 Ground Edge
         { 
             name: "Ground Edge", //グラウンドエッジ
-            type: "Axe (weapon)", //斧（武器）
+            type: "Axe", //斧（武器）
             icon: "images/crafting/axe7.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+242",
                     /*STR*/"+5",
@@ -1089,16 +1121,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDragonclaw,
                 tooltipDragonclaw],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
         },
         // 7 Groundrunner's Bow
         { 
             name: "Groundrunner's Bow", //地走りの弓
-            type: "Bow (weapon)", //弓（武器）
+            type: "Bow", //弓（武器）
             icon: "images/crafting/bow7.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+197",
                     /*STR*/"+5",
@@ -1125,16 +1158,17 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDragonclaw,
                 tooltipDragonclaw],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
         },
         // 7 Valeed Rod
         { 
             name: "Valeed Rod", //バリードロッド
-            type: "Staff (weapon)", //杖（武器）
+            type: "Staff", //杖（武器）
             icon: "images/crafting/staff7.png",
             image: "images/map/pinkpiglet.mp4",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
-            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
             stats: [/*ATK*/"+224",
                     /*STR*/"+0",
@@ -1161,34 +1195,101 @@ jQuery(document).ready(function($){
                 "",
                 tooltipDragonclaw,
                 tooltipDragonclaw],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
         },
         
         
         
     ]
     
+    // Open page
     function openCrafting() {
         $("#craftingContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
-        //dispWeps();
-
+        currentPage = $("#craftingContainer");
         listWeapons(wepHolder);
+        dispWeapon(wepHolder);
     }
     
+    // Toggle Weapon Level
+    $(".wepSlider").click(function(){
+        
+        // Max lv stats
+        if (!$(".toggleCheck").is(":checked")) {
+            wepLvSelector = 1;
+            
+            wStats.each(function(index){
+                $(this).html(wepHolder[wIndex].stats[(index)]);
+                $(this).css("color","crimson");
+            });
+        }
+        
+        // Lv 1 stats
+        else {
+            wepLvSelector = 0;
+            
+            wStats.each(function(index){
+                $(this).html(wepHolder[wIndex].minStats[(index)]);
+                $(this).css("color","#343330");
+            });
+        }
+
+    });
     
+    // Display the clicked Weapon
+    $(".wlistItem").click(function(){
+        wIndex = $(".wlistItem").index(this);
+        dispWeapon(wepHolder);
+    });
     
+    // Populate weapon list
     function listWeapons(holder) {
         
         $(".wlistItem").each(function(index) {
-            $(this).find(wName).html(holder[index].name);
+            $(this).find(wListName).html(holder[index].name);
             $(this).find(wType).html(holder[index].type);
             $(this).find(wIcon).attr("src", holder[index].icon);    
         });
         
     }
     
+    // Display Weapons
     function dispWeapon(holder) {
+        
+        // Basic info
+        wName.html(holder[wIndex].name);
+        wLevel.html(holder[wIndex].level);
+        wEleImg.attr("src",holder[wIndex].element);
+        eleDesc.attr("src",holder[wIndex].eleTooltip);
+        
+        // Stats
+        // If lv 1
+        if (wepLvSelector == 0) {
+            wStats.each(function(index){
+                $(this).html(wepHolder[wIndex].minStats[(index)]);
+            });
+        }
+        // If max lv
+        else if (wepLvSelector == 1) {
+            wStats.each(function(index){
+                $(this).html(wepHolder[wIndex].stats[(index)]);
+            });
+        }
+        
+        // Recipe
+        $(".wrecipeHolder>div").each(function (index){
+            $(this).find(wmat).html(holder[wIndex].recipe[(index)]);
+            $(this).find(wmatIcon).attr("src", holder[wIndex].iconSrc[(index)]); 
+            $(this).find(wmatCount).html(holder[wIndex].amt[(index)]); 
+            
+            // Tooltips
+            $(this).find(".wrecipeToolText").html(holder[wIndex].tooltipText[(index)]); 
+            $(this).find(".wrecipeTooltip").css("background",holder[wIndex].tooltipBg[(index)]);
+            $(this).find(".wrecipeToolImg").attr("src", holder[wIndex].iconSrc[(index)]);
+            $(this).find(".wrecipeToolImg").attr("style", holder[wIndex].tooltipIcn[(index)]);
+        });
+        wluno.html(holder[wIndex].recipe[(holder[wIndex].recipe.length - 1)]);
         
     }
     
@@ -1206,6 +1307,7 @@ jQuery(document).ready(function($){
         $("#mapContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
         region.css("display", "block");
+        currentPage = $("#mapContainer");
     }
     
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
@@ -2656,7 +2758,7 @@ jQuery(document).ready(function($){
     });
     
     // Toggle Imajinn Level
-    $(".slider").click(function(){
+    $(".imajSlider").click(function(){
         
         // Max lv stats
         if (!$(".toggleCheck").is(":checked")) {
@@ -2664,8 +2766,8 @@ jQuery(document).ready(function($){
             
             if (listHolder == biHolder) {
                 skillPower.html(listHolder[iIndex].skill[3]);
-                skillPower.css("color","crimson");
             }
+            skillPower.css("color","crimson");
             
             statVal.each(function(index){
                 $(this).html(listHolder[iIndex].stats[(index)]);
@@ -2679,8 +2781,8 @@ jQuery(document).ready(function($){
             
             if (listHolder == biHolder) {
                 skillPower.html(listHolder[iIndex].skill[4]);
-                skillPower.css("color","#343330");
             }
+            skillPower.css("color","#343330");
             
             statVal.each(function(index){
                 $(this).html(listHolder[iIndex].minStats[(index)]);
@@ -2842,7 +2944,7 @@ jQuery(document).ready(function($){
         // if battle or inner imaj page, select that container and display
         $("#ImajinnContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
-    
+        currentPage = $("#ImajinnContainer");
         dispImajinn(listHolder);
     }
 

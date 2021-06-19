@@ -1060,6 +1060,20 @@
             <!-- CRAFTING PAGE -->
             <div id="craftingContainer">
                 
+                <!-- List Selector -->
+                <div class="wepType">
+                    
+                    <!-- Level Toggle -->
+                    <div class="levelToggle">
+                        <label class="switch">
+                            <input type="checkbox" class="toggleCheck">
+                            <span class="wepSlider slider"></span>
+                        </label>
+                        <p>Level</p>
+                    </div>
+                    
+                    
+                </div>
                 
                 <!-- List of Weapons -->
                 <div class="listHolder">
@@ -1485,17 +1499,27 @@
                         
                         <!-- Information -->
                         <div class="w-infoTextHolder">
-                            <div class="w-infoRow">
-                                <p class="w-infoLv">Starting Lv 1~1 (Max Lv: 7)</p>
+                            
+                            <p class="w-infoLv">Starting Lv 1~1 (Max Lv: 7)</p>
+                            
+                            <div class="w-infoRow" style="height: 6.7vw;">
+                                <div class="w-infoStatRow">
+                                    <p class="wstatName" style="float:left;">attack &nbsp;</p>
+                                    <p class="w-infoStatVal" style="float: left;">+332</p>
+                                </div>
+                                
+                                <div class="w-eleHolder">
+                                    <p class="w-infoEle"><br>element</p>
+                                    <img class="w-infoEleImg" src="images/crafting/fire.png">
+                                    <img class="eleTooltip tooltip" src="">
+                                    <p class="w-infoElePower">?????</p>
+                                </div>
+                            </div> 
+                            
+                            <div class="w-infoRow" style="height: 2.5vw;">
+                                <p class="w-slotCount">slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?</p>
                             </div>
-                            <div class="w-infoRow">
-                                <p class="w-infoEle">atk</p>
-                                <p class="w-infoElePower">+51</p>
-                            </div>
-                            <div class="w-infoRow">
-                                <p class="w-infoEle">element -</p>
-                                <p class="w-infoElePower">?????</p>
-                            </div>
+                            
                         </div>
 
                         <!-- Item Stats -->
@@ -1504,11 +1528,79 @@
                                 <p class="wstatName">str</p>
                                 <p class="w-infoStatVal">+3</p>
                             </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">vit</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">dex</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">int</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">mnd</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">max hp</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
                         </div>
 
                     </div> <!-- End Stats -->
                     
+                     <!-- Recipe -->
+                    <div class="wrecipeHolder">
+                        <p class="infoBoxHeader">Required items</p>
+                        <div>
+                            <p class="wmatItem">material</p>
+                            <img class="wmatIcon" src="images/map/elitemonster.png">
+                            <div class="wrecipeTooltip">
+                                <img class="wrecipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
+                                <p class="wrecipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="wmatCount">1</p>
+                            
+                        </div>
+                        <div>
+                            <p class="wmatItem">material</p>
+                            <img class="wmatIcon" src="images/map/elitemonster.png">
+                            <div class="wrecipeTooltip">
+                                <img class="wrecipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
+                                <p class="wrecipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="wmatCount">1</p>
+                            
+                        </div>
+                        <div>
+                            <p class="wmatItem">material</p>
+                            <img class="wmatIcon" src="images/map/elitemonster.png">
+                            <div class="wrecipeTooltip">
+                                <img class="wrecipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
+                                <p class="wrecipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="wmatCount">1</p>
+                            
+                        </div>
+                        
+                    </div>
                     
+                    <!-- Abilities -->
+                    <div class="abilityHolder" style="visibility: hidden;">
+                        <p class="infoBoxHeader" style="margin-left: 10px;">Possible abilities</p>
+                        <p class="abil">Ability 1</p>
+                        <p class="abil">Ability 2</p>
+                        <p class="abil"><br></p>
+                    </div>
+                
+                    <!-- Luno -->
+                    <div class="wlunoHolder">
+                        <p class="infoBoxHeader">Req. luno</p>
+                        <p class="wreqLuno">00,000,000</p>
+                    </div>
                     
                 </div> <!-- End Display Container -->
                 
@@ -1536,7 +1628,7 @@
                     <div class="levelToggle">
                         <label class="switch">
                             <input type="checkbox" class="toggleCheck">
-                            <span class="slider"></span>
+                            <span class="imajSlider slider"></span>
                         </label>
                         <p>Level</p>
                     </div>
