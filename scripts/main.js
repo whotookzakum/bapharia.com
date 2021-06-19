@@ -105,42 +105,1093 @@ jQuery(document).ready(function($){
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // CRAFTING 
+    
+    // Material Icons
+    var iLuno = "images/map/luno.svg";
+    var iFlower = "images/map/flower2.svg";
+    var iRock = "images/map/rock2.svg";
+    var iCombat = "images/map/combat2.svg";
+    var iShell = "images/map/shell2.svg";
+    var iElite = "images/map/elitemonster.png";
+    var iQuest = "images/map/quest2.png";
+    var iDung = "images/map/dungeon2.png";
+    
+    // Tooltip Backgrounds
+    var tooltipSkyquake = "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw";
+    var tooltipMinster = "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw";
+    var tooltipAndra = "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw";
+    var tooltipDragonclaw = "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw";
+    var tooltipDivine = "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw";
+    var tooltipArena = "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw";
+    var tooltipFiel = "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw";
+    var tooltipFrontier = "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw";
+    var tooltipCalmEve = "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw";
+    var tooltipSoundless = "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw";
+    var tooltipDivineLeft = "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -80px/39.25vw";
+    
+    // Crafting selector variables
+    var wIndex = 0;
+    var wName = $(".wlistItem-name");//name
+    var wType = $(".wlistItem-type");//type
+    var wIcon = $(".wlistItem-icon");//icon
+    //image
+    //level
+    //element
+    //slotCount
+    //stats
+    //minStats
+    //recipe
+    //amt
+    //tooltipText
+    //tooltipBG
+    //tooltipIcn
+    
+    
+    var wepHolder = [
+        // 1 Novice Sword
+        { 
+            name: "Novice Sword", //ノービスソード
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword1.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~1 (Max Lv: 7)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+77",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+14",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Purchase at weapon shop","","","0"],
+            iconSrc: [iLuno,"",""],
+            amt: ["","",""],
+            tooltipText: ["","",""],
+            tooltipBg: [
+                "",
+                "",
+                ""],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 1 Battle Axe
+        { 
+            name: "Battle Axe", //バトルアックス
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe1.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~1 (Max Lv: 7)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+0",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+0",
+                   ],
+            minStats: [
+                    /*ATK*/"+0",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+0",
+                   ],
+            recipe: ["","","","0"],
+            iconSrc: [iLuno,"",""],
+            amt: ["","",""],
+            tooltipText: ["","",""],
+            tooltipBg: [
+                "",
+                "",
+                ""],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 1 Hunter Bow
+        { 
+            name: "Hunter Bow", //ハンターボウ
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow1.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~1 (Max Lv: 7)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+0",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+0",
+                   ],
+            minStats: [
+                    /*ATK*/"+0",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+0",
+                   ],
+            recipe: ["","","","0"],
+            iconSrc: [iLuno,"",""],
+            amt: ["","",""],
+            tooltipText: ["","",""],
+            tooltipBg: [
+                "",
+                "",
+                ""],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 1 Training Rod
+        { 
+            name: "Training Rod", //トレーニングロッド
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff1.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~1 (Max Lv: 7)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+0",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+0",
+                   ],
+            minStats: [
+                    /*ATK*/"+0",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+0",
+                   ],
+            recipe: ["","","","0"],
+            iconSrc: [iLuno,"",""],
+            amt: ["","",""],
+            tooltipText: ["","",""],
+            tooltipBg: [
+                "",
+                "",
+                ""],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        // 2 Fanged Sword
+        { 
+            name: "Fanged Sword", //爪牙剣
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword2.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~2 (Max Lv: 12)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+103",
+                    /*STR*/"+4",
+                    /*VIT*/"+0",
+                    /*DEX*/"+3",
+                    /*INT*/"+0",
+                    /*MND*/"+2",
+                    /*HP*/"+18",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 2 Mist Cutter
+        { 
+            name: "Mist Cutter", //霧払い
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe2.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~2 (Max Lv: 12)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+52",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 2 Flashwing Bow
+        { 
+            name: "Flashwing Bow", //閃翼の弓｀
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow2.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~2 (Max Lv: 12)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+93",
+                    /*STR*/"+4",
+                    /*VIT*/"+0",
+                    /*DEX*/"+3",
+                    /*INT*/"+0",
+                    /*MND*/"+2",
+                    /*HP*/"+16",
+                   ],
+            minStats: [
+                    /*ATK*/"+43",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 2 Ancient Staff
+        { 
+            name: "Ancient Staff", //往古の杖
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff2.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~2 (Max Lv: 12)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+3",
+                    /*MND*/"+1",
+                    /*HP*/"+5",
+                   ],
+            recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        // 3 Tower's Blade
+        { 
+            name: "Tower's Blade", //タワーズブレイド
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword3.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            recipe: ["IC Core","Highland Fox Claw","Baja Ore","150,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 3 Dual Raster
+        { 
+            name: "Dual Raster", //デュアルラスター
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe3.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+50",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["IC Core","Highland Fox Claw","Baja Ore","150,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 3 Alpha Genesis
+        { 
+            name: "Alpha Genesis", //アルファジェネシス｀
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow3.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+41",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["IC Core","Highland Fox Claw","Smoky Moss","150,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 3 Missionary
+        { 
+            name: "Missionary", //ミショナリー
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff3.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+1",
+                    /*MND*/"+3",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["IC Core","Highland Fox Claw","Smoky Moss","150,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        // 4 Red Steel Blade
+        { 
+            name: "Red Steel Blade", //鋼の赤刃
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword4.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+143",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+26",
+                   ],
+            minStats: [
+                    /*ATK*/"47",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Calm Nightstone","250,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 4 Ancient Flame-hardened Axe
+        { 
+            name: "Ancient Flame-hardened Axe", //古代の火打ち斧
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe4.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+158",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+25",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Calm Nightstone","250,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 4 Mechanical Firecarved Bow
+        { 
+            name: "Mechanical Firecarved Bow", //機跡の炎刻弓｀
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow4.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+129",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+24",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Round Water Plant","250,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 4 Blazing Staff
+        { 
+            name: "Blazing Staff", //焼尽の杖
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff4.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~4 (Max Lv: 20)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+2",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Round Water Plant","250,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        // 5 Scaleclaw Sword
+        { 
+            name: "Scaleclaw Sword", //鋼の赤刃
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword5.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~5 (Max Lv: 25)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+169",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+30",
+                   ],
+            minStats: [
+                    /*ATK*/"48",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Meteorite Fragment","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 5 Cliff Breaker
+        { 
+            name: "Cliff Breaker", //懸崖崩し
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe5.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~5 (Max Lv: 25)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+188",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+5",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+28",
+                   ],
+            minStats: [
+                    /*ATK*/"+52",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Meteorite Fragment","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 5 Brilliant Thunderwing Bow
+        { 
+            name: "Brilliant Thunderwing Bow", //雷翼の豪弓
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow5.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~5 (Max Lv: 25)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+153",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+27",
+                   ],
+            minStats: [
+                    /*ATK*/"+43",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 5 Old Dragon's Staff
+        { 
+            name: "Old Dragon's Staff", //古竜の杖
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff5.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~5 (Max Lv: 25)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+174",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+5",
+                    /*MND*/"+3",
+                    /*HP*/"+26",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+3",
+                    /*MND*/"+1",
+                    /*HP*/"+5",
+                   ],
+            recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        // 6 Bapharia's Guidance
+        { 
+            name: "Bapharia's Guidance", //バファリアの標
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword6.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~6 (Max Lv: 30)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+190",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+37",
+                   ],
+            minStats: [
+                    /*ATK*/"46",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+10",
+                   ],
+            recipe: ["High Performance IC Core","Kaiser Elk Horn","Shivering Copper","1,200,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["7","15","15"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Kaiser Elk<br>Fiel Pond","Gather<br>Fiel Pond"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 6 Wild Ice Edge
+        { 
+            name: "Wild Ice Edge", //アイスエッジワイルド
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe6.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~6 (Max Lv: 30)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+211",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+36",
+                   ],
+            minStats: [
+                    /*ATK*/"+50",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["High Performance IC Core","Kaiser Elk Horn","Shivering Copper","1,200,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["7","15","15"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Kaiser Elk<br>Fiel Pond","Gather<br>Fiel Pond"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 6 Glacial Arch
+        { 
+            name: "Glacial Arch", //グレイシャルアーチ
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow6.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~6 (Max Lv: 30)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+172",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+34",
+                   ],
+            minStats: [
+                    /*ATK*/"+41",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["High Performance IC Core","Kaiser Elk Horn","Driftwood Twig","1,200,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["7","15","15"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Kaiser Elk<br>Fiel Pond","Gather<br>Fiel Pond"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 6 Retribution
+        { 
+            name: "Retribution", //リトリビューション
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff6.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~6 (Max Lv: 30)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+195",
+                    /*STR*/"+0",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+3",
+                    /*MND*/"+5",
+                    /*HP*/"+33",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+1",
+                    /*MND*/"+3",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["High Performance IC Core","Kaiser Elk Horn","Driftwood Twig","1,200,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["7","15","15"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Kaiser Elk<br>Fiel Pond","Gather<br>Fiel Pond"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        
+        // 7 Sharp Edged Sword
+        { 
+            name: "Sharp Edged Sword", //鋭刃剣
+            type: "Sword (weapon)", //剣（武器）
+            icon: "images/crafting/sword7.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~7 (Max Lv: 35)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+218",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+41",
+                   ],
+            minStats: [
+                    /*ATK*/"47",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 7 Ground Edge
+        { 
+            name: "Ground Edge", //グラウンドエッジ
+            type: "Axe (weapon)", //斧（武器）
+            icon: "images/crafting/axe7.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~7 (Max Lv: 35)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+242",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+39",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 7 Groundrunner's Bow
+        { 
+            name: "Groundrunner's Bow", //地走りの弓
+            type: "Bow (weapon)", //弓（武器）
+            icon: "images/crafting/bow7.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~7 (Max Lv: 35)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+197",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+37",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        // 7 Valeed Rod
+        { 
+            name: "Valeed Rod", //バリードロッド
+            type: "Staff (weapon)", //杖（武器）
+            icon: "images/crafting/staff7.png",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Starting Lv 1~7 (Max Lv: 35)", //初期
+            element: ["element &nbsp;&nbsp;&nbsp;-","?????"],
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+224",
+                    /*STR*/"+0",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+5",
+                    /*MND*/"+0",
+                    /*HP*/"+36",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+2",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"]
+        },
+        
+        
+        
+    ]
+    
     function openCrafting() {
         $("#craftingContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
+        //dispWeps();
+
+        listWeapons(wepHolder);
     }
     
-    // Change weapon lists
-    $(".wepOption").click(function(){
-        $("#aegisWeapons").css("display","none");
-        $("#twinWeapons").css("display","none");
-        $("#blastWeapons").css("display","none");
-        $("#spellWeapons").css("display","none");
-        $("#heavyWeapons").css("display","none");
-        $("#toggleAegisWep").removeClass("listSelected");
-        $("#toggleTwinWep").removeClass("listSelected");
-        $("#toggleBlastWep").removeClass("listSelected");
-        $("#toggleSpellWep").removeClass("listSelected");
-        $("#toggleHeavyWep").removeClass("listSelected");
+    
+    
+    function listWeapons(holder) {
         
-        if ($(this).is("#toggleAegisWep")){
-            $("#aegisWeapons").css("display","block");
-        } 
-        if ($(this).is("#toggleTwinWep")){
-            $("#twinWeapons").css("display","block");
-        }
-        if ($(this).is("#toggleBlastWep")){
-            $("#blastWeapons").css("display","block");
-        } 
-        if ($(this).is("#toggleSpellWep")){
-            $("#spellWeapons").css("display","block");
-        } 
-        if ($(this).is("#toggleHeavyWep")){
-            $("#heavyWeapons").css("display","block");
-        }
-        $(this).addClass("listSelected");
+        $(".wlistItem").each(function(index) {
+            $(this).find(wName).html(holder[index].name);
+            $(this).find(wType).html(holder[index].type);
+            $(this).find(wIcon).attr("src", holder[index].icon);    
+        });
         
-    });
+    }
+    
+    function dispWeapon(holder) {
+        
+    }
+    
     
     
     
@@ -451,14 +1502,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Pink Piglet's Idea","Ripple Stone","Piglet Skin","2,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["1","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Pink Piglet<br>Skyquake Fields","Gather<br>Skyquake Fields","Piglet<br>Skyquake Fields"],
             tooltipBg: [
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+                tooltipSkyquake,
+                tooltipSkyquake,
+                tooltipSkyquake],
             tooltipIcn: ["transform: translate(7vw, 7.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Ferocious Beast 猛る獣
@@ -490,14 +1541,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Ferocious Beast's Idea","Dawngrass","Rumble Boar's Skin","7,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["2","3","1"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
             tooltipText: ["Ferocious Beast<br>Minster Hills","Gather<br>Minster Hills","Rumble Boar<br>Andra Basin"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+                tooltipMinster,
+                tooltipMinster,
+                tooltipAndra],
             tooltipIcn: ["transform: translate(7.4vw, 8vw)","visibility: hidden","visibility: hidden"]
         },
         // Red Splash 赤い飛沫
@@ -529,14 +1580,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Red Splash's Idea","Plateau Lily","Highland Fox Nail","15,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["2","3","1"],
             abilList: ["Damage increase (regular attack)","STR increase", "<br>"],
             tooltipText: ["Red Splash<br>Minster Hills","Gather<br>Soundless Foothills","Highland Fox<br>Divine Haven Hill"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+                tooltipMinster,
+                tooltipSoundless,
+                tooltipDivine],
             tooltipIcn: ["transform: translate(9.2vw, 2.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Deep Green Fang 深緑の牙
@@ -568,14 +1619,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Deep Green Fang's Idea","Asterbass","Tyrant Boar's Skin","17,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/shell2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iShell,iCombat],
             amt: ["3","3","3"],
             abilList: ["Damage increase (ultimate)","ATK increase", "<br>"],
             tooltipText: ["Deep Green Fang<br>Andra Basin","Gather<br>Minster Hills","Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+                tooltipAndra,
+                tooltipMinster,
+                tooltipDragonclaw],
             tooltipIcn: ["transform: translate(5.8vw, 11vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Iron Fang 鉄牙
@@ -607,14 +1658,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Iron Fang's Idea","Beartree Leaf","Goblin Mane","20,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
             tooltipText: ["Iron Fang<br>Andra Basin","Gather<br>Divine Haven Hill","Goblin<br>Minster hills"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw"],
+                tooltipAndra,
+                tooltipDivine,
+                tooltipMinster],
             tooltipIcn: ["transform: translate(2vw, 3.1vw)","visibility: hidden","visibility: hidden"]
         },
         // Flame Prison 炎獄
@@ -646,14 +1697,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["Flame Prison's Idea","Jasper Stone","Glowing Goblin's Mane","86,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["5","3","3"],
             abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"],
             tooltipText: ["Flame Prison<br>Calm Eve Terraces","Gather<br>Soundless Foothills","Glowing Goblin<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+                tooltipCalmEve,
+                tooltipSoundless,
+                tooltipDragonclaw],
             tooltipIcn: ["transform: translate(0.5vw, 9.5vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Ferocious Gold 猛る金色
@@ -685,13 +1736,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Ferocious Gold's Idea","Nectar Seed","Ferocious Beast's Tail","85,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iFlower,iElite],
             amt: ["5","3","1"],
             abilList: ["Damage increase (close-range)","ATK increase", "<br>"],
             tooltipText: ["Ferocious Gold<br>Calm Eve Terraces","Gather<br>Fiel Pond","Ferocious Beast<br>Minster Hills"],
-            tooltipBg: ["url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                        "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                        "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw"],
+            tooltipBg: [tooltipCalmEve,
+                        tooltipFiel,
+                        tooltipMinster],
             tooltipIcn: ["transform: translate(4.8vw, 8.2vw)","visibility: hidden","transform: translate(7.4vw, 8vw)"]
         },
         // Sapphire Trot サファイアトロット
@@ -723,13 +1774,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Sapphire Trot's Idea","Andra Cedar Twig","Elder Goblin's Mane","25,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["Crit rate increase","DEX increase", "<br>"],
             tooltipText: ["Sapphire Trot<br>Divine Haven Hill","Gather<br>Minster Hills","Elder Goblin<br>Andra Basin"],
-            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                        "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                        "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipBg: [tooltipDivine,
+                        tooltipMinster,
+                        tooltipAndra],
             tooltipIcn: ["transform: translate(4.7vw, 10.8vw)","visibility: hidden","visibility: hidden"]
         },
         // Flaming Horns 炎角
@@ -761,13 +1812,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Flaming Horns' Idea","Blesio Nut","Goblin Sage's Mane","26,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Flaming Horns<br>Divine Haven Hill","Gather<br>Divine Haven Hill","Goblin Sage<br>Soundless Foothills"],
-            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -80px/39.25vw",
-                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                       "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw"],
+            tooltipBg: [tooltipDivineLeft,
+                       tooltipDivine,
+                       tooltipSoundless],
             tooltipIcn: ["transform: translate(0.8vw, 7.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Spooky Goat スプーキーゴート
@@ -799,13 +1850,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Spooky Goat's Idea","Sunset Cedar Twig","Glowing Tyrant Boar Skin","45,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["4","3","3"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
             tooltipText: ["Spooky Goat<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Glowing Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
-            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                       "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+            tooltipBg: [tooltipSoundless,
+                       tooltipCalmEve,
+                       tooltipDragonclaw],
             tooltipIcn: ["transform: translate(2.5vw, 4.9vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Evil Healer 悪しき癒し手
@@ -837,13 +1888,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Evil Healer's Idea","Rimeril Ore","Ogre Bone","56,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Evil Healer<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Ogre<br>Calm Eve Terraces"],
-            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw"],
+            tooltipBg: [tooltipSoundless,
+                       tooltipCalmEve,
+                       tooltipCalmEve],
             tooltipIcn: ["transform: translate(6vw, 10vw)","visibility: hidden","visibility: hidden"]
         },
         // Trick Elder トリックエルダー
@@ -875,13 +1926,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Trick Elder's Idea","Dragon Venom","Deep Green Fang's Skin","130,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iFlower,iElite],
             amt: ["3","3","1"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
             tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Dragonclaw Valley [Free Exploration]","Deep Green Fang<br>Andra Basin"],
-            tooltipBg: ["url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                       "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                       "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipBg: [tooltipFiel,
+                       tooltipDragonclaw,
+                       tooltipAndra],
             tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(5.8vw, 11vw)"]
         },
         // Elder Goblin エルダーゴブリン
@@ -913,13 +1964,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Elder Goblin's Idea","Magna Moss Fossil","Kaiser Elk Fur","43,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
             tooltipText: ["Arrogant Conjurer<br>Dragonclaw Valley [Free Exploration]","Gather<br>Calm Eve Terraces","Kaiser Elk<br>Divine Haven Hill"],
-            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+            tooltipBg: [tooltipDragonclaw,
+                       tooltipCalmEve,
+                       tooltipDivine],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
         },
         // Goblin ゴブリン
@@ -951,13 +2002,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Goblin's Idea","Iron Ore","Land Fox Tail","9,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["2","3","1"],
             abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"],
             tooltipText: ["Valley Raider<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Land Fox<br>Skyquake Fields"],
-            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+            tooltipBg: [tooltipDragonclaw,
+                       tooltipSkyquake,
+                       tooltipSkyquake],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
         },
         // Land Fox ランドフォックス
@@ -989,14 +2040,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Land Fox's Idea","Lamusa Flower","Pink Piglet's Skin","1,500"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iFlower,iElite],
             amt: ["1","3","1"],
             abilList: ["Crit damage increase","DEX increase", "<br>"],
             tooltipText: ["Loudshot<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Pink Piglet<br>Skyquake Fields"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+                tooltipDragonclaw,
+                tooltipSkyquake,
+                tooltipSkyquake],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(7vw, 7.7vw)"]
         },
         // Tyrant Boar タイラントボア
@@ -1028,14 +2079,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Tyrant Boar's Idea","Sandsilver","Horn Goat's Fur","45,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iDung,iRock,iCombat],
             amt: ["2","3","3"],
             abilList: ["Damage increase (battle imagine)","ATK increase", "<br>"],
             tooltipText: ["Clear Arena [C Rank]","Gather<br>Divine Haven Hill","Horned Goat<br>Fiel Pond"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw"],
+                tooltipArena,
+                tooltipDivine,
+                tooltipFiel],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","visibility: hidden"]
         },
         // Horned Goat ホーンゴート
@@ -1067,14 +2118,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Horned Goat's Idea","Silver Ore","Glowing Elder Goblin's Mane","83,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iDung,iRock,iCombat],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+                tooltipArena,
+                tooltipFiel,
+                tooltipDragonclaw],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Goblin Sage ゴブリンセージ
@@ -1106,14 +2157,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Goblin Sage's Idea","Spike Fish","Sapphire Trot's Fang","120,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/shell2.svg","images/map/elitemonster.png"],
+            iconSrc: [iDung,iShell,iElite],
             amt: ["5","3","1"],
             abilList: ["Increased healing (battle imagine)","Increased healing", "<br>"],
             tooltipText: ["Clear Arena [A Rank]","Gather<br>Fiel Pond","Sapphire Trot<br>Divine Haven Hill"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+                tooltipArena,
+                tooltipFiel,
+                tooltipDivine],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(4.7vw, 10.8vw)"]
         },
         // Kaiser Elk カイザーエルク
@@ -1145,14 +2196,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Kaiser Elk's Idea","Longan Flower","Evil Healer's Mane","140,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iDung,iFlower,iElite],
             amt: ["7","3","1"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
             tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragonclaw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw"],
+                tooltipArena,
+                tooltipDragonclaw,
+                tooltipSoundless],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(6vw, 10vw)"]
         },
         // Raging Kingfang 荒ぶる牙王
@@ -1184,14 +2235,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Raging Kingfang's Idea","Shell Fossil","Flame Prison's Bone","190,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iRock,iElite],
             amt: ["7","3","1"],
             abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"],
             tooltipText: ["Raging Kingfang<br>Dragonclaw Valley [Free Exploration]","Gather<br>Fiel Pond","Flame Prison<br>Calm Eve Terraces"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw"],
+                tooltipDragonclaw,
+                tooltipFiel,
+                tooltipCalmEve],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(0.5vw, 9.5vw)"]
         },
         // Sealed Atrocity 封印されし暴虐
@@ -1223,12 +2274,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+?"
                    ],
             recipe: ["Obtained as a Quest Reward", "<br>", "<br>", "0"],
-            iconSrc: ["images/map/quest2.png","",""],
+            iconSrc: [iQuest,"",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['Complete quest "Collect Battle Imagine! #2"<br><br>After completing "Collect Battle Imagine! #1", craft Deep Green Fang, Iron Fang, Sapphire Trot, and Spooky Goat',"<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw","",""],
+                tooltipFrontier,"",""],
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
         // Plidoke プリドーク
@@ -1260,12 +2311,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+?"
                    ],
             recipe: ["Obtained as a Quest Reward", "<br>", "<br>", "0"],
-            iconSrc: ["images/map/quest2.png","",""],
+            iconSrc: [iQuest,"",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['Complete quest "Collect Battle Imagine! #3"<br><br>After completing "Collect Battle Imagine! #2", craft ???',"<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw","",""],
+                tooltipFrontier,"",""],
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
     ]
@@ -1302,12 +2353,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
-            iconSrc: ["images/map/dungeon2.png","",""],
+            iconSrc: [iDung,"",""],
             amt: ["1","<br>","<br>"],
             abilList: ["Max HP increase","<br>", "<br>"],
             tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw","",""],
+                tooltipSkyquake,"",""],
             tooltipIcn: ["transform: translate(11.4vw, 4.5vw)","visibility: hidden","visibility: hidden"]
         },
         // Corjun/Corsion
@@ -1339,13 +2390,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["Land Fox Nail","Asterium Ore","<br>","9,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            iconSrc: [iCombat,iRock,""],
             amt: ["8","15","<br>"],
             abilList: ["ATK increase","<br>", "<br>"],
             tooltipText: ["Land Fox<br>Minster Hills","Gather<br>Minster Hills","<br>"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",""],
+                tooltipMinster,
+                tooltipMinster,""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Mipect
@@ -1377,13 +2428,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+0"
                    ],
             recipe: ["Goblin Nail","Jira Crystal","<br>","10,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            iconSrc: [iCombat,iRock,""],
             amt: ["10","10","<br>"],
             abilList: ["Max Stamina increase","<br>", "<br>"],
             tooltipText: ["Goblin<br>Andra Basin","Gather<br>Andra Basin","<br>"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",""],
+                tooltipAndra,
+                tooltipAndra,""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Proxyx/Procsyx
@@ -1415,13 +2466,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["Horned Goat Bone","Smoky Moss","<br>","60,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
+            iconSrc: [iCombat,iFlower,""],
             amt: ["12","20","<br>"],
             abilList: ["Max HP increase","VIT increase", "STR increase"],
             tooltipText: ["Horned Goat<br>Soundless Foothills","Gather<br>Divine Haven Hill","<br>"],
             tooltipBg: [
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",""],
+                tooltipSoundless,
+                tooltipDivine,""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Latepect/Latepecht
@@ -1453,12 +2504,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+0"
                    ],
             recipe: ["Large Fang Fossil","<br>","<br>","85,000"],
-            iconSrc: ["images/map/rock2.svg","",""],
+            iconSrc: [iRock,"",""],
             amt: ["25","<br>","<br>"],
             abilList: ["Max Stamina increase","INT increase", "MND increase"],
             tooltipText: ["Gather<br>Divine Haven Hill","<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw","",""],
+                tooltipDivine,"",""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Carcon
@@ -1490,13 +2541,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["Glowing Goblin's Nail","Pterosaur Fossil","<br>","240,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            iconSrc: [iCombat,iRock,""],
             amt: ["10","35","<br>"],
             abilList: ["ATK increase","STR increase", "DEX increase"],
             tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",""],
+                tooltipDragonclaw,
+                tooltipDragonclaw,""],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","transform: translate(11.4vw, 4.4vw)","visibility: hidden"]
         },
         // Parbury
@@ -1528,13 +2579,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Glowing Tyrant Boar's Fang","Stardust Grass","<br>","500,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
+            iconSrc: [iCombat,iFlower,""],
             amt: ["15","40","<br>"],
             abilList: ["DEF increase","DEX increase", "VIT increase"],
             tooltipText: ["Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces","<br>"],
             tooltipBg: [
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw", ""],
+                tooltipCalmEve,
+                tooltipCalmEve, ""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Sanak'ta
@@ -1566,13 +2617,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["Trick Elder's Nail","Welling Water Stone","<br>","900,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg",""],
+            iconSrc: [iElite,iRock,""],
             amt: ["1","50","<br>"],
             abilList: ["Healing increase","MND increase", "INT increase"],
             tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Fiel Pond","<br>"],
             tooltipBg: [
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",""],
+                tooltipFiel,
+                tooltipFiel,""],
             tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
         }
     ]
@@ -1588,7 +2639,7 @@ jQuery(document).ready(function($){
         dispImajinn(listHolder);
     });
     
-    // Select Imajinn from List
+    // Select Imajinn to Display from List
     $(".listItem").click(function(){
         
         if (listHolder == biHolder) {
@@ -1612,11 +2663,13 @@ jQuery(document).ready(function($){
             statLvSelector = 1;
             
             if (listHolder == biHolder) {
-                skillPower.html(listHolder[iIndex].skill[2] + spacing1 + listHolder[iIndex].skill[3]);
+                skillPower.html(listHolder[iIndex].skill[3]);
+                skillPower.css("color","crimson");
             }
             
             statVal.each(function(index){
                 $(this).html(listHolder[iIndex].stats[(index)]);
+                $(this).css("color","crimson");
             });
         }
         
@@ -1625,11 +2678,13 @@ jQuery(document).ready(function($){
             statLvSelector = 0;
             
             if (listHolder == biHolder) {
-                skillPower.html(listHolder[iIndex].skill[2] + spacing1 + listHolder[iIndex].skill[4]);
+                skillPower.html(listHolder[iIndex].skill[4]);
+                skillPower.css("color","#343330");
             }
             
             statVal.each(function(index){
                 $(this).html(listHolder[iIndex].minStats[(index)]);
+                $(this).css("color","#343330");
             });
         }
 
@@ -1672,12 +2727,12 @@ jQuery(document).ready(function($){
             // Skill power Lv 1
             if (statLvSelector == 0) {
                 // Send skill power
-                skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[4]);
+                skillPower.html(holder[iIndex].skill[4]);
             }
             // Skill power max level
             else if (statLvSelector == 1) {
                 // Send skill power
-                skillPower.html(holder[iIndex].skill[2] + spacing1 + holder[iIndex].skill[3]);
+                skillPower.html(holder[iIndex].skill[3]);
             }
             
             
@@ -2264,14 +3319,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["ピンクウリボのイデア","波紋石","ウリボの毛皮","2,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["1","3","1"],
             abilList: ["回復量アップ・バトルイマジン","回復力アップ", "<br>"],
             tooltipText: ["ピンクウリボ<br>海鳴りの草原","採取<br>海鳴りの草原","ウリボ<br>海鳴りの草原"],
             tooltipBg: [
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+                tooltipSkyquake,
+                tooltipSkyquake,
+                tooltipSkyquake],
             tooltipIcn: ["transform: translate(7vw, 7.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Ferocious Beast 猛る獣
@@ -2303,14 +3358,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["猛る獣のイデア","あかつき草","ランブルボアの毛皮","7,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["2","3","1"],
             abilList: ["最大STアップ","器用さアップ", "<br>"],
             tooltipText: ["猛る獣<br>ミンスター丘陵","採取<br>ミンスター丘陵","ランブルボア<br>アンドラ盆地"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+                tooltipMinster,
+                tooltipMinster,
+                tooltipAndra],
             tooltipIcn: ["transform: translate(7.4vw, 8vw)","visibility: hidden","visibility: hidden"]
         },
         // Red Splash 赤い飛沫
@@ -2342,14 +3397,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["赤い飛沫のイデア","高原ユリ","ハイランドフォックスの爪","15,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["2","3","1"],
             abilList: ["ダメージアップ・通常攻撃","筋力アップ", "<br>"],
             tooltipText: ["赤い飛沫<br>ミンスター丘陵","採取<br>鎮まりの山麓","ハイランドフォックス<br>神の見守る丘"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+                tooltipMinster,
+                tooltipSoundless,
+                tooltipDivine],
             tooltipIcn: ["transform: translate(9.2vw, 2.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Deep Green Fang 深緑の牙
@@ -2381,14 +3436,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["深緑の牙のイデア","アステルバス","タイラントボアの毛皮","17,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/shell2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iShell,iCombat],
             amt: ["3","3","3"],
             abilList: ["ダメージアップ・ULT","攻撃力アップ", "<br>"],
             tooltipText: ["深緑の牙<br>アンドラ盆地","採取<br>ミンスター丘陵","タイラントボア<br>巨竜の爪痕・自由探索"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+                tooltipAndra,
+                tooltipMinster,
+                tooltipDragonclaw],
             tooltipIcn: ["transform: translate(5.8vw, 11vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Iron Fang 鉄牙
@@ -2420,14 +3475,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["鉄牙のイデア","ベアツリーの葉","ゴブリンのたてがみ","20,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["ダメージアップ・近接","攻撃力アップ", "<br>"],
             tooltipText: ["鉄牙<br>アンドラ盆地","採取<br>神の見守る丘","ゴブリン<br>ミンスター丘陵"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw"],
+                tooltipAndra,
+                tooltipDivine,
+                tooltipMinster],
             tooltipIcn: ["transform: translate(2vw, 3.1vw)","visibility: hidden","visibility: hidden"]
         },
         // Flame Prison 炎獄
@@ -2459,14 +3514,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["炎獄のイデア","碧玉","ゴブリン・グロウのたてがみ","86,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["5","3","3"],
             abilList: ["インターバル短縮・Bイマジン","最大HPアップ", "<br>"],
             tooltipText: ["炎獄<br>夕凪の段丘","採取<br>鎮まりの山麓","ゴブリン・グロウ<br>巨竜の爪痕・自由探索"],
             tooltipBg: [
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+                tooltipCalmEve,
+                tooltipSoundless,
+                tooltipDragonclaw],
             tooltipIcn: ["transform: translate(0.5vw, 9.5vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Ferocious Gold 猛る金色
@@ -2498,13 +3553,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["猛る金色のイデア","甘露の種","猛る獣の尾","85,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iFlower,iElite],
             amt: ["5","3","1"],
             abilList: ["ダメージアップ・近接","筋力アップ", "<br>"],
             tooltipText: ["猛る金色<br>夕凪の段丘","採取<br>フィエル嶺水地","猛る獣<br>ミンスター丘陵"],
-            tooltipBg: ["url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                        "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                        "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw"],
+            tooltipBg: [tooltipCalmEve,
+                        tooltipFiel,
+                        tooltipMinster],
             tooltipIcn: ["transform: translate(4.8vw, 8.2vw)","visibility: hidden","transform: translate(7.4vw, 8vw)"]
         },
         // Sapphire Trot サファイアトロット
@@ -2536,13 +3591,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["サファイアトロットのイデア","アンドラ杉の小枝","エルダーゴブリンのたてがみ","25,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["会心率アップ","器用さアップ", "<br>"],
             tooltipText: ["サファイアトロット<br>神の見守る丘","採取<br>ミンスター丘陵","エルダーゴブリン<br>アンドラ盆地"],
-            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                        "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                        "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipBg: [tooltipDivine,
+                        tooltipMinster,
+                        tooltipAndra],
             tooltipIcn: ["transform: translate(4.7vw, 10.8vw)","visibility: hidden","visibility: hidden"]
         },
         // Flaming Horns 炎角
@@ -2574,13 +3629,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["炎角のイデア","ブレシオの実","ゴブリンセージのたてがみ","26,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["被ダメージ軽減・近接","防御アップ", "<br>"],
             tooltipText: ["炎角<br>神の見守る丘","採取<br>神の見守る丘","ゴブリンセージ<br>鎮まりの山麓"],
-            tooltipBg: ["url(images/map/moveDivineHavenHill.jpg) no-repeat -70px -80px/39.25vw",
-                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                       "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw"],
+            tooltipBg: [tooltipDivineLeft,
+                       tooltipDivine,
+                       tooltipSoundless],
             tooltipIcn: ["transform: translate(0.8vw, 7.7vw)","visibility: hidden","visibility: hidden"]
         },
         // Spooky Goat スプーキーゴート
@@ -2612,13 +3667,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["スプーキーゴートのイデア","斜陽杉の小枝","タイラントボア・グロウの毛皮","45,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iFlower,iCombat],
             amt: ["4","3","3"],
             abilList: ["最大STアップ","器用さアップ", "<br>"],
             tooltipText: ["スプーキーゴート<br>鎮まりの山麓","採取<br>夕凪の段丘","タイラントボア・グロウ<br>巨竜の爪痕・自由探索"],
-            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                       "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+            tooltipBg: [tooltipSoundless,
+                       tooltipCalmEve,
+                       tooltipDragonclaw],
             tooltipIcn: ["transform: translate(2.5vw, 4.9vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Evil Healer 悪しき癒し手
@@ -2650,13 +3705,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["悪しき癒し手のイデア","リメリル鉱石","オーガの骨","56,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["回復量アップ・バトルイマジン","回復力アップ", "<br>"],
             tooltipText: ["悪しき癒し手<br>鎮まりの山麓","採取<br>夕凪の段丘","オーガ<br>夕凪の段丘"],
-            tooltipBg: ["url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw"],
+            tooltipBg: [tooltipSoundless,
+                       tooltipCalmEve,
+                       tooltipCalmEve],
             tooltipIcn: ["transform: translate(6vw, 10vw)","visibility: hidden","visibility: hidden"]
         },
         // Trick Elder トリックエルダー
@@ -2688,13 +3743,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["トリックエルダーのイデア","ドラゴンヴェノム","深緑の牙の毛皮","130,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iFlower,iElite],
             amt: ["3","3","1"],
             abilList: ["ダメージアップ・遠隔","知力アップ", "<br>"],
             tooltipText: ["トリックエルダー<br>フィエル嶺水地","採取<br>巨竜の爪痕・自由探索","深緑の牙<br>アンドラ盆地"],
-            tooltipBg: ["url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                       "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                       "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw"],
+            tooltipBg: [tooltipFiel,
+                       tooltipDragonclaw,
+                       tooltipAndra],
             tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(5.8vw, 11vw)"]
         },
         // Elder Goblin エルダーゴブリン
@@ -2726,13 +3781,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["エルダーゴブリンのイデア","マグナ苔の化石","カイザーエルクの毛皮","43,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["ダメージアップ・遠隔","知力アップ", "<br>"],
             tooltipText: ["図に乗った魔術師<br>巨竜の爪痕・自由探索","採取<br>夕凪の段丘","カイザーエルク<br>神の見守る丘"],
-            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                       "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                       "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+            tooltipBg: [tooltipDragonclaw,
+                       tooltipCalmEve,
+                       tooltipDivine],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
         },
         // Goblin ゴブリン
@@ -2764,13 +3819,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["ゴブリンのイデア","鉄功績","ランドフォックスの尾","9,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iElite,iRock,iCombat],
             amt: ["2","3","1"],
             abilList: ["ダメージアップ・T1","筋力アップ", "<br>"],
             tooltipText: ["谷荒らし<br>巨竜の爪痕・自由探索","採取<br>海鳴りの草原","ランドフォックス<br>海鳴りの草原"],
-            tooltipBg: ["url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                       "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+            tooltipBg: [tooltipDragonclaw,
+                       tooltipSkyquake,
+                       tooltipSkyquake],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
         },
         // Land Fox ランドフォックス
@@ -2802,14 +3857,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["ランドフォックス","ラムサの花","ピンクウリボの毛皮","1,500"],
-            iconSrc: ["images/map/elitemonster.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iFlower,iElite],
             amt: ["1","3","1"],
             abilList: ["会心力アップ","器用さアップ", "<br>"],
             tooltipText: ["ラウドシャウト<br>巨竜の爪痕・自由探索","採取<br>海鳴りの草原","ピンクウリボ<br>海鳴りの草原"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw",
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw"],
+                tooltipDragonclaw,
+                tooltipSkyquake,
+                tooltipSkyquake],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(7vw, 7.7vw)"]
         },
         // Tyrant Boar タイラントボア
@@ -2841,14 +3896,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["タイラントボアのイデア","砂銀","ホーンゴートの毛皮","45,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iDung,iRock,iCombat],
             amt: ["2","3","3"],
             abilList: ["ダメージアップ・バトルイマジン","攻撃力アップ", "<br>"],
             tooltipText: ["闘技場・ランクC","採取<br>神の見守る丘","ホーンゴート<br>フィエル嶺水地"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw"],
+                tooltipArena,
+                tooltipDivine,
+                tooltipFiel],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","visibility: hidden"]
         },
         // Horned Goat ホーンゴート
@@ -2880,14 +3935,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["ホーンゴートのイデア","銀鉱石","エルダーゴブリン・グロウのたてがみ","83,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/rock2.svg","images/map/combat2.svg"],
+            iconSrc: [iDung,iRock,iCombat],
             amt: ["3","3","3"],
             abilList: ["被ダメージ軽減・遠隔","防御アップ", "<br>"],
             tooltipText: ["闘技場・ランクB","採取<br>フィエル嶺水地","エルダーゴブリン・グロウ<br>巨竜の爪痕・自由探索"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw"],
+                tooltipArena,
+                tooltipFiel,
+                tooltipDragonclaw],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
         },
         // Goblin Sage ゴブリンセージ
@@ -2919,14 +3974,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["ゴブリンセージのイデア","スパイクフィッシュ","サファイアトロットの牙","120,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/shell2.svg","images/map/elitemonster.png"],
+            iconSrc: [iDung,iShell,iElite],
             amt: ["5","3","1"],
             abilList: ["回復量アップ・バトルイマジン","回復力アップ", "<br>"],
             tooltipText: ["闘技場・ランクA","採取<br>フィエル嶺水地","サファイアトロット<br>神の見守る丘"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw"],
+                tooltipArena,
+                tooltipFiel,
+                tooltipDivine],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(4.7vw, 10.8vw)"]
         },
         // Kaiser Elk カイザーエルク
@@ -2958,14 +4013,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["カイザーエルクのイデア","竜眼の花","悪しき癒し手のたてがみ","140,000"],
-            iconSrc: ["images/map/dungeon2.png","images/map/flower2.svg","images/map/elitemonster.png"],
+            iconSrc: [iDung,iFlower,iElite],
             amt: ["7","3","1"],
             abilList: ["被ダメージ軽減・近接","防御アップ", "<br>"],
             tooltipText: ["闘技場・ランクS","採取<br>巨竜の爪痕・自由探索","悪しき癒し手<br>鎮まりの山麓"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -20.833vw -7.292vw/45.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw"],
+                tooltipArena,
+                tooltipDragonclaw,
+                tooltipSoundless],
             tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(6vw, 10vw)"]
         },
         // Raging Kingfang 荒ぶる牙王
@@ -2997,14 +4052,14 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["荒ぶる牙王のイデア","貝の化石","炎獄の骨","190,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg","images/map/elitemonster.png"],
+            iconSrc: [iElite,iRock,iElite],
             amt: ["7","3","1"],
             abilList: ["インターバル短縮・ULT","攻撃力アップ", "<br>"],
             tooltipText: ["荒ぶる牙王<br>巨竜の爪痕・自由探索","採取<br>フィエル嶺水地","炎獄<br>夕凪の段丘"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw"],
+                tooltipDragonclaw,
+                tooltipFiel,
+                tooltipCalmEve],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(0.5vw, 9.5vw)"]
         },
         // Sealed Atrocity 封印されし暴虐
@@ -3036,12 +4091,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+?"
                    ],
             recipe: ["クエストの報酬で入手", "<br>", "<br>", "0"],
-            iconSrc: ["images/map/quest2.png","",""],
+            iconSrc: [iQuest,"",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['「バトルイマジンの収集２」をクリア<br><br>「バトルイマジンの収集１」を完了させたら深緑の牙、鉄牙、サファイアトロット、スプーキーゴートのイマジンをクラフト',"<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw","",""],
+                tooltipFrontier,"",""],
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
         // Plidoke プリドーク
@@ -3073,12 +4128,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+?"
                    ],
             recipe: ["クエストの報酬で入手", "<br>", "<br>", "0"],
-            iconSrc: ["images/map/quest2.png","",""],
+            iconSrc: [iQuest,"",""],
             amt: ["<br>","<br>","<br>"],
             abilList: ["-","<br>", "<br>"],
             tooltipText: ['「バトルイマジンの収集３」をクリア<br><br>After completing "「バトルイマジンの収集２」を完了させたら???、???、???、???のイマジンをクラフト',"<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveAsterleeds.jpg) no-repeat -22.917vw -7.292vw/55.25vw","",""],
+                tooltipFrontier,"",""],
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
     ]
@@ -3115,12 +4170,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["レイクリッド結晶","<br>","<br>","1,000"],
-            iconSrc: ["images/map/dungeon2.png","",""],
+            iconSrc: [iDung,"",""],
             amt: ["1","<br>","<br>"],
             abilList: ["最大HPアップ","<br>", "<br>"],
             tooltipText: ["ダンジョンクリア<br>レイクリッド坑道","<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveSkyquakeFields.jpg) no-repeat -16.667vw -7.292vw/45.25vw","",""],
+                tooltipSkyquake,"",""],
             tooltipIcn: ["transform: translate(11.4vw, 4.5vw)","visibility: hidden","visibility: hidden"]
         },
         // Corjun/Corsion
@@ -3152,13 +4207,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["ランドフォックスの爪","アステリウム鉱石","<br>","9,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            iconSrc: [iCombat,iRock,""],
             amt: ["8","15","<br>"],
             abilList: ["攻撃力アップ","<br>", "<br>"],
             tooltipText: ["ランドフォックス<br>ミンスター丘陵","採取<br>ミンスター丘陵","<br>"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -17.708vw 0px/39.25vw",""],
+                tooltipMinster,
+                tooltipMinster,""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Mipect
@@ -3190,13 +4245,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+0"
                    ],
             recipe: ["ゴブリンの爪","ジラ輝石","<br>","10,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            iconSrc: [iCombat,iRock,""],
             amt: ["10","10","<br>"],
             abilList: ["最大STアップ","<br>", "<br>"],
             tooltipText: ["ゴブリン<br>アンドラ盆地","採取<br>アンドラ盆地","<br>"],
             tooltipBg: [
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",
-                "url(images/map/moveAndraBasin.jpg) no-repeat -11.198vw -80px/45.25vw",""],
+                tooltipAndra,
+                tooltipAndra,""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Proxyx/Procsyx/Prokythyx
@@ -3228,13 +4283,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+1"
                    ],
             recipe: ["ホーンゴートの骨","煙霧苔","<br>","60,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
+            iconSrc: [iCombat,iFlower,""],
             amt: ["12","20","<br>"],
             abilList: ["最大HPアップ","耐久力アップ", "筋力アップ"],
             tooltipText: ["ホーンゴート<br>鎮まりの山麓","採取<br>神の見守る丘","<br>"],
             tooltipBg: [
-                "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw",
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw",""],
+                tooltipSoundless,
+                tooltipDivine,""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Latepect/Latepecht
@@ -3266,12 +4321,12 @@ jQuery(document).ready(function($){
                     /*DEX*/"+0"
                    ],
             recipe: ["大牙の化石","<br>","<br>","85,000"],
-            iconSrc: ["images/map/rock2.svg","",""],
+            iconSrc: [iRock,"",""],
             amt: ["25","<br>","<br>"],
             abilList: ["最大STアップ","知力アップ", "精神力アップ"],
             tooltipText: ["採取<br>神の見守る丘","<br>","<br>"],
             tooltipBg: [
-                "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -0px/31.25vw","",""],
+                tooltipDivine,"",""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Carcon
@@ -3303,13 +4358,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+2"
                    ],
             recipe: ["ゴブリン・グロウの爪","翼竜の化石","<br>","240,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/rock2.svg",""],
+            iconSrc: [iCombat,iRock,""],
             amt: ["10","35","<br>"],
             abilList: ["攻撃力アップ","筋力アップ", "器用さアップ"],
             tooltipText: ["ゴブリン・グロウ<br>巨竜の爪痕・自由探索","採取<br>巨竜の爪痕・自由探索","<br>"],
             tooltipBg: [
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",
-                "url(images/map/moveMinsterHills.jpg) no-repeat -32.813vw 0px/55.25vw",""],
+                tooltipDragonclaw,
+                tooltipDragonclaw,""],
             tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","transform: translate(11.4vw, 4.4vw)","visibility: hidden"]
         },
         // Parbury
@@ -3341,13 +4396,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["タイラントボア・グロウの大牙","星屑草","<br>","500,000"],
-            iconSrc: ["images/map/combat2.svg","images/map/flower2.svg",""],
+            iconSrc: [iCombat,iFlower,""],
             amt: ["15","40","<br>"],
             abilList: ["防御アップ","器用さアップ", "耐久力アップ"],
             tooltipText: ["タイラントボア・グロウ<br>夕凪の段丘","採取<br>夕凪の段丘","<br>"],
             tooltipBg: [
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw",
-                "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw", ""],
+                tooltipCalmEve,
+                tooltipCalmEve, ""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
         },
         // Sanak'ta
@@ -3379,13 +4434,13 @@ jQuery(document).ready(function($){
                     /*DEX*/"+3"
                    ],
             recipe: ["トリックエルダーの爪","湧水石","<br>","900,000"],
-            iconSrc: ["images/map/elitemonster.png","images/map/rock2.svg",""],
+            iconSrc: [iElite,iRock,""],
             amt: ["1","50","<br>"],
             abilList: ["回復力アップ","精神力アップ", "知力アップ"],
             tooltipText: ["トリックエルダー<br>フィエル嶺水地","採取<br>フィエル嶺水地","<br>"],
             tooltipBg: [
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",
-                "url(images/map/moveFielPond.jpg) no-repeat -6.771vw 0px/39.25vw",""],
+                tooltipFiel,
+                tooltipFiel,""],
             tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
         }
     ]
