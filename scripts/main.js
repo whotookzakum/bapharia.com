@@ -160,7 +160,7 @@ jQuery(document).ready(function($){
             name: "Novice Sword", //ノービスソード
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword1.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -197,7 +197,7 @@ jQuery(document).ready(function($){
             name: "Battle Axe", //バトルアックス
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe1.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -234,7 +234,7 @@ jQuery(document).ready(function($){
             name: "Hunter Bow", //ハンターボウ
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow1.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -271,7 +271,7 @@ jQuery(document).ready(function($){
             name: "Training Rod", //トレーニングロッド
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff1.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -309,7 +309,7 @@ jQuery(document).ready(function($){
             name: "Fanged Sword", //爪牙剣
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword2.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -346,7 +346,7 @@ jQuery(document).ready(function($){
             name: "Mist Cutter", //霧払い
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe2.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/axe2L.png",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -383,7 +383,7 @@ jQuery(document).ready(function($){
             name: "Flashwing Bow", //閃翼の弓｀
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow2.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/bow2L.png",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -420,7 +420,7 @@ jQuery(document).ready(function($){
             name: "Ancient Staff", //往古の杖
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff2.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -458,7 +458,7 @@ jQuery(document).ready(function($){
             name: "Tower's Blade", //タワーズブレイド
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword3.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -495,7 +495,7 @@ jQuery(document).ready(function($){
             name: "Dual Raster", //デュアルラスター
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe3.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/axe3L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -532,7 +532,7 @@ jQuery(document).ready(function($){
             name: "Alpha Genesis", //アルファジェネシス｀
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow3.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -569,7 +569,7 @@ jQuery(document).ready(function($){
             name: "Missionary", //ミショナリー
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff3.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/staff3L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -607,7 +607,7 @@ jQuery(document).ready(function($){
             name: "Red Steel Blade", //鋼の赤刃
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword4.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -644,7 +644,7 @@ jQuery(document).ready(function($){
             name: "Ancient Flame-hardened Axe", //古代の火打ち斧
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe4.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/axe4L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -681,7 +681,7 @@ jQuery(document).ready(function($){
             name: "Mechanical Firecarved Bow", //機跡の炎刻弓｀
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow4.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -718,7 +718,7 @@ jQuery(document).ready(function($){
             name: "Blazing Staff", //焼尽の杖
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff4.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -756,7 +756,7 @@ jQuery(document).ready(function($){
             name: "Scaleclaw Sword", //鋼の赤刃
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword5.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
             element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -793,7 +793,7 @@ jQuery(document).ready(function($){
             name: "Cliff Breaker", //懸崖崩し
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe5.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/axe5L.png",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
             element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -830,7 +830,7 @@ jQuery(document).ready(function($){
             name: "Brilliant Thunderwing Bow", //雷翼の豪弓
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow5.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
             element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -867,7 +867,7 @@ jQuery(document).ready(function($){
             name: "Old Dragon's Staff", //古竜の杖
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff5.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~5 (Max Lv: 25)", //初期
             element: "images/crafting/lightning.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -905,7 +905,7 @@ jQuery(document).ready(function($){
             name: "Bapharia's Guidance", //バファリアの標
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword6.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
             element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -942,7 +942,7 @@ jQuery(document).ready(function($){
             name: "Wild Ice Edge", //アイスエッジワイルド
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe6.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/axe6L.png",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
             element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -979,7 +979,7 @@ jQuery(document).ready(function($){
             name: "Glacial Arch", //グレイシャルアーチ
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow6.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
             element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1016,7 +1016,7 @@ jQuery(document).ready(function($){
             name: "Retribution", //リトリビューション
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff6.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
             element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1055,7 +1055,7 @@ jQuery(document).ready(function($){
             name: "Sharp Edged Sword", //鋭刃剣
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword7.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
             element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1092,7 +1092,7 @@ jQuery(document).ready(function($){
             name: "Ground Edge", //グラウンドエッジ
             type: "Axe", //斧（武器）
             icon: "images/crafting/axe7.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "images/crafting/axe7L.png",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
             element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1129,7 +1129,7 @@ jQuery(document).ready(function($){
             name: "Groundrunner's Bow", //地走りの弓
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow7.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
             element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1166,7 +1166,7 @@ jQuery(document).ready(function($){
             name: "Valeed Rod", //バリードロッド
             type: "Staff", //杖（武器）
             icon: "images/crafting/staff7.png",
-            image: "images/map/pinkpiglet.mp4",
+            image: "",
             level: "Starting Lv 1~7 (Max Lv: 35)", //初期
             element: "images/crafting/earth.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1262,6 +1262,7 @@ jQuery(document).ready(function($){
         wLevel.html(holder[wIndex].level);
         wEleImg.attr("src",holder[wIndex].element);
         eleDesc.attr("src",holder[wIndex].eleTooltip);
+        wImg.attr("src",holder[wIndex].image);
         
         // Stats
         // If lv 1
