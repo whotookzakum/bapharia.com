@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
     var currentPage = $("#mapContainer");
     function closePages() {
         currentPage.css("display", "none");
-        $("#contentViewer").css("display", "none");
+        $("#contentViewer").css({"display": "none", "background-color": "#080605"});
     }
     
     // Menu buttons open page when clicked
@@ -1206,7 +1206,7 @@ jQuery(document).ready(function($){
     // Open page
     function openCrafting() {
         $("#craftingContainer").css("display", "block");
-        $("#contentViewer").css("display", "block");
+        $("#contentViewer").css({"display": "block", "background-color": "midnightblue"});
         currentPage = $("#craftingContainer");
         listWeapons(wepHolder);
         dispWeapon(wepHolder);
@@ -1565,7 +1565,6 @@ jQuery(document).ready(function($){
     var matCount = $(".matCount");
     var recipeToolText = $(".recipeToolText");
     var luno = $(".reqLuno");
-    var abilList = $(".abil");
     var listHolder = biHolder; // The current list being shown
     var statLvSelector = 0;
     var iIndex;
@@ -2904,38 +2903,25 @@ jQuery(document).ready(function($){
         abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
 
         // Send ability list
-        abilList.each(function(index){
+        $(".abil").each(function(index){
            $(this).html(holder[iIndex].abilList[(index)]);
         });
         
-        // Send recipe materials
-        mat.each(function (index) {
-           $(this).html(holder[iIndex].recipe[(index)]); 
-        });
-        matIcon.each(function (index) {
-           $(this).attr("src", holder[iIndex].iconSrc[(index)]); 
-        });
-        matCount.each(function (index) {
-           $(this).html(holder[iIndex].amt[(index)]); 
+        
+        
+        // Recipe
+        $(".recipeHolder>div").each(function (index){
+            $(this).find(mat).html(holder[iIndex].recipe[(index)]);
+            $(this).find(matIcon).attr("src", holder[iIndex].iconSrc[(index)]); 
+            $(this).find(matCount).html(holder[iIndex].amt[(index)]); 
+            
+            // Tooltips
+            $(this).find(".recipeToolText").html(holder[iIndex].tooltipText[(index)]); 
+            $(this).find(".recipeTooltip").css("background",holder[iIndex].tooltipBg[(index)]);
+            $(this).find(".recipeToolImg").attr("src", holder[iIndex].iconSrc[(index)]);
+            $(this).find(".recipeToolImg").attr("style", holder[iIndex].tooltipIcn[(index)]);
         });
         luno.html(holder[iIndex].recipe[(holder[iIndex].recipe.length - 1)]);
-        
-        // Send recipe tooltip text
-        recipeToolText.each(function (index) {
-           $(this).html(holder[iIndex].tooltipText[(index)]); 
-        });
-
-        // Recipe tooltip backgrounds
-        $(".recipeTooltip1").css("background",holder[iIndex].tooltipBg[0]);
-        $(".recipeTooltip2").css("background",holder[iIndex].tooltipBg[1]);
-        $(".recipeTooltip3").css("background",holder[iIndex].tooltipBg[2]);
-        
-        // Recipe tooltip icons
-        $(".recipeToolImg").each(function(index){
-            $(this).attr("src", holder[iIndex].iconSrc[(index)]);
-            $(this).attr("style", holder[iIndex].tooltipIcn[(index)]);
-        });
-        
         
     }
     
@@ -2943,12 +2929,11 @@ jQuery(document).ready(function($){
     function openImajinn() {
         // if battle or inner imaj page, select that container and display
         $("#ImajinnContainer").css("display", "block");
-        $("#contentViewer").css("display", "block");
+        $("#contentViewer").css({"display": "block", "background-color": "#22321b"});
         currentPage = $("#ImajinnContainer");
         dispImajinn(listHolder);
     }
 
-    
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
