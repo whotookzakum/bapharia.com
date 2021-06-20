@@ -229,9 +229,10 @@ html, body {
     height: 100%;
     display: none;
     position: absolute;
-    background-color: #080605;
-    opacity: 0.8;
+    background-color: #080605; /* #080605 */
+    opacity: 0.8; /* 0.8 */
     z-index: 2;
+    border-radius: 20px;
 }
 
 /* ---------------- MAP ---------------- */
@@ -470,9 +471,9 @@ html, body {
     font-size: 16px; /* 16px */
     z-index: 55;
 }
-p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
+p.tooltip, .recipeTooltip, .wrecipeTooltip {
     z-index: 60;
-    padding: 0.26vw 0.52vw 0.26vw 0.52vw;
+    padding: 0.26vw 0.52vw 0.26vw 0.32vw;
     width: auto;
     background-color: #161211;
     color: white;
@@ -531,154 +532,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 
 
 
-/* ---------------- CRAFTING ------------ */
-#craftingContainer {
-    display: none;
-    width: 80%;
-    height: 100%;
-    margin: auto;
-    overflow-y: scroll;
-    border-radius: 20px;
-}
-#class-selector {
-    width: 100%;
-    margin: auto;
-    position: relative;
-    z-index: 5;
-}
-#class-selector p {
-    width: 19.75%;
-    text-align: center;
-    display: inline-block;
-    padding: 5px 0 5px 0;
-    background-color: gray;
-}
-#toggleAegisWep:hover, #toggleTwinWep:hover, #toggleBlastWep:hover, #toggleSpellWep:hover, #toggleHeavyWep:hover {
-    filter: brightness(0.8);
-}
-#aegisWeapons, #twinWeapons, #blastWeapons, #spellWeapons, #heavyWeapons {
-    display: none;
-    position: relative;
-    width: 100%;
-    margin: auto;
-    z-index: 4;
-    background-color: #161211;
-}
-#aegisWeapons {
-    display: block;
-}
-.listSelected {
-    filter: brightness(1.2);
-}
-
-::-webkit-scrollbar {
-    width: 0;
-}
-
-.craftRow {
-    width: 100%;
-    display: inline-block;
-    margin: 0.7em 0 0 0;
-    padding-bottom: 0.3em;
-    background-color: #161211;
-}
-.craftRow:hover {
-    filter: brightness(0.9);
-}
-.craftHeader, .craftHeader:hover {
-    filter: brightness(1.2);
-}
-.craftIcon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 0.8em;
-}
-
-.craftRow > p, .craftRow > ul {
-    display: inline-block;
-    
-}
-.col-name, .col-ar, .col-maxlv, .col-ele, .col-stats, .col-abil, .col-recipe, .col-type, .col-skill {
-    display: inline-block;
-    vertical-align: middle;
-    list-style-type: none;
-}
-.col-name{
-    width: 180px;
-    font-weight: bold;
-    margin-left: 0.8em;
-}
-.col-ar {
-    width: 50px;
-}
-.col-maxlv {
-    width: 50px;
-}
-.col-ele {
-    width: 30px;
-    text-align: center;
-}
-.col-stats {
-    width: 130px;
-    font-size: 13px;
-    margin-left: 4em;
-    
-}
-.col-abil {
-    width: 150px;
-}
-.col-recipe {
-    width: 250px;
-}
-.ele-desc {
-    border-radius: 10px;
-    filter:drop-shadow(0 2px 2px black);
-    display: none;
-    position: absolute;
-    z-index: 60;
-}
-.col-ele:hover+.ele-desc {
-    display: initial;
-}
-
-.recipe-desc {
-    display: none;
-    position: absolute;
-    z-index: 60;
-    padding: 5px 10px 5px 7px;
-    width: auto;
-    background-color: white;
-    color: black;
-    border-left: 16px solid crimson;
-    border-radius: 10px;
-    filter: drop-shadow(0 2px 2px black);
-}
-
-
-.recipe-mob {
-    transform: scale(0.45); 
-    margin: -0.3em -0.1em -1em -0.2em;
-}
-.recipe-flower {
-    transform: scale(0.45); 
-    margin: -0.3em 0.3em -0.78em 0.083em;
-}
-.recipe-rock {
-    transform: scale(0.45); 
-    margin: -0.3em 0.15em -0.78em 0em;
-}
-.recipe-dungeon {
-    transform: scale(0.7); 
-    margin: 0 0.35em -0.5em 0.22em;
-}
-.recipe-luno {
-    transform: scale(0.5); 
-    margin: -0.3em -0em -0.9em -0.2em;
-}
-
-
-
-/* ------------ BATTLE IMAJINN ----------- */
+/* ------------ IMAJINN ----------- */
 
 #ImajinnContainer {
     display: none;
@@ -687,7 +541,6 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     margin: auto;
     overflow-y: scroll;
     border-radius: 20px;
-    
 }
 .listHolder {
     display: block;
@@ -699,24 +552,18 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .craftListContainer {
     display: block;
     position: relative;
-    top: 14%;
-    width: 23.08rem;
+    top: 8.1vw;
+    left: 2.71vw;
+    width: 23rem;
     margin: auto;
-    height: 80%;
+    height: 29.12vw;
     vertical-align: center;
     overflow: scroll;
     z-index: 20;
+    
 }
 
-
-#ImajList {
-    width: 100%;
-    margin: auto;
-    z-index: 20;
-}
-
-
-#imajinnInfo {
+#imajinnInfo, #wepInfo {
     position: absolute;
     z-index: 5;
     width: 68%;
@@ -724,25 +571,32 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     left: 28%;
     height: 98%;
 }
-.i-infoName {
-    font-size: 2.09vw;; /* 40px */
+.i-infoName, .w-infoName {
+    font-size: 2.09vw; /* 40px */
     text-align: center;
     background: repeat-y url(images/crafting/craftBG.png);
     color: white;
+    margin-top: 3.94vw;
+    height: 2.63vw;
+    width: 55vw;
+    position: relative;
+    left: -0.56vw;
 }
-.i-infoHolder {
-    margin: 1.05vw 0;
+.i-infoHolder, .w-infoHolder {
+    margin: 1.05vw 0 0.5vw 0;
     height: 35%;
     background-color: #cdccc9;
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
+    filter: drop-shadow(0 0px 2px #080605);
 }
 
-.i-infoImgHolder {
+.i-infoImgHolder, .w-infoImgHolder {
     height: 0;
     width: 100%;
 }
-.i-infoTextHolder {
+.i-infoTextHolder, .w-infoTextHolder {
     position: relative;
     display: inline-block;
     height: auto;
@@ -764,7 +618,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     width: 12vw;
 }
 
-.i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoStatRow, .i-infoElePower {
+.i-infoLv, .i-infoEle, .i-infoCD, .i-infoSkill, .i-infoAbil, .i-infoSkillPower, .i-infoAbilPower, .i-infoStatRow, .i-infoElePower, .i-infoSkillPwrRow {
     border-left: 0.32vw solid #343330; /* 6px */
     padding-left: 10px;
     margin: 0.51vw 0 0.25vw 0; /* 10px 0 5px 0 */
@@ -776,20 +630,24 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     font-weight: bold;
 }
 
-.i-infoRow {
+.i-infoSkillPower {
+    border: none;
+}
+
+.i-infoRow, .w-infoRow {
     display: inline-block;
     position: relative;
     width: 61.05%; /* 61.05% */
 }
 
-.i-infoLv {
+.i-infoLv, .w-infoLv {
     font-size: 1.3vw; /* 25px */
 }
 
-.i-infoEle {
+.i-infoEle, .w-infoEle {
     width: 7.3vw; /* 140px */
 }
-.i-infoElePower {
+.i-infoElePower, .w-infoElePower {
     width: 11.46vw; /* 220px */
 }
 .i-infoSkill, .i-infoAbil {
@@ -805,7 +663,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     height: auto;
 }
 
-.i-infoStats {
+.i-infoStats, .w-infoStats {
     margin-top: 0.3vw;
 }
 .i-infoStatRow {
@@ -813,13 +671,18 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     min-width: 10.8vw; /* 210px, 10.939vw */
     display: inline-block;
 }
+.i-infoSkillPwrRow {
+    display: inline-block;
+    margin: 0;
+    min-width: 9.8vw;
+}
 
-.statName {
+.statName, .wstatName {
     /* 155px, 8vw */
     display: inline-block;
 }
 
-.i-infoStatVal {
+.i-infoStatVal, .w-infoStatVal {
     margin: 0;
     width: 30px;
     height: 20px;
@@ -830,9 +693,10 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     float: right;
 }
 
-.recipeHolder {
-    margin: 1.05vw 0 0.26vw 0; /* 20px 0 5px 0 */
+.recipeHolder, .wrecipeHolder {
+    margin: 0 0 0.26vw 0; /* 20px 0 5px 0 */
     width: 45%;
+    border-radius: 5px;
     height: auto;
     background-color: #cdccc9;
     padding: 1.05vw 0; /* 20px 0 */
@@ -841,6 +705,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
     position: relative;
+    filter: drop-shadow(0 0px 2px black);
 }
 
 .infoBoxHeader {
@@ -851,17 +716,17 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     margin-left: 0.26vw; /* 5px */
 }
 
-.matItem, .abil, .reqLuno, .matCount {
+.matItem, .wmatItem, .abil, .reqLuno, .matCount, .wmatCount, .wreqLuno {
     color: #343330;
     font-size: 1.25vw; /* 24px */
     font-weight: bold;
     padding: 0 0 0 0.785vw; /* 0 0 0 15px */
 }
-.matItem {
+.matItem, .wmatItem {
     width: 17.7vw; /* 340px */
     display: inline-block;
 }
-.matIcon {
+.matIcon, .wmatIcon {
     display: inline-block;
     height: auto;
     width: 1.042vw;
@@ -869,10 +734,11 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     margin-top: 0.26vw;
     filter: drop-shadow(0 2px 2px #161211);
 }
-.matIcon:hover {
+.matIcon:hover, .wmatIcon:hover {
     filter: brightness(0.8) drop-shadow(0 2px 2px #161211);
 }
-.matCount {
+.matCount, .wmatCount {
+    color: #343330;
     display: inline-block;
     margin-left: -3vw;
     position: relative;
@@ -881,7 +747,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     width: 2vw;
 }
 
-.recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
+.recipeTooltip, .wrecipeTooltip {
     background: url(images/map/moveMinsterHills.jpg) no-repeat -630px 0px/55.25vw; /* 600px, 31.25vw */
     border: none;
     width: 15.5803vw; /* 300px */
@@ -892,15 +758,15 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     left: 13%;
     display: none;
 }
-.matIcon:hover+div {
+.matIcon:hover+div, .wmatIcon:hover+div {
     display: block;
 }
-.recipeToolImg {
+.recipeToolImg, .wrecipeToolImg {
     width: 1.042vw; /* 20px */
     height: auto;
     filter: drop-shadow(0px 2px 3px black);
 ;}
-.recipeToolText {
+.recipeToolText, .wrecipeToolText {
     font-size: 0.83vw; /* 16px */
     filter: drop-shadow(0 2px 1px black);
     position: absolute;
@@ -919,9 +785,11 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     background-color: none;
     border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
+    border-radius: 5px;
+    filter: drop-shadow(0 0px 2px black);
 }
 
-.lunoHolder {
+.lunoHolder, .wlunoHolder {
     height: auto;
     width: 45%;
     margin-top: 5px;
@@ -931,26 +799,32 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     border-left: 0.73vw solid #464444; /* 14px */
     border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
+    border-radius: 5px;
+    filter: drop-shadow(0 0px 2px black);
 }
 
-.reqLuno {
+.reqLuno, .wreqLuno {
     font-family: "Roboto";
+    color: #343330;
     font-weight:600;
     font-size: 2.605vw; /* 50px */
     background-color: #c8c8c8;
     float: right;
     text-align: right;
     position: relative;
-    margin: -2.605vw 0 -1.05vw 0; /* -50px 0 -19px 0 */
+    margin: -3.1vw 0 -1.05vw 0; /* -50px 0 -19px 0 */
     width: 15.65vw; /* 300px */
     height: auto;
     padding-right: 1.3vw; /* 25px */
+    padding-top: 0.6vw;
+    border-top-right-radius: 5px;
 }
 
-.listItem {
+.listItem, .wlistItem {
     width: 100%;
     height: auto; /* 84px, 4.37vw */
     margin-bottom: 0.52vw; /* 10px */
+    
 }
 
 .listItem:hover>div {
@@ -961,82 +835,88 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     border-radius: 5px;
     border: 0.16vw solid #e7f837;
 }
-.listItem:hover img:nth-child(1) {
-    padding: 0.36vw 0.52vw 0.36vw 0.36vw;
-    width: 4.17vw;
-    height: 4.05vw;
-    margin-right: -0.32vw;
+.listItem:hover img:nth-child(1), .listItem:active img:nth-child(1) {
+    width: 3.486vw;
+    height: auto;
+    border: 0.16vw solid black;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+    
 }
 
 .listItem:hover .listItem-desc {
-    width: 14.77vw;
-    height:auto;
+    width: 13.33vw;
 }
 .listItem:hover p.listItem-name, .listItem:active p.listItem-name {
-    width: 10.27vw;
-    padding-top: 0.36vw;
-    margin-left: 0.36vw;
-}
-.listItem:hover p.listItem-type, .listItem:active p.listItem-type {
-    width: 10.27vw;
-    margin-left: 0.36vw;
+    padding-top: 0.06vw;
     
 }
+.listItem:hover .nameAndType, .listItem:active .nameAndType {
+    width: 9.49vw;
+    border-top-right-radius: 3px;
+}
 .listItem:hover p.listItem-reqAR, .listItem:active p.listItem-reqAR {
-    padding: 2px 0 5px 0;
+    padding: 0.1vw 0vw 0.26vw 0.03vw;
+}
+.listItem:hover p.listItem-reqAR2, .listItem:active p.listItem-reqAR2 {
+    /*padding: 0.05vw 0.29vw 0.16vw 0;*/
+    margin-left: -0.135vw;
+    height: 1.9vw;
 }
 
-.listItem-desc {
+.listItem-desc, .wlistItem-desc {
     
     background-color: #c8c8c8;
     display: inline-block;
     max-width: 284px; /* 284px */
-    height: 4.37vw; /* 84px */
+    height: 3.6vw; /* 84px */
     border-radius: 5px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
 }
 
-.listItem-icon {
+.listItem-icon, .wlistItem-icon {
     background-color: black;
-    padding: 0.52vw; /* 10px */
-    width: 4.37vw; /* 84px */
-    max-width: 4.37vw;
+    border: 0.16vw solid black; /* 10px */
+    width: 3.646vw; /* 64px */
+    max-width: 70px;
     display: inline-block;
     float:left;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 .nameAndType {
-    width: 10.416vw; /* 200px */
+    width: 9.7006vw;/* 200px */
+    background-color: #11100f;
     height: auto;
     position: relative;
     display: inline-block;
-}
-.listItem-name {
-    background-color: #11100f;
-    display: inline-block;
-    vertical-align: top;
-    padding: 0.52vw 0.52vw 0.26vw 0.52vw; /* 10px 10px 5px 10px */
-    font-size: 0.94vw; /*18px*/ 
-    width: 10.416vw; /* 200px */
-    height: auto;
     border-top-right-radius: 5px;
 }
-.listItem-type {
-    background-color: #11100f;
-    padding: 0 0 0.26vw 0.52vw;
-    font-size: 0.73vw; /* 14px */
+
+.listItem-name, .wlistItem-name {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.22vw 0.52vw 0.16vw 0.22vw; /* 10px 10px 5px 10px */
+    font-size: 0.851vw; /*18px*/ 
+    width: 9.4369vw; /* 200px */
+    height: auto;
+}
+
+.listItem-type, .wlistItem-type {
+    padding: 0 0 0.26vw 0.22vw;
+    font-size: 0.661vw; /* 14px */
 }
 
 .listItemAR {
-    font-size: 0.94vw;
+    font-size: 0.85164vw;
     display: inline-block;
     position: absolute;
     margin-left: 5px;
-    height: 4.37vw; /* 84px */
-    width: 4.15vw; /* 80px */
+    height: auto; /* 84px */
+    width: 3.7599vw; /* 80px */
     background-color: #c8c8c8;
     border-radius: 20px;
     border-bottom-left-radius: 5px;
@@ -1044,35 +924,36 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 }
 
 .listItem-reqAR {
-    background-color: black;
-    padding: 0.26vw 0;/* 5px 0px */
+    background-color: #11100f;
+    padding: 0.26vw;/* 5px 0px */
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 .listItem-reqAR2 {
-    font-size: 2.09vw; /* 40px */
+    font-size: 1.71vw; /* 40px */
     text-align: center;
     font-weight: bold;
     color: #4d4b4b;
-    padding: auto;
+    width: 3.7599vw;
+    /*padding: 0.03vw;*/
     vertical-align: bottom;
 }
 
-.imajType {
+.imajType, .wepType {
     background-color: #11100f;
-    border-radius: 12px;
-    width: 10.416vw;
-    height: auto;
+    border-radius: 1px;
+    width: 17.4vw;
+    height: 4.20vw;
     position: absolute;
     z-index: 200;
-    left: 2vw;
-    top: 1vw;
-    display: inline-block;
+    left: 4.3vw;
+    top: 3.49vw;
+    display: inline-block;    
 }
 .iiSelector, .biSelector {
     text-align: center;
-    margin: 0.26vw 0px 0.26vw 0.78vw;
+    margin: 0.5vw 0 0.32vw 0.52vw;
     display: inline-block;
     font-size: 0.6775vw; /* 13px */
     filter: brightness(0.8);
@@ -1080,6 +961,7 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
 .iiSelImg, .biSelImg {
     width: 2.1vw;
     height: auto;
+    
     
 }
 .iiSelector:hover, .biSelector:hover {
@@ -1092,19 +974,170 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     filter: drop-shadow(0 0 3px yellow);
 }
 
-.levelToggle {
+
+
+/* ---------------- CRAFTING ------------ */
+#craftingContainer {
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow-y: scroll;
+    border-radius: 20px;
+    /*background: url(images/crafting/craftBG2.png) no-repeat 0 -1.2vw/80vw;*/
+}
+
+.craftBg {
+    position: absolute;
+    z-index: 3;
+    border-radius: 20px;
+    filter: brightness(0.8);
+    opacity: 0.9;
+    
+    height: 100%;
+    width: 100%;
+    
+}
+
+
+::-webkit-scrollbar {
+    width: 0;
+}
+.wlistItem:hover>div {
+    border-radius: 5px;
+    border: 0.16vw solid whitesmoke; /* 3px */
+}
+.wlistItem:active>div {
+    border-radius: 5px;
+    border: 0.16vw solid #e7f837;
+}
+.wlistItem:hover img:nth-child(1), .wlistItem:active img:nth-child(1) {
+    width: 3.486vw;
+    height: auto;
+    border: 0.16vw solid black;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+}
+
+.wlistItem:hover .wlistItem-desc {
+    width: 13.33vw;
+}
+.wlistItem:hover p.wlistItem-name, .wlistItem:active p.wlistItem-name {
+    padding-top: 0.06vw;
+}
+.wlistItem:hover .nameAndType, .wlistItem:active .nameAndType {
+    width: 9.49vw;
+    border-top-right-radius: 3px;
+}
+.wlistItem:hover p.listItem-reqAR, .wlistItem:active p.listItem-reqAR {
+    padding: 0.1vw 0vw 0.26vw 0.03vw;
+}
+.wlistItem:hover p.listItem-reqAR2, .wlistItem:active p.listItem-reqAR2 {
+    /*padding: 0.05vw 0.29vw 0.16vw 0;*/
+    margin-left: -0.135vw;
+    height: 1.9vw;
+}
+
+.w-infoLv,   .w-infoRow, .w-infoStats {
+    border-left: 0.32vw solid #343330; /* 6px */
+    padding-left: 10px;
+    margin: 0.51vw 0 0.25vw 0; /* 10px 0 5px 0 */
+    color: #343330;
+    font-size: 1.05vw;
+    position: relative;
+    top: 0.52vw;
     display: inline-block;
-    margin: 0.26vw 0px 0.26vw 0.78vw;
+    font-weight: bold;
+}
+
+.w-eleHolder {
+    width: 13vw;
+    margin-top: -0.8vw;
+}
+.w-infoEle {
+    width: 4vw;
+    height: auto;
+    display: inline-block;
+}
+.w-infoEleImg {
+    vertical-align: sub;
+    display: inline-block;
+    width: 1.7vw;
+    height: auto;
+    filter: brightness(0.18);
+}
+.w-infoElePower {
+    border: none;
+    display: inline-block;
+    width: 3vw;
+    height: auto;
+    
+}
+
+.w-infoStatRow {
+    margin: 0;
+    width: 10.8vw; /* 210px, 10.939vw */
+    display: inline-block;
+    display: block;
+    position: relative;
+    height: auto;
+    overflow: hidden;
+}
+
+.w-infoStats {
+    position: absolute;
+    top: 0.52vw;
+    right: 3vw;
+    height: auto;
+}
+
+.w-infoEleImg:hover+.tooltip {
+    display: block;
+}
+
+.eleTooltip {
+    border-radius: 10px;
+    filter: drop-shadow(0 2px 2px black);
+    margin: -13.4vw 0 0 -32.4vw;
+}
+
+.wlunoHolder {
+    background-color: #34393a;
+    border-color: #111213;
+    display: block;
+}
+
+.wreqLuno {
+    color: white;
+    background-color: #34393a;
+}
+.w-infoImg {
+    display: block;
+    text-align: center;
+    height: auto;
+    position: absolute;
+    top: 0.2rem;
+    left: 4vw;
+    width: 10vw;
 }
 
 
 /* ---------------- Toggle button ------------------ */
+
+.levelToggle {
+    display: inline-block;
+    margin: 0.5vw 0.52vw 0 0 ;
+    float: right;
+}
+
 .switch {
     position: relative;
     display: inline-block;
     z-index: 201;
     width: 1.963vw;;
     height: 2.5vw;
+    
 }
 
 .switch+p {
@@ -1127,8 +1160,8 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     right: 0;
     bottom: 0;
     background-color: #c8c8c8;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
     filter: brightness(0.7);
 }
 .slider:before {
@@ -1136,14 +1169,14 @@ p.tooltip, .recipeTooltip1, .recipeTooltip2, .recipeTooltip3 {
     content: "MIN";
     font-size: 0.5vw;
     font-family: "Roboto";
-    color: #464444;
+    color: darkgray;
     height: 1.146vw;
     width: 1.546vw;
     left: 0.208vw;
     bottom: 0.208vw;
     background-color: #161211;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .2s;
+    transition: .2s;
     border-radius: 5px;
     line-height: 1.246vw;
     box-sizing: border-box;

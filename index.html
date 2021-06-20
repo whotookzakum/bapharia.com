@@ -28,7 +28,7 @@
         
         <!-- Screen Size Validator -->
         <script>
-            if( screen.width <= 768 ){ window.location.replace("./mobile.html"); } // Screen too small
+            if( screen.width < 720 ){ window.location.replace("./mobile.html"); } // Screen too small
         </script>
         
     </head>
@@ -1060,706 +1060,545 @@
             <!-- CRAFTING PAGE -->
             <div id="craftingContainer">
                 
-                <!-- Selector -->
-                <div id="class-selector">
-                    <p id="toggleAegisWep" class="wepOption">Aegis Fighter</p>
-                    <p id="toggleTwinWep" class="wepOption">Twin Striker</p>
-                    <p id="toggleBlastWep" class="wepOption">Blast Archer</p>
-                    <p id="toggleSpellWep" class="wepOption">Spell Caster</p>
-                    <p id="toggleHeavyWep" class="wepOption">Heavy Smasher</p>
+                <img class="craftBg" src="images/crafting/craftBG2.png" draggable="false">
+                
+                <!-- List Selector -->
+                <div class="wepType">
+                    
+                    <!-- Level Toggle -->
+                    <div class="levelToggle">
+                        <label class="switch">
+                            <input type="checkbox" class="toggleCheck">
+                            <span class="wepSlider slider"></span>
+                        </label>
+                        <p>Level</p>
+                    </div>
+                    
+                    
                 </div>
                 
-                <!-- Aegis -->
-                <div id="aegisWeapons">
-                    <div class="craftRow craftHeader" style="margin-top: 0; background-color: gray;">
-                        <p style="width: 15rem; text-align: center;">weapon</p>
-                        <p style="margin-left: -2.5rem; text-align: right;">adventurer<br>rank</p>
-                        <p style="margin-left: 1.2rem; text-align: right;">max<br>lv.</p>
-                        <p style="margin-left: 1.8rem; text-align: center;">element</p>
-                        <p style="font-size: 15px; margin-left: 2.7rem; text-align: right;">stats (max lv.)</p>
-                        <p style="margin-left: 3.6rem; text-align: center;">possible<br>abilities</p>
-                        <p style="margin-left: 16rem; text-align: center;">recipe</p>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword1.png" draggable="false">
-                        <p class="col-name">Novice Sword</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">7</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">ATK 77<br>VIT 2<br>HP 14<br>Elemental Power ?</p>
-                        <p class="col-abil">No data</p>
-                        <div class="col-recipe">
-                            <p class="mat">Default weapon</p>
-                            <p class="recipe-desc">Purchase at weapon shop</p>
+                <!-- List of Weapons -->
+                <div class="listHolder">
+                    <div class="craftListContainer">
+                        
+                        <!-- Sword 1 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">-</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword2.png" draggable="false">
-                        <p class="col-name">Fanged Sword</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">12</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">
-                            ATK 103<br>STR 4<br>DEX 3<br>MND 2<br>HP 18<br>Elemental Power ?</p>
-                        <p class="col-abil">No data</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">3 Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">10 Rumble Boar Fang</p>
-                            <p class="recipe-desc">Rumble Boars at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">5 Long Grass</p>
-                            <p class="recipe-desc">Gather at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">25,000 Luno</p>
+                        <!-- Axe 1 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">-</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword3.png" draggable="false">
-                        <p class="col-name">Tower's Blade</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">No data</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                        </ul>
-                        
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Highland Fox Claw</p>
-                            <p class="recipe-desc">Highland Fox at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">7 Baja Ore</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">150,000 Luno</p>
+                        <!-- Bow 1 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">-</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword4.png" draggable="false">
-                        <p class="col-name">Red Steel Blade</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">20</p>
-                        <img class="col-ele" src="images/crafting/fire.png" draggable="false"><img class="ele-desc" src="images/crafting/firetooltip2.png">
-                        <p class="col-stats">ATK 143<br>STR 3<br>DEX 2<br>VIT 4<br>HP 26<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Shabby Goblin Wand</p>
-                            <p class="recipe-desc">Goblins at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">7 Calm Nightstone</p>
-                            <p class="recipe-desc">Gather at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">250,000 Luno</p>
+                        <!-- Staff 1 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">-</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword5.png" draggable="false">
-                        <p class="col-name">Scaleclaw Sword</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <img class="col-ele" src="images/crafting/lightning.png"  draggable="false"><img class="ele-desc" src="images/crafting/lightningtooltip.png">
-                        <p class="col-stats">ATK 169<br>STR 5<br>DEX 4<br>MND 3<br>HP 30<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Darkeye killer</li>
-                            <li>Fox killer</li>
-                            <li>Ogre killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">6 Firm Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Advanced Survey]</p>
                         
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Ogre Horn</p>
-                            <p class="recipe-desc">Ogres at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">10 Meteorite Fragment</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">500,000 Luno</p>
+                        <!-- Sword 2 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword6.png" draggable="false">
-                        <p class="col-name">Bapharia's Guidance</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <img class="col-ele" src="images/crafting/ice.png"  draggable="false"><img class="ele-desc" src="images/crafting/icetooltip.png">
-                        <p class="col-stats">ATK 190<br>STR 3<br>MND 5<br>VIT 4<br>HP 37<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Goat killer</li>
-                            <li>Quad arm killer</li>
-                            <li>Goblin killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">7 High Performance IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">15 Kaiser Elk Horn</p>
-                            <p class="recipe-desc">Kaiser Elks at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">15 Shivering Copper</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">1,200,000 Luno</p>
+                        <!-- Axe 2 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/sword7.png" draggable="false">
-                        <p class="col-name">Sharp Edged Sword</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <img class="col-ele" src="images/crafting/earth.png" draggable="false"><img class="ele-desc" src="images/crafting/earthtooltip.png" style="margin-top: -3em;" >
-                        <p class="col-stats">ATK 218<br>STR 5<br>DEX 4<br>VIT 6<br>HP 41<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                            <li>Kobold killer</li>
-                            <li>Dragon killer</li>
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">8 High Quality Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Large Goblin Wand</p>
-                            <p class="recipe-desc">Elder Goblins at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">20 Wailing Dragon Ore</p>
-                            <p class="recipe-desc">Gather at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">2,450,000 Luno</p>
+                        <!-- Bow 2 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
                         </div>
+                        <!-- Staff 2 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Sword 3 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        <!-- Axe 3 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        <!-- Bow 3 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        <!-- Staff 3 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Sword 4 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        <!-- Axe 4 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        <!-- Bow 4 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        <!-- Staff 4 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">2+</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Sword 5 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Axe 5 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Bow 5 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Staff 5 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Sword 6 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Axe 6 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Bow 6 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Staff 6 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Sword 7 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Axe 7 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Bow 7 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        <!-- Staff 7 -->
+                        <div class="wlistItem" draggable="false">
+                            <div class="wlistItem-desc" draggable="false">
+                                <img class="wlistItem-icon" src="images/crafting/sword1.png" draggable="false">
+                                <div class="nameAndType" draggable="false">
+                                    <p class="wlistItem-name" draggable="false"><br></p>
+                                    <p class="wlistItem-type" draggable="false"><br></p>
+                                </div>
+                            </div>
+                            <div class="listItemAR" draggable="false">
+                                <p class="listItem-reqAR" draggable="false">Req. AR</p>
+                                <p class="listItem-reqAR2" draggable="false">3+</p>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
                 
-                
-                
-                </div> <!-- End of Aegis -->
-                
-                <!-- Twin -->
-                <div id="twinWeapons">
-                    <div class="craftRow craftHeader" style="margin-top: 0; background-color: gray;">
-                        <p style="width: 15rem; text-align: center;">weapon</p>
-                        <p style="margin-left: -2.5rem; text-align: right;">adventurer<br>rank</p>
-                        <p style="margin-left: 1.2rem; text-align: right;">max<br>lv.</p>
-                        <p style="margin-left: 1.8rem; text-align: center;">element</p>
-                        <p style="font-size: 15px; margin-left: 2.7rem; text-align: right;">stats (max lv.)</p>
-                        <p style="margin-left: 3.6rem; text-align: center;">possible<br>abilities</p>
-                        <p style="margin-left: 16rem; text-align: center;">recipe</p>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe1.png" draggable="false">
-                        <p class="col-name">Battle Axe</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">7</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">ATK 85<br>VIT 2<br>HP 13<br>Elemental Power 5</p>
-                        <p class="col-abil">None</p>
-                        <div class="col-recipe">
-                            <p class="mat">Default weapon</p>
-                            <p class="recipe-desc">Purchase at weapon shop</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe2.png" draggable="false">
-                        <p class="col-name">Mist Cutter</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">12</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">No data</p>
-                        <p class="col-abil">Ogre killer</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">3 Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">10 Rumble Boar Fang</p>
-                            <p class="recipe-desc">Rumble Boars at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">5 Long Grass</p>
-                            <p class="recipe-desc">Gather at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">25,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe3.png" draggable="false">
-                        <p class="col-name">Dual Raster</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">No data</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                        </ul>
-                        
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Highland Fox Claw</p>
-                            <p class="recipe-desc">Highland Fox at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">7 Baja Ore</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">150,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe4.png" draggable="false">
-                        <p class="col-name">Ancient Flame Hardened Axe</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">20</p>
-                        <img class="col-ele" src="images/crafting/fire.png" draggable="false"><img class="ele-desc" src="images/crafting/firetooltip2.png">
-                        <p class="col-stats">ATK 158<br>STR 3<br>DEX 2<br>VIT 4<br>HP 25<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Shabby Goblin Wand</p>
-                            <p class="recipe-desc">Goblins at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">7 Calm Nightstone</p>
-                            <p class="recipe-desc">Gather at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">250,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe5.png" draggable="false">
-                        <p class="col-name">Cliff Breaker</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <img class="col-ele" src="images/crafting/lightning.png"  draggable="false"><img class="ele-desc" src="images/crafting/lightningtooltip.png">
-                        <p class="col-stats">ATK 188<br>STR 5<br>DEX 4<br>MND 3<br>HP 28<br>Elemental Power 5</p>
-                        <ul class="col-abil">
-                            <li>Darkeye killer</li>
-                            <li>Fox killer</li>
-                            <li>Ogre killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">6 Firm Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Ogre Horn</p>
-                            <p class="recipe-desc">Ogres at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">10 Meteorite Fragment</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">500,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe6.png" draggable="false">
-                        <p class="col-name">Ice Edge Wild</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <img class="col-ele" src="images/crafting/ice.png"  draggable="false"><img class="ele-desc" src="images/crafting/icetooltip.png">
-                        <p class="col-stats">ATK 211<br>STR 3<br>MND 5<br>VIT 4<br>HP 36<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Goat killer</li>
-                            <li>Quad arm killer</li>
-                            <li>Goblin killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">7 High Performance IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">15 Kaiser Elk Horn</p>
-                            <p class="recipe-desc">Kaiser Elks at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">15 Shivering Copper</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">1,200,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/axe7.png" draggable="false">
-                        <p class="col-name">Ground Edge</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <img class="col-ele" src="images/crafting/earth.png" draggable="false"><img class="ele-desc" src="images/crafting/earthtooltip.png" style="margin-top: -3em;" >
-                        <p class="col-stats">ATK 242<br>STR 5<br>DEX 4<br>VIT 6<br>HP 39<br>Elemental Power 15</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                            <li>Kobold killer</li>
-                            <li>Dragon killer</li>
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">8 High Quality Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Large Goblin Wand</p>
-                            <p class="recipe-desc">Elder Goblins at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">20 Wailing Dragon Ore</p>
-                            <p class="recipe-desc">Gather at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">2,450,000 Luno</p>
-                        </div>
-                    </div>
                 </div>
                 
-                <!-- Blast -->
-                <div id="blastWeapons">
-                    <div class="craftRow craftHeader" style="margin-top: 0; background-color: gray;">
-                        <p style="width: 15rem; text-align: center;">weapon</p>
-                        <p style="margin-left: -2.5rem; text-align: right;">adventurer<br>rank</p>
-                        <p style="margin-left: 1.2rem; text-align: right;">max<br>lv.</p>
-                        <p style="margin-left: 1.8rem; text-align: center;">element</p>
-                        <p style="font-size: 15px; margin-left: 2.7rem; text-align: right;">stats (max lv.)</p>
-                        <p style="margin-left: 3.6rem; text-align: center;">possible<br>abilities</p>
-                        <p style="margin-left: 16rem; text-align: center;">recipe</p>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow1.png" draggable="false">
-                        <p class="col-name">Hunter Bow</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">7</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">ATK 69<br>VIT 2<br>HP 12<br>Elemental Power ?</p>
-                        <p class="col-abil">No data</p>
-                        <div class="col-recipe">
-                            <p class="mat">Default weapon</p>
-                            <p class="recipe-desc">Purchase at weapon shop</p>
+                <!-- Display Container -->
+                <div id="wepInfo">
+                    <p class="w-infoName">Novice Sword</p>
+                    
+                    <!-- Stats -->
+                    <div class="w-infoHolder">
+                        
+                        <!-- Image -->
+                        <div class="w-infoImgHolder">
+                            <img class="w-infoImg" draggable="false" src="images/crafting/axe2L.png">
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow2.png" draggable="false">
-                        <p class="col-name">Flashwing Bow</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">12</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">ATK 93<br>STR 4<br>DEX 3<br>MND 2<br>HP 16<br>Elemental Power ?</p>
-                        <p class="col-abil">No data</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">3 Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Additional Survey]</p>
                         
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">10 Rumble Boar Fang</p>
-                            <p class="recipe-desc">Rumble Boars at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">5 Long Grass</p>
-                            <p class="recipe-desc">Gather at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">25,000 Luno</p>
+                        <!-- Information -->
+                        <div class="w-infoTextHolder">
+                            
+                            <p class="w-infoLv">Starting Lv 1~1 (Max Lv: 7)</p>
+                            
+                            <div class="w-infoRow" style="height: 6.7vw;">
+                                <div class="w-infoStatRow">
+                                    <p class="wstatName" style="float:left;">attack &nbsp;</p>
+                                    <p class="w-infoStatVal" style="float: left;">+332</p>
+                                </div>
+                                
+                                <div class="w-eleHolder">
+                                    <p class="w-infoEle"><br>element</p>
+                                    <img class="w-infoEleImg" src="images/crafting/fire.png">
+                                    <img class="eleTooltip tooltip" src="">
+                                    <p class="w-infoElePower">?????</p>
+                                </div>
+                            </div> 
+                            
+                            <div class="w-infoRow" style="height: 2.5vw;">
+                                <p class="w-slotCount">slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?</p>
+                            </div>
+                            
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow3.png" draggable="false">
-                        <p class="col-name">Alpha Genesis</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">No data</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                        </ul>
-                        
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Highland Fox Claw</p>
-                            <p class="recipe-desc">Highland Fox at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">7 Smoky Moss</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">150,000 Luno</p>
+
+                        <!-- Item Stats -->
+                        <div class="w-infoStats">
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">str</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">vit</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">dex</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">int</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">mnd</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
+                            <div class="w-infoStatRow">
+                                <p class="wstatName">max hp</p>
+                                <p class="w-infoStatVal">+3</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow4.png" draggable="false">
-                        <p class="col-name">Mechanical Firecarver Bow</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">20</p>
-                        <img class="col-ele" src="images/crafting/fire.png" draggable="false"><img class="ele-desc" src="images/crafting/firetooltip2.png">
-                        <p class="col-stats">ATK 129<br>STR 3<br>DEX 2<br>VIT 4<br>HP 24<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Shabby Goblin Wand</p>
-                            <p class="recipe-desc">Goblins at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">7 Round Water Plant</p>
-                            <p class="recipe-desc">Gather at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">250,000 Luno</p>
+
+                    </div> <!-- End Stats -->
+                    
+                     <!-- Recipe -->
+                    <div class="wrecipeHolder">
+                        <p class="infoBoxHeader">Required items</p>
+                        <div>
+                            <p class="wmatItem">material</p>
+                            <img class="wmatIcon" draggable="false" src="images/map/elitemonster.png">
+                            <div class="wrecipeTooltip">
+                                <img class="wrecipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
+                                <p class="wrecipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="wmatCount">1</p>
+                            
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow5.png" draggable="false">
-                        <p class="col-name">Brilliant Thunderwing Bow</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <img class="col-ele" src="images/crafting/lightning.png"  draggable="false"><img class="ele-desc" src="images/crafting/lightningtooltip.png">
-                        <p class="col-stats">ATK 153<br>STR 5<br>DEX 4<br>MND 3<br>HP 27<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Darkeye killer</li>
-                            <li>Fox killer</li>
-                            <li>Ogre killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">6 Firm Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Ogre Horn</p>
-                            <p class="recipe-desc">Ogres at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">10 Boule Fruit</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">500,000 Luno</p>
+                        <div>
+                            <p class="wmatItem">material</p>
+                            <img class="wmatIcon" draggable="false" src="images/map/elitemonster.png">
+                            <div class="wrecipeTooltip">
+                                <img class="wrecipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
+                                <p class="wrecipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="wmatCount">1</p>
+                            
                         </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow6.png" draggable="false">
-                        <p class="col-name">Glacial Arch</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <img class="col-ele" src="images/crafting/ice.png"  draggable="false"><img class="ele-desc" src="images/crafting/icetooltip.png">
-                        <p class="col-stats">ATK 172<br>STR 3<br>MND 5<br>VIT 4<br>HP 34<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Goat killer</li>
-                            <li>Quad arm killer</li>
-                            <li>Goblin killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">7 High Performance IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">15 Kaiser Elk Horn</p>
-                            <p class="recipe-desc">Kaiser Elks at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">15 Driftwood Twig</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">1,200,000 Luno</p>
+                        <div>
+                            <p class="wmatItem">material</p>
+                            <img class="wmatIcon" draggable="false" src="images/map/elitemonster.png">
+                            <div class="wrecipeTooltip">
+                                <img class="wrecipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
+                                <p class="wrecipeToolText">Trick Elder<br>Divine Haven Hill</p>
+                            </div>
+                            <p class="wmatCount">1</p>
+                            
                         </div>
+                        
                     </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/bow7.png" draggable="false">
-                        <p class="col-name">Groundrunner's Bow</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <img class="col-ele" src="images/crafting/earth.png" draggable="false"><img class="ele-desc" src="images/crafting/earthtooltip.png" style="margin-top: -3em;" >
-                        <p class="col-stats">ATK 197<br>STR 5<br>DEX 4<br>VIT 6<br>HP 37<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                            <li>Kobold killer</li>
-                            <li>Dragon killer</li>
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">8 High Quality Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Large Goblin Wand</p>
-                            <p class="recipe-desc">Elder Goblins at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">20 Wailing Dragon Ore</p>
-                            <p class="recipe-desc">Gather at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">2,450,000 Luno</p>
-                        </div>
-                    </div>
-                </div>
                 
-                <!-- Spell -->
-                <div id="spellWeapons">
-                    <div class="craftRow craftHeader" style="margin-top: 0; background-color: gray;">
-                        <p style="width: 15rem; text-align: center;">weapon</p>
-                        <p style="margin-left: -2.5rem; text-align: right;">adventurer<br>rank</p>
-                        <p style="margin-left: 1.2rem; text-align: right;">max<br>lv.</p>
-                        <p style="margin-left: 1.8rem; text-align: center;">element</p>
-                        <p style="font-size: 15px; margin-left: 2.7rem; text-align: right;">stats (max lv.)</p>
-                        <p style="margin-left: 3.6rem; text-align: center;">possible<br>abilities</p>
-                        <p style="margin-left: 16rem; text-align: center;">recipe</p>
+                    <!-- Luno -->
+                    <div class="wlunoHolder">
+                        <p class="infoBoxHeader">Req. luno</p>
+                        <p class="wreqLuno">00,000,000</p>
                     </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff1.png" draggable="false">
-                        <p class="col-name">Training Rod</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">7</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">ATK 78<br>VIT 2<br>HP 12<br>Elemental Power ?</p>
-                        <p class="col-abil">No data</p>
-                        <div class="col-recipe">
-                            <p class="mat">Default weapon</p>
-                            <p class="recipe-desc">Purchase at weapon shop</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff2.png" draggable="false">
-                        <p class="col-name">Ancient Staff</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">12</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">No data</p>
-                        <p class="col-abil">No data</p>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">3 Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">10 Rumble Boar Fang</p>
-                            <p class="recipe-desc">Rumble Boars at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">5 Long Grass</p>
-                            <p class="recipe-desc">Gather at Andra Basin</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">25,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff3.png" draggable="false">
-                        <p class="col-name">Missionary</p>
-                        <p class="col-ar">2</p>
-                        <p class="col-maxlv">20</p>
-                        <p class="col-ele">-</p>
-                        <p class="col-stats">No data</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                        </ul>
-                        
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Additional Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Highland Fox Claw</p>
-                            <p class="recipe-desc">Highland Fox at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">7 Smoky Moss</p>
-                            <p class="recipe-desc">Gather at Divine Haven Hill</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">150,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff4.png" draggable="false">
-                        <p class="col-name">Burning Staff</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">20</p>
-                        <img class="col-ele" src="images/crafting/fire.png" draggable="false"><img class="ele-desc" src="images/crafting/firetooltip2.png">
-                        <p class="col-stats">No data</p>
-                        <ul class="col-abil">
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">5 Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">20 Shabby Goblin Wand</p>
-                            <p class="recipe-desc">Goblins at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">7 Round Water Plant</p>
-                            <p class="recipe-desc">Gather at Soundless Foothills</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">250,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff5.png" draggable="false">
-                        <p class="col-name">Old Dragon's Staff</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">25</p>
-                        <img class="col-ele" src="images/crafting/lightning.png"  draggable="false"><img class="ele-desc" src="images/crafting/lightningtooltip.png">
-                        <p class="col-stats">ATK 174<br>INT 5<br>DEX 4<br>MND 3<br>HP 26<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Darkeye killer</li>
-                            <li>Fox killer</li>
-                            <li>Ogre killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">6 Firm Dragon Bone Fragment</p>
-                            <p class="recipe-desc">Clear Dragonclaw Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Ogre Horn</p>
-                            <p class="recipe-desc">Ogres at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">10 Boule Fruit</p>
-                            <p class="recipe-desc">Gather at Calm Eve Terraces</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">500,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff6.png" draggable="false">
-                        <p class="col-name">Retribution</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">30</p>
-                        <img class="col-ele" src="images/crafting/ice.png"  draggable="false"><img class="ele-desc" src="images/crafting/icetooltip.png">
-                        <p class="col-stats">ATK 195<br>INT 3<br>MND 5<br>VIT 4<br>HP 33<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Goat killer</li>
-                            <li>Quad arm killer</li>
-                            <li>Goblin killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">7 High Performance IC Core</p>
-                            <p class="recipe-desc">Clear Pillar of Divinity [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">15 Kaiser Elk Horn</p>
-                            <p class="recipe-desc">Kaiser Elks at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/flower.svg" class="recipe-flower" draggable="false">15 Driftwood Twig</p>
-                            <p class="recipe-desc">Gather at Fiel Pond</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">1,200,000 Luno</p>
-                        </div>
-                    </div>
-                    <div class="craftRow">
-                        <img class="craftIcon" src="images/crafting/staff7.png" draggable="false">
-                        <p class="col-name">Valeed Rood</p>
-                        <p class="col-ar">3</p>
-                        <p class="col-maxlv">35</p>
-                        <img class="col-ele" src="images/crafting/earth.png" draggable="false"><img class="ele-desc" src="images/crafting/earthtooltip.png" style="margin-top: -3em;" >
-                        <p class="col-stats">ATK 224<br>INT 5<br>DEX 4<br>VIT 6<br>HP 36<br>Elemental Power ?</p>
-                        <ul class="col-abil">
-                            <li>Quad arm killer</li>
-                            <li>Kobold killer</li>
-                            <li>Dragon killer</li>
-                            <li>Boar killer</li>
-                        </ul>
-                        <div class="col-recipe">
-                            <p class="mat"><img src="images/map/dungeon.svg" class="recipe-dungeon" draggable="false">8 High Quality Bajamar Yellow</p>
-                            <p class="recipe-desc">Clear Mechanical Ruin Valley [Advanced Survey]</p>
-                        
-                            <p class="mat"><img src="images/combat.svg" class="recipe-mob" draggable="false">5 Large Goblin Wand</p>
-                            <p class="recipe-desc">Elder Goblins at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/rock.svg" class="recipe-rock" draggable="false">20 Wailing Dragon Ore</p>
-                            <p class="recipe-desc">Gather at Dragonclaw Valley [Free Exploration]</p>
-                        
-                            <p class="mat"><img src="images/map/luno.svg" class="recipe-luno" draggable="false">2,450,000 Luno</p>
-                        </div>
-                    </div>
-                </div>
+                    
+                </div> <!-- End Display Container -->
                 
-                <!-- Heavy -->
-                <div id="heavyWeapons">
-                    <p>coming soon</p>
-                </div>
-                
-                
-                
+                    
                 
             </div> <!-- End Crafting -->
             
@@ -1767,6 +1606,8 @@
 
             <!-- IMAJINN PAGE -->
             <div id="ImajinnContainer">
+                
+                <img class="craftBg" src="images/crafting/craftBG2.png" draggable="false">
                 
                 <!-- List Selector -->
                 <div class="imajType">
@@ -1783,7 +1624,7 @@
                     <div class="levelToggle">
                         <label class="switch">
                             <input type="checkbox" class="toggleCheck">
-                            <span class="slider"></span>
+                            <span class="imajSlider slider"></span>
                         </label>
                         <p>Level</p>
                     </div>
@@ -1806,6 +1647,7 @@
                             <img class="i-infoImg" draggable="false" src="images/crafting/ii1L.png">
                         </div>
                         
+                        
                         <div class="i-infoTextHolder">
                             <div class="i-infoRow">
                                 <p class="i-infoLv">Starting Lv 1~1 (Max Lv: 15)</p>
@@ -1818,7 +1660,8 @@
                             <div class="i-infoRow">
                                 <p class="i-infoSkill">skill</p>
                                 <p id="skillDesc" class="skillTooltip tooltip">Heals in an AoE</p>
-                                <p class="i-infoSkillPower">effectiveness</p>
+                                <p class="i-infoSkillPwrRow">effectiveness</p>
+                                <p class="i-infoSkillPower"></p>
                                 <img class="i-slotIcon" src="images/crafting/slot1.svg">
                                 <p class="slotTooltip tooltip">hello</p>
                             </div>
@@ -1875,8 +1718,8 @@
                         <p class="infoBoxHeader">Required items</p>
                         <div>
                             <p class="matItem">material</p>
-                            <img class="matIcon" src="images/map/elitemonster.png">
-                            <div class="recipeTooltip1">
+                            <img class="matIcon" draggable="false" src="images/map/elitemonster.png">
+                            <div class="recipeTooltip">
                                 <img class="recipeToolImg" src="images/map/elitemonster.png" style="transform: translate(7vw, 7.7vw)">
                                 <p class="recipeToolText">Trick Elder<br>Divine Haven Hill</p>
                             </div>
@@ -1885,8 +1728,8 @@
                         </div>
                         <div>
                             <p class="matItem">material</p>
-                            <img class="matIcon" src="images/map/elitemonster.png">
-                            <div class="recipeTooltip2">
+                            <img class="matIcon" draggable="false" src="images/map/elitemonster.png">
+                            <div class="recipeTooltip">
                                 <img class="recipeToolImg" src="images/map/elitemonster.png" style="transform: translate(6.8vw, 7.8vw)">
                                 <p class="recipeToolText">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
                             </div>
@@ -1894,8 +1737,8 @@
                         </div>
                         <div>
                             <p class="matItem">material</p>
-                            <img class="matIcon" src="images/map/elitemonster.png">
-                            <div class="recipeTooltip3">
+                            <img class="matIcon" draggable="false" src="images/map/elitemonster.png">
+                            <div class="recipeTooltip">
                                 <img class="recipeToolImg" src="images/map/elitemonster.png" style="transform: translate(11.4vw, 4.4vw)">
                                 <p class="recipeToolText">Hello</p>
                             </div>
@@ -1907,15 +1750,15 @@
                     <!-- Abilities -->
                     <div class="abilityHolder">
                         <p class="infoBoxHeader" style="margin-left: 10px;">Possible abilities</p>
-                        <p class="abil">DEX increase</p>
-                        <p class="abil">Recude damage taken (close-range)</p>
+                        <p class="abil">Ability 1</p>
+                        <p class="abil">Ability 2</p>
                         <p class="abil"><br></p>
                     </div>
                 
                     <!-- Luno -->
                     <div class="lunoHolder">
                         <p class="infoBoxHeader">Req. luno</p>
-                        <p class="reqLuno">31,500,000</p>
+                        <p class="reqLuno">00,000,000</p>
                     </div>
                     
                 </div> <!-- End of Display Container -->
@@ -1934,8 +1777,8 @@
                                 <div class="listItem-desc" draggable="false">
                                     <img class="listItem-icon" src="images/crafting/bi1.png" draggable="false">
                                     <div class="nameAndType" draggable="false">
-                                        <p class="listItem-name" draggable="false">Pink Piglet</p>
-                                        <p class="listItem-type" draggable="false">Heal type</p>
+                                        <p class="listItem-name" draggable="false"></p>
+                                        <p class="listItem-type" draggable="false"></p>
                                     </div>
                                 </div>
                                 <div class="listItemAR" draggable="false">
@@ -1947,8 +1790,8 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi2.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Ferocious Beast</p>
-                                    <p class="listItem-type">Support type</p></div>
+                                    <div class="nameAndType"><p class="listItem-name"></p>
+                                    <p class="listItem-type"></p></div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -1961,8 +1804,8 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi4.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Red Splash</p>
-                                        <p class="listItem-type">Attack type</p>
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
                                     </div>
                                     
                                 </div>
@@ -1976,8 +1819,8 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi6.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Deep Green Fang</p>
-                                        <p class="listItem-type">Attack type</p>
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
                                     </div>
                                     
                                 </div>
@@ -1990,8 +1833,8 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi7.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Iron Fang</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType"><p class="listItem-name"></p>
+                                    <p class="listItem-type"></p></div>
                                 </div>
                                 <div class="listItemAR">
                                     <p class="listItem-reqAR">Req. AR</p>
@@ -2002,8 +1845,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi17.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Flame Prison</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2015,8 +1860,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi16.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Ferocious Gold</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2028,8 +1875,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi11.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Sapphire Trot</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2041,8 +1890,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi12.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Flaming Horns</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2054,8 +1905,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi10.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Spooky Goat</p>
-                                    <p class="listItem-type">Support type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2067,8 +1920,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi8.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Evil Healer</p>
-                                    <p class="listItem-type">Heal type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2080,8 +1935,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi18.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Trick Elder</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2093,8 +1950,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi14.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Elder Goblin</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2106,8 +1965,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi3.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Goblin</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2119,8 +1980,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi15.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Land Fox</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2132,8 +1995,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi5.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Tyrant Boar</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2145,8 +2010,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi13.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Horned Goat</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2158,8 +2025,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi9.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Goblin Sage</p>
-                                    <p class="listItem-type">Heal type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2171,8 +2040,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi19.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Kaiser Elk</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2184,8 +2055,8 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi21.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Raging Kingfang</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType"><p class="listItem-name"></p>
+                                    <p class="listItem-type"></p></div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2197,8 +2068,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi22.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Sealed Atrocity</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                 </div>
                                 <div class="listItemAR">
                                     <p class="listItem-reqAR">Req. AR</p>
@@ -2209,8 +2082,10 @@
                             <div class="listItem biList">
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/bi20.png" draggable="false">
-                                    <div class="nameAndType"><p class="listItem-name">Plidoke</p>
-                                    <p class="listItem-type">Attack type</p></div>
+                                    <div class="nameAndType">
+                                        <p class="listItem-name"></p>
+                                        <p class="listItem-type"></p>
+                                    </div>
                                     
                                 </div>
                                 <div class="listItemAR">
@@ -2223,8 +2098,6 @@
                         </div> <!-- End of ImajList -->
                         
                         
-                        
-                        
                         <!-- Inner Imajinn List -->
                         <div id="InnerList">
 
@@ -2233,7 +2106,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii1.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Dyranks (courage)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2247,7 +2120,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii2.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Corjun (mystery)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2261,7 +2134,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii3.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Mipect (hope)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2275,7 +2148,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii4.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Proxyx (courage)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2289,7 +2162,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii5.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Latepect (hope)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2303,7 +2176,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii6.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Carcon (mystery)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2317,7 +2190,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii7.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Parbury (ambition)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2331,7 +2204,7 @@
                                 <div class="listItem-desc">
                                     <img class="listItem-icon" src="images/crafting/ii8.png" draggable="false">
                                     <div class="nameAndType">
-                                        <p class="listItem-name">Sanak'ta (affection)</p>
+                                        <p class="listItem-name"></p>
                                         <p class="listItem-type"><br></p>
                                     </div>
                                 </div>
@@ -2359,6 +2232,8 @@
             
             <!-- Adds a background to display page on, might not be needed but might be useful for the animation later on? -->
             <div id="contentViewer"></div>
+            
+            
             
             <!-- ABOUT PAGE AND TRIVIA -->
             <div id="pageAbout">
@@ -2421,7 +2296,7 @@
             
             <div class="copyright">
                 
-                <p>© Copyright 2021. All rights reserved. </p>
+                <p>© Copyright 2021 zakum.org. All rights reserved. </p>
                 <img id="buttonAbout" class="iconother" src="images/about2.svg" style="top: -0.6em; padding-right: 5px;" draggable="false"/>
                 <a class="hitcounter" style="top: -110px;"><img src="https://www.worldflagcounter.com/hMM/" alt="Flag Counter"></a>
             </div>
