@@ -1,5 +1,13 @@
-jQuery(document).ready(function($){
-
+jQuery(document).ready(function ($) {
+    
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) { // Prevent F12
+            return false;
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+            return false;
+        }
+    });
+    
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // NAVIGATION
@@ -128,6 +136,7 @@ jQuery(document).ready(function($){
     var tooltipCalmEve = "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw";
     var tooltipSoundless = "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw";
     var tooltipDivineLeft = "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -80px/39.25vw";
+    var tooltipWepShop = "url(images/map/moveAsterleeds.jpg) no-repeat -42.4vw -17.2vw/80.25vw";
     
     // Crafting selector variables
     var wIndex = 0;
@@ -160,7 +169,7 @@ jQuery(document).ready(function($){
             name: "Novice Sword", //ノービスソード
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword1.png",
-            image: "",
+            image: "images/crafting/sword1L.png",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -182,14 +191,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+9",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         // 1 Battle Axe
@@ -219,14 +230,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+8",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         // 1 Hunter Bow
@@ -234,7 +247,7 @@ jQuery(document).ready(function($){
             name: "Hunter Bow", //ハンターボウ
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow1.png",
-            image: "",
+            image: "images/crafting/bow1L.png",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -256,14 +269,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+7",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         // 1 Training Rod
@@ -293,14 +308,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+6",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         
@@ -309,7 +326,7 @@ jQuery(document).ready(function($){
             name: "Fanged Sword", //爪牙剣
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword2.png",
-            image: "",
+            image: "images/crafting/sword2L.png",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -458,7 +475,7 @@ jQuery(document).ready(function($){
             name: "Tower's Blade", //タワーズブレイド
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword3.png",
-            image: "",
+            image: "images/crafting/sword3L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -532,7 +549,7 @@ jQuery(document).ready(function($){
             name: "Alpha Genesis", //アルファジェネシス｀
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow3.png",
-            image: "",
+            image: "images/crafting/bow3L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -607,7 +624,7 @@ jQuery(document).ready(function($){
             name: "Red Steel Blade", //鋼の赤刃
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword4.png",
-            image: "",
+            image: "images/crafting/sword4L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -852,7 +869,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+6",
                    ],
             recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
-            iconSrc: [iDung,iCombat,iRock],
+            iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","5","10"],
             tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
@@ -889,7 +906,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+5",
                    ],
             recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
-            iconSrc: [iDung,iCombat,iRock],
+            iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","5","10"],
             tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
@@ -905,7 +922,7 @@ jQuery(document).ready(function($){
             name: "Bapharia's Guidance", //バファリアの標
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword6.png",
-            image: "",
+            image: "images/crafting/sword6L.png",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
             element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1216,7 +1233,7 @@ jQuery(document).ready(function($){
     $(".wepSlider").click(function(){
         
         // Max lv stats
-        if (!$(".toggleCheck").is(":checked")) {
+        if (!$(".wtoggleCheck").is(":checked")) {
             wepLvSelector = 1;
             
             wStats.each(function(index){
@@ -1312,6 +1329,11 @@ jQuery(document).ready(function($){
     }
     
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
+    
+    $(".msqNumber").click(function(){
+        var pos = $(this).position();
+        console.log("TOP " + pos.top + " LEFT " + pos.left); 
+    });
     
     // Search by typing
     $("#mapSearch").keyup(function(event){
@@ -2761,7 +2783,7 @@ jQuery(document).ready(function($){
     $(".imajSlider").click(function(){
         
         // Max lv stats
-        if (!$(".toggleCheck").is(":checked")) {
+        if (!$(".itoggleCheck").is(":checked")) {
             statLvSelector = 1;
             
             if (listHolder == biHolder) {
