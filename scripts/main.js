@@ -84,14 +84,6 @@ jQuery(document).ready(function ($) {
                 currentPage = $("#ImajinnContainer");
                 openImajinn();
             }
-            // COMBAT
-            if ($(this).is("#buttonCombat")) {
-                
-            }
-            // MSQ
-            if ($(this).is("#buttonMSQ")) {
-                
-            }
             // GUIDE
             if ($(this).is("#buttonGuide")) {
                 
@@ -101,10 +93,7 @@ jQuery(document).ready(function ($) {
                 openCrafting();
                 currentPage = $("#craftingContainer");
             }
-            // LIQUID MEMORY
-            if ($(this).is("#buttonLiquidMemory")) {
-                
-            }
+
         }
     });
     
@@ -1321,19 +1310,45 @@ jQuery(document).ready(function ($) {
     var currentMap = $("#mapAsterleeds");
     var tooltip = document.querySelectorAll(".tooltip");
     document.addEventListener('mousemove', trackMouse, false);
+    
+    function openMapAni() {
+        $("#mapSearch").stop().animate({opacity: 1}, 800);
+        $(".mapList").stop().animate({opacity: 1}, 800);
+        $(".mapGrid").stop().animate({opacity: 1}, 800);
+        $(".mapIcon").stop().animate({opacity: 1}, 800);
+        $(".mapMove").css("opacity","0.6");
+        
+        $(".searchIcons").stop().animate({opacity: 1}, 800);
+    }
+    
+    // Open page
     function openWorldMap(region) {
+        
         $("#mapContainer").css("display", "block");
         $("#contentViewer").css("display", "block");
+        
+        
+        if (currentPage != $("#mapContainer")) {
+            $("#mapContainer").css("animation-iteration-count","1");
+            setTimeout(() => openMapAni(), 1200);
+            
+        }
+        
+        //$("#mapContainer").animate({width: "100%", left: "0%"}, 600);
+        //setTimeout(() => {$("#mapContainer").animate({height: "100%", top: "0%"})}, 800);
+        
         region.css("display", "block");
         currentPage = $("#mapContainer");
     }
     
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
-    
     $(".msqNumber").click(function(){
-        var pos = $(this).position();
-        console.log("TOP " + pos.top + " LEFT " + pos.left); 
+        $(".msqNumber").each(function(index){
+            var pos = $(this).position();
+            console.log(index + " TOP " + pos.top + " LEFT " + pos.left); 
+        });
     });
+    
     
     // Search by typing
     $("#mapSearch").keyup(function(event){
