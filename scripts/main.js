@@ -1313,12 +1313,13 @@ jQuery(document).ready(function ($) {
     
     function openMapAni() {
         $("#mapSearch").stop().animate({opacity: 1}, 800);
+        $(".searchIcons").stop().animate({opacity: 1}, 800);
+        
         $(".mapList").stop().animate({opacity: 1}, 800);
         $(".mapGrid").stop().animate({opacity: 1}, 800);
-        $(".mapIcon").stop().animate({opacity: 1}, 800);
-        $(".mapMove").css("opacity","0.6");
         
-        $(".searchIcons").stop().animate({opacity: 1}, 800);
+        $(".mapIcon").stop().animate({opacity: 1}, 800);
+        
     }
     
     // Open page
@@ -1386,30 +1387,31 @@ jQuery(document).ready(function ($) {
         }
     }  
     
+    
     // Map Switcher
     $(".mapListItem").click(function(){
         
         // Reset MAP NAME opacity and color to original values;
-        $(".mapName").css({"opacity": "0.6", "background-color": "#c8c8c8"});
+        $(".mapName").removeClass("currentZone");
         
         // Asteria Plains maps
         if ($(this).is(".listAsteriaPlain")){
             
             // Highlight the map name if a specific map is chosen
             if ($(this).is(":contains('Skyquake Fields')")) {
-                $(".mapName:contains('Skyquake Fields')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Skyquake Fields')").addClass("currentZone");
             } 
             else if ($(this).is(":contains('Minster Hills')")) {
-                $(".mapName:contains('Minster Hills')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Minster Hills')").addClass("currentZone");
             } 
             else if ($(this).is(":contains('Andra Basin')")) {
-                $(".mapName:contains('Andra Basin')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Andra Basin')").addClass("currentZone");
             }
             else if ($(this).is(":contains('Calm Eve Terraces')")) {
-                $(".mapName:contains('Calm Eve Terraces')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Calm Eve Terraces')").addClass("currentZone");
             } 
             else if ($(this).is(":contains('Minsterhorn')")) {
-                $(".mapName:contains('Minsterhorn')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Minsterhorn')").addClass("currentZone");
             }
             
             // Open the map
@@ -1419,25 +1421,24 @@ jQuery(document).ready(function ($) {
         }
         
         
-        
         // Bajamar Highlands maps
         if ($(this).is(".listBahamarHighlands")){
             
             // Highlight the map name if a specific map is chosen
             if ($(this).is(":contains('Divine Haven Hill')")) {
-                $(".mapName:contains('Divine Haven Hill')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Divine Haven Hill')").addClass("currentZone");
             } 
             else if ($(this).is(":contains('Fiel Pond')")) {
-                $(".mapName:contains('Fiel Pond')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Fiel Pond')").addClass("currentZone");
             } 
             else if ($(this).is(":contains('Soundless Foothills')")) {
-                $(".mapName:contains('Soundless Foothills')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Soundless Foothills')").addClass("currentZone");
             }
             else if ($(this).is(":contains('Larpal')")) {
-                $(".mapName:contains('Larpal')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Larpal')").addClass("currentZone");
             }
             else if ($(this).is(":contains('Bergmahl')")) {
-                $(".mapName:contains('Bergmahl')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Bergmahl')").addClass("currentZone");
             }
             
             // Open the map
@@ -1455,6 +1456,9 @@ jQuery(document).ready(function ($) {
             openWorldMap(currentMap);
         }
     });
+    
+    
+    
     
     // Map Icon Toggles
     $(".mapToggles").click(function(){

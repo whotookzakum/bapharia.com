@@ -255,7 +255,6 @@ html, body {
     z-index: 4;
     border-radius: 10px;
     border: 0px solid transparent;
-    
     /* name, duraction, timing, delay, iteration, direction */
     animation: pageOpen 1.2s ease-in-out 0 forwards;
 }
@@ -364,10 +363,11 @@ html, body {
 .mapList:hover {
     max-height: 500px;
 }
-.mapListItem:hover {
+
+.listItemHover:hover {
     filter:brightness(0.8);
 }
-.mapListItem:active {
+.listItemHover:active {
     filter: brightness(0.6);
 }
 
@@ -402,11 +402,12 @@ html, body {
     display: none;
 }
 
-.mapIcon, .mapIcon-name {
+.mapIcon {
     display: block;
     opacity: 0;
     position: absolute;
 }
+
 .warpPortal {
     filter: drop-shadow(0 0 4px black);
 }
@@ -535,7 +536,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     filter: drop-shadow(0 2px 2px black);
 }
 /* Show tooltips */
-.mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip, .i-infoSkill:hover+p.skillTooltip, .i-slotIcon:hover+p.tooltip, .mapIcon-name:hover+.tooltip{
+.mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip, .i-infoSkill:hover+p.skillTooltip, .i-slotIcon:hover+p.tooltip {
     display: block;
 }
 
@@ -547,13 +548,33 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     border: 2px set #c8c8c8;
     border-radius: 20px;
     filter: drop-shadow(0 1px 2px black);
-    opacity: 1;
+    opacity: 0.6;
 }
 .mapMove {
     border: 0;
     font-size: 0.781vw;
     background-color: skyblue;
+    opacity: 0;
+}
+
+.mapMove:hover {
     opacity: 1;
+}
+.mapMove:active {
+    opacity: 1;
+    filter: brightness(0.8) drop-shadow(0 1px 2px black);
+}
+.mapName:hover {
+    opacity: 0.8;
+}
+
+.currentZone {
+    opacity: 1;
+    background-color: #4a9efa;
+}
+.currentZone:hover {
+    opacity: 1;
+    filter: brightness(0.9) drop-shadow(0 1px 2px black);
 }
 
 .msqNumber {
