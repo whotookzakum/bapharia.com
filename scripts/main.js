@@ -8,14 +8,24 @@ jQuery(document).ready(function ($) {
         }
     });
     
+    
+    // Check for language switch
+    $(document).keydown(function (event) {
+        
+        // keydown J
+        if (event.keyCode == 74) {
+            
+        }
+    });
+    
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // NAVIGATION
     
     // Save current page and close pages
-    var currentPage = $("#mapContainer");
+    var currentPage;
     function closePages() {
-        currentPage.css("display", "none");
+        $(currentPage).css("display", "none");
         $("#contentViewer").css({"display": "none", "background-color": "#080605"});
     }
     
@@ -75,13 +85,13 @@ jQuery(document).ready(function ($) {
             }
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
-                currentPage = $("#mapContainer");
+                currentPage = "#mapContainer"
                 openWorldMap(currentMap);
             }
             // IMAJINN
             if ($(this).is("#buttonImajinn")) {
                 listHolder = biHolder;
-                currentPage = $("#ImajinnContainer");
+                currentPage = "#ImajinnContainer";
                 openImajinn();
             }
             // GUIDE
@@ -90,8 +100,8 @@ jQuery(document).ready(function ($) {
             }
             // CRAFTING
             if ($(this).is("#buttonCrafting")) {
+                currentPage = "#craftingContainer"
                 openCrafting();
-                currentPage = $("#craftingContainer");
             }
 
         }
@@ -1213,7 +1223,6 @@ jQuery(document).ready(function ($) {
     function openCrafting() {
         $("#craftingContainer").css("display", "block");
         $("#contentViewer").css({"display": "block", "background-color": "midnightblue"});
-        currentPage = $("#craftingContainer");
         listWeapons(wepHolder);
         dispWeapon(wepHolder);
     }
@@ -1309,37 +1318,78 @@ jQuery(document).ready(function ($) {
     
     var currentMap = $("#mapAsterleeds");
     var tooltip = document.querySelectorAll(".tooltip");
+    var mapAniIterator = 0;
     document.addEventListener('mousemove', trackMouse, false);
     
     function openMapAni() {
+        // Fade in elements on map page
         $("#mapSearch").stop().animate({opacity: 1}, 800);
         $(".searchIcons").stop().animate({opacity: 1}, 800);
+        setTimeout(function(){
+           $(".mapList").css("display","block");
+        }, 1000);
         
         $(".mapList").stop().animate({opacity: 1}, 800);
         $(".mapGrid").stop().animate({opacity: 1}, 800);
         
-        $(".mapIcon").stop().animate({opacity: 1}, 800);
+        $("img.mapIcon").stop().animate({opacity: 1}, 800);
+        $(".mapMove").stop().animate({opacity: 0.7}, 800);
         
+        // Fade in to opacity 0.6 if not current map name (gray)
+        if (!$(".mapName").hasClass("currentZone")) {
+            $(".mapName").stop().animate({opacity: 0.6}, 800);
+        } 
+        // Fade in to opacity 1 if current map name (blue)
+        else if ($(".mapName").hasClass("currentZone")) {
+            $(".mapName").stop().animate({opacity: 1}, 800);
+        }
+
     }
+    
+    // Hover over mapMove selectors
+    $(".mapMove").mouseenter(function() {
+        $(this).css("opacity","1"); 
+    });
+    $(".mapMove").mouseleave(function(){
+        $(this).css("opacity","0.8");
+    });
+    
+    // Hover over mapName selectors, only if not the current zone
+    $(".mapName").mouseenter(function() {
+        if (!$(this).hasClass("currentZone")) {
+            $(this).css("opacity","0.8"); 
+        }
+    });
+    $(".mapName").mouseleave(function(){
+        if (!$(this).hasClass("currentZone")) {
+            $(this).css("opacity","0.6");
+        }
+    });
     
     // Open page
     function openWorldMap(region) {
         
+        // Display Map Container
         $("#mapContainer").css("display", "block");
-        $("#contentViewer").css("display", "block");
         
-        
-        if (currentPage != $("#mapContainer")) {
-            $("#mapContainer").css("animation-iteration-count","1");
+        // Animate map container only if it isn't currently open
+        if (mapAniIterator == 0) {
+            //$("#mapContainer").css("animation-iteration-count","1");
+            region.css("opacity","1");
+            $("#mapContainer").css("animation","pageOpen 1.2s ease-in-out 1 forwards");
             setTimeout(() => openMapAni(), 1200);
-            
+            mapAniIterator = 1;
+        }
+        // If its currently open, skip animation 
+        else {
+            $("#mapContainer").css("animation","none");
+            $("#mapContainer").css("width","100%");
+            $("#mapContainer").css("height", "100%");
+            $("#mapContainer").css("left", "0%");
+            $("#mapContainer").css("top", "0%");
         }
         
-        //$("#mapContainer").animate({width: "100%", left: "0%"}, 600);
-        //setTimeout(() => {$("#mapContainer").animate({height: "100%", top: "0%"})}, 800);
-        
         region.css("display", "block");
-        currentPage = $("#mapContainer");
     }
     
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
@@ -1387,12 +1437,12 @@ jQuery(document).ready(function ($) {
         }
     }  
     
-    
     // Map Switcher
     $(".mapListItem").click(function(){
         
         // Reset MAP NAME opacity and color to original values;
         $(".mapName").removeClass("currentZone");
+        $(".mapName").css("opacity","0.6");
         
         // Asteria Plains maps
         if ($(this).is(".listAsteriaPlain")){
@@ -1400,23 +1450,33 @@ jQuery(document).ready(function ($) {
             // Highlight the map name if a specific map is chosen
             if ($(this).is(":contains('Skyquake Fields')")) {
                 $(".mapName:contains('Skyquake Fields')").addClass("currentZone");
+                $(".mapName:contains('Skyquake Fields')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Minster Hills')")) {
                 $(".mapName:contains('Minster Hills')").addClass("currentZone");
+                $(".mapName:contains('Minster Hills')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Andra Basin')")) {
                 $(".mapName:contains('Andra Basin')").addClass("currentZone");
+                $(".mapName:contains('Andra Basin')").css("opacity","1");
             }
             else if ($(this).is(":contains('Calm Eve Terraces')")) {
                 $(".mapName:contains('Calm Eve Terraces')").addClass("currentZone");
+                $(".mapName:contains('Calm Eve Terraces')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Minsterhorn')")) {
                 $(".mapName:contains('Minsterhorn')").addClass("currentZone");
+                $(".mapName:contains('Minsterhorn')").css("opacity","1");
             }
             
             // Open the map
-            currentMap.css("display", "none");
-            currentMap = $("#mapAsteriaPlain")
+            $("#mapAsteriaPlain").css("display","block");
+            currentMap.stop().animate({opacity: 0}, 500);
+            setTimeout(function(){
+                currentMap.css("display", "none");
+                currentMap = $("#mapAsteriaPlain");
+            }, 500);
+            $("#mapAsteriaPlain").stop().animate({opacity: 1}, 500);
             openWorldMap(currentMap);
         }
         
@@ -1427,23 +1487,34 @@ jQuery(document).ready(function ($) {
             // Highlight the map name if a specific map is chosen
             if ($(this).is(":contains('Divine Haven Hill')")) {
                 $(".mapName:contains('Divine Haven Hill')").addClass("currentZone");
+                $(".mapName:contains('Divine Haven Hill')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Fiel Pond')")) {
                 $(".mapName:contains('Fiel Pond')").addClass("currentZone");
+                $(".mapName:contains('Fiel Pond')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Soundless Foothills')")) {
                 $(".mapName:contains('Soundless Foothills')").addClass("currentZone");
+                $(".mapName:contains('Soundless Foothills')").css("opacity","1");
             }
             else if ($(this).is(":contains('Larpal')")) {
                 $(".mapName:contains('Larpal')").addClass("currentZone");
+                $(".mapName:contains('Larpal')").css("opacity","1");
             }
             else if ($(this).is(":contains('Bergmahl')")) {
                 $(".mapName:contains('Bergmahl')").addClass("currentZone");
+                $(".mapName:contains('Bergmahl')").css("opacity","1");
             }
             
             // Open the map
-            currentMap.css("display", "none");
-            currentMap = $("#mapBahamarHighlands")
+            $("#mapBahamarHighlands").css("display","block");
+            currentMap.stop().animate({opacity: 0}, 500);
+            setTimeout(function(){
+                currentMap.css("display", "none");
+                currentMap = $("#mapBahamarHighlands");
+            }, 500);
+            $("#mapBahamarHighlands").stop().animate({opacity: 1}, 500);
+            
             openWorldMap(currentMap);
         }
         
@@ -1451,8 +1522,14 @@ jQuery(document).ready(function ($) {
         
         // Asterleeds map
         if ($(this).is(".listAsterleeds")){
-            currentMap.css("display", "none");
-            currentMap = $("#mapAsterleeds")
+            $("#mapAsterleeds").css("display","block");
+            currentMap.stop().animate({opacity: 0}, 500);
+            $("#mapAsterleeds").stop().animate({opacity: 1}, 500);
+            setTimeout(function(){
+                currentMap.css("display", "none");
+                currentMap = $("#mapAsterleeds");
+            }, 500);
+            
             openWorldMap(currentMap);
         }
     });
@@ -2972,7 +3049,6 @@ jQuery(document).ready(function ($) {
         // if battle or inner imaj page, select that container and display
         $("#ImajinnContainer").css("display", "block");
         $("#contentViewer").css({"display": "block", "background-color": "#22321b"});
-        currentPage = $("#ImajinnContainer");
         dispImajinn(listHolder);
     }
 

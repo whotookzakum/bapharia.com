@@ -92,6 +92,7 @@ html, body {
     background-color: ;
 }
 
+
 /* ---------------- NAVIGATION ---------------- */
 
 .navibar {
@@ -233,7 +234,7 @@ html, body {
     background-color: #080605; /* #080605 */
     opacity: 0.8; /* 0.8 */
     z-index: 2;
-    border-radius: 20px;
+    border-radius: 1.042vw;
 }
 
 .pageTransition {
@@ -253,10 +254,8 @@ html, body {
     left: 49%;
     top: 49%;
     z-index: 4;
-    border-radius: 10px;
+    border-radius: 0.52vw;
     border: 0px solid transparent;
-    /* name, duraction, timing, delay, iteration, direction */
-    animation: pageOpen 1.2s ease-in-out 0 forwards;
 }
 
 @keyframes pageOpen {
@@ -304,7 +303,7 @@ html, body {
     font-size: 0.94vw;
     padding: 0.573vw 0.573vw 0.573vw 1.406vw;
     border: 2px solid #ddd;
-    border-radius: 1.04vw;
+    border-radius: 1.042vw;
     background-color: white;
     z-index: 15;
     filter: drop-shadow(0px 1px 2px);
@@ -313,14 +312,14 @@ html, body {
 }
 
 .mapList {
-    display: block;
+    display: none;
     position: absolute;
     z-index: 14;
-    left: 22px;
-    top: 40px;
-    width: 276px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    left: 1.146vw;
+    top: 2.083vw;
+    width: 14.375vw;
+    border-bottom-left-radius: 1.042vw;
+    border-bottom-right-radius: 1.042vw;
     max-height: 0;
     transition: max-height 0.2s ease-out;
     overflow: hidden;
@@ -382,6 +381,66 @@ html, body {
     height: auto;
     object-fit: cover;
 }
+
+.mapToggles+p.tooltip {
+    display: none; /* block */
+    line-height: 0.9vw;
+    filter: drop-shadow(0 0 0 trasparent);
+    animation: mapCloseDrawer .0s ease-in-out forwards; /* .15s */
+}
+
+.mapToggles:hover+p.tooltip{
+    display: block;
+    filter: drop-shadow(0 0 0 trasparent);
+    animation: mapOpenDrawer .0s ease-in-out forwards; /* .15s */
+}
+
+@keyframes mapOpenDrawer {
+    0% {
+        width: auto;
+        padding: 0;
+        height: 1.353vw;
+        font-size: 0;
+        border-width: 0;
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    15% {
+        border-width: 0;
+    }
+    100% {
+        width: auto;
+        max-width: 12.458vw;
+        padding: 0.26vw 0.82vw 0.26vw 0.32vw;
+        height: 1.353vw;
+        font-size: 0.833vw;
+        border-width: 0.84vw;
+        filter: drop-shadow(0 0 0 transparent);
+    }
+}
+@keyframes mapCloseDrawer {
+    0% {
+        width: auto;
+        max-width: 12.458vw;
+        padding: 0.26vw 0.82vw 0.26vw 0.32vw;
+        height: 1.353vw;
+        font-size: 0.833vw;
+        border-width: 0.84vw;
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    85% {
+        border-width: 0;
+    }
+    100% {
+        width: auto;
+        padding: 0;
+        height: 1.353vw;
+        font-size: 0;
+        border-width: 0;
+        filter: drop-shadow(0 0 0 transparent);
+    }
+}
+
+
 .mapToggles:hover {
     filter: brightness(0.8);
 }
@@ -400,16 +459,31 @@ html, body {
 }
 #mapAsterleeds, #mapAsteriaPlain, #mapBahamarHighlands {
     display: none;
+    opacity: 0;
 }
 
 .mapIcon {
     display: block;
     opacity: 0;
     position: absolute;
+    width: 1.875vw;
+}
+.mapEliteMonster {
+    width: 2.083vw;
+}
+.mapFreeExp {
+    width: 1.510vw;
+}
+.mapExploration {
+    width: 1.563vw;
+}
+.mapLMpurple, .mapLMred, .mapLMblue, .mapLMgreen, .mapLMyellow {
+    width: 0.938vw;
 }
 
 .warpPortal {
     filter: drop-shadow(0 0 4px black);
+    width: 2.031vw;
 }
 .warpPortal:hover {
     filter: hue-rotate(-115deg) brightness(1.5) saturate(2) drop-shadow(0 0 2px #dbff00);
@@ -436,7 +510,7 @@ html, body {
     padding-top: 0.26vw;
     float: right;
     background-color: #161211; /* #191919 */
-    border-radius: 12px;
+    border-radius: 0.625vw;
     text-align: center;
     font-size: 0.94vw;
     filter: drop-shadow(0 1px 2px black);
@@ -503,7 +577,7 @@ html, body {
     background-color: #c8c8c8;
     position: absolute;
     width: 35%;
-    border-radius: 10px;
+    border-radius: 0.52vw;
     z-index: 51;
     opacity: 0;
     transition: all 0.15s ease-in;
@@ -521,52 +595,48 @@ html, body {
 .tooltip {
     display: none;
     position: fixed;
-    font-size: 16px; /* 16px */
-    z-index: 55;
+    font-size: 0.833vw; /* 16px */
+    z-index: 90;
 }
 p.tooltip, .recipeTooltip, .wrecipeTooltip {
-    z-index: 60;
+    z-index: 90;
     font-size: 0.833vw;
     padding: 0.26vw 0.52vw 0.26vw 0.32vw;
     width: auto;
     background-color: #161211;
     color: white;
     border-left: 0.84vw solid #30b0d1;
-    border-radius: 10px;
+    border-radius: 0.52vw;
     filter: drop-shadow(0 2px 2px black);
 }
+
 /* Show tooltips */
 .mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip, .i-infoSkill:hover+p.skillTooltip, .i-slotIcon:hover+p.tooltip {
     display: block;
 }
 
 .mapName, .mapMove {
+    width: auto;
     font-size: 1.042vw;
     color: #161211;
     background-color: white; 
-    padding: 3px 14px;
+    padding: 0.156vw 0.729vw;
     border: 2px set #c8c8c8;
-    border-radius: 20px;
+    border-radius: 1.042vw;
     filter: drop-shadow(0 1px 2px black);
-    opacity: 0.6;
+    opacity: 0;
 }
 .mapMove {
     border: 0;
     font-size: 0.781vw;
     background-color: skyblue;
-    opacity: 0;
 }
 
-.mapMove:hover {
-    opacity: 1;
-}
 .mapMove:active {
     opacity: 1;
     filter: brightness(0.8) drop-shadow(0 1px 2px black);
 }
-.mapName:hover {
-    opacity: 0.8;
-}
+
 
 .currentZone {
     opacity: 1;
@@ -588,6 +658,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     width: 2.656vw;
     height: 2.448vw;
     transform: scale(0.5);
+    opacity: 1;
 }
 .msqNumber:hover {
     filter: hue-rotate(-35deg) saturate(2) brightness(1.3) drop-shadow(0 0 2px aliceblue);
@@ -615,7 +686,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     height: 100%;
     margin: auto;
     overflow-y: scroll;
-    border-radius: 20px;
+    border-radius: 1.042vw;
 }
 .listHolder {
     display: block;
@@ -663,7 +734,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     background-color: #cdccc9;
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     filter: drop-shadow(0 0px 2px #080605);
 }
 
@@ -771,7 +842,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 .recipeHolder, .wrecipeHolder {
     margin: 0 0 0.26vw 0; /* 20px 0 5px 0 */
     width: 45%;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     height: auto;
     background-color: #cdccc9;
     padding: 1.05vw 0; /* 20px 0 */
@@ -860,7 +931,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     background-color: none;
     border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     filter: drop-shadow(0 0px 2px black);
 }
 
@@ -874,7 +945,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     border-left: 0.73vw solid #464444; /* 14px */
     border-top: 2.09vw solid #464444; /* 40px */
     display: inline-block;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     filter: drop-shadow(0 0px 2px black);
 }
 
@@ -903,11 +974,11 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 }
 
 .listItem:hover>div {
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border: 0.16vw solid whitesmoke; /* 3px */
 }
 .listItem:active>div {
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border: 0.16vw solid #e7f837;
 }
 .listItem:hover img:nth-child(1), .listItem:active img:nth-child(1) {
@@ -946,10 +1017,10 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     display: inline-block;
     max-width: 284px; /* 284px */
     height: 3.6vw; /* 84px */
-    border-radius: 5px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-radius: 0.26vw;
+    border-top-left-radius: 1.042vw;
+    border-top-right-radius: 1.042vw;
+    border-bottom-left-radius: 1.042vw;
 }
 
 .listItem-icon, .wlistItem-icon {
@@ -993,9 +1064,9 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     height: auto; /* 84px */
     width: 3.7599vw; /* 80px */
     background-color: #c8c8c8;
-    border-radius: 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 1.042vw;
+    border-bottom-left-radius: 0.26vw;
+    border-bottom-right-radius: 0.26vw;
 }
 
 .listItem-reqAR {
@@ -1017,7 +1088,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 
 .imajType, .wepType {
     background-color: #11100f;
-    border-radius: 1px;
+    border-radius: 0.052vw;
     width: 17.4vw;
     height: 4.20vw;
     position: absolute;
@@ -1058,14 +1129,14 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     height: 100%;
     margin: auto;
     overflow-y: scroll;
-    border-radius: 20px;
+    border-radius: 1.042vw;
     /*background: url(images/crafting/craftBG2.png) no-repeat 0 -1.2vw/80vw;*/
 }
 
 .craftBg {
     position: absolute;
     z-index: 3;
-    border-radius: 20px;
+    border-radius: 1.042vw;
     filter: brightness(0.8);
     opacity: 0.9;
     
@@ -1079,11 +1150,11 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     width: 0;
 }
 .wlistItem:hover>div {
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border: 0.16vw solid whitesmoke; /* 3px */
 }
 .wlistItem:active>div {
-    border-radius: 5px;
+    border-radius: 0.26vw;
     border: 0.16vw solid #e7f837;
 }
 .wlistItem:hover img:nth-child(1), .wlistItem:active img:nth-child(1) {
@@ -1172,7 +1243,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 }
 
 .eleTooltip {
-    border-radius: 10px;
+    border-radius: 0.52vw;
     filter: drop-shadow(0 2px 2px black);
     margin: -13.4vw 0 0 -32.4vw;
 }
@@ -1229,7 +1300,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 }
 .slider {
     position: absolute;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     cursor: url(images/cursor.png), pointer;
     top: 0;
     left: 0;
@@ -1253,7 +1324,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
     background-color: #161211;
     -webkit-transition: .2s;
     transition: .2s;
-    border-radius: 5px;
+    border-radius: 0.26vw;
     line-height: 1.246vw;
     box-sizing: border-box;
     text-align: center;
