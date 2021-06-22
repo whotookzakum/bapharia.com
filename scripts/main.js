@@ -1,13 +1,31 @@
-jQuery(document).ready(function($){
-
+jQuery(document).ready(function ($) {
+    
+    $(document).keydown(function (event) {
+        if (event.keyCode == 123) { // Prevent F12
+            return false;
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+            return false;
+        }
+    });
+    
+    
+    // Check for language switch
+    $(document).keydown(function (event) {
+        
+        // keydown J
+        if (event.keyCode == 74) {
+            
+        }
+    });
+    
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // NAVIGATION
     
     // Save current page and close pages
-    var currentPage = $("#mapContainer");
+    var currentPage;
     function closePages() {
-        currentPage.css("display", "none");
+        $(currentPage).css("display", "none");
         $("#contentViewer").css({"display": "none", "background-color": "#080605"});
     }
     
@@ -67,22 +85,14 @@ jQuery(document).ready(function($){
             }
             // WORLD MAP
             if ($(this).is("#buttonWorldMap")) {
-                currentPage = $("#mapContainer");
+                currentPage = "#mapContainer"
                 openWorldMap(currentMap);
             }
             // IMAJINN
             if ($(this).is("#buttonImajinn")) {
                 listHolder = biHolder;
-                currentPage = $("#ImajinnContainer");
+                currentPage = "#ImajinnContainer";
                 openImajinn();
-            }
-            // COMBAT
-            if ($(this).is("#buttonCombat")) {
-                
-            }
-            // MSQ
-            if ($(this).is("#buttonMSQ")) {
-                
             }
             // GUIDE
             if ($(this).is("#buttonGuide")) {
@@ -90,13 +100,10 @@ jQuery(document).ready(function($){
             }
             // CRAFTING
             if ($(this).is("#buttonCrafting")) {
+                currentPage = "#craftingContainer"
                 openCrafting();
-                currentPage = $("#craftingContainer");
             }
-            // LIQUID MEMORY
-            if ($(this).is("#buttonLiquidMemory")) {
-                
-            }
+
         }
     });
     
@@ -128,6 +135,7 @@ jQuery(document).ready(function($){
     var tooltipCalmEve = "url(images/map/moveCalmEveTerraces.jpg) no-repeat -12.760vw -7.292vw/48.25vw";
     var tooltipSoundless = "url(images/map/moveSoundlessFoothills.jpg) no-repeat -21.354vw 0px/39.25vw";
     var tooltipDivineLeft = "url(images/map/moveDivineHavenHill.jpg) no-repeat -3.646vw -80px/39.25vw";
+    var tooltipWepShop = "url(images/map/moveAsterleeds.jpg) no-repeat -42.4vw -17.2vw/80.25vw";
     
     // Crafting selector variables
     var wIndex = 0;
@@ -160,7 +168,7 @@ jQuery(document).ready(function($){
             name: "Novice Sword", //ノービスソード
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword1.png",
-            image: "",
+            image: "images/crafting/sword1L.png",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -182,14 +190,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+9",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         // 1 Battle Axe
@@ -219,14 +229,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+8",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         // 1 Hunter Bow
@@ -234,7 +246,7 @@ jQuery(document).ready(function($){
             name: "Hunter Bow", //ハンターボウ
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow1.png",
-            image: "",
+            image: "images/crafting/bow1L.png",
             level: "Starting Lv 1~1 (Max Lv: 7)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -256,14 +268,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+7",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         // 1 Training Rod
@@ -293,14 +307,16 @@ jQuery(document).ready(function($){
                     /*HP*/"+6",
                    ],
             recipe: ["Purchase at weapon shop","<br>","<br>","0"],
-            iconSrc: [iLuno,"",""],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
             amt: ["","",""],
-            tooltipText: ["","",""],
+            tooltipText: ["Weapon Shop<br>Asterleeds","",""],
             tooltipBg: [
-                "",
+                tooltipWepShop,
                 "",
                 ""],
-            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
             eleTooltip: ""
         },
         
@@ -309,7 +325,7 @@ jQuery(document).ready(function($){
             name: "Fanged Sword", //爪牙剣
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword2.png",
-            image: "",
+            image: "images/crafting/sword2L.png",
             level: "Starting Lv 1~2 (Max Lv: 12)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -458,7 +474,7 @@ jQuery(document).ready(function($){
             name: "Tower's Blade", //タワーズブレイド
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword3.png",
-            image: "",
+            image: "images/crafting/sword3L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -532,7 +548,7 @@ jQuery(document).ready(function($){
             name: "Alpha Genesis", //アルファジェネシス｀
             type: "Bow", //弓（武器）
             icon: "images/crafting/bow3.png",
-            image: "",
+            image: "images/crafting/bow3L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "",
             slotCount: ["Slots", "?"], //スロット数
@@ -607,7 +623,7 @@ jQuery(document).ready(function($){
             name: "Red Steel Blade", //鋼の赤刃
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword4.png",
-            image: "",
+            image: "images/crafting/sword4L.png",
             level: "Starting Lv 1~4 (Max Lv: 20)", //初期
             element: "images/crafting/fire.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -852,7 +868,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+6",
                    ],
             recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
-            iconSrc: [iDung,iCombat,iRock],
+            iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","5","10"],
             tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
@@ -889,7 +905,7 @@ jQuery(document).ready(function($){
                     /*HP*/"+5",
                    ],
             recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
-            iconSrc: [iDung,iCombat,iRock],
+            iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","5","10"],
             tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
@@ -905,7 +921,7 @@ jQuery(document).ready(function($){
             name: "Bapharia's Guidance", //バファリアの標
             type: "Sword", //剣（武器）
             icon: "images/crafting/sword6.png",
-            image: "",
+            image: "images/crafting/sword6L.png",
             level: "Starting Lv 1~6 (Max Lv: 30)", //初期
             element: "images/crafting/ice.png",
             slotCount: ["Slots", "?"], //スロット数
@@ -1207,7 +1223,6 @@ jQuery(document).ready(function($){
     function openCrafting() {
         $("#craftingContainer").css("display", "block");
         $("#contentViewer").css({"display": "block", "background-color": "midnightblue"});
-        currentPage = $("#craftingContainer");
         listWeapons(wepHolder);
         dispWeapon(wepHolder);
     }
@@ -1216,7 +1231,7 @@ jQuery(document).ready(function($){
     $(".wepSlider").click(function(){
         
         // Max lv stats
-        if (!$(".toggleCheck").is(":checked")) {
+        if (!$(".wtoggleCheck").is(":checked")) {
             wepLvSelector = 1;
             
             wStats.each(function(index){
@@ -1303,15 +1318,88 @@ jQuery(document).ready(function($){
     
     var currentMap = $("#mapAsterleeds");
     var tooltip = document.querySelectorAll(".tooltip");
+    var mapAniIterator = 0;
     document.addEventListener('mousemove', trackMouse, false);
+    
+    function openMapAni() {
+        // Fade in elements on map page
+        $("#mapSearch").stop().animate({opacity: 1}, 800);
+        $(".searchIcons").stop().animate({opacity: 1}, 800);
+        setTimeout(function(){
+           $(".mapList").css("display","block");
+        }, 1000);
+        
+        $(".mapList").stop().animate({opacity: 1}, 800);
+        $(".mapGrid").stop().animate({opacity: 1}, 800);
+        
+        $("img.mapIcon").stop().animate({opacity: 1}, 800);
+        $(".mapMove").stop().animate({opacity: 0.7}, 800);
+        
+        // Fade in to opacity 0.6 if not current map name (gray)
+        if (!$(".mapName").hasClass("currentZone")) {
+            $(".mapName").stop().animate({opacity: 0.6}, 800);
+        } 
+        // Fade in to opacity 1 if current map name (blue)
+        else if ($(".mapName").hasClass("currentZone")) {
+            $(".mapName").stop().animate({opacity: 1}, 800);
+        }
+
+    }
+    
+    // Hover over mapMove selectors
+    $(".mapMove").mouseenter(function() {
+        $(this).css("opacity","1"); 
+    });
+    $(".mapMove").mouseleave(function(){
+        $(this).css("opacity","0.8");
+    });
+    
+    // Hover over mapName selectors, only if not the current zone
+    $(".mapName").mouseenter(function() {
+        if (!$(this).hasClass("currentZone")) {
+            $(this).css("opacity","0.8"); 
+        }
+    });
+    $(".mapName").mouseleave(function(){
+        if (!$(this).hasClass("currentZone")) {
+            $(this).css("opacity","0.6");
+        }
+    });
+    
+    // Open page
     function openWorldMap(region) {
+        
+        // Display Map Container
         $("#mapContainer").css("display", "block");
-        $("#contentViewer").css("display", "block");
+        
+        // Animate map container only if it isn't currently open
+        if (mapAniIterator == 0) {
+            //$("#mapContainer").css("animation-iteration-count","1");
+            region.css("opacity","1");
+            $("#mapContainer").css("animation","pageOpen 1.2s ease-in-out 1 forwards");
+            setTimeout(() => openMapAni(), 1200);
+            mapAniIterator = 1;
+        }
+        // If its currently open, skip animation 
+        else {
+            $("#mapContainer").css("animation","none");
+            $("#mapContainer").css("width","100%");
+            $("#mapContainer").css("height", "100%");
+            $("#mapContainer").css("left", "0%");
+            $("#mapContainer").css("top", "0%");
+        }
+        
         region.css("display", "block");
-        currentPage = $("#mapContainer");
     }
     
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
+    $(".msqNumber").click(function(){
+        $(".msqNumber").each(function(index){
+            var pos = $(this).position();
+            console.log(index + " TOP " + pos.top + " LEFT " + pos.left); 
+        });
+    });
+    
     
     // Search by typing
     $("#mapSearch").keyup(function(event){
@@ -1353,34 +1441,44 @@ jQuery(document).ready(function($){
     $(".mapListItem").click(function(){
         
         // Reset MAP NAME opacity and color to original values;
-        $(".mapName").css({"opacity": "0.6", "background-color": "#c8c8c8"});
+        $(".mapName").removeClass("currentZone");
+        $(".mapName").css("opacity","0.6");
         
         // Asteria Plains maps
         if ($(this).is(".listAsteriaPlain")){
             
             // Highlight the map name if a specific map is chosen
             if ($(this).is(":contains('Skyquake Fields')")) {
-                $(".mapName:contains('Skyquake Fields')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Skyquake Fields')").addClass("currentZone");
+                $(".mapName:contains('Skyquake Fields')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Minster Hills')")) {
-                $(".mapName:contains('Minster Hills')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Minster Hills')").addClass("currentZone");
+                $(".mapName:contains('Minster Hills')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Andra Basin')")) {
-                $(".mapName:contains('Andra Basin')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Andra Basin')").addClass("currentZone");
+                $(".mapName:contains('Andra Basin')").css("opacity","1");
             }
             else if ($(this).is(":contains('Calm Eve Terraces')")) {
-                $(".mapName:contains('Calm Eve Terraces')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Calm Eve Terraces')").addClass("currentZone");
+                $(".mapName:contains('Calm Eve Terraces')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Minsterhorn')")) {
-                $(".mapName:contains('Minsterhorn')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Minsterhorn')").addClass("currentZone");
+                $(".mapName:contains('Minsterhorn')").css("opacity","1");
             }
             
             // Open the map
-            currentMap.css("display", "none");
-            currentMap = $("#mapAsteriaPlain")
+            $("#mapAsteriaPlain").css("display","block");
+            currentMap.stop().animate({opacity: 0}, 500);
+            setTimeout(function(){
+                currentMap.css("display", "none");
+                currentMap = $("#mapAsteriaPlain");
+            }, 500);
+            $("#mapAsteriaPlain").stop().animate({opacity: 1}, 500);
             openWorldMap(currentMap);
         }
-        
         
         
         // Bajamar Highlands maps
@@ -1388,24 +1486,35 @@ jQuery(document).ready(function($){
             
             // Highlight the map name if a specific map is chosen
             if ($(this).is(":contains('Divine Haven Hill')")) {
-                $(".mapName:contains('Divine Haven Hill')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Divine Haven Hill')").addClass("currentZone");
+                $(".mapName:contains('Divine Haven Hill')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Fiel Pond')")) {
-                $(".mapName:contains('Fiel Pond')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Fiel Pond')").addClass("currentZone");
+                $(".mapName:contains('Fiel Pond')").css("opacity","1");
             } 
             else if ($(this).is(":contains('Soundless Foothills')")) {
-                $(".mapName:contains('Soundless Foothills')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Soundless Foothills')").addClass("currentZone");
+                $(".mapName:contains('Soundless Foothills')").css("opacity","1");
             }
             else if ($(this).is(":contains('Larpal')")) {
-                $(".mapName:contains('Larpal')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Larpal')").addClass("currentZone");
+                $(".mapName:contains('Larpal')").css("opacity","1");
             }
             else if ($(this).is(":contains('Bergmahl')")) {
-                $(".mapName:contains('Bergmahl')").css({"opacity": "1", "background-color": "#4a9efa"});
+                $(".mapName:contains('Bergmahl')").addClass("currentZone");
+                $(".mapName:contains('Bergmahl')").css("opacity","1");
             }
             
             // Open the map
-            currentMap.css("display", "none");
-            currentMap = $("#mapBahamarHighlands")
+            $("#mapBahamarHighlands").css("display","block");
+            currentMap.stop().animate({opacity: 0}, 500);
+            setTimeout(function(){
+                currentMap.css("display", "none");
+                currentMap = $("#mapBahamarHighlands");
+            }, 500);
+            $("#mapBahamarHighlands").stop().animate({opacity: 1}, 500);
+            
             openWorldMap(currentMap);
         }
         
@@ -1413,11 +1522,20 @@ jQuery(document).ready(function($){
         
         // Asterleeds map
         if ($(this).is(".listAsterleeds")){
-            currentMap.css("display", "none");
-            currentMap = $("#mapAsterleeds")
+            $("#mapAsterleeds").css("display","block");
+            currentMap.stop().animate({opacity: 0}, 500);
+            $("#mapAsterleeds").stop().animate({opacity: 1}, 500);
+            setTimeout(function(){
+                currentMap.css("display", "none");
+                currentMap = $("#mapAsterleeds");
+            }, 500);
+            
             openWorldMap(currentMap);
         }
     });
+    
+    
+    
     
     // Map Icon Toggles
     $(".mapToggles").click(function(){
@@ -2761,7 +2879,7 @@ jQuery(document).ready(function($){
     $(".imajSlider").click(function(){
         
         // Max lv stats
-        if (!$(".toggleCheck").is(":checked")) {
+        if (!$(".itoggleCheck").is(":checked")) {
             statLvSelector = 1;
             
             if (listHolder == biHolder) {
@@ -2931,7 +3049,6 @@ jQuery(document).ready(function($){
         // if battle or inner imaj page, select that container and display
         $("#ImajinnContainer").css("display", "block");
         $("#contentViewer").css({"display": "block", "background-color": "#22321b"});
-        currentPage = $("#ImajinnContainer");
         dispImajinn(listHolder);
     }
 
