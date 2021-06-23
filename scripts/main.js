@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     $(document).keydown(function (event) {
         if (event.keyCode == 123) { // Prevent F12
             return false;
-        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I        
+        } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I     
             return false;
         }
     });
@@ -14,9 +14,125 @@ jQuery(document).ready(function ($) {
         
         // keydown J
         if (event.keyCode == 74) {
+            switchLang("jp");
+        }
+        // keydown E
+        if (event.keyCode == 69) {
+            switchLang("en");
+        }
+
+    });
+    
+    function switchLang(lang) {
+        if (lang == "jp") {
+            
+            // Imajinn and Crafting
+            $(".langHint").html("J を押すと日本語、　E は英語変換");
+            $(".statStr").html("筋力");
+            $(".statInt").html("知力");
+            $(".statHp").html("最大HP");
+            $(".statVit").html("耐久力");
+            $(".statMnd").html("精神力");
+            $(".statAtk").html("攻撃力");
+            $(".statDex").html("器用さ");
+            $(".statStr").css("font-size","0.677vw");
+            $(".statInt").css("font-size","0.729vw");
+            $(".statHp").css("font-size","0.729vw");
+            $(".statVit").css("font-size","0.729vw");
+            $(".statMnd").css("font-size","0.729vw");
+            $(".statAtk").css("font-size","0.729vw");
+            $(".statDex").css("font-size","0.729vw");
+            $(".matItem").css("font-size","1.146vw");
+            $(".levelToggle>p").html("レベル");
+            $(".levelToggle>p").css("font-size","0.599vw");
+            $(".listItem-reqAR").html("冒険ﾗﾝｸ");
+            
+
+            // Imajinn
+            $(".biSelector>p").html("バトル<br>イマジン");
+            $(".iiSelector>p").html("インナー<br>イマジン");
+            $(".biSelector").css("font-size","0.599vw");
+            $(".iiSelector").css("font-size","0.599vw");
+
+            if (listHolder == biHolder) {
+                biHolder = biHolderJP;
+                iiHolder = iiHolderJP;
+                listHolder = biHolder;
+            }
+            else if (listHolder == iiHolder) {
+                biHolder = biHolderJP;
+                iiHolder = iiHolderJP;
+                listHolder = iiHolder;
+            }
+            dispImajinn(listHolder);
+            
+            
+            // Crafting
+            $(".statAtkL").html("攻撃力 &nbsp;");
+            $(".w-infoEle").html("<br>属性");
+            $(".w-slotCount").html("スロット数 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
+            wepHolder = wepHolderJP;
+            listWeapons(wepHolder);
+            dispWeapon(wepHolder);
+            
             
         }
-    });
+        else if (lang == "en") {
+            
+            // Imajinn and Crafting
+            $(".langHint").html("press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese");
+            $(".statStr").html("str");
+            $(".statInt").html("int");
+            $(".statHp").html("max hp");
+            $(".statVit").html("vit");
+            $(".statMnd").html("mnd");
+            $(".statAtk").html("atk");
+            $(".statDex").html("dex");
+            $(".statStr").css("font-size","1.05vw");
+            $(".statInt").css("font-size","1.05vw");
+            $(".statHp").css("font-size","1.05vw");
+            $(".statVit").css("font-size","1.05vw");
+            $(".statMnd").css("font-size","1.05vw");
+            $(".statAtk").css("font-size","1.05vw");
+            $(".statDex").css("font-size","1.05vw");
+            $(".levelToggle>p").html("Level");
+            $(".listItem-reqAR").html("Req. AR");
+            $(".matItem").css("font-size","1.25vw");
+            
+            
+            // Imajinn
+            $(".biSelector>p").html("Battle<br>Imagine");
+            $(".iiSelector>p").html("Inner<br>Imagine");
+            $(".biSelector").css("font-size","0.6775vw");
+            $(".iiSelector").css("font-size","0.6775vw");
+
+            if (listHolder == biHolder) {
+                biHolder = biHolderEN;
+                iiHolder = iiHolderEN;
+                listHolder = biHolder;
+            }
+            else if (listHolder == iiHolder) {
+                biHolder = biHolderEN;
+                iiHolder = iiHolderEN;
+                listHolder = iiHolder;
+            }
+            dispImajinn(listHolder);
+            
+            
+            // Crafting 
+            $(".statAtkL").html("attack &nbsp;");
+            $(".w-infoEle").html("<br>element");
+            $(".w-slotCount").html("slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
+            wepHolder = wepHolderEN;
+            listWeapons(wepHolder);
+            dispWeapon(wepHolder);
+            
+        }
+        
+        
+        
+        
+    }
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
@@ -167,7 +283,7 @@ jQuery(document).ready(function ($) {
     var wIcon = $(".wlistItem-icon");//icon
     var wName = $(".w-infoName");
     var wImg = $(".w-infoImg");//image, change the src
-    var wLevel = $(".w-infoLevel");//level
+    var wLevel = $(".w-infoLv");//level
     var wEleImg = $(".w-infoEleImg");//element
     // Slots currently all "?" var wSlots = $(".w-slotCount");
     var wStats = $(".w-infoStatVal");//stats
@@ -184,7 +300,7 @@ jQuery(document).ready(function ($) {
     //tooltipIcn
     
     
-    var wepHolder = [
+    var wepHolderEN = [
         // 1 Novice Sword
         { 
             name: "Novice Sword", //ノービスソード
@@ -591,10 +707,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+3",
                     /*HP*/"+8",
                    ],
-            recipe: ["IC Core","Highland Fox Claw","Smoky Moss","150,000"],
+            recipe: ["IC Core","Horned Goat's Horn","Smoky Moss","150,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Horned Goat<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
             tooltipBg: [
                 "",
                 tooltipDivine,
@@ -628,10 +744,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+3",
                     /*HP*/"+7",
                    ],
-            recipe: ["IC Core","Highland Fox Claw","Smoky Moss","150,000"],
+            recipe: ["IC Core","Horned Goat's Horn","Smoky Moss","150,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Horned Goat<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
             tooltipBg: [
                 "",
                 tooltipDivine,
@@ -666,7 +782,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+9",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Calm Nightstone","250,000"],
+            recipe: ["Bajamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
@@ -703,7 +819,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+8",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Calm Nightstone","250,000"],
+            recipe: ["Bajamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
@@ -740,10 +856,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+7",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Round Water Plant","250,000"],
+            recipe: ["Bajamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -777,10 +893,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+6",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Wand","Round Water Plant","250,000"],
+            recipe: ["Bajamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -889,10 +1005,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+1",
                     /*HP*/"+6",
                    ],
-            recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
+            recipe: ["Firm Dragon Bone Fragment","Glowing Tyrant Boar Fang","Boule Fruit","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
-            amt: ["6","5","10"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            amt: ["6","10","10"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -926,10 +1042,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+1",
                     /*HP*/"+5",
                    ],
-            recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Boule Fruit","500,000"],
+            recipe: ["Firm Dragon Bone Fragment","Glowing Tyrant Boar Fang","Boule Fruit","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
-            amt: ["6","5","10"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            amt: ["6","10","10"],
+            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -1038,10 +1154,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+3",
                     /*HP*/"+8",
                    ],
-            recipe: ["High Performance IC Core","Kaiser Elk Horn","Driftwood Twig","1,200,000"],
+            recipe: ["High Performance IC Core","Decorated Goblin's Staff","Driftwood Twig","1,200,000"],
             iconSrc: [iDung,iCombat,iFlower],
-            amt: ["7","15","15"],
-            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Kaiser Elk<br>Fiel Pond","Gather<br>Fiel Pond"],
+            amt: ["7","10","15"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Goblin Sage<br>Fiel Pond","Gather<br>Fiel Pond"],
             tooltipBg: [
                 "",
                 tooltipFiel,
@@ -1075,10 +1191,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+3",
                     /*HP*/"+7",
                    ],
-            recipe: ["High Performance IC Core","Kaiser Elk Horn","Driftwood Twig","1,200,000"],
+            recipe: ["High Performance IC Core","Decorated Goblin's Staff","Driftwood Twig","1,200,000"],
             iconSrc: [iDung,iCombat,iFlower],
-            amt: ["7","15","15"],
-            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Kaiser Elk<br>Fiel Pond","Gather<br>Fiel Pond"],
+            amt: ["7","10","15"],
+            tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Advanced Survey]","Goblin Sage<br>Fiel Pond","Gather<br>Fiel Pond"],
             tooltipBg: [
                 "",
                 tooltipFiel,
@@ -1117,7 +1233,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1154,7 +1270,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1191,7 +1307,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1228,7 +1344,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1240,6 +1356,1064 @@ jQuery(document).ready(function ($) {
         
         
     ]
+    var wepHolderJP = [
+        // 1 Novice Sword
+        { 
+            name: "ノービスソード", //
+            type: "剣（武器）", //
+            icon: "images/crafting/sword1.png",
+            image: "images/crafting/sword1L.png",
+            level: "初期 Lv 1~1 (Max Lv: 7)", //
+            element: "",
+            slotCount: ["スロット数", "?"], //
+            stats: [/*ATK*/"+77",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+14",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["武器屋で購入","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["武器屋<br>アステルリーズ","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 1 Battle Axe
+        { 
+            name: "バトルアックス", //
+            type: "斧（武器）", //
+            icon: "images/crafting/axe1.png",
+            image: "",
+            level: "初期 Lv 1~1 (Max Lv: 7)", //
+            element: "",
+            slotCount: ["スロット数", "?"], //
+            stats: [/*ATK*/"+85",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+13",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["武器屋で購入","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["武器屋<br>アステルリーズ","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 1 Hunter Bow
+        { 
+            name: "ハンターボウ", //
+            type: "弓（武器）", //
+            icon: "images/crafting/bow1.png",
+            image: "images/crafting/bow1L.png",
+            level: "初期 Lv 1~1 (Max Lv: 7)", //
+            element: "",
+            slotCount: ["スロット数", "?"], //
+            stats: [/*ATK*/"+60",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+12",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["武器屋で購入","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["武器屋<br>アステルリーズ","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 1 Training Rod
+        { 
+            name: "トレーニングロッド", //
+            type: "杖（武器）", //
+            icon: "images/crafting/staff1.png",
+            image: "",
+            level: "初期 Lv 1~1 (Max Lv: 7)", //
+            element: "",
+            slotCount: ["スロット数", "?"], //
+            stats: [/*ATK*/"+78",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+12",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["武器屋で購入","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["武器屋<br>アステルリーズ","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        
+        // 2 Fanged Sword
+        { 
+            name: "爪牙剣", //
+            type: "剣（武器）", //剣（武器）
+            icon: "images/crafting/sword2.png",
+            image: "images/crafting/sword2L.png",
+            level: "初期 Lv 1~2 (Max Lv: 12)", //
+            element: "",
+            slotCount: ["スロット数", "?"], //
+            stats: [/*ATK*/"+103",
+                    /*STR*/"+4",
+                    /*VIT*/"+0",
+                    /*DEX*/"+3",
+                    /*INT*/"+0",
+                    /*MND*/"+2",
+                    /*HP*/"+18",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["竜骨の欠片","ランブルボアの牙","長毛草","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・追加調査","ランブルボア<br>アンドラ盆地","採取<br>アンドラ盆地"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 2 Mist Cutter
+        { 
+            name: "霧払い", //
+            type: "斧（武器）", //斧（武器）
+            icon: "images/crafting/axe2.png",
+            image: "images/crafting/axe2L.png",
+            level: "初期 Lv 1~2 (Max Lv: 12)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+52",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["竜骨の欠片","ランブルボアの牙","長毛草","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・追加調査","ランブルボア<br>アンドラ盆地","採取<br>アンドラ盆地"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 2 Flashwing Bow
+        { 
+            name: "閃翼の弓", //｀
+            type: "弓（武器）", //弓（武器）
+            icon: "images/crafting/bow2.png",
+            image: "images/crafting/bow2L.png",
+            level: "初期 Lv 1~2 (Max Lv: 12)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+93",
+                    /*STR*/"+4",
+                    /*VIT*/"+0",
+                    /*DEX*/"+3",
+                    /*INT*/"+0",
+                    /*MND*/"+2",
+                    /*HP*/"+16",
+                   ],
+            minStats: [
+                    /*ATK*/"+43",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["竜骨の欠片","ランブルボアの牙","長毛草","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・追加調査","ランブルボア<br>アンドラ盆地","採取<br>アンドラ盆地"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 2 Ancient Staff
+        { 
+            name: "往古の杖", //
+            type: "杖（武器）", //杖（武器）
+            icon: "images/crafting/staff2.png",
+            image: "",
+            level: "初期 Lv 1~2 (Max Lv: 12)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+3",
+                    /*MND*/"+1",
+                    /*HP*/"+5",
+                   ],
+            recipe: ["竜骨の欠片","ランブルボアの牙","長毛草","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・追加調査","ランブルボア<br>アンドラ盆地","採取<br>アンドラ盆地"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        
+        // 3 Tower's Blade
+        { 
+            name: "タワーズブレイド", //
+            type: "剣（武器）", //剣（武器）
+            icon: "images/crafting/sword3.png",
+            image: "images/crafting/sword3L.png",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            recipe: ["集積コア","ハイランドフォックスの爪","バハ鉱石","150,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・追加調査","ハイランドフォックス<br>神の見守る丘","採取<br>神の見守る丘"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 3 Dual Raster
+        { 
+            name: "デュアルラスター", //
+            type: "斧（武器）", //斧（武器）
+            icon: "images/crafting/axe3.png",
+            image: "images/crafting/axe3L.png",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+50",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["集積コア","ハイランドフォックスの爪","バハ鉱石","150,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・追加調査","ハイランドフォックス<br>神の見守る丘","採取<br>神の見守る丘"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 3 Alpha Genesis
+        { 
+            name: "アルファジェネシス", //
+            type: "弓（武器）", //弓（武器）
+            icon: "images/crafting/bow3.png",
+            image: "images/crafting/bow3L.png",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+41",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["集積コア","ホーンゴートの角","煙霧苔","150,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・追加調査","ホーンゴート<br>神の見守る丘","採取<br>神の見守る丘"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 3 Missionary
+        { 
+            name: "ミショナリー", //
+            type: "杖（武器）", //杖（武器）
+            icon: "images/crafting/staff3.png",
+            image: "images/crafting/staff3L.png",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+1",
+                    /*MND*/"+3",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["集積コア","ホーンゴートの角","煙霧苔","150,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・追加調査","ホーンゴート<br>神の見守る丘","採取<br>神の見守る丘"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        
+        // 4 Red Steel Blade
+        { 
+            name: "鋼の赤刃", //
+            type: "剣（武器）", //剣（武器）
+            icon: "images/crafting/sword4.png",
+            image: "images/crafting/sword4L.png",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+143",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+26",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["バハマールイエロー","粗末なゴブリンの棍棒","静夜鉱","250,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・調査","ゴブリン<br>鎮まりの山麓","採取<br>鎮まりの山麓"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        // 4 Ancient Flame-hardened Axe
+        { 
+            name: "古代の火打ち斧", //
+            type: "斧（武器）", //斧（武器）
+            icon: "images/crafting/axe4.png",
+            image: "images/crafting/axe4L.png",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+158",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+25",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["バハマールイエロー","粗末なゴブリンの棍棒","静夜鉱","250,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・調査","ゴブリン<br>鎮まりの山麓","採取<br>鎮まりの山麓"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        // 4 Mechanical Firecarved Bow
+        { 
+            name: "機跡の炎刻弓", //｀
+            type: "弓（武器）", //弓（武器）
+            icon: "images/crafting/bow4.png",
+            image: "",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+129",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+24",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["バハマールイエロー","粗末なゴブリンの杖","丸水草","250,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・調査","エルダーゴブリン<br>鎮まりの山麓","採取<br>鎮まりの山麓"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        // 4 Blazing Staff
+        { 
+            name: "焼尽の杖", //
+            type: "杖（武器）", //杖（武器）
+            icon: "images/crafting/staff4.png",
+            image: "",
+            level: "初期 Lv 1~4 (Max Lv: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+2",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["バハマールイエロー","粗末なゴブリンの杖","丸水草","250,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・調査","エルダーゴブリン<br>鎮まりの山麓","採取<br>鎮まりの山麓"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        
+        // 5 Scaleclaw Sword
+        { 
+            name: "鱗爪剣", //
+            type: "剣（武器）", //剣（武器）
+            icon: "images/crafting/sword5.png",
+            image: "",
+            level: "初期 Lv 1~5 (Max Lv: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+169",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+30",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["堅固な竜骨の欠片","オーガの角","隕鉄の欠片","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・上級調査","オーガ<br>夕凪の段丘","採取<br>夕凪の段丘"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        // 5 Cliff Breaker
+        { 
+            name: "懸崖崩し", //
+            type: "斧（武器）", //斧（武器）
+            icon: "images/crafting/axe5.png",
+            image: "images/crafting/axe5L.png",
+            level: "初期 Lv 1~5 (Max Lv: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+188",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+28",
+                   ],
+            minStats: [
+                    /*ATK*/"+52",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["堅固な竜骨の欠片","オーガの角","隕鉄の欠片","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・上級調査","オーガ<br>夕凪の段丘","採取<br>夕凪の段丘"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        // 5 Brilliant Thunderwing Bow
+        { 
+            name: "雷翼の豪弓", //
+            type: "弓（武器）", //弓（武器）
+            icon: "images/crafting/bow5.png",
+            image: "",
+            level: "初期 Lv 1~5 (Max Lv: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+153",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+27",
+                   ],
+            minStats: [
+                    /*ATK*/"+43",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["堅固な竜骨の欠片","タイラントボア・グロウの牙","ブールの実","500,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["6","10","10"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・上級調査","タイラントボア・グロウ<br>夕凪の段丘","採取<br>夕凪の段丘"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        // 5 Old Dragon's Staff
+        { 
+            name: "古竜の杖", //
+            type: "杖（武器）", //杖（武器）
+            icon: "images/crafting/staff5.png",
+            image: "",
+            level: "初期 Lv 1~5 (Max Lv: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+174",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+5",
+                    /*MND*/"+3",
+                    /*HP*/"+26",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+3",
+                    /*MND*/"+1",
+                    /*HP*/"+5",
+                   ],
+            recipe: ["堅固な竜骨の欠片","タイラントボア・グロウの牙","ブールの実","500,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["6","10","10"],
+            tooltipText: ["ダンジョン攻略<br>巨竜の爪痕・上級調査","タイラントボア・グロウ<br>夕凪の段丘","採取<br>夕凪の段丘"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        
+        // 6 Bapharia's Guidance
+        { 
+            name: "バファリアの標", //
+            type: "剣（武器）", //剣（武器）
+            icon: "images/crafting/sword6.png",
+            image: "images/crafting/sword6L.png",
+            level: "初期 Lv 1~6 (Max Lv: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+190",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+37",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+10",
+                   ],
+            recipe: ["高性能集積コア","カイザーエルクの角","冷震鋼","1,200,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["7","15","15"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・上級調査","カイザーエルク<br>フィエル嶺水池","採取<br>フィエル嶺水池"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        // 6 Wild Ice Edge
+        { 
+            name: "アイスエッジワイルド", //
+            type: "斧（武器）", //斧（武器）
+            icon: "images/crafting/axe6.png",
+            image: "images/crafting/axe6L.png",
+            level: "初期 Lv 1~6 (Max Lv: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+211",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+36",
+                   ],
+            minStats: [
+                    /*ATK*/"+50",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["高性能集積コア","カイザーエルクの角","冷震鋼","1,200,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["7","15","15"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・上級調査","カイザーエルク<br>フィエル嶺水池","採取<br>フィエル嶺水池"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        // 6 Glacial Arch
+        { 
+            name: "グレイシャルアーチ", //
+            type: "弓（武器）", //弓（武器）
+            icon: "images/crafting/bow6.png",
+            image: "",
+            level: "初期 Lv 1~6 (Max Lv: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+172",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+34",
+                   ],
+            minStats: [
+                    /*ATK*/"+41",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["高性能集積コア","装飾されたゴブリンの杖","流木の杖","1,200,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["7","10","15"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・上級調査","ゴブリンセージ<br>フィエル嶺水池","採取<br>フィエル嶺水池"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        // 6 Retribution
+        { 
+            name: "リトリビューション", //
+            type: "杖（武器）", //杖（武器）
+            icon: "images/crafting/staff6.png",
+            image: "",
+            level: "初期 Lv 1~6 (Max Lv: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+195",
+                    /*STR*/"+0",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+3",
+                    /*MND*/"+5",
+                    /*HP*/"+33",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+1",
+                    /*MND*/"+3",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["高性能集積コア","装飾されたゴブリンの杖","流木の杖","1,200,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["7","10","15"],
+            tooltipText: ["ダンジョン攻略<br>神懸の御柱・上級調査","ゴブリンセージ<br>フィエル嶺水池","採取<br>フィエル嶺水池"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        
+        
+        // 7 Sharp Edged Sword
+        { 
+            name: "鋭刃剣", //鋭刃剣
+            type: "剣（武器）", //剣（武器）
+            icon: "images/crafting/sword7.png",
+            image: "",
+            level: "初期 Lv 1~7 (Max Lv: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+218",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+41",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["上質なバハマールイエロー","大きなゴブリンの杖","哭竜鉱","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・上級調査","エルダーゴブリン・グロウ<br>巨竜の爪痕・自由探索","採取<br>巨竜の爪痕・自由探索"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        // 7 Ground Edge
+        { 
+            name: "グラウンドエッジ", //グラウンドエッジ
+            type: "斧（武器）", //斧（武器）
+            icon: "images/crafting/axe7.png",
+            image: "images/crafting/axe7L.png",
+            level: "初期 Lv 1~7 (Max Lv: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+242",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+39",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["上質なバハマールイエロー","大きなゴブリンの杖","哭竜鉱","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・上級調査","エルダーゴブリン・グロウ<br>巨竜の爪痕・自由探索","採取<br>巨竜の爪痕・自由探索"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        // 7 Groundrunner's Bow
+        { 
+            name: "地走りの弓", //地走りの弓
+            type: "弓（武器）", //弓（武器）
+            icon: "images/crafting/bow7.png",
+            image: "",
+            level: "初期 Lv 1~7 (Max Lv: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+197",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+37",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["上質なバハマールイエロー","大きなゴブリンの杖","哭竜鉱","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・上級調査","エルダーゴブリン・グロウ<br>巨竜の爪痕・自由探索","採取<br>巨竜の爪痕・自由探索"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        // 7 Valeed Rod
+        { 
+            name: "バリードロッド", //バリードロッド
+            type: "杖（武器）", //杖（武器）
+            icon: "images/crafting/staff7.png",
+            image: "",
+            level: "初期 Lv 1~7 (Max Lv: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["スロット数", "?"], //スロット数
+            stats: [/*ATK*/"+224",
+                    /*STR*/"+0",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+5",
+                    /*MND*/"+0",
+                    /*HP*/"+36",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+2",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["上質なバハマールイエロー","大きなゴブリンの杖","哭竜鉱","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["ダンジョン攻略<br>機跡の谷・上級調査","エルダーゴブリン・グロウ<br>巨竜の爪痕・自由探索","採取<br>巨竜の爪痕・自由探索"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        
+        
+        
+    ]
+    
+    var wepHolder = wepHolderEN;
     
     // Open page
     function openCrafting() {
@@ -1364,93 +2538,16 @@ jQuery(document).ready(function ($) {
     
     // Open page
     function openWorldMap(region) {
-        
-        // Display Map Container
+
         $("#mapContainer").css("display", "block");
-        
-        // Animate map
-        region.css("opacity","1");
-        $("#mapContainer").css("animation","pageOpen .6s ease-in-out 1 forwards");
-        
-        // Animate inner elements only if it isn't currently open
-        if (mapInitial == true) {
-            
-            mapInitial = false;
-
-            // Fade in elements
-            setTimeout(function(){
-                
-                $("#mapSearch").stop().animate({opacity: 1}, 300);
-                $(".searchIcons").stop().animate({opacity: 1}, 300);
-                // Map list shouldn't overlap while its still opening, so open late
-                setTimeout(function(){
-                   $(".mapList").css("display","block");
-                }, 600);
-
-                $(".mapList").stop().animate({opacity: 1}, 300);
-                $(".mapGrid").stop().animate({opacity: 1}, 300);
-
-                $("img.mapIcon").stop().animate({opacity: 1}, 300);
-                $(".mapMove").stop().animate({opacity: 1}, 300);
-
-                // Fade in to opacity 1 ONLY if selected map
-                if ( !$(".mapName").hasClass("currentZone") ) {
-                    $(".mapName").stop().animate({opacity: 0.6}, 300);
-                } else {
-                    $(this).stop().animate({opacity: 1}, 300);
-                }
-
-            }, 600);
-            
-        } 
-        // No animation
-        else {
-            $("#mapContainer").css("animation","none");
-            $("#mapContainer").css("width","100%");
-            $("#mapContainer").css("height", "100%");
-            $("#mapContainer").css("left", "0%");
-            $("#mapContainer").css("top", "0%");
-            $("#mapSearch").css("opacity","1");
-            $(".searchIcons").css("opacity","1");
-            $(".mapList").css("opacity","1");
-            $(".mapList").css("display","block");
-            region.css("opacity","1");
-            region.css("display", "block");
-            $(".mapName").css("display","block");
-            $(".mapMove").css("display","block");
-            // Fade in to opacity 1 ONLY if selected map
-            if ( $(".mapName").hasClass("currentZone") ) {
-                
-                $(this).css("opacity","1");
-            } else {
-                $(".mapName").css("opacity","0.6");
-            }
-            $("img.mapIcon").css("opacity","1");
-        }
-            
         region.css("display", "block");
+        
     }
     
     // Close page 
     function closeWorldMap() {
         
-        $("#mapSearch").stop().animate({opacity: 0}, 100);
-        $(".searchIcons").stop().animate({opacity: 0}, 100);
-        $(".mapList").css("display","none");
-        
-        $(".mapList").stop().animate({opacity: 0}, 100);
-        $(".mapGrid").stop().animate({opacity: 0}, 100);
-        
-        $("img.mapIcon").stop().animate({opacity: 0}, 100);
-        $(".mapMove").stop().animate({opacity: 0}, 100);
-        $(".mapName").stop().animate({opacity: 0}, 100);
-        
-        $("#mapContainer").css("animation","pageClose .6s ease-in-out 1 forwards");
-            setTimeout(function(){
-                $("#mapContainer").css("display","none");
-        }, 600);
-        
-        mapInitial = true;
+        $("#mapContainer").css("display","none");
         
     }
     
@@ -1751,6 +2848,7 @@ jQuery(document).ready(function ($) {
     var elePower = $(".i-infoElePower");
     var cd = $(".i-infoCD");
     var skill = $(".i-infoSkill");
+    var skillPowerTitle = $(".i-infoSkillPwrRow");
     var skillPower = $(".i-infoSkillPower");
     var slotIcon = $(".i-slotIcon");
     var abil = $(".i-infoAbil");
@@ -1767,9 +2865,9 @@ jQuery(document).ready(function ($) {
     var spacing1 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
     var listItemName = document.querySelectorAll(".listItem-name");
     var listItemType = document.querySelectorAll(".listItem-type");
-    
+
     // Battle Imajinn
-    var biHolder = [
+    var biHolderEN = [
         // Pink Piglet ピンクウリボ
         { 
             name: "Pink Piglet",
@@ -2617,1028 +3715,6 @@ jQuery(document).ready(function ($) {
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
     ]
-    
-    // Inner Imajinn
-    var iiHolder = [
-        
-        // Dyranks/Dylanx
-        { 
-            name: "Dyranks (courage)",
-            type: "<br>",
-            image: "images/crafting/ii1L.png",
-            level: "Starting Lv 1~1 (Max Lv: 7)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot1.svg","Courage"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+3",
-                    /*INT*/"+0",
-                    /*HP*/"+12",
-                    /*VIT*/"+2",
-                    /*MND*/"+1",
-                    /*ATK*/"+5",
-                    /*DEX*/"+1"
-                   ],
-            minStats: [
-                    /*STR*/"+3",
-                    /*INT*/"+0",
-                    /*HP*/"+8",
-                    /*VIT*/"+2",
-                    /*MND*/"+1",
-                    /*ATK*/"+3",
-                    /*DEX*/"+1"
-                   ],
-            recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
-            iconSrc: [iDung,"",""],
-            amt: ["1","<br>","<br>"],
-            abilList: ["Max HP increase","<br>", "<br>"],
-            tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
-            tooltipBg: [
-                tooltipSkyquake,"",""],
-            tooltipIcn: ["transform: translate(11.4vw, 4.5vw)","visibility: hidden","visibility: hidden"]
-        },
-        // Corjun/Corsion
-        { 
-            name: "Corjun (mystery)",
-            type: "<br>",
-            image: "images/crafting/ii2L.png",
-            level: "Starting Lv 1~1 (Max Lv: 20)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot3.svg","Mystery"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+0",
-                    /*INT*/"+5",
-                    /*HP*/"+20",
-                    /*VIT*/"+4",
-                    /*MND*/"+5",
-                    /*ATK*/"+6",
-                    /*DEX*/"+4"
-                   ],
-            minStats: [
-                    /*STR*/"+0",
-                    /*INT*/"+3",
-                    /*HP*/"+6",
-                    /*VIT*/"+2",
-                    /*MND*/"+3",
-                    /*ATK*/"+1",
-                    /*DEX*/"+2"
-                   ],
-            recipe: ["Land Fox Nail","Asterium Ore","<br>","9,000"],
-            iconSrc: [iCombat,iRock,""],
-            amt: ["8","15","<br>"],
-            abilList: ["ATK increase","<br>", "<br>"],
-            tooltipText: ["Land Fox<br>Minster Hills","Gather<br>Minster Hills","<br>"],
-            tooltipBg: [
-                tooltipMinster,
-                tooltipMinster,""],
-            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
-        },
-        // Mipect
-        { 
-            name: "Mipect (hope)",
-            type: "<br>",
-            image: "images/crafting/ii3L.png",
-            level: "Starting Lv 1~1 (Max Lv: 20)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot2.svg","Hope"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+3",
-                    /*INT*/"+3",
-                    /*HP*/"+25",
-                    /*VIT*/"+5",
-                    /*MND*/"+4",
-                    /*ATK*/"+7",
-                    /*DEX*/"+0"
-                   ],
-            minStats: [
-                    /*STR*/"+1",
-                    /*INT*/"+1",
-                    /*HP*/"+9",
-                    /*VIT*/"+3",
-                    /*MND*/"+2",
-                    /*ATK*/"+2",
-                    /*DEX*/"+0"
-                   ],
-            recipe: ["Goblin Nail","Jira Crystal","<br>","10,000"],
-            iconSrc: [iCombat,iRock,""],
-            amt: ["10","10","<br>"],
-            abilList: ["Max Stamina increase","<br>", "<br>"],
-            tooltipText: ["Goblin<br>Andra Basin","Gather<br>Andra Basin","<br>"],
-            tooltipBg: [
-                tooltipAndra,
-                tooltipAndra,""],
-            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
-        },
-        // Proxyx/Procsyx
-        { 
-            name: "Proxyx (courage)",
-            type: "<br>",
-            image: "images/crafting/ii4L.png",
-            level: "Starting Lv 1~1 (Max Lv: 35)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot1.svg","Courage"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+6",
-                    /*INT*/"+0",
-                    /*HP*/"+36",
-                    /*VIT*/"+5",
-                    /*MND*/"+4",
-                    /*ATK*/"+13",
-                    /*DEX*/"+4"
-                   ],
-            minStats: [
-                    /*STR*/"+3",
-                    /*INT*/"+0",
-                    /*HP*/"+8",
-                    /*VIT*/"+2",
-                    /*MND*/"+1",
-                    /*ATK*/"+3",
-                    /*DEX*/"+1"
-                   ],
-            recipe: ["Horned Goat Bone","Smoky Moss","<br>","60,000"],
-            iconSrc: [iCombat,iFlower,""],
-            amt: ["12","20","<br>"],
-            abilList: ["Max HP increase","VIT increase", "STR increase"],
-            tooltipText: ["Horned Goat<br>Soundless Foothills","Gather<br>Divine Haven Hill","<br>"],
-            tooltipBg: [
-                tooltipSoundless,
-                tooltipDivine,""],
-            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
-        },
-        // Latepect/Latepecht
-        { 
-            name: "Latepect (hope)",
-            type: "<br>",
-            image: "images/crafting/ii5L.png",
-            level: "Starting Lv 1~1 (Max Lv: 35)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot2.svg","Hope"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+4",
-                    /*INT*/"+4",
-                    /*HP*/"+38",
-                    /*VIT*/"+6",
-                    /*MND*/"+5",
-                    /*ATK*/"+11",
-                    /*DEX*/"+0"
-                   ],
-            minStats: [
-                    /*STR*/"+1",
-                    /*INT*/"+1",
-                    /*HP*/"+9",
-                    /*VIT*/"+3",
-                    /*MND*/"+2",
-                    /*ATK*/"+2",
-                    /*DEX*/"+0"
-                   ],
-            recipe: ["Large Fang Fossil","<br>","<br>","85,000"],
-            iconSrc: [iRock,"",""],
-            amt: ["25","<br>","<br>"],
-            abilList: ["Max Stamina increase","INT increase", "MND increase"],
-            tooltipText: ["Gather<br>Divine Haven Hill","<br>","<br>"],
-            tooltipBg: [
-                tooltipDivine,"",""],
-            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
-        },
-        // Carcon
-        { 
-            name: "Carcon (mystery)",
-            type: "<br>",
-            image: "images/crafting/ii6L.png",
-            level: "Starting Lv 1~1 (Max Lv: 35)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot3.svg","Mystery"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+0",
-                    /*INT*/"+6",
-                    /*HP*/"+32",
-                    /*VIT*/"+5",
-                    /*MND*/"+6",
-                    /*ATK*/"+9",
-                    /*DEX*/"+5"
-                   ],
-            minStats: [
-                    /*STR*/"+0",
-                    /*INT*/"+3",
-                    /*HP*/"+6",
-                    /*VIT*/"+2",
-                    /*MND*/"+3",
-                    /*ATK*/"+1",
-                    /*DEX*/"+2"
-                   ],
-            recipe: ["Glowing Goblin's Nail","Pterosaur Fossil","<br>","240,000"],
-            iconSrc: [iCombat,iRock,""],
-            amt: ["10","35","<br>"],
-            abilList: ["ATK increase","STR increase", "DEX increase"],
-            tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
-            tooltipBg: [
-                tooltipDragonclaw,
-                tooltipDragonclaw,""],
-            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","transform: translate(11.4vw, 4.4vw)","visibility: hidden"]
-        },
-        // Parbury
-        { 
-            name: "Parbury (ambition)",
-            type: "<br>",
-            image: "images/crafting/ii7L.png",
-            level: "Starting Lv 1~1 (Max Lv: 35)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot4.svg","Ambition"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+6",
-                    /*INT*/"+4",
-                    /*HP*/"+34",
-                    /*VIT*/"+4",
-                    /*MND*/"+0",
-                    /*ATK*/"+12",
-                    /*DEX*/"+6"
-                   ],
-            minStats: [
-                    /*STR*/"+3",
-                    /*INT*/"+1",
-                    /*HP*/"+7",
-                    /*VIT*/"+1",
-                    /*MND*/"+0",
-                    /*ATK*/"+2",
-                    /*DEX*/"+3"
-                   ],
-            recipe: ["Glowing Tyrant Boar's Fang","Stardust Grass","<br>","500,000"],
-            iconSrc: [iCombat,iFlower,""],
-            amt: ["15","40","<br>"],
-            abilList: ["DEF increase","DEX increase", "VIT increase"],
-            tooltipText: ["Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces","<br>"],
-            tooltipBg: [
-                tooltipCalmEve,
-                tooltipCalmEve, ""],
-            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
-        },
-        // Sanak'ta
-        { 
-            name: "Sanak'ta (affection)",
-            type: "<br>",
-            image: "images/crafting/ii8L.png",
-            level: "Starting Lv 1~1 (Max Lv: 35)",
-            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
-            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
-            // 
-            slot: ["slot","images/crafting/slot5.svg","Affection"],
-            ability: ["ability", "????","effectiveness", "????"],
-            stats: [/*STR*/"+5",
-                    /*INT*/"+5",
-                    /*HP*/"+30",
-                    /*VIT*/"+0",
-                    /*MND*/"+6",
-                    /*ATK*/"+10",
-                    /*DEX*/"+6"
-                   ],
-            minStats: [
-                    /*STR*/"+2",
-                    /*INT*/"+2",
-                    /*HP*/"+5",
-                    /*VIT*/"+0",
-                    /*MND*/"+3",
-                    /*ATK*/"+1",
-                    /*DEX*/"+3"
-                   ],
-            recipe: ["Trick Elder's Nail","Welling Water Stone","<br>","900,000"],
-            iconSrc: [iElite,iRock,""],
-            amt: ["1","50","<br>"],
-            abilList: ["Healing increase","MND increase", "INT increase"],
-            tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Fiel Pond","<br>"],
-            tooltipBg: [
-                tooltipFiel,
-                tooltipFiel,""],
-            tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
-        }
-    ]
-    
-    // Show Inner Imajinn
-    $(".iiSelImg").click(function(){
-        listHolder = iiHolder;
-        dispImajinn(listHolder);
-    });
-    // Show Battle Imajinn
-    $(".biSelImg").click(function(){
-        listHolder = biHolder;
-        dispImajinn(listHolder);
-    });
-    
-    // Select Imajinn to Display from List
-    $(".listItem").click(function(){
-        
-        if (listHolder == biHolder) {
-            // Index of the clicked item
-            biIndex = $(".biList").index(this);
-        }
-        else if (listHolder == iiHolder) {
-            // Index of the clicked item
-            iiIndex = $(".iiList").index(this);
-        }
-
-        dispImajinn(listHolder);
-
-    });
-    
-    // Toggle Imajinn Level
-    $(".imajSlider").click(function(){
-        
-        // Max lv stats
-        if (!$(".itoggleCheck").is(":checked")) {
-            statLvSelector = 1;
-            
-            if (listHolder == biHolder) {
-                skillPower.html(listHolder[iIndex].skill[3]);
-            }
-            skillPower.css("color","crimson");
-            
-            statVal.each(function(index){
-                $(this).html(listHolder[iIndex].stats[(index)]);
-                $(this).css("color","crimson");
-            });
-        }
-        
-        // Lv 1 stats
-        else {
-            statLvSelector = 0;
-            
-            if (listHolder == biHolder) {
-                skillPower.html(listHolder[iIndex].skill[4]);
-            }
-            skillPower.css("color","#343330");
-            
-            statVal.each(function(index){
-                $(this).html(listHolder[iIndex].minStats[(index)]);
-                $(this).css("color","#343330");
-            });
-        }
-
-    });
-    
-    // Display Imajinn
-    function dispImajinn(holder) {
-
-        // If battle imajinn, hide inner
-        if (listHolder == biHolder) {
-            
-            // Populate list
-            $(".biList>.listItem-desc>.nameAndType").each(function(index){
-                $(this).find(".listItem-name").html(holder[index].name);
-                $(this).find(".listItem-type").html(holder[index].type);
-            });
-            
-            iIndex = biIndex;
-            $("#ImajList").css("display", "initial");
-            $("#InnerList").css("display", "none");
-            
-            // display CD, SKILL PWR, VID, SKILL TOOLTIP
-            // hide IMG, SLOT ICN
-            cd.css("display","initial");
-            skillPower.css("display","initial");
-            $("#skillDesc").addClass("skillTooltip");
-            vid.css("display","block");
-            img.css("display","none");
-            slotIcon.css("display","none");
-            
-            
-            // Change selector image
-            $(".iiSelector").removeClass("listSelected");
-            $(".biSelector").addClass("listSelected");
-            
-            // Send values
-            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
-            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
-            
-            // Skill power Lv 1
-            if (statLvSelector == 0) {
-                // Send skill power
-                skillPower.html(holder[iIndex].skill[4]);
-            }
-            // Skill power max level
-            else if (statLvSelector == 1) {
-                // Send skill power
-                skillPower.html(holder[iIndex].skill[3]);
-            }
-            
-            
-            vid.attr("src", holder[iIndex].image);
-            $(".skillTooltip").html(holder[iIndex].skill[(holder[iIndex].skill.length-1)]);
-            
-        } // end Battle Imajinn exclusives
-        
-        // If inner imajinn, hide battle
-        if (listHolder == iiHolder) {
-            
-            // Populate list
-            $(".iiList>.listItem-desc>.nameAndType").each(function(index){
-                $(this).find(".listItem-name").html(holder[index].name);
-                $(this).find(".listItem-type").html(holder[index].type);
-            });
-            
-            iIndex = iiIndex;
-            $("#ImajList").css("display", "none");
-            $("#InnerList").css("display", "initial");
-            
-            // display IMG, SLOT ICN
-            // hide VID, CD, SKILL PWR, SKILL TOOLTIP
-            cd.css("display","none");
-            skillPower.css("display","none");
-            vid.css("display","none");
-            $("#skillDesc").removeClass("skillTooltip");
-            img.css("display","block");
-            slotIcon.css("display","block");
-            
-            
-            // Change selector image
-            $(".biSelector").removeClass("listSelected");
-            $(".iiSelector").addClass("listSelected");
-            
-            
-            // Send values
-            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;");
-            img.attr("src", holder[iIndex].image);
-            slotIcon.attr("src", holder[iIndex].slot[1])
-            $(".slotTooltip").html(holder[iIndex].slot[2]);
-            
-        } // end Inner Imajinn exclusives
-        
-        // Lv 1 = send lv 1 stats
-        if (statLvSelector == 0) {
-            // Send stats
-            statVal.each(function(index){
-                $(this).html(holder[iIndex].minStats[(index)]);
-            });
-        } 
-        // Max level = send max stats
-        else if (statLvSelector == 1) {
-            // Send stats
-            statVal.each(function(index){
-                $(this).html(holder[iIndex].stats[(index)]);
-            });
-        }
-        
-        
-        // Send stat info
-        name.html(holder[iIndex].name);
-        level.html(holder[iIndex].level);
-        element.html(holder[iIndex].element[0]);
-        elePower.html(holder[iIndex].element[1]);
-        abil.html(holder[iIndex].ability[0] + spacing1 + holder[iIndex].ability[1]);
-        abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
-
-        // Send ability list
-        $(".abil").each(function(index){
-           $(this).html(holder[iIndex].abilList[(index)]);
-        });
-        
-        
-        
-        // Recipe
-        $(".recipeHolder>div").each(function (index){
-            $(this).find(mat).html(holder[iIndex].recipe[(index)]);
-            $(this).find(matIcon).attr("src", holder[iIndex].iconSrc[(index)]); 
-            $(this).find(matCount).html(holder[iIndex].amt[(index)]); 
-            
-            // Tooltips
-            $(this).find(".recipeToolText").html(holder[iIndex].tooltipText[(index)]); 
-            $(this).find(".recipeTooltip").css("background",holder[iIndex].tooltipBg[(index)]);
-            $(this).find(".recipeToolImg").attr("src", holder[iIndex].iconSrc[(index)]);
-            $(this).find(".recipeToolImg").attr("style", holder[iIndex].tooltipIcn[(index)]);
-        });
-        luno.html(holder[iIndex].recipe[(holder[iIndex].recipe.length - 1)]);
-        
-    }
-    
-    // Open Imajinn Page
-    function openImajinn() {
-        
-        /*
-        // So it doesn't open to battle imajinn each time
-        imajInitial = false;
-        
-        if (firstPage == true) {
-            
-            // Display the container
-            $("#ImajinnContainer").css("display","block");
-            $("#ImajinnContainer").css("animation","pageOpen .6s ease-in-out forwards");
-            
-            // Fade in elements
-            setTimeout(function(){
-                $("#imajinnInfo").stop().animate({opacity: 1}, 300);
-                $(".imajType").stop().animate({opacity: 1}, 300);
-                $(".listHolder").stop().animate({opacity: 1}, 300);
-            }, 600);
-            
-            firstPage = false;
-            
-        }
-        else {
-            
-            $("#ImajinnContainer").css({
-                "display": "block",
-                "animation": "none",
-                "width": "100%",
-                "height": "100%",
-                "left": "0",
-                "top": "0"
-            });
-            
-            // Fade in containers
-            $("#ImajinnContainer").stop().animate({opacity: 1}, 300);
-            
-            // Fade in elements
-            $("#imajinnInfo").stop().animate({opacity: 1}, 300);
-            $(".imajType").stop().animate({opacity: 1}, 300);
-            $(".listHolder").stop().animate({opacity: 1}, 300);
-
-            
-        }*/
-        
-        $("#ImajinnContainer").css({
-                "display": "block",
-                "animation": "none",
-                "width": "100%",
-                "height": "100%",
-                "left": "0",
-                "top": "0"
-            });
-        $("#imajinnInfo").css("opacity","1");
-        $(".imajType").css("opacity","1");
-        $(".listHolder").css("opacity","1");
-        
-        dispImajinn(listHolder);
-    }
-    
-    // Close Imajinn Page
-    function closeImajinn() {
-        
-        /*// Fade out elements
-        $("#imajinnInfo").stop().animate({opacity: 0}, 600);
-        $(".imajType").stop().animate({opacity: 0}, 600);
-        $(".listHolder").stop().animate({opacity: 0}, 600);
-        
-        // Fade out container and display none
-        $("#ImajinnContainer").stop().animate({opacity: 0}, 600);
-        setTimeout(function(){
-            $("#ImajinnContainer").css("display","none");
-        }, 600);*/
-        $("#ImajinnContainer").css("display","none");
-        
-    }
-
-    
-    /*--------------------------------------------------------------------------------------------------------------------------------------*/
-    
-    // ABOUT
-    
-    $("#buttonAbout").click(function(){
-        if ($("#pageAbout").css("display")=="none") {
-            $("#pageAbout").css("display", "block")
-            openTrivia();
-        } else {
-            $("#pageAbout").css("display", "none");
-        }
-    });
-    
-    // Trivia
-    // Generate map names and skill names from a list?
-    // Automatically generate "what class's skill is __?" and " __ is an ability for what skill? questions?
-    var triviaHolder = [
-        { // 1
-            category: "Technical",
-            question: "What is the general name of the company that publishes Blue Protocol?",
-            choice: ["Square ENIX", "Bandai Namco", "Sega", "EA"],
-            answer: ["Bandai Namco"]
-        },
-        { // 2
-            category: "Technical",
-            question: "What is the name of the development team responsible for Blue Protocol?",
-            choice: ["Project Blue", "Project Blue Sky" , "Bandai Namco","Project Sky Blue"],
-            answer: ["Project Sky Blue"]
-        },
-        { // 3
-            category: "Technical",
-            question: "Who is the executive producer of Blue Protocol?",
-            choice: ["Soukichi Shimooka" ,"Keisuke Fukuzaki","Takahiro Suzuki", "Kazuto Kirigaya"],
-            answer: ["Takahiro Suzuki"]
-        },
-        { // 4
-            category: "Class",
-            question: "What was the 5th class added to the game?",
-            choice: ["Aegis Fighter", "Twin Striker", "Heavy Smasher", "Spell Caster"],
-            answer: ["Heavy Smasher"]
-        },
-        { // 5
-            category: "Lore",
-            question: "What is the name of the Aegis Fighter class instructor?",
-            choice: ["Lily", "Korz", "Manuel", "Seila"],
-            answer: ["Korz"]
-        },
-        { // 6
-            category: "Lore",
-            question: "What is the name of the Twin Striker class instructor?",
-            choice: ["Manuel", "Lily", "Seila", "Korz"],
-            answer: ["Manuel"]
-        },
-        { // 7
-            category: "Lore",
-            question: "What is the name of the Blast Archer class instructor?",
-            choice: ["Korz", "Lily", "Manuel", "Seila"],
-            answer: ["Lily"]
-        },
-        { // 8
-            category: "Lore",
-            question: "What is the name of the Spell Caster class instructor?",
-            choice: ["Korz", "Manuel", "Seila", "Lily"],
-            answer: ["Seila"]
-        },
-        { // 9
-            category: "Class",
-            question: "Perfection is an ability for which Twin Striker skill?",
-            choice: ["Blood Axe", "Storm Rush", "Burning Rush", "Vortex Impact"],
-            answer: ["Burning Rush"]
-        },
-        { // 10
-            category: "Class",
-            question: "What class uses the skill War Cry?",
-            choice: ["Aegis Fighter", "Twin Striker", "Blast Archer", "Spell Caster"],
-            answer: ["Twin Striker"]
-        },
-        { // 11
-            category: "Class",
-            question: "What class uses the skill Negative Resonance?",
-            choice: ["Blast Archer", "Spell Caster", "Aegis Fighter", "Twin Striker"],
-            answer: ["Blast Archer"]
-        },
-        { // 12
-            category: "Class",
-            question: "Acceleration is an ability for which Blast Archer skill?",
-            choice: ["Charge Arrow", "Riesel Shower", "Hunter Spirit", "Arrow Rush"],
-            answer: ["Riesel Shower"]
-        },
-        { // 13
-            category: "Class",
-            question: "Blast Archer’s backward + regular attack 1 key results in what?",
-            choice: ["Healing Boost Buff", "Movement Speed Buff", "Attack Buff", "Attack Speed Buff"],
-            answer: ["Movement Speed Buff"]
-        },
-        { // 14
-            category: "Class",
-            question: "Which Spell Caster ability has the same name for two skills?",
-            choice: ["Escalation","Element Escalate", "EP Save", "Rapid Charge"],
-            answer: ["Escalation"]
-        },
-        { // 15
-            category: "Class",
-            question: "Which class uses the skill Engram Charge?",
-            choice: ["Aegis Fighter", "Spell Caster", "Twin Striker", "Blast Archer"],
-            answer: ["Spell Caster"]
-        },
-        { // 16
-            category: "Class",
-            question: "Starlight is an ability for which Aegis Fighter skill?",
-            choice: ["Regeneration","Sunrise Charge","Judgement Shield","Celestial Pillar"],
-            answer: ["Celestial Pillar"]
-        },
-        { // 17
-            category: "Story",
-            question: "Which story character do you meet after defeating an Avalitia for the first time?",
-            choice: ["Jake", "Einrain", "Melrophe", "Aerinse"],
-            answer: ["Melrophe"]
-        },
-        { // 18
-            category: "Story",
-            question: "What is the name of the NPC that gives you a mount imajinn?",
-            choice: ["Roger","Dean","Stadst","Quinn"],
-            answer: ["Stadst"]
-        },
-        { // 19
-            category: "Story",
-            question: "What is the name of the inn that you wake up in after meeting Feste for the first time?",
-            choice: ["The Double-Faced Coin", "Black Masked Inn", "Hunter's Breeze", "The Highland Inn"],
-            answer: ["The Double-Faced Coin"]
-        },
-        { // 20
-            category: "Story",
-            question: "Who is the self-proclaimed “best of the best” adventurer?",
-            choice: ["Einrain", "Jake", "Main Character", "Aerinse"],
-            answer: ["Jake"]
-        },
-        { // 21
-            category: "Story",
-            question: "What is the name of the mysterious girl at the Bapharia Shrine?",
-            choice: ["Aylin", "Sophia", "Einrain", "Aerinse"],
-            answer: ["Einrain"]
-        },
-        { // 22
-            category: "Story",
-            question: "What are you, the player, referred to as by some characters in the story?",
-            choice: ["Adventurer","Visitor", "Traveler", "Leaper"],
-            answer: ["Visitor"]
-        },
-        { // 23
-            category: "Story",
-            question: "What is Aenrinse’s bodyguard’s name?",
-            choice: ["Jake", "Einrain", "Feste", "Tyris"],
-            answer: ["Tyris"]
-        },
-        { // 24
-            category: "Story",
-            question: "What is the name of the NPC at Minsterhorn who tells you to go to the Pillar of Divinity?",
-            choice: ["Jake", "Milrain", "Melrophe", "Feste"],
-            answer: ["Milrain"]
-        },
-        { // 25
-            category: "Story",
-            question: "What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?",
-            choice: ["Milrain", "Myulie", "Melroph", "Einrain"],
-            answer: ["Myulie"]
-        },
-        { // 26
-            category: "Lore",
-            question: "What’s the name of the  town that you start in?",
-            choice: ["Bapharia ", "Asterleeds", "Salamzart", "Lapenta"],
-            answer: ["Asterleeds"]
-        },
-        { // 27
-            category: "Lore",
-            question: "What is the desert-themed town called?",
-            choice: ["Ul'dah", "Salamzart", "Death Valley", "Durango"],
-            answer: ["Salamzart"]
-        },
-        { // 28
-            category: "Gameplay",
-            question: "Which color liquid memory increases enemy drop rate?",
-            choice: ["Yellow" , "Red" ,  "Purple" , "Green"],
-            answer: ["Purple"]
-        },
-        { // 29
-            category: "Gameplay",
-            question: "What is the max amount of attachment slots a weapon can have?",
-            choice: ["3", "6", "4" , "5"],
-            answer: ["4"]
-        },
-        { // 30
-            category: "Gameplay",
-            question: "Which element has “high damage explosion” as a burst effect?",
-            choice: ["Light","Dark","Ice","Earth"],
-            answer: ["Light"]
-        },
-        { // 31
-            category: "Gameplay",
-            question: "How many waves does Arena [S Rank] have?",
-            choice: ["30", "100", "25", "70"],
-            answer: ["25"]
-        },
-        { // 32
-            category: "Gameplay",
-            question: "What is the name for the highest level dungeon difficulty?",
-            choice:  ["Final Survey", "Ultra Survey", "Additional Survey", "Advanced Survey"],
-            answer: ["Advanced Survey"]
-        },
-        { // 33
-            category: "Gameplay",
-            question: "What is the name of the boss in Mechanical Ruin Valley?",
-            choice: ["Quad Arm", "Reanimated Terror", "Ancient Android", "Demon Bhor"],
-            answer: ["Quad Arm"]
-        },
-        { // 34
-            category: "Gameplay",
-            question: "What zone is the town Larpal in?",
-            choice: ["Asterleeds", "Fiel Pond", "Andra Basin", "Divine Haven Hill"],
-            answer: ["Divine Haven Hill"]
-        },
-        { // 35
-            category: "Gameplay",
-            question: "What is the first zone outside of Asterleeds called?",
-            choice: ["Divine Haven Hill", "Skyquake Fields", "Andra Basin", "Soundless Foothills"],
-            answer: ["Skyquake Fields"]
-        },
-        { // 36
-            category: "Gameplay",
-            question: "What zone is the dungeon Dragonclaw Valley [Free Exploration] found in?",
-            choice: ["Salamzart", "Minster Hills", "Skyquake fields", "Fiel Pond"],
-            answer: ["Minster Hills"]
-        },
-        { // 37
-            category: "Lore",
-            question: "What is the world of BLUE PROTOCOL called?",
-            choice: ["Asteria", "Bajamar", "Regnus", "Prectus"],
-            answer: ["Regnus"]
-        },
-        { // 38
-            category: "Gameplay",
-            question: "How many warp portals are in Asterleeds?",
-            choice: ["6", "7", "8", "9"],
-            answer: ["9"]
-        },
-        { // 39
-            category: "Class",
-            question: "Which class has the highest base attack on their weapons?",
-            choice: ["Heavy Smasher", "Aegis Fighter", "Spell Caster", "Twin Striker"],
-            answer: ["Twin Striker"]
-        },
-        { // 40
-            category: "Gameplay",
-            question: "What is the default amount of stamina?",
-            choice: ["200", "100", "150", "70"],
-            answer: ["100"]
-        },
-        { // 41
-            category: "Gameplay",
-            question: "How often do most elite monsters spawn?",
-            choice: ["15 minutes", "10 minutes", "7 minutes", "30 minutes"],
-            answer: ["15 minutes"]
-        },
-        { // 42
-            category: "Gameplay",
-            question: "What is the name of the level 18 raid boss?",
-            choice: ["Fiel", "Demidragon", "Undead Prince", "Hydra"],
-            answer: ["Demidragon"]
-        },
-        { // 43
-            category: "Gameplay",
-            question: "What is the max party size?",
-            choice: ["3", "5", "6", "4"],
-            answer: ["6"]
-        },
-        { // 44
-            category: "Gameplay",
-            question: "How many players can be in a raid?",
-            choice: ["15","30","40","20"],
-            answer: ["20"]
-        },
-        { // 45
-            category: "Class",
-            question: "Which class can equip the weapon Bapharia's Guidance?",
-            choice: ["Blast Archer", "Aegis Fighter", "Spell caster", "Twin Striker"],
-            answer: ["Aegis Fighter"]
-        },
-        { // 46
-            category: "Class",
-            question: "Which class has no heal skills?",
-            choice: ["Twin Striker", "Spell Caster", "Aegis Fighter", "Blast Archer"],
-            answer: ["Spell Caster"]
-        },
-        { // 47
-            category: "Gameplay",
-            question: "What is the strongest battle imajinn called?",
-            choice: ["Sealed Tyranny", "Eternal Rage", "Red Splash", "Iron Fangs"],
-            answer: ["Sealed Tyranny"]
-        },
-        { // 48
-            category: "Gameplay",
-            question: "How many healer-type battle imajinn are there?",
-            choice: ["4", "2", "8", "3"],
-            answer: ["3"]
-        },
-        { // 49
-            category: "Technical",
-            question: "What year did the development of BLUE PROTOCOL begin?",
-            choice: ["2014", "2016", "2020", "2021"],
-            answer: ["2016"]
-        },
-        { // 50
-            category: "Gameplay",
-            question: "How many character voice options can you choose from during character creation?",
-            choice: ["7", "1", "5", "3"],
-            answer: ["3"]
-        },
-        { // 51
-            category: "Class",
-            question: "Which class is often considered the biggest support role?",
-            choice: ["Spell Caster", "Blast Archer", "Twin Striker", "Aegis fighter"],
-            answer: ["Blast Archer"]
-        },
-        { // 52
-            category: "Gameplay",
-            question: "How many Permanent Skills & Tactical Abilities are the same for each class?",
-            choice: ["17", "13", "14", "15"],
-            answer: ["14"]
-        },
-        { // 53
-            category: "Gameplay",
-            question: "How many different inner imajinn slots are there?",
-            choice: ["5", "3", "6", "8"],
-            answer: ["5"]
-        },
-        { // 54
-            category: "Gameplay",
-            question: "How many accessory slots are confirmed by the developers?",
-            choice: ["5", "8", "7", "10"],
-            answer: ["7"]
-        },
-        { // 55
-            category: "Gameplay",
-            question: "How much stamina does evasion consume?",
-            choice: ["20", "25", "15", "30"],
-            answer: ["25"]
-        },
-    ]  
-    
-    function openTrivia() {
-        var triviaQuestion = $(".triviaQuestion");
-        var triviaCategory = $(".triviaCategory");
-        var triviaChoices = $(".triviaChoices");
-        var buttonColor = $(".triviaChoices").css("background-color");
-        var qIndex = 0;
-        
-        // Display container
-        $("#pageTrivia").css("display","block");
-        
-        
-        // Durstenfeld Shuffle
-        function shuffle(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
-        
-        // Shuffle questions
-        shuffle(triviaHolder);
-        
-        function generateQuestion() {
-            
-            // If finished, shuffle deck and restart
-            if (qIndex >= triviaHolder.length) {
-                shuffle(triviaHolder);
-                qIndex = 0;
-            }
-            
-            // Shuffle choices
-            shuffle(triviaHolder[qIndex].choice);
-            
-            // Send category & question
-            triviaCategory.html(triviaHolder[qIndex].category);
-            triviaQuestion.html(triviaHolder[qIndex].question);
-    
-            // Sends each choice once & resets button color
-            triviaChoices.each(function(index) {
-                $(this).css("background-color", buttonColor);
-                $(this).html(triviaHolder[qIndex].choice[(index)]);
-            });
-            
-            // Enable clicking on an option
-            triviaChoices.prop("disabled", false);    
-                
-        }
-        
-        generateQuestion();
-        
-        // Check Answer
-        triviaChoices.click(function (){
-            var myAns = $(this);
-            var correctAns = triviaHolder[qIndex].answer[0];
-            
-            // Disable clicking after choosing an option
-            triviaChoices.prop("disabled", true);
-            
-            // Search choices for correct answer and turn it green; 
-            triviaChoices.each(function() {
-                if ($(this).text() == correctAns) {
-                    $(this).css("background-color", "green");
-                }
-            });
-
-            // If my answer is wrong turn it red
-            if (myAns.text() != correctAns) {
-                myAns.css("background-color", "red");
-            }
-
-            // Go to next question
-            window.setTimeout(generateQuestion, 2000);
-            qIndex++;
-
-        });
-        
-        
-        
-    } // End Trivia
-    
-    
-    
-    
-    /*--------------------------------------------------------------------------------------------------------------------------------------*/
-    
-    // JAPANESE TEXT HOLDERS
-    
-    
-    // Change font sizes, change headers like "Req. Luno" to JP
     // Battle Imajinn
     var biHolderJP = [
         // Pink Piglet ピンクウリボ
@@ -4490,6 +4566,312 @@ jQuery(document).ready(function ($) {
     ]
     
     // Inner Imajinn
+    var iiHolderEN = [
+        
+        // Dyranks/Dylanx
+        { 
+            name: "Dyranks (courage)",
+            type: "<br>",
+            image: "images/crafting/ii1L.png",
+            level: "Starting Lv 1~1 (Max Lv: 7)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot1.svg","Courage"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+12",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+5",
+                    /*DEX*/"+1"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+8",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+3",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Reikrid Crystal","<br>","<br>","1,000"],
+            iconSrc: [iDung,"",""],
+            amt: ["1","<br>","<br>"],
+            abilList: ["Max HP increase","<br>", "<br>"],
+            tooltipText: ["Clear Dungeon<br>Reikrid Tunnels","<br>","<br>"],
+            tooltipBg: [
+                tooltipSkyquake,"",""],
+            tooltipIcn: ["transform: translate(11.4vw, 4.5vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Corjun/Corsion
+        { 
+            name: "Corjun (mystery)",
+            type: "<br>",
+            image: "images/crafting/ii2L.png",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot3.svg","Mystery"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+0",
+                    /*INT*/"+5",
+                    /*HP*/"+20",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+6",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+0",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Land Fox Nail","Asterium Ore","<br>","9,000"],
+            iconSrc: [iCombat,iRock,""],
+            amt: ["8","15","<br>"],
+            abilList: ["ATK increase","<br>", "<br>"],
+            tooltipText: ["Land Fox<br>Minster Hills","Gather<br>Minster Hills","<br>"],
+            tooltipBg: [
+                tooltipMinster,
+                tooltipMinster,""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Mipect
+        { 
+            name: "Mipect (hope)",
+            type: "<br>",
+            image: "images/crafting/ii3L.png",
+            level: "Starting Lv 1~1 (Max Lv: 20)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot2.svg","Hope"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+3",
+                    /*HP*/"+25",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+0"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+1",
+                    /*HP*/"+9",
+                    /*VIT*/"+3",
+                    /*MND*/"+2",
+                    /*ATK*/"+2",
+                    /*DEX*/"+0"
+                   ],
+            recipe: ["Goblin Nail","Jira Crystal","<br>","10,000"],
+            iconSrc: [iCombat,iRock,""],
+            amt: ["10","10","<br>"],
+            abilList: ["Max Stamina increase","<br>", "<br>"],
+            tooltipText: ["Goblin<br>Andra Basin","Gather<br>Andra Basin","<br>"],
+            tooltipBg: [
+                tooltipAndra,
+                tooltipAndra,""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Proxyx/Procsyx
+        { 
+            name: "Proxyx (courage)",
+            type: "<br>",
+            image: "images/crafting/ii4L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot1.svg","Courage"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+0",
+                    /*HP*/"+36",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+13",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+8",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+3",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Horned Goat Bone","Smoky Moss","<br>","60,000"],
+            iconSrc: [iCombat,iFlower,""],
+            amt: ["12","20","<br>"],
+            abilList: ["Max HP increase","VIT increase", "STR increase"],
+            tooltipText: ["Horned Goat<br>Soundless Foothills","Gather<br>Divine Haven Hill","<br>"],
+            tooltipBg: [
+                tooltipSoundless,
+                tooltipDivine,""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Latepect/Latepecht
+        { 
+            name: "Latepect (hope)",
+            type: "<br>",
+            image: "images/crafting/ii5L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot2.svg","Hope"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+4",
+                    /*HP*/"+38",
+                    /*VIT*/"+6",
+                    /*MND*/"+5",
+                    /*ATK*/"+11",
+                    /*DEX*/"+0"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+1",
+                    /*HP*/"+9",
+                    /*VIT*/"+3",
+                    /*MND*/"+2",
+                    /*ATK*/"+2",
+                    /*DEX*/"+0"
+                   ],
+            recipe: ["Large Fang Fossil","<br>","<br>","85,000"],
+            iconSrc: [iRock,"",""],
+            amt: ["25","<br>","<br>"],
+            abilList: ["Max Stamina increase","INT increase", "MND increase"],
+            tooltipText: ["Gather<br>Divine Haven Hill","<br>","<br>"],
+            tooltipBg: [
+                tooltipDivine,"",""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Carcon
+        { 
+            name: "Carcon (mystery)",
+            type: "<br>",
+            image: "images/crafting/ii6L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot3.svg","Mystery"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+0",
+                    /*INT*/"+6",
+                    /*HP*/"+32",
+                    /*VIT*/"+5",
+                    /*MND*/"+6",
+                    /*ATK*/"+9",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+0",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Glowing Goblin's Nail","Pterosaur Fossil","<br>","240,000"],
+            iconSrc: [iCombat,iRock,""],
+            amt: ["10","35","<br>"],
+            abilList: ["ATK increase","STR increase", "DEX increase"],
+            tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
+            tooltipBg: [
+                tooltipDragonclaw,
+                tooltipDragonclaw,""],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","transform: translate(11.4vw, 4.4vw)","visibility: hidden"]
+        },
+        // Parbury
+        { 
+            name: "Parbury (ambition)",
+            type: "<br>",
+            image: "images/crafting/ii7L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot4.svg","Ambition"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+4",
+                    /*HP*/"+34",
+                    /*VIT*/"+4",
+                    /*MND*/"+0",
+                    /*ATK*/"+12",
+                    /*DEX*/"+6"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+1",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+0",
+                    /*ATK*/"+2",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Glowing Tyrant Boar's Fang","Stardust Grass","<br>","500,000"],
+            iconSrc: [iCombat,iFlower,""],
+            amt: ["15","40","<br>"],
+            abilList: ["DEF increase","DEX increase", "VIT increase"],
+            tooltipText: ["Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces","<br>"],
+            tooltipBg: [
+                tooltipCalmEve,
+                tooltipCalmEve, ""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Sanak'ta
+        { 
+            name: "Sanak'ta (affection)",
+            type: "<br>",
+            image: "images/crafting/ii8L.png",
+            level: "Starting Lv 1~1 (Max Lv: 35)",
+            element: ["element &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["cooldown","&nbsp;&nbsp;&nbsp;&nbsp;60 sec"],
+            // 
+            slot: ["slot","images/crafting/slot5.svg","Affection"],
+            ability: ["ability", "????","effectiveness", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+5",
+                    /*HP*/"+30",
+                    /*VIT*/"+0",
+                    /*MND*/"+6",
+                    /*ATK*/"+10",
+                    /*DEX*/"+6"
+                   ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+2",
+                    /*HP*/"+5",
+                    /*VIT*/"+0",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Trick Elder's Nail","Welling Water Stone","<br>","900,000"],
+            iconSrc: [iElite,iRock,""],
+            amt: ["1","50","<br>"],
+            abilList: ["Healing increase","MND increase", "INT increase"],
+            tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Fiel Pond","<br>"],
+            tooltipBg: [
+                tooltipFiel,
+                tooltipFiel,""],
+            tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
+        }
+    ]
+    // Inner Imajinn
     var iiHolderJP = [
         
         // Dyranks/Dylanx
@@ -4795,6 +5177,667 @@ jQuery(document).ready(function ($) {
             tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
         }
     ]
+    
+    var biHolder = biHolderEN;
+    var iiHolder = iiHolderEN;
+    
+    // Show Inner Imajinn
+    $(".iiSelImg").click(function(){
+        listHolder = iiHolder;
+        dispImajinn(listHolder);
+    });
+    // Show Battle Imajinn
+    $(".biSelImg").click(function(){
+        listHolder = biHolder;
+        dispImajinn(listHolder);
+    });
+    
+    // Select Imajinn to Display from List
+    $(".listItem").click(function(){
+        
+        if (listHolder == biHolder) {
+            // Index of the clicked item
+            biIndex = $(".biList").index(this);
+        }
+        else if (listHolder == iiHolder) {
+            // Index of the clicked item
+            iiIndex = $(".iiList").index(this);
+        }
+
+        dispImajinn(listHolder);
+
+    });
+    
+    // Toggle Imajinn Level
+    $(".imajSlider").click(function(){
+        
+        // Max lv stats
+        if (!$(".itoggleCheck").is(":checked")) {
+            statLvSelector = 1;
+            
+            if (listHolder == biHolder) {
+                skillPower.html(listHolder[iIndex].skill[3]);
+            }
+            skillPower.css("color","crimson");
+            
+            statVal.each(function(index){
+                $(this).html(listHolder[iIndex].stats[(index)]);
+                $(this).css("color","crimson");
+            });
+        }
+        
+        // Lv 1 stats
+        else {
+            statLvSelector = 0;
+            
+            if (listHolder == biHolder) {
+                skillPower.html(listHolder[iIndex].skill[4]);
+            }
+            skillPower.css("color","#343330");
+            
+            statVal.each(function(index){
+                $(this).html(listHolder[iIndex].minStats[(index)]);
+                $(this).css("color","#343330");
+            });
+        }
+
+    });
+    
+    // Display Imajinn
+    function dispImajinn(holder) {
+
+        // If battle imajinn, hide inner
+        if (listHolder == biHolder) {
+            
+            // Populate list
+            $(".biList>.listItem-desc>.nameAndType").each(function(index){
+                $(this).find(".listItem-name").html(holder[index].name);
+                $(this).find(".listItem-type").html(holder[index].type);
+            });
+            
+            iIndex = biIndex;
+            $("#ImajList").css("display", "initial");
+            $("#InnerList").css("display", "none");
+            
+            // display CD, SKILL PWR, VID, SKILL TOOLTIP
+            // hide IMG, SLOT ICN
+            cd.css("display","initial");
+            skillPower.css("display","initial");
+            $("#skillDesc").addClass("skillTooltip");
+            vid.css("display","block");
+            skillPowerTitle.css("display","initial");
+            img.css("display","none");
+            slotIcon.css("display","none");
+            
+            
+            // Change selector image
+            $(".iiSelector").removeClass("listSelected");
+            $(".biSelector").addClass("listSelected");
+            
+            // Send values
+            cd.html(holder[iIndex].cooldown[0] + holder[iIndex].cooldown[1]);
+            skill.html(holder[iIndex].skill[0] + holder[iIndex].skill[1]);
+            skillPowerTitle.html(holder[iIndex].skill[2]); // "Effectiveness"
+            
+            // Skill power Lv 1
+            if (statLvSelector == 0) {
+                // Send skill power
+                skillPower.html(holder[iIndex].skill[4]);
+            }
+            // Skill power max level
+            else if (statLvSelector == 1) {
+                // Send skill power
+                skillPower.html(holder[iIndex].skill[3]);
+            }
+            
+            
+            vid.attr("src", holder[iIndex].image);
+            $(".skillTooltip").html(holder[iIndex].skill[(holder[iIndex].skill.length-1)]);
+            
+        } // end Battle Imajinn exclusives
+        
+        // If inner imajinn, hide battle
+        if (listHolder == iiHolder) {
+            
+            // Populate list
+            $(".iiList>.listItem-desc>.nameAndType").each(function(index){
+                $(this).find(".listItem-name").html(holder[index].name);
+                $(this).find(".listItem-type").html(holder[index].type);
+            });
+            
+            iIndex = iiIndex;
+            $("#ImajList").css("display", "none");
+            $("#InnerList").css("display", "initial");
+            
+            // display IMG, SLOT ICN
+            // hide VID, CD, SKILL PWR, SKILL TOOLTIP
+            cd.css("display","none");
+            skillPower.css("display","none");
+            vid.css("display","none");
+            skillPowerTitle.css("display","none");
+            $("#skillDesc").removeClass("skillTooltip");
+            img.css("display","block");
+            slotIcon.css("display","block");
+            
+            
+            // Change selector image
+            $(".biSelector").removeClass("listSelected");
+            $(".iiSelector").addClass("listSelected");
+            
+            
+            // Send values
+            skill.html(holder[iIndex].slot[0] + "&nbsp;&nbsp;&nbsp;&nbsp;");
+            img.attr("src", holder[iIndex].image);
+            slotIcon.attr("src", holder[iIndex].slot[1])
+            $(".slotTooltip").html(holder[iIndex].slot[2]);
+            
+        } // end Inner Imajinn exclusives
+        
+        // Lv 1 = send lv 1 stats
+        if (statLvSelector == 0) {
+            // Send stats
+            statVal.each(function(index){
+                $(this).html(holder[iIndex].minStats[(index)]);
+            });
+        } 
+        // Max level = send max stats
+        else if (statLvSelector == 1) {
+            // Send stats
+            statVal.each(function(index){
+                $(this).html(holder[iIndex].stats[(index)]);
+            });
+        }
+        
+        
+        // Send stat info
+        name.html(holder[iIndex].name);
+        level.html(holder[iIndex].level);
+        element.html(holder[iIndex].element[0]);
+        elePower.html(holder[iIndex].element[1]);
+        abil.html(holder[iIndex].ability[0] + spacing1 + holder[iIndex].ability[1]);
+        abilPower.html(holder[iIndex].ability[2] + spacing1 + holder[iIndex].ability[3]);
+
+        // Send ability list
+        $(".abil").each(function(index){
+           $(this).html(holder[iIndex].abilList[(index)]);
+        });
+        
+        
+        
+        // Recipe
+        $(".recipeHolder>div").each(function (index){
+            $(this).find(mat).html(holder[iIndex].recipe[(index)]);
+            $(this).find(matIcon).attr("src", holder[iIndex].iconSrc[(index)]); 
+            $(this).find(matCount).html(holder[iIndex].amt[(index)]); 
+            
+            // Tooltips
+            $(this).find(".recipeToolText").html(holder[iIndex].tooltipText[(index)]); 
+            $(this).find(".recipeTooltip").css("background",holder[iIndex].tooltipBg[(index)]);
+            $(this).find(".recipeToolImg").attr("src", holder[iIndex].iconSrc[(index)]);
+            $(this).find(".recipeToolImg").attr("style", holder[iIndex].tooltipIcn[(index)]);
+        });
+        luno.html(holder[iIndex].recipe[(holder[iIndex].recipe.length - 1)]);
+        
+    }
+    
+    // Open Imajinn Page
+    function openImajinn() {
+        
+        imajInitial = false;
+        $("#ImajinnContainer").css("display","block");
+        
+        dispImajinn(listHolder);
+    }
+    
+    // Close Imajinn Page
+    function closeImajinn() {
+        
+        $("#ImajinnContainer").css("display","none");
+        
+    }
+
+    
+    /*--------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    // ABOUT
+    
+    $("#buttonAbout").click(function(){
+        if ($("#pageAbout").css("display")=="none") {
+            $("#pageAbout").css("display", "block")
+            openTrivia();
+        } else {
+            $("#pageAbout").css("display", "none");
+        }
+    });
+    
+    // Trivia
+    // Generate map names and skill names from a list?
+    // Automatically generate "what class's skill is __?" and " __ is an ability for what skill? questions?
+    var triviaHolder = [
+        { // 1
+            category: "Technical",
+            question: "What is the general name of the company that publishes Blue Protocol?",
+            choice: ["Square ENIX", "Bandai Namco", "Sega", "EA"],
+            answer: ["Bandai Namco"]
+        },
+        { // 2
+            category: "Technical",
+            question: "What is the name of the development team responsible for Blue Protocol?",
+            choice: ["Project Blue", "Project Blue Sky" , "Bandai Namco","Project Sky Blue"],
+            answer: ["Project Sky Blue"]
+        },
+        { // 3
+            category: "Technical",
+            question: "Who is the executive producer of Blue Protocol?",
+            choice: ["Soukichi Shimooka" ,"Keisuke Fukuzaki","Takahiro Suzuki", "Kazuto Kirigaya"],
+            answer: ["Takahiro Suzuki"]
+        },
+        { // 4
+            category: "Class",
+            question: "What was the 5th class added to the game?",
+            choice: ["Aegis Fighter", "Twin Striker", "Heavy Smasher", "Spell Caster"],
+            answer: ["Heavy Smasher"]
+        },
+        { // 5
+            category: "Lore",
+            question: "What is the name of the Aegis Fighter class instructor?",
+            choice: ["Lily", "Korz", "Manuel", "Seila"],
+            answer: ["Korz"]
+        },
+        { // 6
+            category: "Lore",
+            question: "What is the name of the Twin Striker class instructor?",
+            choice: ["Manuel", "Lily", "Seila", "Korz"],
+            answer: ["Manuel"]
+        },
+        { // 7
+            category: "Lore",
+            question: "What is the name of the Blast Archer class instructor?",
+            choice: ["Korz", "Lily", "Manuel", "Seila"],
+            answer: ["Lily"]
+        },
+        { // 8
+            category: "Lore",
+            question: "What is the name of the Spell Caster class instructor?",
+            choice: ["Korz", "Manuel", "Seila", "Lily"],
+            answer: ["Seila"]
+        },
+        { // 9
+            category: "Class",
+            question: "Perfection is an ability for which Twin Striker skill?",
+            choice: ["Blood Axe", "Storm Rush", "Burning Rush", "Vortex Impact"],
+            answer: ["Burning Rush"]
+        },
+        { // 10
+            category: "Class",
+            question: "What class uses the skill War Cry?",
+            choice: ["Aegis Fighter", "Twin Striker", "Blast Archer", "Spell Caster"],
+            answer: ["Twin Striker"]
+        },
+        { // 11
+            category: "Class",
+            question: "What class uses the skill Negative Resonance?",
+            choice: ["Blast Archer", "Spell Caster", "Aegis Fighter", "Twin Striker"],
+            answer: ["Blast Archer"]
+        },
+        { // 12
+            category: "Class",
+            question: "Acceleration is an ability for which Blast Archer skill?",
+            choice: ["Charge Arrow", "Riesel Shower", "Hunter Spirit", "Arrow Rush"],
+            answer: ["Riesel Shower"]
+        },
+        { // 13
+            category: "Class",
+            question: "Blast Archer’s backward + regular attack 1 key results in what?",
+            choice: ["Healing Boost Buff", "Movement Speed Buff", "Attack Buff", "Attack Speed Buff"],
+            answer: ["Movement Speed Buff"]
+        },
+        { // 14
+            category: "Class",
+            question: "Which Spell Caster ability has the same name for two skills?",
+            choice: ["Escalation","Element Escalate", "EP Save", "Rapid Charge"],
+            answer: ["Escalation"]
+        },
+        { // 15
+            category: "Class",
+            question: "Which class uses the skill Engram Charge?",
+            choice: ["Aegis Fighter", "Spell Caster", "Twin Striker", "Blast Archer"],
+            answer: ["Spell Caster"]
+        },
+        { // 16
+            category: "Class",
+            question: "Starlight is an ability for which Aegis Fighter skill?",
+            choice: ["Regeneration","Sunrise Charge","Judgement Shield","Celestial Pillar"],
+            answer: ["Celestial Pillar"]
+        },
+        { // 17
+            category: "Story",
+            question: "Which story character do you meet after defeating an Avalitia for the first time?",
+            choice: ["Jake", "Einrain", "Melrophe", "Aerinse"],
+            answer: ["Melrophe"]
+        },
+        { // 18
+            category: "Story",
+            question: "What is the name of the NPC that gives you a mount imajinn?",
+            choice: ["Roger","Dean","Stadst","Quinn"],
+            answer: ["Stadst"]
+        },
+        { // 19
+            category: "Story",
+            question: "What is the name of the inn that you wake up in after meeting Feste for the first time?",
+            choice: ["The Double-Faced Coin", "Black Masked Inn", "Hunter's Breeze", "The Highland Inn"],
+            answer: ["The Double-Faced Coin"]
+        },
+        { // 20
+            category: "Story",
+            question: "Who is the self-proclaimed “best of the best” adventurer?",
+            choice: ["Einrain", "Jake", "Main Character", "Aerinse"],
+            answer: ["Jake"]
+        },
+        { // 21
+            category: "Story",
+            question: "What is the name of the mysterious girl at the Bapharia Shrine?",
+            choice: ["Aylin", "Sophia", "Einrain", "Aerinse"],
+            answer: ["Einrain"]
+        },
+        { // 22
+            category: "Story",
+            question: "What are you, the player, referred to as by some characters in the story?",
+            choice: ["Adventurer","Visitor", "Traveler", "Leaper"],
+            answer: ["Visitor"]
+        },
+        { // 23
+            category: "Story",
+            question: "What is Aenrinse’s bodyguard’s name?",
+            choice: ["Jake", "Einrain", "Feste", "Tyris"],
+            answer: ["Tyris"]
+        },
+        { // 24
+            category: "Story",
+            question: "What is the name of the NPC at Minsterhorn who tells you to go to the Pillar of Divinity?",
+            choice: ["Jake", "Milrain", "Melrophe", "Feste"],
+            answer: ["Milrain"]
+        },
+        { // 25
+            category: "Story",
+            question: "What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?",
+            choice: ["Milrain", "Myulie", "Melroph", "Einrain"],
+            answer: ["Myulie"]
+        },
+        { // 26
+            category: "Lore",
+            question: "What’s the name of the  town that you start in?",
+            choice: ["Bapharia ", "Asterleeds", "Salamzart", "Lapenta"],
+            answer: ["Asterleeds"]
+        },
+        { // 27
+            category: "Lore",
+            question: "What is the desert-themed town called?",
+            choice: ["Ul'dah", "Salamzart", "Death Valley", "Durango"],
+            answer: ["Salamzart"]
+        },
+        { // 28
+            category: "Gameplay",
+            question: "Which color liquid memory increases enemy drop rate?",
+            choice: ["Yellow" , "Red" ,  "Purple" , "Green"],
+            answer: ["Purple"]
+        },
+        { // 29
+            category: "Gameplay",
+            question: "What is the max amount of attachment slots a weapon can have?",
+            choice: ["3", "6", "4" , "5"],
+            answer: ["4"]
+        },
+        { // 30
+            category: "Gameplay",
+            question: "Which element has “high damage explosion” as a burst effect?",
+            choice: ["Light","Dark","Ice","Earth"],
+            answer: ["Light"]
+        },
+        { // 31
+            category: "Gameplay",
+            question: "How many waves does Arena [S Rank] have?",
+            choice: ["30", "100", "25", "70"],
+            answer: ["25"]
+        },
+        { // 32
+            category: "Gameplay",
+            question: "What is the name for the highest level dungeon difficulty?",
+            choice:  ["Final Survey", "Ultra Survey", "Additional Survey", "Advanced Survey"],
+            answer: ["Advanced Survey"]
+        },
+        { // 33
+            category: "Gameplay",
+            question: "What is the name of the boss in Mechanical Ruin Valley?",
+            choice: ["Quad Arm", "Reanimated Terror", "Ancient Android", "Demon Bhor"],
+            answer: ["Quad Arm"]
+        },
+        { // 34
+            category: "Gameplay",
+            question: "What zone is the town Larpal in?",
+            choice: ["Asterleeds", "Fiel Pond", "Andra Basin", "Divine Haven Hill"],
+            answer: ["Divine Haven Hill"]
+        },
+        { // 35
+            category: "Gameplay",
+            question: "What is the first zone outside of Asterleeds called?",
+            choice: ["Divine Haven Hill", "Skyquake Fields", "Andra Basin", "Soundless Foothills"],
+            answer: ["Skyquake Fields"]
+        },
+        { // 36
+            category: "Gameplay",
+            question: "What zone is the dungeon Dragonclaw Valley [Free Exploration] found in?",
+            choice: ["Salamzart", "Minster Hills", "Skyquake fields", "Fiel Pond"],
+            answer: ["Minster Hills"]
+        },
+        { // 37
+            category: "Lore",
+            question: "What is the world of BLUE PROTOCOL called?",
+            choice: ["Asteria", "Bajamar", "Regnus", "Prectus"],
+            answer: ["Regnus"]
+        },
+        { // 38
+            category: "Gameplay",
+            question: "How many warp portals are in Asterleeds?",
+            choice: ["6", "7", "8", "9"],
+            answer: ["9"]
+        },
+        { // 39
+            category: "Class",
+            question: "Which class has the highest base attack on their weapons?",
+            choice: ["Heavy Smasher", "Aegis Fighter", "Spell Caster", "Twin Striker"],
+            answer: ["Twin Striker"]
+        },
+        { // 40
+            category: "Gameplay",
+            question: "What is the default amount of stamina?",
+            choice: ["200", "100", "150", "70"],
+            answer: ["100"]
+        },
+        { // 41
+            category: "Gameplay",
+            question: "How often do most elite monsters spawn?",
+            choice: ["15 minutes", "10 minutes", "7 minutes", "30 minutes"],
+            answer: ["15 minutes"]
+        },
+        { // 42
+            category: "Gameplay",
+            question: "What is the name of the level 18 raid boss?",
+            choice: ["Fiel", "Demidragon", "Undead Prince", "Hydra"],
+            answer: ["Demidragon"]
+        },
+        { // 43
+            category: "Gameplay",
+            question: "What is the max party size?",
+            choice: ["3", "5", "6", "4"],
+            answer: ["6"]
+        },
+        { // 44
+            category: "Gameplay",
+            question: "How many players can be in a raid?",
+            choice: ["15","30","40","20"],
+            answer: ["20"]
+        },
+        { // 45
+            category: "Class",
+            question: "Which class can equip the weapon Bapharia's Guidance?",
+            choice: ["Blast Archer", "Aegis Fighter", "Spell caster", "Twin Striker"],
+            answer: ["Aegis Fighter"]
+        },
+        { // 46
+            category: "Class",
+            question: "Which class has no heal skills?",
+            choice: ["Twin Striker", "Spell Caster", "Aegis Fighter", "Blast Archer"],
+            answer: ["Spell Caster"]
+        },
+        { // 47
+            category: "Gameplay",
+            question: "What is the strongest battle imajinn called?",
+            choice: ["Sealed Tyranny", "Eternal Rage", "Red Splash", "Iron Fangs"],
+            answer: ["Sealed Tyranny"]
+        },
+        { // 48
+            category: "Gameplay",
+            question: "How many healer-type battle imajinn are there?",
+            choice: ["4", "2", "8", "3"],
+            answer: ["3"]
+        },
+        { // 49
+            category: "Technical",
+            question: "What year did the development of BLUE PROTOCOL begin?",
+            choice: ["2014", "2016", "2020", "2021"],
+            answer: ["2016"]
+        },
+        { // 50
+            category: "Gameplay",
+            question: "How many character voice options can you choose from during character creation?",
+            choice: ["7", "1", "5", "3"],
+            answer: ["3"]
+        },
+        { // 51
+            category: "Class",
+            question: "Which class is often considered the biggest support role?",
+            choice: ["Spell Caster", "Blast Archer", "Twin Striker", "Aegis fighter"],
+            answer: ["Blast Archer"]
+        },
+        { // 52
+            category: "Gameplay",
+            question: "How many Permanent Skills & Tactical Abilities are the same for each class?",
+            choice: ["17", "13", "14", "15"],
+            answer: ["14"]
+        },
+        { // 53
+            category: "Gameplay",
+            question: "How many different inner imajinn slots are there?",
+            choice: ["5", "3", "6", "8"],
+            answer: ["5"]
+        },
+        { // 54
+            category: "Gameplay",
+            question: "How many accessory slots are confirmed by the developers?",
+            choice: ["5", "8", "7", "10"],
+            answer: ["7"]
+        },
+        { // 55
+            category: "Gameplay",
+            question: "How much stamina does evasion consume?",
+            choice: ["20", "25", "15", "30"],
+            answer: ["25"]
+        },
+    ]  
+    
+    function openTrivia() {
+        var triviaQuestion = $(".triviaQuestion");
+        var triviaCategory = $(".triviaCategory");
+        var triviaChoices = $(".triviaChoices");
+        var buttonColor = $(".triviaChoices").css("background-color");
+        var qIndex = 0;
+        
+        // Display container
+        $("#pageTrivia").css("display","block");
+        
+        
+        // Durstenfeld Shuffle
+        function shuffle(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        
+        // Shuffle questions
+        shuffle(triviaHolder);
+        
+        function generateQuestion() {
+            
+            // If finished, shuffle deck and restart
+            if (qIndex >= triviaHolder.length) {
+                shuffle(triviaHolder);
+                qIndex = 0;
+            }
+            
+            // Shuffle choices
+            shuffle(triviaHolder[qIndex].choice);
+            
+            // Send category & question
+            triviaCategory.html(triviaHolder[qIndex].category);
+            triviaQuestion.html(triviaHolder[qIndex].question);
+    
+            // Sends each choice once & resets button color
+            triviaChoices.each(function(index) {
+                $(this).css("background-color", buttonColor);
+                $(this).html(triviaHolder[qIndex].choice[(index)]);
+            });
+            
+            // Enable clicking on an option
+            triviaChoices.prop("disabled", false);    
+                
+        }
+        
+        generateQuestion();
+        
+        // Check Answer
+        triviaChoices.click(function (){
+            var myAns = $(this);
+            var correctAns = triviaHolder[qIndex].answer[0];
+            
+            // Disable clicking after choosing an option
+            triviaChoices.prop("disabled", true);
+            
+            // Search choices for correct answer and turn it green; 
+            triviaChoices.each(function() {
+                if ($(this).text() == correctAns) {
+                    $(this).css("background-color", "green");
+                }
+            });
+
+            // If my answer is wrong turn it red
+            if (myAns.text() != correctAns) {
+                myAns.css("background-color", "red");
+            }
+
+            // Go to next question
+            window.setTimeout(generateQuestion, 2000);
+            qIndex++;
+
+        });
+        
+        
+        
+    } // End Trivia
+    
+    
+    
+    
+    /*--------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    // JAPANESE TEXT HOLDERS
+    
+    
+    // Change font sizes, change headers like "Req. Luno" to JP
+    
     
     
     
