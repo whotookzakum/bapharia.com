@@ -162,6 +162,9 @@ jQuery(document).ready(function ($) {
         else if (currentPage == "#craftingContainer") {
             closeCrafting();
         }
+        else if (currentPage == "#guideContainer") {
+            closeGuide();
+        }
         
     }
     
@@ -239,8 +242,10 @@ jQuery(document).ready(function ($) {
                 openImajinn();
             }
             // GUIDE
-            if ($(this).is("#buttonGuide")) {
-                
+            if ($(this).is("#buttonGuide") && currentPage != "#guideContainer") {
+                closePages();
+                currentPage = "#guideContainer";
+                openGuide();
             }
             // CRAFTING
             if ($(this).is("#buttonCrafting") && currentPage != "#craftingContainer") {
@@ -252,6 +257,24 @@ jQuery(document).ready(function ($) {
 
         }
     });
+    
+    
+    
+    /*--------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    // GAME GUIDE
+    
+    function openGuide() {
+        $("#guideContainer").css("display","block");
+    }
+    
+    function closeGuide() {
+        $("#guideContainer").css("display","none");
+    }
+    
+    
+    
+    
     
     
     

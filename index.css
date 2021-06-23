@@ -1430,52 +1430,77 @@ input:checked + .slider:before {
 #guideContainer {
     width: 100%;
     height: 100%;
-    background-color: red;
+
     display: block;
     position: relative;
 }
 
 .guideMenu {
-    width: 6.4vw;
+    display: inline-block;
+    position: relative;
+    width: 5%;
     height: 100%;
     background-color: #161211;
+    transition: width .15s ease-in-out;
+}
+.guideMenu img {
+    display: inline-block;
+    height: 2.5vw;
+    width: auto;
 }
 
 .guideMenuButton {
     width: auto;
     display: block;
     position: relative;
-    top: 2vw;
-    margin: 0 auto 1vw auto;
+    padding: 0.52vw 0 0.52vw 0.7vw;
 }
 
-.guideMenu img {
-    display: inline-block;
-    margin: 0 0 0 2vw;
-    width: 2.3vw;
-    transition: margin .15s ease-in-out;
+.guideMenuButton:hover, .guideMenuButton:hover+p {
+    filter: brightness(0.8);
+    background-color: #130f0f;
 }
-.guideMenuButton:hover img {
-    margin: 0 0 0 0vw;
-    transition: margin .15s ease-in-out;
-}
+
 .guideMenuText {
-    display: inline-block;
+    display: block;
     position: absolute;
-    left: 2.4vw;
-    top: 40%;
+    top: 1.3vw;
+    font-size: 18px;
+    left: 4vw;
+    height: 23px;
+    width: 0vw;
+    overflow-x: hidden;
+    z-index: 20;
     opacity: 0;
-    transition: all .15s ease-in-out;
-    color: white;
-    font-size: 16px;
+    transition: opacity .0s ease-in-out, width 0.1s ease-in-out;
+}
 
+
+
+.guideMenu:hover{
+    width: 17%;
+    transition: width .15s ease-in-out;
 }
-.guideMenuButton:hover .guideMenuText {
-    top: 20%;
-    left: 2.4vw;
+.guideMenu:hover .guideMenuText {
     opacity: 0.8;
-    transition: all .15s ease-in-out;
+    width: 9vw;
+    transition: opacity .3s ease-in-out, width 0.1s ease-in-out;
 }
+
+@keyframes menuTextFadeIn {
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    1% {
+        display: block;
+    }
+    100% {
+        display: block;
+        opacity: 0.9;
+    }
+}
+
 
 /* ---------------- ABOUT & TRIVIA ---------------- */
 #pageAbout {
