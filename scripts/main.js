@@ -1244,63 +1244,17 @@ jQuery(document).ready(function ($) {
     // Open page
     function openCrafting() {
         
-        console.log(firstPage);
-        
-        if (firstPage == true) {
-            // Display the container
-            $("#craftingContainer").css("display", "block");
-            $("#contentViewer").css({"display": "block", "background-color": "midnightblue"});
-
-            $("#contentViewer").css("animation","pageOpen .6s ease-in-out forwards");
-            $("#craftingContainer").css("animation","pageOpen .6s ease-in-out forwards");
-        
-            // Fade in elements
-            setTimeout(function(){
-                
-            }, 600);
+        $("#craftingContainer").css("display","block");
             
-            
-            
-        }
-        else {
-            $("#craftingContainer").css({
-                "display": "block",
-                "animation": "none",
-                "width": "100%",
-                "height": "100%",
-                "left": "0",
-                "top": "0"
-            });
-            $("#contentViewer").css({
-                "display": "block",
-                "animation": "none",
-                "width": "100%",
-                "height": "100%",
-                "left": "0",
-                "top": "0",
-                "background-color": "midnightblue"
-            });
-            $("#craftingContainer").stop().animate({opacity: 1}, 300);
-        }
-        
-        firstPage = false;
-        
         listWeapons(wepHolder);
         dispWeapon(wepHolder);
     }
     
     
     function closeCrafting() {
-        
-        // Fade out elements
-        
-        // Fade out container and display none
-        $("#craftingContainer").stop().animate({opacity: 0}, 300);
-        setTimeout(function() {
-            $("#craftingContainer").css("display","none");
-        },300);
-        
-        
+
+        $("#craftingContainer").css("display","none");
+
     }
     
     // Toggle Weapon Level
@@ -3170,16 +3124,15 @@ jQuery(document).ready(function ($) {
     // Open Imajinn Page
     function openImajinn() {
         
+        /*
+        // So it doesn't open to battle imajinn each time
         imajInitial = false;
         
         if (firstPage == true) {
             
             // Display the container
             $("#ImajinnContainer").css("display","block");
-            $("#contentViewer").css({"display": "block", "background-color": "#22321b"});
-        
-            $("#contentViewer").css("animation","pageOpen 1.6s ease-in-out forwards");
-            $("#ImajinnContainer").css("animation","pageOpen 1.6s ease-in-out forwards");
+            $("#ImajinnContainer").css("animation","pageOpen .6s ease-in-out forwards");
             
             // Fade in elements
             setTimeout(function(){
@@ -3188,10 +3141,11 @@ jQuery(document).ready(function ($) {
                 $(".listHolder").stop().animate({opacity: 1}, 300);
             }, 600);
             
-            
+            firstPage = false;
             
         }
         else {
+            
             $("#ImajinnContainer").css({
                 "display": "block",
                 "animation": "none",
@@ -3200,26 +3154,29 @@ jQuery(document).ready(function ($) {
                 "left": "0",
                 "top": "0"
             });
-            $("#contentViewer").css({
-                "display": "block",
-                "animation": "none",
-                "width": "100%",
-                "height": "100%",
-                "left": "0",
-                "top": "0",
-                "background-color": "#22321b"
-            });
+            
+            // Fade in containers
+            $("#ImajinnContainer").stop().animate({opacity: 1}, 300);
             
             // Fade in elements
-            $("#ImajinnContainer").stop().animate({opacity: 1}, 300);
             $("#imajinnInfo").stop().animate({opacity: 1}, 300);
             $(".imajType").stop().animate({opacity: 1}, 300);
             $(".listHolder").stop().animate({opacity: 1}, 300);
 
             
-        }
+        }*/
         
-        firstPage = false;
+        $("#ImajinnContainer").css({
+                "display": "block",
+                "animation": "none",
+                "width": "100%",
+                "height": "100%",
+                "left": "0",
+                "top": "0"
+            });
+        $("#imajinnInfo").css("opacity","1");
+        $(".imajType").css("opacity","1");
+        $(".listHolder").css("opacity","1");
         
         dispImajinn(listHolder);
     }
@@ -3227,16 +3184,17 @@ jQuery(document).ready(function ($) {
     // Close Imajinn Page
     function closeImajinn() {
         
-        // Fade out elements
-        $("#imajinnInfo").stop().animate({opacity: 0}, 100);
-        $(".imajType").stop().animate({opacity: 0}, 100);
-        $(".listHolder").stop().animate({opacity: 0}, 100);
+        /*// Fade out elements
+        $("#imajinnInfo").stop().animate({opacity: 0}, 600);
+        $(".imajType").stop().animate({opacity: 0}, 600);
+        $(".listHolder").stop().animate({opacity: 0}, 600);
         
         // Fade out container and display none
-        $("#ImajinnContainer").stop().animate({opacity: 0}, 300);
+        $("#ImajinnContainer").stop().animate({opacity: 0}, 600);
         setTimeout(function(){
             $("#ImajinnContainer").css("display","none");
-        }, 300);
+        }, 600);*/
+        $("#ImajinnContainer").css("display","none");
         
     }
 
