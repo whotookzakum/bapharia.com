@@ -23,11 +23,26 @@ jQuery(document).ready(function ($) {
     // NAVIGATION
     
     // Save current page and close pages
+    var firstPage = true;
     var currentPage;
     function closePages() {
-        $(currentPage).css("display", "none");
-        $("#contentViewer").css({"display": "none", "background-color": "#080605"});
+        
+        $("#contentViewer").css({"display": "none"});
+        
+        if (currentPage == "#mapContainer") {
+            closeWorldMap();
+        }
+        else if (currentPage == "#ImajinnContainer") {
+            closeImajinn();
+        }
+        else if (currentPage == "#craftingContainer") {
+            closeCrafting();
+        }
+        
     }
+    
+    var imajInitial = true;
+    var mapInitial = true;
     
     // Menu buttons open page when clicked
     $("img.navicon").click(function() {
@@ -55,8 +70,7 @@ jQuery(document).ready(function ($) {
         bghs.stop().animate({opacity: '0'});
         bg.stop().animate({opacity: '0'});
         
-        // Close open page
-        closePages();
+        
         
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
@@ -84,14 +98,20 @@ jQuery(document).ready(function ($) {
                 bg.stop().animate({opacity: '1'});
             }
             // WORLD MAP
-            if ($(this).is("#buttonWorldMap")) {
-                currentPage = "#mapContainer"
-                openWorldMap(currentMap);
+            if ($(this).is("#buttonWorldMap") && currentPage !== "#mapContainer") {
+                // Close open page
+                closePages();
+                currentPage = "#mapContainer";
+                openWorldMap($(currentMap));
             }
             // IMAJINN
-            if ($(this).is("#buttonImajinn")) {
-                listHolder = biHolder;
+            if ($(this).is("#buttonImajinn") && currentPage !== "#ImajinnContainer") {
+                // Close open page
+                closePages();
                 currentPage = "#ImajinnContainer";
+                if (imajInitial == true) {
+                    listHolder = biHolder;
+                }
                 openImajinn();
             }
             // GUIDE
@@ -99,8 +119,10 @@ jQuery(document).ready(function ($) {
                 
             }
             // CRAFTING
-            if ($(this).is("#buttonCrafting")) {
-                currentPage = "#craftingContainer"
+            if ($(this).is("#buttonCrafting") && currentPage != "#craftingContainer") {
+                // Close open page
+                closePages();
+                currentPage = "#craftingContainer";
                 openCrafting();
             }
 
@@ -1221,10 +1243,64 @@ jQuery(document).ready(function ($) {
     
     // Open page
     function openCrafting() {
-        $("#craftingContainer").css("display", "block");
-        $("#contentViewer").css({"display": "block", "background-color": "midnightblue"});
+        
+        console.log(firstPage);
+        
+        if (firstPage == true) {
+            // Display the container
+            $("#craftingContainer").css("display", "block");
+            $("#contentViewer").css({"display": "block", "background-color": "midnightblue"});
+
+            $("#contentViewer").css("animation","pageOpen .6s ease-in-out forwards");
+            $("#craftingContainer").css("animation","pageOpen .6s ease-in-out forwards");
+        
+            // Fade in elements
+            setTimeout(function(){
+                
+            }, 600);
+            
+            
+            
+        }
+        else {
+            $("#craftingContainer").css({
+                "display": "block",
+                "animation": "none",
+                "width": "100%",
+                "height": "100%",
+                "left": "0",
+                "top": "0"
+            });
+            $("#contentViewer").css({
+                "display": "block",
+                "animation": "none",
+                "width": "100%",
+                "height": "100%",
+                "left": "0",
+                "top": "0",
+                "background-color": "midnightblue"
+            });
+            $("#craftingContainer").stop().animate({opacity: 1}, 300);
+        }
+        
+        firstPage = false;
+        
         listWeapons(wepHolder);
         dispWeapon(wepHolder);
+    }
+    
+    
+    function closeCrafting() {
+        
+        // Fade out elements
+        
+        // Fade out container and display none
+        $("#craftingContainer").stop().animate({opacity: 0}, 300);
+        setTimeout(function() {
+            $("#craftingContainer").css("display","none");
+        },300);
+        
+        
     }
     
     // Toggle Weapon Level
@@ -1316,43 +1392,9 @@ jQuery(document).ready(function ($) {
     
     // MAP
     
-    var currentMap = $("#mapAsterleeds");
+    var currentMap = "#mapAsterleeds";
     var tooltip = document.querySelectorAll(".tooltip");
-    var mapAniIterator = 0;
     document.addEventListener('mousemove', trackMouse, false);
-    
-    function openMapAni() {
-        // Fade in elements on map page
-        $("#mapSearch").stop().animate({opacity: 1}, 800);
-        $(".searchIcons").stop().animate({opacity: 1}, 800);
-        setTimeout(function(){
-           $(".mapList").css("display","block");
-        }, 1000);
-        
-        $(".mapList").stop().animate({opacity: 1}, 800);
-        $(".mapGrid").stop().animate({opacity: 1}, 800);
-        
-        $("img.mapIcon").stop().animate({opacity: 1}, 800);
-        $(".mapMove").stop().animate({opacity: 0.7}, 800);
-        
-        // Fade in to opacity 0.6 if not current map name (gray)
-        if (!$(".mapName").hasClass("currentZone")) {
-            $(".mapName").stop().animate({opacity: 0.6}, 800);
-        } 
-        // Fade in to opacity 1 if current map name (blue)
-        else if ($(".mapName").hasClass("currentZone")) {
-            $(".mapName").stop().animate({opacity: 1}, 800);
-        }
-
-    }
-    
-    // Hover over mapMove selectors
-    $(".mapMove").mouseenter(function() {
-        $(this).css("opacity","1"); 
-    });
-    $(".mapMove").mouseleave(function(){
-        $(this).css("opacity","0.8");
-    });
     
     // Hover over mapName selectors, only if not the current zone
     $(".mapName").mouseenter(function() {
@@ -1372,24 +1414,90 @@ jQuery(document).ready(function ($) {
         // Display Map Container
         $("#mapContainer").css("display", "block");
         
-        // Animate map container only if it isn't currently open
-        if (mapAniIterator == 0) {
-            //$("#mapContainer").css("animation-iteration-count","1");
-            region.css("opacity","1");
-            $("#mapContainer").css("animation","pageOpen 1.2s ease-in-out 1 forwards");
-            setTimeout(() => openMapAni(), 1200);
-            mapAniIterator = 1;
-        }
-        // If its currently open, skip animation 
+        // Animate map
+        region.css("opacity","1");
+        $("#mapContainer").css("animation","pageOpen .6s ease-in-out 1 forwards");
+        
+        // Animate inner elements only if it isn't currently open
+        if (mapInitial == true) {
+            
+            mapInitial = false;
+
+            // Fade in elements
+            setTimeout(function(){
+                
+                $("#mapSearch").stop().animate({opacity: 1}, 300);
+                $(".searchIcons").stop().animate({opacity: 1}, 300);
+                // Map list shouldn't overlap while its still opening, so open late
+                setTimeout(function(){
+                   $(".mapList").css("display","block");
+                }, 600);
+
+                $(".mapList").stop().animate({opacity: 1}, 300);
+                $(".mapGrid").stop().animate({opacity: 1}, 300);
+
+                $("img.mapIcon").stop().animate({opacity: 1}, 300);
+                $(".mapMove").stop().animate({opacity: 1}, 300);
+
+                // Fade in to opacity 1 ONLY if selected map
+                if ( !$(".mapName").hasClass("currentZone") ) {
+                    $(".mapName").stop().animate({opacity: 0.6}, 300);
+                } else {
+                    $(this).stop().animate({opacity: 1}, 300);
+                }
+
+            }, 600);
+            
+        } 
+        // No animation
         else {
             $("#mapContainer").css("animation","none");
             $("#mapContainer").css("width","100%");
             $("#mapContainer").css("height", "100%");
             $("#mapContainer").css("left", "0%");
             $("#mapContainer").css("top", "0%");
+            $("#mapSearch").css("opacity","1");
+            $(".searchIcons").css("opacity","1");
+            $(".mapList").css("opacity","1");
+            $(".mapList").css("display","block");
+            region.css("opacity","1");
+            region.css("display", "block");
+            $(".mapName").css("display","block");
+            $(".mapMove").css("display","block");
+            // Fade in to opacity 1 ONLY if selected map
+            if ( $(".mapName").hasClass("currentZone") ) {
+                
+                $(this).css("opacity","1");
+            } else {
+                $(".mapName").css("opacity","0.6");
+            }
+            $("img.mapIcon").css("opacity","1");
         }
-        
+            
         region.css("display", "block");
+    }
+    
+    // Close page 
+    function closeWorldMap() {
+        
+        $("#mapSearch").stop().animate({opacity: 0}, 100);
+        $(".searchIcons").stop().animate({opacity: 0}, 100);
+        $(".mapList").css("display","none");
+        
+        $(".mapList").stop().animate({opacity: 0}, 100);
+        $(".mapGrid").stop().animate({opacity: 0}, 100);
+        
+        $("img.mapIcon").stop().animate({opacity: 0}, 100);
+        $(".mapMove").stop().animate({opacity: 0}, 100);
+        $(".mapName").stop().animate({opacity: 0}, 100);
+        
+        $("#mapContainer").css("animation","pageClose .6s ease-in-out 1 forwards");
+            setTimeout(function(){
+                $("#mapContainer").css("display","none");
+        }, 600);
+        
+        mapInitial = true;
+        
     }
     
     // Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
@@ -1471,13 +1579,19 @@ jQuery(document).ready(function ($) {
             
             // Open the map
             $("#mapAsteriaPlain").css("display","block");
-            currentMap.stop().animate({opacity: 0}, 500);
-            setTimeout(function(){
-                currentMap.css("display", "none");
-                currentMap = $("#mapAsteriaPlain");
-            }, 500);
+            
+            if (currentMap != "#mapAsteriaPlain") {
+                $(currentMap).stop().animate({opacity: 0}, 500);
+                
+                setTimeout(function(){
+                    $(currentMap).css("display", "none");
+                    currentMap = "#mapAsteriaPlain";
+                }, 500);
+            }
+            
             $("#mapAsteriaPlain").stop().animate({opacity: 1}, 500);
-            openWorldMap(currentMap);
+            
+            openWorldMap($(currentMap));
         }
         
         
@@ -1508,34 +1622,43 @@ jQuery(document).ready(function ($) {
             
             // Open the map
             $("#mapBahamarHighlands").css("display","block");
-            currentMap.stop().animate({opacity: 0}, 500);
-            setTimeout(function(){
-                currentMap.css("display", "none");
-                currentMap = $("#mapBahamarHighlands");
-            }, 500);
+            
+            if (currentMap != "#mapBahamarHighlands") {
+                $(currentMap).stop().animate({opacity: 0}, 500);
+                
+                setTimeout(function(){
+                    $(currentMap).css("display", "none");
+                    currentMap = "#mapBahamarHighlands";
+                }, 500);
+            }
+
             $("#mapBahamarHighlands").stop().animate({opacity: 1}, 500);
             
-            openWorldMap(currentMap);
+            openWorldMap($(currentMap));
         }
         
         
         
         // Asterleeds map
         if ($(this).is(".listAsterleeds")){
-            $("#mapAsterleeds").css("display","block");
-            currentMap.stop().animate({opacity: 0}, 500);
-            $("#mapAsterleeds").stop().animate({opacity: 1}, 500);
-            setTimeout(function(){
-                currentMap.css("display", "none");
-                currentMap = $("#mapAsterleeds");
-            }, 500);
             
-            openWorldMap(currentMap);
+            $("#mapAsterleeds").css("display","block");
+            
+            if (currentMap != "#mapAsterleeds") {
+                $(currentMap).stop().animate({opacity: 0}, 500);
+                
+                setTimeout(function(){
+                    $(currentMap).css("display", "none");
+                    currentMap = "#mapAsterleeds";
+                }, 500);
+            }
+            
+            $("#mapAsterleeds").stop().animate({opacity: 1}, 500);
+            
+            openWorldMap($(currentMap));
+            
         }
     });
-    
-    
-    
     
     // Map Icon Toggles
     $(".mapToggles").click(function(){
@@ -1597,7 +1720,7 @@ jQuery(document).ready(function ($) {
                 $(".mapLiquidMemories").css("display", "initial");
             }
             
-        } 
+        }
         
         // Toggle OFF if on
         else {
@@ -3046,10 +3169,75 @@ jQuery(document).ready(function ($) {
     
     // Open Imajinn Page
     function openImajinn() {
-        // if battle or inner imaj page, select that container and display
-        $("#ImajinnContainer").css("display", "block");
-        $("#contentViewer").css({"display": "block", "background-color": "#22321b"});
+        
+        imajInitial = false;
+        
+        if (firstPage == true) {
+            
+            // Display the container
+            $("#ImajinnContainer").css("display","block");
+            $("#contentViewer").css({"display": "block", "background-color": "#22321b"});
+        
+            $("#contentViewer").css("animation","pageOpen 1.6s ease-in-out forwards");
+            $("#ImajinnContainer").css("animation","pageOpen 1.6s ease-in-out forwards");
+            
+            // Fade in elements
+            setTimeout(function(){
+                $("#imajinnInfo").stop().animate({opacity: 1}, 300);
+                $(".imajType").stop().animate({opacity: 1}, 300);
+                $(".listHolder").stop().animate({opacity: 1}, 300);
+            }, 600);
+            
+            
+            
+        }
+        else {
+            $("#ImajinnContainer").css({
+                "display": "block",
+                "animation": "none",
+                "width": "100%",
+                "height": "100%",
+                "left": "0",
+                "top": "0"
+            });
+            $("#contentViewer").css({
+                "display": "block",
+                "animation": "none",
+                "width": "100%",
+                "height": "100%",
+                "left": "0",
+                "top": "0",
+                "background-color": "#22321b"
+            });
+            
+            // Fade in elements
+            $("#ImajinnContainer").stop().animate({opacity: 1}, 300);
+            $("#imajinnInfo").stop().animate({opacity: 1}, 300);
+            $(".imajType").stop().animate({opacity: 1}, 300);
+            $(".listHolder").stop().animate({opacity: 1}, 300);
+
+            
+        }
+        
+        firstPage = false;
+        
         dispImajinn(listHolder);
+    }
+    
+    // Close Imajinn Page
+    function closeImajinn() {
+        
+        // Fade out elements
+        $("#imajinnInfo").stop().animate({opacity: 0}, 100);
+        $(".imajType").stop().animate({opacity: 0}, 100);
+        $(".listHolder").stop().animate({opacity: 0}, 100);
+        
+        // Fade out container and display none
+        $("#ImajinnContainer").stop().animate({opacity: 0}, 300);
+        setTimeout(function(){
+            $("#ImajinnContainer").css("display","none");
+        }, 300);
+        
     }
 
     
