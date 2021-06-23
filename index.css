@@ -415,19 +415,6 @@ html, body {
     display: none;
 }
 
-.mapToggles+p.tooltip {
-    display: none; /* block */
-    line-height: 0.9vw;
-    filter: drop-shadow(0 0 0 trasparent);
-    animation: mapCloseDrawer .0s ease-in-out forwards; /* .15s */
-}
-
-.mapToggles:hover+p.tooltip{
-    display: block;
-    filter: drop-shadow(0 0 0 trasparent);
-    animation: mapOpenDrawer .0s ease-in-out forwards; /* .15s */
-}
-
 @keyframes mapOpenDrawer {
     0% {
         width: auto;
@@ -443,7 +430,7 @@ html, body {
     100% {
         width: auto;
         max-width: 12.458vw;
-        padding: 0.26vw 0.82vw 0.26vw 0.32vw;
+        padding: 0.26vw 0.52vw 0.26vw 0.32vw;
         height: 1.353vw;
         font-size: 0.833vw;
         border-width: 0.84vw;
@@ -454,7 +441,7 @@ html, body {
     0% {
         width: auto;
         max-width: 12.458vw;
-        padding: 0.26vw 0.82vw 0.26vw 0.32vw;
+        padding: 0.26vw 0.52vw 0.26vw 0.32vw;
         height: 1.353vw;
         font-size: 0.833vw;
         border-width: 0.84vw;
@@ -547,7 +534,6 @@ html, body {
     text-align: center;
     font-size: 0.94vw;
     filter: drop-shadow(0 1px 2px black);
-    opacity: 1;
 }
 .mapGridRow {
     padding: 0.42vw; /* .5rem */
@@ -640,7 +626,7 @@ html, body {
     font-size: 0.833vw; /* 16px */
     z-index: 90;
 }
-p.tooltip, .recipeTooltip, .wrecipeTooltip {
+p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     z-index: 90;
     font-size: 0.833vw;
     padding: 0.26vw 0.52vw 0.26vw 0.32vw;
@@ -653,8 +639,42 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 }
 
 /* Show tooltips */
-.mapIcon:hover+.tooltip, .mapToggles:hover+p.tooltip, .i-infoSkill:hover+p.skillTooltip, .i-slotIcon:hover+p.tooltip {
+.mapIcon:hover+.tooltip, .i-infoSkill:hover+.skillTooltip, .i-slotIcon:hover+.slotTooltip {
     display: block;
+}
+
+.skillTooltip, .slotTooltip {
+    display: none;
+    position: absolute;
+    width: auto;
+    z-index: 500;
+    top: 2.5vw;
+    left: 0vw;
+}
+
+.slotTooltip {
+    top: 0.8vw;
+    left: 7.3vw;
+}
+
+.mapToggles+p.toggleTip {
+    display: block; /* block */
+    position: absolute;
+    line-height: 0.9vw;
+    border-left: 0.84vw solid #30b0d1;
+    border-top-left-radius: 0.52vw;
+    border-bottom-left-radius: 0.52vw;
+    background-color: #161211;
+    color: white;
+    right: 6.6vw;
+    filter: drop-shadow(0 0 0 trasparent);
+    animation: mapCloseDrawer .0s ease-in-out forwards; /* .15s */
+}
+
+.mapToggles:hover+p.toggleTip{
+    display: block;
+    filter: drop-shadow(0 0 0 trasparent);
+    animation: mapOpenDrawer .0s ease-in-out forwards; /* .15s */
 }
 
 .mapName, .mapMove {
@@ -851,6 +871,10 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip {
 }
 .i-infoSkill, .i-infoAbil {
     width: 18.96vw; /* 364px */
+}
+
+.hideTooltip {
+    display: none;
 }
 
 .i-slotIcon {
@@ -1402,6 +1426,56 @@ input:checked + .slider:before {
 }
 
 
+/* ---------------- GAME GUIDE ---------------- */
+#guideContainer {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    display: block;
+    position: relative;
+}
+
+.guideMenu {
+    width: 6.4vw;
+    height: 100%;
+    background-color: #161211;
+}
+
+.guideMenuButton {
+    width: auto;
+    display: block;
+    position: relative;
+    top: 2vw;
+    margin: 0 auto 1vw auto;
+}
+
+.guideMenu img {
+    display: inline-block;
+    margin: 0 0 0 2vw;
+    width: 2.3vw;
+    transition: margin .15s ease-in-out;
+}
+.guideMenuButton:hover img {
+    margin: 0 0 0 0vw;
+    transition: margin .15s ease-in-out;
+}
+.guideMenuText {
+    display: inline-block;
+    position: absolute;
+    left: 2.4vw;
+    top: 40%;
+    opacity: 0;
+    transition: all .15s ease-in-out;
+    color: white;
+    font-size: 16px;
+
+}
+.guideMenuButton:hover .guideMenuText {
+    top: 20%;
+    left: 2.4vw;
+    opacity: 0.8;
+    transition: all .15s ease-in-out;
+}
 
 /* ---------------- ABOUT & TRIVIA ---------------- */
 #pageAbout {
@@ -1473,8 +1547,7 @@ input:checked + .slider:before {
 .langHint {
     margin: auto;
     text-align: center;
-    position: absolute;
-    left: 42%;
+    font-size: 0.833vw;
     opacity: 0.4;
     z-index: 30;
 }
@@ -1487,22 +1560,26 @@ input:checked + .slider:before {
     margin-top: 0.9em;
     
 }
-.copyright > p {
+.copyrightText {
     position: absolute;
-    width: 350px;
+    width: 58vw;
     display: inline-block;
-    left: 30px;
-    top: 2px;
+    left: 1.563vw;
+    top: 0.104vw;
+}
+
+.hitcounter img {
+    border-top-right-radius: 0.26vw;
 }
 
 .hitcounter {
-    visibility: hidden;
+    display: none;
     position: absolute;
-    z-index: 1;
+    
 }
 
-.copyright:hover .hitcounter{
-    visibility: visible;
+.copyright p:hover+img+.hitcounter{
+    display: block;
 }
 
 .socials {
@@ -1519,7 +1596,8 @@ input:checked + .slider:before {
     display: inline-block;
     position: relative;
     filter: brightness(0.9);
-    margin: 5px;
+    margin: 0.26vw;
+    width: 1.563vw;
     
 }
 .iconother:hover {

@@ -27,7 +27,11 @@ jQuery(document).ready(function ($) {
         if (lang == "jp") {
             
             // Imajinn and Crafting
-            $(".langHint").html("J を押すと日本語、　E は英語変換");
+            $(".langHint").html("J を押すと日本語、E を押すと英語に設定");
+            $(".langHint").css("font-size","0.729vw");
+            $(".reqItemHeader").html("必要アイテム &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;必要数");
+            $(".reqLunoHeader").html("必要ルーノ");
+            $(".abilityHeader").html("付与アビリティ候補");
             $(".statStr").html("筋力");
             $(".statInt").html("知力");
             $(".statHp").html("最大HP");
@@ -81,6 +85,10 @@ jQuery(document).ready(function ($) {
             
             // Imajinn and Crafting
             $(".langHint").html("press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese");
+            $(".langHint").css("font-size","0.833vw");
+            $(".reqItemHeader").html("Required items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount");
+            $(".reqLunoHeader").html("Req. luno");
+            $(".abilityHeader").html("Possible abilities");
             $(".statStr").html("str");
             $(".statInt").html("int");
             $(".statHp").html("max hp");
@@ -2629,18 +2637,20 @@ jQuery(document).ready(function ($) {
             }
             
             // Open the map
-            $("#mapAsteriaPlain").css("display","block");
+            
             
             if (currentMap != "#mapAsteriaPlain") {
-                $(currentMap).stop().animate({opacity: 0}, 500);
+                $("#mapAsteriaPlain").css("opacity","0");
+                $("#mapAsteriaPlain").css("display","block");
+                $(currentMap).stop().animate({opacity: 0}, 300);
                 
                 setTimeout(function(){
                     $(currentMap).css("display", "none");
                     currentMap = "#mapAsteriaPlain";
-                }, 500);
+                }, 300);
             }
             
-            $("#mapAsteriaPlain").stop().animate({opacity: 1}, 500);
+            $("#mapAsteriaPlain").stop().animate({opacity: 1}, 300);
             
             openWorldMap($(currentMap));
         }
@@ -2672,18 +2682,20 @@ jQuery(document).ready(function ($) {
             }
             
             // Open the map
-            $("#mapBahamarHighlands").css("display","block");
+            
             
             if (currentMap != "#mapBahamarHighlands") {
-                $(currentMap).stop().animate({opacity: 0}, 500);
+                $("#mapBahamarHighlands").css("opacity","0");
+                $("#mapBahamarHighlands").css("display","block");
+                $(currentMap).stop().animate({opacity: 0}, 300);
                 
                 setTimeout(function(){
                     $(currentMap).css("display", "none");
                     currentMap = "#mapBahamarHighlands";
-                }, 500);
+                }, 300);
             }
 
-            $("#mapBahamarHighlands").stop().animate({opacity: 1}, 500);
+            $("#mapBahamarHighlands").stop().animate({opacity: 1}, 300);
             
             openWorldMap($(currentMap));
         }
@@ -2693,18 +2705,19 @@ jQuery(document).ready(function ($) {
         // Asterleeds map
         if ($(this).is(".listAsterleeds")){
             
-            $("#mapAsterleeds").css("display","block");
             
             if (currentMap != "#mapAsterleeds") {
-                $(currentMap).stop().animate({opacity: 0}, 500);
+                $("#mapAsterleeds").css("opacity","0");
+                $("#mapAsterleeds").css("display","block");
+                $(currentMap).stop().animate({opacity: 0}, 300);
                 
                 setTimeout(function(){
                     $(currentMap).css("display", "none");
                     currentMap = "#mapAsterleeds";
-                }, 500);
+                }, 300);
             }
             
-            $("#mapAsterleeds").stop().animate({opacity: 1}, 500);
+            $("#mapAsterleeds").stop().animate({opacity: 1}, 300);
             
             openWorldMap($(currentMap));
             
@@ -2713,6 +2726,9 @@ jQuery(document).ready(function ($) {
     
     // Map Icon Toggles
     $(".mapToggles").click(function(){
+        
+        console.log("X: " + $(this).pageX + $(this).find("+p.tooltip").pageX);
+        
         
         // Toggle ON if off
         if ($(this).hasClass("mapToggles-off")) {
@@ -2850,6 +2866,7 @@ jQuery(document).ready(function ($) {
     var skill = $(".i-infoSkill");
     var skillPowerTitle = $(".i-infoSkillPwrRow");
     var skillPower = $(".i-infoSkillPower");
+    var skillDesc = $("#skillDesc");
     var slotIcon = $(".i-slotIcon");
     var abil = $(".i-infoAbil");
     var abilPower = $(".i-infoAbilPower");
@@ -5263,7 +5280,7 @@ jQuery(document).ready(function ($) {
             // hide IMG, SLOT ICN
             cd.css("display","initial");
             skillPower.css("display","initial");
-            $("#skillDesc").addClass("skillTooltip");
+            skillDesc.addClass("skillTooltip");
             vid.css("display","block");
             skillPowerTitle.css("display","initial");
             img.css("display","none");
@@ -5290,8 +5307,10 @@ jQuery(document).ready(function ($) {
                 skillPower.html(holder[iIndex].skill[3]);
             }
             
+            if (vid.attr("src") != holder[iIndex].image) {
+                vid.attr("src", holder[iIndex].image);
+            }
             
-            vid.attr("src", holder[iIndex].image);
             $(".skillTooltip").html(holder[iIndex].skill[(holder[iIndex].skill.length-1)]);
             
         } // end Battle Imajinn exclusives
@@ -5315,7 +5334,7 @@ jQuery(document).ready(function ($) {
             skillPower.css("display","none");
             vid.css("display","none");
             skillPowerTitle.css("display","none");
-            $("#skillDesc").removeClass("skillTooltip");
+            skillDesc.removeClass("skillTooltip");
             img.css("display","block");
             slotIcon.css("display","block");
             
