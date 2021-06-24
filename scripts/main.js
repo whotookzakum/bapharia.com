@@ -273,7 +273,37 @@ jQuery(document).ready(function ($) {
     }
     
     
-    
+    // Bubbles
+    // Change to click if too much visual noise. Requires removing .bubble:active 
+    $(".bubble").mouseenter(function(){
+        var color;
+        if ($(this).is(".x7")) {
+            color = "#2e0021";
+        }
+        if ($(this).is(".x6")) {
+            color = "#262626";
+        }
+        if ($(this).is(".x5")) {
+            color = "#170021";
+        }
+        if ($(this).is(".x4")) {
+            color = "#002026";
+        }
+        if ($(this).is(".x3")) {
+            color = "#262600";
+        }
+        if ($(this).is(".x2")) {
+            color = "#2b0000";
+        }
+        if ($(this).is(".x1")) {
+            color = "#031400";
+        }
+        
+        $(".liqMemPage").animate({
+            backgroundColor: color
+        },300);
+        
+    });
     
     
     

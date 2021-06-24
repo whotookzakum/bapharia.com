@@ -22,7 +22,12 @@ html, body {
     user-select: none;
     scrollbar-width: none;
 }
-
+h1 {
+    font-size: 1.667vw
+}
+h2 {
+    font-size: 1.250vw;
+}
 
 #header {
     position: fixed;
@@ -194,20 +199,21 @@ html, body {
 
 #container {
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 10%;
     bottom: 10%;
     left: 10%;
     /* min-width: 1150px; */
     width: 80%;
     overflow: hidden;
+    border-radius: 1.042vw;
 }
 #bg-default, #bg-af, #bg-ts, #bg-ba, #bg-sc, #bg-hs {
-    display: inherit;
-    position: inherit;
-    top: inherit;
+    position: absolute;
     bottom: inherit;
-    width: inherit;
+    top: 0%;
+    width: 100%;
+    height: 100%;
     background-position: center 50%; 
     background-repeat: no-repeat;
 }
@@ -1431,28 +1437,36 @@ input:checked + .slider:before {
     width: 100%;
     height: 100%;
     display: none;
-    position: relative;
+    position: absolute;
+    border-radius: 1.042vw;
+    background-color: #00172b;
 }
 
 .guideMenu {
     display: inline-block;
-    position: relative;
+    position: absolute;
+    z-index: 50;
     width: 5%;
     height: 100%;
     background-color: #161211;
     transition: width .15s ease-in-out;
+    filter:drop-shadow(0px 0 3px #130f0f);
 }
 .guideMenu img {
     display: inline-block;
+    position: relative;
     height: 2.5vw;
     width: auto;
+    opacity: 0.9;
 }
 
 .guideMenuButton {
     width: auto;
+    height: 3.5vw;
     display: block;
     position: relative;
     padding: 0.52vw 0 0.52vw 0.7vw;
+    /*filter: drop-shadow(0 2px 2px black)*/
 }
 
 .guideMenuButton:hover, .guideMenuButton:hover+p {
@@ -1463,7 +1477,7 @@ input:checked + .slider:before {
 .guideMenuText {
     display: block;
     position: absolute;
-    top: 1.3vw;
+    top: 1.15vw;
     font-size: 18px;
     left: 4vw;
     height: 23px;
@@ -1473,8 +1487,6 @@ input:checked + .slider:before {
     opacity: 0;
     transition: opacity .0s ease-in-out, width 0.1s ease-in-out;
 }
-
-
 
 .guideMenu:hover{
     width: 17%;
@@ -1486,19 +1498,190 @@ input:checked + .slider:before {
     transition: opacity .3s ease-in-out, width 0.1s ease-in-out;
 }
 
-@keyframes menuTextFadeIn {
-    0% {
+.liqMemPage {
+    display: block;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.liqMemPage > p {
+    margin: 0.52vw 8vw;
+    position: relative;
+    font-size: 0.833vw;
+}
+.liqMemChart {
+    margin: auto;
+    width: 25vw;
+    text-align: left;
+    filter: drop-shadow(0 2px 2px black);
+}
+.liqMemChart > p { 
+    display: inline-block;
+    height: 2.6vw;
+    line-height: 1vw;
+    width: 22.8vw;
+    vertical-align: bottom;
+    font-size: 1.142vw;
+}
+.liqMemChart > img {
+    margin: 0 0.5vw 0 0;
+    width: 1.5vw;
+    display: inline-block;
+}
+
+
+/* ------------- BUBBLES -------------- */
+#bubbles { 
+    width: 100%;
+}
+.bubble {
+    width: 3.125vw;
+    height: 3.125vw;
+    background: white;
+    border-radius: 10.417vw;
+    -moz-border-radius: 10.417vw;
+    -webkit-border-radius: 10.417vw;
+    position: absolute;
+    z-index: 10;
+    
+}
+
+.bubble:active {
+    display: none;
+}
+
+.x1 {
+    left: 40vw;
+    background: #45b343;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0.2;
+    -webkit-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 15s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+.x2 {
+    left: 10.417vw;
+    background: #db516a;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.5;
+    -webkit-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -o-animation: moveclouds 25s linear infinite, sideWays 5s ease-in-out infinite alternate;
+}
+.x3 {
+    left: 44.010vw;
+    background: #fad459;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.3;
+    -webkit-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+.x4 {
+    left: 33.438vw;
+    background: #6ac7cd;
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.35;
+    -webkit-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -o-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+}
+.x5 {
+    left: 7.813vw;
+    background: #79389e;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.3; 
+    -webkit-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 7s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+.x6 {
+    left: 51.406vw;
+    background: white;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+    opacity: 0.2;
+    -webkit-animation: moveclouds 8s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 8s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 8s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+.x7 {
+    left: 72.427vw;
+    background: pink;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.5;
+    -webkit-animation: moveclouds 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+    -o-animation: moveclouds 22s linear infinite, sideWays 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes moveclouds { 
+    0% { 
+        top: 100%;
         opacity: 0;
-        display: none;
     }
-    1% {
-        display: block;
-    }
-    100% {
-        display: block;
-        opacity: 0.9;
+    100% { 
+        top: -10%;
     }
 }
+@-webkit-keyframes sideWays { 
+    0% { 
+        margin-left:0px;
+    }
+    100% { 
+        margin-left:50px;
+    }
+}
+@-moz-keyframes moveclouds {     
+    0% { 
+        top: 100%;
+    }
+
+    100% { 
+        top: -10%;
+    }
+}
+@-moz-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+@-o-keyframes moveclouds {
+    0% { 
+        top: 100%;
+    }
+
+    100% { 
+        top: -10%;
+    }
+}
+@-o-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+
+
 
 
 /* ---------------- ABOUT & TRIVIA ---------------- */
