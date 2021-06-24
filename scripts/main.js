@@ -264,8 +264,58 @@ jQuery(document).ready(function ($) {
     
     // GAME GUIDE
     
+    var currentGuide = ".liqMemPage";
+    // Initial button is automatically highlighted
+    $(".guideLiqMem").addClass("guideSelected");
+    
+    /*
+    $(".guideMenuButton").click(function(){
+        
+        // Reset button highlights when click
+        $(".guideMenuButton").removeClass("guideSelected");
+        // Add button highlight to clicked button
+        $(this).addClass("guideSelected");
+        // Hide the current page
+        currentGuide.css("display","none");
+        
+        if ($(this).is(".guideLiqMem")) {
+            currentGuide = ".liqMemPage";
+        }
+        if ($(this).is(".guideCombat")) {
+            currentGuide = ".combatPage";
+        }
+        if ($(this).is(".guideElements")) {
+            currentGuide = ".elementsPage";
+        }
+        if ($(this).is(".guideDungeons")) {
+            currentGuide = ".dungeonsPage";
+        }
+        if ($(this).is(".guideRaids")) {
+            currentGuide = ".raidsPage";
+        }
+        if ($(this).is(".guideBuffs")) {
+            currentGuide = ".buffsPage";
+        }
+        if ($(this).is(".guideProgression")) {
+            currentGuide = ".progressionPage";
+        }
+        if ($(this).is(".guideStory")) {
+            currentGuide = ".storyPage";
+        }
+        if ($(this).is(".guideOptions")) {
+            currentGuide = ".optionsPage";
+        }
+        
+        openGuide();
+        
+    });
+    */
+    
     function openGuide() {
         $("#guideContainer").css("display","block");
+        
+        //$(currentGuide).css("display","block");
+        
     }
     
     function closeGuide() {
