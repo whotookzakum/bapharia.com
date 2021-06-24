@@ -24,6 +24,7 @@
         
         <!-- jQuery -->
         <script src="scripts/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="scripts/jquery.color-2.1.2.min.js" type="text/javascript"></script>
         
         <!-- JavaScript file -->
         <script type="text/javascript" src="scripts/main.js"></script>
@@ -106,6 +107,115 @@
             <div id="bg-hs" style="background-image: url(images/0.png); opacity: 0;" draggable="false"></div>
             
             
+            
+            <!-- GUIDE PAGE -->
+            
+            
+            <div id="bubbles"></div>
+            
+                
+            
+            
+            <div id="guideContainer">
+
+                <div class="guideMenu">
+                    
+                    <div class="guideMenuButton" style="border-top-left-radius: 0.8vw">
+                        <img src="images/liquidmemory.svg">
+                        <p class="guideMenuText">Liquid Memories</p>
+                    </div>
+                    <div class="guideMenuButton">
+                        <img src="images/map/combat2.svg" style="height: 2vw; left: 0.3vw; top: 0.2vw">
+                        <p class="guideMenuText">Combat</p>
+                    </div>
+                    
+                    <div class="guideMenuButton">
+                        <img src="images/crafting/fire.png" style="height: 2.8vw; left: -0.15vw; top: -0.3vw;">
+                        <p class="guideMenuText">Elements</p>
+                    </div>
+                    <div class="guideMenuButton">
+                        <img src="images/map/dungeon.svg" style="height: 2vw; left: 0.3vw; top: 0.2vw;">
+                        <p class="guideMenuText">Dungeons</p>
+                    </div>
+                    <div class="guideMenuButton">
+                        <img src="images/map2.svg" style="height: 2vw; left: 0.3vw; top: 0.2vw;">
+                        <p class="guideMenuText">Raids</p>
+                    </div>
+                    
+                    <div class="guideMenuButton">
+                        <img src="images/map/quest.svg" style="height: 2vw; left: 0.3vw; top: 0.2vw;">
+                        <p class="guideMenuText">Buffs and debuffs</p>
+                    </div>
+                    <div class="guideMenuButton">
+                        <img src="images/map/luno.svg" style="height: 2vw; left: 0.3vw; top: 0.2vw">
+                        <p class="guideMenuText">Progression Guide</p>
+                    </div>
+                    <div class="guideMenuButton">
+                        <img src="images/msq.svg" style="height: 2.4vw; left: 0.05vw; top: 0vw;">
+                        <p class="guideMenuText">Story Quest</p>
+                    </div>
+                    
+                </div>
+                
+                <div class="liqMemPage">
+                    
+                    <div id="bubbles">
+                        <div class="bubble x1"></div>
+                        <div class="bubble x2"></div>
+                        <div class="bubble x3"></div>
+                        <div class="bubble x4"></div>
+                        <div class="bubble x5"></div>
+                        <div class="bubble x6"></div>
+                        <div class="bubble x7"></div>
+                    </div>
+                    
+                    <h1 style="padding-top: 1%;">Liquid Memories</h1>
+                    <p>Liquid memories are utility buffs that can be activated at a <a style="color: deepskyblue">liquid memory stand</a>.</p>
+                    
+                    <div class="liqMemChart">
+                        
+                        <img src="images/liquidmemory%20yellow%20fad459.svg" style="filter: drop-shadow(0 0 3px #fad459); margin-bottom: 0.26vw;">
+                        <p style="color: #fad459; height: 3.1vw;">Increases chance of higher starting level when crafting weapons</p>
+                        
+                        <img src="images/liquidmemory%20blue%206ac7cd.svg" style="filter: drop-shadow(0 0 3px #6ac7cd); margin-bottom: 0.26vw;">
+                        <p style="color: #6ac7cd;">Increases exp when leveling your weapon</p>
+                        
+                        <img src="images/liquidmemory%20red%20db516a.svg" style="filter: drop-shadow(0 0 3px #db516a); margin-bottom: 0.26vw;">
+                        <p style="color: #db516a">Increases gathering speed</p>
+                        
+                        <img src="images/liquidmemory%20purple%2079389e.svg" style="filter: drop-shadow(0 0 3px #79389e); margin-bottom: 0.26vw;">
+                        <p style="color: #79389e">Increases enemy drop rate</p>
+                        
+                        <img src="images/liquidmemory%20green%2045b343.svg" style="filter: drop-shadow(0 0 3px #45b343)">
+                        
+                        <p style="color: #45b343">Discounted prices in npc shops</p>
+                        
+                    </div>
+                       
+                    
+                    <h2 style="margin-top: 0.52vw">How to use</h2>
+                    
+                    <p>
+                        Unlock each color through side quests--there are 2 vials of each color<br>
+                        Check the <a style="color: deepskyblue">world map</a> for their locations<br><br>
+                        Fill empty tubes by doing actions related to the memory, or waiting for time to pass<br><br>
+                        You can pay to drink the collected memories at a liquid memory stand<br>
+                        Drinking two of the same color results in a longer effect duration<br>
+                        You cannot drink a color that is currently in effect
+                    </p> 
+                    
+                    <p style="font-size: 0.677vw; margin-top: 1.52vw">*Effect values will be added when more data is available</p>
+                        
+                </div>
+                
+                
+                
+                
+            </div>
+            
+            
+            
+            
             <!-- MAP PAGE -->
             <div id="mapContainer">
                 
@@ -153,9 +263,9 @@
                         <div class="mapGridRow">
                             
                             <img id="toggleWarp" class="mapToggles" src="images/map/warpPortal.png" draggable="false" style="width: 2.031vw;">
-                            <p class="tooltip" style="position: absolute; right: 6.3vw; bottom: 22.5vw;">Warp&nbsp;Gate</p>
+                            <p class="toggleTip" style="position: absolute; bottom: 22.5vw;">Warp&nbsp;Gate</p>
                             <img id="toggleMSQ" class="mapToggles mapToggles-off" src="images/map/msqavailable.png" draggable="false" style="width: 2.656vw;">
-                            <p class="tooltip" style="border-color: #4a9efa; position: absolute; right: 6.3vw; bottom: 22.5vw;">Main&nbsp;Story&nbsp;Quest</p>
+                            <p class="toggleTip" style="border-color: #4a9efa; bottom: 22.5vw;">Main&nbsp;Story&nbsp;Quest</p>
                             
                             
                             
@@ -163,37 +273,37 @@
 
                         <div class="mapGridRow">
                             <img id="toggleImajinn" class="mapToggles mapToggleDrawer" src="images/map/imajinnHouse.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 19.5vw;">Imagine&nbsp;Research&nbsp;Institute</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 19.5vw;">Imagine&nbsp;Research&nbsp;Institute</p>
                             <img id="toggleCrafting" class="mapToggles" src="images/map/crafting.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 19.5vw;">Crafting&nbsp;Machine</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 19.5vw;">Crafting&nbsp;Machine</p>
                             <img id="toggleReconstructor" class="mapToggles" src="images/map/reconstructor.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 19.5vw;">Weapon&nbsp;Reconstructor</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 19.5vw;">Weapon&nbsp;Reconstructor</p>
 
                         </div>
                         
                         <div class="mapGridRow">
                             <img id="toggleClassMaster" class="mapToggles" src="images/map/classmaster.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 16.85vw;">Class&nbsp;Master</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 16.85vw;">Class&nbsp;Master</p>
                             <img id="toggleLiquidMemoryStand" class="mapToggles" src="images/map/liquidmemory.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 16.85vw;">Liquid&nbsp;Memory&nbsp;Stand</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 16.85vw;">Liquid&nbsp;Memory&nbsp;Stand</p>
                             <img id="toggleExchange" class="mapToggles" src="images/map/exchange.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 16.85vw;">Exchange</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 16.85vw;">Exchange</p>
                         </div>
                         
                         <div class="mapGridRow">
                             
                             <img id="togglePotion" class="mapToggles" src="images/map/potion.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 14.125vw;">Potion&nbsp;Shop</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 14.125vw;">Potion&nbsp;Shop</p>
                             <img id="toggleWeapon" class="mapToggles" src="images/map/weapon.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 14.125vw;">Weapon&nbsp;Shop</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 14.125vw;">Weapon&nbsp;Shop</p>
                             <img id="toggleStorage" class="mapToggles" src="images/map/storage.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 14.125vw;">Storage</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 14.125vw;">Storage</p>
                             
                         </div>
                         <div class="mapGridRow">
                             
                             <img id="toggleTimedQuest" class="mapToggles" src="images/map/timedquest.png" draggable="false">
-                            <p class="tooltip" style="border-color: #da9126; position: absolute; right: 6.3vw; bottom: 11.40vw;">Timed&nbsp;Quest</p>
+                            <p class="toggleTip" style="border-color: #da9126; bottom: 11.40vw;">Timed&nbsp;Quest</p>
                             <img class="mapToggles" src="images/map/UI_Map_21.png" draggable="false">
                             <img class="mapToggles" src="images/map/UI_Map_08.png" draggable="false">
                             
@@ -211,29 +321,30 @@
                         
                         <div class="mapGridRow">
                             <img id="toggleEliteMonster" class="mapToggles" src="images/map/elitemonster.png" style="width: 2.083vw;" draggable="false">
-                            <p class="tooltip" style="border-color: #ff701d; position: absolute; right: 6.3vw; bottom: 5.85vw;">Elite&nbsp;Monster</p>
+                            <p class="toggleTip" style="border-color: #ff701d; bottom: 5.85vw;">Elite&nbsp;Monster</p>
                             <img id="toggleFreeExp" class="mapToggles" src="images/map/freexploration.png" draggable="false" style="width: 1.510vw;">
-                            <p class="tooltip" style="border-color: #4a9efa; position: absolute; right: 6.3vw; bottom: 5.85vw;">Dungeon&nbsp;Entrance</p>
+                            <p class="toggleTip" style="border-color: #4a9efa; bottom: 5.85vw;">Dungeon&nbsp;Entrance</p>
                             <img id="toggleRaid" class="mapToggles" src="images/map/raid.png" draggable="false" style="width: 1.615vw;">
-                            <p class="tooltip" style="border-color: #f2541d; position: absolute; right: 6.3vw; bottom: 5.85vw;">Raid&nbsp;Entrance</p>
+                            <p class="toggleTip" style="border-color: #f2541d; bottom: 5.85vw;">Raid&nbsp;Entrance</p>
                         </div>
                         
                         <div class="mapGridRow">
                             
-                            <img id="toggleGeology" class="mapToggles mapToggles-off" src="images/map/rock.svg" draggable="false" style="width: 1.510vw;"><p class="tooltip" style="border-color: #bfbfbf; position: absolute; right: 6.3vw; bottom: 3.05vw;">Rock&nbsp;Resource</p>
+                            <img id="toggleGeology" class="mapToggles mapToggles-off" src="images/map/rock.svg" draggable="false" style="width: 1.510vw;">
+                            <p class="toggleTip" style="border-color: #bfbfbf; bottom: 3.05vw;">Rock&nbsp;Resource</p>
                             <img id="toggleBotany" class="mapToggles mapToggles-off" src="images/map/flower.svg" draggable="false" style="padding-right: 2px; padding-left: 2px; width: 1.563vw;">
-                            <p class="tooltip" style="border-color: #bfbfbf; position: absolute; right: 6.3vw; bottom: 3.05vw;">Plant&nbsp;Resource</p>
+                            <p class="toggleTip" style="border-color: #bfbfbf; bottom: 3.05vw;">Plant&nbsp;Resource</p>
                             <img id="toggleOceanography" class="mapToggles mapToggles-off" src="images/map/shell.svg" draggable="false" style="width: 1.979vw;">
-                            <p class="tooltip" style="border-color: #bfbfbf; position: absolute; right: 6.3vw; bottom: 3.05vw;">Ocean&nbsp;Resource<br></p>
+                            <p class="toggleTip" style="border-color: #bfbfbf; bottom: 3.05vw;">Ocean&nbsp;Resource<br></p>
                         </div>
                         
                         
                         
                         <div class="mapGridRow">
                             <img id="toggleExploration" class="mapToggles mapToggles-off" src="images/map/flag.svg" draggable="false" style="width: 1.563vw;">
-                            <p class="tooltip" style="border-color: #bfbfbf; position: absolute; right: 6.3vw; bottom: .55vw;">Exploration&nbsp;Point<br></p>
+                            <p class="toggleTip" style="border-color: #bfbfbf; bottom: .55vw;">Exploration&nbsp;Point<br></p>
                             <img id="toggleLiquidMemories" class="mapToggles mapToggles-off" src="images/liquidmemory2.svg" draggable="false" style="padding: 0 0.26vw; margin: -0.26vw 0; width: 1.3vw;">
-                            <p class="tooltip" style="border-color: #bfbfbf; position: absolute; right: 6.3vw; bottom: .55vw;">Liquid&nbsp;Memory<br></p>
+                            <p class="toggleTip" style="border-color: #bfbfbf; bottom: .55vw;">Liquid&nbsp;Memory<br></p>
                             
                         </div>
                         
@@ -810,7 +921,7 @@
                         <!-- Liquid Memory Stands -->
                         <img class="mapIcon mapLiquidMemoryStand" src="images/map/liquidmemory.png" draggable="false" style="top: 65.8%; left: 32.3%;">
                         <p class="tooltip" style="border-color: #da9126">Liquid Memory Stand<br>
-                        <img src="images/liquidmemory%20yellow%20fad459.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased chance of higher weaponlevel when crafting<br>
+                        <img src="images/liquidmemory%20yellow%20fad459.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased chance of higher weapon level when crafting<br>
                         <img src="images/liquidmemory%20blue%206ac7cd.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased exp when leveling weapon<br>
                         <img src="images/liquidmemory%20red%20db516a.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Reduced gathering time<br>
                         <img src="images/liquidmemory%20purple%2079389e.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased enemy drop rate<br> 
@@ -1556,7 +1667,7 @@
                     
                      <!-- Recipe -->
                     <div class="wrecipeHolder">
-                        <p class="infoBoxHeader">Required items</p>
+                        <p class="infoBoxHeader reqItemHeader">Required items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount</p>
                         <div>
                             <p class="wmatItem">material</p>
                             <img class="wmatIcon" draggable="false" src="images/map/elitemonster.png">
@@ -1592,7 +1703,7 @@
                 
                     <!-- Luno -->
                     <div class="wlunoHolder">
-                        <p class="infoBoxHeader">Req. luno</p>
+                        <p class="infoBoxHeader reqLunoHeader">Req. luno</p>
                         <p class="wreqLuno">00,000,000</p>
                     </div>
                     
@@ -1603,6 +1714,7 @@
             </div> <!-- End Crafting -->
             
 
+            
 
             <!-- IMAJINN PAGE -->
             <div id="ImajinnContainer">
@@ -1657,11 +1769,11 @@
                             </div>
                             <div class="i-infoRow">
                                 <p class="i-infoSkill">skill</p>
-                                <p id="skillDesc" class="skillTooltip tooltip">Heals in an AoE</p>
+                                <p id="skillDesc" class="skillTooltip hideTooltip">Heals in an AoE</p>
                                 <p class="i-infoSkillPwrRow">effectiveness</p>
                                 <p class="i-infoSkillPower"></p>
                                 <img class="i-slotIcon" src="images/crafting/slot1.svg">
-                                <p class="slotTooltip tooltip">hello</p>
+                                <p class="slotTooltip">hellasdsao</p>
                             </div>
                             <div class="i-infoRow">
                                 <p class="i-infoAbil">ability</p>
@@ -1714,7 +1826,7 @@
                     
                     <!-- Recipe -->
                     <div class="recipeHolder">
-                        <p class="infoBoxHeader">Required items</p>
+                        <p class="infoBoxHeader reqItemHeader">Required items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount</p>
                         <div>
                             <p class="matItem">material</p>
                             <img class="matIcon" draggable="false" src="images/map/elitemonster.png">
@@ -1748,7 +1860,7 @@
                     
                     <!-- Abilities -->
                     <div class="abilityHolder">
-                        <p class="infoBoxHeader" style="margin-left: 10px;">Possible abilities</p>
+                        <p class="infoBoxHeader abilityHeader" style="margin-left: 10px;">Possible abilities</p>
                         <p class="abil">Ability 1</p>
                         <p class="abil">Ability 2</p>
                         <p class="abil"><br></p>
@@ -1756,7 +1868,7 @@
                 
                     <!-- Luno -->
                     <div class="lunoHolder">
-                        <p class="infoBoxHeader">Req. luno</p>
+                        <p class="infoBoxHeader reqLunoHeader">Req. luno</p>
                         <p class="reqLuno">00,000,000</p>
                     </div>
                     
@@ -2296,15 +2408,16 @@
         
         <div id="footer" oncontextmenu="return false">
             
-            <p class="langHint">press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese</p>
+            
             
             <div class="copyright">
                 
-                <p>© Copyright 2021 zakum.org. All rights reserved. </p>
-                <img id="buttonAbout" class="iconother" src="images/about2.svg" style="top: -0.6em; padding-right: 5px;" draggable="false"/>
+                <p class="copyrightText">© Copyright 2021 zakum.org. All rights reserved. </p>
+                <img id="buttonAbout" class="iconother" src="images/about2.svg" style="width: 1.25vw; top: -0.6em; padding-right: 0.26vw;" draggable="false"/>
                 <a class="hitcounter" style="top: -110px;"><img src="https://www.worldflagcounter.com/hMM/" alt="Flag Counter"></a>
             </div>
             
+            <p class="langHint">press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese</p>
              
             <div class="socials">
                 
