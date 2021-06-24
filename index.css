@@ -1469,16 +1469,29 @@ input:checked + .slider:before {
     /*filter: drop-shadow(0 2px 2px black)*/
 }
 
-.guideMenuButton:hover, .guideMenuButton:hover+p {
+.guideMenuButton:hover {
     filter: brightness(0.8);
     background-color: #130f0f;
+}
+.guideMenuButton:active {
+    filter: brightness(0.8);
+    background-color: #120e0e;
+}
+.guideMenuButton:active>p, .guideMenuButton:active>img {
+    filter: brightness(2);
+}
+.guideSelected {
+    background-color: #120e0e;
+}
+.guideSelected>p, .guideSelected:hover>p {
+    filter: brightness(1.5);
 }
 
 .guideMenuText {
     display: block;
     position: absolute;
     top: 1.15vw;
-    font-size: 18px;
+    font-size: 0.938vw;
     left: 4vw;
     height: 23px;
     width: 0vw;
@@ -1498,13 +1511,17 @@ input:checked + .slider:before {
     transition: opacity .3s ease-in-out, width 0.1s ease-in-out;
 }
 
-.liqMemPage {
-    display: block;
+.liqMemPage, .combatPage, .elementsPage, .dungeonsPage, .raidsPage, .buffsPage, .progressionPage, .storyPage {
+    display: none;
     z-index: 20;
     width: 100%;
     height: 100%;
     text-align: center;
 }
+.storyPage {
+    display: block;
+}
+
 .liqMemPage > p {
     margin: 0.52vw 8vw;
     position: relative;
@@ -1520,7 +1537,7 @@ input:checked + .slider:before {
     display: inline-block;
     height: 2.6vw;
     line-height: 1vw;
-    width: 22.8vw;
+    width: 21.8vw;
     vertical-align: bottom;
     font-size: 1.142vw;
 }
@@ -1613,9 +1630,9 @@ input:checked + .slider:before {
     -moz-transform: scale(0.9);
     transform: scale(0.9);
     opacity: 0.2;
-    -webkit-animation: moveclouds 8s linear infinite, sideWays 1s ease-in-out infinite alternate;
-    -moz-animation: moveclouds 8s linear infinite, sideWays 1s ease-in-out infinite alternate;
-    -o-animation: moveclouds 8s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -webkit-animation: moveclouds 9s linear infinite, sideWays 1.8s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 9s linear infinite, sideWays 1.8s ease-in-out infinite alternate;
+    -o-animation: moveclouds 9s linear infinite, sideWays 1.8s ease-in-out infinite alternate;
 }
 .x7 {
     left: 72.427vw;
