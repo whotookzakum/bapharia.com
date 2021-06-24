@@ -268,7 +268,7 @@ jQuery(document).ready(function ($) {
     // Initial button is automatically highlighted
     $(".guideLiqMem").addClass("guideSelected");
     
-    /*
+    
     $(".guideMenuButton").click(function(){
         
         // Reset button highlights when click
@@ -309,12 +309,12 @@ jQuery(document).ready(function ($) {
         openGuide();
         
     });
-    */
+    
     
     function openGuide() {
         $("#guideContainer").css("display","block");
         
-        //$(currentGuide).css("display","block");
+        $(currentGuide).css("display","block");
         
     }
     
