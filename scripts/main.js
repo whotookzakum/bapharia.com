@@ -9,26 +9,56 @@ jQuery(document).ready(function ($) {
     });
     
     
+    var currentLang = 0;
+    
     // Check for language switch
     $(document).keydown(function (event) {
         
         // keydown J
         if (event.keyCode == 74) {
-            switchLang("jp");
+            currentLang = 1;
         }
         // keydown E
         if (event.keyCode == 69) {
-            switchLang("en");
+            currentLang = 0;
         }
+        switchLang(currentLang);
 
     });
     
     function switchLang(lang) {
-        if (lang == "jp") {
-            
-            // Imajinn and Crafting
+        
+        // JAPANESE
+        if (lang == 1) {
+           
+            // Footer hint JP
             $(".langHint").html("J を押すと日本語、E を押すと英語に設定");
             $(".langHint").css("font-size","0.729vw");
+            
+            // Change crafting and imajinn text regardless of current page
+            wepHolder = wepHolderJP;
+            biHolder = biHolderJP;
+            iiHolder = iiHolderJP;
+            if (listHolder == biHolderJP || listHolder == biHolderEN) {
+                biHolder = biHolderJP;
+                iiHolder = iiHolderJP;
+                listHolder = biHolder;
+            }
+            else if (listHolder == iiHolderJP || listHolder == iiHolderEN) {
+                biHolder = biHolderJP;
+                iiHolder = iiHolderJP;
+                listHolder = iiHolder;
+            }
+            // Crafting
+            $(".statAtkL").html("攻撃力 &nbsp;");
+            $(".w-infoEle").html("<br>属性");
+            $(".w-slotCount").html("スロット数 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
+            // Imajinn
+            $(".biSelector>p").html("バトル<br>イマジン");
+            $(".iiSelector>p").html("インナー<br>イマジン");
+            $(".biSelector").css("font-size","0.599vw");
+            $(".iiSelector").css("font-size","0.599vw");
+            // Crafting and Imajinn 
             $(".reqItemHeader").html("必要アイテム &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;必要数");
             $(".reqLunoHeader").html("必要ルーノ");
             $(".abilityHeader").html("付与アビリティ候補");
@@ -50,42 +80,58 @@ jQuery(document).ready(function ($) {
             $(".levelToggle>p").html("レベル");
             $(".levelToggle>p").css("font-size","0.599vw");
             $(".listItem-reqAR").html("冒険ﾗﾝｸ");
-            
 
-            // Imajinn
-            $(".biSelector>p").html("バトル<br>イマジン");
-            $(".iiSelector>p").html("インナー<br>イマジン");
-            $(".biSelector").css("font-size","0.599vw");
-            $(".iiSelector").css("font-size","0.599vw");
+            // Map JP
+            if (currentPage == "#mapContainer") {
+                dispMap();
+            }
+            
+            // Imajinn JP
+            if (currentPage == "#ImajinnContainer") {
+                dispImajinn(listHolder); 
+            }
+        
+            // Crafting JP
+            if (currentPage == "#craftingContainer") {
+                
+                listWeapons(wepHolder);
+                dispWeapon(wepHolder);
+            }
 
-            if (listHolder == biHolder) {
-                biHolder = biHolderJP;
-                iiHolder = iiHolderJP;
-                listHolder = biHolder;
-            }
-            else if (listHolder == iiHolder) {
-                biHolder = biHolderJP;
-                iiHolder = iiHolderJP;
-                listHolder = iiHolder;
-            }
-            dispImajinn(listHolder);
-            
-            
-            // Crafting
-            $(".statAtkL").html("攻撃力 &nbsp;");
-            $(".w-infoEle").html("<br>属性");
-            $(".w-slotCount").html("スロット数 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
-            wepHolder = wepHolderJP;
-            listWeapons(wepHolder);
-            dispWeapon(wepHolder);
-            
             
         }
-        else if (lang == "en") {
-            
-            // Imajinn and Crafting
+        
+        // ENGLISH
+        else if (lang == 0) {
+
+            // Footer hint EN
             $(".langHint").html("press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese");
             $(".langHint").css("font-size","0.833vw");
+            
+            // Change crafting and imajinn text regardless of current page
+            wepHolder = wepHolderEN;
+            biHolder = biHolderEN;
+            iiHolder = iiHolderEN;
+            if (listHolder == biHolderEN || listHolder == biHolderJP) {
+                biHolder = biHolderEN;
+                iiHolder = iiHolderEN;
+                listHolder = biHolder;
+            }
+            else if (listHolder == iiHolder || listHolder == iiHolderJP) {
+                biHolder = biHolderEN;
+                iiHolder = iiHolderEN;
+                listHolder = iiHolder;
+            }
+            // Crafting
+            $(".statAtkL").html("attack &nbsp;");
+            $(".w-infoEle").html("<br>element");
+            $(".w-slotCount").html("slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
+            // Imajinn
+            $(".biSelector>p").html("Battle<br>Imagine");
+            $(".iiSelector>p").html("Inner<br>Imagine");
+            $(".biSelector").css("font-size","0.6775vw");
+            $(".iiSelector").css("font-size","0.6775vw");
+            // Crafting and Imajinn
             $(".reqItemHeader").html("Required items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount");
             $(".reqLunoHeader").html("Req. luno");
             $(".abilityHeader").html("Possible abilities");
@@ -108,32 +154,24 @@ jQuery(document).ready(function ($) {
             $(".matItem").css("font-size","1.25vw");
             
             
-            // Imajinn
-            $(".biSelector>p").html("Battle<br>Imagine");
-            $(".iiSelector>p").html("Inner<br>Imagine");
-            $(".biSelector").css("font-size","0.6775vw");
-            $(".iiSelector").css("font-size","0.6775vw");
+            // Map EN
+            if (currentPage == "#mapContainer") {
+                dispMap();
+            }
+            
+            // Imajinn EN
+            if (currentPage == "#ImajinnContainer") {
+                dispImajinn(listHolder);
+            }
 
-            if (listHolder == biHolder) {
-                biHolder = biHolderEN;
-                iiHolder = iiHolderEN;
-                listHolder = biHolder;
+            // Crafting EN
+            if (currentPage == "#craftingContainer") {
+                listWeapons(wepHolder);
+                dispWeapon(wepHolder);
             }
-            else if (listHolder == iiHolder) {
-                biHolder = biHolderEN;
-                iiHolder = iiHolderEN;
-                listHolder = iiHolder;
-            }
-            dispImajinn(listHolder);
             
-            
-            // Crafting 
-            $(".statAtkL").html("attack &nbsp;");
-            $(".w-infoEle").html("<br>element");
-            $(".w-slotCount").html("slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
-            wepHolder = wepHolderEN;
-            listWeapons(wepHolder);
-            dispWeapon(wepHolder);
+
+
             
         }
         
@@ -197,7 +235,7 @@ jQuery(document).ready(function ($) {
         bghs.stop().animate({opacity: '0'});
         bg.stop().animate({opacity: '0'});
         
-        
+        switchLang(currentLang);
         
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
@@ -229,7 +267,7 @@ jQuery(document).ready(function ($) {
                 // Close open page
                 closePages();
                 currentPage = "#mapContainer";
-                openWorldMap($(currentMap));
+                openWorldMap();
             }
             // IMAJINN
             if ($(this).is("#buttonImajinn") && currentPage !== "#ImajinnContainer") {
@@ -276,7 +314,7 @@ jQuery(document).ready(function ($) {
         // Add button highlight to clicked button
         $(this).addClass("guideSelected");
         // Hide the current page
-        currentGuide.css("display","none");
+        $(currentGuide).css("display","none");
         
         if ($(this).is(".guideLiqMem")) {
             currentGuide = ".liqMemPage";
@@ -2587,6 +2625,8 @@ jQuery(document).ready(function ($) {
     // Display Weapons
     function dispWeapon(holder) {
         
+        listWeapons(wepHolder);
+        
         // Basic info
         wName.html(holder[wIndex].name);
         wLevel.html(holder[wIndex].level);
@@ -2631,7 +2671,8 @@ jQuery(document).ready(function ($) {
     
     // MAP
     
-    var currentMap = "#mapAsterleeds";
+    var currentMap = "#mapAsterleeds"; // Could set this to "" and then in dispMap remove the else statements
+    var newMap = "#mapAsterleeds";
     var tooltip = document.querySelectorAll(".tooltip");
     document.addEventListener('mousemove', trackMouse, false);
     
@@ -2648,10 +2689,10 @@ jQuery(document).ready(function ($) {
     });
     
     // Open page
-    function openWorldMap(region) {
+    function openWorldMap() {
 
         $("#mapContainer").css("display", "block");
-        region.css("display", "block");
+        dispMap();
         
     }
     
@@ -2707,6 +2748,191 @@ jQuery(document).ready(function ($) {
         }
     }  
     
+    var mapText = [
+        
+        // ENGLISH
+        {
+            storage: "Storage",
+            memorystand: 
+                'Liquid Memory Stand<br><img src="images/liquidmemory%20yellow%20fad459.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased chance of higher weapon level when crafting<br><img src="images/liquidmemory%20blue%206ac7cd.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased exp when leveling weapon<br><img src="images/liquidmemory%20red%20db516a.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Reduced gathering time<br><img src="images/liquidmemory%20purple%2079389e.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased enemy drop rate<br><img src="images/liquidmemory%20green%2045b343.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Reduced prices in npc shops',
+            imajhouse: "Imajinn Research Institute",
+            classmaster: "Class Master",
+            wepshop: "Weapon Shop",
+            potshop: "Potion Shop",
+            craftmachine: "Crafting Machine",
+            reconstructor: "Weapon Reconstructor",
+            gcshop: "GC Shop",
+            timedquest: "Timed Quest",
+            yellow1:
+                'Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragonclaw Valley [Free Exploration]',
+            green1: 
+                'Green Liquid Memory 1<br><br>Clear Godo&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godo',
+            blue2: [
+                'Blue Liquid Memory 2<br><br>Examine the shipwheel behind<br>the performers on the 2nd floor<br> of the Revolving Helm Pavilion',
+                    
+                '青いリキッドメモリ 2<br><br>廻る舵輪亭の２階で演奏者<br>の後ろにある舵を調べると解放'
+            ],
+            blue1: 
+                'Blue Liquid Memory 1<br><br>Clear Patty&#39;s Quest<br>"Troubled Apprentice" (Lv. 13+)<br><br>Obtain Engram Extractor<br>(clear Pillar of Divinity<br>[Advanced Survey]) and bring it<br>to Hanna outside the Pillar',
+            red2: 
+                'Red Liquid Memory 2<br><br>Examine the bottles on<br>the counter by the<br>Memory Stand',
+            red1: 
+                'Red Liquid Memory 1<br><br>Clear quest<br>"Welcome to the Memory Stand!" (Lv. 12+)<br><br>Listen to the Memory Stand<br>attendant&#39;s explanation',
+            purple1: 
+                'Purple Liquid Memory 1<br><br>Clear Louise&#39;s quest<br>"Calm Researcher&#39;s Latest Work!" (Lv. 28+)<br><br>Bring the following to Louise:<br>5 Full Moon Stones<br>(Calm Eve Terraces/night time/high ground)<br>5 Sunshine Shells<br>(Fiel Pond/day time/river)',
+            warpfrontier: 'Warp Gate<br>Frontiering Station',
+            warpcoatofarms: 'Warp Gate<br>Coat of Arms Plaza',
+            warpcitygate: 'Warp Gate<br>City Gate Square',
+            warpbeach: 'Warp Gate<br>Asterleeds Beach',
+            warpport: 'Warp Gate<br>Asterleeds Port',
+            warpinn: 'Warp Gate<br>The Double-Faced Coin',
+            warparena: 'Warp Gate<br>Revolving Helm Pavilion',
+            warpshrine: 'Warp Gate<br>Arena Entrance',
+            warppavilion: 'Warp Gate<br>Shrine Entrance',
+        },
+        
+        // JAPANESE
+        {
+            storage: "倉庫",
+            memorystand: 
+                'リキッドメモリスタンド<br><img src="images/liquidmemory%20yellow%20fad459.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">クラフトで武器Lvが上がりやすい<br><img src="images/liquidmemory%20blue%206ac7cd.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">武器精練の経験値上昇<br><img src="images/liquidmemory%20red%20db516a.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">採取時間の短縮<br><img src="images/liquidmemory%20purple%2079389e.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">エネミー撃破のドロップ率上昇<br><img src="images/liquidmemory%20green%2045b343.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">NPC施設のルーノ値引き',
+            imajhouse: "イマジン研究所",
+            classmaster: "クラスマスター",
+            wepshop: "武器屋",
+            potshop: "道具屋",
+            craftmachine: "転球練成儀",
+            reconstructor: "武器改造師",
+            gcshop: "GC交換所",
+            timedquest: "時間制限クエスト",
+            yellow1: 
+                '黄色リキッドメモリ 1<br><br>オービスのサブクエスト<br>「急がば近道！」(Lv. 24+)のクリア報酬<br><br>オービスの荷物を３個取り返すとクリア<br>巨竜の爪痕・自由探索でエルダーゴブリン・グロウを倒すと入手',
+            green1: 
+                '緑リキッドメモリ 1<br><br>ゴドーのサブクエスト<br>「不気味な香りの交換条件」(Lv. 19+)のクリア報酬<br><br>鎮まりの山麓でスプーキーゴートを倒し<br>ゴドーに報告するとクリア',
+            blue2:   
+                '青いリキッドメモリ 2<br><br>廻る舵輪亭の２階で演奏者<br>の後ろにある舵を調べると解放',
+            blue1:  
+                '青いリキッドメモリ 1<br><br>パティのサブクエスト<br>「困った見習い」(Lv. 13+)のクリア報酬<br><br>神殿前にいるハンナに話しかけ<br>神懸の御柱・追加調査をクリアし<br>エングラム分離器をハンナに渡し<br>パティに報告するとクリア',
+            red2:   
+                '赤いリキッドメモリ 2<br><br>メモリスタンドの横にあるビンを調べると解放',
+            red1: 
+                '赤いリキッドメモリ 1<br><br>サブクエスト<br>「メモリスタンドへようこそ！」(Lv. 12+)のクリア報酬<br><br>店員の説明を聴いて<br>巨竜の爪痕・自由探索で凍星草とパイルド鉱を採取し<br>店員に報告するとクリア',
+            purple1: 
+                '紫リキッドメモリ 1<br><br>ルイーゼのサブクエスト<br>「おっとり研究者の最新作」(Lv. 28+)のクリア報酬<br><br>ルイーゼに以下の素材を持っていくとクリア<br>満月石を５個(夜に夕凪の段丘の高地で採取)<br>ニッコウガイを５個(昼にフィエル嶺水地の川で採取)',
+            warpfrontier: '空間転送ポータル<br>開拓局前広場',
+            warpcoatofarms: '空間転送ポータル<br>天紋広場',
+            warpcitygate: '空間転送ポータル<br>アステルリーズ街門広場',
+            warpbeach: '空間転送ポータル<br>アステルリーズビーチ',
+            warpport: '空間転送ポータル<br>アステルリーズ港',
+            warpinn: '空間転送ポータル<br>対面コイン亭前',
+            warparena: '空間転送ポータル<br>闘技場前',
+            warpshrine: '空間転送ポータル<br>神殿前',
+            warppavilion: '空間転送ポータル<br>廻る舵輪亭前',
+        }
+    ]
+    
+    
+    // Display the map
+    function dispMap() {
+        
+        
+        // Asteria Plain
+        if (newMap == '#mapAsteriaPlain') {
+            
+            if (currentMap != "#mapAsteriaPlain") {
+                $("#mapAsteriaPlain").css("opacity","0");
+                $("#mapAsteriaPlain").css("display","block");
+                $(currentMap).stop().animate({opacity: 0}, 300);
+
+                setTimeout(function(){
+                    $(currentMap).css("display", "none");
+                    currentMap = "#mapAsteriaPlain";
+                }, 300);
+
+                $("#mapAsteriaPlain").stop().animate({opacity: 1}, 300);
+            } 
+            else {
+                $(newMap).css("display","block");
+            }
+
+        }
+        
+        
+        // Bahamar Highland
+        if (newMap == '#mapBahamarHighlands') {
+            
+            if (currentMap != "#mapBahamarHighlands") {
+                $("#mapBahamarHighlands").css("opacity","0");
+                $("#mapBahamarHighlands").css("display","block");
+                $(currentMap).stop().animate({opacity: 0}, 300);
+
+                setTimeout(function(){
+                    $(currentMap).css("display", "none");
+                    currentMap = "#mapBahamarHighlands";
+                }, 300);
+
+                $("#mapBahamarHighlands").stop().animate({opacity: 1}, 300);
+            }
+            else {
+                $(newMap).css("display","block");
+            }
+            
+        }
+        
+        
+        // Asterleeds
+        if (newMap == '#mapAsterleeds') {
+            
+            if (currentMap != "#mapAsterleeds") {
+                $("#mapAsterleeds").css("opacity","0");
+                $("#mapAsterleeds").css("display","block");
+                $(currentMap).stop().animate({opacity: 0}, 300);
+                
+                setTimeout(function(){
+                    $(currentMap).css("display", "none");
+                    currentMap = "#mapAsterleeds";
+                }, 300);
+                
+                $("#mapAsterleeds").stop().animate({opacity: 1}, 300);
+                
+            }
+            else {
+                $(newMap).css("display","block");
+            }
+            
+
+        }
+        
+        // 0 English 1 Japanese
+        $(".text-storage").html(mapText[currentLang].storage);
+        $(".text-memorystand").html(mapText[currentLang].memorystand);
+        $(".text-imajhouse").html(mapText[currentLang].imajhouse);
+        $(".text-classmaster").html(mapText[currentLang].classmaster);
+        $(".text-wepshop").html(mapText[currentLang].wepshop);
+        $(".text-potshop").html(mapText[currentLang].potshop);
+        $(".text-craftmachine").html(mapText[currentLang].craftmachine);
+        $(".text-reconstructor").html(mapText[currentLang].reconstructor);
+        $(".text-gcshop").html(mapText[currentLang].gcshop);
+        $(".text-timedquest").html(mapText[currentLang].timedquest);
+        $(".lm-yellow1").html(mapText[currentLang].yellow1);
+        $(".lm-green1").html(mapText[currentLang].green1);
+        $(".lm-blue2").html(mapText[currentLang].blue2);
+        $(".lm-blue1").html(mapText[currentLang].blue1);
+        $(".lm-red2").html(mapText[currentLang].red2);
+        $(".lm-red1").html(mapText[currentLang].red1);
+        $(".lm-purple1").html(mapText[currentLang].purple1);
+        $(".warp-frontier").html(mapText[currentLang].warpfrontier);
+        $(".warp-coatofarms").html(mapText[currentLang].warpcoatofarms);
+        $(".warp-citygate").html(mapText[currentLang].warpcitygate);
+        $(".warp-beach").html(mapText[currentLang].warpbeach);
+        $(".warp-port").html(mapText[currentLang].warpport);
+        $(".warp-inn").html(mapText[currentLang].warpinn);
+        $(".warp-arena").html(mapText[currentLang].warparena);
+        $(".warp-shrine").html(mapText[currentLang].warpshrine);
+        $(".warp-pavilion").html(mapText[currentLang].warppavilion);
+        
+        
+    }
+    
     // Map Switcher
     $(".mapListItem").click(function(){
         
@@ -2740,24 +2966,10 @@ jQuery(document).ready(function ($) {
             }
             
             // Open the map
-            
-            
-            if (currentMap != "#mapAsteriaPlain") {
-                $("#mapAsteriaPlain").css("opacity","0");
-                $("#mapAsteriaPlain").css("display","block");
-                $(currentMap).stop().animate({opacity: 0}, 300);
-                
-                setTimeout(function(){
-                    $(currentMap).css("display", "none");
-                    currentMap = "#mapAsteriaPlain";
-                }, 300);
-            }
-            
-            $("#mapAsteriaPlain").stop().animate({opacity: 1}, 300);
-            
-            openWorldMap($(currentMap));
+            newMap = "#mapAsteriaPlain";
+            dispMap();
+
         }
-        
         
         // Bajamar Highlands maps
         if ($(this).is(".listBahamarHighlands")){
@@ -2785,45 +2997,14 @@ jQuery(document).ready(function ($) {
             }
             
             // Open the map
-            
-            
-            if (currentMap != "#mapBahamarHighlands") {
-                $("#mapBahamarHighlands").css("opacity","0");
-                $("#mapBahamarHighlands").css("display","block");
-                $(currentMap).stop().animate({opacity: 0}, 300);
-                
-                setTimeout(function(){
-                    $(currentMap).css("display", "none");
-                    currentMap = "#mapBahamarHighlands";
-                }, 300);
-            }
-
-            $("#mapBahamarHighlands").stop().animate({opacity: 1}, 300);
-            
-            openWorldMap($(currentMap));
+            newMap = "#mapBahamarHighlands";
+            dispMap();
         }
-        
-        
         
         // Asterleeds map
         if ($(this).is(".listAsterleeds")){
-            
-            
-            if (currentMap != "#mapAsterleeds") {
-                $("#mapAsterleeds").css("opacity","0");
-                $("#mapAsterleeds").css("display","block");
-                $(currentMap).stop().animate({opacity: 0}, 300);
-                
-                setTimeout(function(){
-                    $(currentMap).css("display", "none");
-                    currentMap = "#mapAsterleeds";
-                }, 300);
-            }
-            
-            $("#mapAsterleeds").stop().animate({opacity: 1}, 300);
-            
-            openWorldMap($(currentMap));
-            
+            newMap = "#mapAsterleeds";
+            dispMap();
         }
     });
     
@@ -2985,8 +3166,8 @@ jQuery(document).ready(function ($) {
     var spacing1 = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
     var listItemName = document.querySelectorAll(".listItem-name");
     var listItemType = document.querySelectorAll(".listItem-type");
-
-    // Battle Imajinn
+    
+        // Battle Imajinn
     var biHolderEN = [
         // Pink Piglet ピンクウリボ
         { 
@@ -5365,6 +5546,7 @@ jQuery(document).ready(function ($) {
     
     // Display Imajinn
     function dispImajinn(holder) {
+        
 
         // If battle imajinn, hide inner
         if (listHolder == biHolder) {
@@ -5955,12 +6137,200 @@ jQuery(document).ready(function ($) {
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
-    // JAPANESE TEXT HOLDERS
     
     
-    // Change font sizes, change headers like "Req. Luno" to JP
+    var skillsAF = [
     
-    
+        basic_skills = [
+
+            {  
+                name: "Break Slash",
+                locked: 0,
+                cooldown: 0,
+                // Skillpoints, classlevel, tooltip
+                skillinfo: [
+                    "0,0,Attack multiple times with your sword. Pressing a sideways movement key during the 4th hit will result in a slash attack.",
+                    "1,6,New combo option added. Pressing the forward movement key during the 3rd hit will result in a Light elemental attack.",
+                    "2,8,New combo option added. Pressing the backwards movement key during the 2nd hit will give you a defense buff."
+                ]
+            },
+
+            {  
+                name: "Shield Guard",
+                locked: 0,
+                cooldown: 0,
+                // Skillpoints, classlevel, tooltip
+                skillinfo: [
+                    "0,0,Hold button down to guard. While guarding, hold the basic attack button to stance. You will counter attack incoming attacks while stanced.",
+                    "2,7,Increases shield gauge recovery speed.",
+                    "2,8,Increases max shield gauge value.",
+                ]
+            }    
+        ],
+   
+        tac1 = [
+
+            {  
+                name: "Shield Charge",
+                locked: 0,
+                cooldown: "12 sec",
+                // Skillpoints, classlevel, tooltip
+                skillinfo: [
+                    "0,0,Charge forward with your shield and stun enemies. Cannot be used during Shield Break.",
+                    "3,14,Attack after shield charging to chain a stab attack.",
+                    "6,21,Up to 2 attacks can be chained.",
+                ],
+                alphaname: "Pursuing Blow",
+                alphainfo: "3,27,Damage is increased on the slam attack",
+                betaname: "Iron Wall",
+                betainfo: "3,27,For a limited time, increase your defense",
+
+            },
+
+
+
+            {  
+                name: "Sunrise Charge",
+                locked: 0,
+                cooldown: "12 sec",
+                // Skillpoints, classlevel, tooltip
+                skillinfo: [
+                    "2,10,Rush forward with your shield. Hitting an enemy will cause a small Holy damage explosion. Cannot be used during Shield Break.",
+                    "3,14,Attack after shield charging to chain a stab attack. The chain will cause a medium Holy damage explosion.",
+                    "6,21,Up to 2 attacks can be chained. After attacking, a large Holy explosion will occur.",
+                ],
+                    alphaname: "Deep Wounds",
+                    alphainfo: "3,27,Increases damage against enemies with abnormal status debuffs.",
+                    betaname: "Sunlight",
+                    betainfo: "3,27,Increases rate of accumulating elemental stacks.",
+
+            },
+    ],
+
+        tac2 = [
+
+            {  
+                name: "Blow Beat",
+                locked: 0,
+                cooldown: "10 sec",
+                // Skillpoints, classlevel, tooltip			
+                skillinfo: [
+                    "1,2,Slam your sword into the ground in a full directional attack. Enemies that are hit will be provoked.",
+                    "3,15,Can be charged up to level 2, increasing skill power.",
+                    "6,22,At max charge, all enemies within range will be pulled to you.",
+                ],
+                alphaname: "Wide Range",
+                alphainfo: "3,28,Increases the effective radius.",
+                betaname: "Quick Charge",
+                betainfo: "3,28,Decreases the time required to full charge.",
+
+            },
+
+            {  
+                name: "Celestial Pillar",
+                locked: 0,
+                cooldown: "? sec",
+                // Skillpoints, classlevel, tooltip	
+                skillinfo: [
+                    "2,10,Summon a pillar of light on yourself which continuously inflicting Holy damage to affected enemies.",
+                    "3,15,Can be charged up to level 2, increasing skill power and elemental stack accumulation.",
+                    "6,22,Can be charged up to level 3, increasing skill power and elemental stack accumulation.",
+                ],
+                alphaname: "Starlight",
+                alphainfo: "3,28,Increases rate of accumulating elemental stacks.",
+                betaname: "Instant",
+                betainfo: "3,28,Decreases the time that the Light pillar remains and increases the number of hits.",
+
+            },
+        ],
+
+        tac3 = [
+
+            {  
+                name: "Divide Slash",
+                locked: 0,
+                cooldown: "? sec",
+                // Skillpoints, classlevel, tooltip	
+                skillinfo: [
+                    "1,3,Unleash a slash attack in front of you that penetrates enemies.",
+                    "3,16,Slash up to 2 times.",
+                    "6,23,Slash up to 3 times.",
+                ],
+                alphaname: "Sturdy Blade",
+                alphainfo: "3,29,Increases skill power, but disables enemy penetration.",
+                betaname: "Enlarged Blade",
+                betainfo: "3,29,Increases the size of the attack.",
+
+            },
+
+            {  
+                name: "Crescent Light",
+                locked: 0,
+                cooldown: "12 sec",
+                // Skillpoints, classlevel, tooltip	
+                skillinfo: [
+                    "2,10,Perform a Light elemental slash attack in front of you.",
+                    "3,16,Slash up to 2 times.",
+                    "6,23,Decreases the cooldown of Crescent Light.",
+                ],
+                alphaname: "Moonlight",
+                alphainfo: "3,29,Increases rate of accumulating elemental stacks.",
+                betaname: "Gigantic Blade",
+                betainfo: "3,29,Increases skill power.",
+
+            },
+        ],
+
+        tac4 = [
+
+            {  
+                name: "Fortress",
+                locked: 0,
+                cooldown: "25 sec",
+                // Skillpoints, classlevel, tooltip	
+                skillinfo: [
+                    "1,4,Temporarily apply a shield up status. Cannot be used during shield break.",
+                    "3,17,Extends the duration of Fortress.",
+                    "6,24,Decreases the cooldown of Fortress.",
+                ],
+                alphaname: "Redirection",
+                alphainfo: "3,30,Increases counter attack damage while Fortress is active.",
+                betaname: "Thorns",
+                betainfo: "3,30,Upon a successful block, an explosion occurs, dealing Light damage to enemies in range.",
+
+            },
+
+            {  
+                name: "Regeneration",
+                locked: 0,
+                cooldown: "12 sec",
+                // Skillpoints, classlevel, tooltip
+                skillinfo: [
+                    "2,10,For a limited time, continuously regenerate HP.",
+                    "3,17,Extends the duration of Regeneration.",
+                    "6,24,Decreases cooldown for Regeneration.",
+                ],
+                alphaname: "Healing Boost",
+                alphainfo: "3,30,Increases the amount that Regeneration heals.",
+                betaname: "Fortitude",
+                betainfo: "3,30,Heals your shield guage.",
+
+            },
+        ],
+
+        ult = [
+            {
+                name: "Judgement Shield",
+                locked: 0,
+                cooldown: "60 sec",
+                // Skillpoints, classlevel, tooltip
+                skillinfo: [
+                    "2,5,Slam your sword forward, causing a Holy shockwave. Using this skill recovers shield guage. Successful guards will slightly shorten Judgement Shield's cooldown.",
+                ]
+            }
+        ]
+        
+    ]
     
     
     });
