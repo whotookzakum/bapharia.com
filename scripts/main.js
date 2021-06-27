@@ -22,6 +22,10 @@ jQuery(document).ready(function ($) {
         if (event.keyCode == 69) {
             currentLang = 0;
         }
+        // keydown P 
+        if (event.keyCode == 80) {
+            currentLang = 2;
+        }
         switchLang(currentLang);
 
     });
@@ -32,19 +36,19 @@ jQuery(document).ready(function ($) {
         if (lang == 1) {
            
             // Footer hint JP
-            $(".langHint").html("J を押すと日本語、E を押すと英語に設定");
+            $(".langHint").html("J を押すと日本語、E を押すと英語、P を押すとポルトガル語に設定");
             $(".langHint").css("font-size","0.729vw");
             
             // Change crafting and imajinn text regardless of current page
             wepHolder = wepHolderJP;
             biHolder = biHolderJP;
             iiHolder = iiHolderJP;
-            if (listHolder == biHolderJP || listHolder == biHolderEN) {
+            if (listHolder == biHolderJP || listHolder == biHolderEN || listHolder == biHolderBR) {
                 biHolder = biHolderJP;
                 iiHolder = iiHolderJP;
                 listHolder = biHolder;
             }
-            else if (listHolder == iiHolderJP || listHolder == iiHolderEN) {
+            else if (listHolder == iiHolderJP || listHolder == iiHolderEN || listHolder == iiHolderBR) {
                 biHolder = biHolderJP;
                 iiHolder = iiHolderJP;
                 listHolder = iiHolder;
@@ -105,19 +109,19 @@ jQuery(document).ready(function ($) {
         else if (lang == 0) {
 
             // Footer hint EN
-            $(".langHint").html("press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese");
+            $(".langHint").html("press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese&nbsp;&nbsp;&nbsp;&nbsp;p for portuguese");
             $(".langHint").css("font-size","0.833vw");
             
             // Change crafting and imajinn text regardless of current page
             wepHolder = wepHolderEN;
             biHolder = biHolderEN;
             iiHolder = iiHolderEN;
-            if (listHolder == biHolderEN || listHolder == biHolderJP) {
+            if (listHolder == biHolderEN || listHolder == biHolderJP || listHolder == biHolderBR) {
                 biHolder = biHolderEN;
                 iiHolder = iiHolderEN;
                 listHolder = biHolder;
             }
-            else if (listHolder == iiHolder || listHolder == iiHolderJP) {
+            else if (listHolder == iiHolder || listHolder == iiHolderJP || listHolder == iiHolderBR) {
                 biHolder = biHolderEN;
                 iiHolder = iiHolderEN;
                 listHolder = iiHolder;
@@ -170,11 +174,78 @@ jQuery(document).ready(function ($) {
                 dispWeapon(wepHolder);
             }
             
-
-
-            
+   
         }
         
+        // BRAZILIAN PORTUGUESE
+        else if (lang == 2) { 
+            // Footer hint EN
+            $(".langHint").html("pressione e para inglês&nbsp;&nbsp;&nbsp;&nbsp;j para japonesas&nbsp;&nbsp;&nbsp;&nbsp;p para português");
+            $(".langHint").css("font-size","0.833vw");
+            
+            // Change crafting and imajinn text regardless of current page
+            wepHolder = wepHolderBR;
+            biHolder = biHolderBR;
+            iiHolder = iiHolderBR;
+            if (listHolder == biHolderEN || listHolder == biHolderJP || listHolder == biHolderBR) {
+                biHolder = biHolderBR;
+                iiHolder = iiHolderBR;
+                listHolder = biHolder;
+            }
+            else if (listHolder == iiHolderEN || listHolder == iiHolderJP || listHolder == iiHolderBR) {
+                biHolder = biHolderBR;
+                iiHolder = iiHolderBR;
+                listHolder = iiHolder;
+            }
+            // Crafting
+            $(".statAtkL").html("ataque &nbsp;");
+            $(".w-infoEle").html("<br>elemento");
+            $(".w-slotCount").html("slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
+            // Imajinn
+            $(".biSelector>p").html("Imajinn<br>de Batalha");
+            $(".iiSelector>p").html("Imajinn<br>Interno");
+            $(".biSelector").css("font-size","0.6775vw");
+            $(".iiSelector").css("font-size","0.6775vw");
+            // Crafting and Imajinn
+            $(".reqItemHeader").html("Itens Necessários &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qnt.");
+            $(".reqLunoHeader").html("Luno Nec.");
+            $(".abilityHeader").html("Possíveis talentos");
+            $(".statStr").html("str");
+            $(".statInt").html("int");
+            $(".statHp").html("max hp");
+            $(".statVit").html("vit");
+            $(".statMnd").html("mnd");
+            $(".statAtk").html("atk");
+            $(".statDex").html("dex");
+            $(".statStr").css("font-size","1.05vw");
+            $(".statInt").css("font-size","1.05vw");
+            $(".statHp").css("font-size","1.05vw");
+            $(".statVit").css("font-size","1.05vw");
+            $(".statMnd").css("font-size","1.05vw");
+            $(".statAtk").css("font-size","1.05vw");
+            $(".statDex").css("font-size","1.05vw");
+            $(".levelToggle>p").html("Nivel");
+            $(".listItem-reqAR").html("Nec. AR");
+            $(".matItem").css("font-size","1.25vw");
+            
+            
+            // Map EN
+            if (currentPage == "#mapContainer") {
+                dispMap();
+            }
+            
+            // Imajinn EN
+            if (currentPage == "#ImajinnContainer") {
+                dispImajinn(listHolder);
+            }
+
+            // Crafting EN
+            if (currentPage == "#craftingContainer") {
+                listWeapons(wepHolder);
+                dispWeapon(wepHolder);
+            }
+        
+        }
         
         
         
@@ -448,7 +519,7 @@ jQuery(document).ready(function ($) {
     //tooltipBG
     //tooltipIcn
     
-    
+    // Weapon list
     var wepHolderEN = [
         // 1 Novice Sword
         { 
@@ -2561,6 +2632,1060 @@ jQuery(document).ready(function ($) {
         
         
     ]
+    var wepHolderBR = [
+        // 1 Novice Sword
+        { 
+            name: "Espada de Novato", //ノービスソード
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword1.png",
+            image: "images/crafting/sword1L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 7)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+77",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+14",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Compre na loja de armas","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["Loja de Armas<br>Asterleeds","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 1 Battle Axe
+        { 
+            name: "Machado de Batalha", //バトルアックス
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe1.png",
+            image: "",
+            level: "Nv Inicial 1~1 (Nv Max: 7)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+85",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+13",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Compre na loja de armas","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["Loja de Armas<br>Asterleeds","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 1 Hunter Bow
+        { 
+            name: "Arco de Caça", //ハンターボウ
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow1.png",
+            image: "images/crafting/bow1L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 7)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+60",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+12",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Compre na loja de armas","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["Loja de Armas<br>Asterleeds","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 1 Training Rod
+        { 
+            name: "Cajado de Treinamento", //トレーニングロッド
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff1.png",
+            image: "",
+            level: "Nv Inicial 1~1 (Nv Max: 7)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+78",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+12",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Compre na loja de armas","<br>","<br>","0"],
+            // Icon to show on tooltip
+            iconSrc: ["images/map/weapon.png","",""],
+            amt: ["","",""],
+            tooltipText: ["Loja de Armas<br>Asterleeds","",""],
+            tooltipBg: [
+                tooltipWepShop,
+                "",
+                ""],
+            // The transformation
+            tooltipIcn: ["transform: translate(7.2vw, 7.6vw)","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        
+        // 2 Fanged Sword
+        { 
+            name: "Espada com Presas", //爪牙剣
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword2.png",
+            image: "images/crafting/sword2L.png",
+            level: "Nv Inicial 1~2 (Nv Max: 12)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+103",
+                    /*STR*/"+4",
+                    /*VIT*/"+0",
+                    /*DEX*/"+3",
+                    /*INT*/"+0",
+                    /*MND*/"+2",
+                    /*HP*/"+18",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Fragmento de Osso de Dragão","Presa do Javali Barulhento","Grama Alta","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Adicional]","Javali Barulhento<br>Bacia Andra","Coleta<br>Bacia Andra"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 2 Mist Cutter
+        { 
+            name: "Corta-névoa", //霧払い
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe2.png",
+            image: "images/crafting/axe2L.png",
+            level: "Nv Inicial 1~2 (Nv Max: 12)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+52",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Fragmento de Osso de Dragão","Presa do Javali Barulhento","Grama Alta","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Adicional]","Javali Barulhento<br>Bacia Andra","Coleta<br>Bacia Andra"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 2 Flashwing Bow
+        { 
+            name: "Arco da Asa Brilhante", //閃翼の弓｀
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow2.png",
+            image: "images/crafting/bow2L.png",
+            level: "Nv Inicial 1~2 (Nv Max: 12)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+93",
+                    /*STR*/"+4",
+                    /*VIT*/"+0",
+                    /*DEX*/"+3",
+                    /*INT*/"+0",
+                    /*MND*/"+2",
+                    /*HP*/"+16",
+                   ],
+            minStats: [
+                    /*ATK*/"+43",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Fragmento de Osso de Dragão","Presa do Javali Barulhento","Grama Alta","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Adicional]","Javali Barulhento<br>Bacia Andra","Coleta<br>Bacia Andra"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 2 Ancient Staff
+        { 
+            name: "Cajado Ancião", //往古の杖
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff2.png",
+            image: "",
+            level: "Nv Inicial 1~2 (Nv Max: 12)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+3",
+                    /*MND*/"+1",
+                    /*HP*/"+5",
+                   ],
+            recipe: ["Fragmento de Osso de Dragão","Presa do Javali Barulhento","Grama Alta","25,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["3","10","5"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Adicional]","Javali Barulhento<br>Bacia Andra","Coleta<br>Bacia Andra"],
+            tooltipBg: [
+                "",
+                tooltipAndra,
+                tooltipAndra],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        
+        // 3 Tower's Blade
+        { 
+            name: "Lâmina da Torre", //タワーズブレイド
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword3.png",
+            image: "images/crafting/sword3L.png",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            recipe: ["Núcelo IC","Garra de Raposa da Terra Alta","Minério de Baja","150,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Raposa da Terra Alta<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 3 Dual Raster
+        { 
+            name: "Lâminas Duplas", //デュアルラスター
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe3.png",
+            image: "images/crafting/axe3L.png",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+50",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Núcelo IC","Garra de Raposa da Terra Alta","Minério Baja","150,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Raposa da Terra Alta<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 3 Alpha Genesis
+        { 
+            name: "Gênesis Alfa", //アルファジェネシス｀
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow3.png",
+            image: "images/crafting/bow3L.png",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+41",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Núcelo IC","Chifre de Cabra Chifruda","Musgo Defumado","150,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Cabra Chifruda<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        // 3 Missionary
+        { 
+            name: "Missionário", //ミショナリー
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff3.png",
+            image: "images/crafting/staff3L.png",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+1",
+                    /*MND*/"+3",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Núcelo IC","Chifre de Cabra Chifruda","Musgo Defumado","150,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Cabra Chifruda<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipBg: [
+                "",
+                tooltipDivine,
+                tooltipDivine],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: ""
+        },
+        
+        // 4 Red Steel Blade
+        { 
+            name: "Lâmina de Aço Rubro", //鋼の赤刃
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword4.png",
+            image: "images/crafting/sword4L.png",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+143",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+26",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Amarelo Bajamar","Porrete gasto de Goblin","Pedra da Noite Tranquila","250,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        // 4 Ancient Flame-hardened Axe
+        { 
+            name: "Machado Endurecido pela Chama Anciã", //古代の火打ち斧
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe4.png",
+            image: "images/crafting/axe4L.png",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+158",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+25",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Amarelo Bajamar","Porrete gasto de Goblin","Pedra da Noite Tranquila","250,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        // 4 Mechanical Firecarved Bow
+        { 
+            name: "Arco Mecânico Talhado em Fogo", //機跡の炎刻弓｀
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow4.png",
+            image: "",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+129",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+24",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Amarelo Bajamar","Cajado gasto de Goblin","Planta Circular Aquática","250,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin Ancião<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        // 4 Blazing Staff
+        { 
+            name: "Cajado Ardente", //焼尽の杖
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff4.png",
+            image: "",
+            level: "Nv Inicial 1~4 (Nv Max: 20)", //初期
+            element: "images/crafting/fire.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+?",
+                    /*STR*/"+?",
+                    /*VIT*/"+?",
+                    /*DEX*/"+?",
+                    /*INT*/"+?",
+                    /*MND*/"+?",
+                    /*HP*/"+?",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+2",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Amarelo Bajamar","Cajado gasto de Goblin","Planta Circular Aquática","250,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["5","20","7"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin Ancião<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
+            tooltipBg: [
+                "",
+                tooltipSoundless,
+                tooltipSoundless],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/firetooltip.png"
+        },
+        
+        // 5 Scaleclaw Sword
+        { 
+            name: "Machado da Garra Escamosa", //鋼の赤刃
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword5.png",
+            image: "",
+            level: "Nv Inicial 1~5 (Nv Max: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+169",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+30",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Fragmento Firme de Osso de Dragão","Chifre de Ogro","Fragmento de Meteorito","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Ogro<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        // 5 Cliff Breaker
+        { 
+            name: "Quebra-rochas", //懸崖崩し
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe5.png",
+            image: "images/crafting/axe5L.png",
+            level: "Nv Inicial 1~5 (Nv Max: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+188",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+28",
+                   ],
+            minStats: [
+                    /*ATK*/"+52",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Fragmento Firme de Osso de Dragão","Chifre de Ogro","Fragmento de Meteorito","500,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["6","5","10"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Ogro<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        // 5 Brilliant Thunderwing Bow
+        { 
+            name: "Arco Brilhante da Asa do Trovão", //雷翼の豪弓
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow5.png",
+            image: "",
+            level: "Nv Inicial 1~5 (Nv Max: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+153",
+                    /*STR*/"+5",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+27",
+                   ],
+            minStats: [
+                    /*ATK*/"+43",
+                    /*STR*/"+3",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+0",
+                    /*MND*/"+1",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Fragmento Firme de Osso de Dragão","Presa de Javali Tirano Incandescente","Fruta Baule","500,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["6","10","10"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Javali Tirano Ancião<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        // 5 Old Dragon's Staff
+        { 
+            name: "Cajado Antigo do Dragão", //古竜の杖
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff5.png",
+            image: "",
+            level: "Nv Inicial 1~5 (Nv Max: 25)", //初期
+            element: "images/crafting/lightning.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+174",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+4",
+                    /*INT*/"+5",
+                    /*MND*/"+3",
+                    /*HP*/"+26",
+                   ],
+            minStats: [
+                    /*ATK*/"+48",
+                    /*STR*/"+0",
+                    /*VIT*/"+0",
+                    /*DEX*/"+2",
+                    /*INT*/"+3",
+                    /*MND*/"+1",
+                    /*HP*/"+5",
+                   ],
+            recipe: ["Fragmento Firme de Osso de Dragão","Presa de Javali Tirano Incandescente","Fruta Baule","500,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["6","10","10"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Javali Tirano Ancião<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipBg: [
+                "",
+                tooltipCalmEve,
+                tooltipCalmEve],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/lightningtooltip.png"
+        },
+        
+        // 6 Bapharia's Guidance
+        { 
+            name: "Guia de Bapharia", //バファリアの標
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword6.png",
+            image: "images/crafting/sword6L.png",
+            level: "Nv Inicial 1~6 (Nv Max: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+190",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+37",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+10",
+                   ],
+            recipe: ["Núcleo IC de Alta Performance","Chifre de Alce Ancião","Cobre Oscilante","1,200,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["7","15","15"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Avançada]","Alce Ancião<br>Lago Fiel","Coleta<br>Lago Fiel"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        // 6 Wild Ice Edge
+        { 
+            name: "Lâmina do Gelo Selvagem", //アイスエッジワイルド
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe6.png",
+            image: "images/crafting/axe6L.png",
+            level: "Nv Inicial 1~6 (Nv Max: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+211",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+36",
+                   ],
+            minStats: [
+                    /*ATK*/"+50",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Núcleo IC de Alta Performance","Chifre de Alce Ancião","Cobre Oscilante","1,200,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["7","15","15"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Avançada]","Alce Ancião<br>Lago Fiel","Coleta<br>Lago Fiel"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        // 6 Glacial Arch
+        { 
+            name: "Arco Glacial", //グレイシャルアーチ
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow6.png",
+            image: "",
+            level: "Nv Inicial 1~6 (Nv Max: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+172",
+                    /*STR*/"+3",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+5",
+                    /*HP*/"+34",
+                   ],
+            minStats: [
+                    /*ATK*/"+41",
+                    /*STR*/"+1",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+0",
+                    /*MND*/"+3",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Núcleo IC de Alta Performance","Cajado decorado de Goblin","Galho de Madeira Flutuante","1,200,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["7","10","15"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Avançada]","Goblin Sábio<br>Lago Fiel","Coleta<br>Lago Fiel"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        // 6 Retribution
+        { 
+            name: "Retribuição", //リトリビューション
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff6.png",
+            image: "",
+            level: "Nv Inicial 1~6 (Nv Max: 30)", //初期
+            element: "images/crafting/ice.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+195",
+                    /*STR*/"+0",
+                    /*VIT*/"+4",
+                    /*DEX*/"+0",
+                    /*INT*/"+3",
+                    /*MND*/"+5",
+                    /*HP*/"+33",
+                   ],
+            minStats: [
+                    /*ATK*/"+46",
+                    /*STR*/"+0",
+                    /*VIT*/"+2",
+                    /*DEX*/"+0",
+                    /*INT*/"+1",
+                    /*MND*/"+3",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Núcleo IC de Alta Performance","Cajado decorado de Goblin","Galho de Madeira Flutuante","1,200,000"],
+            iconSrc: [iDung,iCombat,iFlower],
+            amt: ["7","10","15"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Avançada]","Goblin Sábio<br>Lago Fiel","Coleta<br>Lago Fiel"],
+            tooltipBg: [
+                "",
+                tooltipFiel,
+                tooltipFiel],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/icetooltip.png"
+        },
+        
+        
+        // 7 Sharp Edged Sword
+        { 
+            name: "Espada da Lâmina Afiada", //鋭刃剣
+            type: "Espada", //剣（武器）
+            icon: "images/crafting/sword7.png",
+            image: "",
+            level: "Nv Inicial 1~7 (Nv Max: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+218",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+41",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+9",
+                   ],
+            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        // 7 Ground Edge
+        { 
+            name: "Lâmina da Terra", //グラウンドエッジ
+            type: "Machado", //斧（武器）
+            icon: "images/crafting/axe7.png",
+            image: "images/crafting/axe7L.png",
+            level: "Nv Inicial 1~7 (Nv Max: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+242",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+39",
+                   ],
+            minStats: [
+                    /*ATK*/"+51",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+8",
+                   ],
+            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        // 7 Groundrunner's Bow
+        { 
+            name: "Arco do Correventos", //地走りの弓
+            type: "Arco", //弓（武器）
+            icon: "images/crafting/bow7.png",
+            image: "",
+            level: "Nv Inicial 1~7 (Nv Max: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+197",
+                    /*STR*/"+5",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+37",
+                   ],
+            minStats: [
+                    /*ATK*/"+42",
+                    /*STR*/"+2",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+0",
+                    /*MND*/"+0",
+                    /*HP*/"+7",
+                   ],
+            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        },
+        // 7 Valeed Rod
+        { 
+            name: "Cajado Valeed", //バリードロッド
+            type: "Cajado", //杖（武器）
+            icon: "images/crafting/staff7.png",
+            image: "",
+            level: "Nv Inicial 1~7 (Nv Max: 35)", //初期
+            element: "images/crafting/earth.png",
+            slotCount: ["Slots", "?"], //スロット数
+            stats: [/*ATK*/"+224",
+                    /*STR*/"+0",
+                    /*VIT*/"+6",
+                    /*DEX*/"+4",
+                    /*INT*/"+5",
+                    /*MND*/"+0",
+                    /*HP*/"+36",
+                   ],
+            minStats: [
+                    /*ATK*/"+47",
+                    /*STR*/"+0",
+                    /*VIT*/"+3",
+                    /*DEX*/"+1",
+                    /*INT*/"+2",
+                    /*MND*/"+0",
+                    /*HP*/"+6",
+                   ],
+            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            iconSrc: [iDung,iCombat,iRock],
+            amt: ["8","5","20"],
+            tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                "",
+                tooltipDragonclaw,
+                tooltipDragonclaw],
+            tooltipIcn: ["visibility:hidden","visibility: hidden","visibility: hidden"],
+            eleTooltip: "images/crafting/earthtooltip.png"
+        }
+          
+    ]
     
     var wepHolder = wepHolderEN;
     
@@ -3167,7 +4292,7 @@ jQuery(document).ready(function ($) {
     var listItemName = document.querySelectorAll(".listItem-name");
     var listItemType = document.querySelectorAll(".listItem-type");
     
-        // Battle Imajinn
+    // Battle Imajinn
     var biHolderEN = [
         // Pink Piglet ピンクウリボ
         { 
@@ -4016,7 +5141,6 @@ jQuery(document).ready(function ($) {
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
     ]
-    // Battle Imajinn
     var biHolderJP = [
         // Pink Piglet ピンクウリボ
         { 
@@ -4865,6 +5989,854 @@ jQuery(document).ready(function ($) {
             tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
         },
     ]
+    var biHolderBR = [
+        // Pink Piglet ピンクウリボ
+        { 
+            name: "Leitão Rosa",
+            type: "Curandeiro",
+            image: "images/map/pinkpiglet.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 15)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // ウリボの安らぎ・ピンクウリボのイマジンを召喚しピンクウリボの周囲に回復エリアを生成する
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Tranquilidade do Leitão (cura)","eficácia", "175","67","Invoca o Imajinn do Leitão Rosa<br>que cria um campo de cura ao redor de si"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+18",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+9",
+                    /*DEX*/"+2"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Ideia do Leitão Rosa","Pedra Ondulada","Pele de Leitão","2,000"],
+            iconSrc: [iElite,iRock,iCombat],
+            amt: ["1","3","1"],
+            abilList: ["Aumento de Cura (imajinn de batalha)","Aumento de Cura", "<br>"],
+            tooltipText: ["Leitão Rosa<br>Campos Tremecéus","Coleta<br>Campos Tremecéus","Leitão<br>Campos Tremecéus"],
+            tooltipBg: [
+                tooltipSkyquake,
+                tooltipSkyquake,
+                tooltipSkyquake],
+            tooltipIcn: ["transform: translate(7vw, 7.7vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Ferocious Beast 猛る獣
+        { 
+            name: "Besta Feroz",
+            type: "Suporte",
+            image: "images/map/ferociousbeast.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 15)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // アクトクライ・猛る獣のイマジンを召喚し召喚者の攻撃力を一定時間上昇させる
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Grito de Luta (suporte)","eficácia", "150","150","Invoca o Imajinn da Besta Feroz<br>que concede ao invocador um aumento temporário de ATK"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+16",
+                    /*VIT*/"+3",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia da Besta Feroz","Grama da Alvorada","Pele de Javali Barulhento","7,000"],
+            iconSrc: [iElite,iFlower,iCombat],
+            amt: ["2","3","1"],
+            abilList: ["Aumento de Fôlego Max","Aumento de DEX", "<br>"],
+            tooltipText: ["Besta Feroz<br>Colinas Minster","Coleta<br>Colinas Minster","Javali Barulhento<br>Bacia Andra"],
+            tooltipBg: [
+                tooltipMinster,
+                tooltipMinster,
+                tooltipAndra],
+            tooltipIcn: ["transform: translate(7.4vw, 8vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Red Splash 赤い飛沫
+        { 
+            name: "Respingo Vermelho",
+            type: "Dano",
+            image: "images/map/redsplash.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 15)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // 兜割り・赤い飛沫のイマジンを召喚しターゲットの頭上を目掛けて棍棒を叩きつける。
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Divisor de Elmo (ataque)","eficácia", "422","166","Invoca o Imajinn do Respingo Vermelho<br>que mira e ataca a cabeça do alvo com o seu porrete"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+17",
+                    /*VIT*/"+2",
+                    /*MND*/"+4",
+                    /*ATK*/"+8",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Respingo Vermelho","Lírio do Planalto","Unha da Raposa da Terra Alta","15,000"],
+            iconSrc: [iElite,iFlower,iCombat],
+            amt: ["2","3","1"],
+            abilList: ["Aumento de dano (ataque padrão)","Aumento de STR", "<br>"],
+            tooltipText: ["Respingo Vermelho<br>Colinas Minster","Coleta<br>Sopé Silencioso","Raposa da Terra Alta<br>Colina do Refúgio Divino"],
+            tooltipBg: [
+                tooltipMinster,
+                tooltipSoundless,
+                tooltipDivine],
+            tooltipIcn: ["transform: translate(9.2vw, 2.7vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Deep Green Fang 深緑の牙
+        { 
+            name: "Presa Verde Profundo",
+            type: "Dano",
+            image: "images/map/deepgreenfang.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // 猪突猛進・深緑の牙のイマジンを召喚しターゲットを中心に突進攻撃を行う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Investida do Javali (ataque)","eficácia", "514","166","Invoca o Imajinn do Presa Verde Profundo<br>que executa um ataque de investida direcionado ao centro do alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Ideia do Presa Verde Profundo","Achigã","Pele de Javali Tirano","17,000"],
+            iconSrc: [iElite,iShell,iCombat],
+            amt: ["3","3","3"],
+            abilList: ["Aumento de dano (suprema)","Aumento de ATK", "<br>"],
+            tooltipText: ["Presa Verde Profundo<br>Bacia Andra","Coleta<br>Colinas Minster","Javali Tirano<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                tooltipAndra,
+                tooltipMinster,
+                tooltipDragonclaw],
+            tooltipIcn: ["transform: translate(5.8vw, 11vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
+        },
+        // Iron Fang 鉄牙
+        { 
+            name: "Presa de Ferro",
+            type: "Dano",
+            image: "images/map/ironfang.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // マウンテンスロー・鉄牙のイマジンを召喚し大きな牙でターゲットをすくい上げで打ち上げる
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Arremeço da Montanha (ataque)","eficácia", "524","169","Invoca o Imajinn do Presa de Ferro<br>que arremessa seus inimigos ao ar com suas presas gigantes"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Ideia do Presa de Ferro","Folha de Árvorurso","Juba de Goblin","20,000"],
+            iconSrc: [iElite,iFlower,iCombat],
+            amt: ["3","3","3"],
+            abilList: ["Aumento de dano (curto-alcance)","Aumento de ATK", "<br>"],
+            tooltipText: ["Presa de Ferro<br>Bacia Andra","Coleta<br>Colina do Refúgio Divino","Goblin<br>Colinas Minster"],
+            tooltipBg: [
+                tooltipAndra,
+                tooltipDivine,
+                tooltipMinster],
+            tooltipIcn: ["transform: translate(2vw, 3.1vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Flame Prison 炎獄
+        { 
+            name: "Prisão Fulgor",
+            type: "Dano",
+            image: "images/map/flamingprison.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 30)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // パワースイング・炎獄のイマジンを召喚し前方に棍棒を振り払う攻撃を行う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Golpe Poderoso (ataque)","eficácia", "710","169","Invoca o Imajinn do Prisão Fulgor<br>que golpeia com seu porrete os inimigos à sua frente"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+3",
+                    /*HP*/"+31",
+                    /*VIT*/"+4",
+                    /*MND*/"+3",
+                    /*ATK*/"+19",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+1",
+                    /*HP*/"+7",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+5",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Ideia do Prisão Fulgor","Pedra Jaspe","Juba de Goblin Incandescente","86,000"],
+            iconSrc: [iElite,iRock,iCombat],
+            amt: ["5","3","3"],
+            abilList: ["Redução de intervalo (imajinn de batalha)","Aumento de HP Max", "<br>"],
+            tooltipText: ["Prisão Fulgor<br>Terraços da Véspera Tranquila","Coleta<br>Sopé Silencioso","Goblin Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                tooltipCalmEve,
+                tooltipSoundless,
+                tooltipDragonclaw],
+            tooltipIcn: ["transform: translate(0.5vw, 9.5vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
+        },
+        // Ferocious Gold 猛る金色
+        { 
+            name: "Ouro Feroz",
+            type: "Dano",
+            image: "images/map/ferociousgold.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 30)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // デスタックル・猛る金色のイマジンを召喚しターゲットを中心に突進攻撃を行う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Avanço Mortal (ataque)","eficácia", "696","166","Invoca o Imajinn do Ouro Feroz<br>que executa um ataque de investida em direção ao alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+?",
+                    /*VIT*/"+5",
+                    /*MND*/"+3",
+                    /*ATK*/"+18",
+                    /*DEX*/"+3"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Ideia do Ouro Feroz","Semente de Nectar","Cauda da Besta Feroz","85,000"],
+            iconSrc: [iElite,iFlower,iElite],
+            amt: ["5","3","1"],
+            abilList: ["Aumento de dano (curto-alcance)","Aumento de ATK", "<br>"],
+            tooltipText: ["Ouro Feroz<br>Terraços da Véspera Tranquila","Coleta<br>Lago Fiel","Besta Feroz<br>Colinas Minster"],
+            tooltipBg: [tooltipCalmEve,
+                        tooltipFiel,
+                        tooltipMinster],
+            tooltipIcn: ["transform: translate(4.8vw, 8.2vw)","visibility: hidden","transform: translate(7.4vw, 8vw)"]
+        },
+        // Sapphire Trot サファイアトロット
+        { 
+            name: "Presa Safira",
+            type: "Dano",
+            image: "images/map/sapphiretrot.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // 落石牙・サファイアトロットのイマジンを召喚しターゲットに飛び掛かり噛みつく
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Queda da Presa de Pedra (ataque)","eficácia", "483","156","Invoca o Imajinn do Presa Safira<br>que executa uma investida e morde o alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+19",
+                    /*VIT*/"+3",
+                    /*MND*/"+4",
+                    /*ATK*/"+10",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Trote Safira","Galho de Cedro Andra","Juba de Goblin Ancião","25,000"],
+            iconSrc: [iElite,iFlower,iCombat],
+            amt: ["3","3","3"],
+            abilList: ["Aumento da taxa de Crit","Aumento de DEX", "<br>"],
+            tooltipText: ["Presa Safira<br>Colina do Refúgio Divino","Coleta<br>Colinas Minster","Goblin Ancião<br>Bacia Andra"],
+            tooltipBg: [tooltipDivine,
+                        tooltipMinster,
+                        tooltipAndra],
+            tooltipIcn: ["transform: translate(4.7vw, 10.8vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Flaming Horns 炎角
+        { 
+            name: "Chifre Flamejante",
+            type: "Dano",
+            image: "images/map/flaminghorns.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // カイザーブラスト・炎角のイマジンを召喚しターゲットを中心に雷属性の突進攻撃を行う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Explosão do Imperador(ataque)","eficácia", "493","159","Invoca o Imajin do Chifre Flamejante<br>que executa um ataque elemental de investida elétrico em direção ao alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+23",
+                    /*VIT*/"+2",
+                    /*MND*/"+4",
+                    /*ATK*/"+12",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Chifre Flamejante","Semente de Blésio","Juba de Goblin Sábio","26,000"],
+            iconSrc: [iElite,iFlower,iCombat],
+            amt: ["3","3","3"],
+            abilList: ["Redução de dano recebido (curto-alcance)","Aumento de DEF", "<br>"],
+            tooltipText: ["Chifre Flamejante<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino","Goblin Sábio<br>Sopé Silencioso"],
+            tooltipBg: [tooltipDivineLeft,
+                       tooltipDivine,
+                       tooltipSoundless],
+            tooltipIcn: ["transform: translate(0.8vw, 7.7vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Spooky Goat スプーキーゴート
+        { 
+            name: "Cabra Sinistra",
+            type: "Suporte",
+            image: "images/map/spookygoat.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 25)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // ゴートヘイスト・スプーキーゴートのイマジンを召喚し召喚者の移動速度を一定時間上昇させる
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Pressa da Cabra (suporte)","eficácia", "130","130","Invoca o Imajinn da Cabra Sinistra<br>que concede ao invocador um aumento temporário de velocidade de movimento"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+27",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+14",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia da Cabra Sinistra","Galho de Cedro do Crepúsculo","Pele de Javali Tirano Incandescente","45,000"],
+            iconSrc: [iElite,iFlower,iCombat],
+            amt: ["4","3","3"],
+            abilList: ["Aumento de Fôlego Max","Aumento de DEX", "<br>"],
+            tooltipText: ["Cabra Sinistra<br>Sopé Silencioso","Coleta<br>Terraços da Véspera Tranquila","Javali Tirano Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [tooltipSoundless,
+                       tooltipCalmEve,
+                       tooltipDragonclaw],
+            tooltipIcn: ["transform: translate(2.5vw, 4.9vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
+        },
+        // Evil Healer 悪しき癒し手
+        { 
+            name: "Curandeiro Maligno",
+            type: "Curandeiro",
+            image: "images/map/evilhealer.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 25)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // エリアヒール・悪しき癒し手のイマジンを召喚し悪しき癒し手の周囲の味方のHPを回復
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Cura em Área (cura)","eficácia", "267","71","Invoca o Imajinn do Curandeiro Maligno<br>que cura os aliados ao seu redor"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Curandeiro Maligno","Minério de Rimeril","Osso de Ogro","56,000"],
+            iconSrc: [iElite,iRock,iCombat],
+            amt: ["4","3","3"],
+            abilList: ["Aumento de Cura (imajinn de batalha)","Aumento de Cura", "<br>"],
+            tooltipText: ["Curandeiro Maligno<br>Sopé Silencioso","Coleta<br>Terraços da Véspera Tranquila","Ogro<br>Terraços da Véspera Tranquila"],
+            tooltipBg: [tooltipSoundless,
+                       tooltipCalmEve,
+                       tooltipCalmEve],
+            tooltipIcn: ["transform: translate(6vw, 10vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Trick Elder トリックエルダー
+        { 
+            name: "Ancião Trapaceiro",
+            type: "Dano",
+            image: "images/map/trickelder.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // エルダークリスタル・トリックエルダーのイマジンを召喚しターゲットに対して氷柱を3発飛ばす
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Cristal Ancião (ataque)","eficácia", "741","156","Invoca o Imajinn do Ancião Trapaceiro<br>que lança 3 setas de gelo ao alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+5",
+                    /*HP*/"+32",
+                    /*VIT*/"+4",
+                    /*MND*/"+6",
+                    /*ATK*/"+18",
+                    /*DEX*/"+6"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Ancião Trapaceiro","Veneno de Dragão","Pele de Presa Verde Profundo","130,000"],
+            iconSrc: [iElite,iFlower,iElite],
+            amt: ["3","3","1"],
+            abilList: ["Aumento de dano (longo-alcance)","Aumento de INT", "<br>"],
+            tooltipText: ["Ancião Trapaceiro<br>Lago Fiel","Coleta<br>Vale Garra do Dragão [Exploração Livre]","Presa Verde Profundo<br>Bacia Andra"],
+            tooltipBg: [tooltipFiel,
+                       tooltipDragonclaw,
+                       tooltipAndra],
+            tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(5.8vw, 11vw)"]
+        },
+        // Elder Goblin エルダーゴブリン
+        { 
+            name: "Goblin Ancião",
+            type: "Dano",
+            image: "images/map/eldergoblin.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 25)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // ファイアボール・エルダーゴブリンのイマジンを召喚しターゲットに火球を1発飛ばす
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Bola de Fogo (ataque)","eficácia", "604","166","Invoca o Imajinn do Goblin Ancião<br>que atira uma bola de fogo ao alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+24",
+                    /*VIT*/"+3",
+                    /*MND*/"+5",
+                    /*ATK*/"+13",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Goblin Ancião","Fóssil de Musgo Magna","Pele de Alce Ancião","43,000"],
+            iconSrc: [iElite,iRock,iCombat],
+            amt: ["4","3","3"],
+            abilList: ["Aumento de dano (longo-alcance)","Aumento de INT", "<br>"],
+            tooltipText: ["Conjurador Arrogante<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Terraços da Véspera Tranquila","Alce Ancião<br>Colina do Refúgio Divino"],
+            tooltipBg: [tooltipDragonclaw,
+                       tooltipCalmEve,
+                       tooltipDivine],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Goblin ゴブリン
+        { 
+            name: "Goblin",
+            type: "Dano",
+            image: "images/map/goblin.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 15)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // ゴブリンスタブ・ゴブリンのイマジンを召喚しターゲットを棍棒で突進状態で突く
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Punhalada do Goblin (ataque)","eficácia", "414","163","Invoca o Imajinn do Goblin<br>que perfura o alvo com seu porrete"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+17",
+                    /*VIT*/"+2",
+                    /*MND*/"+4",
+                    /*ATK*/"+8",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Goblin","Minério de Ferro","Cauda da Raposa Terrestre","9,000"],
+            iconSrc: [iElite,iRock,iCombat],
+            amt: ["2","3","1"],
+            abilList: ["Aumento de dano (habilidade tática 1)","Aumento de STR", "<br>"],
+            tooltipText: ["Saqueador do Vale<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Campos Tremecéus","Raposa Terrestre<br>Campos Tremecéus"],
+            tooltipBg: [tooltipDragonclaw,
+                       tooltipSkyquake,
+                       tooltipSkyquake],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Land Fox ランドフォックス
+        { 
+            name: "Raposa Terrestre",
+            type: "Dano",
+            image: "images/map/landfox.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 30)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // クラウンストライク・ランドフォックスのイマジンを召喚しターゲットに飛び掛かりタックルを行う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Ataque da Coroa(ataque)","eficácia", "669","159","Invoca o Imajinn da Raposa Terrestre<br>que executa um salto de ataque ao alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+4",
+                    /*HP*/"+16",
+                    /*VIT*/"+3",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia da Raposa Terrestre","Flor Lamusa","Pele de Leitão Rosa","1,500"],
+            iconSrc: [iElite,iFlower,iElite],
+            amt: ["1","3","1"],
+            abilList: ["Aumento de dano Crit","Aumento de DEX", "<br>"],
+            tooltipText: ["Tiro-alto<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Campos Tremecéus","Leitão Rosa<br>Campos Tremecéus"],
+            tooltipBg: [
+                tooltipDragonclaw,
+                tooltipSkyquake,
+                tooltipSkyquake],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(7vw, 7.7vw)"]
+        },
+        // Tyrant Boar タイラントボア
+        { 
+            name: "Javali Tirano",
+            type: "Dano",
+            image: "images/map/tyrantboar.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // 猟犬殺し・タイラントボアのイマジンを召喚しターゲットを頭突きで攻撃する
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Caça Mortal (ataque)","eficácia", "504","163","Invoca o Imajinn do Javali Tirano<br>que ataca o alvo com uma cabeçada"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+3",
+                    /*HP*/"+22",
+                    /*VIT*/"+4",
+                    /*MND*/"+2",
+                    /*ATK*/"+13",
+                    /*DEX*/"+2"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Ideia do Javali Tirano","Áreia de Prata","Pele de Cabra Chifruda","45,000"],
+            iconSrc: [iDung,iRock,iCombat],
+            amt: ["2","3","3"],
+            abilList: ["Aumento de dano (imajinn de batalha)","Aumento de ATK", "<br>"],
+            tooltipText: ["Completar Arena [Rank C]","Coleta<br>Colina do Refúgio Divino","Cabra Chifruda<br>Lago Fiel"],
+            tooltipBg: [
+                tooltipArena,
+                tooltipDivine,
+                tooltipFiel],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Horned Goat ホーンゴート
+        { 
+            name: "Cabra Chifruda",
+            type: "Dano",
+            image: "images/map/horngoat.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 25)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // ビハインドキック・ホーンゴートのイマジンを召喚しターゲットを後ろ足で蹴り飛ばす
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Coice (ataque)","eficácia", "593","163","Invoca o Imajinn da Cabra Chifruda<br>que dá um coice em seus inimigos"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+3",
+                    /*HP*/"+27",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+14",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia da Cabra Chifruda","Minério de Prata","Juba de Goblin Ancião Incandescente","83,000"],
+            iconSrc: [iDung,iRock,iCombat],
+            amt: ["3","3","3"],
+            abilList: ["Redução de dano recebido (longo-alcance)","Aumento de DEF", "<br>"],
+            tooltipText: ["Completar Arena [Rank B]","Coleta<br>Lago Fiel","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipBg: [
+                tooltipArena,
+                tooltipFiel,
+                tooltipDragonclaw],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(11.4vw, 4.4vw)"]
+        },
+        // Goblin Sage ゴブリンセージ
+        { 
+            name: "Goblin Sábio",
+            type: "Curandeiro",
+            image: "images/map/goblinsage.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 30)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // ゴブリンセージの調律・ゴブリンセージのイマジンを召喚し召喚者のHPを回復させる
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Curativo do Goblin Ancião (cura)","eficácia", "323","74","Invoca o Imajinn do Goblin Sábio<br>que cura o invocador"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+28",
+                    /*VIT*/"+3",
+                    /*MND*/"+5",
+                    /*ATK*/"+16",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+6",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+3",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Goblin Sábio","Peixe-espinho","Presa do Trote Safira","120,000"],
+            iconSrc: [iDung,iShell,iElite],
+            amt: ["5","3","1"],
+            abilList: ["Aumento de Cura (imajinn de batalha)","Aumento de Cura", "<br>"],
+            tooltipText: ["Completar Arena [Rank A]","Coleta<br>Lago Fiel","Presa Safira<br>Colina do Refúgio Divino"],
+            tooltipBg: [
+                tooltipArena,
+                tooltipFiel,
+                tooltipDivine],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","visibility: hidden","transform: translate(4.7vw, 10.8vw)"]
+        },
+        // Kaiser Elk カイザーエルク
+        { 
+            name: "Alce Ancião",
+            type: "Dano",
+            image: "images/map/kaiserelk.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // クラッパーホーン・カイザーエルクのイマジンを召喚しターゲットを角で振り払う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Chifrada (ataque)","eficácia", "756","159","Invoca o Imajinn do Alce Imperador<br>que ataca o alvo com seus chifres"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+5",
+                    /*HP*/"+35",
+                    /*VIT*/"+4",
+                    /*MND*/"+6",
+                    /*ATK*/"+19",
+                    /*DEX*/"+6"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+3",
+                    /*ATK*/"+4",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Ideia do Alce Imperador","Flor Longan","Juba de Curandeiro Maligno","140,000"],
+            iconSrc: [iDung,iFlower,iElite],
+            amt: ["7","3","1"],
+            abilList: ["Redução de dano recebido (curto-alcance)","Aumento de DEF", "<br>"],
+            tooltipText: ["Completar Arena [Rank S]","Coleta<br>Vale Garra do Dragão [Exploração Livre]","Curandeiro Maligno<br>Sopé Silencioso"],
+            tooltipBg: [
+                tooltipArena,
+                tooltipDragonclaw,
+                tooltipSoundless],
+            tooltipIcn: ["transform: translate(6.38vw, 8.3vw)","transform: translate(11.4vw, 4.4vw)","transform: translate(6vw, 10vw)"]
+        },
+        // Raging Kingfang 荒ぶる牙王
+        { 
+            name: "Presa Rei Furioso",
+            type: "Dano",
+            image: "images/map/ragingkingfang.mp4",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // タイラントアサルト・荒ぶる牙王のイマジンを召喚しターゲットを中心に広範囲の突進攻撃を行う
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Investida Tirana (ataque)","eficácia", "787","166","Invoca o Imajinn do Presa Rei Furioso<br>que executa uma investida de amplo alcance em direção ao alvo"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+5",
+                    /*HP*/"+34",
+                    /*VIT*/"+6",
+                    /*MND*/"+4",
+                    /*ATK*/"+20",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+2",
+                    /*HP*/"+7",
+                    /*VIT*/"+3",
+                    /*MND*/"+1",
+                    /*ATK*/"+4",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Ideia do Presa Rei Furioso","Fóssil de Concha","Osso de Prisão Fulgor","190,000"],
+            iconSrc: [iElite,iRock,iElite],
+            amt: ["7","3","1"],
+            abilList: ["Redução de intervalo (suprema)","Aumento de ATK", "<br>"],
+            tooltipText: ["Presa Rei Furioso<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Lago Fiel","Prisão Fulgor<br>Terraços da Véspera Tranquila"],
+            tooltipBg: [
+                tooltipDragonclaw,
+                tooltipFiel,
+                tooltipCalmEve],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","visibility: hidden","transform: translate(0.5vw, 9.5vw)"]
+        },
+        // Sealed Atrocity 封印されし暴虐
+        { 
+            name: "Atrocidade Selada",
+            type: "Dano",
+            image: "",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // アースクエイク
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Terremoto (ataque)","eficácia", "802","?","Invoca o Imajinn do Atrocidade Selada<br>que executa um grande ataque elemental de Terra centrado ao redor de si"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+4",
+                    /*HP*/"+35",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+21",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+?",
+                    /*INT*/"+?",
+                    /*HP*/"+?",
+                    /*VIT*/"+?",
+                    /*MND*/"+?",
+                    /*ATK*/"+?",
+                    /*DEX*/"+?"
+                   ],
+            recipe: ["Obtido como recompensa de Quest", "<br>", "<br>", "0"],
+            iconSrc: [iQuest,"",""],
+            amt: ["<br>","<br>","<br>"],
+            abilList: ["-","<br>", "<br>"],
+            tooltipText: ['Completar a Quest "Colete Imajinn de Batalha! #2"<br><br>Após Completar "Colete Imajinn de Batalha! #1", construa Presa Verde Profundo, Presa de Ferro, Trote Safira e Cabra Sinistra',"<br>","<br>"],
+            tooltipBg: [
+                tooltipFrontier,"",""],
+            tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Plidoke プリドーク
+        { 
+            name: "Plidoke",
+            type: "Dano",
+            image: "",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
+            // スライサーアーム・プリドークのイマジンを召喚し前方のターゲットに両手の剣を突き刺す
+            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Braço Cortante (ataque)","eficácia", "772","?","Invoca o Imajinn do Plidoke<br>que perfura os inimigos à sua frente com seus braços-espada"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+4",
+                    /*HP*/"+37",
+                    /*VIT*/"+6",
+                    /*MND*/"+4",
+                    /*ATK*/"+20",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+?",
+                    /*INT*/"+?",
+                    /*HP*/"+?",
+                    /*VIT*/"+?",
+                    /*MND*/"+?",
+                    /*ATK*/"+?",
+                    /*DEX*/"+?"
+                   ],
+            recipe: ["Obtido como recompensa de Quest", "<br>", "<br>", "0"],
+            iconSrc: [iQuest,"",""],
+            amt: ["<br>","<br>","<br>"],
+            abilList: ["-","<br>", "<br>"],
+            tooltipText: ['Complete a Quest "Colete Imajinn de Batalha! #3"<br><br>Após completar "Colete Imajinn de Batalha! #2", construa ???',"<br>","<br>"],
+            tooltipBg: [
+                tooltipFrontier,"",""],
+            tooltipIcn: ["transform: translate(7.4vw, 5.5vw)","visibility: hidden","visibility: hidden"]
+        },
+    ]
     
     // Inner Imajinn
     var iiHolderEN = [
@@ -5172,7 +7144,6 @@ jQuery(document).ready(function ($) {
             tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
         }
     ]
-    // Inner Imajinn
     var iiHolderJP = [
         
         // Dyranks/Dylanx
@@ -5472,6 +7443,311 @@ jQuery(document).ready(function ($) {
             amt: ["1","50","<br>"],
             abilList: ["回復力アップ","精神力アップ", "知力アップ"],
             tooltipText: ["トリックエルダー<br>フィエル嶺水地","採取<br>フィエル嶺水地","<br>"],
+            tooltipBg: [
+                tooltipFiel,
+                tooltipFiel,""],
+            tooltipIcn: ["transform: translate(8.8vw, 8.2vw)","visibility: hidden","visibility: hidden"]
+        }
+    ]
+    var iiHolderBR = [
+        
+        // Dyranks/Dylanx
+        { 
+            name: "Dyranks (coragem)",
+            type: "<br>",
+            image: "images/crafting/ii1L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 7)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot1.svg","Coragem"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+12",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+5",
+                    /*DEX*/"+1"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+8",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+3",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Cristal Reikrid","<br>","<br>","1,000"],
+            iconSrc: [iDung,"",""],
+            amt: ["1","<br>","<br>"],
+            abilList: ["Aumento de HP Max","<br>", "<br>"],
+            tooltipText: ["Complete a Masmorra<br>Túneis Reikrid","<br>","<br>"],
+            tooltipBg: [
+                tooltipSkyquake,"",""],
+            tooltipIcn: ["transform: translate(11.4vw, 4.5vw)","visibility: hidden","visibility: hidden"]
+        },
+        // Corjun/Corsion
+        { 
+            name: "Corjun (mistério)",
+            type: "<br>",
+            image: "images/crafting/ii2L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot3.svg","Mistério"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+0",
+                    /*INT*/"+5",
+                    /*HP*/"+20",
+                    /*VIT*/"+4",
+                    /*MND*/"+5",
+                    /*ATK*/"+6",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+0",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Unha de Raposa Terrestre","Minério de Asterium","<br>","9,000"],
+            iconSrc: [iCombat,iRock,""],
+            amt: ["8","15","<br>"],
+            abilList: ["Aumento de ATK","<br>", "<br>"],
+            tooltipText: ["Raposa Terrestre<br>Colinas Minster","Coleta<br>Colinas Minster","<br>"],
+            tooltipBg: [
+                tooltipMinster,
+                tooltipMinster,""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Mipect
+        { 
+            name: "Mipect (esperança)",
+            type: "<br>",
+            image: "images/crafting/ii3L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 20)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot2.svg","Esperança"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+3",
+                    /*INT*/"+3",
+                    /*HP*/"+25",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+7",
+                    /*DEX*/"+0"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+1",
+                    /*HP*/"+9",
+                    /*VIT*/"+3",
+                    /*MND*/"+2",
+                    /*ATK*/"+2",
+                    /*DEX*/"+0"
+                   ],
+            recipe: ["Unha de Goblin","Cristal Jira","<br>","10,000"],
+            iconSrc: [iCombat,iRock,""],
+            amt: ["10","10","<br>"],
+            abilList: ["Aumento de Fôlego Max","<br>", "<br>"],
+            tooltipText: ["Goblin<br>Bacia Andra","Coleta<br>Bacia Andra","<br>"],
+            tooltipBg: [
+                tooltipAndra,
+                tooltipAndra,""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Proxyx/Procsyx
+        { 
+            name: "Proxyx (coragem)",
+            type: "<br>",
+            image: "images/crafting/ii4L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot1.svg","Coragem"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+0",
+                    /*HP*/"+36",
+                    /*VIT*/"+5",
+                    /*MND*/"+4",
+                    /*ATK*/"+13",
+                    /*DEX*/"+4"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+0",
+                    /*HP*/"+8",
+                    /*VIT*/"+2",
+                    /*MND*/"+1",
+                    /*ATK*/"+3",
+                    /*DEX*/"+1"
+                   ],
+            recipe: ["Osso de Cabra Chifruda","Musgo Defumado","<br>","60,000"],
+            iconSrc: [iCombat,iFlower,""],
+            amt: ["12","20","<br>"],
+            abilList: ["Aumento de HP Max","Aumento de VIT", "Aumento de STR"],
+            tooltipText: ["Cabra Chifruda<br>Sopé Silencioso","Coleta<br>Colina do Refúgio Divino","<br>"],
+            tooltipBg: [
+                tooltipSoundless,
+                tooltipDivine,""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Latepect/Latepecht
+        { 
+            name: "Latepect (esperança)",
+            type: "<br>",
+            image: "images/crafting/ii5L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot2.svg","Esperança"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+4",
+                    /*INT*/"+4",
+                    /*HP*/"+38",
+                    /*VIT*/"+6",
+                    /*MND*/"+5",
+                    /*ATK*/"+11",
+                    /*DEX*/"+0"
+                   ],
+            minStats: [
+                    /*STR*/"+1",
+                    /*INT*/"+1",
+                    /*HP*/"+9",
+                    /*VIT*/"+3",
+                    /*MND*/"+2",
+                    /*ATK*/"+2",
+                    /*DEX*/"+0"
+                   ],
+            recipe: ["Fóssil de Presa Grande","<br>","<br>","85,000"],
+            iconSrc: [iRock,"",""],
+            amt: ["25","<br>","<br>"],
+            abilList: ["Aumento de Fôlego Max","Aumento de INT", "Aumento de MND"],
+            tooltipText: ["Coleta<br>Colina do Refúgio Divino","<br>","<br>"],
+            tooltipBg: [
+                tooltipDivine,"",""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Carcon
+        { 
+            name: "Carcon (mistério)",
+            type: "<br>",
+            image: "images/crafting/ii6L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot3.svg","Mistério"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+0",
+                    /*INT*/"+6",
+                    /*HP*/"+32",
+                    /*VIT*/"+5",
+                    /*MND*/"+6",
+                    /*ATK*/"+9",
+                    /*DEX*/"+5"
+                   ],
+            minStats: [
+                    /*STR*/"+0",
+                    /*INT*/"+3",
+                    /*HP*/"+6",
+                    /*VIT*/"+2",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+2"
+                   ],
+            recipe: ["Unha de Goblin Incandescente","Fóssil de Pterossauro","<br>","240,000"],
+            iconSrc: [iCombat,iRock,""],
+            amt: ["10","35","<br>"],
+            abilList: ["Aumento de ATK","Aumento de STR", "Aumento de DEX"],
+            tooltipText: ["Goblin Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]","<br>"],
+            tooltipBg: [
+                tooltipDragonclaw,
+                tooltipDragonclaw,""],
+            tooltipIcn: ["transform: translate(11.4vw, 4.4vw)","transform: translate(11.4vw, 4.4vw)","visibility: hidden"]
+        },
+        // Parbury
+        { 
+            name: "Parbury (ambição)",
+            type: "<br>",
+            image: "images/crafting/ii7L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot4.svg","Ambição"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+6",
+                    /*INT*/"+4",
+                    /*HP*/"+34",
+                    /*VIT*/"+4",
+                    /*MND*/"+0",
+                    /*ATK*/"+12",
+                    /*DEX*/"+6"
+                   ],
+            minStats: [
+                    /*STR*/"+3",
+                    /*INT*/"+1",
+                    /*HP*/"+7",
+                    /*VIT*/"+1",
+                    /*MND*/"+0",
+                    /*ATK*/"+2",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Presa de Javali Tirano Incandescente","Grama de Poeira Estelar","<br>","500,000"],
+            iconSrc: [iCombat,iFlower,""],
+            amt: ["15","40","<br>"],
+            abilList: ["Aumento de DEF","Aumento de DEX", "Aumento de VIT"],
+            tooltipText: ["Javali Tirano Incandescente<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila","<br>"],
+            tooltipBg: [
+                tooltipCalmEve,
+                tooltipCalmEve, ""],
+            tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
+        },
+        // Sanak'ta
+        { 
+            name: "Sanak'ta (afeto)",
+            type: "<br>",
+            image: "images/crafting/ii8L.png",
+            level: "Nv Inicial 1~1 (Nv Max: 35)",
+            element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
+            cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
+            // 
+            slot: ["slot","images/crafting/slot5.svg","Afeto"],
+            ability: ["talento", "????","eficácia", "????"],
+            stats: [/*STR*/"+5",
+                    /*INT*/"+5",
+                    /*HP*/"+30",
+                    /*VIT*/"+0",
+                    /*MND*/"+6",
+                    /*ATK*/"+10",
+                    /*DEX*/"+6"
+                   ],
+            minStats: [
+                    /*STR*/"+2",
+                    /*INT*/"+2",
+                    /*HP*/"+5",
+                    /*VIT*/"+0",
+                    /*MND*/"+3",
+                    /*ATK*/"+1",
+                    /*DEX*/"+3"
+                   ],
+            recipe: ["Unha de Ancião Trapaceiro","Pedra das Águas de Nascente","<br>","900,000"],
+            iconSrc: [iElite,iRock,""],
+            amt: ["1","50","<br>"],
+            abilList: ["Aumento de Cura","Aumento de MND", "Aumento de INT"],
+            tooltipText: ["Ancião Trapaceiro<br>Lago Fiel","Coleta<br>Lago Fiel","<br>"],
             tooltipBg: [
                 tooltipFiel,
                 tooltipFiel,""],
