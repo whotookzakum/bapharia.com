@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
             $(".biSelector").css("font-size","0.599vw");
             $(".iiSelector").css("font-size","0.599vw");
             // Crafting and Imajinn 
-            $(".reqItemHeader").html("必要アイテム &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;必要数");
+            $(".reqItemHeader").html("必要アイテム  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;必要数");
             $(".reqLunoHeader").html("必要ルーノ");
             $(".abilityHeader").html("付与アビリティ候補");
             $(".statStr").html("筋力");
@@ -150,7 +150,7 @@ jQuery(document).ready(function ($) {
             $(".biSelector").css("font-size","0.6775vw");
             $(".iiSelector").css("font-size","0.6775vw");
             // Crafting and Imajinn
-            $(".reqItemHeader").html("Required items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount");
+            $(".reqItemHeader").html("Required items  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount");
             $(".reqLunoHeader").html("Req. luno");
             $(".abilityHeader").html("Possible abilities");
             $(".statStr").html("str");
@@ -220,7 +220,7 @@ jQuery(document).ready(function ($) {
                 listHolder = iiHolder;
             }
             // Crafting
-            $(".statAtkL").html("ataque &nbsp;");
+            $(".statAtkL").html("atk &nbsp;");
             $(".w-infoEle").html("<br>elemento");
             $(".w-slotCount").html("slots &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?");
             // Imajinn
@@ -229,7 +229,7 @@ jQuery(document).ready(function ($) {
             $(".biSelector").css("font-size","0.6775vw");
             $(".iiSelector").css("font-size","0.6775vw");
             // Crafting and Imajinn
-            $(".reqItemHeader").html("Itens Necessários &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qnt.");
+            $(".reqItemHeader").html("Itens Necessários  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qnt.");
             $(".reqLunoHeader").html("Luno Nec.");
             $(".abilityHeader").html("Possíveis talentos");
             $(".statStr").html("str");
@@ -875,7 +875,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+?",
                     /*HP*/"+?",
                    ],
-            recipe: ["IC Core","Highland Fox Claw","Baja Ore","150,000"],
+            recipe: ["IC Core","Highland Fox Claw","Baha Ore","150,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
@@ -912,7 +912,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+3",
                     /*HP*/"+9",
                    ],
-            recipe: ["IC Core","Highland Fox Claw","Baja Ore","150,000"],
+            recipe: ["IC Core","Highland Fox Claw","Baha Ore","150,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Pillar of Divinity [Additional Survey]","Highland Fox<br>Divine Haven Hill","Gather<br>Divine Haven Hill"],
@@ -1024,7 +1024,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+9",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
+            recipe: ["Bahamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
@@ -1061,7 +1061,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+8",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
+            recipe: ["Bahamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
@@ -1098,7 +1098,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+7",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
+            recipe: ["Bahamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
@@ -1135,7 +1135,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+6",
                    ],
-            recipe: ["Bajamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
+            recipe: ["Bahamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
@@ -1472,7 +1472,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+9",
                    ],
-            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
@@ -1509,7 +1509,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+8",
                    ],
-            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
@@ -1546,7 +1546,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+7",
                    ],
-            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
@@ -1583,7 +1583,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+6",
                    ],
-            recipe: ["High Quality Bajamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
+            recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
@@ -2987,10 +2987,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+?",
                     /*HP*/"+?",
                    ],
-            recipe: ["Núcelo IC","Garra de Raposa da Terra Alta","Minério de Baja","150,000"],
+            recipe: ["Núcelo IC","Garra de Raposa da Terra Alta","Minério Baha","150,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
-            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Raposa da Terra Alta<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Raposa da Terra Alta<br>Colina do Santuário","Coleta<br>Colina do Santuário"],
             tooltipBg: [
                 "",
                 tooltipDivine,
@@ -3024,10 +3024,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+3",
                     /*HP*/"+9",
                    ],
-            recipe: ["Núcelo IC","Garra de Raposa da Terra Alta","Minério Baja","150,000"],
+            recipe: ["Núcelo IC","Garra de Raposa da Terra Alta","Minério de Baha","150,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
-            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Raposa da Terra Alta<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Raposa da Terra Alta<br>Colina do Santuário","Coleta<br>Colina do Santuário"],
             tooltipBg: [
                 "",
                 tooltipDivine,
@@ -3064,7 +3064,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Núcelo IC","Chifre de Cabra Chifruda","Musgo Defumado","150,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Cabra Chifruda<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Cabra Chifruda<br>Colina do Santuário","Coleta<br>Colina do Santuário"],
             tooltipBg: [
                 "",
                 tooltipDivine,
@@ -3101,7 +3101,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Núcelo IC","Chifre de Cabra Chifruda","Musgo Defumado","150,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Cabra Chifruda<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino"],
+            tooltipText: ["Complete a Masmorra<br>Pilar da Divindade [Pesquisa Adicional]","Cabra Chifruda<br>Colina do Santuário","Coleta<br>Colina do Santuário"],
             tooltipBg: [
                 "",
                 tooltipDivine,
@@ -3136,7 +3136,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+9",
                    ],
-            recipe: ["Amarelo Bajamar","Porrete gasto de Goblin","Pedra da Noite Tranquila","250,000"],
+            recipe: ["Amarelo Bahamar","Porrete gasto de Goblin","Pedra da Noite Tranquila","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
@@ -3173,7 +3173,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+8",
                    ],
-            recipe: ["Amarelo Bajamar","Porrete gasto de Goblin","Pedra da Noite Tranquila","250,000"],
+            recipe: ["Amarelo Bahamar","Porrete gasto de Goblin","Pedra da Noite Tranquila","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
@@ -3210,7 +3210,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+7",
                    ],
-            recipe: ["Amarelo Bajamar","Cajado gasto de Goblin","Planta Circular Aquática","250,000"],
+            recipe: ["Amarelo Bahamar","Cajado gasto de Goblin","Planta Circular Aquática","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin Ancião<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
@@ -3247,7 +3247,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+6",
                    ],
-            recipe: ["Amarelo Bajamar","Cajado gasto de Goblin","Planta Circular Aquática","250,000"],
+            recipe: ["Amarelo Bahamar","Cajado gasto de Goblin","Planta Circular Aquática","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa]","Goblin Ancião<br>Sopé Silencioso","Coleta<br>Sopé Silencioso"],
@@ -3288,7 +3288,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Fragmento Firme de Osso de Dragão","Chifre de Ogro","Fragmento de Meteorito","500,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["6","5","10"],
-            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Ogro<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Ogro<br>Terraço Vespertino","Coleta<br>Terraço Vespertino"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -3325,7 +3325,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Fragmento Firme de Osso de Dragão","Chifre de Ogro","Fragmento de Meteorito","500,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["6","5","10"],
-            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Ogro<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Ogro<br>Terraço Vespertino","Coleta<br>Terraço Vespertino"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -3359,10 +3359,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+1",
                     /*HP*/"+6",
                    ],
-            recipe: ["Fragmento Firme de Osso de Dragão","Presa de Javali Tirano Incandescente","Fruta Baule","500,000"],
+            recipe: ["Fragmento Firme de Osso de Dragão","<a style='font-size: 1.146vw'>Presa de Javali Tirano Incandescente</a>","Fruta Baule","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","10","10"],
-            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Javali Tirano Ancião<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Javali Tirano Ancião<br>Terraço Vespertino","Coleta<br>Terraço Vespertino"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -3396,10 +3396,10 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+1",
                     /*HP*/"+5",
                    ],
-            recipe: ["Fragmento Firme de Osso de Dragão","Presa de Javali Tirano Incandescente","Fruta Baule","500,000"],
+            recipe: ["Fragmento Firme de Osso de Dragão","<a style='font-size: 1.146vw'>Presa de Javali Tirano Incandescente</a>","Fruta Baule","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","10","10"],
-            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Javali Tirano Ancião<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila"],
+            tooltipText: ["Complete a Masmorra<br>Vale Garra do Dragão [Pesquisa Avançada]","Javali Tirano Ancião<br>Terraço Vespertino","Coleta<br>Terraço Vespertino"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -3584,7 +3584,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+9",
                    ],
-            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            recipe: ["Amarelo Bahamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
@@ -3621,7 +3621,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+8",
                    ],
-            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            recipe: ["Amarelo Bahamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
@@ -3658,7 +3658,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+7",
                    ],
-            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            recipe: ["Amarelo Bahamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
@@ -3695,7 +3695,7 @@ jQuery(document).ready(function ($) {
                     /*MND*/"+0",
                     /*HP*/"+6",
                    ],
-            recipe: ["Amarelo Bajamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
+            recipe: ["Amarelo Bahamar de Alta Qualidade","Varinha Grande de Goblin","Minério de Dragão Uivante","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
             tooltipText: ["Complete a Masmorra<br>Vale da Ruína Mecânica [Pesquisa Avançada]","Goblin Ancião Incandescente<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Vale Garra do Dragão [Exploração Livre]"],
@@ -3969,7 +3969,7 @@ jQuery(document).ready(function ($) {
             skyquakeToAsterleedsTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate<br><img src="images/map/imajinnHouse.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Imagine Research Institute<br><img src="images/map/crafting.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Crafting Machine<br><img src="images/map/reconstructor.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Weapon Reconstructor<br><img src="images/map/classmaster.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Class Master<br><img src="images/map/liquidmemory.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Liquid Memory Stand<br><img src="images/map/exchange.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">GC Shop<br><img src="images/map/potion.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Potion Shop<br><img src="images/map/weapon.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Weapon Shop<br><img src="images/map/storage.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Storage<br>',
             minsterToDivine: "To Divine Haven Hill",
             // 12 things
-            minsterToDivineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baja Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
+            minsterToDivineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baha Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
             skyquakeName: "Skyquake Fields",
             // 6 things
             skyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Pink Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Lamusa Flower<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Ripple Stone<br>',
@@ -4036,7 +4036,7 @@ jQuery(document).ready(function ($) {
             divineToMinster: "To Minster Hills",
             divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
             divineName: "Divine Haven Hill",
-            divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baja Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
+            divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baha Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
             larpalName: 'Larpal',
             expDivine1: "Exploration Point<br>Divine Haven Hill 1",
             expDivine2: "Exploration Point<br>Divine Haven Hill 2",
@@ -4097,7 +4097,7 @@ jQuery(document).ready(function ($) {
             listMinsterhorn: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Minsterhorn',
             listSkyquake: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Skyquake Fields',
             listAsteria: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Asteria Plain',
-            listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Bajamar Highland',
+            listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Bahamar Highland',
             listDivine: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Divine Haven Hill',
             listLarpal: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Larpal',
             listFiel: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Fiel Pond',
@@ -4317,9 +4317,216 @@ jQuery(document).ready(function ($) {
             listBergmahl: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ベルクマール',
             listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">アステルリーズ<br>',
             searchTitle: 'ゾーンやエリア名で検索'
+        },
+        
+        // PORTUGUESE 
+        {
+            storage: "Armazém",
+            memorystand: 
+                'Banca de Memória Líquida<br><img src="images/liquidmemory%20yellow%20fad459.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Chance aumentada de construir armas de nível mais alto<br><img src="images/liquidmemory%20blue%206ac7cd.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Aumento de XP recebido para up de armas<br><img src="images/liquidmemory%20red%20db516a.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Redução no tempo de coleta<br><img src="images/liquidmemory%20purple%2079389e.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Aumento na taxa de drop dos inimigos<br><img src="images/liquidmemory%20green%2045b343.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Redução de preço nas lojas de NPCs',
+            imajhouse: "Instituto de Pesquisa Imajinn",
+            classmaster: "Mestre de Classe",
+            wepshop: "Loja de Armas",
+            potshop: "Loja de Poções",
+            craftmachine: "Máquina de Construção",
+            reconstructor: "Reconstrutor de Armas",
+            gcshop: "Loja GC",
+            timedquest: "",
+            yellow1:
+                'Memória Líquida Amarela 1<br><br>Complete a Quest de Orvis<br>"Pressa é a Inimiga da Perfeição" (Nv. 24+)<br><br>Recupere 3 Bagagens do Orvis de<br>Goblin Ancião Incandescente em<br>Vale Garra do Dragão [Exploração Livre]',
+            green1: 
+                'Memória Líquida Verde 1<br><br>Complete a Quest de Godo<br>"Termos de Troca por um<br>Odor Sinistro" (Nv. 19+)<br><br>Derrote uma Cabra Sinistra<br>em Sopé Silencioso<br>e relate a Godo',
+            blue2: [
+                'Memória Líquida Azul 2<br><br>Examine o Leme atrás<br>do caramanchão no segundo andar<br> do Pavilhão do Leme Giratório',
+                    
+                '青いリキッドメモリ 2<br><br>廻る舵輪亭の２階で演奏者<br>の後ろにある舵を調べると解放'
+            ],
+            blue1: 
+                'Memória Líquida Azul 1<br><br>Complete a Quest da Patty<br>"Aprendiz Aflito" (Nv. 13+)<br><br>Obtenha um Extrator de Engrama<br>(complete o Pilar da Divindade<br>[Pesquisa Avançada]) e traga para<br>Hanna fora do Pilar',
+            red2: 
+                'Memória Líquida Vermelha 2<br><br>Examine as garrafas no<br>balcão ao lado da<br>Banca de Memórias',
+            red1: 
+                'Memória Líquida Vermelha 1<br><br>Complete a Quest<br>"Bem-vindo à Banca de Memórias!" (Nv. 12+)<br><br>Ouça a explicação da<br>atendente da Banca de Memórias',
+            purple1: 
+                'Memória Líquida Roxa 1<br><br>Complete a Quest de Louise<br>"O último trabalho da pesquisadora!" (Nv. 28+)<br><br>Traga os seguintes itens à Louise:<br>5 Pedras da Lua Cheia<br>(Terraço Vespertino/período noturno/andar de cima)<br>5 Conchas do Raiar do Sol<br>(Lago Fiel/período diurno/rago)',
+            warpfrontier: 'Portal de Dobra<br>Estação da Fronteira',
+            warpcoatofarms: 'Portal de Dobra<br>Plaza do Brazão',
+            warpcitygate: 'Portal de Dobra<br>Praça da Cidade',
+            warpbeach: 'Portal de Dobra<br>Praia Asterleeds',
+            warpport: 'Portal de Dobra<br>Porto Asterleeds',
+            warpinn: 'Portal de Dobra<br>A Moeda de Duas Faces',
+            warparena: 'Portal de Dobra<br>Pavilhão do Leme Giratório',
+            warpshrine: 'Portal de Dobra<br>Entrada da Arena',
+            warppavilion: 'Portal de Dobra<br>Entrada do Santuário',
+            msq1: 'Quest da História Principal 1<br>"Em Busca de Memórias"<br><br>Fale com o dono da<br>taverna no primeiro andar',
+            msq2: 'Quest da História Principal 2<br>"Em Busca de Memórias"<br><br>Saia da taverna',
+            msq3: 'Quest da História Principal 3<br>"Em Busca de Memórias"<br><br>Compre poções de vida para uso em campo',
+            msq4: 'Quest da História Principal 4<br>"Em Busca de Memórias"<br><br>Fale com Feste em<br>frente ao Armazém',
+            msq5: 'Quest da História Principal 5<br>"Em Busca de Memórias"<br><br>Vá até a Praça da Cidade',
+            msq6: 'Quest da História Principal 6<br>"Em Busca de Memórias"<br><br>Examine um Portal de Dobra',
+            msq7: 'Quest da História Principal 7<br>"Em Busca de Memórias"<br><br>Saia da cidade',
+            msq10: 'Quest da História Principal 10<br>"Em Busca de Memórias"<br><br>Retorne à Estação da Fronteira',
+            msq11: 'Quest da História Principal 11<br>"Em Busca de Memórias"<br><br>Fale com Jake na<br>Estação da Fronteira',
+            msq12: 'Quest da História Principal 12<br>"Registro do Aventureiro"<br><br>Fale com Myulie na<br>Estação da Fronteira',
+            msq14: 'Quest da História Principal 14<br>"Registro do Aventureiro"<br><br>Crie uma poção de vida<br>para uso em campo',
+            msq15: 'Quest da História Principal 15<br>"Registro do Aventureiro"<br><br>Relate à Myulie<br>na Estação da Fronteira',
+            msq16: 'Quest da História Principal 16<br>"Eleve seu Nível de Aventureiro!"<br><br>Fale com Jake na<br> Estação da Fronteira<br>(Rank de Aventureiro Nec. 2+)',
+            msq17: 'Quest da História Principal 17<br>"Eleve seu Nível de Aventureiro!"<br><br>Fale com Feste<br>',
+            msq18: 'Quest da História Principal 18<br>"Eleve seu Nível de Aventureiro!"<br><br>Vá ao Instituto<br>de Pesquisa Imajinn<br>',
+            msq20: 'Quest da História Principal 20<br>"Eleve seu Nível de Aventureiro!"<br><br>Vá ao Instituto<br>de Pesquisa Imajinn<br>',
+            msq21: 'Quest da História Principal 21<br>"Eleve seu Nível de Aventureiro!"<br><br>Crie o Imajinn Interno<br>"Diranks (coragem)"',
+            msq22: 'Quest da História Principal 22<br>"Eleve seu Nível de Aventureiro!"<br><br>Alcance o Rank de Aventureiro 2<br>(no menu de opções)',
+            msq23: 'Quest da História Principal 23<br>"Vale Garra do Dragão"<br><br>Fale com Jake sendo um<br>Aventureiro Rank 2',
+            msq26: 'Quest da História Principal 26<br>"Vale Garra do Dragão"<br><br>Receba as recompensas de Jake<br>na Estação da Fronteira',
+            msq27: 'Quest da História Principal 27<br>"O que é um &#39;visitante&#39;..?"<br><br>Fale com o dono da taverna<br>na Moeda de Duas Faces',
+            msq28: 'Quest da História Principal 28<br>"O que é um &#39;visitante&#39;..?"<br><br>Pergunte sobre &#39;visitantes&#39;<br>no Santuário Bapharia',
+            asterleedsToSkyquake: "Para Campos Tremecéus",
+            asterleedsToSkyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Leitão Rosa<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw">Leitão<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw">Raposa Terrestre<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw">Flor Lamusa<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw" draggable="false">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw" draggable="false">Pedra Ondulada<br>',
+            
+            
+            // Asteria Plain
+            skyquakeToAsterleeds: "Para Asterleeds",
+            // 10 things
+            skyquakeToAsterleedsTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate<br><img src="images/map/imajinnHouse.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Instituto de Pesquisa Imajinn<br><img src="images/map/crafting.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Máquina de Construção<br><img src="images/map/reconstructor.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Reconstrutor de Armas<br><img src="images/map/classmaster.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Mestre de Classe<br><img src="images/map/liquidmemory.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Banca de Memória Líquida<br><img src="images/map/exchange.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Loja GC<br><img src="images/map/potion.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Loja de Poções<br><img src="images/map/weapon.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Loja de Armas<br><img src="images/map/storage.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Armazém<br>',
+            minsterToDivine: "Para Colina do Santuário",
+            // 12 things
+            minsterToDivineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Portal de Dobra - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Trote Safira<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Chifre Flamejante<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa da Terra Alta<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw; width: 1.823vw;">Cabra Chifruda<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Alce Imperador<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Musgo Defumado<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Fruta Blesio<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Folha de Árvorurso<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Fóssil de Presa Grande<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Baha<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Areia de Prata<br>',
+            skyquakeName: "Campos Tremecéus",
+            // 6 things
+            skyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Leitão Rosa<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Leitão<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa Terrestre<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Flor Lamusa<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pedra Ondulada<br>',
+            expSkyquake1: 'Ponto de Exploração<br>Campos Tremecéus 1',
+            expSkyquake2: 'Ponto de Exploração<br>Campos Tremecéus 2',
+            expSkyquake3: 'Ponto de Exploração<br>Campos Tremecéus 3',
+            expSkyquake4: 'Ponto de Exploração<br>Campos Tremecéus 4',
+            expSkyquake5: 'Ponto de Exploração<br>Campos Tremecéus 5',
+            emPiglet: 'Monstro Elite<br>Leitão Rosa',
+            
+            
+            andraName: "Bacia Andra",
+            // 9 things
+            andraTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Presa Verde Profundo<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Presa de Ferro<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Rumble Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Javali Tirano<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Goblin Ancião<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Galho de Cedro Andra<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Grama Alta<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Cristal Jira<br>',
+            expAndra1: 'Ponto de Exploração<br>Bacia Andra 1',
+            expAndra2: 'Ponto de Exploração<br>Bacia Andra 2',
+            expAndra3: 'Ponto de Exploração<br>Bacia Andra 3',
+            expAndra4: 'Ponto de Exploração<br>Bacia Andra 4',
+            emIronFang: 'Monstro Elite<br>Presa de Ferro',
+            emDeepGreen: 'Monstro Elite<br>Presa Verde Profundo',
+            
+            calmName: 'Terraço Vespertino',
+            // 14 things
+            calmTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ouro Feroz<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flame Prison<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Ancião<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Javali Tirano<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Javali Tirano Incandescente<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Ogre<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Galho de Cedro do Crepúsculo<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Grama de Poeira Estelar<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Fruta Baule<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Fragmento de Meteorito<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Fóssil de Musgo Magna<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Rimeril<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pedra da Lua Cheia<br>',
+            expCalm1: 'Ponto de Exploração<br>Terraço Vespertino 1',
+            expCalm2: 'Ponto de Exploração<br>Terraço Vespertino 2',
+            expCalm3: 'Ponto de Exploração<br>Terraço Vespertino 3',
+            emFlamePrison: 'Monstro Elite<br>Prisão Fulgor',
+            emFerociousGold: 'Monstro Elite<br>Ouro Feroz',
+            
+            minsterName: 'Colinas Minster',
+            // 12 things
+            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Vale Garra do Dragão<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Portal de Dobra - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Besta Feroz<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Respingo Vermelho<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Leitão<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa Terrestre<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Grama da Alvorada<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Galho de Cedro Andra<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Ferro<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Asterium<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Achigã<br>',
+            minsterhornName: 'Minsterhorn',
+            minsterhornTool: 'npc Milrain<br>npc Stadst<br>npc Feste<br>',
+            warpminsterhorn: 'Portal de Dobra<br>Minsterhorn',
+            expMinster1: "Ponto de Exploração<br>Colinas Minster 1",
+            expMinster2: "Ponto de Exploração<br>Colinas Minster 2",
+            expMinster3: "Ponto de Exploração<br>Colinas Minster 3",
+            expMinster4: "Ponto de Exploração<br>Colinas Minster 4",
+            expMinster5: "Ponto de Exploração<br>Colinas Minster 5",
+            expMinster6: "Ponto de Exploração<br>Colinas Minster 6",
+            expMinster7: "Ponto de Exploração<br>Colinas Minster 7",
+            expMinster8: "Ponto de Exploração<br>Colinas Minster 8",
+            emFerociousBeast: 'Monstro Elite<br>Besta Feroz',
+            emRedSplash: 'Monstro Elite<br>Respingo Vermelho',
+            
+            // 18 things
+            dragonclawTool: 'Vale Garra do Dragão<br>[Exploração Livre]<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Saqueador do Vale<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Conjurador Arrogante<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Berrante<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Presa-rei Furioso<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa Terrestre<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Javali Tirano<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Javali Tirano Incandescente<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Incandescente<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Ancião<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Ancião Incandescente<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Flor Longan<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Veneno de Dragão<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Grama da Estrela Congela<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pylud Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Dragão Uivante<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Fóssil de Pterossauro<br>',
+            purple2: 'Memória Líquida Roxa 2<br><br>Examine as rochas perto do penhasco <br>na área mais profunda<br>(onde o Presa-rei Furioso aparece)',
+            msq8: 'Quest da História Principal 8<br>"Em Busca de Memórias"<br><br>Vá até as ruínas do penhasco',
+            msq9: 'Quest da História Principal 9<br>"Em Busca de Memórias"<br><br>Vá até o local em que você acordou',
+            msq13: 'Quest da História Principal 13<br>"Registro do Aventureiro"<br><br>Colete 3 plantas não<br>identificadas em Campos Tremecéus',
+            msq19: 'Quest da História Principal 19<br>"Eleve seu Nível de Aventureiro!"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Obtenha um Cristal Reikrid',
+            msq24: 'Quest da História Principal 24<br>"Vale Garra do Dragão"<br><br>Encontre Jack em<br>Vale Garra do Dragão',
+            msq25: 'Quest da História Principal 25<br>"Vale Garra do Dragão"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Derrote os monstros em<br>Vale Garra do Dragão',
+            msq29: 'Quest da História Principal 29<br>"O que é um &#39;visitante&#39;..?"<br><br>Vá até Minsterhorn<br>em Colinas Minster',
+            msq30: 'Quest da História Principal 30<br>"O que é um &#39;visitante&#39;..?"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Procure pelo Padre<br>nas ruínas da Torre Alta<br>em Bacia Andra',
+            msq31: 'Quest da História Principal 31<br>"O que é um &#39;visitante&#39;..?"<br><br>Retorne até Milrain e faça um relatório',
+            msq32: 'Quest da História Principal 32<br>"Pilar da Divindade"<br><br>Fale com Feste após<br>alcançar Rank de Aventureiro 3',
+            
+            
+            // Bahamar highlands
+            divineToMinster: "Para Colinas Minster",
+            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Vale Garra do Dragão<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Portal de Dobra - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Besta Feroz<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Respingo Vermelho<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa Terrestre<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Grama do Alvorecer<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Galho de Cedro Andra<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Asterium<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Achigã<br>',
+            divineName: "Colina do Santuário",
+            divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Portal de Dobra - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Trote Safira<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Chifre Flamejante<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa da Terra Alta<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Cabra Chifruda<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Alce Imperador<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Musgo Defumado<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Fruta Blesio<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Folha de Árvorurso<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Fóssil de Presa Grande<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Baha<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Areia de Prata<br>',
+            larpalName: 'Larpal',
+            expDivine1: "Ponto de Exploração<br>Colina do Santuário 1",
+            expDivine2: "Ponto de Exploração<br>Colina do Santuário 2",
+            expDivine3: "Ponto de Exploração<br>Colina do Santuário 3",
+            warpLarpal: "Portal de Dobra<br>Larpal",
+            emFlamingHorns: "Monstro Elite<br>Chifre Flamejante",
+            emSapphireTrot: "Monstro Elite<br>Trote Safira",
+            
+            soundlessName: "Sopé Silencioso",
+            soundlessTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Cabra Sinistra<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Curandeiro Maligno<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Cabra Chifruda<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa da Terra Alta<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Ancião<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Góblin Sábio<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Planta Circular Aquática<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Lírio do Planalto<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pedra Jaspe<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pedra da Noite Tranquila<br>',
+            bergmahlName: "Bergmahl",
+            emSpookyGoat: "Monstro Elite<br>Cabra Sinistra",
+            emEvilHealer: "Monstro Elite<br>Curandeiro Maligno",
+            expSoundless1: "Ponto de Exploração<br>Sopé Silencioso 1",
+            expSoundless2: "Ponto de Exploração<br>Sopé Silencioso 2",
+            expSoundless3: "Ponto de Exploração<br>Sopé Silencioso 3",
+            
+            fielName: "Lago Fiel",
+            fielTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ancião Trapaceiro<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Cabra Chifruda<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa da Terra Alta<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Alce Imperador<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Sábio<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Ancião<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Galho de Madeira Torcida<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Flor Aquática<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Semente de Nectar<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pedra das Águas de Nascente<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Cobre Oscilante<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Fóssil de Concha<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Peixe-expinho<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Concha do Raiar do Sol<br>',
+            expFiel1: "Ponto de Exploração<br>Lago Fiel 1",
+            expFiel2: "Ponto de Exploração<br>Lago Fiel 2",
+            emTrickElder: "Monstro Elite<br>Ancião Trapaceiro",
+            yellow2: 'Memória Líquida Amarela 2<br><br>Examine o solo entre as<br>tendas na instalação dos Goblins',
+            msq33: 'Quest da História Principal 33<br>"Pilar da Divindade"<br><br>Vá até o Pilar da Divindade<br>na Colina do Santuário',
+            msq34: 'Quest da História Principal 34<br>"Pilar da Divindade"<br><br>Conduza uma reunião<br>estratégica em Larpal',
+            msq35: 'Quest da História Principal 35<br>"Pilar da Divindade"<br><br>Fale com os<br>peregringos em Bergmahl no<br>Sopé Silencioso',
+            msq36: 'Quest da História Principal 36<br>"Pilar da Divindade"<br><br>Apresente seu distintivo de permissão<br>para o guarda no Pilar',
+            msq37: 'Quest da História Principal 37<br>"Pilar da Divindade"<br><br>Alcance o topo do Pilar',
+            msq38: 'Quest da História Principal 38<br>"Pilar da Divindade"<br><br>Escolte Aerinse e<br>os outros até Larpal',
+            
+            // Toggle titles
+            togtextWarp: 'Portal de Dobra',
+            togtextMSQ: 'Quest da História Principal',
+            togtextImaj: 'Instituto de Pesquisa Imajinn',
+            togtextCraft: 'Máquina de Construção',
+            togtextReconstructor: 'Reconstrutor de Armas',
+            togtextClass: 'Mestre de Classe',
+            togtextMemory: 'Banca de Memória Líquida',
+            togtextExchange: 'Troca',
+            togtextPotshop: 'Loja de Poções',
+            togtextWepshop: 'Loja de Armas',
+            togtextStorage: 'Armazém',
+            togtextElite: 'Monstro Elite',
+            togtextDung: 'Entrada da Masmorra',
+            togtextRaid: 'Entrada da Incursão',
+            togtextRock: 'Recurso de Pedras',
+            togtextPlant: 'Recurso de Plantas',
+            togtextOcean: 'Recurso Oceânico',
+            togtextPoint: 'Ponto de Exploração',
+            togtextLiquid: 'Memória Líquida',
+            togglesHeader: 'Alternar',
+            
+            
+            // Search list
+            listAndra: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Bacia Andra',
+            listCalm: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Terraço Vespertino',
+            listMinster: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Colinas Minster',
+            listMinsterhorn: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Minsterhorn',
+            listSkyquake: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Campos Tremecéus',
+            listAsteria: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Plano Asteria',
+            listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Terra Alta de Bahamar',
+            listDivine: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Colina do Santuário',
+            listLarpal: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Larpal',
+            listFiel: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Lago Fiel',
+            listSoundless: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Sopé Silencioso',
+            listBergmahl: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Bergmahl',
+            listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">Asterleeds<br>',
+            searchTitle: 'Pesquise Mapa ou Área'
         }
-        
-        
     ]
     
     
@@ -6516,7 +6723,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
             // ウリボの安らぎ・ピンクウリボのイマジンを召喚しピンクウリボの周囲に回復エリアを生成する
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Tranquilidade do Leitão (cura)","eficácia", "175","67","Invoca o Imajinn do Leitão Rosa<br>que cria um campo de cura ao redor de si"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Tranquilidade do Leitão (cura)","eficácia", "175","67","Invoca o Imajinn do Leitão Rosa<br>que cria um campo de cura ao redor de si"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -6555,7 +6762,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
             // アクトクライ・猛る獣のイマジンを召喚し召喚者の攻撃力を一定時間上昇させる
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Grito de Luta (suporte)","eficácia", "150","150","Invoca o Imajinn da Besta Feroz<br>que concede ao invocador um aumento temporário de ATK"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Grito de Luta (suporte)","eficácia", "150","150","Invoca o Imajinn da Besta Feroz<br>que concede ao invocador um aumento temporário de ATK"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -6594,7 +6801,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // 兜割り・赤い飛沫のイマジンを召喚しターゲットの頭上を目掛けて棍棒を叩きつける。
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Divisor de Elmo (ataque)","eficácia", "422","166","Invoca o Imajinn do Respingo Vermelho<br>que mira e ataca a cabeça do alvo com o seu porrete"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Divisor de Elmo (atk)","eficácia", "422","166","Invoca o Imajinn do Respingo Vermelho<br>que mira e ataca a cabeça do alvo com o seu porrete"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+2",
                     /*INT*/"+3",
@@ -6616,8 +6823,8 @@ jQuery(document).ready(function ($) {
             recipe: ["Ideia do Respingo Vermelho","Lírio do Planalto","Unha da Raposa da Terra Alta","15,000"],
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["2","3","1"],
-            abilList: ["Aumento de dano (ataque padrão)","Aumento de STR", "<br>"],
-            tooltipText: ["Respingo Vermelho<br>Colinas Minster","Coleta<br>Sopé Silencioso","Raposa da Terra Alta<br>Colina do Refúgio Divino"],
+            abilList: ["Aumento de dano (atk padrão)","Aumento de STR", "<br>"],
+            tooltipText: ["Respingo Vermelho<br>Colinas Minster","Coleta<br>Sopé Silencioso","Raposa da Terra Alta<br>Colina do Santuário"],
             tooltipBg: [
                 tooltipMinster,
                 tooltipSoundless,
@@ -6633,7 +6840,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // 猪突猛進・深緑の牙のイマジンを召喚しターゲットを中心に突進攻撃を行う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Investida do Javali (ataque)","eficácia", "514","166","Invoca o Imajinn do Presa Verde Profundo<br>que executa um ataque de investida direcionado ao centro do alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Investida Javali (atk)","eficácia", "514","166","Invoca o Imajinn do Presa Verde Profundo<br>que executa um atk de investida direcionado ao centro do alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -6672,7 +6879,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // マウンテンスロー・鉄牙のイマジンを召喚し大きな牙でターゲットをすくい上げで打ち上げる
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Arremeço da Montanha (ataque)","eficácia", "524","169","Invoca o Imajinn do Presa de Ferro<br>que arremessa seus inimigos ao ar com suas presas gigantes"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Arremesso Montanhês (atk)","eficácia", "524","169","Invoca o Imajinn do Presa de Ferro<br>que arremessa seus inimigos ao ar com suas presas gigantes"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -6695,7 +6902,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["Aumento de dano (curto-alcance)","Aumento de ATK", "<br>"],
-            tooltipText: ["Presa de Ferro<br>Bacia Andra","Coleta<br>Colina do Refúgio Divino","Goblin<br>Colinas Minster"],
+            tooltipText: ["Presa de Ferro<br>Bacia Andra","Coleta<br>Colina do Santuário","Goblin<br>Colinas Minster"],
             tooltipBg: [
                 tooltipAndra,
                 tooltipDivine,
@@ -6711,7 +6918,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // パワースイング・炎獄のイマジンを召喚し前方に棍棒を振り払う攻撃を行う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Golpe Poderoso (ataque)","eficácia", "710","169","Invoca o Imajinn do Prisão Fulgor<br>que golpeia com seu porrete os inimigos à sua frente"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Golpe Poderoso (atk)","eficácia", "710","169","Invoca o Imajinn do Prisão Fulgor<br>que golpeia com seu porrete os inimigos à sua frente"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+3",
@@ -6734,7 +6941,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["5","3","3"],
             abilList: ["Redução de intervalo (imajinn de batalha)","Aumento de HP Max", "<br>"],
-            tooltipText: ["Prisão Fulgor<br>Terraços da Véspera Tranquila","Coleta<br>Sopé Silencioso","Goblin Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipText: ["Prisão Fulgor<br>Terraço Vespertino","Coleta<br>Sopé Silencioso","Goblin Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
             tooltipBg: [
                 tooltipCalmEve,
                 tooltipSoundless,
@@ -6750,7 +6957,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // デスタックル・猛る金色のイマジンを召喚しターゲットを中心に突進攻撃を行う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Avanço Mortal (ataque)","eficácia", "696","166","Invoca o Imajinn do Ouro Feroz<br>que executa um ataque de investida em direção ao alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Avanço Mortal (atk)","eficácia", "696","166","Invoca o Imajinn do Ouro Feroz<br>que executa um atk de investida em direção ao alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -6773,7 +6980,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iElite],
             amt: ["5","3","1"],
             abilList: ["Aumento de dano (curto-alcance)","Aumento de ATK", "<br>"],
-            tooltipText: ["Ouro Feroz<br>Terraços da Véspera Tranquila","Coleta<br>Lago Fiel","Besta Feroz<br>Colinas Minster"],
+            tooltipText: ["Ouro Feroz<br>Terraço Vespertino","Coleta<br>Lago Fiel","Besta Feroz<br>Colinas Minster"],
             tooltipBg: [tooltipCalmEve,
                         tooltipFiel,
                         tooltipMinster],
@@ -6788,7 +6995,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // 落石牙・サファイアトロットのイマジンを召喚しターゲットに飛び掛かり噛みつく
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Queda da Presa de Pedra (ataque)","eficácia", "483","156","Invoca o Imajinn do Presa Safira<br>que executa uma investida e morde o alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Investida de Pedra (atk)","eficácia", "483","156","Invoca o Imajinn do Presa Safira<br>que executa uma investida e morde o alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -6811,7 +7018,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["Aumento da taxa de Crit","Aumento de DEX", "<br>"],
-            tooltipText: ["Presa Safira<br>Colina do Refúgio Divino","Coleta<br>Colinas Minster","Goblin Ancião<br>Bacia Andra"],
+            tooltipText: ["Presa Safira<br>Colina do Santuário","Coleta<br>Colinas Minster","Goblin Ancião<br>Bacia Andra"],
             tooltipBg: [tooltipDivine,
                         tooltipMinster,
                         tooltipAndra],
@@ -6826,7 +7033,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // カイザーブラスト・炎角のイマジンを召喚しターゲットを中心に雷属性の突進攻撃を行う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Explosão do Imperador(ataque)","eficácia", "493","159","Invoca o Imajin do Chifre Flamejante<br>que executa um ataque elemental de investida elétrico em direção ao alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Explosão do Imperador (atk)","eficácia", "493","159","Invoca o Imajin do Chifre Flamejante<br>que executa um atk elemental de investida elétrico em direção ao alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+2",
                     /*INT*/"+3",
@@ -6849,7 +7056,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["3","3","3"],
             abilList: ["Redução de dano recebido (curto-alcance)","Aumento de DEF", "<br>"],
-            tooltipText: ["Chifre Flamejante<br>Colina do Refúgio Divino","Coleta<br>Colina do Refúgio Divino","Goblin Sábio<br>Sopé Silencioso"],
+            tooltipText: ["Chifre Flamejante<br>Colina do Santuário","Coleta<br>Colina do Santuário","Goblin Sábio<br>Sopé Silencioso"],
             tooltipBg: [tooltipDivineLeft,
                        tooltipDivine,
                        tooltipSoundless],
@@ -6864,7 +7071,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
             // ゴートヘイスト・スプーキーゴートのイマジンを召喚し召喚者の移動速度を一定時間上昇させる
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Pressa da Cabra (suporte)","eficácia", "130","130","Invoca o Imajinn da Cabra Sinistra<br>que concede ao invocador um aumento temporário de velocidade de movimento"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Pressa da Cabra (suporte)","eficácia", "130","130","Invoca o Imajinn da Cabra Sinistra<br>que concede ao invocador um aumento temporário de velocidade de movimento"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -6887,7 +7094,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["4","3","3"],
             abilList: ["Aumento de Fôlego Max","Aumento de DEX", "<br>"],
-            tooltipText: ["Cabra Sinistra<br>Sopé Silencioso","Coleta<br>Terraços da Véspera Tranquila","Javali Tirano Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
+            tooltipText: ["Cabra Sinistra<br>Sopé Silencioso","Coleta<br>Terraço Vespertino","Javali Tirano Incandescente<br>Vale Garra do Dragão [Exploração Livre]"],
             tooltipBg: [tooltipSoundless,
                        tooltipCalmEve,
                        tooltipDragonclaw],
@@ -6902,7 +7109,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
             // エリアヒール・悪しき癒し手のイマジンを召喚し悪しき癒し手の周囲の味方のHPを回復
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Cura em Área (cura)","eficácia", "267","71","Invoca o Imajinn do Curandeiro Maligno<br>que cura os aliados ao seu redor"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Cura em Área (cura)","eficácia", "267","71","Invoca o Imajinn do Curandeiro Maligno<br>que cura os aliados ao seu redor"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -6925,7 +7132,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["Aumento de Cura (imajinn de batalha)","Aumento de Cura", "<br>"],
-            tooltipText: ["Curandeiro Maligno<br>Sopé Silencioso","Coleta<br>Terraços da Véspera Tranquila","Ogro<br>Terraços da Véspera Tranquila"],
+            tooltipText: ["Curandeiro Maligno<br>Sopé Silencioso","Coleta<br>Terraço Vespertino","Ogro<br>Terraço Vespertino"],
             tooltipBg: [tooltipSoundless,
                        tooltipCalmEve,
                        tooltipCalmEve],
@@ -6940,7 +7147,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // エルダークリスタル・トリックエルダーのイマジンを召喚しターゲットに対して氷柱を3発飛ばす
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Cristal Ancião (ataque)","eficácia", "741","156","Invoca o Imajinn do Ancião Trapaceiro<br>que lança 3 setas de gelo ao alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Cristal Ancião (atk)","eficácia", "741","156","Invoca o Imajinn do Ancião Trapaceiro<br>que lança 3 setas de gelo ao alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -6978,7 +7185,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // ファイアボール・エルダーゴブリンのイマジンを召喚しターゲットに火球を1発飛ばす
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Bola de Fogo (ataque)","eficácia", "604","166","Invoca o Imajinn do Goblin Ancião<br>que atira uma bola de fogo ao alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Bola de Fogo (atk)","eficácia", "604","166","Invoca o Imajinn do Goblin Ancião<br>que atira uma bola de fogo ao alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -7001,7 +7208,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["Aumento de dano (longo-alcance)","Aumento de INT", "<br>"],
-            tooltipText: ["Conjurador Arrogante<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Terraços da Véspera Tranquila","Alce Ancião<br>Colina do Refúgio Divino"],
+            tooltipText: ["Conjurador Arrogante<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Terraço Vespertino","Alce Ancião<br>Colina do Santuário"],
             tooltipBg: [tooltipDragonclaw,
                        tooltipCalmEve,
                        tooltipDivine],
@@ -7016,7 +7223,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // ゴブリンスタブ・ゴブリンのイマジンを召喚しターゲットを棍棒で突進状態で突く
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Punhalada do Goblin (ataque)","eficácia", "414","163","Invoca o Imajinn do Goblin<br>que perfura o alvo com seu porrete"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Punhalada do Goblin (atk)","eficácia", "414","163","Invoca o Imajinn do Goblin<br>que perfura o alvo com seu porrete"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -7038,7 +7245,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Ideia do Goblin","Minério de Ferro","Cauda da Raposa Terrestre","9,000"],
             iconSrc: [iElite,iRock,iCombat],
             amt: ["2","3","1"],
-            abilList: ["Aumento de dano (habilidade tática 1)","Aumento de STR", "<br>"],
+            abilList: ["Aumento de dano (skill tática 1)","Aumento de STR", "<br>"],
             tooltipText: ["Saqueador do Vale<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Campos Tremecéus","Raposa Terrestre<br>Campos Tremecéus"],
             tooltipBg: [tooltipDragonclaw,
                        tooltipSkyquake,
@@ -7054,7 +7261,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // クラウンストライク・ランドフォックスのイマジンを召喚しターゲットに飛び掛かりタックルを行う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Ataque da Coroa(ataque)","eficácia", "669","159","Invoca o Imajinn da Raposa Terrestre<br>que executa um salto de ataque ao alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Ataque da Coroa(atk)","eficácia", "669","159","Invoca o Imajinn da Raposa Terrestre<br>que executa um salto de atk ao alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+4",
@@ -7093,7 +7300,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // 猟犬殺し・タイラントボアのイマジンを召喚しターゲットを頭突きで攻撃する
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Caça Mortal (ataque)","eficácia", "504","163","Invoca o Imajinn do Javali Tirano<br>que ataca o alvo com uma cabeçada"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Caça Mortal (atk)","eficácia", "504","163","Invoca o Imajinn do Javali Tirano<br>que ataca o alvo com uma cabeçada"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+4",
                     /*INT*/"+3",
@@ -7116,7 +7323,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iDung,iRock,iCombat],
             amt: ["2","3","3"],
             abilList: ["Aumento de dano (imajinn de batalha)","Aumento de ATK", "<br>"],
-            tooltipText: ["Completar Arena [Rank C]","Coleta<br>Colina do Refúgio Divino","Cabra Chifruda<br>Lago Fiel"],
+            tooltipText: ["Completar Arena [Rank C]","Coleta<br>Colina do Santuário","Cabra Chifruda<br>Lago Fiel"],
             tooltipBg: [
                 tooltipArena,
                 tooltipDivine,
@@ -7132,7 +7339,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // ビハインドキック・ホーンゴートのイマジンを召喚しターゲットを後ろ足で蹴り飛ばす
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Coice (ataque)","eficácia", "593","163","Invoca o Imajinn da Cabra Chifruda<br>que dá um coice em seus inimigos"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Coice (atk)","eficácia", "593","163","Invoca o Imajinn da Cabra Chifruda<br>que dá um coice em seus inimigos"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+3",
                     /*INT*/"+3",
@@ -7151,7 +7358,7 @@ jQuery(document).ready(function ($) {
                     /*ATK*/"+4",
                     /*DEX*/"+3"
                    ],
-            recipe: ["Ideia da Cabra Chifruda","Minério de Prata","Juba de Goblin Ancião Incandescente","83,000"],
+            recipe: ["Ideia da Cabra Chifruda","Minério de Prata","<a style='font-size: 1.146vw'>Juba de Goblin Ancião Incandescente</a>","83,000"],
             iconSrc: [iDung,iRock,iCombat],
             amt: ["3","3","3"],
             abilList: ["Redução de dano recebido (longo-alcance)","Aumento de DEF", "<br>"],
@@ -7171,7 +7378,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;60 seg"],
             // ゴブリンセージの調律・ゴブリンセージのイマジンを召喚し召喚者のHPを回復させる
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Curativo do Goblin Ancião (cura)","eficácia", "323","74","Invoca o Imajinn do Goblin Sábio<br>que cura o invocador"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Cura do Goblin Ancião (cura)","eficácia", "323","74","Invoca o Imajinn do Goblin Sábio<br>que cura o invocador"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -7194,7 +7401,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iDung,iShell,iElite],
             amt: ["5","3","1"],
             abilList: ["Aumento de Cura (imajinn de batalha)","Aumento de Cura", "<br>"],
-            tooltipText: ["Completar Arena [Rank A]","Coleta<br>Lago Fiel","Presa Safira<br>Colina do Refúgio Divino"],
+            tooltipText: ["Completar Arena [Rank A]","Coleta<br>Lago Fiel","Presa Safira<br>Colina do Santuário"],
             tooltipBg: [
                 tooltipArena,
                 tooltipFiel,
@@ -7210,7 +7417,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // クラッパーホーン・カイザーエルクのイマジンを召喚しターゲットを角で振り払う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Chifrada (ataque)","eficácia", "756","159","Invoca o Imajinn do Alce Imperador<br>que ataca o alvo com seus chifres"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Chifrada (atk)","eficácia", "756","159","Invoca o Imajinn do Alce Imperador<br>que ataca o alvo com seus chifres"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -7242,14 +7449,14 @@ jQuery(document).ready(function ($) {
         },
         // Raging Kingfang 荒ぶる牙王
         { 
-            name: "Presa Rei Furioso",
+            name: "Presa-rei Furioso",
             type: "Dano",
             image: "images/map/ragingkingfang.mp4",
             level: "Nv Inicial 1~1 (Nv Max: 35)",
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // タイラントアサルト・荒ぶる牙王のイマジンを召喚しターゲットを中心に広範囲の突進攻撃を行う
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Investida Tirana (ataque)","eficácia", "787","166","Invoca o Imajinn do Presa Rei Furioso<br>que executa uma investida de amplo alcance em direção ao alvo"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Investida Tirana (atk)","eficácia", "787","166","Invoca o Imajinn do Presa-rei Furioso<br>que executa uma investida de amplo alcance em direção ao alvo"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+5",
@@ -7268,11 +7475,11 @@ jQuery(document).ready(function ($) {
                     /*ATK*/"+4",
                     /*DEX*/"+1"
                    ],
-            recipe: ["Ideia do Presa Rei Furioso","Fóssil de Concha","Osso de Prisão Fulgor","190,000"],
+            recipe: ["Ideia do Presa-rei Furioso","Fóssil de Concha","Osso de Prisão Fulgor","190,000"],
             iconSrc: [iElite,iRock,iElite],
             amt: ["7","3","1"],
             abilList: ["Redução de intervalo (suprema)","Aumento de ATK", "<br>"],
-            tooltipText: ["Presa Rei Furioso<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Lago Fiel","Prisão Fulgor<br>Terraços da Véspera Tranquila"],
+            tooltipText: ["Presa-rei Furioso<br>Vale Garra do Dragão [Exploração Livre]","Coleta<br>Lago Fiel","Prisão Fulgor<br>Terraço Vespertino"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipFiel,
@@ -7288,7 +7495,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // アースクエイク
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Terremoto (ataque)","eficácia", "802","?","Invoca o Imajinn do Atrocidade Selada<br>que executa um grande ataque elemental de Terra centrado ao redor de si"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Terremoto (atk)","eficácia", "802","?","Invoca o Imajinn do Atrocidade Selada<br>que executa um grande atk elemental de Terra centrado ao redor de si"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+6",
                     /*INT*/"+4",
@@ -7325,7 +7532,7 @@ jQuery(document).ready(function ($) {
             element: ["elemento &nbsp;&nbsp;&nbsp;-","&nbsp;"],
             cooldown: ["intervalo","&nbsp;&nbsp;&nbsp;&nbsp;30 seg"],
             // スライサーアーム・プリドークのイマジンを召喚し前方のターゲットに両手の剣を突き刺す
-            skill: ["habilidade","&nbsp;&nbsp;&nbsp;&nbsp;Braço Cortante (ataque)","eficácia", "772","?","Invoca o Imajinn do Plidoke<br>que perfura os inimigos à sua frente com seus braços-espada"],
+            skill: ["skill","&nbsp;&nbsp;&nbsp;&nbsp;Braço Cortante (atk)","eficácia", "772","?","Invoca o Imajinn do Plidoke<br>que perfura os inimigos à sua frente com seus braços-espada"],
             ability: ["talento", "????","eficácia", "????"],
             stats: [/*STR*/"+5",
                     /*INT*/"+4",
@@ -8113,7 +8320,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iCombat,iFlower,""],
             amt: ["12","20","<br>"],
             abilList: ["Aumento de HP Max","Aumento de VIT", "Aumento de STR"],
-            tooltipText: ["Cabra Chifruda<br>Sopé Silencioso","Coleta<br>Colina do Refúgio Divino","<br>"],
+            tooltipText: ["Cabra Chifruda<br>Sopé Silencioso","Coleta<br>Colina do Santuário","<br>"],
             tooltipBg: [
                 tooltipSoundless,
                 tooltipDivine,""],
@@ -8151,7 +8358,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iRock,"",""],
             amt: ["25","<br>","<br>"],
             abilList: ["Aumento de Fôlego Max","Aumento de INT", "Aumento de MND"],
-            tooltipText: ["Coleta<br>Colina do Refúgio Divino","<br>","<br>"],
+            tooltipText: ["Coleta<br>Colina do Santuário","<br>","<br>"],
             tooltipBg: [
                 tooltipDivine,"",""],
             tooltipIcn: ["visibility: hidden","visibility: hidden","visibility: hidden"]
@@ -8222,11 +8429,11 @@ jQuery(document).ready(function ($) {
                     /*ATK*/"+2",
                     /*DEX*/"+3"
                    ],
-            recipe: ["Presa de Javali Tirano Incandescente","Grama de Poeira Estelar","<br>","500,000"],
+            recipe: ["<a style='font-size: 1.146vw'><a style='font-size: 1.146vw'>Presa de Javali Tirano Incandescente</a></a>","Grama de Poeira Estelar","<br>","500,000"],
             iconSrc: [iCombat,iFlower,""],
             amt: ["15","40","<br>"],
             abilList: ["Aumento de DEF","Aumento de DEX", "Aumento de VIT"],
-            tooltipText: ["Javali Tirano Incandescente<br>Terraços da Véspera Tranquila","Coleta<br>Terraços da Véspera Tranquila","<br>"],
+            tooltipText: ["Javali Tirano Incandescente<br>Terraço Vespertino","Coleta<br>Terraço Vespertino","<br>"],
             tooltipBg: [
                 tooltipCalmEve,
                 tooltipCalmEve, ""],
@@ -8730,7 +8937,7 @@ jQuery(document).ready(function ($) {
         { // 37
             category: "Lore",
             question: "What is the world of BLUE PROTOCOL called?",
-            choice: ["Asteria", "Bajamar", "Regnus", "Prectus"],
+            choice: ["Asteria", "Bahamar", "Regnus", "Prectus"],
             answer: ["Regnus"]
         },
         { // 38
@@ -9158,7 +9365,7 @@ congela inimigos e causa dano
     LIGHTNING
     Relâmpago
 
-Causa dano elétrico ao longo do tempo e aumenta o intervalo de habilidade dos inimigos
+Causa dano elétrico ao longo do tempo e aumenta o intervalo de skill dos inimigos
 Quando acumulado suficiente, 
 uma explosão de alto dano ocorre
     

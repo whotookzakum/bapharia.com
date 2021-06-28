@@ -926,7 +926,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
 
 .recipeHolder, .wrecipeHolder {
     margin: 0 0 0.26vw 0; /* 20px 0 5px 0 */
-    width: 45%;
+    width: 50%;
     border-radius: 0.26vw;
     height: auto;
     background-color: #cdccc9;
@@ -954,7 +954,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     padding: 0 0 0 0.785vw; /* 0 0 0 15px */
 }
 .matItem, .wmatItem {
-    width: 17.7vw; /* 340px */
+    width: 21.7vw; /* 340px */
     display: inline-block;
 }
 .matIcon, .wmatIcon {
@@ -986,7 +986,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     position: absolute;
     z-index: 70;
     margin-top: -17vw; /* 330px */
-    left: 13%;
+    left: 23.5%;
     display: none;
 }
 .matIcon:hover+div, .wmatIcon:hover+div {
@@ -1009,7 +1009,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
 
 .abilityHolder {
     margin: 0 0 0 0.26vw;
-    width: 45%;
+    width: 48.68%;
     height: auto;
     background-color: #cdccc9;
     padding: 1.05vw 0;
@@ -1022,7 +1022,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
 
 .lunoHolder, .wlunoHolder {
     height: auto;
-    width: 45%;
+    width: 50%;
     margin-top: 5px;
     background-color: #cdccc9;
     padding: 1.05vw 0; /* 20px 0 */
@@ -1714,12 +1714,37 @@ input:checked + .slider:before {
     filter: drop-shadow(0px 2px 2px black);
     
 }
-#pageAbout > p {
+#pageAbout > p, .aboutText p, .createdBy > p {
     text-align: center;
     margin-bottom: 0.781vw;
     font-size: 0.833vw;
 }
+.aboutText {
+    width: 48%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0.2vw;
+}
+.aboutText > div {
+    border: 2px solid black;
+    border-radius: 5px; 
+}
 
+.authorHidden {
+    display: none;
+}
+.createdBy:hover .authorDefault {
+    display: none;
+}
+.createdBy:hover .authorHidden {
+    display: block;
+}
+
+.references a {
+    color: deepskyblue;
+    margin: 0.4vw;
+}
 #pageTrivia {
     display: none;
     width: 50%;
