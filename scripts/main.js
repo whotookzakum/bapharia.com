@@ -4318,6 +4318,8 @@ jQuery(document).ready(function ($) {
             listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">アステルリーズ<br>',
             searchTitle: 'ゾーンやエリア名で検索'
         }
+        
+        
     ]
     
     
