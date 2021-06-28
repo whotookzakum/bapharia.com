@@ -34,10 +34,17 @@ jQuery(document).ready(function ($) {
         
         // JAPANESE
         if (lang == 1) {
-           
-            // Footer hint JP
-            $(".langHint").html("J を押すと日本語、E を押すと英語、P を押すとポルトガル語に設定");
-            $(".langHint").css("font-size","0.729vw");
+            
+            // Menu Buttons
+            $("#buttonImajinn+p").html("イマジン<br><br>");
+            $("#buttonCrafting+p").html("クラフト<br><br>");
+            $("#buttonWorldMap+p").html("地図<br><br>");
+            $("#buttonGuide+p").html("ゲーム<br>ガイド");
+            $("#buttonAegis+p").html("イージス<br>ファイター");
+            $("#buttonTwin+p").html("ツイン<br>ストライカー");
+            $("#buttonBlast+p").html("ブラスト<br>アーチャー");
+            $("#buttonSpell+p").html("スペル<br>キャスター");
+            $("#buttonHeavy+p").html("ヘヴィ<br>スマッシャー");
             
             // Change crafting and imajinn text regardless of current page
             wepHolder = wepHolderJP;
@@ -107,10 +114,17 @@ jQuery(document).ready(function ($) {
         
         // ENGLISH
         else if (lang == 0) {
-
-            // Footer hint EN
-            $(".langHint").html("press e for english&nbsp;&nbsp;&nbsp;&nbsp;j for japanese&nbsp;&nbsp;&nbsp;&nbsp;p for portuguese");
-            $(".langHint").css("font-size","0.833vw");
+            
+            // Menu Buttons
+            $("#buttonImajinn+p").html("Imagine<br><br>");
+            $("#buttonCrafting+p").html("Crafting<br><br>");
+            $("#buttonWorldMap+p").html("World<br>Map");
+            $("#buttonGuide+p").html("Game<br>Guide");
+            $("#buttonAegis+p").html("Aegis<br>Fighter");
+            $("#buttonTwin+p").html("Twin<br>Striker");
+            $("#buttonBlast+p").html("Blast<br>Archer");
+            $("#buttonSpell+p").html("Spell<br>Caster");
+            $("#buttonHeavy+p").html("Heavy<br>Smasher");
             
             // Change crafting and imajinn text regardless of current page
             wepHolder = wepHolderEN;
@@ -179,9 +193,17 @@ jQuery(document).ready(function ($) {
         
         // BRAZILIAN PORTUGUESE
         else if (lang == 2) { 
-            // Footer hint EN
-            $(".langHint").html("pressione e para inglês&nbsp;&nbsp;&nbsp;&nbsp;j para japonesas&nbsp;&nbsp;&nbsp;&nbsp;p para português");
-            $(".langHint").css("font-size","0.833vw");
+
+            // Menu Buttons
+            $("#buttonImajinn+p").html("Imagine<br><br>");
+            $("#buttonCrafting+p").html("Crafting<br><br>");
+            $("#buttonWorldMap+p").html("World<br>Map");
+            $("#buttonGuide+p").html("Game<br>Guide");
+            $("#buttonAegis+p").html("Aegis<br>Fighter");
+            $("#buttonTwin+p").html("Twin<br>Striker");
+            $("#buttonBlast+p").html("Blast<br>Archer");
+            $("#buttonSpell+p").html("Spell<br>Caster");
+            $("#buttonHeavy+p").html("Heavy<br>Smasher");
             
             // Change crafting and imajinn text regardless of current page
             wepHolder = wepHolderBR;
@@ -3877,6 +3899,7 @@ jQuery(document).ready(function ($) {
         
         // ENGLISH
         {
+            // Asterleeds
             storage: "Storage",
             memorystand: 
                 'Liquid Memory Stand<br><img src="images/liquidmemory%20yellow%20fad459.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased chance of higher weapon level when crafting<br><img src="images/liquidmemory%20blue%206ac7cd.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased exp when leveling weapon<br><img src="images/liquidmemory%20red%20db516a.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Reduced gathering time<br><img src="images/liquidmemory%20purple%2079389e.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Increased enemy drop rate<br><img src="images/liquidmemory%20green%2045b343.svg" draggable="false" style="transform: scale(0.6); margin: -0.3em 0 -0.8em 0;">Reduced prices in npc shops',
@@ -3887,7 +3910,7 @@ jQuery(document).ready(function ($) {
             craftmachine: "Crafting Machine",
             reconstructor: "Weapon Reconstructor",
             gcshop: "GC Shop",
-            timedquest: "Timed Quest",
+            timedquest: "",
             yellow1:
                 'Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragonclaw Valley [Free Exploration]',
             green1: 
@@ -3914,6 +3937,177 @@ jQuery(document).ready(function ($) {
             warparena: 'Warp Gate<br>Revolving Helm Pavilion',
             warpshrine: 'Warp Gate<br>Arena Entrance',
             warppavilion: 'Warp Gate<br>Shrine Entrance',
+            msq1: 'Main Story Quest 1<br>"In Search of Memories"<br><br>Speak with the inn<br>owner on the 1st floor',
+            msq2: 'Main Story Quest 2<br>"In Search of Memories"<br><br>Exit the inn',
+            msq3: 'Main Story Quest 3<br>"In Search of Memories"<br><br>Buy field-use health potions',
+            msq4: 'Main Story Quest 4<br>"In Search of Memories"<br><br>Speak with Feste in<br>front of the storage',
+            msq5: 'Main Story Quest 5<br>"In Search of Memories"<br><br>Go to City Gate Square',
+            msq6: 'Main Story Quest 6<br>"In Search of Memories"<br><br>Examine the Warp Gate',
+            msq7: 'Main Story Quest 7<br>"In Search of Memories"<br><br>Exit the city',
+            msq10: 'Main Story Quest 10<br>"In Search of Memories"<br><br>Return to the Frontiering Station',
+            msq11: 'Main Story Quest 11<br>"In Search of Memories"<br><br>Speak with Jake at the<br>Frontiering Station',
+            msq12: 'Main Story Quest 12<br>"Adventurer Registration"<br><br>Speak with Myulie at the<br>Frontiering Station',
+            msq14: 'Main Story Quest 14<br>"Adventurer Registration"<br><br>Craft a field-use<br>health potion',
+            msq15: 'Main Story Quest 15<br>"Adventurer Registration"<br><br>Report to Myulie<br>at the Frontiering Station',
+            msq16: 'Main Story Quest 16<br>"Raise your Adventure Rank!"<br><br>Speak with Jake in the<br> Frontiering Station<br>(Req. Adventure Rank 2+)',
+            msq17: 'Main Story Quest 17<br>"Raise your Adventure Rank!"<br><br>Speak with Feste<br>',
+            msq18: 'Main Story Quest 18<br>"Raise your Adventure Rank!"<br><br>Go to the Imagine<br>Research Institute<br>',
+            msq20: 'Main Story Quest 20<br>"Raise your Adventure Rank!"<br><br>Go to the Imagine<br>Research Institute<br>',
+            msq21: 'Main Story Quest 21<br>"Raise your Adventure Rank!"<br><br>Craft Inner Imagine<br>"Diranks (Courage)"',
+            msq22: 'Main Story Quest 22<br>"Raise your Adventure Rank!"<br><br>Level up to Adventure Rank 2<br>(in command menu)',
+            msq23: 'Main Story Quest 23<br>"Dragonclaw Valley"<br><br>Speak with Jake as<br>Adventure Rank 2',
+            msq26: 'Main Story Quest 26<br>"Dragonclaw Valley"<br><br>Receive rewards from Jake<br>at the Frontiering Station',
+            msq27: 'Main Story Quest 27<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Speak with the inn owner<br>at The Double-Faced Coin',
+            msq28: 'Main Story Quest 28<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Ask about &#39;visitors&#39;<br>at Bapharia Shrine',
+            asterleedsToSkyquake: "To Skyquake Fields",
+            asterleedsToSkyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Pink Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw">Land Fox<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw">Lamusa Flower<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw" draggable="false">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw" draggable="false">Ripple Stone<br>',
+            
+            
+            // Asteria Plain
+            skyquakeToAsterleeds: "To Asterleeds",
+            // 10 things
+            skyquakeToAsterleedsTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate<br><img src="images/map/imajinnHouse.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Imagine Research Institute<br><img src="images/map/crafting.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Crafting Machine<br><img src="images/map/reconstructor.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Weapon Reconstructor<br><img src="images/map/classmaster.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Class Master<br><img src="images/map/liquidmemory.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Liquid Memory Stand<br><img src="images/map/exchange.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">GC Shop<br><img src="images/map/potion.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Potion Shop<br><img src="images/map/weapon.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Weapon Shop<br><img src="images/map/storage.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">Storage<br>',
+            minsterToDivine: "To Divine Haven Hill",
+            // 12 things
+            minsterToDivineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baja Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
+            skyquakeName: "Skyquake Fields",
+            // 6 things
+            skyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Pink Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Lamusa Flower<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Ripple Stone<br>',
+            expSkyquake1: 'Exploration Point<br>Skyquake Fields 1',
+            expSkyquake2: 'Exploration Point<br>Skyquake Fields 2',
+            expSkyquake3: 'Exploration Point<br>Skyquake Fields 3',
+            expSkyquake4: 'Exploration Point<br>Skyquake Fields 4',
+            expSkyquake5: 'Exploration Point<br>Skyquake Fields 5',
+            emPiglet: 'Elite Monster<br>Pink Piglet',
+            
+            
+            andraName: "Andra Basin",
+            // 9 things
+            andraTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Deep Green Fang<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Iron Fang<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Rumble Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Long Grass<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Jira Crystal<br>',
+            expAndra1: 'Exploration Point<br>Andra Basin 1',
+            expAndra2: 'Exploration Point<br>Andra Basin 2',
+            expAndra3: 'Exploration Point<br>Andra Basin 3',
+            expAndra4: 'Exploration Point<br>Andra Basin 4',
+            emIronFang: 'Elite Monster<br>Iron Fang',
+            emDeepGreen: 'Elite Monster<br>Deep Green Fang',
+            
+            calmName: 'Calm Eve Terraces',
+            // 14 things
+            calmTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Gold<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flame Prison<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Ogre<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Sunset Cedar Twig<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Stardust Grass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Boule Fruit<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Meteorite Fragment<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Magnamoss Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Rimeril Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Full Moon Stone<br>',
+            expCalm1: 'Exploration Point<br>Calm Eve Terraces 1',
+            expCalm2: 'Exploration Point<br>Calm Eve Terraces 2',
+            expCalm3: 'Exploration Point<br>Calm Eve Terraces 3',
+            emFlamePrison: 'Elite Monster<br>Flame Prison',
+            emFerociousGold: 'Elite Monster<br>Ferocious Gold',
+            
+            minsterName: 'Minster Hills',
+            // 12 things
+            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
+            minsterhornName: 'Minsterhorn',
+            minsterhornTool: 'npc Milrain<br>npc Stadst<br>npc Feste<br>',
+            warpminsterhorn: 'Warp Gate<br>Minsterhorn',
+            expMinster1: "Exploration Point<br>Minster Hills 1",
+            expMinster2: "Exploration Point<br>Minster Hills 2",
+            expMinster3: "Exploration Point<br>Minster Hills 3",
+            expMinster4: "Exploration Point<br>Minster Hills 4",
+            expMinster5: "Exploration Point<br>Minster Hills 5",
+            expMinster6: "Exploration Point<br>Minster Hills 6",
+            expMinster7: "Exploration Point<br>Minster Hills 7",
+            expMinster8: "Exploration Point<br>Minster Hills 8",
+            emFerociousBeast: 'Elite Monster<br>Ferocious Beast',
+            emRedSplash: 'Elite Monster<br>Red Splash',
+            
+            // 18 things
+            dragonclawTool: 'Dragonclaw Valley<br>[Free Exploration]<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Valley Raider<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Arrogant Conjurer<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Loudshout<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Raging Kingfang<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Longan Flower<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dragon Venom<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Frozen Star Grass<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pylud Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Wailing Dragon Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pterosaur Fossil<br>',
+            purple2: 'Purple Liquid Memory 2<br><br>Examine the rocks near the open <br>cliff in the deepest area<br>(where Raging Kingfang appears)',
+            msq8: 'Main Story Quest 8<br>"In Search of Memories"<br><br>Go to the ruins on the cliff',
+            msq9: 'Main Story Quest 9<br>"In Search of Memories"<br><br>Go to where you woke up',
+            msq13: 'Main Story Quest 13<br>"Adventurer Registration"<br><br>Collect 3 unidentified<br>plants in Skyquake Fields',
+            msq19: 'Main Story Quest 19<br>"Raise your Adventure Rank!"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Obtain Reikrid Crystal',
+            msq24: 'Main Story Quest 24<br>"Dragonclaw Valley"<br><br>Meet with Jake at<br>Dragonclaw Valley',
+            msq25: 'Main Story Quest 25<br>"Dragonclaw Valley"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Defeat the monsters in<br>Dragonclaw Valley',
+            msq29: 'Main Story Quest 29<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Go to Minsterhorn<br>in Minster Hills',
+            msq30: 'Main Story Quest 30<br>"What&#39;s a &#39;visitor&#39;..?"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Search for the priest<br>at the giant tower ruins<br>in Andra Basin',
+            msq31: 'Main Story Quest 31<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Report back to Milrain',
+            msq32: 'Main Story Quest 32<br>"Pillar of Divinity"<br><br>Speak with Feste after<br>reaching Adventure Rank 3',
+            
+            
+            // Bahamar highlands
+            divineToMinster: "To Minster Hills",
+            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
+            divineName: "Divine Haven Hill",
+            divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baja Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
+            larpalName: 'Larpal',
+            expDivine1: "Exploration Point<br>Divine Haven Hill 1",
+            expDivine2: "Exploration Point<br>Divine Haven Hill 2",
+            expDivine3: "Exploration Point<br>Divine Haven Hill 3",
+            warpLarpal: "Warp Gate<br>Larpal",
+            emFlamingHorns: "Elite Monster<br>Flaming Horns",
+            emSapphireTrot: "Elite Monster<br>Sapphire Trot",
+            
+            soundlessName: "Soundless Foothills",
+            soundlessTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Spooky Goat<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Evil Healer<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Sage<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Round Water Plant<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Plateau Lily<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Jasper Stone<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Calm Nightstone<br>',
+            bergmahlName: "Bergmahl",
+            emSpookyGoat: "Elite Monster<br>Spooky Goat",
+            emEvilHealer: "Elite Monster<br>Evil Healer",
+            expSoundless1: "Exploration Point<br>Soundless Foothills 1",
+            expSoundless2: "Exploration Point<br>Soundless Foothills 2",
+            expSoundless3: "Exploration Point<br>Soundless Foothills 3",
+            
+            fielName: "Fiel Pond",
+            fielTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Trick Elder<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin Sage<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Driftwood Twig<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Aqua Flower<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Nectar Seed<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Welling Water Stone<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Shivering Copper<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Shell Fossil<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Spike Fish<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Sunshine Shell<br>',
+            expFiel1: "Exploration Point<br>Fiel Pond 1",
+            expFiel2: "Exploration Point<br>Fiel Pond 2",
+            emTrickElder: "Elite Monster<br>Trick Elder",
+            yellow2: 'Yellow Liquid Memory 2<br><br>Examine the ground between the<br>tents in the goblin settlement',
+            msq33: 'Main Story Quest 33<br>"Pillar of Divinity"<br><br>Go to the Pillar of Divinity<br>at Divine Haven Hill',
+            msq34: 'Main Story Quest 34<br>"Pillar of Divinity"<br><br>Conduct a strategy<br>meeting in Larpal',
+            msq35: 'Main Story Quest 35<br>"Pillar of Divinity"<br><br>Speak with the<br>pilgrims at Bergmahl in<br>Soundless Foothills',
+            msq36: 'Main Story Quest 36<br>"Pillar of Divinity"<br><br>Present your permission badge<br>to the guard at the Pillar',
+            msq37: 'Main Story Quest 37<br>"Pillar of Divinity"<br><br>Reach the top of the Pillar',
+            msq38: 'Main Story Quest 38<br>"Pillar of Divinity"<br><br>Escort Aerinse and<br>the others to Larpal',
+            
+            // Toggle titles
+            togtextWarp: 'Warp Gate',
+            togtextMSQ: 'Main Story Quest',
+            togtextImaj: 'Imagine Research Institute',
+            togtextCraft: 'Crafting Machine',
+            togtextReconstructor: 'Weapon Reconstructor',
+            togtextClass: 'Class Master',
+            togtextMemory: 'Liquid Memory Stand',
+            togtextExchange: 'Exchange',
+            togtextPotshop: 'Potion Shop',
+            togtextWepshop: 'Weapon Shop',
+            togtextStorage: 'Storage',
+            togtextElite: 'Elite Monster',
+            togtextDung: 'Dungeon Entrance',
+            togtextRaid: 'Raid Entrance',
+            togtextRock: 'Rock Resource',
+            togtextPlant: 'Plant Resource',
+            togtextOcean: 'Ocean Resource',
+            togtextPoint: 'Exploration Point',
+            togtextLiquid: 'Liquid Memory',
+            togglesHeader: 'Show/Hide',
+            
+            
+            // Search list
+            listAndra: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Andra Basin',
+            listCalm: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Calm Eve Terraces',
+            listMinster: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Minster Hills',
+            listMinsterhorn: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Minsterhorn',
+            listSkyquake: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Skyquake Fields',
+            listAsteria: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Asteria Plain',
+            listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Bajamar Highland',
+            listDivine: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Divine Haven Hill',
+            listLarpal: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Larpal',
+            listFiel: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Fiel Pond',
+            listSoundless: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Soundless Foothills',
+            listBergmahl: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Bergmahl',
+            listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">Asterleeds<br>',
+            searchTitle: 'Search Map or Area Name'
+            
+            
+            
         },
         
         // JAPANESE
@@ -3928,7 +4122,7 @@ jQuery(document).ready(function ($) {
             craftmachine: "転球練成儀",
             reconstructor: "武器改造師",
             gcshop: "GC交換所",
-            timedquest: "時間制限クエスト",
+            timedquest: "",
             yellow1: 
                 '黄色リキッドメモリ 1<br><br>オービスのサブクエスト<br>「急がば近道！」(Lv. 24+)のクリア報酬<br><br>オービスの荷物を３個取り返すとクリア<br>巨竜の爪痕・自由探索でエルダーゴブリン・グロウを倒すと入手',
             green1: 
@@ -3952,6 +4146,177 @@ jQuery(document).ready(function ($) {
             warparena: '空間転送ポータル<br>闘技場前',
             warpshrine: '空間転送ポータル<br>神殿前',
             warppavilion: '空間転送ポータル<br>廻る舵輪亭前',
+            msq1: 'メインクエスト 1<br>記憶を求めて<br><br>1階の亭主に挨拶する',
+            msq2: 'メインクエスト 2<br>記憶を求めて<br><br>扉から街へ出る',
+            msq3: 'メインクエスト 3<br>記憶を求めて<br><br>フィールド専用・回復薬 I を買う',
+            msq4: 'メインクエスト 4<br>記憶を求めて<br><br>倉庫番前のフェステに話しかける',
+            msq5: 'メインクエスト 5<br>記憶を求めて<br><br>街門広場へ行く',
+            msq6: 'メインクエスト 6<br>記憶を求めて<br><br>転送ポータルを調べる',
+            msq7: 'メインクエスト 7<br>記憶を求めて<br><br>街の外へ出る',
+            msq10: 'メインクエスト 10<br>記憶を求めて<br><br>開拓局へ行く',
+            msq11: 'メインクエスト 11<br>記憶を求めて<br><br>開拓局のジェイクに話しかける',
+            msq12: 'メインクエスト 12<br>冒険者登録<br><br>開拓局のミューリィに話しかける',
+            msq14: 'メインクエスト 14<br>冒険者登録<br><br>フィールド専用・回復薬 I をクラフトする',
+            msq15: 'メインクエスト 15<br>冒険者登録<br><br>開拓局のミューリィに報告する',
+            msq16: 'メインクエスト 16<br>冒険者のランクアップ！<br><br>ジェイクの依頼を受ける<br>(必要冒険ランク 2以上)',
+            msq17: 'メインクエスト 17<br>冒険者のランクアップ！<br><br>開拓局にいるフェステに話しかける<br>',
+            msq18: 'メインクエスト 18<br>冒険者のランクアップ！<br><br>イマジン研究所へ行く<br>',
+            msq20: 'メインクエスト 20<br>冒険者のランクアップ！<br><br>イマジン研究所へ行く<br>',
+            msq21: 'メインクエスト 21<br>冒険者のランクアップ！<br><br>インナーイマジン　ディランクスを作製する',
+            msq22: 'メインクエスト 22<br>冒険者のランクアップ！<br><br>冒険楽を２に上げる(コマンドメニューにて)',
+            msq23: 'メインクエスト 23<br>巨竜の爪痕<br><br>冒険ランク2でジェイクに話しかける',
+            msq26: 'メインクエスト 26<br>巨竜の爪痕<br><br>開拓局でジェイクから報酬をもらう',
+            msq27: 'メインクエスト 27<br>来者って何？<br><br>コイン亭の亭主に話しかける',
+            msq28: 'メインクエスト 28<br>来者って何？<br><br>神殿で来者の話を聞く',
+            asterleedsToSkyquake: "海鳴りの草原へ",
+            asterleedsToSkyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">ピンクウリボ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw">ウリボ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw">ランドフォックス<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw">ラムサの花<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw" draggable="false">鉄鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw" draggable="false">波紋石<br>',
+            
+            
+            // Asteria Plain
+            skyquakeToAsterleeds: "アステルリーズへ",
+            // 10 things
+            skyquakeToAsterleedsTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">空間転送ポータル<br><img src="images/map/imajinnHouse.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">イマジン研究所<br><img src="images/map/crafting.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">転球練成儀<br><img src="images/map/reconstructor.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">武器改造師<br><img src="images/map/classmaster.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">クラスマスター<br><img src="images/map/liquidmemory.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">リキッドメモリスタンド<br><img src="images/map/exchange.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">GC交換所<br><img src="images/map/potion.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">道具屋<br><img src="images/map/weapon.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">武器屋<br><img src="images/map/storage.png" style="transform: scale(0.5); margin: -0.3em -0.1em -0.9em -0.4em; width: 1.875vw;">倉庫<br>',
+            minsterToDivine: "神の見守る丘へ",
+            // 12 things
+            minsterToDivineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">空間転送 - ラルパル<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">サファイアトロット<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">炎角<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ハイランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw; width: 1.823vw;">ホーンゴート<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">カイザーエルク<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">煙霧苔<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ブレシオの実<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ベアツリーの葉<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">大牙の化石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">バハ鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">砂銀<br>',
+            skyquakeName: "海鳴りの草原",
+            // 6 things
+            skyquakeTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">ピンクウリボ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ウリボ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ランドフォックス<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ラムサの花<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">鉄鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">波紋石<br>',
+            expSkyquake1: '踏破スポット<br>海鳴りの草原 1',
+            expSkyquake2: '踏破スポット<br>海鳴りの草原 2',
+            expSkyquake3: '踏破スポット<br>海鳴りの草原 3',
+            expSkyquake4: '踏破スポット<br>海鳴りの草原 4',
+            expSkyquake5: '踏破スポット<br>海鳴りの草原 5',
+            emPiglet: 'ネームドエネミー<br>ピンクウリボ',
+            
+            
+            andraName: "アンドラ盆地",
+            // 9 things
+            andraTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">深緑の牙<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">鉄牙<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">ランブルボア<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">タイラントボア<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.78em -0.3em; width: 1.823vw;">エルダーゴブリン<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">アンドラ杉の小枝<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">長毛草<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">ジラ輝石<br>',
+            expAndra1: '踏破スポット<br>アンドラ盆地 1',
+            expAndra2: '踏破スポット<br>アンドラ盆地 2',
+            expAndra3: '踏破スポット<br>アンドラ盆地 3',
+            expAndra4: '踏破スポット<br>アンドラ盆地 4',
+            emIronFang: 'ネームドエネミー<br>鉄牙',
+            emDeepGreen: 'ネームドエネミー<br>深緑の牙',
+            
+            calmName: '夕凪の段丘',
+            // 14 things
+            calmTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">猛る金色<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">炎獄<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">エルダーゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">タイラントボア<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">タイラントボア・グロウ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">オーガ<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">斜陽杉の小枝<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">星屑草<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ブールの実<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">隕鉄の欠片<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">マグナ苔の化石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">リメリル鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">満月石<br>',
+            expCalm1: '踏破スポット<br>夕凪の段丘 1',
+            expCalm2: '踏破スポット<br>夕凪の段丘 2',
+            expCalm3: '踏破スポット<br>夕凪の段丘 3',
+            emFlamePrison: 'ネームドエネミー<br>炎獄',
+            emFerociousGold: 'ネームドエネミー<br>猛る金色',
+            
+            minsterName: 'ミンスター丘陵',
+            // 12 things
+            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">巨竜の爪痕<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">空間転送ポータル - ミンスターホルン<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">猛る獣<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">赤い飛沫<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ウリボ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">あかつき草<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">アンドラ杉の小枝<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">鉄鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">アステリウム鉱石<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">アステルバス<br>',
+            minsterhornName: 'ミンスターホルン',
+            minsterhornTool: 'npc ミルレーネ<br>npc スタッズ<br>npc フェステ<br>',
+            warpminsterhorn: '空間転送ポータル<br>ミンスターホルン',
+            expMinster1: "踏破スポット<br>ミンスター丘陵 1",
+            expMinster2: "踏破スポット<br>ミンスター丘陵 2",
+            expMinster3: "踏破スポット<br>ミンスター丘陵 3",
+            expMinster4: "踏破スポット<br>ミンスター丘陵 4",
+            expMinster5: "踏破スポット<br>ミンスター丘陵 5",
+            expMinster6: "踏破スポット<br>ミンスター丘陵 6",
+            expMinster7: "踏破スポット<br>ミンスター丘陵 7",
+            expMinster8: "踏破スポット<br>ミンスター丘陵 8",
+            emFerociousBeast: 'ネームドエネミー<br>猛る獣',
+            emRedSplash: 'ネームドエネミー<br>赤い飛沫',
+            
+            // 18 things
+            dragonclawTool: '巨竜の爪痕・自由探索<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">谷荒らし<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">図に乗った魔術師<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">ラウドシャウト<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">荒ぶる牙王<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">タイラントボア<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">タイラントボア・グロウ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン・グロウ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">エルダーゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">エルダーゴブリン・グロウ<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">竜眼の花<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ドラゴンヴェノム<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">凍星草<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">パイルド鉱<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">哭竜鉱<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">翼竜の化石<br>',
+            purple2: '紫リキッドメモリ 2<br><br>ダンジョンの奥で外の崖が<br>見られる側にある岩を調べると解放<br>(荒ぶる牙王が現れるところ)',
+            green2: '緑リキッドメモリ 2<br><br>崩れた建物の遺跡を調べると解放',
+            msq8: 'メインクエスト 8<br>記憶を求めて<br><br>海鳴りの草原　崖の遺跡に行く',
+            msq9: 'メインクエスト 9<br>記憶を求めて<br><br>目覚めた場所へ行く',
+            msq13: 'メインクエスト 13<br>冒険者登録<br><br>海鳴りの草原で謎の植物資源を3個採取し鑑定',
+            msq19: 'メインクエスト 19<br>冒険のランクアップ！<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">レイクリッド結晶を入手',
+            msq24: 'メインクエスト 24<br>巨竜の爪痕<br><br>巨竜の爪痕でジェイクと合流',
+            msq25: 'メインクエスト 25<br>巨竜の爪痕<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">巨竜の爪痕のモンスターを倒す',
+            msq29: 'メインクエスト 29<br>来者って何？<br><br>ミンスター丘陵　ミンスターホルンへ行く',
+            msq30: 'メインクエスト 30<br>来者って何？<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">アンドラ盆地　巨塔の遺跡へ神官を探しに行く<br>',
+            msq31: 'メインクエスト 31<br>来者って何？<br><br>ミルレーネに報告しよう',
+            msq32: 'メインクエスト 32<br>神懸の御柱<br><br>冒険ランク3で<br>フェステに話しかける',
+            
+            
+            // Bahamar highlands
+            divineToMinster: "ミンスター丘陵へ",
+            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">巨竜の爪痕<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">空間転送ポータル - ミンスターホルン<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">猛る獣<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">赤い飛沫<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ウリボ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">あかつき草<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">アンドラ杉の小枝<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">鉄鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">アステリウム鉱石<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">アステルバス<br>',
+            divineName: "神の見守る丘",
+            divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">空間転送ポータル - ラルパル<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">サファイアトロット<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">炎角<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ハイランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ホーンゴート<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">カイザーエルク<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">煙霧苔<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ブレシオの実<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">ベアツリーの葉<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">大牙の化石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">バハ鉱石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">砂銀<br>',
+            larpalName: 'ラルパル',
+            expDivine1: "踏破スポット<br>神の見守る丘 1",
+            expDivine2: "踏破スポット<br>神の見守る丘 2",
+            expDivine3: "踏破スポット<br>神の見守る丘 3",
+            warpLarpal: "空間転送ポータル<br>ラルパル",
+            emFlamingHorns: "ネームドエネミー<br>炎角",
+            emSapphireTrot: "ネームドエネミー<br>サファイアトロット",
+            
+            soundlessName: "鎮まりの山麓",
+            soundlessTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">スプーキーゴート<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">悪しき癒し手<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ホーンゴート<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ハイランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">エルダーゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリンセージ<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">丸水草<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">高原ユリ<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">碧玉<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">静夜鉱<br>',
+            bergmahlName: "ベルクマール",
+            emSpookyGoat: "ネームドエネミー<br>スプーキーゴート",
+            emEvilHealer: "ネームドエネミー<br>悪しき癒し手",
+            expSoundless1: "踏破スポット<br>鎮まりの山麓 1",
+            expSoundless2: "踏破スポット<br>鎮まりの山麓 2",
+            expSoundless3: "踏破スポット<br>鎮まりの山麓 3",
+            
+            fielName: "フィエル嶺水池",
+            fielTool: '<img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">トリックエルダー<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ホーンゴート<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ハイランドフォックス<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">カイザーエルク<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリン<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">ゴブリンセージ<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">エルダーゴブリン<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">流木の枝<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">アクアフラワー<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">甘露の種<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">湧水石<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">冷震銅<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">貝の化石<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">スパイクフィッシュ<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">ニッコウガイ<br>',
+            expFiel1: "踏破スポット<br>フィエル嶺水池 1",
+            expFiel2: "踏破スポット<br>フィエル嶺水池 2",
+            emTrickElder: "ネームドエネミー<br>トリックエルダー",
+            yellow2: '黄色リキッドメモリ 2<br><br>ゴブリンの集落でテントの真ん中を調べると解放',
+            msq33: 'メインクエスト 33<br>神懸の御柱<br><br>神の見守る丘　神懸の御柱へ行く',
+            msq34: 'メインクエスト 34<br>神懸の御柱<br><br>ラルパルで作戦会議をする',
+            msq35: 'メインクエスト 35<br>神懸の御柱<br><br>鎮まりの山麓　ベルクマールの巡礼団に話す',
+            msq36: 'メインクエスト 36<br>神懸の御柱<br><br>御柱の門番に許可証を見せる',
+            msq37: 'メインクエスト 37<br>神懸の御柱<br><br>御柱の頂上を目指す',
+            msq38: 'メインクエスト 38<br>神懸の御柱<br><br>ラルパルにエーリンゼたちを連れて行く',
+            
+            
+            // Toggle titles
+            togtextWarp: '空間転送ポータル',
+            togtextMSQ: 'メインクエスト',
+            togtextImaj: 'イマジン研究所',
+            togtextCraft: '転球練成儀',
+            togtextReconstructor: '武器改造師',
+            togtextClass: 'クラスマスター',
+            togtextMemory: 'リキッドメモリスタンド',
+            togtextExchange: '交換所',
+            togtextPotshop: '道具屋',
+            togtextWepshop: '武器屋',
+            togtextStorage: '倉庫',
+            togtextElite: 'ネームドエネミー',
+            togtextDung: 'ダンジョン入り口',
+            togtextRaid: 'レイド入り口',
+            togtextRock: '鉱石系素材',
+            togtextPlant: '植物系素材',
+            togtextOcean: '水産物系素材',
+            togtextPoint: '踏破スポット',
+            togtextLiquid: 'リキッドメモリ',
+            togglesHeader: '表示・未表示',
+            
+            
+            
+            // Search list
+            listAndra: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">アンドラ盆地',
+            listCalm: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">夕凪の段丘',
+            listMinster: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">ミンスター丘陵',
+            listMinsterhorn: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ミンスターホルン',
+            listSkyquake: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">海鳴りの草原',
+            listAsteria: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">アステリア平原',
+            listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">バハマール高原',
+            listDivine: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">神の見守る丘',
+            listLarpal: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ラルパル',
+            listFiel: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">フィエル嶺水池',
+            listSoundless: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">鎮まりの山麓',
+            listBergmahl: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ベルクマール',
+            listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">アステルリーズ<br>',
+            searchTitle: 'ゾーンやエリア名で検索'
         }
     ]
     
@@ -4039,12 +4404,15 @@ jQuery(document).ready(function ($) {
         $(".text-gcshop").html(mapText[currentLang].gcshop);
         $(".text-timedquest").html(mapText[currentLang].timedquest);
         $(".lm-yellow1").html(mapText[currentLang].yellow1);
+        $(".lm-yellow2").html(mapText[currentLang].yellow2);
         $(".lm-green1").html(mapText[currentLang].green1);
+        $(".lm-green2").html(mapText[currentLang].green2);
         $(".lm-blue2").html(mapText[currentLang].blue2);
         $(".lm-blue1").html(mapText[currentLang].blue1);
         $(".lm-red2").html(mapText[currentLang].red2);
         $(".lm-red1").html(mapText[currentLang].red1);
         $(".lm-purple1").html(mapText[currentLang].purple1);
+        $(".lm-purple2").html(mapText[currentLang].purple2);
         $(".warp-frontier").html(mapText[currentLang].warpfrontier);
         $(".warp-coatofarms").html(mapText[currentLang].warpcoatofarms);
         $(".warp-citygate").html(mapText[currentLang].warpcitygate);
@@ -4054,6 +4422,153 @@ jQuery(document).ready(function ($) {
         $(".warp-arena").html(mapText[currentLang].warparena);
         $(".warp-shrine").html(mapText[currentLang].warpshrine);
         $(".warp-pavilion").html(mapText[currentLang].warppavilion);
+        $(".asterleedsToSkyquake").html(mapText[currentLang].asterleedsToSkyquake);
+        $(".asterleedsToSkyquakeTool").html(mapText[currentLang].asterleedsToSkyquakeTool);
+        $(".msq1").html(mapText[currentLang].msq1);
+        $(".msq2").html(mapText[currentLang].msq2);
+        $(".msq3").html(mapText[currentLang].msq3);
+        $(".msq4").html(mapText[currentLang].msq4);
+        $(".msq5").html(mapText[currentLang].msq5);
+        $(".msq6").html(mapText[currentLang].msq6);
+        $(".msq7").html(mapText[currentLang].msq7);
+        $(".msq8").html(mapText[currentLang].msq8);
+        $(".msq9").html(mapText[currentLang].msq9);
+        $(".msq10").html(mapText[currentLang].msq10);
+        $(".msq11").html(mapText[currentLang].msq11);
+        $(".msq12").html(mapText[currentLang].msq12);
+        $(".msq13").html(mapText[currentLang].msq13);
+        $(".msq14").html(mapText[currentLang].msq14);
+        $(".msq15").html(mapText[currentLang].msq15);
+        $(".msq16").html(mapText[currentLang].msq16);
+        $(".msq17").html(mapText[currentLang].msq17);
+        $(".msq18").html(mapText[currentLang].msq18);
+        $(".msq19").html(mapText[currentLang].msq19);
+        $(".msq20").html(mapText[currentLang].msq20);
+        $(".msq21").html(mapText[currentLang].msq21);
+        $(".msq22").html(mapText[currentLang].msq22);
+        $(".msq23").html(mapText[currentLang].msq23);
+        $(".msq24").html(mapText[currentLang].msq24);
+        $(".msq25").html(mapText[currentLang].msq25);
+        $(".msq26").html(mapText[currentLang].msq26);
+        $(".msq27").html(mapText[currentLang].msq27);
+        $(".msq28").html(mapText[currentLang].msq28);
+        $(".msq29").html(mapText[currentLang].msq29);
+        $(".msq30").html(mapText[currentLang].msq30);
+        $(".msq31").html(mapText[currentLang].msq31);
+        $(".msq32").html(mapText[currentLang].msq32);
+        $(".msq33").html(mapText[currentLang].msq33);
+        $(".msq34").html(mapText[currentLang].msq34);
+        $(".msq35").html(mapText[currentLang].msq35);
+        $(".msq36").html(mapText[currentLang].msq36);
+        $(".msq37").html(mapText[currentLang].msq37);
+        $(".msq38").html(mapText[currentLang].msq38);
+        $(".minsterName").html(mapText[currentLang].minsterName);
+        $(".minsterTool").html(mapText[currentLang].minsterTool);
+        $(".minsterhornName").html(mapText[currentLang].minsterhornName);
+        $(".minsterhornTool").html(mapText[currentLang].minsterhornTool);
+        $(".skyquakeName").html(mapText[currentLang].skyquakeName);
+        $(".skyquakeTool").html(mapText[currentLang].skyquakeTool);
+        $(".calmName").html(mapText[currentLang].calmName);
+        $(".calmTool").html(mapText[currentLang].calmTool);
+        $(".andraName").html(mapText[currentLang].andraName);
+        $(".andraTool").html(mapText[currentLang].andraTool);
+        $(".dragonclawTool").html(mapText[currentLang].dragonclawTool);
+        $(".skyquakeToAsterleeds").html(mapText[currentLang].skyquakeToAsterleeds);
+        $(".skyquakeToAsterleedsTool").html(mapText[currentLang].skyquakeToAsterleedsTool);
+        $(".minsterToDivine").html(mapText[currentLang].minsterToDivine);
+        $(".minsterToDivineTool").html(mapText[currentLang].minsterToDivineTool);
+        $(".exp-minster1").html(mapText[currentLang].expMinster1);
+        $(".exp-minster2").html(mapText[currentLang].expMinster2);
+        $(".exp-minster3").html(mapText[currentLang].expMinster3);
+        $(".exp-minster4").html(mapText[currentLang].expMinster4);
+        $(".exp-minster5").html(mapText[currentLang].expMinster5);
+        $(".exp-minster6").html(mapText[currentLang].expMinster6);
+        $(".exp-minster7").html(mapText[currentLang].expMinster7);
+        $(".exp-minster8").html(mapText[currentLang].expMinster8);
+        $(".exp-andra1").html(mapText[currentLang].expAndra1);
+        $(".exp-andra2").html(mapText[currentLang].expAndra2);
+        $(".exp-andra3").html(mapText[currentLang].expAndra3);
+        $(".exp-andra4").html(mapText[currentLang].expAndra4);
+        $(".exp-calm1").html(mapText[currentLang].expCalm1);
+        $(".exp-calm2").html(mapText[currentLang].expCalm2);
+        $(".exp-calm3").html(mapText[currentLang].expCalm3);
+        $(".exp-skyquake1").html(mapText[currentLang].expSkyquake1);
+        $(".exp-skyquake2").html(mapText[currentLang].expSkyquake2);
+        $(".exp-skyquake3").html(mapText[currentLang].expSkyquake3);
+        $(".exp-skyquake4").html(mapText[currentLang].expSkyquake4);
+        $(".exp-skyquake5").html(mapText[currentLang].expSkyquake5);
+        $(".em-ferociousbeast").html(mapText[currentLang].emFerociousBeast);
+        $(".em-ferociousgold").html(mapText[currentLang].emFerociousGold);
+        $(".em-flameprison").html(mapText[currentLang].emFlamePrison);
+        $(".em-piglet").html(mapText[currentLang].emPiglet);
+        $(".em-ironfang").html(mapText[currentLang].emIronFang);
+        $(".em-deepgreen").html(mapText[currentLang].emDeepGreen);
+        $(".em-redsplash").html(mapText[currentLang].emRedSplash);
+        $(".warp-minsterhorn").html(mapText[currentLang].warpminsterhorn);
+        $(".em-trickelder").html(mapText[currentLang].emTrickElder);
+        $(".em-spookygoat").html(mapText[currentLang].emSpookyGoat);
+        $(".em-evilhealer").html(mapText[currentLang].emEvilHealer);
+        $(".em-flaminghorns").html(mapText[currentLang].emFlamingHorns);
+        $(".em-sapphiretrot").html(mapText[currentLang].emSapphireTrot);
+        $(".divineName").html(mapText[currentLang].divineName);
+        $(".divineTool").html(mapText[currentLang].divineTool);
+        $(".soundlessName").html(mapText[currentLang].soundlessName);
+        $(".soundlessTool").html(mapText[currentLang].soundlessTool);
+        $(".fielName").html(mapText[currentLang].fielName);
+        $(".fielTool").html(mapText[currentLang].fielTool);
+        $(".exp-divine1").html(mapText[currentLang].expDivine1);
+        $(".exp-divine2").html(mapText[currentLang].expDivine2);
+        $(".exp-divine3").html(mapText[currentLang].expDivine3);
+        $(".exp-soundless1").html(mapText[currentLang].expSoundless1);
+        $(".exp-soundless2").html(mapText[currentLang].expSoundless2);
+        $(".exp-soundless3").html(mapText[currentLang].expSoundless3);
+        $(".exp-fiel1").html(mapText[currentLang].expFiel1);
+        $(".exp-fiel2").html(mapText[currentLang].expFiel2);
+        $(".divineToMinster").html(mapText[currentLang].divineToMinster);
+        $(".divineToMinsterTool").html(mapText[currentLang].divineToMinsterTool);
+        $(".warp-larpal").html(mapText[currentLang].warpLarpal);
+        $(".larpalName").html(mapText[currentLang].larpalName);
+        $(".bergmahlName").html(mapText[currentLang].bergmahlName);
+        
+        // Toggles 
+        $(".togtextWarp").html(mapText[currentLang].togtextWarp);
+        $(".togtextMSQ").html(mapText[currentLang].togtextMSQ);
+        $(".togtextImaj").html(mapText[currentLang].togtextImaj);
+        $(".togtextCraft").html(mapText[currentLang].togtextCraft);
+        $(".togtextReconstructor").html(mapText[currentLang].togtextReconstructor);
+        $(".togtextClass").html(mapText[currentLang].togtextClass);
+        $(".togtextMemory").html(mapText[currentLang].togtextMemory);
+        $(".togtextExchange").html(mapText[currentLang].togtextExchange);
+        $(".togtextPotshop").html(mapText[currentLang].togtextPotshop);
+        $(".togtextWepshop").html(mapText[currentLang].togtextWepshop);
+        $(".togtextStorage").html(mapText[currentLang].togtextStorage);
+        $(".togtextElite").html(mapText[currentLang].togtextElite);
+        $(".togtextDung").html(mapText[currentLang].togtextDung);
+        $(".togtextRaid").html(mapText[currentLang].togtextRaid);
+        $(".togtextRock").html(mapText[currentLang].togtextRock);
+        $(".togtextPlant").html(mapText[currentLang].togtextPlant);
+        $(".togtextOcean").html(mapText[currentLang].togtextOcean);
+        $(".togtextPoint").html(mapText[currentLang].togtextPoint);
+        $(".togtextLiquid").html(mapText[currentLang].togtextLiquid);
+        $(".togglesHeader").html(mapText[currentLang].togglesHeader);
+        
+        
+        // Search
+        $("#mapSearch").attr("placeholder", mapText[currentLang].searchTitle);
+        $(".listAster").html(mapText[currentLang].listAsterleeds);
+        $(".listAsteria").html(mapText[currentLang].listAsteria);
+        $(".listAndra").html(mapText[currentLang].listAndra);
+        $(".listSkyquake").html(mapText[currentLang].listSkyquake);
+        $(".listCalm").html(mapText[currentLang].listCalm);
+        $(".listMinster").html(mapText[currentLang].listMinster);
+        $(".listMinsterhorn").html(mapText[currentLang].listMinsterhorn);
+        $(".listBahamar").html(mapText[currentLang].listBahamar);
+        $(".listFiel").html(mapText[currentLang].listFiel);
+        $(".listSoundless").html(mapText[currentLang].listSoundless);
+        $(".listDivine").html(mapText[currentLang].listDivine);
+        $(".listLarpal").html(mapText[currentLang].listLarpal);
+        $(".listBergmahl").html(mapText[currentLang].listBergmahl);
+        
         
         
     }
@@ -4069,25 +4584,25 @@ jQuery(document).ready(function ($) {
         if ($(this).is(".listAsteriaPlain")){
             
             // Highlight the map name if a specific map is chosen
-            if ($(this).is(":contains('Skyquake Fields')")) {
-                $(".mapName:contains('Skyquake Fields')").addClass("currentZone");
-                $(".mapName:contains('Skyquake Fields')").css("opacity","1");
+            if ($(this).is(".listSkyquake") || $(this).is(".asterleedsToSkyquake")) {
+                $(".skyquakeName").addClass("currentZone");
+                $(".skyquakeName").css("opacity","1");
             } 
-            else if ($(this).is(":contains('Minster Hills')")) {
-                $(".mapName:contains('Minster Hills')").addClass("currentZone");
-                $(".mapName:contains('Minster Hills')").css("opacity","1");
+            else if ($(this).is(".listMinster") || $(this).is(".divineToMinster")) {
+                $(".minsterName").addClass("currentZone");
+                $(".minsterName").css("opacity","1");
             } 
-            else if ($(this).is(":contains('Andra Basin')")) {
-                $(".mapName:contains('Andra Basin')").addClass("currentZone");
-                $(".mapName:contains('Andra Basin')").css("opacity","1");
+            else if ($(this).is(".listAndra")) {
+                $(".andraName").addClass("currentZone");
+                $(".andraName").css("opacity","1");
             }
-            else if ($(this).is(":contains('Calm Eve Terraces')")) {
-                $(".mapName:contains('Calm Eve Terraces')").addClass("currentZone");
-                $(".mapName:contains('Calm Eve Terraces')").css("opacity","1");
+            else if ($(this).is(".listCalm")) {
+                $(".calmName").addClass("currentZone");
+                $(".calmName").css("opacity","1");
             } 
-            else if ($(this).is(":contains('Minsterhorn')")) {
-                $(".mapName:contains('Minsterhorn')").addClass("currentZone");
-                $(".mapName:contains('Minsterhorn')").css("opacity","1");
+            else if ($(this).is(".listMinsterhorn")) {
+                $(".minsterhornName").addClass("currentZone");
+                $(".minsterhornName").css("opacity","1");
             }
             
             // Open the map
@@ -4100,25 +4615,25 @@ jQuery(document).ready(function ($) {
         if ($(this).is(".listBahamarHighlands")){
             
             // Highlight the map name if a specific map is chosen
-            if ($(this).is(":contains('Divine Haven Hill')")) {
-                $(".mapName:contains('Divine Haven Hill')").addClass("currentZone");
-                $(".mapName:contains('Divine Haven Hill')").css("opacity","1");
+            if ($(this).is(".listDivine") || $(this).is(".minsterToDivine")) {
+                $(".divineName").addClass("currentZone");
+                $(".divineName").css("opacity","1");
             } 
-            else if ($(this).is(":contains('Fiel Pond')")) {
-                $(".mapName:contains('Fiel Pond')").addClass("currentZone");
-                $(".mapName:contains('Fiel Pond')").css("opacity","1");
+            else if ($(this).is(".listFiel")) {
+                $(".fielName").addClass("currentZone");
+                $(".fielName").css("opacity","1");
             } 
-            else if ($(this).is(":contains('Soundless Foothills')")) {
-                $(".mapName:contains('Soundless Foothills')").addClass("currentZone");
-                $(".mapName:contains('Soundless Foothills')").css("opacity","1");
+            else if ($(this).is(".listSoundless")) {
+                $(".soundlessName").addClass("currentZone");
+                $(".soundlessName").css("opacity","1");
             }
-            else if ($(this).is(":contains('Larpal')")) {
-                $(".mapName:contains('Larpal')").addClass("currentZone");
-                $(".mapName:contains('Larpal')").css("opacity","1");
+            else if ($(this).is(".listLarpal")) {
+                $(".larpalName").addClass("currentZone");
+                $(".larpalName").css("opacity","1");
             }
-            else if ($(this).is(":contains('Bergmahl')")) {
-                $(".mapName:contains('Bergmahl')").addClass("currentZone");
-                $(".mapName:contains('Bergmahl')").css("opacity","1");
+            else if ($(this).is(".listBergmahl")) {
+                $(".bergmahlName").addClass("currentZone");
+                $(".bergmahlName").css("opacity","1");
             }
             
             // Open the map
@@ -6686,7 +7201,7 @@ jQuery(document).ready(function ($) {
         },
         // Kaiser Elk カイザーエルク
         { 
-            name: "Alce Ancião",
+            name: "Alce Imperador",
             type: "Dano",
             image: "images/map/kaiserelk.mp4",
             level: "Nv Inicial 1~1 (Nv Max: 35)",
@@ -8607,6 +9122,55 @@ jQuery(document).ready(function ($) {
         ]
         
     ]
+    
+    /* Elements in Portuguese by Ryuno
+    
+    EARTH
+    Terra
+
+Reduz a velocidade de movimento dos inimigos
+Quando acumulado suficiente,
+imobiliza e causa dano aos inimigos
+    
+    FIRE
+    Fogo
+
+Causa dano de fogo ao longo do tempo
+Quando acumulado suficiente,
+uma explosão de alto dano ocorre
+    
+    DARK
+    Trevas
+
+Causa dano ao longo do tempo
+Quando acumulado suficiente, 
+imobiliza e causa dano aos inimigos
+
+    ICE
+    Gelo
+
+Reduz a velocidade de movimento dos inimigos
+Quando acumulado suficiente, 
+congela inimigos e causa dano
+    
+    LIGHTNING
+    Relâmpago
+
+Causa dano elétrico ao longo do tempo e aumenta o intervalo de habilidade dos inimigos
+Quando acumulado suficiente, 
+uma explosão de alto dano ocorre
+    
+    LIGHT
+    Luz
+
+Causa dano de luz ao longo do tempo e empurra inimigos para longe
+Quando acumulado suficiente, 
+uma explosão de alto dano ocorre
+    
+    
+    */
+    
+    
     
     
     });
