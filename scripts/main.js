@@ -396,10 +396,11 @@ jQuery(document).ready(function ($) {
     // GAME GUIDE
     
     var currentGuide = ".liqMemPage";
+    var newGuide = "";
     // Initial button is automatically highlighted
     $(".guideLiqMem").addClass("guideSelected");
     
-    
+    // Change guide pages
     $(".guideMenuButton").click(function(){
         
         // Reset button highlights when click
@@ -407,40 +408,46 @@ jQuery(document).ready(function ($) {
         // Add button highlight to clicked button
         $(this).addClass("guideSelected");
         // Hide the current page
-        $(currentGuide).css("display","none");
         
-        if ($(this).is(".guideLiqMem")) {
-            currentGuide = ".liqMemPage";
+        if ($(this).is(".guideLiqMem") && currentGuide != ".liqMemPage") {
+            newGuide = ".liqMemPage";
         }
-        if ($(this).is(".guideCombat")) {
-            currentGuide = ".combatPage";
+        if ($(this).is(".guideCombat") && currentGuide != ".combatPage") {
+            newGuide = ".combatPage";
         }
-        if ($(this).is(".guideElements")) {
-            currentGuide = ".elementsPage";
+        if ($(this).is(".guideElements") && currentGuide != ".elementsPage") {
+            newGuide = ".elementsPage";
         }
-        if ($(this).is(".guideDungeons")) {
-            currentGuide = ".dungeonsPage";
+        if ($(this).is(".guideFusion") && currentGuide != ".fusionPage") {
+            newGuide = ".fusionPage";
         }
-        if ($(this).is(".guideRaids")) {
-            currentGuide = ".raidsPage";
+        if ($(this).is(".guideDungeons") && currentGuide != ".dungeonsPage") {
+            newGuide = ".dungeonsPage";
         }
-        if ($(this).is(".guideBuffs")) {
-            currentGuide = ".buffsPage";
+        if ($(this).is(".guideRaids") && currentGuide != ".raidsPage") {
+            newGuide = ".raidsPage";
         }
-        if ($(this).is(".guideProgression")) {
-            currentGuide = ".progressionPage";
+        if ($(this).is(".guideBuffs") && currentGuide != ".buffsPage") {
+            newGuide = ".buffsPage";
         }
-        if ($(this).is(".guideStory")) {
-            currentGuide = ".storyPage";
+        if ($(this).is(".guideProgression") && currentGuide != ".progressionPage") {
+            newGuide = ".progressionPage";
         }
-        if ($(this).is(".guideOptions")) {
-            currentGuide = ".optionsPage";
+        if ($(this).is(".guideStory") && currentGuide != ".storyPage") {
+            newGuide = ".storyPage";
+        }
+        if ($(this).is(".guideOptions") && currentGuide != ".optionsPage") {
+            newGuide = ".optionsPage";
         }
         
-        openGuide();
-        
+        // Crossfade pages and display
+        if (currentGuide != newGuide) {
+            crossfade($(currentGuide), $(newGuide), 500);
+            currentGuide = newGuide;
+            openGuide();
+        }
+
     });
-    
     
     function openGuide() {
         $("#guideContainer").css("display","block");
@@ -452,7 +459,6 @@ jQuery(document).ready(function ($) {
     function closeGuide() {
         $("#guideContainer").css("display","none");
     }
-    
     
     // Bubbles
     // Change to click if too much visual noise. Requires removing .bubble:active 
@@ -486,8 +492,28 @@ jQuery(document).ready(function ($) {
         
     });
     
+    // Crossfader function
+    function crossfade(itemA, itemB, time=300) {
+    // Fade out A while fading in B
+        
+        if (itemA != itemB) {
+            itemB.css("opacity","0");
+            itemB.css("display","block");
+            itemB.stop().animate({opacity: 1}, time);
+            
+            itemA.stop().animate({opacity: 0}, time);
+            setTimeout(function(){
+                itemA.css("display", "none");
+            }, time);
+
+        }
+        
+    }
+    // function fadeInOut (item A, itemB, time) {}
     
-    
+    $(".storyChapter p").click(function() {
+        $(this).toggleClass("strikethrough");
+    });
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
