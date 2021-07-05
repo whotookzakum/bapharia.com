@@ -3941,11 +3941,8 @@ jQuery(document).ready(function ($) {
                 'Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragonclaw Valley [Free Exploration]',
             green1: 
                 'Green Liquid Memory 1<br><br>Clear Godo&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godo',
-            blue2: [
+            blue2: 
                 'Blue Liquid Memory 2<br><br>Examine the shipwheel behind<br>the performers on the 2nd floor<br> of the Revolving Helm Pavilion',
-                    
-                '青いリキッドメモリ 2<br><br>廻る舵輪亭の２階で演奏者<br>の後ろにある舵を調べると解放'
-            ],
             blue1: 
                 'Blue Liquid Memory 1<br><br>Clear Patty&#39;s Quest<br>"Troubled Apprentice" (Lv. 13+)<br><br>Obtain Engram Extractor<br>(clear Pillar of Divinity<br>[Advanced Survey]) and bring it<br>to Hanna outside the Pillar',
             red2: 
@@ -4332,15 +4329,15 @@ jQuery(document).ready(function ($) {
             listAndra: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">アンドラ盆地',
             listCalm: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">夕凪の段丘',
             listMinster: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">ミンスター丘陵',
-            listMinsterhorn: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ミンスターホルン',
+            listMinsterhorn: '<img src="images/map/village1.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ミンスターホルン',
             listSkyquake: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">海鳴りの草原',
             listAsteria: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">アステリア平原',
             listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">バハマール高原',
             listDivine: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">神の見守る丘',
-            listLarpal: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ラルパル',
+            listLarpal: '<img src="images/map/village1.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ラルパル',
             listFiel: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">フィエル嶺水池',
             listSoundless: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">鎮まりの山麓',
-            listBergmahl: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ベルクマール',
+            listBergmahl: '<img src="images/map/village1.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">ベルクマール',
             listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">アステルリーズ<br>',
             searchTitle: 'ゾーンやエリア名で検索'
         },
@@ -4541,15 +4538,15 @@ jQuery(document).ready(function ($) {
             listAndra: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Bacia Andra',
             listCalm: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Terraço Vespertino',
             listMinster: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Colinas Minster',
-            listMinsterhorn: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Minsterhorn',
+            listMinsterhorn: '<img src="images/map/village1.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Minsterhorn',
             listSkyquake: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Campos Tremecéus',
             listAsteria: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Plano Asteria',
             listBahamar: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 0; width: 1.823vw;">Terra Alta de Bahamar',
             listDivine: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Colina do Santuário',
-            listLarpal: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Larpal',
+            listLarpal: '<img src="images/map/village1.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Larpal',
             listFiel: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Lago Fiel',
             listSoundless: '<img src="images/combat.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 1.5em; width: 1.823vw;">Sopé Silencioso',
-            listBergmahl: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Bergmahl',
+            listBergmahl: '<img src="images/map/village1.svg" style="transform: scale(0.6); margin: -5em 0 -0.68em 3em; width: 1.823vw;">Bergmahl',
             listAsterleeds: '<img src="images/map2.svg" style="transform: scale(0.6); margin: -5em 0 -0.7em 0; width: 1.823vw;">Asterleeds<br>',
             searchTitle: 'Pesquise Mapa ou Área'
         }
