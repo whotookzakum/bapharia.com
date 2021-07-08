@@ -627,13 +627,13 @@ h2 {
 }
 
 /* tooltip */
-.tooltip {
+.tooltip, .buffTool {
     display: none;
     position: fixed;
     font-size: 0.833vw; /* 16px */
     z-index: 90;
 }
-p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
+p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip, .buffTool {
     z-index: 90;
     font-size: 0.833vw;
     padding: 0.26vw 0.52vw 0.26vw 0.32vw;
@@ -1675,29 +1675,49 @@ input:checked + .slider:before {
 }
 
 
+
+
 .buffTutorial, .debuffTutorial, .elementTutorial {
-    width: 4.323vw;
-    height: 5.104vw;
+    width: 2.1615vw;
+    height: 2.552vw;
     position: relative;
-    filter: drop-shadow(5px 5px 0 #646260);
+    filter: drop-shadow(3px 3px 0 #646260);
     display: inline-block;
-    margin: .52vw .52vw; 
+    margin: .26vw .26vw; 
     
 }
 
 .buffTutorial {
     background: url(images/buffs/buffs.png);
-    background-size: 30.260vw 10.208vw;
+    background-size: 15.13vw 15.3125vw;
 }
 .debuffTutorial {
     background: url(images/buffs/debuffs.png);
-    background-size: 30.260vw 10.208vw;
+    background-size: 15.13vw 5.104vw;
 }
 .elementTutorial {
     background: url(images/buffs/elements.png);
 }
 .buffTutorial:hover, .debuffTutorial:hover, .elementTutorial:hover {
-    filter: brightness(0.8) drop-shadow(5px 5px 0 #585655);
+    filter: brightness(0.8) drop-shadow(3px 3px 0 #585655);
+}
+.buffTutorial:hover+.tooltip, .debuffTutorial:hover+.tooltip {
+    display: block;
+}
+.buffTutorial+.tooltip, .debuffTutorial+.tooltip {
+    text-align: left;
+}
+.class-tool-af, .class-tool-ts, .class-tool-ba, .class-tool-sc, .class-tool-hs {
+    width: 1vw;
+    margin: 0.1vw 0.1vw -0.2vw 0.1vw;
+}
+.class-tool-ts {
+    width: 1.05vw;
+    margin-bottom: -0.15vw;
+}
+.class-tool-ba {
+    width: 1.3vw; 
+    margin: 0.1vw 0.05vw -0.15vw 0.05vw
 }
 
 /* ------------- BUBBLES -------------- */
