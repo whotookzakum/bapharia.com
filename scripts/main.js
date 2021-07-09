@@ -62,7 +62,7 @@ jQuery(document).ready(function ($) {
                 iiHolder = iiHolderJP;
                 listHolder = biHolder;
             }
-            else if (listHolder == iiHolderJP || listHolder == iiHolderEN || listHolder == iiHolderBR || listHolder == biHolderRU) {
+            else if (listHolder == iiHolderJP || listHolder == iiHolderEN || listHolder == iiHolderBR || listHolder == iiHolderRU) {
                 biHolder = biHolderJP;
                 iiHolder = iiHolderJP;
                 listHolder = iiHolder;
@@ -142,7 +142,7 @@ jQuery(document).ready(function ($) {
                 iiHolder = iiHolderEN;
                 listHolder = biHolder;
             }
-            else if (listHolder == iiHolder || listHolder == iiHolderJP || listHolder == iiHolderBR || listHolder == biHolderRU) {
+            else if (listHolder == iiHolderEN || listHolder == iiHolderJP || listHolder == iiHolderBR || listHolder == iiHolderRU) {
                 biHolder = biHolderEN;
                 iiHolder = iiHolderEN;
                 listHolder = iiHolder;
@@ -221,7 +221,7 @@ jQuery(document).ready(function ($) {
                 iiHolder = iiHolderBR;
                 listHolder = biHolder;
             }
-            else if (listHolder == iiHolderEN || listHolder == iiHolderJP || listHolder == iiHolderBR || listHolder == biHolderRU) {
+            else if (listHolder == iiHolderEN || listHolder == iiHolderJP || listHolder == iiHolderBR || listHolder == iiHolderRU) {
                 biHolder = biHolderBR;
                 iiHolder = iiHolderBR;
                 listHolder = iiHolder;
@@ -299,7 +299,7 @@ jQuery(document).ready(function ($) {
                 iiHolder = iiHolderRU;
                 listHolder = biHolder;
             }
-            else if (listHolder == iiHolderEN || listHolder == iiHolderJP || listHolder == iiHolderBR || listHolder == biHolderRU) {
+            else if (listHolder == iiHolderEN || listHolder == iiHolderJP || listHolder == iiHolderBR || listHolder == iiHolderRU) {
                 biHolder = biHolderRU;
                 iiHolder = iiHolderRU;
                 listHolder = iiHolder;
@@ -314,9 +314,9 @@ jQuery(document).ready(function ($) {
             $(".biSelector").css("font-size","0.6775vw");
             $(".iiSelector").css("font-size","0.6775vw");
             // Crafting and Imajinn
-            $(".reqItemHeader").html("Required Items  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qnt.");
-            $(".reqLunoHeader").html("Req. Luno");
-            $(".abilityHeader").html("Possible Abilities");
+            $(".reqItemHeader").html("Required items  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amount");
+            $(".reqLunoHeader").html("Req. luno");
+            $(".abilityHeader").html("Possible abilities");
             $(".statStr").html("str");
             $(".statInt").html("int");
             $(".statHp").html("max hp");
