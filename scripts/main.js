@@ -37,6 +37,8 @@ jQuery(document).ready(function ($) {
 
     });
     
+    
+    // Switch languages
     function switchLang(lang) {
         
         // JAPANESE
@@ -355,6 +357,7 @@ jQuery(document).ready(function ($) {
         }
         
     }
+    
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
