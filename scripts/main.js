@@ -597,8 +597,41 @@ jQuery(document).ready(function ($) {
     }
     // function fadeInOut (item A, itemB, time) {}
     
+    // Strikethrough main story quests on click
     $(".storyChapter p").click(function() {
         $(this).toggleClass("strikethrough");
+    });
+    
+    // Elements page background color changer, just for fun
+    $(".eleHeader>img").click(function() {
+        var color;
+        
+        if ($(this).hasClass("eleFire")) {
+            color = "#2b0000";
+        }        
+        if ($(this).hasClass("eleIce")) {
+            color = "#002829";
+        }        
+        if ($(this).hasClass("eleLightning")) {
+            color = "#1f1e00";
+        }        
+        if ($(this).hasClass("eleEarth")) {
+            color = "#331000";
+        }        
+        if ($(this).hasClass("eleLight")) {
+            color = "#291d00";
+        }        
+        if ($(this).hasClass("eleDark")) {
+            color = "#170021";
+        }
+        
+        
+        
+        $(".elementsPage").stop().animate({
+            backgroundColor: color
+        },300);
+        
+        
     });
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
