@@ -644,7 +644,10 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     border-radius: 0.52vw;
     filter: drop-shadow(0 2px 2px black);
 }
-
+.eleLvTool {
+    position: absolute;
+    left: 200px;
+}
 /* Show tooltips */
 .mapIcon:hover+.tooltip, .i-infoSkill:hover+.skillTooltip, .i-slotIcon:hover+.slotTooltip {
     display: block;
@@ -1675,19 +1678,15 @@ input:checked + .slider:before {
     font-size: 0.76vw;
 }
 
-
-
-
 .buffTutorial, .debuffTutorial, .elementTutorial {
     width: 2.1615vw;
     height: 2.552vw;
     position: relative;
-    filter: drop-shadow(3px 3px 0 #646260);
+    filter: drop-shadow(0.208vw 0.208vw 0 #646260);
     display: inline-block;
     margin: .26vw .26vw; 
     
 }
-
 .buffTutorial {
     background: url(images/buffs/buffs.png);
     background-size: 15.13vw 15.3125vw;
@@ -1736,20 +1735,26 @@ input:checked + .slider:before {
 }
 
 .eleContainer {
-    width: 72vw;
-    margin: auto;
+    
 }
 .eleContainer table {
     display: inline-block;
-    filter: drop-shadow(0 0 2px black);
     border-left: 2px solid gray;
 }
+.eleHeader {
+    /* apply to text, element level icon, and borders for the table without displacing tooltips... */
+    filter: drop-shadow(0 0 2px black);
+}
+.eleBody .tooltip {
+    width: 15.4vw;
+}
 .eleBody {
+    display: inline-block;
     float: left;
     width: 17.4vw;
     text-align: left;
 }
-.eleBody p {
+.eleBodyText {
     /* font-size: 0.7vw; */
     text-align: left;
     width: 14.5vw;
