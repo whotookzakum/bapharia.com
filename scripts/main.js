@@ -602,38 +602,285 @@ jQuery(document).ready(function ($) {
         $(this).toggleClass("strikethrough");
     });
     
-    // Elements page background color changer, just for fun
-    $(".eleHeader>img").click(function() {
-        var color;
+    // Get random int from min-max
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+    
+    // ELEMENTS DEMO
+    var gaugeNumber = 1;
+    var gaugeWidth1;
+    var gaugeWidth2;
+    var gaugeWidth3;
+    var gaugeOffset;
+    var ele1 = 1;
+    var ele2 = 2;
+    var ele3 = 3;
+    function getGaugeWidths () {
         
-        if ($(this).hasClass("eleFire")) {
-            color = "#2b0000";
-        }        
-        if ($(this).hasClass("eleIce")) {
-            color = "#002829";
-        }        
-        if ($(this).hasClass("eleLightning")) {
-            color = "#1f1e00";
-        }        
-        if ($(this).hasClass("eleEarth")) {
-            color = "#331000";
-        }        
-        if ($(this).hasClass("eleLight")) {
-            color = "#291d00";
-        }        
-        if ($(this).hasClass("eleDark")) {
-            color = "#170021";
+        // random number between 25 and 45
+        // one value has to be the highest value
+        // must be at least 100.
+        // *overflows into next meter
+        
+        gaugeWidth1 = randomInt(25, 45); // 25 to 45
+        gaugeWidth2 = randomInt(25, 45);
+        gaugeOffset = 0.5;
+        gaugeWidth3 = 100 - (gaugeWidth1 + gaugeWidth2);
+        
+        // Check to make sure no overlapping buggable values
+        // avoid 34 34 32 
+        if (gaugeWidth1 > gaugeWidth3 && gaugeWidth1 == gaugeWidth2) {
+            gaugeWidth1++;
+            gaugeWidth3--;
+        }
+        // avoid 32 34 34
+        else if (gaugeWidth2 > gaugeWidth1 && gaugeWidth2 == gaugeWidth3) {
+            gaugeWidth2++;
+            gaugeWidth3--;
+        }
+        // avoid 34 32 34
+        else if (gaugeWidth1 > gaugeWidth2 && gaugeWidth1 == gaugeWidth3) {
+            gaugeWidth1++;
+            gaugeWidth3--;
+        }
+    }
+    function getStrongestElement() {
+        
+        // Add up values if same element
+        // fire ice fire
+        if (ele1.is(ele3)) {
+            gaugeWidth1 = gaugeWidth1 + gaugeWidth3;
+        }
+        // fire fire ice
+        else if (ele1.is(ele2)) {
+            gaugeWidth1 = gaugeWidth1 + gaugeWidth2;
+        }
+        // ice fire fire
+        else if (ele2.is(ele3)) {
+            gaugeWidth2 = gaugeWidth2 + gaugeWidth3;
         }
         
+        // Gauge 1 is biggest
+        if (gaugeWidth1 > gaugeWidth2 && gaugeWidth1 > gaugeWidth3) {
+
+            // Check which element was clicked and apply transformation
+            if (ele1.hasClass("eleFire")) {
+                $(".eleDemoLv1").css("background-position","-0 -0");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -0");
+                $(".eleDemoLv3").css("background-position","-4.323vw -0");
+            }
+            if (ele1.hasClass("eleIce")) {
+                $(".eleDemoLv1").css("background-position","-0vw -2.552vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -2.552vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -2.552vw");
+            }
+            if (ele1.hasClass("eleLightning")) {
+                $(".eleDemoLv1").css("background-position","-0vw -5.104vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -5.104vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -5.104vw");
+            }
+            if (ele1.hasClass("eleEarth")) {
+                $(".eleDemoLv1").css("background-position","-0vw -7.656vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -7.656vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -7.656vw");
+            }
+            if (ele1.hasClass("eleLight")) {
+                $(".eleDemoLv1").css("background-position","-0vw -10.208vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -10.208vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -10.208vw");
+            }
+            if (ele1.hasClass("eleDark")) {
+                $(".eleDemoLv1").css("background-position","-0vw -12.76vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -12.76vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -12.76vw");
+            }
+
+        }
+        // Gauge 2 is biggest
+        if (gaugeWidth2 > gaugeWidth1 && gaugeWidth2 > gaugeWidth3) {
+
+            // Check which element was clicked and apply transformation
+            if (ele2.hasClass("eleFire")) {
+                $(".eleDemoLv1").css("background-position","-0 -0");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -0");
+                $(".eleDemoLv3").css("background-position","-4.323vw -0");
+            }
+            if (ele2.hasClass("eleIce")) {
+                $(".eleDemoLv1").css("background-position","-0vw -2.552vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -2.552vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -2.552vw");
+            }
+            if (ele2.hasClass("eleLightning")) {
+                $(".eleDemoLv1").css("background-position","-0vw -5.104vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -5.104vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -5.104vw");
+            }
+            if (ele2.hasClass("eleEarth")) {
+                $(".eleDemoLv1").css("background-position","-0vw -7.656vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -7.656vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -7.656vw");
+            }
+            if (ele2.hasClass("eleLight")) {
+                $(".eleDemoLv1").css("background-position","-0vw -10.208vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -10.208vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -10.208vw");
+            }
+            if (ele2.hasClass("eleDark")) {
+                $(".eleDemoLv1").css("background-position","-0vw -12.76vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -12.76vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -12.76vw");
+            }
+
+        }
+        // Gauge 3 is biggest
+        if (gaugeWidth3 > gaugeWidth2 && gaugeWidth3 > gaugeWidth1) {
+
+            // Check which element was clicked and apply transformation
+            if (ele3.hasClass("eleFire")) {
+                $(".eleDemoLv1").css("background-position","-0 -0");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -0");
+                $(".eleDemoLv3").css("background-position","-4.323vw -0");
+            }
+            if (ele3.hasClass("eleIce")) {
+                $(".eleDemoLv1").css("background-position","-0vw -2.552vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -2.552vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -2.552vw");
+            }
+            if (ele3.hasClass("eleLightning")) {
+                $(".eleDemoLv1").css("background-position","-0vw -5.104vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -5.104vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -5.104vw");
+            }
+            if (ele3.hasClass("eleEarth")) {
+                $(".eleDemoLv1").css("background-position","-0vw -7.656vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -7.656vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -7.656vw");
+            }
+            if (ele3.hasClass("eleLight")) {
+                $(".eleDemoLv1").css("background-position","-0vw -10.208vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -10.208vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -10.208vw");
+            }
+            if (ele3.hasClass("eleDark")) {
+                $(".eleDemoLv1").css("background-position","-0vw -12.76vw");
+                $(".eleDemoLv2").css("background-position","-2.1615vw -12.76vw");
+                $(".eleDemoLv3").css("background-position","-4.323vw -12.76vw");
+            }
+
+        }
         
+    }
+    // Fill Meters
+    $(".eleHeader>img").click(function() {
+
+        // Gauge color from clicked element
+        var color = $(this).css('color');
         
-        $(".elementsPage").stop().animate({
-            backgroundColor: color
-        },300);
+        // Get text of element that was clicked
+        var element = $(this).next().html();
+        
+        // Set color and width
+        // Lv 1
+        if (gaugeNumber == 1) {
+            
+            getGaugeWidths();
+            
+            $(".gauge1").css("background-color", color);
+            $(".gauge1").css("width", gaugeWidth1 + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth1);
+            
+            ele1 = $(this);
+
+            
+        }
+        if (gaugeNumber == 2) {
+            
+            $(".gauge2").css("background-color", color);
+            $(".gauge2").css("width", gaugeWidth2 + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth2);
+            
+            ele2 = $(this);
+
+            
+        }
+        if (gaugeNumber == 3) {
+            
+            $(".gauge3").css("background-color", color);
+            $(".gauge3").css("width", gaugeWidth3 - gaugeOffset + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth3);
+            
+            ele3 = $(this);
+            
+            getStrongestElement();
+            $(".eleDemoLv1").css("visibility","visible");
+        }
+        
+        // Lv 2
+        if (gaugeNumber == 4) {
+            getGaugeWidths();
+            $(".gauge4").css("background-color", color);
+            $(".gauge4").css("width", gaugeWidth1 + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth1);
+            
+        }
+        if (gaugeNumber == 5) {
+            $(".gauge5").css("background-color", color);
+            $(".gauge5").css("width", gaugeWidth2 + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth2);
+            
+        }
+        if (gaugeNumber == 6) {
+            $(".gauge6").css("background-color", color);
+            $(".gauge6").css("width", gaugeWidth3 - gaugeOffset + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth3);
+            
+            $(".eleDemoLv2").css("visibility","visible");
+        }
+        
+        // Lv 3
+        if (gaugeNumber == 7) {
+            getGaugeWidths();
+            $(".gauge7").css("background-color", color);
+            $(".gauge7").css("width", gaugeWidth1 + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth1);
+            
+        }
+        if (gaugeNumber == 8) {
+            $(".gauge8").css("background-color", color);
+            $(".gauge8").css("width", gaugeWidth2 + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth2);
+            
+        }
+        if (gaugeNumber == 9) {
+            $(".gauge9").css("background-color", color);
+            $(".gauge9").css("width", gaugeWidth3 - gaugeOffset + "%");
+            $(".eleDemoText").html(element + " +" + gaugeWidth3);
+
+            $(".eleDemoLv3").css("visibility","visible");
+        }
+        
+        gaugeNumber += 1;
         
         
     });
-    
+    // Reset meters
+    $(".eleDemo button").click(function(){
+        gaugeNumber = 1;
+        $(".eleDemoText").html("Click an element icon to begin a demo of element charges.");
+        $(".gauge1").css("width", "0%");
+        $(".gauge2").css("width", "0%");
+        $(".gauge3").css("width", "0%");
+        $(".gauge4").css("width", "0%");
+        $(".gauge5").css("width", "0%");
+        $(".gauge6").css("width", "0%");
+        $(".gauge7").css("width", "0%");
+        $(".gauge8").css("width", "0%");
+        $(".gauge9").css("width", "0%");
+        $(".eleDemoLv1").css("visibility","hidden");
+        $(".eleDemoLv2").css("visibility","hidden");
+        $(".eleDemoLv3").css("visibility","hidden");
+    });
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // CRAFTING 

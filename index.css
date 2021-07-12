@@ -627,13 +627,13 @@ h2 {
 }
 
 /* tooltip */
-.tooltip, .buffTool {
+.tooltip {
     display: none;
     position: fixed;
     font-size: 0.833vw; /* 16px */
     z-index: 90;
 }
-p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip, .buffTool {
+p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     z-index: 90;
     font-size: 0.833vw;
     padding: 0.26vw 0.52vw 0.26vw 0.32vw;
@@ -1521,6 +1521,7 @@ input:checked + .slider:before {
     height: 100%;
     text-align: center;
     font-size: 0.833vw;
+    overflow-y: scroll;
 }
 
 .liqMemPage > p {
@@ -1698,11 +1699,12 @@ input:checked + .slider:before {
 .elementTutorial {
     background: url(images/buffs/elements.png);
     background-size: 6.4845vw 15.3125vw;
+    margin: 0 0.26vw 0 0;
 }
 .buffTutorial:hover, .debuffTutorial:hover, .elementTutorial:hover {
     filter: brightness(0.8) drop-shadow(3px 3px 0 #585655);
 }
-.buffTutorial:hover+.tooltip, .debuffTutorial:hover+.tooltip {
+.elementTutorial:hover+.tooltip, .buffTutorial:hover+.tooltip, .debuffTutorial:hover+.tooltip {
     display: block;
 }
 .buffTutorial+.tooltip, .debuffTutorial+.tooltip {
@@ -1722,32 +1724,125 @@ input:checked + .slider:before {
 }
 
 .eleHeader>h3, .eleHeader>img {
-    display: inline-block;
     vertical-align: middle;
-    font-size: 1.8vw;
+     /* 1.8vw */
 }
 .eleHeader {
-    display: inline-block;
-    width: 22vw;
-    vertical-align: top;
-    margin: 0.26vw;
-    text-align: left;
-    filter: drop-shadow(0 0 2px black);
+    width: 5.7vw;
 }
 .eleHeader>img {
     width: 3.333vw;
+    transition: transform 0.7s ease-in-out;
 }
+
 .eleContainer {
     width: 72vw;
     margin: auto;
 }
-.eleBody p {
-    font-size: 0.7vw;
+.eleContainer table {
+    display: inline-block;
+    filter: drop-shadow(0 0 2px black);
+    border-left: 2px solid gray;
 }
-.eleLvIconHolder {
+.eleBody {
+    float: left;
+    width: 17.4vw;
+    text-align: left;
+}
+.eleBody p {
+    /* font-size: 0.7vw; */
+    text-align: left;
+    width: 14.5vw;
+    display: inline-block;
+    vertical-align: middle;
+}
+.eleBody div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.eleDemo button {
     display: inline-block; 
-    vertical-align: middle; 
-    float: right;
+    float: right; 
+    font-size: 0.8vw; 
+    border-radius: 0.26vw; 
+    background-color: #c8c8c8; 
+    color: black; 
+    font-weight: bolder;
+    font-family: 'Mate SC'; 
+    padding: 0.13vw 0.26vw; 
+    margin-bottom: -1vw; 
+    filter: drop-shadow(0 0 2px black);
+}
+.eleDemo button:hover {
+    filter: drop-shadow(0 0 2px black) brightness(1.2);
+    cursor: url(images/cursor.png), pointer;
+}
+.eleDemo button:active {
+    filter: drop-shadow(0 0 2px black) brightness(0.8);
+}
+
+.eleDemo {
+    width: 95%;
+    position: relative;
+    left: 5%;
+}
+
+.eleDemoText {
+    font-weight: bold;
+    display: inline-block;
+}
+.eleDemoHolder {
+    /* to center:
+    position: relative; 
+    left: 2.4615vw; */
+    width: 70%;
+    margin: auto;
+    height: 1vw;
+    display: inline-block;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 2px black);
+    margin: 0.5vw;
+}
+
+.eleDemoHolder+* {
+    margin-right: 0.52vw;
+}
+.eleDemoGauge {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    border: .26vw solid #c8c8c8;
+    border-radius: 0.52vw;
+}
+.gauge1, .gauge2, .gauge3, .gauge4, .gauge5, .gauge6, .gauge7, .gauge8, .gauge9 {
+    position: relative;
+    z-index: 3;
+    width: 0%;
+    height: 100%;
+    display: inline-flex;
+    float: left;
+    background-color: red;
+    margin-left: .2vw;
+    border-top-left-radius: 1.042vw;
+    border-bottom-left-radius: 1.042vw;
+    transition: width 0.3s ease-out;
+}
+.gauge2, .gauge5, .gauge8 {
+    background-color: blue;
+    border-radius: 0;
+    margin-left: 0;
+}
+.gauge3, .gauge6, .gauge9 {
+    background-color: green;
+    border-radius: 0;
+    margin-left: 0;
+    border-top-right-radius: 1.042vw;
+    border-bottom-right-radius: 1.042vw;
+}
+
+.eleDemoLv1, .eleDemoLv2, .eleDemoLv3 {
+    visibility: hidden;
 }
 
 /* ------------- BUBBLES -------------- */
