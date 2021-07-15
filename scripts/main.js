@@ -510,9 +510,6 @@ jQuery(document).ready(function ($) {
         if ($(this).is(".guideDungeons") && currentGuide != ".dungeonsPage") {
             newGuide = ".dungeonsPage";
         }
-        if ($(this).is(".guideRaids") && currentGuide != ".raidsPage") {
-            newGuide = ".raidsPage";
-        }
         if ($(this).is(".guideBuffs") && currentGuide != ".buffsPage") {
             newGuide = ".buffsPage";
         }
@@ -881,6 +878,401 @@ jQuery(document).ready(function ($) {
         $(".eleDemoLv2").css("visibility","hidden");
         $(".eleDemoLv3").css("visibility","hidden");
     });
+    
+    
+    
+    var dungHolder = [
+        
+        // ENGLISH
+        [
+            
+            // 1 Island in the sky
+            {
+                name: "Island In The Sky",
+                type: "RAID",
+                // difficulty
+                diff: "",
+                reqBS: "10+",
+                timer: "30:00",
+                ptSize: "20",
+                imgSrc: "images/dungeons/raid_island.png",
+                headerSrc: "images/dungeons/header_raid.png",
+                allowSrc: "images/dungeons/allowance_raid.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 2 Time attack party
+            {
+                name: "Time Attack | party",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "19+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/ta_party.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 3 Time attack solo
+            {
+                name: "Time Attack | solo",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "19+",
+                timer: "30:00",
+                ptSize: "1",
+                imgSrc: "images/dungeons/ta_solo.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 4 Arena S
+            {
+                name: "Arena | S rank",
+                type: "",
+                diff: "",
+                reqBS: "28+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_s.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 5 Arena A
+            {
+                name: "Arena | A rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "23+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_a.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 6 Arena B
+            {
+                name: "Arena | B rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "18+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_b.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 7 Arena C
+            {
+                name: "Arena | C rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "11+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_c.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 8 Mecha Hard
+            {
+                name: "Mechanical Ruin Valley",
+                type: "DUNGEON",
+                diff: "advanced survey",
+                reqBS: "25+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_mecha%20advanced.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 9 Pillar Hard
+            {
+                name: "Pillar of Divinity",
+                type: "DUNGEON",
+                diff: "advanced survey",
+                reqBS: "20+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_pillar%20advanced.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 10 Dragon Hard
+            {
+                name: "Dragonclaw Valley",
+                type: "DUNGEON",
+                diff: "advanced survey",
+                reqBS: "14+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_dragonclaw%20advanced.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 11 Mecha Easy
+            {
+                name: "Mechanical Ruin Valley",
+                type: "DUNGEON",
+                diff: "survey",
+                reqBS: "10+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_mecha%20survey.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 12 Pillar Med
+            {
+                name: "Pillar of Divinity",
+                type: "DUNGEON",
+                diff: "additional survey",
+                reqBS: "8+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_pillar%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 13 Dragon Med
+            {
+                name: "Dragonclaw Valley",
+                type: "DUNGEON",
+                diff: "additional survey",
+                reqBS: "3+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_dragonclaw%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 14 Reikrid Med
+            {
+                name: "Reikrid Tunnels",
+                type: "DUNGEON",
+                diff: "additional survey",
+                reqBS: "1+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_reikrid.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 15 Pillar Easy
+            {
+                name: "Pillar of Divinity",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "6+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_pillar%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 16 Giant Tower Easy
+            {
+                name: "Giant Tower Ruins",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "1+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_giant%20tower%20ruins.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 17 Dragon Easy
+            {
+                name: "Dragonclaw Valley",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "2+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_dragonclaw%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            },
+            
+            // 18 Reikrid Easy
+            {
+                name: "Reikrid Tunnels",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "1+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_reikrid.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "",
+                rewards: "",
+                description: "",
+                allowance: ""
+            }
+            
+        ]
+        
+    ]
+    
+    // DUNGEON LIST
+    $(".dungeonListItem").click(function(){
+        
+        var dungSelector = 0;
+        
+        if ($(this).hasClass("floatingIsland")) {
+            dungSelector = 0;
+        }
+        if ($(this).hasClass("taParty")) {
+            dungSelector = 1;
+        }
+        
+        
+        if ($(this).hasClass("taSolo")) {
+            dungSelector = 2;
+        }
+        if ($(this).hasClass("arenaS")) {
+            dungSelector = 3;
+        }
+        if ($(this).hasClass("arenaA")) {
+            dungSelector = 4;
+        }
+        if ($(this).hasClass("arenaB")) {
+            dungSelector = 5;
+        }
+        
+        
+        if ($(this).hasClass("arenaC")) {
+            dungSelector = 6;
+        }
+        if ($(this).hasClass("mechaHard")) {
+            dungSelector = 7;
+        }
+        if ($(this).hasClass("pillarHard")) {
+            dungSelector = 8;
+        }
+        if ($(this).hasClass("dragonHard")) {
+            dungSelector = 9;
+        }
+        
+        
+        if ($(this).hasClass("mechaEasy")) {
+            dungSelector = 10;
+        }
+        if ($(this).hasClass("pillarMed")) {
+            dungSelector = 11;
+        }
+        if ($(this).hasClass("dragonMed")) {
+            dungSelector = 12;
+        }
+        if ($(this).hasClass("reikridMed")) {
+            dungSelector = 13;
+        }
+        
+        
+        if ($(this).hasClass("pillarEasy")) {
+            dungSelector = 14;
+        }
+        if ($(this).hasClass("gianttowerEasy")) {
+            dungSelector = 15;
+        }
+        if ($(this).hasClass("dragonEasy")) {
+            dungSelector = 16;
+        }
+        if ($(this).hasClass("reikridEasy")) {
+            dungSelector = 17;
+        }
+        
+        
+        $(".dungHeader img").attr("src", dungHolder[currentLang][dungSelector].headerSrc);
+        $(".dungImage").attr("src", dungHolder[currentLang][dungSelector].imgSrc);
+        $(".dungAllowance").attr("src", dungHolder[currentLang][dungSelector].allowSrc);
+        
+        
+    });
+    
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // CRAFTING 

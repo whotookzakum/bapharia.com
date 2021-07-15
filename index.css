@@ -1516,7 +1516,7 @@ input:checked + .slider:before {
     transition: opacity .3s ease-in-out, width 0.1s ease-in-out;
 }
 
-.liqMemPage, .combatPage, .elementsPage, .fusionPage, .dungeonsPage, .raidsPage, .buffsPage, .progressionPage, .storyPage, .optionsPage {
+.liqMemPage, .combatPage, .elementsPage, .fusionPage, .dungeonsPage, .buffsPage, .progressionPage, .storyPage, .optionsPage {
     display: none;
     position: absolute;
     z-index: 20;
@@ -1850,7 +1850,179 @@ input:checked + .slider:before {
     visibility: hidden;
 }
 
+
+
+
+.dungeonsPage {
+    position: relative;
+}
+.dungLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+}
+.dungRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+}
+
+.dungeonList {
+    position: relative;
+    left: 25%;
+    top: 10%;
+    height: 31.406vw; /* 603px */
+    color: #343330;
+    overflow-y: scroll;
+}
+.dungeonListItem {
+    width: auto;
+    height: 3.646vw;
+    position: relative;
+    float: left;
+    filter: drop-shadow(0 0 2px black);
+}
+.dungeonListItem>img {
+    background-color: none;
+    border-radius: 5px;
+    position: relative;
+    z-index: 20;
+    width: 23.229vw;
+    height: 3.646vw;
+}
+.dungeonListItem:hover>img {
+    background-color: whitesmoke;
+}
+.dungeonListItem:active>img{
+    background-color: #e7f837;
+}
+.dungeonListItem h2, .dungeonListItem h3 {
+    position: absolute;
+    width: 15vw;
+    text-align: left;
+    height: 1.2vw;
+    left: 2.9vw;
+    overflow-x: hidden;
+    z-index: 40;
+}
+.dungeonListItem h2 {
+    font-size: 1vw;
+    top: 0.35vw;
+    font-weight: bold;
+}
+.dungeonListItem h3 {
+    font-size: 0.8vw;
+    top: 2.05vw;
+    display: inline-block;
+}
+h3.dungBS {
+    left: 9vw; 
+    top: 1.87vw; 
+    height: auto; 
+    width: 4vw; 
+    text-align: right; 
+    font-size: 1.2vw; 
+    font-family: 'Roboto';
+}
+.dungeonListItem>h2>span {
+    font-size: 0.85vw;
+    float: right;
+    line-height: 1.2vw;
+}
+
+.difficultyKey {
+    position: relative; 
+    left: 25%;
+    top: 10%;
+    width: 23.229vw; 
+}
+.difficultyKey p {
+    font-size: 0.75vw;
+    display: inline-block;
+    width: 8.333vw;
+}
+.dungeonDescription {
+    position: relative;
+    top: 10%;
+    float: left;
+    text-align: left;
+    width: 39.375vw;
+    height: 31.406vw; /* 603px */
+    background-color: #414041;
+    filter: drop-shadow(0 0 2px black);
+}
+.dungeonDescription h2 {
+    display: inline-block;
+    vertical-align: top;
+}
+.dungHeader {
+    width: 39.375vw;
+    height: 3.333vw;
+    margin-bottom: 0.208vw;
+}
+.dungHeader img {
+    width: 39.375vw;
+    height: 3.333vw;
+}
+.dungHeader h2, .dungHeader h3 {
+    position: absolute;
+    color: white;
+    font-weight: normal;
+}
+.dungHeader h2 {
+    left: 16vw;
+    top: 0.9vw;
+    height: 1.5vw;
+}
+.dungHeader h3 {
+    font-size: 0.7vw;
+    width: 6.4vw;
+    top: 0.3vw; 
+    left: 9vw;
+    text-align: center;
+}
+h3.dungReqBS {
+    top: 1.24vw;
+    left: 9vw;
+    text-align: center;
+    font-size: 1.4vw; 
+    font-family: 'Roboto';
+    font-weight: bold;
+    
+}
+.dungImage {
+    float: left;
+    display: inline-block;
+    position: relative;
+    left: 0.156vw;
+    width: 10.625vw;
+    height: 27.708vw;
+}
+.dungDescText {
+    vertical-align: top;
+    height: 23.125vw;
+    width: 28.438vw;
+    display: inline-block;
+    float: right;
+    position: relative;
+    right: 0.156vw;
+}
+.dungAllowance {
+    position: relative;
+    float: right;
+    right: 0.156vw;
+    width: 28.438vw;
+    height: 4.583vw;
+}
+
+
+
 /* ------------- BUBBLES -------------- */
+
 #bubbles { 
     width: 100%;
 }
