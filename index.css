@@ -1954,6 +1954,7 @@ h3.dungBS {
     height: 31.406vw; /* 603px */
     background-color: #414041;
     filter: drop-shadow(0 0 2px black);
+    color: white;
 }
 .dungeonDescription h2 {
     display: inline-block;
@@ -1968,12 +1969,12 @@ h3.dungBS {
     width: 39.375vw;
     height: 3.333vw;
 }
-.dungHeader h2, .dungHeader h3 {
+.dungName, .dungHeader h3 {
     position: absolute;
     color: white;
     font-weight: normal;
 }
-.dungHeader h2 {
+.dungName {
     left: 16vw;
     top: 0.9vw;
     height: 1.5vw;
@@ -1994,10 +1995,20 @@ h3.dungReqBS {
     font-weight: bold;
     
 }
+.dungType {
+    position: absolute;
+    left: 3.3vw;
+    top: 1.18vw;
+    width: 5vw;
+    font-family: 'Roboto';
+    font-weight: bolder;
+    font-size: 0.8vw;
+}
 .dungImage {
     float: left;
     display: inline-block;
     position: relative;
+    z-index: 30;
     left: 0.156vw;
     width: 10.625vw;
     height: 27.708vw;
@@ -2005,12 +2016,89 @@ h3.dungReqBS {
 .dungDescText {
     vertical-align: top;
     height: 23.125vw;
-    width: 28.438vw;
+    width: 28vw;
+    right: 0.3vw;
     display: inline-block;
     float: right;
     position: relative;
-    right: 0.156vw;
+    top: 9%;
 }
+.dungClearCond, .dungRestrictions {
+    background-color: #4b4c4d;
+    width: 99%;
+    right: 0;
+    margin: auto;
+    height: 7.5%;
+    position: absolute;
+    box-shadow: 0 0 2px black;
+}
+
+.dungClearCond p, .dungClearCond h3 {
+    position: relative;
+    left: 11.15vw;
+    height: 100%;
+    line-height: 2.2vw;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+}
+.dungClearCond p {
+    font-size: 0.72vw;
+    margin-right: 0.52vw;
+}
+.dungClearCond h3 {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.dungRestrictions {
+    position: absolute;
+    background-color: #727172;
+    top: 42.5%;
+    height: 10%;
+}
+.dungRestrictions p, .dungRestrictions h3 {
+    position: relative;
+    left: 12.15vw;
+    display: inline-block;
+    line-height: 3.15vw;
+    vertical-align: middle;
+    font-size: 0.9vw;
+}
+.dungTimeLimit {
+    margin-left: 3vw;
+    margin-right: 2vw;
+}
+
+.dungRestDivider {
+    position: relative;
+    left: 13.15vw;
+    margin-bottom: -1vw;
+    height: 2.5vw;
+    width: 0.15vw;
+    background-color: #c8c8c8;
+    display: inline-block;
+}
+.dungMaxPlayers {
+    margin-right: 1vw;
+}
+.dungMaxPlayersVal {
+    width: 3vw;
+    text-align: center;
+}
+.dungTimeLimitVal {
+    text-align: right;
+    width: 5.1vw;
+}
+.dungRestrictions h3 {
+    font-family: 'Roboto';
+    font-size: 2vw;
+}
+
+.dungRewards {
+    background-color: #414041;
+}
+
 .dungAllowance {
     position: relative;
     float: right;
