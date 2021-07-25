@@ -509,6 +509,7 @@ jQuery(document).ready(function ($) {
         }
         if ($(this).is(".guideDungeons") && currentGuide != ".dungeonsPage") {
             newGuide = ".dungeonsPage";
+            dispDung();
         }
         if ($(this).is(".guideBuffs") && currentGuide != ".buffsPage") {
             newGuide = ".buffsPage";
@@ -880,7 +881,7 @@ jQuery(document).ready(function ($) {
     });
     
     
-    
+    var dungSelector = 0;
     var dungHolder = [
         
         // ENGLISH
@@ -899,9 +900,13 @@ jQuery(document).ready(function ($) {
                 headerSrc: "images/dungeons/header_raid.png",
                 allowSrc: "images/dungeons/allowance_raid.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
-                rewards: ["","40,000","18,000","1000"], // Luno, EXP, GC
-                description: "A strange ", // バハマール高原に突如現れた謎の「星脈孔」\n調査に向かった冒険者たちが見たものは・・・\n\n・巨大なボスエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・ランキング上位入賞で報酬にボーナス
-                allowance: ["Health Potion II", "Health Potion III", "ATK Up Serum","DEF Up Serum",""]
+                rewards: ["","40,000","18,000","1,000"], // Luno, EXP, GC
+                rewardsImg: [""],
+                description: "The mysterious 'Starpulse Crevice' suddenly appears in Bahamar Highland. Adventurers were sent to investigate, but what they saw was...<br><br>・Defeat the massive boss within the time limit<br>・Running out of time will result in a mission failure<br>・Receive bonus rewards by ranking in the top", // バハマール高原に突如現れた謎の「星脈孔」\n調査に向かった冒険者たちが見たものは・・・\n\n・巨大なボスエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・ランキング上位入賞で報酬にボーナス
+                // starvein starpulse starchain slit crevice hole crack
+                allowance: ["Health Potion II", "Health Potion III", "ATK Up Serum","DEF Up Serum",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/health potion iii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png"],
+                videoLink: "https://www.youtube.com/watch?v=a35O6OFwuAE&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=14"
             },
             
             // 2 Time attack party
@@ -915,10 +920,13 @@ jQuery(document).ready(function ($) {
                 imgSrc: "images/dungeons/ta_party.png",
                 headerSrc: "images/dungeons/header_dungeon.png",
                 allowSrc: "images/dungeons/allowance_dungeon.png",
-                clearCondition: "",
-                rewards: "",
-                description: "",
-                allowance: ["Health Potion II", "","","",""]
+                clearCondition: "Rush to defeat the boss within the time limit!", // 制限時間内にすばやくボスエネミーを討伐せよ！
+                rewards: ["","40,000","20,000"], // ?, luno, exp
+                rewardsImg: [""],
+                description: "A competition designed to test the might of adventurers!<br>Those who aim to be the fastest continue to push themselves to the limit.<br><br>[Stage] Dragon Claw Valley<br>・Timer will continue until the boss at the end is defeated<br>・Receive rewards based on clear time<br>・Clear faster than anyone else and aim for the top rankings!", //冒険者の力量を測るために用意されたクリアタイムを競う競技。<br>最速を目指す者たちが、日夜己の限界を挑み続けている。<br><br>【舞台】巨竜の爪痕<br>・最奥部まで進み、ボスエネミー討伐までのタイムを競え<br>・クリアタイムに応じて報酬を獲得<br>・誰よりも早くクリアし、ランキング入りを狙え
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=EdvmzeFmS4Q"
             },
             
             // 3 Time attack solo
@@ -932,10 +940,14 @@ jQuery(document).ready(function ($) {
                 imgSrc: "images/dungeons/ta_solo.png",
                 headerSrc: "images/dungeons/header_dungeon.png",
                 allowSrc: "images/dungeons/allowance_dungeon.png",
-                clearCondition: "",
-                rewards: "",
-                description: "",
-                allowance: ["Health Potion II", "","","",""]
+                clearCondition: "Rush to defeat the boss within the time limit!", // 制限時間内にすばやくボスエネミーを討伐せよ！
+                rewards: ["","40,000","20,000"], // ?, luno, exp
+                rewardsImg: [""],
+                // some other rewards for first time ranking in a tier
+                description: "A competition designed to test the might of adventurers!<br>Those who aim to be the fastest continue to push themselves to the limit.<br><br>[Stage] Dragon Claw Valley<br>・Timer will continue until the boss at the end is defeated<br>・Receive rewards based on clear time<br>・Clear faster than anyone else and aim for the top rankings!", //冒険者の力量を測るために用意されたクリアタイムを競う競技。<br>最速を目指す者たちが、日夜己の限界を挑み続けている。<br><br>【舞台】巨竜の爪痕<br>・最奥部まで進み、ボスエネミー討伐までのタイムを競え<br>・クリアタイムに応じて報酬を獲得<br>・誰よりも早くクリアし、ランキング入りを狙え
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=mMqJ6N0Pwc8"
             },
             
             // 4 Arena S
@@ -951,8 +963,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_arena.png",
                 clearCondition: "Defeat 100 enemies!", //100体のエネミーを討伐せよ！
                 rewards: ["Kaiser Elk's Idea","142,000","64,000","300"], // Item, Luno, Exp, GC
-                description: "", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
-                allowance: ["Health Potion II", "","","",""]
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
             },
             
             // 5 Arena A
@@ -968,8 +983,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_arena.png",
                 clearCondition: "Defeat 75 enemies!", //75体のエネミーを討伐せよ！
                 rewards: ["Goblin Sage's Idea","118,200","53,300","250"], // Item, Luno, Exp, GC
-                description: "", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
-                allowance: ["Health Potion II", "","","",""]
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
             },
             
             // 6 Arena B
@@ -985,8 +1003,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_arena.png",
                 clearCondition: "Defeat 50 enemies!", //50体のエネミーを討伐せよ！
                 rewards: ["Horned Goat's Idea","83,300","37,500","200"], // Item, Luno, Exp, GC
-                description: "", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
-                allowance: ["Health Potion II", "","","",""]
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
             },
             
             // 7 Arena C
@@ -1002,8 +1023,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_arena.png",
                 clearCondition: "Defeat 25 enemies!", //25体のエネミーを討伐せよ！
                 rewards: ["Tyrant Boar's Idea","44,600","20,000","150"], // Item, Luno, Exp, GC
-                description: "", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
-                allowance: ["Health Potion II", "","","",""]
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
             },
             
             // 8 Mecha Hard
@@ -1019,8 +1043,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["High Quality Bahamar Yellow","132,920","59,940"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/high quality bahamar yellow.png"],
                 description: "[Party Recommended]<br>The burial site of a Bapharian civilization-era city,<br>most of the remains have submerged among the surrounding terrain.<br>As you will encounter more powerful enemies in your additional surveys of the area, the rewards will also become more valuable.",　// 【パーティ推奨】\nバファリア文明時代の街が埋もれ、\n周辺の地形と一体化してできた遺跡の谷。\n追加調査は強大なエネミーと遭遇するため、難易度が高い。\nその分、成功報酬によって強力な武器をクラフトすることが可能。
-                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""]
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=jctyzo_PWaQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=11"
             },
             
             // 9 Pillar Hard
@@ -1036,8 +1063,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["High Performance IC Core","92,490","41,650"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/high performance ic core.png"],
                 description: "[Party Recommended]<br>One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>As you will encounter more powerful enemies in your additional surveys of the area, the rewards will also become more valuable.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\n追加調査は強大なエネミーと遭遇するため、難易度が高い。\nその分、成功報酬によって強力な武器をクラフトすることが可能。
-                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""]
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=NLNFD7y8i3Q&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=10"
             },
             
             // 10 Dragon Hard
@@ -1053,8 +1083,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["Firm Dragon Bone Fragment","59,280","26,730"],
+                rewardsImg: ["images/dungeons/firm dragon bone frag.png"],
                 description: "[Party Recommended]<br>A deep canyon that appears as if it was carved out by the claws of a dragon.<br>The intricate valleys obstruct the adventurer's path.<br>As you will encounter more powerful enemies in your additional surveys of the area, the rewards will also become more valuable.", // 【パーティ推奨】ドラゴンの爪で抉られたかのような深い峡谷地帯。\n複雑に入り組んだ谷が冒険者の行く手を阻む。\n追加調査は強大なエネミーと遭遇するため、難易度が高い。\nその分、成功報酬によって強力な武器をクラフトすることが可能。
-                allowance: ["Health Potion II", "ATK Up Serum","","",""]
+                allowance: ["Health Potion II", "ATK Up Serum","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","",""],
+                videoLink: "https://www.youtube.com/watch?v=Szktg70ozpQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=9"
             },
             
             // 11 Mecha Easy
@@ -1070,8 +1103,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["Bahamar Yellow","38,040","17,130"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/bahamar yellow.png"],
                 description: "[Party Recommended]<br>The burial site of a Bapharian civilization-era city,<br>most of the remains have submerged among the surrounding terrain.<br>The legacy of Bapharia remains through its machines which will attack intruders on sight.",　// 【パーティ推奨】\nバファリア文明時代の街が埋もれ、\n周辺の地形と一体化してできた遺跡の谷。\nバファリアの遺産である機械類が今もこの地を守っており、\n侵入者を迎え撃つ。
-                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""]
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=jctyzo_PWaQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=11"
             },
             
             // 12 Pillar Med
@@ -1087,8 +1123,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["IC Core","25,170","11,310"], // ?, Luno, Exp
-                description: "[Party Recommended]<br>One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>On the outside, it still remains a magnificent sight throughout the years.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\nその外観は、どれほどの年月が経っても美しく壮麗なままである。
-                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""]
+                rewardsImg: ["images/dungeons/ic core.png"],
+                description: "[Party Recommended]<br>One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>On the outside, it remains a magnificent sight to behold.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\nその外観は、どれほどの年月が経っても美しく壮麗なままである。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=NLNFD7y8i3Q&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=10"
             },
             
             // 13 Dragon Med
@@ -1104,8 +1143,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["Dragon Bone Fragment","7,380","3,280"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/dragon bone frag.png"],
                 description: "A deep canyon that appears as if it was carved out by the claws of a dragon.<br>The intricate valleys obstruct the adventurer's path.<br>Waterfalls violently cascading down the cliffs have been said to resemble the fierce power of dragons.", // ドラゴンの爪で抉られたかのような深い峡谷地帯。\n複雑に入り組んだ谷が冒険者の行く手を阻む。\n崖を流れ落ちる滝は迫力に満ちて荒々しく\nそれこそ竜の姿に例えられている。
-                allowance: ["Health Potion II", "ATK Up Serum","","",""]
+                allowance: ["Health Potion II", "ATK Up Serum","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","",""],
+                videoLink: "https://www.youtube.com/watch?v=Szktg70ozpQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=9"
             },
             
             // 14 Reikrid Med
@@ -1121,8 +1163,11 @@ jQuery(document).ready(function ($) {
                 allowSrc: "images/dungeons/allowance_dungeon.png",
                 clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
                 rewards: ["Reikrid Crystal","1,390","2,670"], // Reikrid Crystal, 1,390 Luno, 2,670 EXP
+                rewardsImg: ["images/dungeons/reikrid crystal.png"],
                 description: "A tunnel that is the source of Reikrid Crystals.<br>Although mining operations have ceased, the occasional adventurer will come in search of materials.<br>It is said that monsters have started to live here.", // 「レイクリッド結晶」などの産地として使われていた坑道の一角。\nすでに役目を終え、大規模な採掘は行われていないが、\nたまに冒険者が素材を求めてやってくる。\n最近、モンスターが棲みついてしまったらしい。
-                allowance: ["Health Potion II", "","","",""] // Dungeon-use Health Potion
+                allowance: ["Health Potion II", "","","",""], // Dungeon-use Health Potion
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=X06wIcNYhxc"
             },
             
             // 15 Pillar Easy
@@ -1136,10 +1181,13 @@ jQuery(document).ready(function ($) {
                 imgSrc: "images/dungeons/dungeon_pillar%20additional.png",
                 headerSrc: "images/dungeons/header_dungeon.png",
                 allowSrc: "images/dungeons/allowance_dungeon.png",
-                clearCondition: "",
-                rewards: "",
-                description: "",
-                allowance: ""
+                clearCondition: "Reach the top floor!", //最上階へ到達せよ！
+                rewards: ["IC Core","18,040","16,230"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/ic core.png"],
+                description: "One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>On the outside, it remains a magnificent sight to behold.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\nその外観は、どれほどの年月が経っても美しく壮麗なままである。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=NLNFD7y8i3Q&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=10"
             },
             
             // 16 Giant Tower Easy
@@ -1148,15 +1196,18 @@ jQuery(document).ready(function ($) {
                 type: "DUNGEON",
                 diff: "",
                 reqBS: "1+",
-                timer: "30:00",
+                timer: "5:00",
                 ptSize: "6",
                 imgSrc: "images/dungeons/dungeon_giant%20tower%20ruins.png",
                 headerSrc: "images/dungeons/header_dungeon.png",
                 allowSrc: "images/dungeons/allowance_dungeon.png",
-                clearCondition: "",
-                rewards: "",
-                description: "",
-                allowance: ""
+                clearCondition: "Defeat all enemies within the time limit!", //　制限時間内に全てのエネミーを討伐せよ！
+                rewards: ["","&nbsp","&nbsp",""], //none
+                rewardsImg: [""],
+                description: "Ancient ruins that bring memories of the crumbled giant tower to mind.<br>Priest Walkin, who's said to be knowledgeable about 'visitors' set out to investigate the land and hasn't returned.<br>Hopefully nothing bad has happened... ", //崩れ落ちた巨塔を思わせる古代遺跡。<br>『来者』について詳しいという神官ワールキンが<br>ここに調査に赴いたまま、帰ってこないらしい。<br>なにごともなければ良いのだが・・・・・。
+                allowance: "", //none
+                allowanceImgs: ["","","",""],
+                videoLink: "https://youtu.be/I0yaHHpQRpw?t=5670"
             },
             
             // 17 Dragon Easy
@@ -1170,10 +1221,13 @@ jQuery(document).ready(function ($) {
                 imgSrc: "images/dungeons/dungeon_dragonclaw%20additional.png",
                 headerSrc: "images/dungeons/header_dungeon.png",
                 allowSrc: "images/dungeons/allowance_dungeon.png",
-                clearCondition: "",
-                rewards: "",
-                description: "",
-                allowance: ""
+                clearCondition: "Defeat the powerful enemy!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Dragon Bone Fragment","3,770","6,880"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/dragon bone frag.png"],
+                description: "A deep canyon that appears as if it was carved out by the claws of a dragon.<br>The intricate valleys obstruct the adventurer's path.<br>Waterfalls violently cascading down the cliffs have been said to resemble the fierce power of dragons.", // ドラゴンの爪で抉られたかのような深い峡谷地帯。\n複雑に入り組んだ谷が冒険者の行く手を阻む。\n崖を流れ落ちる滝は迫力に満ちて荒々しく\nそれこそ竜の姿に例えられている。
+                allowance: ["Health Potion II", "ATK Up Serum","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","",""],
+                videoLink: "https://www.youtube.com/watch?v=Szktg70ozpQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=9"
             },
             
             // 18 Reikrid Easy
@@ -1187,10 +1241,13 @@ jQuery(document).ready(function ($) {
                 imgSrc: "images/dungeons/dungeon_reikrid.png",
                 headerSrc: "images/dungeons/header_dungeon.png",
                 allowSrc: "images/dungeons/allowance_dungeon.png",
-                clearCondition: "fafsf",
-                rewards: "",
-                description: "",
-                allowance: ""
+                clearCondition: "Defeat the powerful enemy!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Reikrid Crystal","1,390","2,670"], // Reikrid Crystal, 1,390 Luno, 2,670 EXP
+                rewardsImg: ["images/dungeons/reikrid crystal.png"],
+                description: "A tunnel that is the source of Reikrid Crystals.<br>Although mining operations have ceased, the occasional adventurer will come in search of materials.<br>It is said that monsters have started to live here.", // 「レイクリッド結晶」などの産地として使われていた坑道の一角。\nすでに役目を終え、大規模な採掘は行われていないが、\nたまに冒険者が素材を求めてやってくる。\n最近、モンスターが棲みついてしまったらしい。
+                allowance: ["Health Potion II", "","","",""], // Dungeon-use Health Potion
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=X06wIcNYhxc"
             }
             
         ]
@@ -1199,8 +1256,6 @@ jQuery(document).ready(function ($) {
     
     // DUNGEON LIST
     $(".dungeonListItem").click(function(){
-        
-        var dungSelector = 0;
         
         if ($(this).hasClass("floatingIsland")) {
             dungSelector = 0;
@@ -1265,27 +1320,80 @@ jQuery(document).ready(function ($) {
             dungSelector = 17;
         }
         
+        dispDung();
+        
+        
+    });
+    
+    function dispDung() {
+        
+        var dungeon = dungHolder[currentLang][dungSelector];
+        
         // Display images
-        $(".dungHeader img").attr("src", dungHolder[currentLang][dungSelector].headerSrc);
-        $(".dungImage").attr("src", dungHolder[currentLang][dungSelector].imgSrc);
-        $(".dungAllowance").attr("src", dungHolder[currentLang][dungSelector].allowSrc);
+        $(".dungHeader img").attr("src", dungeon.headerSrc);
+        $(".dungImage").attr("src", dungeon.imgSrc);
+        $(".dungAllowance").attr("src", dungeon.allowSrc);
         
         // Display info
-        $(".dungName").html(dungHolder[currentLang][dungSelector].name + ' <span style="font-size:0.8vw;">' + dungHolder[currentLang][dungSelector].diff + '</span>');
-        $(".dungReqBS").html(dungHolder[currentLang][dungSelector].reqBS);
-        $(".dungDescText").html("<p>" + dungHolder[currentLang][dungSelector].description + "</p>")
-        $(".dungType").html(dungHolder[currentLang][dungSelector].type);
+        $(".dungName").html(dungeon.name + ' <span style="font-size:0.8vw;">' + dungeon.diff + '</span>');
+        $(".dungReqBS").html(dungeon.reqBS);
+        $(".dungDescText").html("<p>" + dungeon.description + "</p>")
+        $(".dungType").html(dungeon.type);
         
         // Clear Condition
-        $(".dungClearCond>h3").html(dungHolder[currentLang][dungSelector].clearCondition);
+        $(".dungClearCond>h3").html(dungeon.clearCondition);
         
         // Max players and time limit
         $(".dungMaxPlayers").html("max players");
-        $(".dungMaxPlayersVal").html(dungHolder[currentLang][dungSelector].ptSize);
+        $(".dungMaxPlayersVal").html(dungeon.ptSize);
         $(".dungTimeLimit").html("time limit");
-        $(".dungTimeLimitVal").html(dungHolder[currentLang][dungSelector].timer);
+        $(".dungTimeLimitVal").html(dungeon.timer);
         
+        // Enter now button
+        $(".dungLink").attr("href", dungeon.videoLink);
         
+        // Rewards
+        // hide if no material reward
+        if ( dungeon.rewards[0] == "" ) {
+            $(".rewardsMatHolder").css("display","none");
+        }
+        else {
+            $(".rewardsMatHolder").css("display","inline-block");
+            $(".rewardsMaterial").attr("src", dungeon.rewardsImg[0]);
+            $(".rewardsMaterialName").html(dungeon.rewards[0]);
+        }
+        $(".rewardsLunoAmt").html(dungeon.rewards[1]);
+        $(".rewardsEXPAmt").html(dungeon.rewards[2]);
+        // hide if no GC reward
+        if ( dungeon.rewards[3] == "" || dungeon.rewards[3] == null ) {
+            $(".rewardsGC").css("display","none");
+        }
+        else {
+            $(".rewardsGC").css("display","inline-block");
+            $(".rewardsGCAmt").html(dungeon.rewards[3]);
+        }
+        
+        // Allowance supplies
+        $("img.allowance1").attr("src", dungeon.allowanceImgs[0]);
+        $("img.allowance2").attr("src", dungeon.allowanceImgs[1]);
+        $("img.allowance3").attr("src", dungeon.allowanceImgs[2]);
+        $("img.allowance4").attr("src", dungeon.allowanceImgs[3]);
+        $("p.allowance1").html(dungeon.allowance[0]);
+        $("p.allowance2").html(dungeon.allowance[1]);
+        $("p.allowance3").html(dungeon.allowance[2]);
+        $("p.allowance4").html(dungeon.allowance[3]);
+        
+    }
+    
+    
+    // OPTIONS
+    
+    // Menu buttons
+    $(".optionsMenuButton").click(function(){
+
+        $(".optionsMenuButton").removeClass("optionsMenuClicked");
+        $(this).addClass("optionsMenuClicked");
+                
     });
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
@@ -5767,17 +5875,17 @@ jQuery(document).ready(function ($) {
             yellow1:
                 'Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragon Claw Valley [Free Exploration]',
             green1: 
-                'Green Liquid Memory 1<br><br>Clear Godo&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godo',
+                'Green Liquid Memory 1<br><br>Clear Godot&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godot',
             blue2: 
                 'Blue Liquid Memory 2<br><br>Examine the shipwheel behind<br>the performers on the 2nd floor<br> of the Revolving Helm Pavilion',
             blue1: 
-                'Blue Liquid Memory 1<br><br>Clear Patty&#39;s Quest<br>"Troubled Apprentice" (Lv. 13+)<br><br>Obtain Engram Extractor<br>(clear Pillar of Divinity<br>[Advanced Survey]) and bring it<br>to Hanna outside the Pillar',
+                'Blue Liquid Memory 1<br><br>Clear Patti&#39;s Quest<br>"Troubled Apprentice" (Lv. 13+)<br><br>Obtain Engram Extractor<br>(clear Pillar of Divinity<br>[Advanced Survey]) and bring it<br>to Hanna outside the Pillar',
             red2: 
                 'Red Liquid Memory 2<br><br>Examine the bottles on<br>the counter by the<br>Memory Stand',
             red1: 
                 'Red Liquid Memory 1<br><br>Clear quest<br>"Welcome to the Memory Stand!" (Lv. 12+)<br><br>Listen to the Memory Stand<br>attendant&#39;s explanation',
             purple1: 
-                'Purple Liquid Memory 1<br><br>Clear Louise&#39;s quest<br>"Calm Researcher&#39;s Latest Work!" (Lv. 28+)<br><br>Bring the following to Louise:<br>5 Full Moon Stones<br>(Calm Eve Terraces/night time/high ground)<br>5 Sunshine Shells<br>(Fiel Pond/day time/river)',
+                'Purple Liquid Memory 1<br><br>Clear Luise&#39;s quest<br>"Calm Researcher&#39;s Latest Work!" (Lv. 28+)<br><br>Bring the following to Luise:<br>5 Full Moon Stones<br>(Calm Eve Terraces/night time/high ground)<br>5 Sunshine Shells<br>(Fiel Pond/day time/river)',
             warpfrontier: 'Warp Gate<br>Frontiering Station',
             warpcoatofarms: 'Warp Gate<br>Coat of Arms Plaza',
             warpcitygate: 'Warp Gate<br>City Gate Square',
@@ -6185,20 +6293,20 @@ jQuery(document).ready(function ($) {
             yellow1:
                 'Memória Líquida Amarela 1<br><br>Complete a Quest de Orvis<br>"Pressa é a Inimiga da Perfeição" (Nv. 24+)<br><br>Recupere 3 Bagagens do Orvis de<br>Goblin Ancião Incandescente em<br>Vale Garra do Dragão [Exploração Livre]',
             green1: 
-                'Memória Líquida Verde 1<br><br>Complete a Quest de Godo<br>"Termos de Troca por um<br>Odor Sinistro" (Nv. 19+)<br><br>Derrote uma Cabra Sinistra<br>em Sopé Silencioso<br>e relate a Godo',
+                'Memória Líquida Verde 1<br><br>Complete a Quest de Godot<br>"Termos de Troca por um<br>Odor Sinistro" (Nv. 19+)<br><br>Derrote uma Cabra Sinistra<br>em Sopé Silencioso<br>e relate a Godot',
             blue2: [
                 'Memória Líquida Azul 2<br><br>Examine o Leme atrás<br>do caramanchão no segundo andar<br> do Pavilhão do Leme Giratório',
                     
                 '青いリキッドメモリ 2<br><br>廻る舵輪亭の２階で演奏者<br>の後ろにある舵を調べると解放'
             ],
             blue1: 
-                'Memória Líquida Azul 1<br><br>Complete a Quest da Patty<br>"Aprendiz Aflito" (Nv. 13+)<br><br>Obtenha um Extrator de Engrama<br>(complete o Pilar da Divindade<br>[Pesquisa Avançada]) e traga para<br>Hanna fora do Pilar',
+                'Memória Líquida Azul 1<br><br>Complete a Quest da Patti<br>"Aprendiz Aflito" (Nv. 13+)<br><br>Obtenha um Extrator de Engrama<br>(complete o Pilar da Divindade<br>[Pesquisa Avançada]) e traga para<br>Hanna fora do Pilar',
             red2: 
                 'Memória Líquida Vermelha 2<br><br>Examine as garrafas no<br>balcão ao lado da<br>Banca de Memórias',
             red1: 
                 'Memória Líquida Vermelha 1<br><br>Complete a Quest<br>"Bem-vindo à Banca de Memórias!" (Nv. 12+)<br><br>Ouça a explicação da<br>atendente da Banca de Memórias',
             purple1: 
-                'Memória Líquida Roxa 1<br><br>Complete a Quest de Louise<br>"O último trabalho da pesquisadora!" (Nv. 28+)<br><br>Traga os seguintes itens à Louise:<br>5 Pedras da Lua Cheia<br>(Terraço Vespertino/período noturno/andar de cima)<br>5 Conchas do Raiar do Sol<br>(Lago Fiel/período diurno/rago)',
+                'Memória Líquida Roxa 1<br><br>Complete a Quest de Luise<br>"O último trabalho da pesquisadora!" (Nv. 28+)<br><br>Traga os seguintes itens à Luise:<br>5 Pedras da Lua Cheia<br>(Terraço Vespertino/período noturno/andar de cima)<br>5 Conchas do Raiar do Sol<br>(Lago Fiel/período diurno/rago)',
             warpfrontier: 'Portal de Dobra<br>Estação da Fronteira',
             warpcoatofarms: 'Portal de Dobra<br>Plaza do Brazão',
             warpcitygate: 'Portal de Dobra<br>Praça da Cidade',
@@ -6395,12 +6503,12 @@ jQuery(document).ready(function ($) {
             yellow1:
                 'Желтые Текучие Воспоминания 1<br><br>Выполни Orvis&#39; Квест<br>"Поспешишь - людей насмешишь" (Ур. 24+)<br><br>Получить 3 Orvis&#39; Забрать у<br>Светящийся Гоблин-Старейшина на<br>Dragon Claw Valley [Свобоное Исследование]',
             green1: 
-                'Зеленый Текучие Воспоминания 1<br><br>Выполни Godo&#39;s Квест<br>"Условия обмена на<br>Оминоус Одор" (Lv. 19+)<br><br>Победить Жуткого Козла<br>В Soundless Foothills<br>и доложить Godo',
+                'Зеленый Текучие Воспоминания 1<br><br>Выполни Godot&#39;s Квест<br>"Условия обмена на<br>Оминоус Одор" (Lv. 19+)<br><br>Победить Жуткого Козла<br>В Soundless Foothills<br>и доложить Godot',
             blue2: [
                 'Синие Текучие Воспоминания 2<br><br>Осмотрите Колесо Корабля Позади<br>Исполнителя На 2 Этаже<br> Павильона У Вращающегося Руля',
             ],
             blue1: 
-                'Синие Текучие Воспоминания 1<br><br>Выполни Patty&#39;s Квест<br>"Проблемный ученик" (Lv. 13+)<br><br>Получить Экстра Энграмму<br>(Очистить Столп Божественности<br>[Advanced Survey]) И Принеси это<br>Ханне за столпом',
+                'Синие Текучие Воспоминания 1<br><br>Выполни Patti&#39;s Квест<br>"Проблемный ученик" (Lv. 13+)<br><br>Получить Экстра Энграмму<br>(Очистить Столп Божественности<br>[Advanced Survey]) И Принеси это<br>Ханне за столпом',
             red2: 
                 'Красные Текучие Воспоминания 2<br><br>Осмотрите бутылки на<br>Стенде Памяти',
             red1: 
@@ -12224,7 +12332,7 @@ jQuery(document).ready(function ($) {
             category: "Technical",
             question: "What year did the development of BLUE PROTOCOL begin?",
             choice: ["2014", "2016", "2020", "2021"],
-            answer: ["2016"]
+            answer: ["2014"]
         },
         { // 50
             category: "Gameplay",

@@ -1049,9 +1049,10 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     margin: -3.1vw 0 -1.05vw 0; /* -50px 0 -19px 0 */
     width: 15.65vw; /* 300px */
     height: auto;
+    top: -0.052vw;
     padding-right: 1.3vw; /* 25px */
     padding-top: 0.6vw;
-    border-top-right-radius: 5px;
+    border-top-right-radius: 0.26vw;
 }
 
 .listItem, .wlistItem {
@@ -1360,7 +1361,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     top: 0.2rem;
     left: 4vw;
     width: 10vw;
-    filter: drop-shadow(0 0 2px black);
+    filter: drop-shadow(0 0px 1px black);
 }
 
 
@@ -1851,11 +1852,6 @@ input:checked + .slider:before {
 }
 
 
-
-
-.dungeonsPage {
-    position: relative;
-}
 .dungLeft {
     position: absolute;
     top: 0;
@@ -1952,7 +1948,7 @@ h3.dungBS {
     text-align: left;
     width: 39.375vw;
     height: 31.406vw; /* 603px */
-    background-color: #414041;
+    background-color: #343334;
     filter: drop-shadow(0 0 2px black);
     color: white;
 }
@@ -2053,6 +2049,7 @@ h3.dungReqBS {
 
 .dungRestrictions {
     position: absolute;
+    z-index: 5;
     background-color: #727172;
     top: 42.5%;
     height: 10%;
@@ -2096,17 +2093,324 @@ h3.dungReqBS {
 }
 
 .dungRewards {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
     background-color: #414041;
+    height: 16.4vw;
+    width: 39.375vw;
+    overflow-y: scroll;
+}
+.dungRewards h2 {
+    position: relative;
+    left: 11.15vw;
+    top: 2vw;
+    font-weight: normal;
+    font-size: .82vw;
+    width: 4.5vw;
+    height: 4vw;
+    text-align: right;
+    padding-right: 0.5vw;
+    border-right: 0.1vw solid white;
+}
+.rewardsImages {
+    position: absolute;
+    top: 2vw;
+    left: 16vw;
+    width: 23vw;
+    height: 4vw;
+}
+.rewardsHolder {
+    width: 4vw;
+    height: 4vw;
+    display: inline-block;
+    text-align: center;
+}
+.rewardsHolder h3 {
+    font-family: 'Roboto';
+    font-size: 0.8vw;
 }
 
-.dungAllowance {
+.dungAllowance, .dungAllowanceItems {
     position: relative;
+    z-index: 5;
     float: right;
     right: 0.156vw;
     width: 28.438vw;
     height: 4.583vw;
 }
 
+.dungAllowanceItems {
+    position: absolute;
+    margin-bottom: 0.156vw;
+    bottom: 0;
+    text-align: center;
+}
+.dungAllowanceItems h3 {
+    font-size: 0.8vw;
+    font-weight: normal;
+    width: 4vw;
+    line-height: 4.6vw;
+    position: relative;
+    left: 0.4vw;
+    vertical-align: middle;
+}
+
+.dungAllowanceImgs {
+    position: absolute;
+    top: 0.35vw;
+    left: 7vw;
+    width: 22.5vw;
+    height: 4vw;
+}
+.dungAllowanceImgs img {
+    display: inline-block;
+    text-align: left;
+    justify-content: left;
+    float: left;
+    margin: 0.3vw;
+}
+
+.dungStartButton {
+    width: 39.375vw;
+    position: absolute;
+    bottom: 7%;
+}
+
+.dungStartButton a {
+    position: relative;
+    width: 10vw;
+    border: 0.02vw solid #c8c8c8;
+    padding: 0.2vw 2vw;
+    border-radius: 3px;
+    margin: auto 0.4vw;
+    display: inline-block;
+    color: #c8c8c8;
+    filter: drop-shadow(0 0 2px black);
+    cursor: url("images/cursor.png"), pointer;
+    text-decoration: none;
+}
+.dungStartButton a:hover {
+    filter:brightness(0.8) drop-shadow(0 0 2px black);
+    transform: scale(0.96);
+}
+
+
+.optionsPage {
+    background: url(images/optionsBG.png) -0vw -3vw no-repeat;
+    background-size: 100vw;
+    width: 100%;
+    height: 100%;
+}
+.optionsPage h1 {
+    color: #d8d8d8;
+    font-size: 2vw;
+    font-weight: normal;
+    position: absolute;
+    left: 6.4vw;
+    top: 3.4vw;
+}
+.optionsMenuHolder {
+    position: relative;
+    width: 40vw;
+    height: 3.5vw;
+    left: 27vw;
+    top: 3.75vw;
+    line-height: 3.3vw;
+    text-align: left;
+}
+.optionsMenuButton {
+    background-color: #959699;
+    height: 33%;
+    width: 6vw;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 0 0 0.26vw;
+    border-radius: 0.4vw;
+    filter: drop-shadow(0 1px 2px #888e95);
+    color: white;
+    font-family: 'Mate SC';
+    font-size: 0.75vw;
+}
+
+.optionsMenuButton:hover {
+    color: black;
+    background-color: #eeeff2;
+}
+
+.optionsMenuClicked {
+    color: black;
+    background-color: #cfef00;
+}
+.optionsMenuClicked:hover {
+    color: black;
+    background-color: #cfef00;
+    filter: brightness(0.95) drop-shadow(0 1px 2px #888e95);
+}
+
+.optionsHolder {
+    position: relative;
+    left: 27vw;
+    top: 7vw;
+    color: #3b434e;
+    width: 40vw;
+    height: 27vw;
+    overflow-y: scroll;
+}
+
+.optionsHolder h3 {
+    width: 100%;
+    height: 1.5vw;
+    text-align: left;
+    font-size: 1.2vw;
+    padding: 0;
+    border-bottom: 0.1vw solid #3b434e;
+    margin-bottom: 0.52vw;
+}
+
+.optionsControls, .optionsSound, .optionsGraphics, .optionsHUD {
+    display: none;
+}
+
+
+
+/* ------------- Buttons ------------- */
+/* The container */
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    text-align: left;
+}
+
+/* Hide the browser's default radio button */
+.radioContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radioDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radioContainer:hover input ~ .radioDot {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radioContainer input:checked ~ .radioDot {
+  background-color: #cfef00;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radioDot:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioContainer input:checked ~ .radioDot:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioContainer .radioDot:after {
+ 	top: 8px;
+	left: 8px;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: #3b434e;
+}
+
+/* ----------- Checkbox ---------------- */
+
+/* The container */
+.checkboxContainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    text-align: left;
+}
+
+/* Hide the browser's default checkbox */
+.checkboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+    border-radius: 20%;
+}
+
+/* On mouse-over, add a grey background color */
+.checkboxContainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkboxContainer input:checked ~ .checkmark {
+  background-color: #cfef00;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkboxContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainer .checkmark:after {
+  left: 7px;
+  top: 1px;
+  width: 7px;
+  height: 14px;
+  border: solid #3b434e;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 
 
 /* ------------- BUBBLES -------------- */
