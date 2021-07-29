@@ -1049,9 +1049,10 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     margin: -3.1vw 0 -1.05vw 0; /* -50px 0 -19px 0 */
     width: 15.65vw; /* 300px */
     height: auto;
+    top: -0.052vw;
     padding-right: 1.3vw; /* 25px */
     padding-top: 0.6vw;
-    border-top-right-radius: 5px;
+    border-top-right-radius: 0.26vw;
 }
 
 .listItem, .wlistItem {
@@ -1360,7 +1361,7 @@ p.tooltip, .recipeTooltip, .wrecipeTooltip, .skillTooltip, .slotTooltip {
     top: 0.2rem;
     left: 4vw;
     width: 10vw;
-    filter: drop-shadow(0 0 2px black);
+    filter: drop-shadow(0 0px 1px black);
 }
 
 
@@ -1516,7 +1517,7 @@ input:checked + .slider:before {
     transition: opacity .3s ease-in-out, width 0.1s ease-in-out;
 }
 
-.liqMemPage, .combatPage, .elementsPage, .fusionPage, .dungeonsPage, .raidsPage, .buffsPage, .progressionPage, .storyPage, .optionsPage {
+.liqMemPage, .combatPage, .elementsPage, .fusionPage, .dungeonsPage, .buffsPage, .progressionPage, .storyPage, .optionsPage {
     display: none;
     position: absolute;
     z-index: 20;
@@ -1850,7 +1851,800 @@ input:checked + .slider:before {
     visibility: hidden;
 }
 
+
+.dungLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+}
+.dungRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+}
+
+.dungeonList {
+    position: relative;
+    left: 25%;
+    top: 10%;
+    height: 31.406vw; /* 603px */
+    color: #343330;
+    overflow-y: scroll;
+}
+.dungeonListItem {
+    width: auto;
+    height: 3.646vw;
+    position: relative;
+    float: left;
+    filter: drop-shadow(0 0 2px black);
+}
+.dungeonListItem>img {
+    background-color: none;
+    border-radius: 5px;
+    position: relative;
+    z-index: 20;
+    width: 23.229vw;
+    height: 3.646vw;
+}
+.dungeonListItem:hover>img {
+    background-color: whitesmoke;
+}
+.dungeonListItem:active>img{
+    background-color: #e7f837;
+}
+.dungeonListItem h2, .dungeonListItem h3 {
+    position: absolute;
+    width: 15vw;
+    text-align: left;
+    height: 1.2vw;
+    left: 2.9vw;
+    overflow-x: hidden;
+    z-index: 40;
+}
+.dungeonListItem h2 {
+    font-size: 1vw;
+    top: 0.35vw;
+    font-weight: bold;
+}
+.dungeonListItem h3 {
+    font-size: 0.8vw;
+    top: 2.05vw;
+    display: inline-block;
+}
+h3.dungBS {
+    left: 9vw; 
+    top: 1.87vw; 
+    height: auto; 
+    width: 4vw; 
+    text-align: right; 
+    font-size: 1.2vw; 
+    font-family: 'Roboto';
+}
+.dungeonListItem>h2>span {
+    font-size: 0.85vw;
+    float: right;
+    line-height: 1.2vw;
+}
+
+.difficultyKey {
+    position: relative; 
+    left: 25%;
+    top: 10%;
+    width: 23.229vw; 
+}
+.difficultyKey p {
+    font-size: 0.75vw;
+    display: inline-block;
+    width: 8.333vw;
+}
+.dungeonDescription {
+    position: relative;
+    top: 10%;
+    float: left;
+    text-align: left;
+    width: 39.375vw;
+    height: 31.406vw; /* 603px */
+    background-color: #343334;
+    filter: drop-shadow(0 0 2px black);
+    color: white;
+}
+.dungeonDescription h2 {
+    display: inline-block;
+    vertical-align: top;
+}
+.dungHeader {
+    width: 39.375vw;
+    height: 3.333vw;
+    margin-bottom: 0.208vw;
+}
+.dungHeader img {
+    width: 39.375vw;
+    height: 3.333vw;
+}
+.dungName, .dungHeader h3 {
+    position: absolute;
+    color: white;
+    font-weight: normal;
+}
+.dungName {
+    left: 16vw;
+    top: 0.9vw;
+    height: 1.5vw;
+}
+.dungHeader h3 {
+    font-size: 0.7vw;
+    width: 6.4vw;
+    top: 0.3vw; 
+    left: 9vw;
+    text-align: center;
+}
+h3.dungReqBS {
+    top: 1.24vw;
+    left: 9vw;
+    text-align: center;
+    font-size: 1.4vw; 
+    font-family: 'Roboto';
+    font-weight: bold;
+    
+}
+.dungType {
+    position: absolute;
+    left: 3.3vw;
+    top: 1.18vw;
+    width: 5vw;
+    font-family: 'Roboto';
+    font-weight: bolder;
+    font-size: 0.8vw;
+}
+.dungImage {
+    float: left;
+    display: inline-block;
+    position: relative;
+    z-index: 30;
+    left: 0.156vw;
+    width: 10.625vw;
+    height: 27.708vw;
+}
+.dungDescText {
+    vertical-align: top;
+    height: 23.125vw;
+    width: 28vw;
+    right: 0.3vw;
+    display: inline-block;
+    float: right;
+    position: relative;
+    top: 9%;
+}
+.dungClearCond, .dungRestrictions {
+    background-color: #4b4c4d;
+    width: 99%;
+    right: 0;
+    margin: auto;
+    height: 7.5%;
+    position: absolute;
+    box-shadow: 0 0 2px black;
+}
+
+.dungClearCond p, .dungClearCond h3 {
+    position: relative;
+    left: 11.15vw;
+    height: 100%;
+    line-height: 2.2vw;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+}
+.dungClearCond p {
+    font-size: 0.72vw;
+    margin-right: 0.52vw;
+}
+.dungClearCond h3 {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.dungRestrictions {
+    position: absolute;
+    z-index: 5;
+    background-color: #727172;
+    top: 42.5%;
+    height: 10%;
+}
+.dungRestrictions p, .dungRestrictions h3 {
+    position: relative;
+    left: 12.15vw;
+    display: inline-block;
+    line-height: 3.15vw;
+    vertical-align: middle;
+    font-size: 0.9vw;
+}
+.dungTimeLimit {
+    margin-left: 3vw;
+    margin-right: 2vw;
+}
+
+.dungRestDivider {
+    position: relative;
+    left: 13.15vw;
+    margin-bottom: -1vw;
+    height: 2.5vw;
+    width: 0.15vw;
+    background-color: #c8c8c8;
+    display: inline-block;
+}
+.dungMaxPlayers {
+    margin-right: 1vw;
+}
+.dungMaxPlayersVal {
+    width: 3vw;
+    text-align: center;
+}
+.dungTimeLimitVal {
+    text-align: right;
+    width: 5.1vw;
+}
+.dungRestrictions h3 {
+    font-family: 'Roboto';
+    font-size: 2vw;
+}
+
+.dungRewards {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    background-color: #414041;
+    height: 16.4vw;
+    width: 39.375vw;
+    overflow-y: scroll;
+}
+.dungRewards h2 {
+    position: relative;
+    left: 11.15vw;
+    top: 2vw;
+    font-weight: normal;
+    font-size: .82vw;
+    width: 4.5vw;
+    height: 4vw;
+    text-align: right;
+    padding-right: 0.5vw;
+    border-right: 0.1vw solid white;
+}
+.rewardsImages {
+    position: absolute;
+    top: 2vw;
+    left: 16vw;
+    width: 23vw;
+    height: 4vw;
+}
+.rewardsHolder {
+    width: 4vw;
+    height: 4vw;
+    display: inline-block;
+    text-align: center;
+}
+.rewardsHolder h3 {
+    font-family: 'Roboto';
+    font-size: 0.8vw;
+}
+
+.dungAllowance, .dungAllowanceItems {
+    position: relative;
+    z-index: 5;
+    float: right;
+    right: 0.156vw;
+    width: 28.438vw;
+    height: 4.583vw;
+}
+
+.dungAllowanceItems {
+    position: absolute;
+    margin-bottom: 0.156vw;
+    bottom: 0;
+    text-align: center;
+}
+.dungAllowanceItems h3 {
+    font-size: 0.8vw;
+    font-weight: normal;
+    width: 4vw;
+    line-height: 4.6vw;
+    position: relative;
+    left: 0.4vw;
+    vertical-align: middle;
+}
+
+.dungAllowanceImgs {
+    position: absolute;
+    top: 0.35vw;
+    left: 7vw;
+    width: 22.5vw;
+    height: 4vw;
+}
+.dungAllowanceImgs img {
+    display: inline-block;
+    text-align: left;
+    justify-content: left;
+    float: left;
+    margin: 0.3vw;
+}
+
+.dungStartButton {
+    width: 39.375vw;
+    position: absolute;
+    bottom: 7%;
+}
+
+.dungStartButton a {
+    position: relative;
+    width: 10vw;
+    border: 0.02vw solid #c8c8c8;
+    padding: 0.2vw 2vw;
+    border-radius: 3px;
+    margin: auto 0.4vw;
+    display: inline-block;
+    color: #c8c8c8;
+    filter: drop-shadow(0 0 2px black);
+    cursor: url("images/cursor.png"), pointer;
+    text-decoration: none;
+}
+.dungStartButton a:hover {
+    filter:brightness(0.8) drop-shadow(0 0 2px black);
+    transform: scale(0.96);
+}
+
+
+.optionsPage {
+    background: url(images/optionsBG.png) -0vw -3vw no-repeat;
+    background-size: 100vw;
+    width: 100%;
+    height: 100%;
+}
+.optionsPage h1 {
+    color: #d8d8d8;
+    font-size: 2vw;
+    font-weight: normal;
+    position: absolute;
+    left: 6.4vw;
+    top: 3.4vw;
+}
+.optionsMenuHolder {
+    position: relative;
+    width: 40vw;
+    height: 3.5vw;
+    left: 27vw;
+    top: 3.75vw;
+    line-height: 3.3vw;
+    text-align: left;
+}
+.optionsMenuButton {
+    background-color: #959699;
+    height: 33%;
+    width: 6vw;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 0 0 0.26vw;
+    border-radius: 0.4vw;
+    filter: drop-shadow(0 1px 2px #888e95);
+    color: white;
+    font-family: 'Mate SC';
+    font-size: 0.75vw;
+}
+
+.optionsMenuButton:hover {
+    color: black;
+    background-color: #eeeff2;
+}
+
+.optionsMenuClicked {
+    color: black;
+    background-color: #cfef00;
+}
+.optionsMenuClicked:hover {
+    color: black;
+    background-color: #cfef00;
+    filter: brightness(0.95) drop-shadow(0 1px 2px #888e95);
+}
+
+.optionsHolder {
+    position: relative;
+    left: 27vw;
+    top: 7vw;
+    color: #3b434e;
+    width: 40vw;
+    height: 27vw;
+    overflow-y: scroll;
+}
+
+.optionsHolder h3 {
+    width: 100%;
+    height: 1.5vw;
+    text-align: left;
+    font-size: 1.2vw;
+    padding: 0;
+    border-bottom: 0.1vw solid #3b434e;
+    margin-bottom: 0.52vw;
+}
+
+.optionsControls, .optionsSound, .optionsGraphics, .optionsHUD {
+    display: none;
+}
+
+.optionsSubtext {
+    text-align: left;
+    margin-bottom: 1.42vw;
+    margin-top: -0.6vw;
+    position: relative;
+    left: 1.9vw;
+}
+
+.optionsSideHeader {
+    font-size: 1.146vw;
+    text-align: left;
+    width: 7.5vw;
+    position: absolute;
+    float: left;
+}
+
+.optionsSideHolder {
+    width: 20vw; 
+    position: relative; 
+    left: 10vw;
+    text-align: left;
+}
+
+.optionsSection {
+    position: relative;
+    left: 4vw;
+}
+.optionsControls label {
+    display: inline-block;
+    width: 1vw;
+    vertical-align: middle;
+    font-size: 0.833vw;
+    line-height: 1.4vw;
+}
+
+
+.rangeSlider {
+    vertical-align: middle;
+    outline: none;
+    width: 40%;
+    -webkit-appearance: none;
+    height: 0.521vw;
+    border-radius: 0.260vw;
+    background: #8a95a1;
+    outline: none;
+    opacity: 1;
+    cursor: url(images/cursor.png), pointer;
+}
+.rangeVal {
+    display: inline-block;
+    margin: 0 0.52vw;
+    background-color: whitesmoke;
+    font-size: 0.938vw;
+    width: 2vw;
+    vertical-align: middle;
+    padding: 0.05vw 0;
+    text-align: center;
+    border-radius: 0.2vw;
+}
+
+
+.rangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.042vw;
+    height: 1.042vw;
+    border-radius: 50%;
+    background: #576676;
+    
+}
+
+.rangeSlider::-moz-range-thumb {
+    width: 1.042vw;
+    height: 1.042vw;
+    border-radius: 50%;
+    background: #576676;
+}
+
+/* grayed out slider */
+.sliderDisabled > .rangeVal {
+    background-color: #96999e;
+    color: #4d4e51;
+}
+.sliderDisabled > .rangeSlider {
+    background: #848588;
+}
+.sliderDisabled > .rangeSlider::-webkit-slider-thumb {
+    background: #626366;
+}
+.sliderDisabled > .rangeSlider::-moz-range-thumb {
+    background: #626366;
+}
+
+/* Dropdown menu */
+option {
+    color: black;
+}
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
+.dropdown {
+    margin-top: 0.75vw;
+    display: block;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 0.695vw;
+    position: relative;
+    vertical-align: middle;
+    width: 10.521vw;
+    height: 1.250vw;
+    padding-left: 0.5vw;
+    background-image: url(images/dropdown_normal.png);
+    background-size: 10.521vw 1.250vw;
+    outline: none;
+}
+.dropdown:hover {
+    background-image: url(images/dropdown_hover.png);
+}
+.dropdown:active, .dropdown:focus {
+    background-image: url(images/dropdown_focus.png);
+}
+
+.hudEdit {
+    position: relative; 
+    font-size: 0.833vw; 
+    text-align: center; 
+    background-color: #24252b;
+    border-radius: 0.2vw;
+    color: white;
+    padding: 0.2vw 0;
+}
+.hudEdit:hover, .keybindui:hover {
+    background-color: #cfef00;
+    color: #3b434e;
+    font-weight: bold;
+}
+.hudEdit:active, .keybindui:active {
+    background-color: #eeeff2;
+    color: #3b434e;
+    font-weight: bold;
+}
+
+.keybindings p, .keybindings h2, .keybindings h4, .keybindings h3 {
+    font-weight: normal;
+    font-size: 0.833vw;
+    margin-bottom: 0.7vw;
+    display: inline-block;
+    width: 10vw;
+}
+.keybindings p {
+    width: 15vw;
+}
+.keybindings h2, .keybindings h4, .keybindings h3 {
+    background-color: whitesmoke;
+    border-radius: .2vw;
+    text-align: center;
+    float: right;
+    margin-left: 1vw;
+    filter: drop-shadow(0 0 2px #888e95);
+}
+.keybindings h2:hover, .keybindings h4:hover {
+    background-color: #cfef00;
+    filter: drop-shadow(0 0 2px #cfef00);
+}
+.keybindings h2:active, .keybindings h4:active {
+    background-color: whitesmoke;
+    filter: drop-shadow(0 0 2px whitesmoke);
+}
+.keybindings h3 {
+    background-color: #96999e;
+    color: #4d4e51;
+    height: auto;
+    border: none;
+}
+h3.keybindui {
+    border: none; 
+    font-weight: normal; 
+    font-size: 0.833vw; 
+    width: 7.5vw;
+    margin: 0; 
+    display: inline-block; 
+    position: relative; 
+    background-color: #24252b; 
+    color: white; 
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.1vw;
+    border-radius: 0.2vw;
+    position: absolute;
+    filter: drop-shadow(0 0 2px #888e95);
+}
+
+/* Technically the options you've changed highlight in green but that's a bunch of work
+.rangeSlider:focus {
+    filter: drop-shadow(0 0 20px #cfef00);
+} 
+*/
+
+.soundImage {
+    width: 2.667vw;
+    background-color: #a0a4b0;
+    padding: 0 0.5vw;
+    border-radius: 0.4vw;
+    vertical-align: middle;
+    position: absolute;
+    left: 8vw;
+    top: -0.2vw;
+}
+
+/* ------------- Buttons ------------- */
+/* The container */
+.radioContainer {
+  display: block;
+  position: relative;
+  padding-left: 1.823vw;
+  margin-bottom: 0.625vw;
+  cursor: url("images/cursor.png"), pointer;
+  font-size: 1.146vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    text-align: left;
+    
+}
+
+/* Hide the browser's default radio button */
+.radioContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radioDot {
+  position: absolute;
+  top: 0.15vw;
+  left: 0;
+  height: 1.042vw;
+  width: 1.042vw;
+  background-color: #eee;
+  border-radius: 50%;
+    
+}
+
+/* On mouse-over, add a grey background color */
+/* radioDot:hover to make it only apply to the box, not the text */
+.radioContainer:hover input ~ .radioDot {
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #eee;
+}
+.radioContainer:active input ~ .radioDot {
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #cfef00;
+}
+
+/* When the radio button is checked, add a blue background */
+.radioContainer input:checked ~ .radioDot {
+    background-color: #cfef00;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radioDot:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioContainer input:checked ~ .radioDot:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioContainer .radioDot:after {
+ 	top: 0.313vw;
+	left: 0.313vw;
+	width: 0.417vw;
+	height: 0.417vw;
+	border-radius: 50%;
+	background: #3b434e;
+}
+
+/* ----------- Checkbox ---------------- */
+
+/* The container */
+.checkboxContainer {
+  display: block;
+  position: relative;
+  padding-left: 1.823vw;
+  margin-bottom: 0.625vw;
+    vertical-align: middle;
+  cursor: url("images/cursor.png"), pointer;
+  font-size: 1.146vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+    text-align: left;
+}
+
+/* Hide the browser's default checkbox */
+.checkboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark, .checkmarkDisabled {
+  position: absolute;
+  top: 0.15vw;
+  left: 0;
+  height: 1.042vw;
+  width: 1.042vw;
+  background-color: #eee;
+    border-radius: 20%;
+}
+
+/* On mouse-over, add a grey background color */
+/* checkmark:hover to make it only apply to the box, not the text */
+.checkboxContainer:hover input ~ .checkmark {
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #eee;
+}
+.checkboxContainer:active input ~ .checkmark {
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #cfef00;
+}
+/* When the checkbox is checked, add a blue background */
+.checkboxContainer input:checked ~ .checkmark {
+    background-color: #cfef00;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after, .checkmarkDisabled:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkboxContainer input:checked ~ .checkmark:after,  .checkboxContainer input:checked ~ .checkmarkDisabled:after{
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkboxContainer .checkmark:after, .checkboxContainer .checkmarkDisabled:after {
+  left: 0.313vw;
+  top: 0.052vw;
+  width: 0.260vw;
+  height: 0.573vw;
+  border: solid #3b434e;
+  border-width: 0 0.208vw 0.208vw 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
 /* ------------- BUBBLES -------------- */
+
 #bubbles { 
     width: 100%;
 }

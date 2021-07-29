@@ -509,9 +509,7 @@ jQuery(document).ready(function ($) {
         }
         if ($(this).is(".guideDungeons") && currentGuide != ".dungeonsPage") {
             newGuide = ".dungeonsPage";
-        }
-        if ($(this).is(".guideRaids") && currentGuide != ".raidsPage") {
-            newGuide = ".raidsPage";
+            dispDung();
         }
         if ($(this).is(".guideBuffs") && currentGuide != ".buffsPage") {
             newGuide = ".buffsPage";
@@ -881,6 +879,609 @@ jQuery(document).ready(function ($) {
         $(".eleDemoLv2").css("visibility","hidden");
         $(".eleDemoLv3").css("visibility","hidden");
     });
+    
+    
+    var dungSelector = 0;
+    var dungHolder = [
+        
+        // ENGLISH
+        [
+            
+            // 1 Island In The Sky 虚空の浮島
+            {
+                name: "Void's Island", //
+                type: "RAID BATTLE",
+                // difficulty
+                diff: "",
+                reqBS: "10+",
+                timer: "30:00",
+                ptSize: "20",
+                imgSrc: "images/dungeons/raid_island.png",
+                headerSrc: "images/dungeons/header_raid.png",
+                allowSrc: "images/dungeons/allowance_raid.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["","40,000","18,000","1,000"], // Luno, EXP, GC
+                rewardsImg: [""],
+                description: "The mysterious 'Starpulse Crevice' suddenly appears in Bahamar Highland. Adventurers were sent to investigate, but what they saw was...<br><br>・Defeat the massive boss within the time limit<br>・Running out of time will result in a mission failure<br>・Receive bonus rewards by ranking in the top", // バハマール高原に突如現れた謎の「星脈孔」\n調査に向かった冒険者たちが見たものは・・・\n\n・巨大なボスエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・ランキング上位入賞で報酬にボーナス
+                // starvein starpulse starchain slit crevice hole crack
+                allowance: ["Health Potion II", "Health Potion III", "ATK Up Serum","DEF Up Serum",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/health potion iii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png"],
+                videoLink: "https://www.youtube.com/watch?v=a35O6OFwuAE&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=14"
+            },
+            
+            // 2 Time attack party
+            {
+                name: "Time Attack | party",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "19+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/ta_party.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Rush to defeat the boss within the time limit!", // 制限時間内にすばやくボスエネミーを討伐せよ！
+                rewards: ["","40,000","20,000"], // ?, luno, exp
+                rewardsImg: [""],
+                description: "A competition designed to test the might of adventurers!<br>Those who aim to be the fastest continue to push themselves to the limit.<br><br>[Stage] Dragon Claw Valley<br>・Timer will continue until the boss at the end is defeated<br>・Receive rewards based on clear time<br>・Clear faster than anyone else and aim for the top rankings!", //冒険者の力量を測るために用意されたクリアタイムを競う競技。<br>最速を目指す者たちが、日夜己の限界を挑み続けている。<br><br>【舞台】巨竜の爪痕<br>・最奥部まで進み、ボスエネミー討伐までのタイムを競え<br>・クリアタイムに応じて報酬を獲得<br>・誰よりも早くクリアし、ランキング入りを狙え
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=EdvmzeFmS4Q"
+            },
+            
+            // 3 Time attack solo
+            {
+                name: "Time Attack | solo",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "19+",
+                timer: "30:00",
+                ptSize: "1",
+                imgSrc: "images/dungeons/ta_solo.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Rush to defeat the boss within the time limit!", // 制限時間内にすばやくボスエネミーを討伐せよ！
+                rewards: ["","40,000","20,000"], // ?, luno, exp
+                rewardsImg: [""],
+                // some other rewards for first time ranking in a tier
+                description: "A competition designed to test the might of adventurers!<br>Those who aim to be the fastest continue to push themselves to the limit.<br><br>[Stage] Dragon Claw Valley<br>・Timer will continue until the boss at the end is defeated<br>・Receive rewards based on clear time<br>・Clear faster than anyone else and aim for the top rankings!", //冒険者の力量を測るために用意されたクリアタイムを競う競技。<br>最速を目指す者たちが、日夜己の限界を挑み続けている。<br><br>【舞台】巨竜の爪痕<br>・最奥部まで進み、ボスエネミー討伐までのタイムを競え<br>・クリアタイムに応じて報酬を獲得<br>・誰よりも早くクリアし、ランキング入りを狙え
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=mMqJ6N0Pwc8"
+            },
+            
+            // 4 Arena S
+            {
+                name: "Arena | S rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "28+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_s.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "Defeat 100 enemies!", //100体のエネミーを討伐せよ！
+                rewards: ["Kaiser Elk's Idea","142,000","64,000","300"], // Item, Luno, Exp, GC
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
+            },
+            
+            // 5 Arena A
+            {
+                name: "Arena | A rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "23+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_a.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "Defeat 75 enemies!", //75体のエネミーを討伐せよ！
+                rewards: ["Goblin Sage's Idea","118,200","53,300","250"], // Item, Luno, Exp, GC
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
+            },
+            
+            // 6 Arena B
+            {
+                name: "Arena | B rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "18+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_b.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "Defeat 50 enemies!", //50体のエネミーを討伐せよ！
+                rewards: ["Horned Goat's Idea","83,300","37,500","200"], // Item, Luno, Exp, GC
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
+            },
+            
+            // 7 Arena C
+            {
+                name: "Arena | C rank",
+                type: "ARENA",
+                diff: "",
+                reqBS: "11+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/arena_c.png",
+                headerSrc: "images/dungeons/header_arena.png",
+                allowSrc: "images/dungeons/allowance_arena.png",
+                clearCondition: "Defeat 25 enemies!", //25体のエネミーを討伐せよ！
+                rewards: ["Tyrant Boar's Idea","44,600","20,000","150"], // Item, Luno, Exp, GC
+                rewardsImg: ["images/dungeons/imagine idea.png"],
+                description: "[Party Recommended]<br>Day and night, the arena filled with intense battles.<br>Demonstrate your strength by challenging the rules imposed on you.<br><br>・Defeat waves of enemies within the time limit<br>・Running out of time will result in a mission failure<br>・Clearing challenges will give you benefits during battle", // 【パーティ推奨】\n日夜激しい戦いが広げられる闘技場。\n課されたルールに挑み、その力を示せ。\n\n・次々と現れるエネミーを制限時間内に倒せ \n・時間切れになるとミッション失敗 \n・チャレンジをクリアすると戦闘が有利になる効果が発動
+                allowance: ["Health Potion II", "","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=INRLDaYaUzk&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=12"
+            },
+            
+            // 8 Mecha Hard
+            {
+                name: "Valley of Machines",
+                type: "DUNGEON",
+                diff: "advanced survey",
+                reqBS: "25+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_mecha%20advanced.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["High Quality Bahamar Yellow","132,920","59,940"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/high quality bahamar yellow.png"],
+                description: "[Party Recommended]<br>The burial site of a Bapharian civilization-era city,<br>most of the remains have submerged among the surrounding terrain.<br>As you will encounter more powerful enemies in your additional surveys of the area, the rewards will also become more valuable.",　// 【パーティ推奨】\nバファリア文明時代の街が埋もれ、\n周辺の地形と一体化してできた遺跡の谷。\n追加調査は強大なエネミーと遭遇するため、難易度が高い。\nその分、成功報酬によって強力な武器をクラフトすることが可能。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=jctyzo_PWaQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=11"
+            },
+            
+            // 9 Pillar Hard
+            {
+                name: "Pillar of Divinity",
+                type: "DUNGEON",
+                diff: "advanced survey",
+                reqBS: "20+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_pillar%20advanced.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["High Performance IC Core","92,490","41,650"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/high performance ic core.png"],
+                description: "[Party Recommended]<br>One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>As you will encounter more powerful enemies in your additional surveys of the area, the rewards will also become more valuable.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\n追加調査は強大なエネミーと遭遇するため、難易度が高い。\nその分、成功報酬によって強力な武器をクラフトすることが可能。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=NLNFD7y8i3Q&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=10"
+            },
+            
+            // 10 Dragon Hard
+            {
+                name: "Dragon Claw Valley",
+                type: "DUNGEON",
+                diff: "advanced survey",
+                reqBS: "14+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_dragonclaw%20advanced.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Firm Dragon Bone Fragment","59,280","26,730"],
+                rewardsImg: ["images/dungeons/firm dragon bone frag.png"],
+                description: "[Party Recommended]<br>A deep canyon that appears as if it was carved out by the claws of a dragon.<br>The intricate valleys obstruct the adventurer's path.<br>As you will encounter more powerful enemies in your additional surveys of the area, the rewards will also become more valuable.", // 【パーティ推奨】ドラゴンの爪で抉られたかのような深い峡谷地帯。\n複雑に入り組んだ谷が冒険者の行く手を阻む。\n追加調査は強大なエネミーと遭遇するため、難易度が高い。\nその分、成功報酬によって強力な武器をクラフトすることが可能。
+                allowance: ["Health Potion II", "ATK Up Serum","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","",""],
+                videoLink: "https://www.youtube.com/watch?v=Szktg70ozpQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=9"
+            },
+            
+            // 11 Mecha Easy
+            {
+                name: "Valley of Machines",
+                type: "DUNGEON",
+                diff: "survey",
+                reqBS: "10+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_mecha%20survey.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Bahamar Yellow","38,040","17,130"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/bahamar yellow.png"],
+                description: "[Party Recommended]<br>The burial site of a Bapharian civilization-era city,<br>most of the remains have submerged among the surrounding terrain.<br>The legacy of Bapharia remains through its machines which will attack intruders on sight.",　// 【パーティ推奨】\nバファリア文明時代の街が埋もれ、\n周辺の地形と一体化してできた遺跡の谷。\nバファリアの遺産である機械類が今もこの地を守っており、\n侵入者を迎え撃つ。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=jctyzo_PWaQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=11"
+            },
+            
+            // 12 Pillar Med
+            {
+                name: "Pillar of Divinity",
+                type: "DUNGEON",
+                diff: "additional survey",
+                reqBS: "8+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_pillar%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["IC Core","25,170","11,310"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/ic core.png"],
+                description: "[Party Recommended]<br>One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>On the outside, it remains a magnificent sight to behold.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\nその外観は、どれほどの年月が経っても美しく壮麗なままである。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=NLNFD7y8i3Q&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=10"
+            },
+            
+            // 13 Dragon Med
+            {
+                name: "Dragon Claw Valley",
+                type: "DUNGEON",
+                diff: "additional survey",
+                reqBS: "3+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_dragonclaw%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Dragon Bone Fragment","7,380","3,280"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/dragon bone frag.png"],
+                description: "A deep canyon that appears as if it was carved out by the claws of a dragon.<br>The intricate valleys obstruct the adventurer's path.<br>Waterfalls violently cascading down the cliffs have been said to resemble the fierce power of dragons.", // ドラゴンの爪で抉られたかのような深い峡谷地帯。\n複雑に入り組んだ谷が冒険者の行く手を阻む。\n崖を流れ落ちる滝は迫力に満ちて荒々しく\nそれこそ竜の姿に例えられている。
+                allowance: ["Health Potion II", "ATK Up Serum","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","",""],
+                videoLink: "https://www.youtube.com/watch?v=Szktg70ozpQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=9"
+            },
+            
+            // 14 Reikrid Med
+            {
+                name: "Reikrid Tunnels",
+                type: "DUNGEON",
+                diff: "additional survey",
+                reqBS: "1+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_reikrid.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the boss within the time limit!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Reikrid Crystal","1,390","2,670"], // Reikrid Crystal, 1,390 Luno, 2,670 EXP
+                rewardsImg: ["images/dungeons/reikrid crystal.png"],
+                description: "A tunnel that is the source of Reikrid Crystals.<br>Although mining operations have ceased, the occasional adventurer will come in search of materials.<br>It is said that monsters have started to live here.", // 「レイクリッド結晶」などの産地として使われていた坑道の一角。\nすでに役目を終え、大規模な採掘は行われていないが、\nたまに冒険者が素材を求めてやってくる。\n最近、モンスターが棲みついてしまったらしい。
+                allowance: ["Health Potion II", "","","",""], // Dungeon-use Health Potion
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=X06wIcNYhxc"
+            },
+            
+            // 15 Pillar Easy
+            {
+                name: "Pillar of Divinity",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "6+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_pillar%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Reach the top floor!", //最上階へ到達せよ！
+                rewards: ["IC Core","18,040","16,230"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/ic core.png"],
+                description: "One of the largest ruins of the Bapharia civilization.<br>It is said to be the location where the founder of the Bapharian religion had descended, and is still shrouded in mystery.<br>On the outside, it remains a magnificent sight to behold.", // 【パーティ推奨】\nバファリア文明最大の遺跡の一つ。\nバファリア教の開祖が降り立った場所としても伝えられ、\nいまだ数多くの謎に包まれている。\nその外観は、どれほどの年月が経っても美しく壮麗なままである。
+                allowance: ["Health Potion II", "ATK Up Serum","DEF Up Serum","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","images/dungeons/def up serum.png",""],
+                videoLink: "https://www.youtube.com/watch?v=NLNFD7y8i3Q&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=10"
+            },
+            
+            // 16 Giant Tower Easy
+            {
+                name: "Giant Tower Ruins",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "1+",
+                timer: "5:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_giant%20tower%20ruins.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat all enemies within the time limit!", //　制限時間内に全てのエネミーを討伐せよ！
+                rewards: ["","&nbsp","&nbsp",""], //none
+                rewardsImg: [""],
+                description: "Ancient ruins that bring memories of the crumbled giant tower to mind.<br>Priest Walkin, who's said to be knowledgeable about 'visitors' set out to investigate the land and hasn't returned.<br>Hopefully nothing bad has happened... ", //崩れ落ちた巨塔を思わせる古代遺跡。<br>『来者』について詳しいという神官ワールキンが<br>ここに調査に赴いたまま、帰ってこないらしい。<br>なにごともなければ良いのだが・・・・・。
+                allowance: "", //none
+                allowanceImgs: ["","","",""],
+                videoLink: "https://youtu.be/I0yaHHpQRpw?t=5670"
+            },
+            
+            // 17 Dragon Easy
+            {
+                name: "Dragon Claw Valley",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "2+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_dragonclaw%20additional.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the powerful enemy!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Dragon Bone Fragment","3,770","6,880"], // ?, Luno, Exp
+                rewardsImg: ["images/dungeons/dragon bone frag.png"],
+                description: "A deep canyon that appears as if it was carved out by the claws of a dragon.<br>The intricate valleys obstruct the adventurer's path.<br>Waterfalls violently cascading down the cliffs have been said to resemble the fierce power of dragons.", // ドラゴンの爪で抉られたかのような深い峡谷地帯。\n複雑に入り組んだ谷が冒険者の行く手を阻む。\n崖を流れ落ちる滝は迫力に満ちて荒々しく\nそれこそ竜の姿に例えられている。
+                allowance: ["Health Potion II", "ATK Up Serum","","",""],
+                allowanceImgs: ["images/dungeons/health potion ii.png","images/dungeons/atk up serum.png","",""],
+                videoLink: "https://www.youtube.com/watch?v=Szktg70ozpQ&list=PLNSBX7eCSneT2nLcY4P0d_x4BaiYxYi2C&index=9"
+            },
+            
+            // 18 Reikrid Easy
+            {
+                name: "Reikrid Tunnels",
+                type: "DUNGEON",
+                diff: "",
+                reqBS: "1+",
+                timer: "30:00",
+                ptSize: "6",
+                imgSrc: "images/dungeons/dungeon_reikrid.png",
+                headerSrc: "images/dungeons/header_dungeon.png",
+                allowSrc: "images/dungeons/allowance_dungeon.png",
+                clearCondition: "Defeat the powerful enemy!", //制限時間内にボスエネミーを討伐せよ！
+                rewards: ["Reikrid Crystal","1,390","2,670"], // Reikrid Crystal, 1,390 Luno, 2,670 EXP
+                rewardsImg: ["images/dungeons/reikrid crystal.png"],
+                description: "A tunnel that is the source of Reikrid Crystals.<br>Although mining operations have ceased, the occasional adventurer will come in search of materials.<br>It is said that monsters have started to live here.", // 「レイクリッド結晶」などの産地として使われていた坑道の一角。\nすでに役目を終え、大規模な採掘は行われていないが、\nたまに冒険者が素材を求めてやってくる。\n最近、モンスターが棲みついてしまったらしい。
+                allowance: ["Health Potion II", "","","",""], // Dungeon-use Health Potion
+                allowanceImgs: ["images/dungeons/health potion ii.png","","",""],
+                videoLink: "https://www.youtube.com/watch?v=X06wIcNYhxc"
+            }
+            
+        ]
+        
+    ]
+    
+    // DUNGEON LIST
+    $(".dungeonListItem").click(function(){
+        
+        if ($(this).hasClass("floatingIsland")) {
+            dungSelector = 0;
+        }
+        if ($(this).hasClass("taParty")) {
+            dungSelector = 1;
+        }
+        
+        
+        if ($(this).hasClass("taSolo")) {
+            dungSelector = 2;
+        }
+        if ($(this).hasClass("arenaS")) {
+            dungSelector = 3;
+        }
+        if ($(this).hasClass("arenaA")) {
+            dungSelector = 4;
+        }
+        if ($(this).hasClass("arenaB")) {
+            dungSelector = 5;
+        }
+        
+        
+        if ($(this).hasClass("arenaC")) {
+            dungSelector = 6;
+        }
+        if ($(this).hasClass("mechaHard")) {
+            dungSelector = 7;
+        }
+        if ($(this).hasClass("pillarHard")) {
+            dungSelector = 8;
+        }
+        if ($(this).hasClass("dragonHard")) {
+            dungSelector = 9;
+        }
+        
+        
+        if ($(this).hasClass("mechaEasy")) {
+            dungSelector = 10;
+        }
+        if ($(this).hasClass("pillarMed")) {
+            dungSelector = 11;
+        }
+        if ($(this).hasClass("dragonMed")) {
+            dungSelector = 12;
+        }
+        if ($(this).hasClass("reikridMed")) {
+            dungSelector = 13;
+        }
+        
+        
+        if ($(this).hasClass("pillarEasy")) {
+            dungSelector = 14;
+        }
+        if ($(this).hasClass("gianttowerEasy")) {
+            dungSelector = 15;
+        }
+        if ($(this).hasClass("dragonEasy")) {
+            dungSelector = 16;
+        }
+        if ($(this).hasClass("reikridEasy")) {
+            dungSelector = 17;
+        }
+        
+        dispDung();
+        
+        
+    });
+    
+    function dispDung() {
+        
+        var dungeon = dungHolder[currentLang][dungSelector];
+        
+        // Display images
+        $(".dungHeader img").attr("src", dungeon.headerSrc);
+        $(".dungImage").attr("src", dungeon.imgSrc);
+        $(".dungAllowance").attr("src", dungeon.allowSrc);
+        
+        // Display info
+        $(".dungName").html(dungeon.name + ' <span style="font-size:0.8vw;">' + dungeon.diff + '</span>');
+        $(".dungReqBS").html(dungeon.reqBS);
+        $(".dungDescText").html("<p>" + dungeon.description + "</p>")
+        $(".dungType").html(dungeon.type);
+        
+        // Clear Condition
+        $(".dungClearCond>h3").html(dungeon.clearCondition);
+        
+        // Max players and time limit
+        $(".dungMaxPlayers").html("max players");
+        $(".dungMaxPlayersVal").html(dungeon.ptSize);
+        $(".dungTimeLimit").html("time limit");
+        $(".dungTimeLimitVal").html(dungeon.timer);
+        
+        // Enter now button
+        $(".dungLink").attr("href", dungeon.videoLink);
+        
+        // Rewards
+        // hide if no material reward
+        if ( dungeon.rewards[0] == "" ) {
+            $(".rewardsMatHolder").css("display","none");
+        }
+        else {
+            $(".rewardsMatHolder").css("display","inline-block");
+            $(".rewardsMaterial").attr("src", dungeon.rewardsImg[0]);
+            $(".rewardsMaterialName").html(dungeon.rewards[0]);
+        }
+        $(".rewardsLunoAmt").html(dungeon.rewards[1]);
+        $(".rewardsEXPAmt").html(dungeon.rewards[2]);
+        // hide if no GC reward
+        if ( dungeon.rewards[3] == "" || dungeon.rewards[3] == null ) {
+            $(".rewardsGC").css("display","none");
+        }
+        else {
+            $(".rewardsGC").css("display","inline-block");
+            $(".rewardsGCAmt").html(dungeon.rewards[3]);
+        }
+        
+        // Allowance supplies
+        $("img.allowance1").attr("src", dungeon.allowanceImgs[0]);
+        $("img.allowance2").attr("src", dungeon.allowanceImgs[1]);
+        $("img.allowance3").attr("src", dungeon.allowanceImgs[2]);
+        $("img.allowance4").attr("src", dungeon.allowanceImgs[3]);
+        $("p.allowance1").html(dungeon.allowance[0]);
+        $("p.allowance2").html(dungeon.allowance[1]);
+        $("p.allowance3").html(dungeon.allowance[2]);
+        $("p.allowance4").html(dungeon.allowance[3]);
+        
+    }
+    
+    
+    // OPTIONS
+    
+    // Options category buttons
+    $(".optionsMenuButton").click(function(){
+        
+        // Stylize button
+        $(".optionsMenuButton").removeClass("optionsMenuClicked");
+        $(this).addClass("optionsMenuClicked");
+        
+        // Hide all pages
+        $(".optionsGeneral").css("display","none");
+        $(".optionsControls").css("display","none");
+        $(".optionsSound").css("display","none");
+        $(".optionsGraphics").css("display","none");
+        $(".optionsHUD").css("display","none");
+        
+        // Reset container position
+        $(".optionsHolder").css("top","7vw");
+        $(".optionsHolder").css("height","27vw");
+        
+        if ($(this).is(":contains('General')")) {
+            $(".optionsGeneral").css("display","block");
+        }
+        if ($(this).is(":contains('Controls')")) {
+            $(".optionsControls").css("display","block");
+            // Change container position to account for the dropdown header
+            $(".optionsHolder").css("top","9.5vw");
+            $(".optionsHolder").css("height","23vw");
+        }
+        if ($(this).is(":contains('Sound')")) {
+            $(".optionsSound").css("display","block");
+        }
+        if ($(this).is(":contains('Graphics')")) {
+            $(".optionsGraphics").css("display","block");
+        }
+        if ($(this).is(":contains('HUD')")) {
+            $(".optionsHUD").css("display","block");
+        }
+        
+    });
+   
+
+    // SLIDERS
+    
+    $("#gamepadSpeedSlider+.rangeVal").html(40); // Default gamepad speed 40
+    document.getElementById("gamepadSpeedSlider").disabled = true; // gamepad speed is disabled by default
+    
+    // Value of slider adjusts when input is changed
+    $(".rangeSlider").on('input', function() {
+        $(this).next().html(this.value); // .rangeVal
+        
+        // If sound settings slider, adjust the sound icon
+        if ($(this).is(".optionSoundSlider")) {
+            if (this.value >= 50) {
+                $(this).next().next().attr("src","images/sound_max.png");
+            }
+            else if (this.value > 0) {
+                $(this).next().next().attr("src","images/sound_mid.png");
+            }
+            else if (this.value == 0) {
+                $(this).next().next().attr("src","images/sound_min.png");
+            }
+        }
+        
+    }).trigger("change");
+    
+    // game input mode will enable/disable slider for gamepad sensitivity
+    $(".optionsInputMode").click(function(){
+
+        if ( $(this).is(":contains('Gamepad')") ) {
+            document.getElementById("gamepadSpeedSlider").disabled = false;
+            $("#gamepadSpeed").removeClass("sliderDisabled");
+        }
+        else {
+            document.getElementById("gamepadSpeedSlider").disabled = true;
+            $("#gamepadSpeed").addClass("sliderDisabled");
+        }
+
+    });
+ 
+    $(".soundImage").click(function(){
+        
+        // to do; store original src of each image in an array
+        
+        if ($(this).attr("src") != "images/sound_mute.png") {
+            $(this).attr("src","images/sound_mute.png");
+        }
+        else {
+
+            // to do; run through the original src array and pull the value of the index that matches the soundImage that was clicked
+            // to do; apply that original src to reset the image to its value before it was clicked
+            $(this).attr("src","images/sound_max.png");
+        }
+        
+    });
+    
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
     // CRAFTING 
@@ -1121,7 +1722,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -1158,7 +1759,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -1195,7 +1796,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -1232,7 +1833,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Dragon Bone Fragment","Rumble Boar Fang","Long Grass","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Additional Survey]","Rumble Boar<br>Andra Basin","Gather<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -1419,7 +2020,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Bahamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -1456,7 +2057,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Bahamar Yellow","Shabby Goblin Club","Calm Nightstone","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Survey]","Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -1493,7 +2094,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Bahamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -1530,7 +2131,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Bahamar Yellow","Shabby Goblin Staff","Round Water Plant","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Survey]","Elder Goblin<br>Soundless Foothills","Gather<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -1568,7 +2169,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Meteorite Fragment","500,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["6","5","10"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -1605,7 +2206,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Firm Dragon Bone Fragment","Ogre Horn","Meteorite Fragment","500,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["6","5","10"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Advanced Survey]","Ogre<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -1642,7 +2243,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Firm Dragon Bone Fragment","Glowing Tyrant Boar Fang","Boule Fruit","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","10","10"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Advanced Survey]","Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -1679,7 +2280,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Firm Dragon Bone Fragment","Glowing Tyrant Boar Fang","Boule Fruit","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","10","10"],
-            tooltipText: ["Clear Dungeon<br>Dragonclaw Valley [Advanced Survey]","Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
+            tooltipText: ["Clear Dungeon<br>Dragon Claw Valley [Advanced Survey]","Glowing Tyrant Boar<br>Calm Eve Terraces","Gather<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -1867,7 +2468,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Advanced Survey]","Glowing Elder Goblin<br>Dragon Claw Valley [Free Exploration]","Gather<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1904,7 +2505,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Advanced Survey]","Glowing Elder Goblin<br>Dragon Claw Valley [Free Exploration]","Gather<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1941,7 +2542,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Advanced Survey]","Glowing Elder Goblin<br>Dragon Claw Valley [Free Exploration]","Gather<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -1978,7 +2579,7 @@ jQuery(document).ready(function ($) {
             recipe: ["High Quality Bahamar Yellow","Large Goblin Wand","Wailing Dragon Ore","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Clear Dungeon<br>Mechanical Ruin Valley [Advanced Survey]","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Dungeon<br>Valley of Machines [Advanced Survey]","Glowing Elder Goblin<br>Dragon Claw Valley [Free Exploration]","Gather<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -4287,7 +4888,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Фрагмент Драконий Кости","Клык Грохочущего Вепря","Длинная Трава","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Очистить Подземелье<br>Dragonclaw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
+            tooltipText: ["Очистить Подземелье<br>Dragon Claw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -4324,7 +4925,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Фрагмент Драконий Кости","Клык Грохочущего Вепря","Длинная Трава","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Очистить подземелье<br>Dragonclaw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
+            tooltipText: ["Очистить подземелье<br>Dragon Claw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -4361,7 +4962,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Фрагмент Драконий Кости","Клык Грохочущего Вепря","Длинная Трава","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Очистить Подземелье<br>Dragonclaw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
+            tooltipText: ["Очистить Подземелье<br>Dragon Claw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -4398,7 +4999,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Фрагмент Драконий Кости","Клык Грохочущего Вепря","Длинная Трава","25,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["3","10","5"],
-            tooltipText: ["Очистить Подземелье<br>Dragonclaw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
+            tooltipText: ["Очистить Подземелье<br>Dragon Claw Valley [Additional Survey]","Грохочущий Вепрь<br>Andra Basin","Собирать<br>Andra Basin"],
             tooltipBg: [
                 "",
                 tooltipAndra,
@@ -4585,7 +5186,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Желтый Багамар","Потертая Дубина Гоблина","Ночной Камень Спокойствия","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
-            tooltipText: ["Очистить Подземелье<br>Mechanical Ruin Valley [Survey]","Гоблин<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
+            tooltipText: ["Очистить Подземелье<br>Valley of Machines [Survey]","Гоблин<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -4622,7 +5223,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Желтый Багамар","Потертая Дубина Гоблина","Ночной Камень Спокойствия","250,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["5","20","7"],
-            tooltipText: ["Очистить Подземелье<br>Mechanical Ruin Valley [Survey]","Гоблин<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
+            tooltipText: ["Очистить Подземелье<br>Valley of Machines [Survey]","Гоблин<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -4659,7 +5260,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Желтый Багамар","Потертая Дубина Гоблина","Круглая Водоросль","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Очистить Подземелье<br>Mechanical Ruin Valley [Survey]","Старейшина Гоблинов<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
+            tooltipText: ["Очистить Подземелье<br>Valley of Machines [Survey]","Старейшина Гоблинов<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -4696,7 +5297,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Желтый Багамар","Потертая Дубина Гоблина","Круглая Водоросль","250,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["5","20","7"],
-            tooltipText: ["Очистить Подземелье<br>Mechanical Ruin Valley [Survey]","Старейшина Гоблинов<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
+            tooltipText: ["Очистить Подземелье<br>Valley of Machines [Survey]","Старейшина Гоблинов<br>Soundless Foothills","Собирать<br>Soundless Foothills"],
             tooltipBg: [
                 "",
                 tooltipSoundless,
@@ -4734,7 +5335,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Прочный Фрагмент Драконий Кости","Рог Огра","Фрагмент Метеорита","500,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["6","5","10"],
-            tooltipText: ["Очистить подземелье<br>Dragonclaw Valley [Advanced Survey]","Огр<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
+            tooltipText: ["Очистить подземелье<br>Dragon Claw Valley [Advanced Survey]","Огр<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -4771,7 +5372,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Прочный Фрагмент Драконий Кости","Рог Огра","Фрагмент Метеорита","500,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["6","5","10"],
-            tooltipText: ["Очистить подземелье<br>Dragonclaw Valley [Advanced Survey]","Огр<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
+            tooltipText: ["Очистить подземелье<br>Dragon Claw Valley [Advanced Survey]","Огр<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -4808,7 +5409,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Прочный Фрагмент Драконий Кости","Светящийся Клык Вепря-Тирана","Boule Fruit","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","10","10"],
-            tooltipText: ["Очистить подземелье<br>Dragonclaw Valley [Advanced Survey]","Светящийся Вепрь-Тиран<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
+            tooltipText: ["Очистить подземелье<br>Dragon Claw Valley [Advanced Survey]","Светящийся Вепрь-Тиран<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -4845,7 +5446,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Прочный Фрагмент Драконий Кости","Светящийся Клык Вепря-Тирана","Буль Фрукт","500,000"],
             iconSrc: [iDung,iCombat,iFlower],
             amt: ["6","10","10"],
-            tooltipText: ["Очистить подземелье<br>Dragonclaw Valley [Advanced Survey]","Светящийся Вепрь-Тиран<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
+            tooltipText: ["Очистить подземелье<br>Dragon Claw Valley [Advanced Survey]","Светящийся Вепрь-Тиран<br>Calm Eve Terraces","Собирать<br>Calm Eve Terraces"],
             tooltipBg: [
                 "",
                 tooltipCalmEve,
@@ -5033,7 +5634,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Высококачественный Желтый Багамар","Большой Жезл Гоблина","Руда Плачущего Дракона","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Очистить подземелье<br>Mechanical Ruin Valley [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Очистить подземелье<br>Valley of Machines [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -5070,7 +5671,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Высококачественный Желтый Багамар","Большой Жезл Гоблина","Руда Плачущего Дракона","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Очистить подземелье<br>Mechanical Ruin Valley [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Очистить подземелье<br>Valley of Machines [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -5107,7 +5708,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Высококачественный Желтый Багамар","Большой Жезл Гоблина","Руда Плачущего Дракона","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Очистить подземелье<br>Mechanical Ruin Valley [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Очистить подземелье<br>Valley of Machines [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -5144,7 +5745,7 @@ jQuery(document).ready(function ($) {
             recipe: ["Высококачественный Желтый Багамар","Большой Жезл Гоблина","Руда Плачущего Дракона","2,450,000"],
             iconSrc: [iDung,iCombat,iRock],
             amt: ["8","5","20"],
-            tooltipText: ["Очистить подземелье<br>Mechanical Ruin Valley [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Очистить подземелье<br>Valley of Machines [Advanced Survey]","Пылающий Гоблин-Старейшина<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 "",
                 tooltipDragonclaw,
@@ -5358,19 +5959,19 @@ jQuery(document).ready(function ($) {
             gcshop: "GC Shop",
             timedquest: "",
             yellow1:
-                'Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragonclaw Valley [Free Exploration]',
+                'Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragon Claw Valley [Free Exploration]',
             green1: 
-                'Green Liquid Memory 1<br><br>Clear Godo&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godo',
+                'Green Liquid Memory 1<br><br>Clear Godot&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godot',
             blue2: 
                 'Blue Liquid Memory 2<br><br>Examine the shipwheel behind<br>the performers on the 2nd floor<br> of the Revolving Helm Pavilion',
             blue1: 
-                'Blue Liquid Memory 1<br><br>Clear Patty&#39;s Quest<br>"Troubled Apprentice" (Lv. 13+)<br><br>Obtain Engram Extractor<br>(clear Pillar of Divinity<br>[Advanced Survey]) and bring it<br>to Hanna outside the Pillar',
+                'Blue Liquid Memory 1<br><br>Clear Patti&#39;s Quest<br>"Troubled Apprentice" (Lv. 13+)<br><br>Obtain Engram Extractor<br>(clear Pillar of Divinity<br>[Advanced Survey]) and bring it<br>to Hanna outside the Pillar',
             red2: 
                 'Red Liquid Memory 2<br><br>Examine the bottles on<br>the counter by the<br>Memory Stand',
             red1: 
                 'Red Liquid Memory 1<br><br>Clear quest<br>"Welcome to the Memory Stand!" (Lv. 12+)<br><br>Listen to the Memory Stand<br>attendant&#39;s explanation',
             purple1: 
-                'Purple Liquid Memory 1<br><br>Clear Louise&#39;s quest<br>"Calm Researcher&#39;s Latest Work!" (Lv. 28+)<br><br>Bring the following to Louise:<br>5 Full Moon Stones<br>(Calm Eve Terraces/night time/high ground)<br>5 Sunshine Shells<br>(Fiel Pond/day time/river)',
+                'Purple Liquid Memory 1<br><br>Clear Luise&#39;s quest<br>"Calm Researcher&#39;s Latest Work!" (Lv. 28+)<br><br>Bring the following to Luise:<br>5 Full Moon Stones<br>(Calm Eve Terraces/night time/high ground)<br>5 Sunshine Shells<br>(Fiel Pond/day time/river)',
             warpfrontier: 'Warp Gate<br>Frontiering Station',
             warpcoatofarms: 'Warp Gate<br>Coat of Arms Plaza',
             warpcitygate: 'Warp Gate<br>City Gate Square',
@@ -5389,17 +5990,17 @@ jQuery(document).ready(function ($) {
             msq7: 'Main Story Quest 7<br>"In Search of Memories"<br><br>Exit the city',
             msq10: 'Main Story Quest 10<br>"In Search of Memories"<br><br>Return to the Frontiering Station',
             msq11: 'Main Story Quest 11<br>"In Search of Memories"<br><br>Speak with Jake at the<br>Frontiering Station',
-            msq12: 'Main Story Quest 12<br>"Adventurer Registration"<br><br>Speak with Myulie at the<br>Frontiering Station',
+            msq12: 'Main Story Quest 12<br>"Adventurer Registration"<br><br>Speak with Murrie at the<br>Frontiering Station',
             msq14: 'Main Story Quest 14<br>"Adventurer Registration"<br><br>Craft a field-use<br>health potion',
-            msq15: 'Main Story Quest 15<br>"Adventurer Registration"<br><br>Report to Myulie<br>at the Frontiering Station',
+            msq15: 'Main Story Quest 15<br>"Adventurer Registration"<br><br>Report to Murrie<br>at the Frontiering Station',
             msq16: 'Main Story Quest 16<br>"Raise your Adventure Rank!"<br><br>Speak with Jake in the<br> Frontiering Station<br>(Req. Adventure Rank 2+)',
             msq17: 'Main Story Quest 17<br>"Raise your Adventure Rank!"<br><br>Speak with Feste<br>',
             msq18: 'Main Story Quest 18<br>"Raise your Adventure Rank!"<br><br>Go to the Imagine<br>Research Institute<br>',
             msq20: 'Main Story Quest 20<br>"Raise your Adventure Rank!"<br><br>Go to the Imagine<br>Research Institute<br>',
             msq21: 'Main Story Quest 21<br>"Raise your Adventure Rank!"<br><br>Craft Inner Imagine<br>"Diranks (Courage)"',
             msq22: 'Main Story Quest 22<br>"Raise your Adventure Rank!"<br><br>Level up to Adventure Rank 2<br>(in command menu)',
-            msq23: 'Main Story Quest 23<br>"Dragonclaw Valley"<br><br>Speak with Jake as<br>Adventure Rank 2',
-            msq26: 'Main Story Quest 26<br>"Dragonclaw Valley"<br><br>Receive rewards from Jake<br>at the Frontiering Station',
+            msq23: 'Main Story Quest 23<br>"Dragon Claw Valley"<br><br>Speak with Jake as<br>Adventure Rank 2',
+            msq26: 'Main Story Quest 26<br>"Dragon Claw Valley"<br><br>Receive rewards from Jake<br>at the Frontiering Station',
             msq27: 'Main Story Quest 27<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Speak with the inn owner<br>at The Double-Faced Coin',
             msq28: 'Main Story Quest 28<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Ask about &#39;visitors&#39;<br>at Bapharia Shrine',
             asterleedsToSkyquake: "To Skyquake Fields",
@@ -5445,9 +6046,9 @@ jQuery(document).ready(function ($) {
             
             minsterName: 'Minster Hills',
             // 12 things
-            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
+            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragon Claw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
             minsterhornName: 'Minsterhorn',
-            minsterhornTool: 'npc Milrain<br>npc Stadst<br>npc Feste<br>',
+            minsterhornTool: 'npc Milene<br>npc Studs<br>npc Feste<br>',
             warpminsterhorn: 'Warp Gate<br>Minsterhorn',
             expMinster1: "Exploration Point<br>Minster Hills 1",
             expMinster2: "Exploration Point<br>Minster Hills 2",
@@ -5461,23 +6062,23 @@ jQuery(document).ready(function ($) {
             emRedSplash: 'Elite Monster<br>Red Splash',
             
             // 18 things
-            dragonclawTool: 'Dragonclaw Valley<br>[Free Exploration]<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Valley Raider<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Arrogant Conjurer<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Loudshout<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Raging Kingfang<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Longan Flower<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dragon Venom<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Frozen Star Grass<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pylud Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Wailing Dragon Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pterosaur Fossil<br>',
+            dragonclawTool: 'Dragon Claw Valley<br>[Free Exploration]<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Valley Raider<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Arrogant Conjurer<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Loudshout<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Raging Kingfang<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Tyrant Boar<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Longan Flower<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dragon Venom<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Frozen Star Grass<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pylud Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Wailing Dragon Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Pterosaur Fossil<br>',
             purple2: 'Purple Liquid Memory 2<br><br>Examine the rocks near the open <br>cliff in the deepest area<br>(where Raging Kingfang appears)',
             msq8: 'Main Story Quest 8<br>"In Search of Memories"<br><br>Go to the ruins on the cliff',
             msq9: 'Main Story Quest 9<br>"In Search of Memories"<br><br>Go to where you woke up',
             msq13: 'Main Story Quest 13<br>"Adventurer Registration"<br><br>Collect 3 unidentified<br>plants in Skyquake Fields',
             msq19: 'Main Story Quest 19<br>"Raise your Adventure Rank!"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Obtain Reikrid Crystal',
-            msq24: 'Main Story Quest 24<br>"Dragonclaw Valley"<br><br>Meet with Jake at<br>Dragonclaw Valley',
-            msq25: 'Main Story Quest 25<br>"Dragonclaw Valley"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Defeat the monsters in<br>Dragonclaw Valley',
+            msq24: 'Main Story Quest 24<br>"Dragon Claw Valley"<br><br>Meet with Jake at<br>Dragon Claw Valley',
+            msq25: 'Main Story Quest 25<br>"Dragon Claw Valley"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Defeat the monsters in<br>Dragon Claw Valley',
             msq29: 'Main Story Quest 29<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Go to Minsterhorn<br>in Minster Hills',
             msq30: 'Main Story Quest 30<br>"What&#39;s a &#39;visitor&#39;..?"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Search for the priest<br>at the giant tower ruins<br>in Andra Basin',
-            msq31: 'Main Story Quest 31<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Report back to Milrain',
+            msq31: 'Main Story Quest 31<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Report back to Milene',
             msq32: 'Main Story Quest 32<br>"Pillar of Divinity"<br><br>Speak with Feste after<br>reaching Adventure Rank 3',
             
             
             // Bahamar highlands
             divineToMinster: "To Minster Hills",
-            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
+            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragon Claw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Piglet<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Land Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dawngrass<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Andra Cedar Twig<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Asterium Ore<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
             divineName: "Divine Haven Hill",
             divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Highland Fox<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Horned Goat<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Kaiser Elk<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Smoky Moss<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Blessio Fruit<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Beartree Leaf<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Large Fang Fossil<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Baha Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Sandsilver<br>',
             larpalName: 'Larpal',
@@ -5778,20 +6379,20 @@ jQuery(document).ready(function ($) {
             yellow1:
                 'Memória Líquida Amarela 1<br><br>Complete a Quest de Orvis<br>"Pressa é a Inimiga da Perfeição" (Nv. 24+)<br><br>Recupere 3 Bagagens do Orvis de<br>Goblin Ancião Incandescente em<br>Vale Garra do Dragão [Exploração Livre]',
             green1: 
-                'Memória Líquida Verde 1<br><br>Complete a Quest de Godo<br>"Termos de Troca por um<br>Odor Sinistro" (Nv. 19+)<br><br>Derrote uma Cabra Sinistra<br>em Sopé Silencioso<br>e relate a Godo',
+                'Memória Líquida Verde 1<br><br>Complete a Quest de Godot<br>"Termos de Troca por um<br>Odor Sinistro" (Nv. 19+)<br><br>Derrote uma Cabra Sinistra<br>em Sopé Silencioso<br>e relate a Godot',
             blue2: [
                 'Memória Líquida Azul 2<br><br>Examine o Leme atrás<br>do caramanchão no segundo andar<br> do Pavilhão do Leme Giratório',
                     
                 '青いリキッドメモリ 2<br><br>廻る舵輪亭の２階で演奏者<br>の後ろにある舵を調べると解放'
             ],
             blue1: 
-                'Memória Líquida Azul 1<br><br>Complete a Quest da Patty<br>"Aprendiz Aflito" (Nv. 13+)<br><br>Obtenha um Extrator de Engrama<br>(complete o Pilar da Divindade<br>[Pesquisa Avançada]) e traga para<br>Hanna fora do Pilar',
+                'Memória Líquida Azul 1<br><br>Complete a Quest da Patti<br>"Aprendiz Aflito" (Nv. 13+)<br><br>Obtenha um Extrator de Engrama<br>(complete o Pilar da Divindade<br>[Pesquisa Avançada]) e traga para<br>Hanna fora do Pilar',
             red2: 
                 'Memória Líquida Vermelha 2<br><br>Examine as garrafas no<br>balcão ao lado da<br>Banca de Memórias',
             red1: 
                 'Memória Líquida Vermelha 1<br><br>Complete a Quest<br>"Bem-vindo à Banca de Memórias!" (Nv. 12+)<br><br>Ouça a explicação da<br>atendente da Banca de Memórias',
             purple1: 
-                'Memória Líquida Roxa 1<br><br>Complete a Quest de Louise<br>"O último trabalho da pesquisadora!" (Nv. 28+)<br><br>Traga os seguintes itens à Louise:<br>5 Pedras da Lua Cheia<br>(Terraço Vespertino/período noturno/andar de cima)<br>5 Conchas do Raiar do Sol<br>(Lago Fiel/período diurno/rago)',
+                'Memória Líquida Roxa 1<br><br>Complete a Quest de Luise<br>"O último trabalho da pesquisadora!" (Nv. 28+)<br><br>Traga os seguintes itens à Luise:<br>5 Pedras da Lua Cheia<br>(Terraço Vespertino/período noturno/andar de cima)<br>5 Conchas do Raiar do Sol<br>(Lago Fiel/período diurno/rago)',
             warpfrontier: 'Portal de Dobra<br>Estação da Fronteira',
             warpcoatofarms: 'Portal de Dobra<br>Plaza do Brazão',
             warpcitygate: 'Portal de Dobra<br>Praça da Cidade',
@@ -5810,9 +6411,9 @@ jQuery(document).ready(function ($) {
             msq7: 'Quest da História Principal 7<br>"Em Busca de Memórias"<br><br>Saia da cidade',
             msq10: 'Quest da História Principal 10<br>"Em Busca de Memórias"<br><br>Retorne à Estação da Fronteira',
             msq11: 'Quest da História Principal 11<br>"Em Busca de Memórias"<br><br>Fale com Jake na<br>Estação da Fronteira',
-            msq12: 'Quest da História Principal 12<br>"Registro do Aventureiro"<br><br>Fale com Myulie na<br>Estação da Fronteira',
+            msq12: 'Quest da História Principal 12<br>"Registro do Aventureiro"<br><br>Fale com Murrie na<br>Estação da Fronteira',
             msq14: 'Quest da História Principal 14<br>"Registro do Aventureiro"<br><br>Crie uma poção de vida<br>para uso em campo',
-            msq15: 'Quest da História Principal 15<br>"Registro do Aventureiro"<br><br>Relate à Myulie<br>na Estação da Fronteira',
+            msq15: 'Quest da História Principal 15<br>"Registro do Aventureiro"<br><br>Relate à Murrie<br>na Estação da Fronteira',
             msq16: 'Quest da História Principal 16<br>"Eleve seu Nível de Aventureiro!"<br><br>Fale com Jake na<br> Estação da Fronteira<br>(Rank de Aventureiro Nec. 2+)',
             msq17: 'Quest da História Principal 17<br>"Eleve seu Nível de Aventureiro!"<br><br>Fale com Feste<br>',
             msq18: 'Quest da História Principal 18<br>"Eleve seu Nível de Aventureiro!"<br><br>Vá ao Instituto<br>de Pesquisa Imajinn<br>',
@@ -5868,7 +6469,7 @@ jQuery(document).ready(function ($) {
             // 12 things
             minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Vale Garra do Dragão<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Portal de Dobra - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Besta Feroz<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Respingo Vermelho<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Leitão<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Raposa Terrestre<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Grama da Alvorada<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Galho de Cedro Andra<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Ferro<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Minério de Asterium<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Achigã<br>',
             minsterhornName: 'Minsterhorn',
-            minsterhornTool: 'npc Milrain<br>npc Stadst<br>npc Feste<br>',
+            minsterhornTool: 'npc Milene<br>npc Studs<br>npc Feste<br>',
             warpminsterhorn: 'Portal de Dobra<br>Minsterhorn',
             expMinster1: "Ponto de Exploração<br>Colinas Minster 1",
             expMinster2: "Ponto de Exploração<br>Colinas Minster 2",
@@ -5892,7 +6493,7 @@ jQuery(document).ready(function ($) {
             msq25: 'Quest da História Principal 25<br>"Vale Garra do Dragão"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Derrote os monstros em<br>Vale Garra do Dragão',
             msq29: 'Quest da História Principal 29<br>"O que é um &#39;visitante&#39;..?"<br><br>Vá até Minsterhorn<br>em Colinas Minster',
             msq30: 'Quest da História Principal 30<br>"O que é um &#39;visitante&#39;..?"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Procure pelo Padre<br>nas ruínas da Torre Alta<br>em Bacia Andra',
-            msq31: 'Quest da História Principal 31<br>"O que é um &#39;visitante&#39;..?"<br><br>Retorne até Milrain e faça um relatório',
+            msq31: 'Quest da História Principal 31<br>"O que é um &#39;visitante&#39;..?"<br><br>Retorne até Milene e faça um relatório',
             msq32: 'Quest da História Principal 32<br>"Pilar da Divindade"<br><br>Fale com Feste após<br>alcançar Rank de Aventureiro 3',
             
             
@@ -5986,14 +6587,14 @@ jQuery(document).ready(function ($) {
             gcshop: "GC Магазин",
             timedquest: "",
             yellow1:
-                'Желтые Текучие Воспоминания 1<br><br>Выполни Orvis&#39; Квест<br>"Поспешишь - людей насмешишь" (Ур. 24+)<br><br>Получить 3 Orvis&#39; Забрать у<br>Светящийся Гоблин-Старейшина на<br>Dragonclaw Valley [Свобоное Исследование]',
+                'Желтые Текучие Воспоминания 1<br><br>Выполни Orvis&#39; Квест<br>"Поспешишь - людей насмешишь" (Ур. 24+)<br><br>Получить 3 Orvis&#39; Забрать у<br>Светящийся Гоблин-Старейшина на<br>Dragon Claw Valley [Свобоное Исследование]',
             green1: 
-                'Зеленый Текучие Воспоминания 1<br><br>Выполни Godo&#39;s Квест<br>"Условия обмена на<br>Оминоус Одор" (Lv. 19+)<br><br>Победить Жуткого Козла<br>В Soundless Foothills<br>и доложить Godo',
+                'Зеленый Текучие Воспоминания 1<br><br>Выполни Godot&#39;s Квест<br>"Условия обмена на<br>Оминоус Одор" (Lv. 19+)<br><br>Победить Жуткого Козла<br>В Soundless Foothills<br>и доложить Godot',
             blue2: [
                 'Синие Текучие Воспоминания 2<br><br>Осмотрите Колесо Корабля Позади<br>Исполнителя На 2 Этаже<br> Павильона У Вращающегося Руля',
             ],
             blue1: 
-                'Синие Текучие Воспоминания 1<br><br>Выполни Patty&#39;s Квест<br>"Проблемный ученик" (Lv. 13+)<br><br>Получить Экстра Энграмму<br>(Очистить Столп Божественности<br>[Advanced Survey]) И Принеси это<br>Ханне за столпом',
+                'Синие Текучие Воспоминания 1<br><br>Выполни Patti&#39;s Квест<br>"Проблемный ученик" (Lv. 13+)<br><br>Получить Экстра Энграмму<br>(Очистить Столп Божественности<br>[Advanced Survey]) И Принеси это<br>Ханне за столпом',
             red2: 
                 'Красные Текучие Воспоминания 2<br><br>Осмотрите бутылки на<br>Стенде Памяти',
             red1: 
@@ -6027,8 +6628,8 @@ jQuery(document).ready(function ($) {
             msq20: 'Main Story Quest 20<br>"Поднимите свой ранг  приключений!"<br><br>Посетите научно-исследовательский институт  <br><br>',
             msq21: 'Main Story Quest 21<br>"Поднимите свой ранг  приключений!"<br><br>Сделай Внутреннюю Визуализацию <br> "Диранкс (Храбрость)""',
             msq22: 'Main Story Quest 22<br>"Поднимите свой ранг  приключений!"<br><br>Повышение Уровня До 2-го Ранга <br> Приключения  (в меню команд)',
-            msq23: 'Main Story Quest 23<br>"Dragonclaw Valley"<br><br>Поговорите С Джейком О <br> Уровень приключения 2 ',
-            msq26: 'Main Story Quest 26<br>"Dragonclaw Valley"<br><br>Получите Награды От Джейка <br> На Пограничной Станции',
+            msq23: 'Main Story Quest 23<br>"Dragon Claw Valley"<br><br>Поговорите С Джейком О <br> Уровень приключения 2 ',
+            msq26: 'Main Story Quest 26<br>"Dragon Claw Valley"<br><br>Получите Награды От Джейка <br> На Пограничной Станции',
             msq27: 'Main Story Quest 27<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Поговорите С Владельцем Гостиницы<br>В Двусторонней Монете',
             msq28: 'Main Story Quest 28<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Спросите о &#39;visitors&#39;<br>В Bapharia Shrine',
             asterleedsToSkyquake: "Skyquake Fields",
@@ -6074,9 +6675,9 @@ jQuery(document).ready(function ($) {
             
             minsterName: 'Minster Hills',
             // 12 things
-            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Врата Перехода - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Свирепый Зверь<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Красный Всплеск<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Свинка<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Ровнинная Лиса<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Гоблин<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Ранняя трава<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Андра Кедровая веточка<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Железная Руда<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Астериевая Руда<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Астербасс<br>',
+            minsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragon Claw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Врата Перехода - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Свирепый Зверь<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Красный Всплеск<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Свинка<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Ровнинная Лиса<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Гоблин<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Ранняя трава<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Андра Кедровая веточка<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Железная Руда<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Астериевая Руда<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Астербасс<br>',
             minsterhornName: 'Minsterhorn',
-            minsterhornTool: 'npc Milrain<br>npc Stadst<br>npc Feste<br>',
+            minsterhornTool: 'npc Milene<br>npc Studs<br>npc Feste<br>',
             warpminsterhorn: 'Врата Перехода<br>Minsterhorn',
             expMinster1: "Пункт исследования<br>Minster Hills 1",
             expMinster2: "Пункт исследованияt<br>Minster Hills 2",
@@ -6090,14 +6691,14 @@ jQuery(document).ready(function ($) {
             emRedSplash: 'Элитный Монстр<br>Красный Всплеск',
             
             // 18 things
-            dragonclawTool: 'Dragonclaw Valley<br>[Свобоное Исследование]<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Долинный Рейдер<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Высокомерный Фокусник<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Клич<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Бешеный Королевский Клык<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Ровнинный Лис<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Тиранский Вепрь<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Светящийся Тиранский Вепрь<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Longan Flower<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dragon Venom<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Frozen Star Grass<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Пилюд Руда<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Руда плачущего дракона<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Ископаемое птерозавра<br>',
+            dragonclawTool: 'Dragon Claw Valley<br>[Свобоное Исследование]<br><br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Долинный Рейдер<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Высокомерный Фокусник<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Клич<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Бешеный Королевский Клык<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Ровнинный Лис<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Тиранский Вепрь<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Светящийся Тиранский Вепрь<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Elder Goblin<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Glowing Elder Goblin<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Longan Flower<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Dragon Venom<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Frozen Star Grass<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Пилюд Руда<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Руда плачущего дракона<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Ископаемое птерозавра<br>',
             purple2: 'Purple Liquid Memory 2<br><br>Осмотрите скалы возле открытого <br> утеса в самой глубокой области.<br>(где появляется Бешеный Королевский Клык)',
             msq8: 'Main Story Quest 8<br>"В поисках воспоминаний"<br><br>Идите к руинам на скале',
             msq9: 'Main Story Quest 9<br>"В поисках воспоминаний"<br><br>Иди туда, где ты проснулся',
             msq13: 'Main Story Quest 13<br>"Регистрация искателя приключений"<br><br>Соберите 3 неопознанных <br> растения в Skyquake Fields',
             msq19: 'Main Story Quest 19<br>"Поднимите свой  ранг  приключений!"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Получить кристалл Рейкрида',
-            msq24: 'Main Story Quest 24<br>"Dragonclaw Valley"<br><br>Встретьтесь с Джейком в<br>Dragonclaw Valley',
-            msq25: 'Main Story Quest 25<br>"Dragonclaw Valley"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Победите монстров в<br>Dragonclaw Valley',
+            msq24: 'Main Story Quest 24<br>"Dragon Claw Valley"<br><br>Встретьтесь с Джейком в<br>Dragon Claw Valley',
+            msq25: 'Main Story Quest 25<br>"Dragon Claw Valley"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Победите монстров в<br>Dragon Claw Valley',
             msq29: 'Main Story Quest 29<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Перейти к Minsterhorn <br> в Minster Hills',
             msq30: 'Main Story Quest 30<br>"What&#39;s a &#39;visitor&#39;..?"<br><br><img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Найдите Священника <br> У Руин Гигантской Башни.<br>В Бассейне Андра',
             msq31: 'Main Story Quest 31<br>"What&#39;s a &#39;visitor&#39;..?"<br><br>Сообщите Милрейну',
@@ -6106,7 +6707,7 @@ jQuery(document).ready(function ($) {
             
             // Bahamar highlands
             divineToMinster: "К Minster Hills",
-            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Врата Перехода - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Свирепый Зверь<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Красный Всплеск<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Свинка<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Равнинная Лиса<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Гоблин<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Ранняя Трава<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Андра Кедровая Веточка<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Астериевая Руда<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
+            divineToMinsterTool: '<img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragon Claw Valley<br><img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Врата Перехода - Minsterhorn<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Свирепый Зверь<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Красный Всплеск<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Свинка<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Равнинная Лиса<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Гоблин<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Ранняя Трава<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Андра Кедровая Веточка<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Iron Ore<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Астериевая Руда<br><img src="images/map/shell.svg" style="transform: scale(0.45); margin: -0.3em -0.2em -0.6em -0.44em; width: 2.031vw;">Asterbass<br>',
             divineName: "Divine Haven Hill",
             divineTool: '<img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Врата Перехода - Larpal<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Sapphire Trot<br><img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Flaming Horns<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Высокогорная Руда<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Рогатый Баран<br><img src="images/combat.svg" style="transform: scale(0.45); margin: -0.3em -0.1em -0.7em -0.3em; width: 1.823vw;">Кайзер Лось<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Дымчатый Мох<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Фрукт Блессио<br><img src="images/map/flower.svg" style="transform: scale(0.45); margin: -0.3em 0.2em -0.78em -0.1em; width: 1.354vw;">Листик Медвежего Дерева<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Ископаемое Из Большого Клыка<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Баха Руда<br><img src="images/map/rock.svg" style="transform: scale(0.45); margin: -0.3em 0.1em -0.78em -0.2em; width: 1.510vw;">Серебристый Песок<br>',
             larpalName: 'Ларпал',
@@ -6821,7 +7422,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iShell,iCombat],
             amt: ["3","3","3"],
             abilList: ["Damage increase (ultimate)","ATK increase", "<br>"],
-            tooltipText: ["Deep Green Fang<br>Andra Basin","Gather<br>Minster Hills","Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Deep Green Fang<br>Andra Basin","Gather<br>Minster Hills","Tyrant Boar<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 tooltipAndra,
                 tooltipMinster,
@@ -6899,7 +7500,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["5","3","3"],
             abilList: ["Reduce cooldown (battle imagine)","Max HP increase", "<br>"],
-            tooltipText: ["Flame Prison<br>Calm Eve Terraces","Gather<br>Soundless Foothills","Glowing Goblin<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Flame Prison<br>Calm Eve Terraces","Gather<br>Soundless Foothills","Glowing Goblin<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 tooltipCalmEve,
                 tooltipSoundless,
@@ -7052,7 +7653,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["4","3","3"],
             abilList: ["Max stamina increase","DEX increase", "<br>"],
-            tooltipText: ["Spooky Goat<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Glowing Tyrant Boar<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Spooky Goat<br>Soundless Foothills","Gather<br>Calm Eve Terraces","Glowing Tyrant Boar<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [tooltipSoundless,
                        tooltipCalmEve,
                        tooltipDragonclaw],
@@ -7128,7 +7729,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iElite],
             amt: ["3","3","1"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
-            tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Dragonclaw Valley [Free Exploration]","Deep Green Fang<br>Andra Basin"],
+            tooltipText: ["Trick Elder<br>Fiel Pond","Gather<br>Dragon Claw Valley [Free Exploration]","Deep Green Fang<br>Andra Basin"],
             tooltipBg: [tooltipFiel,
                        tooltipDragonclaw,
                        tooltipAndra],
@@ -7166,7 +7767,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["Damage increase (long-range)","INT increase", "<br>"],
-            tooltipText: ["Arrogant Conjurer<br>Dragonclaw Valley [Free Exploration]","Gather<br>Calm Eve Terraces","Kaiser Elk<br>Divine Haven Hill"],
+            tooltipText: ["Arrogant Conjurer<br>Dragon Claw Valley [Free Exploration]","Gather<br>Calm Eve Terraces","Kaiser Elk<br>Divine Haven Hill"],
             tooltipBg: [tooltipDragonclaw,
                        tooltipCalmEve,
                        tooltipDivine],
@@ -7204,7 +7805,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["2","3","1"],
             abilList: ["Damage increase (tactical skill 1)","STR increase", "<br>"],
-            tooltipText: ["Valley Raider<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Land Fox<br>Skyquake Fields"],
+            tooltipText: ["Valley Raider<br>Dragon Claw Valley [Free Exploration]","Gather<br>Skyquake Fields","Land Fox<br>Skyquake Fields"],
             tooltipBg: [tooltipDragonclaw,
                        tooltipSkyquake,
                        tooltipSkyquake],
@@ -7242,7 +7843,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iElite],
             amt: ["1","3","1"],
             abilList: ["Crit damage increase","DEX increase", "<br>"],
-            tooltipText: ["Loudshot<br>Dragonclaw Valley [Free Exploration]","Gather<br>Skyquake Fields","Pink Piglet<br>Skyquake Fields"],
+            tooltipText: ["Loudshot<br>Dragon Claw Valley [Free Exploration]","Gather<br>Skyquake Fields","Pink Piglet<br>Skyquake Fields"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipSkyquake,
@@ -7320,7 +7921,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iDung,iRock,iCombat],
             amt: ["3","3","3"],
             abilList: ["Reduce damage taken (long-range)","DEF increase", "<br>"],
-            tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragonclaw Valley [Free Exploration]"],
+            tooltipText: ["Clear Arena [B Rank]","Gather<br>Fiel Pond","Glowing Elder Goblin<br>Dragon Claw Valley [Free Exploration]"],
             tooltipBg: [
                 tooltipArena,
                 tooltipFiel,
@@ -7398,7 +7999,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iDung,iFlower,iElite],
             amt: ["7","3","1"],
             abilList: ["Reduce damage taken (close-range)","DEF increase", "<br>"],
-            tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragonclaw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
+            tooltipText: ["Clear Arena [S Rank]","Gather<br>Dragon Claw Valley [Free Exploration]","Evil Healer<br>Soundless Foothills"],
             tooltipBg: [
                 tooltipArena,
                 tooltipDragonclaw,
@@ -7437,7 +8038,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iElite],
             amt: ["7","3","1"],
             abilList: ["Reduce cooldown (ultimate)","ATK increase", "<br>"],
-            tooltipText: ["Raging Kingfang<br>Dragonclaw Valley [Free Exploration]","Gather<br>Fiel Pond","Flame Prison<br>Calm Eve Terraces"],
+            tooltipText: ["Raging Kingfang<br>Dragon Claw Valley [Free Exploration]","Gather<br>Fiel Pond","Flame Prison<br>Calm Eve Terraces"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipFiel,
@@ -9365,7 +9966,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iShell,iCombat],
             amt: ["3","3","3"],
             abilList: ["Увеличение Урона (Ультимейт)","Увеличение ATK", "<br>"],
-            tooltipText: ["Темно-Зеленый Клык<br>Andra Basin","Собирать<br>Minster Hills","Тиранский Вепрь<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Темно-Зеленый Клык<br>Andra Basin","Собирать<br>Minster Hills","Тиранский Вепрь<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 tooltipAndra,
                 tooltipMinster,
@@ -9443,7 +10044,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["5","3","3"],
             abilList: ["Уменьшает время перезарядки (В Бою)","Увеличение Максимального HP", "<br>"],
-            tooltipText: ["Пламенный Тюремщик<br>Calm Eve Terraces","Собирать<br>Soundless Foothills","Пылающий Гоблин<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Пламенный Тюремщик<br>Calm Eve Terraces","Собирать<br>Soundless Foothills","Пылающий Гоблин<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 tooltipCalmEve,
                 tooltipSoundless,
@@ -9596,7 +10197,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iCombat],
             amt: ["4","3","3"],
             abilList: ["Увеличение максимальной выносливости","Увеличение DEX", "<br>"],
-            tooltipText: ["Жуткая Баран<br>Soundless Foothills","Собирать<br>Calm Eve Terraces","Светящийся Тиранский Вепрь<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Жуткая Баран<br>Soundless Foothills","Собирать<br>Calm Eve Terraces","Светящийся Тиранский Вепрь<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [tooltipSoundless,
                        tooltipCalmEve,
                        tooltipDragonclaw],
@@ -9672,7 +10273,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iElite],
             amt: ["3","3","1"],
             abilList: ["Увеличение Урона (Дальняя Дистанция)","Увеличение INT", "<br>"],
-            tooltipText: ["Старейшина Трюкач<br>Fiel Pond","Собирать<br>Dragonclaw Valley [Свобоное Исследование]","Клык Темно-зеленого<br>Andra Basin"],
+            tooltipText: ["Старейшина Трюкач<br>Fiel Pond","Собирать<br>Dragon Claw Valley [Свобоное Исследование]","Клык Темно-зеленого<br>Andra Basin"],
             tooltipBg: [tooltipFiel,
                        tooltipDragonclaw,
                        tooltipAndra],
@@ -9710,7 +10311,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["4","3","3"],
             abilList: ["Увеличение урона (Дальняя Дистанция)","Увеличение INT", "<br>"],
-            tooltipText: ["Высокомерный Aокусник<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Calm Eve Terraces","Кайзер Лось<br>Divine Haven Hill"],
+            tooltipText: ["Высокомерный Aокусник<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Calm Eve Terraces","Кайзер Лось<br>Divine Haven Hill"],
             tooltipBg: [tooltipDragonclaw,
                        tooltipCalmEve,
                        tooltipDivine],
@@ -9748,7 +10349,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iCombat],
             amt: ["2","3","1"],
             abilList: ["Увеличение урона (Тактическое Умение 1)","Увеличение STR", "<br>"],
-            tooltipText: ["Доллиный Рейдер<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Skyquake Fields","Ровнинная Лиса<br>Skyquake Fields"],
+            tooltipText: ["Доллиный Рейдер<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Skyquake Fields","Ровнинная Лиса<br>Skyquake Fields"],
             tooltipBg: [tooltipDragonclaw,
                        tooltipSkyquake,
                        tooltipSkyquake],
@@ -9786,7 +10387,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iFlower,iElite],
             amt: ["1","3","1"],
             abilList: ["Увеличение Критического Урона","Увеличение DEX", "<br>"],
-            tooltipText: ["Громкий Выстрел<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Skyquake Fields","Розовая Свинка<br>Skyquake Fields"],
+            tooltipText: ["Громкий Выстрел<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Skyquake Fields","Розовая Свинка<br>Skyquake Fields"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipSkyquake,
@@ -9864,7 +10465,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iDung,iRock,iCombat],
             amt: ["3","3","3"],
             abilList: ["Уменьшить Получаемый Урон (На Большом Расстоянии)","Увеличение DEF", "<br>"],
-            tooltipText: ["Очистить арену [B ранг]","Собирать<br>Fiel Pond","Светящийся Гоблин-Старейшина<br>Dragonclaw Valley [Свобоное Исследование]"],
+            tooltipText: ["Очистить арену [B ранг]","Собирать<br>Fiel Pond","Светящийся Гоблин-Старейшина<br>Dragon Claw Valley [Свобоное Исследование]"],
             tooltipBg: [
                 tooltipArena,
                 tooltipFiel,
@@ -9942,7 +10543,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iDung,iFlower,iElite],
             amt: ["7","3","1"],
             abilList: ["Уменьшает Получаемый Урон (С Близкого Расстояния)","Увеличение DEF", "<br>"],
-            tooltipText: ["Очистить Арену [Ранг S]","Собирать<br>Dragonclaw Valley [Свобоное Исследование]","Зло Лекарь<br>Soundless Foothills"],
+            tooltipText: ["Очистить Арену [Ранг S]","Собирать<br>Dragon Claw Valley [Свобоное Исследование]","Зло Лекарь<br>Soundless Foothills"],
             tooltipBg: [
                 tooltipArena,
                 tooltipDragonclaw,
@@ -9981,7 +10582,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iElite,iRock,iElite],
             amt: ["7","3","1"],
             abilList: ["Уменьшить Время Восстановления (ультимейт)","Увеличение ATK", "<br>"],
-            tooltipText: ["Бешеный Королевский Клык<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Fiel Pond","Пламенная Тюрма<br>Calm Eve Terraces"],
+            tooltipText: ["Бешеный Королевский Клык<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Fiel Pond","Пламенная Тюрма<br>Calm Eve Terraces"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipFiel,
@@ -10287,7 +10888,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iCombat,iRock,""],
             amt: ["10","35","<br>"],
             abilList: ["ATK increase","STR increase", "DEX increase"],
-            tooltipText: ["Glowing Goblin<br>Dragonclaw Valley [Free Exploration]","Gather<br>Dragonclaw Valley [Free Exploration]","<br>"],
+            tooltipText: ["Glowing Goblin<br>Dragon Claw Valley [Free Exploration]","Gather<br>Dragon Claw Valley [Free Exploration]","<br>"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipDragonclaw,""],
@@ -11202,7 +11803,7 @@ jQuery(document).ready(function ($) {
             iconSrc: [iCombat,iRock,""],
             amt: ["10","35","<br>"],
             abilList: ["Увеличение ATK","Увеличение STR", "Увеличение DEX"],
-            tooltipText: ["Светящийся Гоблин<br>Dragonclaw Valley [Свобоное Исследование]","Собирать<br>Dragonclaw Valley [Свобоное Исследование]","<br>"],
+            tooltipText: ["Светящийся Гоблин<br>Dragon Claw Valley [Свобоное Исследование]","Собирать<br>Dragon Claw Valley [Свобоное Исследование]","<br>"],
             tooltipBg: [
                 tooltipDragonclaw,
                 tooltipDragonclaw,""],
@@ -11624,14 +12225,14 @@ jQuery(document).ready(function ($) {
         { // 17
             category: "Story",
             question: "Which story character do you meet after defeating an Avalitia for the first time?",
-            choice: ["Jake", "Einrain", "Melrophe", "Aerinse"],
-            answer: ["Melrophe"]
+            choice: ["Jake", "Einrain", "Merlouf", "Aerinse"],
+            answer: ["Merlouf"]
         },
         { // 18
             category: "Story",
             question: "What is the name of the NPC that gives you a mount imajinn?",
-            choice: ["Roger","Dean","Stadst","Quinn"],
-            answer: ["Stadst"]
+            choice: ["Roger","Dean","Studs","Quinn"],
+            answer: ["Studs"]
         },
         { // 19
             category: "Story",
@@ -11666,14 +12267,14 @@ jQuery(document).ready(function ($) {
         { // 24
             category: "Story",
             question: "What is the name of the NPC at Minsterhorn who tells you to go to the Pillar of Divinity?",
-            choice: ["Jake", "Milrain", "Melrophe", "Feste"],
-            answer: ["Milrain"]
+            choice: ["Jake", "Milene", "Merlouf", "Feste"],
+            answer: ["Milene"]
         },
         { // 25
             category: "Story",
             question: "What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?",
-            choice: ["Milrain", "Myulie", "Melroph", "Einrain"],
-            answer: ["Myulie"]
+            choice: ["Milene", "Murrie", "Melroph", "Einrain"],
+            answer: ["Murrie"]
         },
         { // 26
             category: "Lore",
@@ -11719,7 +12320,7 @@ jQuery(document).ready(function ($) {
         },
         { // 33
             category: "Gameplay",
-            question: "What is the name of the boss in Mechanical Ruin Valley?",
+            question: "What is the name of the boss in Valley of Machines?",
             choice: ["Quad Arm", "Reanimated Terror", "Ancient Android", "Demon Bhor"],
             answer: ["Quad Arm"]
         },
@@ -11737,7 +12338,7 @@ jQuery(document).ready(function ($) {
         },
         { // 36
             category: "Gameplay",
-            question: "What zone is the dungeon Dragonclaw Valley [Free Exploration] found in?",
+            question: "What zone is the dungeon Dragon Claw Valley [Free Exploration] found in?",
             choice: ["Salamzart", "Minster Hills", "Skyquake fields", "Fiel Pond"],
             answer: ["Minster Hills"]
         },
@@ -11817,7 +12418,7 @@ jQuery(document).ready(function ($) {
             category: "Technical",
             question: "What year did the development of BLUE PROTOCOL begin?",
             choice: ["2014", "2016", "2020", "2021"],
-            answer: ["2016"]
+            answer: ["2014"]
         },
         { // 50
             category: "Gameplay",
