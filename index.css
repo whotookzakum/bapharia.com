@@ -2272,22 +2272,239 @@ h3.dungReqBS {
     display: none;
 }
 
+.optionsSubtext {
+    text-align: left;
+    margin-bottom: 1.42vw;
+    margin-top: -0.6vw;
+    position: relative;
+    left: 1.9vw;
+}
 
+.optionsSideHeader {
+    font-size: 1.146vw;
+    text-align: left;
+    width: 7.5vw;
+    position: absolute;
+    float: left;
+}
+
+.optionsSideHolder {
+    width: 20vw; 
+    position: relative; 
+    left: 10vw;
+    text-align: left;
+}
+
+.optionsSection {
+    position: relative;
+    left: 4vw;
+}
+.optionsControls label {
+    display: inline-block;
+    width: 1vw;
+    vertical-align: middle;
+    font-size: 0.833vw;
+    line-height: 1.4vw;
+}
+
+
+.rangeSlider {
+    vertical-align: middle;
+    outline: none;
+    width: 40%;
+    -webkit-appearance: none;
+    height: 0.521vw;
+    border-radius: 0.260vw;
+    background: #8a95a1;
+    outline: none;
+    opacity: 1;
+    cursor: url(images/cursor.png), pointer;
+}
+.rangeVal {
+    display: inline-block;
+    margin: 0 0.52vw;
+    background-color: whitesmoke;
+    font-size: 0.938vw;
+    width: 2vw;
+    vertical-align: middle;
+    padding: 0.05vw 0;
+    text-align: center;
+    border-radius: 0.2vw;
+}
+
+
+.rangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.042vw;
+    height: 1.042vw;
+    border-radius: 50%;
+    background: #576676;
+    
+}
+
+.rangeSlider::-moz-range-thumb {
+    width: 1.042vw;
+    height: 1.042vw;
+    border-radius: 50%;
+    background: #576676;
+}
+
+/* grayed out slider */
+.sliderDisabled > .rangeVal {
+    background-color: #96999e;
+    color: #4d4e51;
+}
+.sliderDisabled > .rangeSlider {
+    background: #848588;
+}
+.sliderDisabled > .rangeSlider::-webkit-slider-thumb {
+    background: #626366;
+}
+.sliderDisabled > .rangeSlider::-moz-range-thumb {
+    background: #626366;
+}
+
+/* Dropdown menu */
+option {
+    color: black;
+}
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+  display: none;
+}
+.dropdown {
+    margin-top: 0.75vw;
+    display: block;
+    color: white;
+    font-family: 'Roboto';
+    font-size: 0.695vw;
+    position: relative;
+    vertical-align: middle;
+    width: 10.521vw;
+    height: 1.250vw;
+    padding-left: 0.5vw;
+    background-image: url(images/dropdown_normal.png);
+    background-size: 10.521vw 1.250vw;
+    outline: none;
+}
+.dropdown:hover {
+    background-image: url(images/dropdown_hover.png);
+}
+.dropdown:active, .dropdown:focus {
+    background-image: url(images/dropdown_focus.png);
+}
+
+.hudEdit {
+    position: relative; 
+    font-size: 0.833vw; 
+    text-align: center; 
+    background-color: #24252b;
+    border-radius: 0.2vw;
+    color: white;
+    padding: 0.2vw 0;
+}
+.hudEdit:hover, .keybindui:hover {
+    background-color: #cfef00;
+    color: #3b434e;
+    font-weight: bold;
+}
+.hudEdit:active, .keybindui:active {
+    background-color: #eeeff2;
+    color: #3b434e;
+    font-weight: bold;
+}
+
+.keybindings p, .keybindings h2, .keybindings h4, .keybindings h3 {
+    font-weight: normal;
+    font-size: 0.833vw;
+    margin-bottom: 0.7vw;
+    display: inline-block;
+    width: 10vw;
+}
+.keybindings p {
+    width: 15vw;
+}
+.keybindings h2, .keybindings h4, .keybindings h3 {
+    background-color: whitesmoke;
+    border-radius: .2vw;
+    text-align: center;
+    float: right;
+    margin-left: 1vw;
+    filter: drop-shadow(0 0 2px #888e95);
+}
+.keybindings h2:hover, .keybindings h4:hover {
+    background-color: #cfef00;
+    filter: drop-shadow(0 0 2px #cfef00);
+}
+.keybindings h2:active, .keybindings h4:active {
+    background-color: whitesmoke;
+    filter: drop-shadow(0 0 2px whitesmoke);
+}
+.keybindings h3 {
+    background-color: #96999e;
+    color: #4d4e51;
+    height: auto;
+    border: none;
+}
+h3.keybindui {
+    border: none; 
+    font-weight: normal; 
+    font-size: 0.833vw; 
+    width: 7.5vw;
+    margin: 0; 
+    display: inline-block; 
+    position: relative; 
+    background-color: #24252b; 
+    color: white; 
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.1vw;
+    border-radius: 0.2vw;
+    position: absolute;
+    filter: drop-shadow(0 0 2px #888e95);
+}
+
+/* Technically the options you've changed highlight in green but that's a bunch of work
+.rangeSlider:focus {
+    filter: drop-shadow(0 0 20px #cfef00);
+} 
+*/
+
+.soundImage {
+    width: 2.667vw;
+    background-color: #a0a4b0;
+    padding: 0 0.5vw;
+    border-radius: 0.4vw;
+    vertical-align: middle;
+    position: absolute;
+    left: 8vw;
+    top: -0.2vw;
+}
 
 /* ------------- Buttons ------------- */
 /* The container */
 .radioContainer {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
+  padding-left: 1.823vw;
+  margin-bottom: 0.625vw;
+  cursor: url("images/cursor.png"), pointer;
+  font-size: 1.146vw;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
     text-align: left;
+    
 }
 
 /* Hide the browser's default radio button */
@@ -2300,22 +2517,29 @@ h3.dungReqBS {
 /* Create a custom radio button */
 .radioDot {
   position: absolute;
-  top: 0;
+  top: 0.15vw;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 1.042vw;
+  width: 1.042vw;
   background-color: #eee;
   border-radius: 50%;
+    
 }
 
 /* On mouse-over, add a grey background color */
+/* radioDot:hover to make it only apply to the box, not the text */
 .radioContainer:hover input ~ .radioDot {
-  background-color: #ccc;
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #eee;
+}
+.radioContainer:active input ~ .radioDot {
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #cfef00;
 }
 
 /* When the radio button is checked, add a blue background */
 .radioContainer input:checked ~ .radioDot {
-  background-color: #cfef00;
+    background-color: #cfef00;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -2332,10 +2556,10 @@ h3.dungReqBS {
 
 /* Style the indicator (dot/circle) */
 .radioContainer .radioDot:after {
- 	top: 8px;
-	left: 8px;
-	width: 9px;
-	height: 9px;
+ 	top: 0.313vw;
+	left: 0.313vw;
+	width: 0.417vw;
+	height: 0.417vw;
 	border-radius: 50%;
 	background: #3b434e;
 }
@@ -2346,10 +2570,11 @@ h3.dungReqBS {
 .checkboxContainer {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
+  padding-left: 1.823vw;
+  margin-bottom: 0.625vw;
+    vertical-align: middle;
+  cursor: url("images/cursor.png"), pointer;
+  font-size: 1.146vw;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -2367,46 +2592,51 @@ h3.dungReqBS {
 }
 
 /* Create a custom checkbox */
-.checkmark {
+.checkmark, .checkmarkDisabled {
   position: absolute;
-  top: 0;
+  top: 0.15vw;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 1.042vw;
+  width: 1.042vw;
   background-color: #eee;
     border-radius: 20%;
 }
 
 /* On mouse-over, add a grey background color */
+/* checkmark:hover to make it only apply to the box, not the text */
 .checkboxContainer:hover input ~ .checkmark {
-  background-color: #ccc;
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #eee;
 }
-
+.checkboxContainer:active input ~ .checkmark {
+    filter: drop-shadow(0 0 2px #cfef00);
+    background-color: #cfef00;
+}
 /* When the checkbox is checked, add a blue background */
 .checkboxContainer input:checked ~ .checkmark {
-  background-color: #cfef00;
+    background-color: #cfef00;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
+.checkmark:after, .checkmarkDisabled:after {
   content: "";
   position: absolute;
   display: none;
 }
 
 /* Show the checkmark when checked */
-.checkboxContainer input:checked ~ .checkmark:after {
+.checkboxContainer input:checked ~ .checkmark:after,  .checkboxContainer input:checked ~ .checkmarkDisabled:after{
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.checkboxContainer .checkmark:after {
-  left: 7px;
-  top: 1px;
-  width: 7px;
-  height: 14px;
+.checkboxContainer .checkmark:after, .checkboxContainer .checkmarkDisabled:after {
+  left: 0.313vw;
+  top: 0.052vw;
+  width: 0.260vw;
+  height: 0.573vw;
   border: solid #3b434e;
-  border-width: 0 4px 4px 0;
+  border-width: 0 0.208vw 0.208vw 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);

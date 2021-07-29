@@ -1388,12 +1388,98 @@ jQuery(document).ready(function ($) {
     
     // OPTIONS
     
-    // Menu buttons
+    // Options category buttons
     $(".optionsMenuButton").click(function(){
-
+        
+        // Stylize button
         $(".optionsMenuButton").removeClass("optionsMenuClicked");
         $(this).addClass("optionsMenuClicked");
-                
+        
+        // Hide all pages
+        $(".optionsGeneral").css("display","none");
+        $(".optionsControls").css("display","none");
+        $(".optionsSound").css("display","none");
+        $(".optionsGraphics").css("display","none");
+        $(".optionsHUD").css("display","none");
+        
+        // Reset container position
+        $(".optionsHolder").css("top","7vw");
+        $(".optionsHolder").css("height","27vw");
+        
+        if ($(this).is(":contains('General')")) {
+            $(".optionsGeneral").css("display","block");
+        }
+        if ($(this).is(":contains('Controls')")) {
+            $(".optionsControls").css("display","block");
+            // Change container position to account for the dropdown header
+            $(".optionsHolder").css("top","9.5vw");
+            $(".optionsHolder").css("height","23vw");
+        }
+        if ($(this).is(":contains('Sound')")) {
+            $(".optionsSound").css("display","block");
+        }
+        if ($(this).is(":contains('Graphics')")) {
+            $(".optionsGraphics").css("display","block");
+        }
+        if ($(this).is(":contains('HUD')")) {
+            $(".optionsHUD").css("display","block");
+        }
+        
+    });
+   
+
+    // SLIDERS
+    
+    $("#gamepadSpeedSlider+.rangeVal").html(40); // Default gamepad speed 40
+    document.getElementById("gamepadSpeedSlider").disabled = true; // gamepad speed is disabled by default
+    
+    // Value of slider adjusts when input is changed
+    $(".rangeSlider").on('input', function() {
+        $(this).next().html(this.value); // .rangeVal
+        
+        // If sound settings slider, adjust the sound icon
+        if ($(this).is(".optionSoundSlider")) {
+            if (this.value >= 50) {
+                $(this).next().next().attr("src","images/sound_max.png");
+            }
+            else if (this.value > 0) {
+                $(this).next().next().attr("src","images/sound_mid.png");
+            }
+            else if (this.value == 0) {
+                $(this).next().next().attr("src","images/sound_min.png");
+            }
+        }
+        
+    }).trigger("change");
+    
+    // game input mode will enable/disable slider for gamepad sensitivity
+    $(".optionsInputMode").click(function(){
+
+        if ( $(this).is(":contains('Gamepad')") ) {
+            document.getElementById("gamepadSpeedSlider").disabled = false;
+            $("#gamepadSpeed").removeClass("sliderDisabled");
+        }
+        else {
+            document.getElementById("gamepadSpeedSlider").disabled = true;
+            $("#gamepadSpeed").addClass("sliderDisabled");
+        }
+
+    });
+ 
+    $(".soundImage").click(function(){
+        
+        // to do; store original src of each image in an array
+        
+        if ($(this).attr("src") != "images/sound_mute.png") {
+            $(this).attr("src","images/sound_mute.png");
+        }
+        else {
+
+            // to do; run through the original src array and pull the value of the index that matches the soundImage that was clicked
+            // to do; apply that original src to reset the image to its value before it was clicked
+            $(this).attr("src","images/sound_max.png");
+        }
+        
     });
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
