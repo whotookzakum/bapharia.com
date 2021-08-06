@@ -368,8 +368,6 @@ jQuery(document).ready(function ($) {
     var currentPage;
     function closePages() {
         
-        $("#contentViewer").css({"display": "none"});
-        
         if (currentPage == "#mapContainer") {
             closeWorldMap();
         }
@@ -382,13 +380,16 @@ jQuery(document).ready(function ($) {
         else if (currentPage == "#guideContainer") {
             closeGuide();
         }
+        if (currentPage == "#classContainer") {
+            closeClasses();
+        }
         
     }
     
     var imajInitial = true;
     var mapInitial = true;
     
-    // Menu buttons open page when clicked
+    // Navi icons
     $("img.navicon").click(function() {
         // There's probably a cleaner way to do this like:
         // 1.   if (this != .classButton) { bg-default opacity 1 }
@@ -419,22 +420,33 @@ jQuery(document).ready(function ($) {
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
             bgts.stop().animate({opacity: '1'});
+            closePages();
+            currentPage = "#classContainer";
+            openClasses("twinstriker");
         } 
         else if ($(this).is("#buttonAegis")) {
             bgaf.stop().animate({opacity: '1'});
-            
+            closePages();
+            currentPage = "#classContainer";
+            openClasses("aegisfighter");
         }
         else if ($(this).is("#buttonBlast")) {
             bgba.stop().animate({opacity: '1'}); 
-            
+            closePages();
+            currentPage = "#classContainer";
+            openClasses("blastarcher");
         }
         else if ($(this).is("#buttonSpell")) {
             bgsc.stop().animate({opacity: '1'});
-            
+            closePages();
+            currentPage = "#classContainer";
+            openClasses("spellcaster");
         }
         else if ($(this).is("#buttonHeavy")) {
             bghs.stop().animate({opacity: '1'});
-            
+            closePages();
+            currentPage = "#classContainer";
+            openClasses("heavysmasher");
         }
         else {
             // Change BG to default one
@@ -475,6 +487,134 @@ jQuery(document).ready(function ($) {
         }
     });
     
+    /*--------------------------------------------------------------------------------------------------------------------------------------*/
+    
+    // CLASS PAGES
+    
+    var classDescriptions = [
+        
+        // ENGLISH
+        [
+            // AEGIS FIGHTER
+            {
+                name: "Aegis Fighter",
+                icon: "images/aficon.svg",
+                chart: "images/skills/afchart.png",
+                elements: '<img src="images/crafting/light.png" style="filter: brightness(0.9) sepia(1) saturate(300%) hue-rotate(0)" draggable="false">',
+                text: 'A melee knight class that has powerful crowd control and tanking abilities.<br><span style="font-weight: bold">Unique Mechanic: </span>Shield<br>Block incoming attacks with your shield, consuming shield gauge. If shield gauge reaches zero, all shield-related skills will be temporarily disabled.', // can also initiate a counterattack // impenetrable/divine defense
+                video: "images/skills/af.mp4"
+            },
+            // TWIN STRIKER
+            {
+                name: "Twin Striker",
+                icon: "images/tsicon.svg",
+                chart: "images/skills/tschart.png",
+                elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false">',
+                text: 'A melee class that wields axes in both hands.<br><span style="font-weight: bold">Unique Mechanic: </span>Combo Meter<br>Damaging enemies builds combo meter, which increases damage. Meter will reset to 0 if knocked down.', // berserk
+                video: "images/skills/ts.mp4"
+            },
+            // BLAST ARCHER
+            {
+                name: "Blast Archer",
+                icon: "images/baicon.svg",
+                chart: "images/skills/bachart.png",
+                elements: '<img src="images/crafting/earth.png" style="filter: brightness(0.3) sepia(1) saturate(500%) hue-rotate(-25deg)" draggable="false">',
+                text: "A ranged bowman class that specializes in supporting allies and debuffing enemies.<br><span style='font-weight: bold'>Unique Mechanic: </span>Weakness Targeting<br>Manually aim at enemies' weak points to deal additional damage.", // sharp eyes
+                video: "images/skills/ba.mp4"
+            },
+            // SPELL CASTER
+            {
+                name: "Spell Caster",
+                icon: "images/scicon.svg",
+                chart: "images/skills/scchart.png",
+                elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false"><img src="images/crafting/lightning.png" style="filter: brightness(0.7) sepia(1) saturate(300%) hue-rotate(15deg)" draggable="false"><img src="images/crafting/ice.png" style="filter: brightness(0.6) sepia(1) saturate(200%) hue-rotate(140deg)" draggable="false">',
+                text: 'A ranged magician class that deals high burst damage by manipulating the elements.<br><span style="font-weight: bold">Unique Mechanic: </span>EP Gauge<br>Tactical skills consume EP gauge instead of going on cooldown. EP can be charged, but will leave you vulnerable while doing so.', // manifestation (engram)
+                video: "images/skills/sc.mp4"
+            }
+        ]
+        
+    ]
+    
+    
+    var classIndex = 0;
+    var classSrcs = "";
+    
+    function openClasses(currentClass) {
+        $("#classContainer").css("display","block");
+        $(".contentViewer").css("display","block");
+        
+        
+         
+        if (currentClass == "aegisfighter") { classIndex = 0; classSrcs = "images/skills/af/" }
+        if (currentClass == "twinstriker") { classIndex = 1; classSrcs = "images/skills/ts/" }
+        if (currentClass == "blastarcher") { classIndex = 2; classSrcs = "images/skills/ba/" }
+        if (currentClass == "spellcaster") { classIndex = 3; classSrcs = "images/skills/sc/" }
+        if (currentClass == "heavysmasher") { classIndex = 4; classSrcs = "images/skills/hs/" }
+        
+        var thisClass = classDescriptions[currentLang][classIndex];
+        
+        $(".classDesc").html('<span class="className">' + thisClass.name + thisClass.elements + '</span>' + thisClass.text);
+        $("#classChart").attr("src", thisClass.chart);
+        $("#classIcon").attr("src", thisClass.icon);
+        $("#backgroundVideo").attr("src", thisClass.video);
+        
+        // openSkills();
+        
+    }
+    
+    function closeClasses(currentClass) {
+        $("#classContainer").css("display","none");
+        $(".contentViewer").css("display","none");
+        
+    }
+    
+    function openSkills () {
+        
+        // reg skills
+        $(".skill01").attr("src", "images/skills/01.png");
+        $(".skill02").attr("src", "images/skills/02.png");
+        // tac skills 1
+        $(".skill11").attr("src", classSrcs + "11.png");
+        $(".skill12").attr("src", classSrcs + "12.png");
+        // tac skills 2
+        $(".skill21").attr("src", classSrcs + "21.png");
+        $(".skill22").attr("src", classSrcs + "22.png");
+        // tac skills 3
+        $(".skill31").attr("src", classSrcs + "31.png");
+        $(".skill32").attr("src", classSrcs + "32.png");
+        // tac skills 4
+        $(".skill41").attr("src", classSrcs + "41.png");
+        $(".skill42").attr("src", classSrcs + "42.png");
+        // ult
+        $(".skill51").attr("src", "images/skills/51.png");
+        
+        // tac abilities
+        $(".tacabil5").attr("src", classSrcs + "ta5.png");
+        $(".tacabil6").attr("src", classSrcs + "ta6.png");
+        
+        // static images, just load them in html
+        /* 
+        if (classSrcs == "") {
+            $("#tacabil1").attr("src", "images/skills/ta1.png");
+            $("#tacabil2").attr("src", "images/skills/ta2.png");
+            $("#tacabil3").attr("src", "images/skills/ta3.png");
+            $("#tacabil4").attr("src", "images/skills/ta4.png");
+
+            // permanent
+            $("#passive1").attr("src", "images/skills/p1.png");
+            $("#passive2").attr("src", "images/skills/p2.png");
+            $("#passive3").attr("src", "images/skills/p3.png");
+            $("#passive4").attr("src", "images/skills/p4.png");
+            $("#passive5").attr("src", "images/skills/p5.png");
+            $("#passive6").attr("src", "images/skills/p6.png");
+            $("#passive7").attr("src", "images/skills/p7.png");
+            $("#passive8").attr("src", "images/skills/p8.png");
+            $("#passive9").attr("src", "images/skills/p9.png");
+            $("#passive10").attr("src", "images/skills/p10.png");
+        }
+        */
+            
+    }
     
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
