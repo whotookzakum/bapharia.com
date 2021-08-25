@@ -422,30 +422,35 @@ jQuery(document).ready(function ($) {
             bgts.stop().animate({opacity: '1'});
             closePages();
             currentPage = "#classContainer";
+            classSrcs = "images/skills/ts";
             openClasses("twinstriker");
         } 
         else if ($(this).is("#buttonAegis")) {
             bgaf.stop().animate({opacity: '1'});
             closePages();
             currentPage = "#classContainer";
+            classSrcs = "images/skills/af";
             openClasses("aegisfighter");
         }
         else if ($(this).is("#buttonBlast")) {
             bgba.stop().animate({opacity: '1'}); 
             closePages();
             currentPage = "#classContainer";
+            classSrcs = "images/skills/ba";
             openClasses("blastarcher");
         }
         else if ($(this).is("#buttonSpell")) {
             bgsc.stop().animate({opacity: '1'});
             closePages();
             currentPage = "#classContainer";
+            classSrcs = "images/skills/sc";
             openClasses("spellcaster");
         }
         else if ($(this).is("#buttonHeavy")) {
             bghs.stop().animate({opacity: '1'});
             closePages();
             currentPage = "#classContainer";
+            classSrcs = "images/skills/hs";
             openClasses("heavysmasher");
         }
         else {
@@ -501,7 +506,7 @@ jQuery(document).ready(function ($) {
                 icon: "images/aficon.svg",
                 chart: "images/skills/afchart.png",
                 elements: '<img src="images/crafting/light.png" style="filter: brightness(0.9) sepia(1) saturate(300%) hue-rotate(0)" draggable="false">',
-                text: 'A melee knight class that has powerful crowd control and tanking abilities.<br><span style="font-weight: bold">Unique Mechanic: </span>Shield<br>Block incoming attacks with your shield, consuming shield gauge. If shield gauge reaches zero, all shield-related skills will be temporarily disabled.', // can also initiate a counterattack // impenetrable/divine defense
+                text: '<span style="font-style: italic;">A melee knight class that has powerful crowd control and tanking abilities.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Shield<br></span>Block incoming attacks with your shield, consuming shield gauge. If shield gauge reaches zero, all shield-utilizing skills will be temporarily disabled.</span>', // can also initiate a counterattack // impenetrable/divine defense
                 video: "images/skills/af.mp4"
             },
             // TWIN STRIKER
@@ -510,7 +515,7 @@ jQuery(document).ready(function ($) {
                 icon: "images/tsicon.svg",
                 chart: "images/skills/tschart.png",
                 elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false">',
-                text: 'A melee class that wields axes in both hands.<br><span style="font-weight: bold">Unique Mechanic: </span>Combo Meter<br>Damaging enemies builds combo meter, which increases damage. Meter will reset to 0 if knocked down.', // berserk
+                text: '<span style="font-style: italic;">A front line melee class that wields axes in both hands.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Combo Meter<br></span>Damaging enemies builds combo meter, which increases damage. Meter will reset to 0 if knocked down.</span>', // berserk
                 video: "images/skills/ts.mp4"
             },
             // BLAST ARCHER
@@ -519,7 +524,7 @@ jQuery(document).ready(function ($) {
                 icon: "images/baicon.svg",
                 chart: "images/skills/bachart.png",
                 elements: '<img src="images/crafting/earth.png" style="filter: brightness(0.3) sepia(1) saturate(500%) hue-rotate(-25deg)" draggable="false">',
-                text: "A ranged bowman class that specializes in supporting allies and debuffing enemies.<br><span style='font-weight: bold'>Unique Mechanic: </span>Weakness Targeting<br>Manually aim at enemies' weak points to deal additional damage.", // sharp eyes
+                text: "<span style='font-style: italic;'>A ranged bowman class that specializes in supporting allies and debuffing enemies.<br></span><span style='position: relative; top: 0.5vw;'><span style='font-weight: bold;'>Weakness Targeting<br></span>Manually aim at enemies' weak points to deal additional damage.</span>", // sharp eyes
                 video: "images/skills/ba.mp4"
             },
             // SPELL CASTER
@@ -528,7 +533,7 @@ jQuery(document).ready(function ($) {
                 icon: "images/scicon.svg",
                 chart: "images/skills/scchart.png",
                 elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false"><img src="images/crafting/lightning.png" style="filter: brightness(0.7) sepia(1) saturate(300%) hue-rotate(15deg)" draggable="false"><img src="images/crafting/ice.png" style="filter: brightness(0.6) sepia(1) saturate(200%) hue-rotate(140deg)" draggable="false">',
-                text: 'A ranged magician class that deals high burst damage by manipulating the elements.<br><span style="font-weight: bold">Unique Mechanic: </span>EP Gauge<br>Tactical skills consume EP gauge instead of going on cooldown. EP can be charged, but will leave you vulnerable while doing so.', // manifestation (engram)
+                text: '<span style="font-style: italic;">A ranged magician class that deals high burst damage by manipulating the elements.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">EP Gauge<br></span>Tactical skills consume EP gauge instead of going on cooldown. EP can be charged, but will leave you vulnerable while doing so.</span>', // manifestation (engram)
                 video: "images/skills/sc.mp4"
             }
         ]
@@ -558,7 +563,7 @@ jQuery(document).ready(function ($) {
         $("#classIcon").attr("src", thisClass.icon);
         $("#backgroundVideo").attr("src", thisClass.video);
         
-        // openSkills();
+        openSkills();
         
     }
     
@@ -571,22 +576,43 @@ jQuery(document).ready(function ($) {
     function openSkills () {
         
         // reg skills
-        $(".skill01").attr("src", "images/skills/01.png");
-        $(".skill02").attr("src", "images/skills/02.png");
+        //$(".skill01").attr("src", "images/skills/01.png");
+        //$(".skill02").attr("src", "images/skills/02.png");
+        
         // tac skills 1
-        $(".skill11").attr("src", classSrcs + "11.png");
-        $(".skill12").attr("src", classSrcs + "12.png");
+        $(".skill11>.tacSkill>img").attr("src", classSrcs + "11.png");
+        $(".skill12>.tacSkill>img").attr("src", classSrcs + "12.png");
+        $(".skill11 .abilityA").attr("src", classSrcs + "11a.png");
+        $(".skill11 .abilityB").attr("src", classSrcs + "11b.png");
+        $(".skill12 .abilityA").attr("src", classSrcs + "12a.png");
+        $(".skill12 .abilityB").attr("src", classSrcs + "12b.png");
+        
         // tac skills 2
-        $(".skill21").attr("src", classSrcs + "21.png");
-        $(".skill22").attr("src", classSrcs + "22.png");
+        $(".skill21>.tacSkill>img").attr("src", classSrcs + "21.png");
+        $(".skill22>.tacSkill>img").attr("src", classSrcs + "22.png");
+        $(".skill21 .abilityA").attr("src", classSrcs + "21a.png");
+        $(".skill21 .abilityB").attr("src", classSrcs + "21b.png");
+        $(".skill22 .abilityA").attr("src", classSrcs + "22a.png");
+        $(".skill22 .abilityB").attr("src", classSrcs + "22b.png");
+        
         // tac skills 3
-        $(".skill31").attr("src", classSrcs + "31.png");
-        $(".skill32").attr("src", classSrcs + "32.png");
+        $(".skill31>.tacSkill>img").attr("src", classSrcs + "31.png");
+        $(".skill32>.tacSkill>img").attr("src", classSrcs + "32.png");
+        $(".skill31 .abilityA").attr("src", classSrcs + "31a.png");
+        $(".skill31 .abilityB").attr("src", classSrcs + "31b.png");
+        $(".skill32 .abilityA").attr("src", classSrcs + "32a.png");
+        $(".skill32 .abilityB").attr("src", classSrcs + "32b.png");
+        
         // tac skills 4
-        $(".skill41").attr("src", classSrcs + "41.png");
-        $(".skill42").attr("src", classSrcs + "42.png");
+        $(".skill41>.tacSkill>img").attr("src", classSrcs + "41.png");
+        $(".skill42>.tacSkill>img").attr("src", classSrcs + "42.png");
+        $(".skill41 .abilityA").attr("src", classSrcs + "41a.png");
+        $(".skill41 .abilityB").attr("src", classSrcs + "41b.png");
+        $(".skill42 .abilityA").attr("src", classSrcs + "42a.png");
+        $(".skill42 .abilityB").attr("src", classSrcs + "42b.png");
+        
         // ult
-        $(".skill51").attr("src", "images/skills/51.png");
+        //$(".skill51").attr("src", "images/skills/51.png");
         
         // tac abilities
         $(".tacabil5").attr("src", classSrcs + "ta5.png");
@@ -616,6 +642,164 @@ jQuery(document).ready(function ($) {
             
     }
     
+    var maxSkillPts = 146;
+    var remSkillPts = 146;
+    
+    $(".tacSkill").click(function(){
+        checkEnoughPts($(this));
+    });
+    $(".tacAbil").click(function(){
+        checkEnoughPts($(this));
+    });
+    $(".permSkill").click(function(){
+        checkEnoughPts($(this));
+    });
+    $(".regSkill").click(function(){
+        checkEnoughPts($(this));
+    });
+    $(".ultSkill").click(function(){
+        checkEnoughPts($(this));
+    });
+    $(".skillAbil").click(function(){
+        checkEnoughPts($(this));
+    });
+    
+    function checkEnoughPts(clickedSkill) {
+        
+        var enoughPts = false;
+        
+        // Clicking on a highlighted skill will remove it and restore points
+        if (clickedSkill.hasClass("skillSelected")) {
+            
+            // TAC SKILLS
+            if (clickedSkill.hasClass("tacSkill")) {
+                if (clickedSkill.hasClass("level1")) {
+                    // top row skills req 1 point
+                    if (clickedSkill.parent().hasClass("skill21") || clickedSkill.parent().hasClass("skill31") || clickedSkill.parent().hasClass("skill41"))  {
+                        remSkillPts += 1;
+                    } 
+                    // bottom row skills req 2 points
+                    else if ( (clickedSkill.parent().hasClass("skill12") || clickedSkill.parent().hasClass("skill22") || clickedSkill.parent().hasClass("skill32") || clickedSkill.parent().hasClass("skill42")) && remSkillPts >= 2)  {
+                        remSkillPts += 2;
+                    }
+                }
+                else if (clickedSkill.hasClass("level2")) { remSkillPts += 3; }
+                else if (clickedSkill.hasClass("level3")) { remSkillPts += 6; }
+            }
+            // TAC ABILS & PERMANENT
+            else if ((clickedSkill.hasClass("tacAbil") || clickedSkill.hasClass("permSkill"))) {
+                if (clickedSkill.hasClass("level1")) { remSkillPts += 1; }
+                else if (clickedSkill.hasClass("level2")) { remSkillPts += 2; }
+                else if (clickedSkill.hasClass("level3")) { remSkillPts += 3; }
+            }
+            // REG SKILLS
+            else if (clickedSkill.hasClass("regSkill")) {
+                if (clickedSkill.hasClass("level2")) { 
+                    if (clickedSkill.parent().hasClass("skill01")) {
+                        remSkillPts += 1;
+                    }
+                    else if (clickedSkill.parent().hasClass("skill02")) {
+                        remSkillPts += 2;
+                    }
+                }
+                else if (clickedSkill.hasClass("level3")) { 
+                    if (clickedSkill.parent().hasClass("skill01")) {
+                        remSkillPts += 2;
+                    }
+                    else if (clickedSkill.parent().hasClass("skill02")) {
+                        remSkillPts += 3;
+                    }
+                }
+            }
+            // ULT
+            else if (clickedSkill.hasClass("ultSkill")) { remSkillPts += 2; }
+            // SKILL ABILITY
+            else if (clickedSkill.hasClass("skillAbil")) { remSkillPts += 3; }
+            
+            // remove highlight if not a default skill
+            if (
+                !(clickedSkill.hasClass("level1") && clickedSkill.parent().hasClass("skill11")) && 
+                !(clickedSkill.hasClass("level1") && clickedSkill.parent().hasClass("skill01")) &&
+                !(clickedSkill.hasClass("level1") && clickedSkill.parent().hasClass("skill02")) ) {
+                clickedSkill.removeClass("skillSelected");
+            }
+
+            // gray out if not Lv1 skill
+            if (!clickedSkill.hasClass("level1")) {
+                clickedSkill.addClass("skillDeselected");
+            }
+
+        }
+        // Clicking on a grayed out skill will highlight it and consume points
+        else {
+            
+            // TAC SKILLS
+            if (clickedSkill.hasClass("tacSkill")) {
+                if (clickedSkill.hasClass("level1") && remSkillPts >= 1) {
+                    // top row skills req 1 point
+                    if (clickedSkill.parent().hasClass("skill21") || clickedSkill.parent().hasClass("skill31") || clickedSkill.parent().hasClass("skill41"))  {
+                        remSkillPts -= 1; 
+                        enoughPts = true; 
+                    } 
+                    // bottom row skills req 2 points
+                    else if ( (clickedSkill.parent().hasClass("skill12") || clickedSkill.parent().hasClass("skill22") || clickedSkill.parent().hasClass("skill32") || clickedSkill.parent().hasClass("skill42")) && remSkillPts >= 2)  {
+                        remSkillPts -= 2; 
+                        enoughPts = true; 
+                    }
+                }
+                else if (clickedSkill.hasClass("level2") && remSkillPts >= 3) { remSkillPts -= 3; enoughPts = true; }
+                else if (clickedSkill.hasClass("level3") && remSkillPts >= 6) { remSkillPts -= 6; enoughPts = true; }
+            }
+            // TAC ABILS & PERMANENT
+            else if ((clickedSkill.hasClass("tacAbil") || clickedSkill.hasClass("permSkill"))) {
+                if (clickedSkill.hasClass("level1") && remSkillPts >= 1) { remSkillPts -= 1; enoughPts = true; }
+                else if (clickedSkill.hasClass("level2") && remSkillPts >= 2) { remSkillPts -= 2; enoughPts = true; }
+                else if (clickedSkill.hasClass("level3") && remSkillPts >= 3) { remSkillPts -= 3; enoughPts = true; }
+            }
+            // REG SKILLS
+            else if (clickedSkill.hasClass("regSkill")) {
+                if (clickedSkill.hasClass("level2")) { 
+                    if (clickedSkill.parent().hasClass("skill01") && remSkillPts >= 1) {
+                        remSkillPts -= 1;
+                        enoughPts = true;
+                    }
+                    else if (clickedSkill.parent().hasClass("skill02") && remSkillPts >= 2) {
+                        remSkillPts -= 2;
+                        enoughPts = true;
+                    }
+                }
+                else if (clickedSkill.hasClass("level3")) { 
+                    if (clickedSkill.parent().hasClass("skill01") && remSkillPts >= 2) {
+                        remSkillPts -= 2;
+                        enoughPts = true;
+                    }
+                    else if (clickedSkill.parent().hasClass("skill02") && remSkillPts >= 3) {
+                        remSkillPts -= 3;
+                        enoughPts = true;
+                    }
+                }
+            }
+            // ULT
+            else if (clickedSkill.hasClass("ultSkill") && remSkillPts >= 2) { remSkillPts -= 2; enoughPts = true; }
+            // SKILL ABILITY
+            else if (clickedSkill.hasClass("skillAbil") && remSkillPts >= 3) { remSkillPts -= 3; enoughPts = true; }
+            
+            // add highlight if successfully leveled
+            if (enoughPts == true) {
+                clickedSkill.removeClass("skillDeselected");
+                clickedSkill.addClass("skillSelected");
+            }
+            
+        }
+
+        // display remaining points
+        $(".remSkillPts").html(remSkillPts);
+        
+    }
+    
+    // default build code 
+    // af 11 1000 0000 0000 0000 0 000000 0000000000
+    // ts 33 3000 3b00 3b00 3a00 1 300333 3333333333
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
@@ -1029,7 +1213,7 @@ jQuery(document).ready(function ($) {
             
             // 1 Island In The Sky 虚空の浮島
             {
-                name: "Void's Island", //
+                name: "Island of the Void", //
                 type: "RAID BATTLE",
                 // difficulty
                 diff: "",
@@ -12413,7 +12597,7 @@ jQuery(document).ready(function ($) {
         { // 25
             category: "Story",
             question: "What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?",
-            choice: ["Milene", "Murrie", "Melroph", "Einrain"],
+            choice: ["Milene", "Murrie", "Melrouf", "Einrain"], // Melrophe :/
             answer: ["Murrie"]
         },
         { // 26

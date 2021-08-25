@@ -2788,12 +2788,11 @@ h3.keybindui {
     height: 100%;
     display: none;
     position: absolute;
-    
+    overflow-y: scroll;
     border-radius: 1.042vw;
 }
 #classContainer * {
     z-index: 3;
-    
 }
 .contentViewer {
     width: 100%;
@@ -2801,17 +2800,17 @@ h3.keybindui {
     left: 0;
     top: 0;
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: #080605; /* #080605 */
     opacity: 0.75; /* 0.75 */
     z-index: 2;
     border-radius: 1.042vw;
-    
 }
 
 #backgroundVideo {
     width: 100%;
-    position: absolute; 
+    /* border-radius: 1.042vw; */
+    position: absolute;
     z-index: 1;
     opacity: 1;
     transition: opacity 0.25s ease-in-out;
@@ -2845,11 +2844,12 @@ h3.keybindui {
 }
 
 #skillBuilder {
-    position: absolute;
+    position: relative;
+    /* text-align: center; or define a width and margin auto */
     z-index: 5;
+    margin: auto;
+    width: 1466px;
 }
-
-
 
 .reqPoints {
     line-height: 1.35vw;
@@ -2879,10 +2879,30 @@ h3.keybindui {
     display: inline-block;
     margin-right: 0.52vw;
 }
-.tacSkill:hover {
+
+.skillAbilities {
+    display: inline-block;
+    width: 3.2vw;
+    text-align: center;
+    float: right;
+    position: absolute;
+    top: -1.5vw;
+}
+.skillAbil img {
+    background-color: black;
+    border-radius: 25%
+}
+.abilityItem {
+    position: relative;
+}
+.abilityItem .reqPoints {
+    top: -8px;
+    left: 44px;
+}
+.tacSkill:hover, .ultSkill:hover, .tacAbil:hover, .permSkill:hover, .regSkill:hover, .skillAbil:hover {
     filter: drop-shadow(0 0 0.3vw white);
 }
-.tacSkill:active {
+.tacSkill:active, .ultSkill:active, .tacAbil:active, .permSkill:active, .regSkill:active, .skillAbil:active {
     filter: drop-shadow(0 0 0.3vw #cfef00);
 }
 .tacSkill img {
@@ -2896,44 +2916,120 @@ h3.keybindui {
 .skillSelected, .skillSelected:hover {
     filter: drop-shadow(0 0 0.3vw #cfef00);
 }
-.skillDeselected, .skillDeselected+.reqPoints {
-    filter: contrast(0.75);
-}
-.skillDeselected:hover, .skillDeselected:active {
+.skillDeselected, .skillDeselected+.reqPoints, .skillDeselected:hover, .skillDeselected:active {
     filter: contrast(0.75);
 }
 
-.tacskillCol {
+.tacskillCol, .ultskillCol, .regskillCol {
     display: inline-block;
     width: 160px;
-    
+    vertical-align: top;
+}
+.tacskillCol {
+    padding-left: 10px;
 }
 
 #skillBuilder .tooltip {
     border-color: #baff00;
     z-index: 200;
 }
-.tacSkill:hover+.tooltip, .tacSkill:hover+.reqPoints+.tooltip, .reqPoints:hover+.tooltip, .skillAbilities>img:hover+.tooltip{
+.tacSkill:hover+.tooltip, .tacSkill:hover+.reqPoints+.tooltip, .reqPoints:hover+.tooltip, .skillAbil:hover+.reqPoints+.tooltip{
     display: block;
 }
 
-.skillAbilities {
-    display: inline-block;
-    width: 3.2vw;
-    text-align: center;
-    float: right;
-    position: absolute;
-    top: -1.5vw;
+
+
+.ultskillCol {
+    width: 90px;
+    height: 100px;
+    position: relative;
 }
-.skillAbilities img {
+.ultSkill {
+    background: url(images/skills/51bg.png) 0 0 no-repeat;
+    background-size: 88px 88px;
+    width: 88px;
+    height: 88px;
+}
+.ultskillCol>.reqPoints {
+    left: 56px;
+    top: 10px;
+}
+.ultSkill img {
+    filter: invert();
+    position: relative;
+    transform: scale(0.89);
+    left: 12px;
+    top: 17px;
+}
+
+.tacabilCol {
+    vertical-align: top;
+    display: inline-block;
+    width: 240px;
+    text-align: center;
+    padding-top: 18px;
+}
+.tacAbilInnerCol, .permSkillInnerCol {
+    display: inline-block;
+    width: 75px;
+}
+.tacAbil img {
     background-color: black;
     border-radius: 25%
 }
-.skillAbilities img:hover {
-    filter: drop-shadow(0 0 0.3vw white);
+.regskillCol {
+    width: 88px;
 }
-.skillAbilities img:active {
-    filter: drop-shadow(0 0 0.3vw #cfef00);
+
+.regskillItem {
+    position: relative;
+    display: inline-block;
+    margin-right: 0.52vw;
+}
+.regSkill {
+    background: url(images/skills/01bg.png) 0vw -0.260vw no-repeat;
+    background-size: 88px 88px;
+    width: 88px;
+    height: 88px;
+}
+.regSkill img {
+    filter: invert();
+    position: relative;
+    top: 17px;
+    left: 21px;
+    transform: scale(1.22);
+}
+.regskillItem .reqPoints {
+    top: 2px;
+    left: 54px;
+}
+.tacabilItem {
+    position: relative;
+    height: 90px;
+}
+.tacAbilInnerCol .reqPoints {
+    top: -8px;
+    left: 48px;
+}
+.permskillItem {
+    position: relative;
+    height: 92px;
+    margin-top: -2px;
+}
+.permskillItem .reqPoints {
+    top: -6px;
+    left: 48px;
+}
+.skillColHeaders p {
+    text-align: center;
+    display: inline-block;
+    margin-left: 8px;
+    color: white;
+    margin-bottom: 10px;
+}
+.vertDiv {
+    transform: scaleY(0.675); 
+    margin-top: -200px;
 }
 
 /* ---------------- ABOUT & TRIVIA ---------------- */

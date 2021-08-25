@@ -111,8 +111,10 @@
             <!-- CLASS PAGES -->
             <div id="classContainer">
                 
+                <!--
                 <video autoplay muted loop src="images/skills/af.mp4" draggable="false" id="backgroundVideo"></video>
-                
+                -->
+
                 <div class="contentViewer"></div>
 
                 <div id="classDescription">
@@ -120,10 +122,15 @@
                         <img id="classIcon" src="images/tsicon.svg">
                         
                         <p class="classDesc">
+                            
                             <span class="className">Twin Striker
                                 <img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)">
                             </span>
-                            Twin Striker is a melee class that wields axes in both hands.<br><span style="font-weight: bold">Unique Mechanic: </span>Combo gauge<br>Damaging enemies builds combo gauge, which increases damage. Gauge will reset to 0 if knocked down.</p>
+                            
+                            <span style="font-style: italic;">Twin Striker is a melee class that wields axes in both hands.<br></span>
+                            <span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Combo Gauge<br></span>Damaging enemies builds combo gauge, which increases damage. Gauge will reset to 0 if knocked down.</span>
+                            
+                        </p>
                         
                         <img id="classChart" src="images/skills/afchart.png" draggable="false">
                         
@@ -134,10 +141,77 @@
                 
                 <div id="skillBuilder">
                     
-                    <div class="regskillCol"></div>
+                    <p class="remSkillPts">146</p>
                     
+                    <!-- Column headers -->
+                    <div class="skillColHeaders">
+                        <p style="width: 171px; margin-left: 3px;">Regular Skills</p>
+                        <p style="width: 160px; margin-left: 1px;">Tactical Skills 1</p>
+                        <p style="width: 160px;">Tactical Skills 2</p>
+                        <p style="width: 160px;">Tactical Skills 3</p>
+                        <p style="width: 160px;">Tactical Skills 4</p>
+                        <p style="width: 90px; margin-left: 7px">ULT Skills</p>
+                        <p style="width: 240px;">Tactical Abilities</p>
+                        <p style="width: 240px;">Permanent Skills</p>
+                        
+                    </div>
                     
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
+                    <!-- Reg skills LMB -->
+                    <div class="regskillCol" style="transform: scaleX(-1); margin: 0 -5px">
+                        
+                        <div class="regskillItem skill01">
+                            <div class="regSkill level1 skillSelected">
+                                <img src="images/skills/02.png">
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="regskillItem skill01">
+                            <div class="regSkill level2 skillDeselected">
+                                <img src="images/skills/02.png">
+                            </div>
+                            <p class="reqPoints" style="transform: scaleX(-1); left: 7px">1</p>
+                        </div>
+                        
+                        <div class="regskillItem skill01">
+                            <div class="regSkill level3 skillDeselected">
+                                <img src="images/skills/02.png">
+                            </div>
+                            <p class="reqPoints" style="transform: scaleX(-1); left: 7px">2</p>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Reg skills RMB -->
+                    <div class="regskillCol" style="margin: 0 -5px">
+                        
+                        <div class="regskillItem skill02">
+                            <div class="regSkill level1 skillSelected">
+                                <img src="images/skills/02.png">
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="regskillItem skill02">
+                            <div class="regSkill level2 skillDeselected">
+                                <img src="images/skills/02.png">
+                            </div>
+                            <p class="reqPoints">2</p>
+                        </div>
+                        
+                        <div class="regskillItem skill02">
+                            <div class="regSkill level3 skillDeselected">
+                                <img src="images/skills/02.png">
+                            </div>
+                            <p class="reqPoints">3</p>
+                        </div>
+                        
+                    </div>
+                    
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
+
                     <!-- Tac skills 1 -->
                     <div class="tacskillCol">
                         
@@ -147,7 +221,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill11">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1 skillSelected"> 
                                     <img src="images/skills/af/11.png" draggable="false">
                                 </div>
 
@@ -158,7 +232,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill11">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/11.png" draggable="false">
                                 </div>
 
@@ -170,7 +244,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill11">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/11.png" draggable="false">
                                 </div>
 
@@ -178,11 +252,23 @@
                                 <p class="tooltip">Skill tooltip</p>
 
                                 <div class="skillAbilities">
-
-                                    <img src="images/skills/af/11a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/11b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/11a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/11b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
+                                    
 
                                 </div>
 
@@ -196,7 +282,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill12">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/12.png" draggable="false">
                                 </div>
                                 
@@ -208,7 +294,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill12">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/12.png" draggable="false">
                                 </div>
 
@@ -220,7 +306,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill12">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/12.png" draggable="false">
                                 </div>
 
@@ -229,10 +315,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/12a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/12b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/12a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/12b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -241,6 +338,8 @@
                         </div>
                         
                     </div>
+                    
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
                     <!-- Tac skills 2 -->
                     <div class="tacskillCol">
@@ -251,7 +350,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill21">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/21.png" draggable="false">
                                 </div>
                                 
@@ -263,7 +362,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill21">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/21.png" draggable="false">
                                 </div>
 
@@ -275,7 +374,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill21">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/21.png" draggable="false">
                                 </div>
 
@@ -284,10 +383,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/21a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/21b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/21a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/21b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -301,7 +411,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill22">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/22.png" draggable="false">
                                 </div>
                                 
@@ -313,7 +423,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill22">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/22.png" draggable="false">
                                 </div>
 
@@ -325,7 +435,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill22">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/22.png" draggable="false">
                                 </div>
 
@@ -334,10 +444,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/22a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/22b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/22a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/22b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -346,6 +467,8 @@
                         </div>
                         
                     </div>
+                    
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
                     <!-- Tac skills 3 -->
                     <div class="tacskillCol">
@@ -356,7 +479,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill31">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/31.png" draggable="false">
                                 </div>
                                 
@@ -368,7 +491,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill31">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/31.png" draggable="false">
                                 </div>
 
@@ -380,7 +503,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill31">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/31.png" draggable="false">
                                 </div>
 
@@ -389,10 +512,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/31a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/31b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/31a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/31b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -406,7 +540,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill32">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/32.png" draggable="false">
                                 </div>
                                 
@@ -418,7 +552,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill32">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/32.png" draggable="false">
                                 </div>
 
@@ -430,7 +564,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill32">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/32.png" draggable="false">
                                 </div>
 
@@ -439,10 +573,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/32a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/32b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/32a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/32b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -451,6 +596,8 @@
                         </div>
                         
                     </div>
+                    
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
                     <!-- Tac skills 4 -->
                     <div class="tacskillCol">
@@ -461,7 +608,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill41">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/41.png" draggable="false">
                                 </div>
                                 
@@ -473,7 +620,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill41">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/41.png" draggable="false">
                                 </div>
 
@@ -485,7 +632,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill41">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/41.png" draggable="false">
                                 </div>
 
@@ -494,10 +641,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/41a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/41b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/41a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/41b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -511,7 +669,7 @@
                             <!-- lv 1 -->
                             <div class="tacskillItem skill42">
 
-                                <div class="tacSkill"> 
+                                <div class="tacSkill level1"> 
                                     <img src="images/skills/af/42.png" draggable="false">
                                 </div>
                                 
@@ -523,7 +681,7 @@
                             <!-- lv2 -->
                             <div class="tacskillItem skill42">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level2 skillDeselected">
                                     <img src="images/skills/af/42.png" draggable="false">
                                 </div>
 
@@ -535,7 +693,7 @@
                             <!-- lv3 -->
                             <div class="tacskillItem skill42">
 
-                                <div class="tacSkill">
+                                <div class="tacSkill level3 skillDeselected">
                                     <img src="images/skills/af/42.png" draggable="false">
                                 </div>
 
@@ -544,10 +702,21 @@
 
                                 <div class="skillAbilities">
 
-                                    <img src="images/skills/af/42a.png" style="margin-bottom: 1.5vw">
-                                    <p class="tooltip">Ability A tooltip</p>
-                                    <img src="images/skills/af/42b.png">
-                                    <p class="tooltip">Ability B tooltip</p>
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityA" src="images/skills/af/42a.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability A tooltip</p>
+                                    </div>
+                                    
+                                    <div class="abilityItem">
+                                        <div class="skillAbil skillDeselected">
+                                            <img class="abilityB" src="images/skills/af/42b.png" style="margin-bottom: 1.5vw">
+                                        </div>
+                                        <p class="reqPoints">3</p>
+                                        <p class="tooltip">Ability B tooltip</p>
+                                    </div>
 
                                 </div>
 
@@ -557,12 +726,381 @@
                         
                     </div>
                     
-                   
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
+                    <!-- ULT skill -->
+                    <div class="ultskillCol">
+                        <div class="ultSkill skill51 skillDeselected">
+                            <img src="images/skills/51.png">
+                        </div>
+                        
+                        <p class="reqPoints">2</p>
+                        <p class="tooltip">Skill tooltip</p>
+                        
+                    </div>
                     
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
+                    <!-- Tac abilities -->
+                    <div class="tacabilCol">
+                        
+                        <div class="tacAbilInnerCol">
+                            <div class="tacabilItem">
+                                <div class="tacAbil level1">
+                                    <img src="images/skills/ta1.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level2 skillDeselected">
+                                    <img src="images/skills/ta1.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="tacabilItem"  style="margin-bottom: 20px;">
+                                <div class="tacAbil level3 skillDeselected">
+                                    <img src="images/skills/ta1.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tacAbilInnerCol">
+                            <div class="tacabilItem">
+                                <div class="tacAbil level1">
+                                    <img src="images/skills/ta2.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level2 skillDeselected">
+                                    <img src="images/skills/ta2.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="tacabilItem" style="margin-bottom: 20px;">
+                                <div class="tacAbil level3 skillDeselected">
+                                    <img src="images/skills/ta2.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tacAbilInnerCol">
+                            <div class="tacabilItem">
+                                <div class="tacAbil level1">
+                                    <img src="images/skills/ta3.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level2 skillDeselected">
+                                    <img src="images/skills/ta3.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="tacabilItem" style="margin-bottom: 20px;">
+                                <div class="tacAbil level3 skillDeselected">
+                                    <img src="images/skills/ta3.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="tacAbilInnerCol">
+                            <div class="tacabilItem">
+                                <div class="tacAbil level1">
+                                    <img src="images/skills/ta4.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level2 skillDeselected">
+                                    <img src="images/skills/ta4.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level3 skillDeselected">
+                                    <img src="images/skills/ta4.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tacAbilInnerCol">
+                            <div class="tacabilItem">
+                                <div class="tacAbil level1">
+                                    <img class="tacabil5" src="images/skills/ta5.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level2 skillDeselected">
+                                    <img class="tacabil5" src="images/skills/ta5.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level3 skillDeselected">
+                                    <img class="tacabil5" src="images/skills/ta5.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tacAbilInnerCol">
+                            <div class="tacabilItem">
+                                <div class="tacAbil level1">
+                                    <img class="tacabil6" src="images/skills/ta6.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level2 skillDeselected">
+                                    <img class="tacabil6" src="images/skills/ta6.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="tacabilItem">
+                                <div class="tacAbil level3 skillDeselected">
+                                    <img class="tacabil6" src="images/skills/ta6.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
                     
-                    <div class="tacabilCol"></div>
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
+                    
+                    <!-- PERMANENT -->
+                    <div class="tacabilCol">
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p1.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p1.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p1.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p2.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p2.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p2.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p3.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p3.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p3.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p4.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p4.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p4.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p5.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p5.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p5.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p6.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p6.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p6.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p7.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p7.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p7.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p8.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p8.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p8.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p9.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p9.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem" style="margin-bottom: 20px;">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p9.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="permSkillInnerCol">
+                            <div class="permskillItem">
+                                <div class="permSkill level1">
+                                    <img src="images/skills/p10.png">
+                                </div>
+                                <p class="reqPoints">1</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level2 skillDeselected">
+                                    <img src="images/skills/p10.png">
+                                </div>
+                                <p class="reqPoints">2</p>
+                            </div>
+                            <div class="permskillItem">
+                                <div class="permSkill level3 skillDeselected">
+                                    <img src="images/skills/p10.png">
+                                </div>
+                                <p class="reqPoints">3</p>
+                            </div>
+                        </div>
+                        <div class="permSkillInnerCol"></div>
+                        <div class="permSkillInnerCol"></div>
+                        
+                        
+                    </div>
+                    
+                    <img src="images/skills/vertdiv.png" class="vertDiv">
                     
                     
                     
@@ -1207,7 +1745,7 @@
 
                             <div class="dungeonListItem floatingIsland">
                                 <img src="images/dungeons/list_raid.png">
-                                <h2>Island In The Sky</h2>
+                                <h2>Island of the Void</h2>
                                 <h3>Req. Battle Score</h3>
                                 <h3 class="dungBS">10+</h3>
                                 <h3 style="width: 4.5vw; text-align: center; left: 18.5vw; top: 2.6vw; font-family: 'Roboto'; color: white; font-weight: bolder; font-size: 0.55vw;">RAID</h3>
@@ -1271,7 +1809,7 @@
                             </div>
                             <div class="dungeonListItem dragonHard">
                                 <img src="images/dungeons/list_dungeon.png">
-                                <h2>Dragonclaw Valley<span>★★★</span></h2>
+                                <h2>Dragon Claw Valley<span>★★★</span></h2>
                                 <h3>Req. Battle Score</h3>
                                 <h3 class="dungBS">14+</h3>
                                 <h3 style="width: 4.5vw; text-align: center; left: 18.5vw; top: 2.6vw; font-family: 'Roboto'; color: white; font-weight: bolder; font-size: 0.55vw;">DUNGEON</h3>
@@ -1292,7 +1830,7 @@
                             </div>
                             <div class="dungeonListItem dragonMed">
                                 <img src="images/dungeons/list_dungeon.png">
-                                <h2>Dragonclaw Valley<span>★★</span></h2>
+                                <h2>Dragon Claw Valley<span>★★</span></h2>
                                 <h3>Req. Battle Score</h3>
                                 <h3 class="dungBS">3+</h3>
                                 <h3 style="width: 4.5vw; text-align: center; left: 18.5vw; top: 2.6vw; font-family: 'Roboto'; color: white; font-weight: bolder; font-size: 0.55vw;">DUNGEON</h3>
@@ -1322,7 +1860,7 @@
                             </div>
                             <div class="dungeonListItem dragonEasy">
                                 <img src="images/dungeons/list_dungeon.png">
-                                <h2>Dragonclaw Valley<span><img src="images/msq.svg" style="width: 1.2vw; filter: brightness(0.2); margin-bottom: -0.23vw;"></span></h2>
+                                <h2>Dragon Claw Valley<span><img src="images/msq.svg" style="width: 1.2vw; filter: brightness(0.2); margin-bottom: -0.23vw;"></span></h2>
                                 <h3>Req. Battle Score</h3>
                                 <h3 class="dungBS">2+</h3>
                                 <h3 style="width: 4.5vw; text-align: center; left: 18.5vw; top: 2.6vw; font-family: 'Roboto'; color: white; font-weight: bolder; font-size: 0.55vw;">DUNGEON</h3>
@@ -1720,10 +2258,10 @@
 
 
                         <div class="storyChapter">
-                            <img src="images/map/msqavailable.png" class="storyHeadImg" draggable="false"><h2>Dragonclaw Valley</h2>
+                            <img src="images/map/msqavailable.png" class="storyHeadImg" draggable="false"><h2>Dragon Claw Valley</h2>
                             <p>23. Speak with <a class="npcName">Jake</a> after reaching <a class="storyAR">AR 2</a></p>
-                            <p>24. Meet with <a class="npcName">Jake</a> at <a class="storyMap">Dragonclaw Valley</a></p>
-                            <p>25. Defeat the monsters in <a class="storyDung">Dragonclaw Valley</a></p>
+                            <p>24. Meet with <a class="npcName">Jake</a> at <a class="storyMap">Dragon Claw Valley</a></p>
+                            <p>25. Defeat the monsters in <a class="storyDung">Dragon Claw Valley</a></p>
                             <p>26. Receive rewards from <a class="npcName">Jake</a> at the <a class="storyMap">Frontiering Station</a></p>
                         </div>
                     </div>
@@ -3024,7 +3562,7 @@
                         <p class="mapIcon mapName minsterName" draggable="false" style="top: 30.2%; left: 57.8%;">Minster Hills</p>
                         <!-- Zone tooltip -->
                         <p class="tooltip minsterTool">
-                            <img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br>
+                            <img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragon Claw Valley<br>
                             <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br>
@@ -3084,10 +3622,10 @@
                         <video class="pointPicture" style="width: 25%;" draggable="false" src="images/map/redsplash.mp4" autoplay muted loop></video>
  
                         
-                        <!-- Dragonclaw Valley -->
+                        <!-- Dragon Claw Valley -->
                         <img class="mapIcon mapFreeExp" src="images/map/freexploration.png" draggable="false" style="top: 17%; left: 79.4%;">
-                        <p class="tooltip dragonclawTool" style="border-color: #4a9efa">
-                            Dragonclaw Valley<br>[Free Exploration]<br><br>
+                        <p class="tooltip Dragon ClawTool" style="border-color: #4a9efa">
+                            Dragon Claw Valley<br>[Free Exploration]<br><br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Valley Raider<br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Arrogant Conjurer<br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Loudshout<br>
@@ -3142,14 +3680,14 @@
                         <p class="mapIcon msqNumber mapMSQ" style=" top: 17.5%; left: 77.9%; padding: 0.677vw 0 0 0.833vw;">24</p>
                         <p class="tooltip msq24" style="border-color: #4a9efa">
                             Main Story Quest 24<br>
-                            "Dragonclaw Valley"<br><br>
-                            Meet with Jake at<br>Dragonclaw Valley
+                            "Dragon Claw Valley"<br><br>
+                            Meet with Jake at<br>Dragon Claw Valley
                         </p>
                         <p class="mapIcon msqNumber mapMSQ" style=" top: 15.5%; left: 78.4%; padding: 0.677vw 0 0 0.833vw;">25</p>
                         <p class="tooltip msq25" style="border-color: #4a9efa">
                             Main Story Quest 25<br>
-                            "Dragonclaw Valley"<br><br>
-                            <img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Defeat the monsters in<br>Dragonclaw Valley
+                            "Dragon Claw Valley"<br><br>
+                            <img src="images/map/freexploration.png" style="margin: 0 0.2em -0.3em -0.2em;">Defeat the monsters in<br>Dragon Claw Valley
                         </p>
                         <a></a>
                         <p class="mapIcon msqNumber mapMSQ" style="top: 44.8%; left: 54%; padding: 0.677vw 0 0 0.833vw;">29</p>
@@ -3192,7 +3730,7 @@
                         <p class="mapIcon mapMove mapListItem listAsteriaPlain divineToMinster" draggable="false" style="top: 87.8%; left: 24%;">To Minster Hills</p>
                         <!-- Minter Hills tooltip -->
                         <p class="tooltip divineToMinsterTool" style="margin-top: -17.3rem">
-                            <img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragonclaw Valley<br>
+                            <img src="images/map/freexploration.png" style="transform: scale(0.7); margin: -0.5em 0.1em -0.6em -0.18em; width: 1.510vw;">Dragon Claw Valley<br>
                             <img src="images/map/warpPortal.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.9em -0.5em; width: 2.031vw;">Warp Gate - Minsterhorn<br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Ferocious Beast<br>
                             <img src="images/map/elitemonster.png" style="transform: scale(0.5); margin: -0.5em -0.2em -0.91em -0.5em; width: 2.083vw;">Red Splash<br>
@@ -3494,7 +4032,7 @@
                         <p class="tooltip warp-shrine">Warp Gate<br>Shrine Entrance</p>
                         
                         <img class="mapIcon mapLiquidMemories mapLMyellow" src="images/liquidmemory yellow fad459.svg" draggable="false" style="top: 35.4%; left: 39.65%;">
-                        <p class="tooltip lm-yellow1" style="border-color: #fad459">Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragonclaw Valley [Free Exploration]</p>
+                        <p class="tooltip lm-yellow1" style="border-color: #fad459">Yellow Liquid Memory 1<br><br>Clear Orvis&#39; quest<br>"Haste Makes Waste" (Lv. 24+)<br><br>Retrieve 3 Orvis&#39; Luggage from<br>Glowing Elder Goblins at<br>Dragon Claw Valley [Free Exploration]</p>
                         
                         <img class="mapIcon mapLiquidMemories mapLMgreen" src="images/liquidmemory green 45b343.svg" draggable="false" style="top: 50.1%; left: 59.5%;">
                         <p class="tooltip lm-green1" style="border-color: #45b343">Green Liquid Memory 1<br><br>Clear Godo&#39;s quest<br>"Terms of Exchange for an<br>Ominous Odor" (Lv. 19+)<br><br>Defeat a Spooky Goat<br>at Soundless Foothills<br>and report to Godo</p>
@@ -3629,14 +4167,14 @@
                         <p class="mapIcon msqNumber mapMSQ" style=" top: 39%; left: 50.7%; padding: 0.677vw 0 0 0.833vw;">23</p>
                         <p class="tooltip msq23" style="border-color: #4a9efa">
                             Main Story Quest 23<br>
-                            "Dragonclaw Valley"<br><br>
+                            "Dragon Claw Valley"<br><br>
                             Speak with Jake as<br>Adventure Rank 2
                         </p>
                         <a></a>
                         <p class="mapIcon msqNumber mapMSQ" style=" top: 37%; left: 50.7%; padding: 0.677vw 0 0 0.833vw; background: url(images/map/msqcomplete.png) no-repeat center;">26</p>
                         <p class="tooltip msq26" style="border-color: #b3ff00">
                             Main Story Quest 26<br>
-                            "Dragonclaw Valley"<br><br>
+                            "Dragon Claw Valley"<br><br>
                             Receive rewards from Jake<br>at the Frontiering Station
                         </p>
                         <p class="mapIcon msqNumber mapMSQ" style="top: 64.2%; left: 49.7%; padding: 0.677vw 0 0 0.833vw;">27</p>
