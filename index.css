@@ -2788,7 +2788,6 @@ h3.keybindui {
     height: 100%;
     display: none;
     position: absolute;
-    overflow-y: scroll;
     border-radius: 1.042vw;
 }
 #classContainer * {
@@ -2845,10 +2844,12 @@ h3.keybindui {
 
 #skillBuilder {
     position: relative;
-    /* text-align: center; or define a width and margin auto */
     z-index: 5;
     margin: auto;
     width: 1466px;
+    /* to scroll skill builder without scrolling class description */
+    height: 80%; 
+    overflow-y: scroll;
 }
 
 .reqPoints {

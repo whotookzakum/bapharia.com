@@ -642,38 +642,50 @@ jQuery(document).ready(function ($) {
             
     }
     
-    var maxSkillPts = 146;
-    var remSkillPts = 146;
+    var maxSkillPts = 146; 
+    var remSkillPts = 10;
     
     $(".tacSkill").click(function(){
-        checkEnoughPts($(this));
+        //checkEnoughPts($(this));
+        checkCost($(this));
     });
     $(".tacAbil").click(function(){
-        checkEnoughPts($(this));
+        //checkEnoughPts($(this));
+        checkCost($(this));
     });
     $(".permSkill").click(function(){
-        checkEnoughPts($(this));
+        //checkEnoughPts($(this));
+        checkCost($(this));
     });
     $(".regSkill").click(function(){
-        checkEnoughPts($(this));
+        //checkEnoughPts($(this));
+        checkCost($(this));
     });
     $(".ultSkill").click(function(){
-        checkEnoughPts($(this));
+        //checkEnoughPts($(this));
+        checkCost($(this));
     });
     $(".skillAbil").click(function(){
-        checkEnoughPts($(this));
+        //checkEnoughPts($(this));
+        checkCost($(this));
     });
     
     function checkEnoughPts(clickedSkill) {
         
         var enoughPts = false;
         
-        // Clicking on a highlighted skill will remove it and restore points
+        // DISABLE: remove styling and restore points
         if (clickedSkill.hasClass("skillSelected")) {
             
             // TAC SKILLS
             if (clickedSkill.hasClass("tacSkill")) {
                 if (clickedSkill.hasClass("level1")) {
+                    
+                    // disabling lv 1 will disable lv2 and lv3
+                    if (clickedSkill.parent().next().children(".tacSkill").hasClass("skillSelected")) {
+                        checkEnoughPts(clickedSkill.parent().next().children(".level2"));
+                    }
+                    
                     // top row skills req 1 point
                     if (clickedSkill.parent().hasClass("skill21") || clickedSkill.parent().hasClass("skill31") || clickedSkill.parent().hasClass("skill41"))  {
                         remSkillPts += 1;
@@ -682,60 +694,162 @@ jQuery(document).ready(function ($) {
                     else if ( (clickedSkill.parent().hasClass("skill12") || clickedSkill.parent().hasClass("skill22") || clickedSkill.parent().hasClass("skill32") || clickedSkill.parent().hasClass("skill42")) && remSkillPts >= 2)  {
                         remSkillPts += 2;
                     }
+                    
+                    // lock next level unless clickedSkill is the default skill
+                    if (!clickedSkill.parent().hasClass("skill11")) {
+                        clickedSkill.parent().next().children(".tacSkill").addClass("skillDeselected");
+                    }
+                    
+                    
                 }
-                else if (clickedSkill.hasClass("level2")) { remSkillPts += 3; }
-                else if (clickedSkill.hasClass("level3")) { remSkillPts += 6; }
+                else if (clickedSkill.hasClass("level2")) { 
+                    
+                    // disabling lv 1 will disable lv2 and lv3
+                    if (clickedSkill.parent().next().children(".tacSkill").hasClass("skillSelected")) {
+                        checkEnoughPts(clickedSkill.parent().next().children(".level3"));
+                    }
+                    
+                    remSkillPts += 3; 
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+
+                    // lock next level
+                    clickedSkill.parent().next().children(".tacSkill").addClass("skillDeselected");
+                    
+                    return;
+                    
+                }
+                else if (clickedSkill.hasClass("level3")) { 
+
+                    remSkillPts += 6;
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+                    
+                    // lock next level
+                    //
+                    
+                    return;
+                    
+                }
+                
             }
             // TAC ABILS & PERMANENT
             else if ((clickedSkill.hasClass("tacAbil") || clickedSkill.hasClass("permSkill"))) {
-                if (clickedSkill.hasClass("level1")) { remSkillPts += 1; }
-                else if (clickedSkill.hasClass("level2")) { remSkillPts += 2; }
-                else if (clickedSkill.hasClass("level3")) { remSkillPts += 3; }
+                
+                // Level 1
+                if (clickedSkill.hasClass("level1")) {
+                    
+                    // disabling lv 1 will disable lv2 and lv3
+                    if (clickedSkill.parent().next().children(".level2").hasClass("skillSelected")) {
+                        checkEnoughPts(clickedSkill.parent().next().children(".level2"));
+                    }
+                    
+                    remSkillPts += 1;
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+                    
+                    // lock next level
+                    clickedSkill.parent().next().children(".level2").addClass("skillDeselected");
+                    
+                    
+                }
+                
+                // Level 2
+                else if (clickedSkill.hasClass("level2")) { 
+                    
+                    // disabling lv 1 will disable lv2 and lv3
+                    if (clickedSkill.parent().next().children(".level3").hasClass("skillSelected")) {
+                        checkEnoughPts(clickedSkill.parent().next().children(".level3"));
+                    }
+                    
+                    remSkillPts += 2; 
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+
+                    // lock next level
+                    clickedSkill.parent().next().children(".level3").addClass("skillDeselected");
+                    
+                    return;
+                    
+                }
+                
+                // Level 3
+                else if (clickedSkill.hasClass("level3")) { 
+
+                    remSkillPts += 3;
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+
+                    return;
+                    
+                }
             }
             // REG SKILLS
             else if (clickedSkill.hasClass("regSkill")) {
+                
                 if (clickedSkill.hasClass("level2")) { 
+                    
                     if (clickedSkill.parent().hasClass("skill01")) {
+                        checkEnoughPts(clickedSkill.parent().next().children(".level3"));
                         remSkillPts += 1;
                     }
                     else if (clickedSkill.parent().hasClass("skill02")) {
+                        checkEnoughPts(clickedSkill.parent().next().children(".level3"));
                         remSkillPts += 2;
                     }
+                    
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+
+                    // lock next level
+                    clickedSkill.parent().next().children(".level3").addClass("skillDeselected");
+                    
                 }
                 else if (clickedSkill.hasClass("level3")) { 
+                    
                     if (clickedSkill.parent().hasClass("skill01")) {
                         remSkillPts += 2;
                     }
                     else if (clickedSkill.parent().hasClass("skill02")) {
                         remSkillPts += 3;
                     }
+                    
+                    $(".remSkillPts").html(remSkillPts);
+                    clickedSkill.removeClass("skillSelected");
+                    
+                    return;
                 }
+                
             }
             // ULT
             else if (clickedSkill.hasClass("ultSkill")) { remSkillPts += 2; }
             // SKILL ABILITY
             else if (clickedSkill.hasClass("skillAbil")) { remSkillPts += 3; }
             
-            // remove highlight if not a default skill
+            // remove highlight except for on lv0 skills
             if (
                 !(clickedSkill.hasClass("level1") && clickedSkill.parent().hasClass("skill11")) && 
                 !(clickedSkill.hasClass("level1") && clickedSkill.parent().hasClass("skill01")) &&
                 !(clickedSkill.hasClass("level1") && clickedSkill.parent().hasClass("skill02")) ) {
                 clickedSkill.removeClass("skillSelected");
             }
-
-            // gray out if not Lv1 skill
-            if (!clickedSkill.hasClass("level1")) {
+            
+            // gray out if prereq is not met, except for lv1 skills
+            /*if (!clickedSkill.hasClass("level1") && !clickedSkill.parent().prev().children.hasClass("skillSelected")) {
+                clickedSkill.removeClass("skillSelected");
                 clickedSkill.addClass("skillDeselected");
-            }
+                
+            }*/
 
         }
-        // Clicking on a grayed out skill will highlight it and consume points
+        // ENABLE: add styling and consume points
         else {
             
             // TAC SKILLS
             if (clickedSkill.hasClass("tacSkill")) {
+                // Level 1
                 if (clickedSkill.hasClass("level1") && remSkillPts >= 1) {
+                    
                     // top row skills req 1 point
                     if (clickedSkill.parent().hasClass("skill21") || clickedSkill.parent().hasClass("skill31") || clickedSkill.parent().hasClass("skill41"))  {
                         remSkillPts -= 1; 
@@ -746,43 +860,213 @@ jQuery(document).ready(function ($) {
                         remSkillPts -= 2; 
                         enoughPts = true; 
                     }
+                    
+                    // unlock next level
+                    if (enoughPts == true) {
+                        clickedSkill.parent().next().children(".tacSkill").removeClass("skillDeselected");
+                    }
+                                        
+                    
                 }
-                else if (clickedSkill.hasClass("level2") && remSkillPts >= 3) { remSkillPts -= 3; enoughPts = true; }
-                else if (clickedSkill.hasClass("level3") && remSkillPts >= 6) { remSkillPts -= 6; enoughPts = true; }
+                // Level 2
+                else if (clickedSkill.hasClass("level2") && remSkillPts >= 3) { 
+                    
+                    // if prerequisite level is already enabled, enable current
+                    if (clickedSkill.parent().prev().children(".tacSkill").hasClass("skillSelected")) {
+                        remSkillPts -= 3;
+                        enoughPts = true;
+                    }
+                    // enable prereq (top) skill if enough pts
+                    else if ( (clickedSkill.parent().hasClass("skill21") || clickedSkill.parent().hasClass("skill31") || clickedSkill.parent().hasClass("skill41")) && remSkillPts >= 4) {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".tacSkill"));
+                        remSkillPts -= 3;
+                        enoughPts = true;
+                    }
+                    // enable prereq (bottom) skill if enough pts
+                    else if ( (clickedSkill.parent().hasClass("skill12") || clickedSkill.parent().hasClass("skill22") || clickedSkill.parent().hasClass("skill32") || clickedSkill.parent().hasClass("skill42")) && remSkillPts >= 5) {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".tacSkill"));
+                        remSkillPts -= 3;
+                        enoughPts = true;
+                    }
+                    
+                    // unlock next level
+                    if (enoughPts == true) {
+                        clickedSkill.parent().next().children(".tacSkill").removeClass("skillDeselected");
+                    }
+                    
+                    
+                }
+                // Level 3
+                else if (clickedSkill.hasClass("level3") && remSkillPts >= 6) { 
+                    
+                     // if previous level is already enabled, enable current
+                    if (clickedSkill.parent().prev().children(".tacSkill").hasClass("skillSelected")) {
+                        remSkillPts -= 6;
+                        enoughPts = true;
+                    }
+                    // top row skill
+                    else if ( (clickedSkill.parent().hasClass("skill21") || clickedSkill.parent().hasClass("skill31") || clickedSkill.parent().hasClass("skill41")) && remSkillPts >= 10) {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".tacSkill"));
+                        remSkillPts -= 6;
+                        enoughPts = true;
+                    }
+                    // bottom row skill
+                    else if ( (clickedSkill.parent().hasClass("skill12") || clickedSkill.parent().hasClass("skill22") || clickedSkill.parent().hasClass("skill32") || clickedSkill.parent().hasClass("skill42")) && remSkillPts >= 11) {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".tacSkill"));
+                        remSkillPts -= 6;
+                        enoughPts = true;
+                    }
+                    // tac skill 1 top row
+                    else if (clickedSkill.parent().hasClass("skill11") && remSkillPts >= 9) {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".tacSkill"));
+                        remSkillPts -= 6;
+                        enoughPts = true;
+                    }
+                    
+                    
+                    // unlock the abilities
+                   if (enoughPts == true) {
+                       clickedSkill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil").removeClass("skillDeselected");
+                   } 
+                    
+                    
+                }
             }
             // TAC ABILS & PERMANENT
-            else if ((clickedSkill.hasClass("tacAbil") || clickedSkill.hasClass("permSkill"))) {
-                if (clickedSkill.hasClass("level1") && remSkillPts >= 1) { remSkillPts -= 1; enoughPts = true; }
-                else if (clickedSkill.hasClass("level2") && remSkillPts >= 2) { remSkillPts -= 2; enoughPts = true; }
-                else if (clickedSkill.hasClass("level3") && remSkillPts >= 3) { remSkillPts -= 3; enoughPts = true; }
+            else if (clickedSkill.hasClass("tacAbil") || clickedSkill.hasClass("permSkill")) {
+                
+                // Level 1
+                if (clickedSkill.hasClass("level1") && remSkillPts >= 1) { 
+                    
+                    remSkillPts -= 1; 
+                    enoughPts = true;
+                    
+                    // unlock next level
+                    clickedSkill.parent().next().children(".level2").removeClass("skillDeselected");
+                    
+                }
+                
+                // Level 2
+                else if (clickedSkill.hasClass("level2") && remSkillPts >= 2) { 
+                    
+                    // if previous level is already enabled, enable current
+                    if (clickedSkill.parent().prev().children(".level1").hasClass("skillSelected")) {
+                        remSkillPts -= 2;
+                        enoughPts = true;
+                    }
+                    else {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".level1"));
+                        remSkillPts -= 2; 
+                        enoughPts = true; 
+                    }
+                    
+                    // unlock next level
+                    clickedSkill.parent().next().children(".level3").removeClass("skillDeselected");
+                     
+                }
+                
+                // Level 3
+                else if (clickedSkill.hasClass("level3") && remSkillPts >= 3) { 
+                    
+                    // if previous level is already enabled, enable current
+                    if (clickedSkill.parent().prev().children(".level2").hasClass("skillSelected")) {
+                        remSkillPts -= 3;
+                        enoughPts = true;
+                    }
+                    else {
+                        checkEnoughPts(clickedSkill.parent().prev().children(".level2"));
+                        remSkillPts -= 3; 
+                        enoughPts = true; 
+                    }
+                    
+                }
+                
+                // unlock next level
+                clickedSkill.parent().next().children(".tacAbil").removeClass("skillDeselected");
+                
             }
             // REG SKILLS
             else if (clickedSkill.hasClass("regSkill")) {
+                
+                // Level 1 default on
+                
+                // Level 2
                 if (clickedSkill.hasClass("level2")) { 
+                    
+                    // left skill
                     if (clickedSkill.parent().hasClass("skill01") && remSkillPts >= 1) {
-                        remSkillPts -= 1;
-                        enoughPts = true;
+                        
+                        // previous level is enabled by default
+                        remSkillPts -= 2; 
+                        enoughPts = true; 
+                        
                     }
+                    
+                    // right skill
                     else if (clickedSkill.parent().hasClass("skill02") && remSkillPts >= 2) {
-                        remSkillPts -= 2;
-                        enoughPts = true;
+                        
+                        // previous level is enabled by default
+                        remSkillPts -= 2; 
+                        enoughPts = true; 
+                        
                     }
+                    
                 }
+                
+                // Level 3
                 else if (clickedSkill.hasClass("level3")) { 
+                    
+                    // left skill
                     if (clickedSkill.parent().hasClass("skill01") && remSkillPts >= 2) {
-                        remSkillPts -= 2;
-                        enoughPts = true;
+                        
+                        // if previous level is already enabled, enable current
+                        if (clickedSkill.parent().prev().children(".level2").hasClass("skillSelected")) {
+                            remSkillPts -= 2;
+                            enoughPts = true;
+                        }
+                        else {
+                            checkEnoughPts(clickedSkill.parent().prev().children(".level2"));
+                            remSkillPts -= 2; 
+                            enoughPts = true; 
+                        }
+                        
                     }
+                    
+                    // right skill
                     else if (clickedSkill.parent().hasClass("skill02") && remSkillPts >= 3) {
-                        remSkillPts -= 3;
-                        enoughPts = true;
+                        
+                        // if previous level is already enabled, enable current
+                        if (clickedSkill.parent().prev().children(".level2").hasClass("skillSelected")) {
+                            remSkillPts -= 3;
+                            enoughPts = true;
+                        }
+                        else {
+                            checkEnoughPts(clickedSkill.parent().prev().children(".level2"));
+                            remSkillPts -= 3; 
+                            enoughPts = true; 
+                        }
+                        
                     }
                 }
             }
             // ULT
             else if (clickedSkill.hasClass("ultSkill") && remSkillPts >= 2) { remSkillPts -= 2; enoughPts = true; }
             // SKILL ABILITY
-            else if (clickedSkill.hasClass("skillAbil") && remSkillPts >= 3) { remSkillPts -= 3; enoughPts = true; }
+            else if (clickedSkill.hasClass("skillAbil") && remSkillPts >= 3) { 
+                
+                // check if previous levels enabled
+                if (clickedSkill.parent().parent().siblings(".tacSkill").hasClass("skillSelected")) {
+                    remSkillPts -= 3;
+                    enoughPts = true;
+                }
+                // enable all previous levels if enough points
+                else if (remSkillPts >= 13) {
+                    checkEnoughPts(clickedSkill.parent().parent().siblings(".level3"));
+                    remSkillPts -= 3;
+                    enoughPts = true;
+                }
+                
+            }
             
             // add highlight if successfully leveled
             if (enoughPts == true) {
@@ -794,6 +1078,98 @@ jQuery(document).ready(function ($) {
 
         // display remaining points
         $(".remSkillPts").html(remSkillPts);
+        
+    }
+    
+    
+    var remPts = 146;
+    var reqPts = 0; 
+    
+    function checkCost(skill) {
+        
+        if (!skill.hasClass("skillSelected")) {
+            
+            // Level 1
+            if (skill.hasClass("level1")) {
+
+                // no reg skill
+
+                if (skill.hasClass("tacSkill")) {
+                    // top row skills req 1 point
+                    if (skill.parent().hasClass("skill21") || skill.parent().hasClass("skill31") || skill.parent().hasClass("skill41"))  {
+                        reqPts += 1;
+                    } 
+                    // bottom row skills req 2 points
+                    else if (skill.parent().hasClass("skill12") || skill.parent().hasClass("skill22") || skill.parent().hasClass("skill32") || skill.parent().hasClass("skill42"))  {
+                        reqPts += 2;
+                    }
+                }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts += 1; }
+
+            }
+            // Level 2
+            else if (skill.hasClass("level2")) {
+
+                if (skill.hasClass("regSkill")) {
+                    if (skill.parent().hasClass("skill01")) { reqPts += 1; }
+                    else if (skill.parent().hasClass("skill02")) { reqPts += 2; }
+                }
+                else if (skill.hasClass("tacSkill")) { reqPts += 3; }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts += 2; }
+
+                // check level 1
+                checkCost(skill.parent().prev().children(".level1"));
+
+            }
+            // Level 3
+            else if (skill.hasClass("level3")) {
+
+                if (skill.hasClass("regSkill")) {
+                    if (skill.parent().hasClass("skill01")) { reqPts += 2; }
+                    else if (skill.parent().hasClass("skill02")) { reqPts += 3; }
+                }
+                else if (skill.hasClass("tacSkill")) { reqPts += 6; }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts += 3; }
+
+                // check level 2
+                checkCost(skill.parent().prev().children(".level2"));
+
+            }
+            // Ult
+            else if (skill.hasClass("skill51")) { reqPts += 2; }
+            // Skill Ability
+            else if (skill.hasClass("skillAbil")) { 
+                reqPts += 3; 
+                // check level 3
+                checkCost(skill.parent().parent().siblings(".level3"));
+            }
+            
+        }
+        
+            
+        
+        console.log("REQUIRED POINTS: " + reqPts);
+        
+        if ( (reqPts > 0) && (remPts >= reqPts) )  {
+            // to add pts back just *= -1 
+            remPts -= reqPts;
+            $(".remSkillPts").html(remPts);
+            enableSkills(skill);
+            reqPts = 0;
+            // enable skills
+        }
+        
+    }
+    
+    function enableSkills(skill) {
+        
+        if (!skill.hasClass("skillSelected")) {
+            
+            skill.addClass("skillSelected");
+            
+            
+            
+        }
         
     }
     
