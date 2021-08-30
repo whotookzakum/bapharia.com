@@ -2831,6 +2831,10 @@ h3.keybindui {
     margin: -0.5vw -0.4vw -0.3vw 0.4vw;
     width: 32px;
 }
+#classDescription {
+    position: relative;
+     animation: fadeInRise 1.5s ease 0s 1 forwards;
+}
 .classDesc {
     display: inline-block;
     vertical-align: top; 
@@ -2844,6 +2848,8 @@ h3.keybindui {
 
 #skillBuilder {
     position: relative;
+    animation: fadeInRise 1.5s ease-in-out 0.75s 1 forwards;
+    opacity: 0;
     z-index: 5;
     margin: auto;
     width: 1466px;
@@ -2889,9 +2895,15 @@ h3.keybindui {
     position: absolute;
     top: -1.5vw;
 }
+.skillAbil {
+    height: 52px;
+    margin-bottom: 33px;
+    width: 52px;
+    margin-left: 5px;
+}
 .skillAbil img {
     background-color: black;
-    border-radius: 25%
+    border-radius: 25%;
 }
 .abilityItem {
     position: relative;
@@ -2899,12 +2911,6 @@ h3.keybindui {
 .abilityItem .reqPoints {
     top: -8px;
     left: 44px;
-}
-.tacSkill:hover, .ultSkill:hover, .tacAbil:hover, .permSkill:hover, .regSkill:hover, .skillAbil:hover {
-    filter: drop-shadow(0 0 0.3vw white);
-}
-.tacSkill:active, .ultSkill:active, .tacAbil:active, .permSkill:active, .regSkill:active, .skillAbil:active {
-    filter: drop-shadow(0 0 0.3vw #cfef00);
 }
 .tacSkill img {
     filter: invert();
@@ -2914,11 +2920,20 @@ h3.keybindui {
     width: 2.396vw;
     height: 2.396vw;
 }
-.skillSelected, .skillSelected:hover {
+.skill, .skill+.reqPoints, .skill:hover, .skill:active {
+    filter: contrast(0.75);
+}
+.skillUnlocked, .skillUnlocked+.reqPoints {
+    filter: none;
+}
+.skillUnlocked:hover {
+    filter: drop-shadow(0 0 0.3vw white);
+}
+.skillUnlocked:active {
     filter: drop-shadow(0 0 0.3vw #cfef00);
 }
-.skillDeselected, .skillDeselected+.reqPoints, .skillDeselected:hover, .skillDeselected:active {
-    filter: contrast(0.75);
+.skillSelected, .skillSelected:hover {
+    filter: drop-shadow(0 0 0.3vw #cfef00);
 }
 
 .tacskillCol, .ultskillCol, .regskillCol {
@@ -2938,7 +2953,9 @@ h3.keybindui {
     display: block;
 }
 
-
+.tacSkill:hover+.skillTool>.tooltip, .tacSkill:hover+.reqPoints+.skillTool>.tooltip {
+    display: block;
+}
 
 .ultskillCol {
     width: 90px;
