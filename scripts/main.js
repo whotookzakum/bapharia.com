@@ -368,8 +368,6 @@ jQuery(document).ready(function ($) {
     var currentPage;
     function closePages() {
         
-        $("#contentViewer").css({"display": "none"});
-        
         if (currentPage == "#mapContainer") {
             closeWorldMap();
         }
@@ -382,13 +380,16 @@ jQuery(document).ready(function ($) {
         else if (currentPage == "#guideContainer") {
             closeGuide();
         }
+        if (currentPage == "#classContainer") {
+            closeClasses();
+        }
         
     }
     
     var imajInitial = true;
     var mapInitial = true;
     
-    // Menu buttons open page when clicked
+    // Navi icons
     $("img.navicon").click(function() {
         // There's probably a cleaner way to do this like:
         // 1.   if (this != .classButton) { bg-default opacity 1 }
@@ -419,22 +420,38 @@ jQuery(document).ready(function ($) {
         // Fade in selected page bg
         if ($(this).is("#buttonTwin")){
             bgts.stop().animate({opacity: '1'});
+            closePages();
+            currentPage = "#classContainer";
+            classSrcs = "images/skills/ts";
+            openClasses("twinstriker");
         } 
         else if ($(this).is("#buttonAegis")) {
             bgaf.stop().animate({opacity: '1'});
-            
+            closePages();
+            currentPage = "#classContainer";
+            classSrcs = "images/skills/af";
+            openClasses("aegisfighter");
         }
         else if ($(this).is("#buttonBlast")) {
             bgba.stop().animate({opacity: '1'}); 
-            
+            closePages();
+            currentPage = "#classContainer";
+            classSrcs = "images/skills/ba";
+            openClasses("blastarcher");
         }
         else if ($(this).is("#buttonSpell")) {
             bgsc.stop().animate({opacity: '1'});
-            
+            closePages();
+            currentPage = "#classContainer";
+            classSrcs = "images/skills/sc";
+            openClasses("spellcaster");
         }
         else if ($(this).is("#buttonHeavy")) {
             bghs.stop().animate({opacity: '1'});
-            
+            closePages();
+            currentPage = "#classContainer";
+            classSrcs = "images/skills/hs";
+            openClasses("heavysmasher");
         }
         else {
             // Change BG to default one
@@ -475,7 +492,1854 @@ jQuery(document).ready(function ($) {
         }
     });
     
+    /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
+    // CLASS PAGES
+    
+    var classDescriptions = [
+        
+        // ENGLISH
+        [
+            // AEGIS FIGHTER
+            {
+                name: "Aegis Fighter",
+                icon: "images/aficon.svg",
+                chart: "images/skills/afchart.png",
+                elements: '<img src="images/crafting/light.png" style="filter: brightness(0.9) sepia(1) saturate(300%) hue-rotate(0)" draggable="false">',
+                text: '<span style="font-style: italic;">A melee knight class that has powerful crowd control and tanking abilities.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Shield<br></span>Block incoming attacks with your shield, consuming shield gauge. If shield gauge reaches zero, all shield-utilizing skills will be temporarily disabled.</span>', // can also initiate a counterattack // impenetrable/divine defense
+                video: "images/skills/af.mp4"
+            },
+            // TWIN STRIKER
+            {
+                name: "Twin Striker",
+                icon: "images/tsicon.svg",
+                chart: "images/skills/tschart.png",
+                elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false">',
+                text: '<span style="font-style: italic;">A front line melee class that wields axes in both hands.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Combo Meter<br></span>Damaging enemies builds combo meter, which increases damage. Meter will reset to 0 if knocked down.</span>', // berserk
+                video: "images/skills/ts.mp4"
+            },
+            // BLAST ARCHER
+            {
+                name: "Blast Archer",
+                icon: "images/baicon.svg",
+                chart: "images/skills/bachart.png",
+                elements: '<img src="images/crafting/earth.png" style="filter: brightness(0.3) sepia(1) saturate(500%) hue-rotate(-25deg)" draggable="false">',
+                text: "<span style='font-style: italic;'>A ranged bowman class that specializes in supporting allies and debuffing enemies.<br></span><span style='position: relative; top: 0.5vw;'><span style='font-weight: bold;'>Weakness Targeting<br></span>Manually aim at enemies' weak points to deal additional damage.</span>", // sharp eyes
+                video: "images/skills/ba.mp4"
+            },
+            // SPELL CASTER
+            {
+                name: "Spell Caster",
+                icon: "images/scicon.svg",
+                chart: "images/skills/scchart.png",
+                elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false"><img src="images/crafting/lightning.png" style="filter: brightness(0.7) sepia(1) saturate(300%) hue-rotate(15deg)" draggable="false"><img src="images/crafting/ice.png" style="filter: brightness(0.6) sepia(1) saturate(200%) hue-rotate(140deg)" draggable="false">',
+                text: '<span style="font-style: italic;">A ranged magician class that deals high burst damage by manipulating the elements.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">EP Gauge<br></span>Tactical skills consume EP gauge instead of going on cooldown. EP can be charged, but will leave you vulnerable while doing so.</span>', // manifestation (engram)
+                video: "images/skills/sc.mp4"
+            }
+        ]
+        
+    ]
+    
+    var skillHolder = [
+        // ENGLISH
+        [
+            // Aegis Fighter 0
+            [
+                // 0 Reg Skill LEFT
+                {
+                    title: "Break Slash",
+                    reqPts: ["0","1","2"],
+                    reqLv: ["0","6","8"],
+                    text: [
+                            "Normal combo attacks that utilize a sword<br>Alternate to a spin attack by pressing a sideways directional key during the 4th attack", 
+                            "Adds an attack variation<br>Alternate to a Light elemental attack by pressing the forward directional key during the 3rd attack", 
+                            "Adds an attack variation<br>Alternate to a DEF UP self buff by pressing the backwards directional key during the 2nd attack"
+                    ]
+                },
+                
+                // 1 Reg Skill RIGHT
+                {
+                    title: "Shield Guard",
+                    reqPts: ["0","2","3"],
+                    reqLv: ["0","7","9"],
+                    text: [
+                            "Hold down the key to Guard<br>Holding normal attack while guarding will prepare your sword, and being attacked in this state will initiate a counter attack", 
+                            "Increases the shield gauge's rate of recovery", 
+                            "Increases the maximum limit of the shield gauge"
+                    ]
+                },
+                
+                // 2 Tac Skill 1 TOP
+                {
+                    title: "Shield Charge",
+                    reqPts: ["0","3","6"],
+                    reqLv: ["0","14","21"],
+                    text: [
+                            "Rush forward with your shield, stunning all enemies that are hit<br>Can't be used during Guard Break", 
+                            "Adds the ability to chain an attack after the rush", 
+                            "Adds the ability to chain up to 2 attacks"
+                    ],
+                    abil: [
+                        {
+                            title: "Pursuit",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increase damage of the downward attack"
+                        },
+                        {
+                            title: "Iron Wall",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Temporarily increase your DEF"
+                        }
+                    ]
+                },
+                
+                // 3 Tac Skill 1 BOTTOM
+                {
+                    title: "Sunrise Charge",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","14","21"],
+                    text: [
+                            "Rush forward with your shield, successful attacks will release small Light elemental explosions<br>Can't be used during Guard Break", 
+                            "Adds the ability to chain an attack after the rush<br>After the attack, a medium-sized Light elemental explosion will occur", 
+                            "Adds the ability to chain up to 2 attacks<br>After the attack, a large-sized Light elemental explosion will occur"
+                    ],
+                    abil: [
+                        {
+                            title: "Deep Cuts",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases damage against enemies with elemental status ailments"
+                        },
+                        {
+                            title: "Sunlight",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases the rate of elemental charge accumulation"
+                        }
+                    ]
+                },
+                
+                // 4 Tac Skill 2 TOP
+                {
+                    title: "Blow Beat",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["2","15","22"],
+                    text: [
+                            "An all-directional shockwave attack centered around yourself<br>Enemies that are hit will be provoked", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases skill power", 
+                            "When charged to the max, enemies that are hit will be drawn in towards you"],
+                    abil: [
+                        {
+                            title: "Wide Range",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases the skill's effective area"
+                        },
+                        {
+                            title: "Quick Charge",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Reduces the time required to reach max charge"
+                        }
+                    ]
+                },
+                
+                // 5 Tac Skill 2 BOTTOM
+                {
+                    title: "Celestial Pillar",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","15","22"],
+                    text: [
+                            "Summons a pillar of light centered on you<br>Continuously applies Light elemental damage to enemies within the skill's range", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill power and rate of elemental charge accumulation", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the skill power and rate of elemental charge accumulation"
+                    ],
+                    abil: [
+                        {
+                            title: "Starlight",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases the rate of Light elemental charge accumulation"
+                        },
+                        {
+                            title: "Instantaneous",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Reduces the duration of the Light pillars and increases hit count"
+                        }
+                    ]
+                },
+                
+                // 6 Tac Skill 3 TOP
+                {
+                    title: "Divide Slash",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["3","16","23"],
+                    text: [
+                            "A slash attack that pierces enemies in front of you", 
+                            "Adds the ability to slash up to 2 times", 
+                            "Adds the ability to slash up to 3 times"
+                    ],
+                    abil: [
+                        {
+                            title: "Tempered Blade",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases skill power but slashes no longer pierce enemies"
+                        },
+                        {
+                            title: "Extended Sword",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases slash range"
+                        }
+                    ]
+                },
+                
+                // 7 Tac Skill 3 BOTTOM
+                {
+                    title: "Crescent Light",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","16","23"],
+                    text: [
+                            "A Light elemental slash attack in the forward direction", 
+                            "Adds the ability to slash up to 2 times", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Moonlight",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases rate of elemental charge accumulation"
+                        },
+                        {
+                            title: "Gigablade",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases skill power"
+                        }
+                    ]
+                },
+                
+                // 8 Tac Skill 4 TOP
+                {
+                    title: "Fortress",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["4","17","24"],
+                    text: [
+                            "Temporarily apply the Shield Up status effect<br>Can't be used during Guard Break", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Unison",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Increases counter attack power while skill is in effect"
+                        },
+                        {
+                            title: "Thorns",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Successful guards while the skill is in effect will cause an explosion, applying Light elemental damage to surrounding enemies"
+                        }
+                    ]
+                },
+                
+                // 9 Tac Skill 4 BOTTOM
+                {
+                    title: "Regeneration",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","17","24"],
+                    text: [
+                            "Continuously recover HP over a period of time", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Healing Boost",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Increases the HP recovered by Regeneration"
+                        },
+                        {
+                            title: "Fortify",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Recover your shield gauge along with HP"
+                        }
+                    ]
+                },
+                
+                // 10 ULT Skill
+                {
+                    title: "Judgement Shield",
+                    reqPts: "2",
+                    reqLv: "5",
+                    text: "A Light elemental shockwave attack that hits an area in front of you<br>Shield Gauge is recovered upon use<br>Successful guards slightly reduce ULT skill cooldown"
+                },
+                
+                // 11 Tac Abil 5
+                {
+                    title: "Shield Gauge Efficiency",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Reduces the amount of shield gauge consumed after a successful block", 
+                            "Reduces the amount of shield gauge consumed after a successful block", 
+                            "Reduces the amount of shield gauge consumed after a successful block"
+                    ]
+                },
+                
+                // 12 Tac Abil 6
+                {
+                    title: "Shield Gauge Recovery Speed",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Increases the recovery rate of the Shield Gauge", 
+                            "Increases the recovery rate of the Shield Gauge", 
+                            "Increases the recovery rate of the Shield Gauge"
+                    ]
+                }
+
+                
+            ],
+            // Twin Striker 1
+            [
+                // 0 Reg Skill LEFT
+                {
+                    title: "Beast Swing",
+                    reqPts: ["0","1","2"],
+                    reqLv: ["0","6","8"],
+                    text: [
+                            "Normal combo attack that utilizes axes<br>Alternate to a wide range attack by pressing a sideways directional key at the 4th stage", 
+                            "Adds an attack variation<br>Alternate to a fire elemental attack by pressing the forward directional key during the 3rd attack", 
+                            "Adds an attack variation<br>Alternate to an ATK UP self buff by pressing the backwards directional key during the 2nd attack"
+                    ]
+                },
+                
+                // 1 Reg Skill RIGHT
+                {
+                    title: "Axe Tornado",
+                    reqPts: ["0","2","3"],
+                    reqLv: ["0","7","9"],
+                    text: [
+                            "Perform a spinning attack<br>During the attack you are immune to flinching and incoming damage is reduced", 
+                            "Enemies are more likely to be knocked back when hit", // Enemies that are hit are more likely to be knocked back... (by successive attacks or only this one..?)
+                            "Adds the ability to chain a spinning attack after the uppercut" // might be incorrect
+                    ]
+                },
+                
+                // 2 Tac Skill 1 TOP
+                {
+                    title: "Brutal Blow",
+                    reqPts: ["0","3","6"],
+                    reqLv: ["0","14","21"],
+                    text: [
+                            "A wide ranged spin attack in the forward direction", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases skill power", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases skill power"
+                    ],
+                    abil: [
+                        {
+                            title: "Absorber",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Recover a portion of the damage dealt as HP"
+                        },
+                        {
+                            title: "Fighting Spirit",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Consumes combo gauge when the skill is used to increase skill power"
+                        }
+                    ]
+                },
+                
+                // 3 Tac Skill 1 BOTTOM
+                {
+                    title: "Crimson Blow",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","14","21"],
+                    text: [
+                            "A fire elemental spin attack<br>Can hit up to 3 times", 
+                            "Reduces skill damage but increases maximum hits to 5 and increases the rate of elemental charge accumulation", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill power and rate of elemental charge accumulation"
+                    ],
+                    abil: [
+                        {
+                            title: "Rush Up",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases the rate of combo gauge accumulation"
+                        },
+                        {
+                            title: "Trance",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases the rate of elemental charge accumulation"
+                        }
+                    ]
+                },
+                
+                // 4 Tac Skill 2 TOP
+                {
+                    title: "Fall Impact",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["2","15","22"],
+                    text: [
+                            "A large forward-leap attack<br>Upon landing, shockwaves will damage the surrounding area", 
+                            "Enemies that are hit are more likely to get knocked down", // will BECOME easier to knock down (by successive hits) ..?
+                            "Increases the shockwave's effective area and skill power"],
+                    abil: [
+                        {
+                            title: "Overswing",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases skill's effective area"
+                        },
+                        {
+                            title: "Fatal Hit",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases the damage of the down attack"
+                        }
+                    ]
+                },
+                
+                // 5 Tac Skill 2 BOTTOM
+                {
+                    title: "Lava Impact",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","15","22"],
+                    text: [
+                            "A forward-leap attack imbued with fire<br>Causes the ground around the impact to catch on fire, dealing continuous damage", 
+                            "Leap up to 2 times<br>After both attacks, the ground will catch fire", 
+                            "Leap up to 3 times<br>After all 3 attacks, the ground will catch fire"
+                    ],
+                    abil: [
+                        {
+                            title: "Pinpoint Attack",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Decreases the ground fire's size but increases its damage"
+                        },
+                        {
+                            title: "Progress",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases the duration of the ground fire"
+                        }
+                    ]
+                },
+                
+                // 6 Tac Skill 3 TOP
+                {
+                    title: "Storm Rush",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["3","16","23"],
+                    text: [
+                            "A wide range 2-hit combo attack to enemies in front of you", 
+                            "Maximum hits increases to 4", 
+                            "Maximum hits increases to 6"
+                    ],
+                    abil: [
+                        {
+                            title: "Violation",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases the damage of the down attack"
+                        },
+                        {
+                            title: "Combo Accel",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases the rate of combo gauge accumulation"
+                        }
+                    ]
+                },
+                
+                // 7 Tac Skill 3 BOTTOM
+                {
+                    title: "Burning Rush",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","16","23"],
+                    text: [
+                            "A 2-hit fire elemental combo attack to enemies in front of you", 
+                            "Maximum hits increases to 4", 
+                            "Maximum hits increases to 6"
+                    ],
+                    abil: [
+                        {
+                            title: "Sensibility",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases the rate of elemental charge accumulation"
+                        },
+                        {
+                            title: "Perfection",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Reduces Burning Rush's cooldown if all attacks successfully hit"
+                        }
+                    ]
+                },
+                
+                // 8 Tac Skill 4 TOP
+                {
+                    title: "Warcry",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["4","17","24"],
+                    text: [
+                            "Temporarily applies the Super Armor self buff<br>(You will not flinch when hit)", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Berserk",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Applies Warcry to self and nearby party members"
+                        },
+                        {
+                            title: "Unbreakable Spirit",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Recover HP when the skill is used"
+                        }
+                    ]
+                },
+                
+                // 9 Tac Skill 4 BOTTOM
+                {
+                    title: "Blood Axe",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","17","24"],
+                    text: [
+                            "Temporarily applies an HP Drain self buff<br>(A portion of damage dealt will be restored as HP)", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Inspire",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Applies Blood Axe to self and nearby party members"
+                        },
+                        {
+                            title: "Selfish",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Increases the amount of HP recovered when damaging enemies"
+                        }
+                    ]
+                },
+                
+                // 10 ULT Skill
+                {
+                    title: "Vortex Impact",
+                    reqPts: "2",
+                    reqLv: "5",
+                    text: "Lift enemies in front of you, then slam down the area on the ground"
+                },
+                
+                // 11 Tac Abil 5
+                {
+                    title: "Combo Gauge Filler",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Increases the rate at which the Combo Gauge fills", 
+                            "Increases the rate at which the Combo Gauge fills", 
+                            "Increases the rate at which the Combo Gauge fills"
+                    ]
+                },
+                
+                // 12 Tac Abil 6
+                {
+                    title: "Max Combo Gauge Bonus",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Further increases your damage when the combo gauge is full", 
+                            "Further increases your damage when the combo gauge is full", 
+                            "Further increases your damage when the combo gauge is full"
+                    ]
+                }
+            ],
+            // Blast Archer 2 
+            [
+                // 0 Reg Skill LEFT
+                {
+                    title: "Arrow Rush",
+                    reqPts: ["0","1","2"],
+                    reqLv: ["0","6","8"],
+                    text: [
+                            "Chain up to 4 longe ranged attacks using a bow and arrow<br>Perform a 5-way cone shaped attack in front of you by holding the key during the 2nd attack", 
+                            "Alternate to an earth elemental area attack by holding the key during the 3rd attack", 
+                            "Hold the key during the first attack to apply a Speed Up status effect to nearby players in front of you"
+                    ]
+                },
+                
+                // 1 Reg Skill RIGHT
+                {
+                    title: "Slalom Shot",
+                    reqPts: ["0","2","3"],
+                    reqLv: ["0","7","9"],
+                    text: [
+                            "Consume stamina to attack in a straight line while moving<br>Can't be used with insufficient stamina", 
+                            "Increases movement distance", 
+                            "Reduces stamina consumption"
+                    ]
+                },
+                
+                // 2 Tac Skill 1 TOP
+                {
+                    title: "Strike Arrow",
+                    reqPts: ["0","3","6"],
+                    reqLv: ["0","14","21"],
+                    text: [
+                            "Fire a high-damage arrow in a straight line", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill power", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the skill power"
+                    ],
+                    abil: [
+                        {
+                            title: "Concentration",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Reduces the time required to reach max charge"
+                        },
+                        {
+                            title: "Full Power Shot",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases skill power but also increases time required to reach max charge"
+                        }
+                    ]
+                },
+                
+                // 3 Tac Skill 1 BOTTOM
+                {
+                    title: "Hypno Blast",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","14","21"],
+                    text: [
+                            "Fire an arrow that puts enemies to sleep, inflicting the Sleep status ailment", 
+                            "Adds piercing effect", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill power"
+                    ],
+                    abil: [
+                        {
+                            title: "Damage Boost",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases skill power, but loses piercing effect"
+                        },
+                        {
+                            title: "Quick Drive",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Reduces the time required to reach max charge"
+                        }
+                    ]
+                },
+                
+                // 4 Tac Skill 2 TOP
+                {
+                    title: "Stampede Arrow",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["2","15","22"],
+                    text: [
+                            "Fires 4 homing arrows at nearby enemies", 
+                            "Number of arrows increases to 6", 
+                            "Adds the ability to fire an additional arrow straight ahead after the homing arrows"],
+                    abil: [
+                        {
+                            title: "Poisonic",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Applies poison to enemies"
+                        },
+                        {
+                            title: "Penetration",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Adds piercing effect"
+                        }
+                    ]
+                },
+                
+                // 5 Tac Skill 2 BOTTOM
+                {
+                    title: "Negative Resonance",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","15","22"],
+                    text: [
+                            "Fire a straight shot arrow<br>If the enemies that are hit have an elemental status ailment, the status ailment will be spread to nearby enemies", 
+                            "Increases the range that the elemental status ailment can be spread", 
+                            "Adds the ability to chain an additional attack after the first"
+                    ],
+                    abil: [
+                        {
+                            title: "Range Attack",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Successfully spreading elemental status ailments will deal additional damage"
+                        },
+                        {
+                            title: "Chain Infection",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Adds piercing effect"
+                        }
+                    ]
+                },
+                
+                // 6 Tac Skill 3 TOP
+                {
+                    title: "Lethal Shower",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["3","16","23"],
+                    text: [
+                            "Rains down arrows at the designated spot<br>Continuously damages enemies within the skill's effective area", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases skill's effective area and skill power", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases skill's effective area and skill power"
+                    ],
+                    abil: [
+                        {
+                            title: "Concentrated Rainstorm",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Reduces the skill's effective area but increases skill power"
+                        },
+                        {
+                            title: "Acceleration",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Reduces the time required to reach max charge"
+                        }
+                    ]
+                },
+                
+                // 7 Tac Skill 3 BOTTOM
+                {
+                    title: "Dust Force",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","16","23"],
+                    text: [
+                            "Launch an area attack at a designated spot<br>Continuously deals earth elemental damage and strengthens status ailments", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the duration of the damaging area", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the duration of the damaging area"
+                    ],
+                    abil: [
+                        {
+                            title: "Tempered Agility",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Reduces the time required to reach max charge"
+                        },
+                        {
+                            title: "Delay",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Applies the Speed Down status effect to enemies"
+                        }
+                    ]
+                },
+                
+                // 8 Tac Skill 4 TOP
+                {
+                    title: "Healing Arrow",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["4","17","24"],
+                    text: [
+                            "Generates a healing field at the designated spot", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill's effective area and HP recovery amount", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the skill's effective area and HP recovery amount"
+                    ],
+                    abil: [
+                        {
+                            title: "Scale Up",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Increases the skill's effective area"
+                        },
+                        {
+                            title: "Snipe Heal",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Reduces the skill's effective area but increases HP recovery"
+                        }
+                    ]
+                },
+                
+                // 9 Tac Skill 4 BOTTOM
+                {
+                    title: "Hunter's Spirit",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","17","24"],
+                    text: [
+                            "Temporarily applies the Quick Interval status effect on yourself<br>(Reduces regular/tactical skill cooldowns)", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Signal Flare",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Applies Hunter's Spirit to nearby party members"
+                        },
+                        {
+                            title: "Sharpness",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Temporarily apply the ATK UP status effect"
+                        }
+                    ]
+                },
+                
+                // 10 ULT Skill
+                {
+                    title: "Mortal Gravity",
+                    reqPts: "2",
+                    reqLv: "5",
+                    text: "Draw in nearby enemies to the point of impact<br>Continuously damage enemies within the skill's range"
+                },
+                
+                // 11 Tac Abil 5
+                {
+                    title: "Rescue Up",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Reduces the time required to rescue a player", 
+                            "Reduces the time required to rescue a player", 
+                            "Reduces the time required to rescue a player"
+                    ]
+                },
+                
+                // 12 Tac Abil 6
+                {
+                    title: "Recovery Up",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Increases the effect of self-healing actions", 
+                            "Increases the effect of self-healing actions", 
+                            "Increases the effect of self-healing actions"
+                    ]
+                }
+            ],
+            // Spell Caster 3
+            [
+                // 0 Reg Skill LEFT
+                {
+                    title: "Trinity Shot",
+                    reqPts: ["0","1","2"],
+                    reqLv: ["0","6","8"],
+                    text: [
+                            "Attack up to 3 times from range using engram bullets<br>Alternate to a knockback attack by pressing a sideways directional key during the 3rd attack", 
+                            "Alternate to an attack that applies Speed Down by pressing the forward directional key during the 3rd attack", 
+                            "Apply a Quick Charge self buff by pressing the backwards directional key during the 3rd attack"
+                    ]
+                },
+                
+                // 1 Reg Skill RIGHT
+                {
+                    title: "Engram Charge",
+                    reqPts: ["0","2","3"],
+                    reqLv: ["0","7","9"],
+                    text: [
+                            "When activated, recover EP<br>Holding the key down will continuously recover EP", 
+                            "Increases the amount of EP recovered while holding the key down", 
+                            "Increases the amount of EP recovered while the skill is active"
+                    ]
+                },
+                
+                // 2 Tac Skill 1 TOP
+                {
+                    title: "Fire Blast",
+                    reqPts: ["0","3","6"],
+                    reqLv: ["0","14","21"],
+                    text: [
+                            "A single long range fire elemental attack", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill power", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the skill power"
+                    ],
+                    abil: [
+                        {
+                            title: "Quick Charge",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Reduces the time required to reach max charge"
+                        },
+                        {
+                            title: "Element Up",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases the rate of elemental charge accumulation"
+                        }
+                    ]
+                },
+                
+                // 3 Tac Skill 1 BOTTOM
+                {
+                    title: "Flame Grenade",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","14","21"],
+                    text: [
+                            "Launches a fire elemental bomb that explodes on impact", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill power", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the skill power"
+                    ],
+                    abil: [
+                        {
+                            title: "Burst Plus",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases the skill's effective area"
+                        },
+                        {
+                            title: "Ignition",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: "Increases the rate of elemental charge accumulation"
+                        }
+                    ]
+                },
+                
+                // 4 Tac Skill 2 TOP
+                {
+                    title: "",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["2","15","22"],
+                    text: [
+                            "A lightning elemental attack that hits straight ahead<br>Fires 3 lightning strikes that pierce enemies", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the number of lightning strikes", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the number of lightning strikes"],
+                    abil: [
+                        {
+                            title: "Escalation",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases EP consumption and skill power"
+                        },
+                        {
+                            title: "EP Saver",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Reduces amount of EP consumed"
+                        }
+                    ]
+                },
+                
+                // 5 Tac Skill 2 BOTTOM
+                {
+                    title: "Thunder Mine",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","15","22"],
+                    text: [
+                            "Fire thunder mines that chase down nearby enemies<br>When the mines hit, deals area-of-effect lightning damage", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the number of thunder mines", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the number of thunder mines"
+                    ],
+                    abil: [
+                        {
+                            title: "Spread Out",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases the skill's effective area"
+                        },
+                        {
+                            title: "Escalation",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: "Increases EP consumption and skill power"
+                        }
+                    ]
+                },
+                
+                // 6 Tac Skill 3 TOP
+                {
+                    title: "Blizzard",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["3","16","23"],
+                    text: [
+                            "Summons a gale of ice at the designated spot<br>Applies ice damage to enemies within the skill's range", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the skill's effective area and duration", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the skill's effective area and duration"
+                    ],
+                    abil: [
+                        {
+                            title: "Rapid Charge",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Reduces the time required to reach max charge"
+                        },
+                        {
+                            title: "Long Range",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases the skill's effective area"
+                        }
+                    ]
+                },
+                
+                // 7 Tac Skill 3 BOTTOM
+                {
+                    title: "Frigid Crush",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","16","23"],
+                    text: [
+                            "Drops an ice block at the designated spot<br>Applies ice damage to enemies within the skill's range", 
+                            "Adds the ability to charge to 2nd stage<br>Charging to higher stages increases the number of ice blocks", 
+                            "Adds the ability to charge to 3rd stage<br>Charging to higher stages increases the number of ice blocks"
+                    ],
+                    abil: [
+                        {
+                            title: "Wide Range",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Increases the skill's effective area"
+                        },
+                        {
+                            title: "Pierce Cast",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: "Reduces the skill's effective area but increases skill power"
+                        }
+                    ]
+                },
+                
+                // 8 Tac Skill 4 TOP
+                {
+                    title: "Concentration",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["4","17","24"],
+                    text: [
+                            "Continuously recover EP over a period of time", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Regain",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Continuously recover HP over a period of time"
+                        },
+                        {
+                            title: "Energy Charge",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Recover EP when the skill is used"
+                        }
+                    ]
+                },
+                
+                // 9 Tac Skill 4 BOTTOM
+                {
+                    title: "Follow Bullet",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","17","24"],
+                    text: [
+                            "Temporarily summons engram bullets that float around you<br>When using a tactical skill, the bullets will fire with the respective element", 
+                            "Increases skill duration", 
+                            "Reduces skill cooldown"
+                    ],
+                    abil: [
+                        {
+                            title: "Element Force",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Increases the damage of the engram bullets"
+                        },
+                        {
+                            title: "Element Escalate",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: "Increases rate of elemental charge accumulation from the engram bullets "
+                        }
+                    ]
+                },
+                
+                // 10 ULT Skill
+                {
+                    title: "Meteor Inferno",
+                    reqPts: "2",
+                    reqLv: "5",
+                    text: "Drops a meteorite at the designated spot"
+                },
+                
+                // 11 Tac Abil 5
+                {
+                    title: "Max EP Increase",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Increases Max EP", 
+                            "Increases Max EP", 
+                            "Increases Max EP"
+                    ]
+                },
+                
+                // 12 Tac Abil 6
+                {
+                    title: "Resolution",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "Temporarily grants super armor when beginning to charge a tactical skill<br>The duration of Resolution increases based on its skill level", 
+                            "Temporarily grants super armor when beginning to charge a tactical skill<br>The duration of Resolution increases based on its skill level", 
+                            "Temporarily grants super armor when beginning to charge a tactical skill<br>The duration of Resolution increases based on its skill level"
+                    ]
+                }
+            ],
+            // Heavy Smasher 4
+            [
+                // 0 Reg Skill LEFT
+                {
+                    title: "",
+                    reqPts: ["0","1","2"],
+                    reqLv: ["0","6","8"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ]
+                },
+                
+                // 1 Reg Skill RIGHT
+                {
+                    title: "",
+                    reqPts: ["0","2","3"],
+                    reqLv: ["0","7","9"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ]
+                },
+                
+                // 2 Tac Skill 1 TOP
+                {
+                    title: "",
+                    reqPts: ["0","3","6"],
+                    reqLv: ["0","14","21"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 3 Tac Skill 1 BOTTOM
+                {
+                    title: "",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","14","21"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "27",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 4 Tac Skill 2 TOP
+                {
+                    title: "",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["2","15","22"],
+                    text: [
+                            "", 
+                            "", 
+                            ""],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 5 Tac Skill 2 BOTTOM
+                {
+                    title: "",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","15","22"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "28",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 6 Tac Skill 3 TOP
+                {
+                    title: "",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["3","16","23"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 7 Tac Skill 3 BOTTOM
+                {
+                    title: "",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","16","23"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "29",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 8 Tac Skill 4 TOP
+                {
+                    title: "",
+                    reqPts: ["1","3","6"],
+                    reqLv: ["4","17","24"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 9 Tac Skill 4 BOTTOM
+                {
+                    title: "",
+                    reqPts: ["2","3","6"],
+                    reqLv: ["10","17","24"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ],
+                    abil: [
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: ""
+                        },
+                        {
+                            title: "",
+                            reqPts: "3",
+                            reqLv: "30",
+                            text: ""
+                        }
+                    ]
+                },
+                
+                // 10 ULT Skill
+                {
+                    title: "",
+                    reqPts: "2",
+                    reqLv: "5",
+                    text: ""
+                },
+                
+                // 11 Tac Abil 5
+                {
+                    title: "",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ]
+                },
+                
+                // 12 Tac Abil 6
+                {
+                    title: "",
+                    reqPts: ["2","3","4"],
+                    reqLv: ["12","19","25"],
+                    text: [
+                            "", 
+                            "", 
+                            ""
+                    ]
+                }
+            ]
+        ],
+        
+    ]
+    
+    var classIndex = 0;
+    var classSrcs = "";
+    
+    function openClasses(currentClass) {
+        $("#classContainer").css("display","block");
+        $(".contentViewer").css("display","block");
+        
+        
+         
+        if (currentClass == "aegisfighter") { classIndex = 0; classSrcs = "images/skills/af/" }
+        if (currentClass == "twinstriker") { classIndex = 1; classSrcs = "images/skills/ts/" }
+        if (currentClass == "blastarcher") { classIndex = 2; classSrcs = "images/skills/ba/" }
+        if (currentClass == "spellcaster") { classIndex = 3; classSrcs = "images/skills/sc/" }
+        if (currentClass == "heavysmasher") { classIndex = 4; classSrcs = "images/skills/hs/" }
+        
+        var thisClass = classDescriptions[currentLang][classIndex];
+        
+        $(".classDesc").html('<span class="className">' + thisClass.name + thisClass.elements + '</span>' + thisClass.text);
+        $("#classChart").attr("src", thisClass.chart);
+        $("#classIcon").attr("src", thisClass.icon);
+        $("#backgroundVideo").attr("src", thisClass.video);
+        
+        openSkills();
+        
+    }
+    
+    function closeClasses(currentClass) {
+        $("#classContainer").css("display","none");
+        $(".contentViewer").css("display","none");
+        
+    }
+    
+    function openSkills (currentClass) {
+        
+        // IMAGES
+        
+        // reg skills
+        //$(".skill01").attr("src", "images/skills/01.png");
+        //$(".skill02").attr("src", "images/skills/02.png");
+        
+        // tac skills 1
+        $(".skill11>.tacSkill>img").attr("src", classSrcs + "11.png");
+        $(".skill12>.tacSkill>img").attr("src", classSrcs + "12.png");
+        $(".skill11 .abilityA").attr("src", classSrcs + "11a.png");
+        $(".skill11 .abilityB").attr("src", classSrcs + "11b.png");
+        $(".skill12 .abilityA").attr("src", classSrcs + "12a.png");
+        $(".skill12 .abilityB").attr("src", classSrcs + "12b.png");
+        
+        // tac skills 2
+        $(".skill21>.tacSkill>img").attr("src", classSrcs + "21.png");
+        $(".skill22>.tacSkill>img").attr("src", classSrcs + "22.png");
+        $(".skill21 .abilityA").attr("src", classSrcs + "21a.png");
+        $(".skill21 .abilityB").attr("src", classSrcs + "21b.png");
+        $(".skill22 .abilityA").attr("src", classSrcs + "22a.png");
+        $(".skill22 .abilityB").attr("src", classSrcs + "22b.png");
+        
+        // tac skills 3
+        $(".skill31>.tacSkill>img").attr("src", classSrcs + "31.png");
+        $(".skill32>.tacSkill>img").attr("src", classSrcs + "32.png");
+        $(".skill31 .abilityA").attr("src", classSrcs + "31a.png");
+        $(".skill31 .abilityB").attr("src", classSrcs + "31b.png");
+        $(".skill32 .abilityA").attr("src", classSrcs + "32a.png");
+        $(".skill32 .abilityB").attr("src", classSrcs + "32b.png");
+        
+        // tac skills 4
+        $(".skill41>.tacSkill>img").attr("src", classSrcs + "41.png");
+        $(".skill42>.tacSkill>img").attr("src", classSrcs + "42.png");
+        $(".skill41 .abilityA").attr("src", classSrcs + "41a.png");
+        $(".skill41 .abilityB").attr("src", classSrcs + "41b.png");
+        $(".skill42 .abilityA").attr("src", classSrcs + "42a.png");
+        $(".skill42 .abilityB").attr("src", classSrcs + "42b.png");
+        
+        // ult
+        //$(".skill51").attr("src", "images/skills/51.png");
+        
+        // tac abilities
+        $(".tacabil5").attr("src", classSrcs + "ta5.png");
+        $(".tacabil6").attr("src", classSrcs + "ta6.png");
+
+        // static images, just load them in html
+        /* 
+        if (classSrcs == "") {
+            $("#tacabil1").attr("src", "images/skills/ta1.png");
+            $("#tacabil2").attr("src", "images/skills/ta2.png");
+            $("#tacabil3").attr("src", "images/skills/ta3.png");
+            $("#tacabil4").attr("src", "images/skills/ta4.png");
+
+            // permanent
+            $("#passive1").attr("src", "images/skills/p1.png");
+            $("#passive2").attr("src", "images/skills/p2.png");
+            $("#passive3").attr("src", "images/skills/p3.png");
+            $("#passive4").attr("src", "images/skills/p4.png");
+            $("#passive5").attr("src", "images/skills/p5.png");
+            $("#passive6").attr("src", "images/skills/p6.png");
+            $("#passive7").attr("src", "images/skills/p7.png");
+            $("#passive8").attr("src", "images/skills/p8.png");
+            $("#passive9").attr("src", "images/skills/p9.png");
+            $("#passive10").attr("src", "images/skills/p10.png");
+        }
+        */
+        
+        
+        
+        
+        // TOOLTIPS
+        
+        var skillIndex = 0;
+        var skill = skillHolder[currentLang][classIndex][skillIndex];
+        
+        // Reg skills
+        /*
+        $(".tacskillItem").each(function(index){
+            index += 2;
+            $(this).children(".tooltip").each(function(i){
+                $(this).html(skill[index].title + "<br>" + skill[index].text[i]);
+            });
+        }); 
+        
+        $(".level1").each(function(index){
+            
+            $(this).nextUntil(".tooltip").next().html(skill[index].title + "<br>" + skill[index].text[0]);
+            
+        });
+        $(".level2").each(function(index){
+            
+            $(this).nextUntil(".tooltip").next().html(skill[index].title + "<br>" + skill[index].text[1]);
+            
+        });
+        $(".level3").each(function(index){
+            
+            $(this).nextUntil(".tooltip").next().html(skill[index].title + "<br>" + skill[index].text[2]);
+            
+        });
+        */
+        
+        $(".skill01>.level1+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill01>.level2+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill01>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill02>.level1+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill02>.level2+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill02>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill11>.level1+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill11>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill11>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        /*
+        $(".abilityA").each(function(index){
+            $(this).parent().next().next().html(skillHolder[currentLang][classIndex][skillIndex].abil[index].title);
+        });
+        */
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill12>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill12>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill12>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill21>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill21>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill21>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill22>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill22>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill22>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill31>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill31>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill31>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill32>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill32>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill32>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill41>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill41>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill41>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
+        $(".skill42>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
+        $(".skill42>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
+        $(".skill42>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        
+        
+    }
+    
+    $(".tacSkill").click(function(){
+        skillBuild($(this));
+    });
+    $(".tacAbil").click(function(){
+        skillBuild($(this));
+    });
+    $(".permSkill").click(function(){
+        skillBuild($(this));
+    });
+    $(".regSkill").click(function(){
+        skillBuild($(this));
+    });
+    $(".ultSkill").click(function(){
+        skillBuild($(this));
+    });
+    $(".skillAbil").click(function(){
+        skillBuild($(this));
+    });
+    
+  
+    var remPts = 146;
+    var reqPts = 0; 
+    
+    function skillBuild(skill) {
+        
+        checkCost(skill);
+        
+        if (remPts >= reqPts) {
+            if (skill.hasClass("skillSelected")) {
+                disableSkills(skill);
+            }
+            else {
+                enableSkills(skill);
+            }
+        }
+        
+        reqPts = 0;
+        
+    }
+    
+    function checkCost(skill) {
+        
+        // if enabled, restore points and disable
+        if (skill.hasClass("skillSelected")) {
+            
+            // Level 1
+            if (skill.hasClass("level1")) {
+                
+                // check lv 2
+                if (skill.parent().next().children(".level2").hasClass("skillSelected")) {
+                    checkCost(skill.parent().next().children(".level2"));
+                }
+
+                if (skill.hasClass("tacSkill")) {
+                    // top row skills req 1 point
+                    if (skill.parent().hasClass("skill21") || skill.parent().hasClass("skill31") || skill.parent().hasClass("skill41"))  {
+                        reqPts -= 1;
+                    } 
+                    // bottom row skills req 2 points
+                    else if (skill.parent().hasClass("skill12") || skill.parent().hasClass("skill22") || skill.parent().hasClass("skill32") || skill.parent().hasClass("skill42"))  {
+                        reqPts -= 2;
+                    }
+                }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts -= 1; }
+                
+            }
+            // Level 2
+            else if (skill.hasClass("level2")) {
+                
+                // check lv 3
+                if (skill.parent().next().children(".level3").hasClass("skillSelected")) {
+                    checkCost(skill.parent().next().children(".level3"));
+                }
+
+                if (skill.hasClass("regSkill")) {
+                    if (skill.parent().hasClass("skill01")) { reqPts -= 1; }
+                    else if (skill.parent().hasClass("skill02")) { reqPts -= 2; }
+                }
+                else if (skill.hasClass("tacSkill")) { reqPts -= 3; }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts -= 2; }
+                
+            }
+            // Level 3
+            else if (skill.hasClass("level3")) {
+                
+                // check abilities
+                if (skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil").hasClass("skillSelected")) {
+                    checkCost(skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil"));
+                }
+
+                if (skill.hasClass("regSkill")) {
+                    if (skill.parent().hasClass("skill01")) { reqPts -= 2; }
+                    else if (skill.parent().hasClass("skill02")) { reqPts -= 3; }
+                }
+                else if (skill.hasClass("tacSkill")) { reqPts -= 6; }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts -= 3; }
+                
+            }
+            // Ult
+            else if (skill.hasClass("ultSkill")) { reqPts -= 2; }
+            // Skill Ability
+            else if (skill.hasClass("skillAbil")) { 
+                reqPts -= 3; 
+            }
+            
+        }
+        // if not enabled, consume points and enable
+        else {
+            
+            // Level 1
+            if (skill.hasClass("level1")) {
+
+                if (skill.hasClass("tacSkill")) {
+                    // top row skills req 1 point
+                    if (skill.parent().hasClass("skill21") || skill.parent().hasClass("skill31") || skill.parent().hasClass("skill41"))  {
+                        reqPts += 1;
+                    } 
+                    // bottom row skills req 2 points
+                    else if (skill.parent().hasClass("skill12") || skill.parent().hasClass("skill22") || skill.parent().hasClass("skill32") || skill.parent().hasClass("skill42"))  {
+                        reqPts += 2;
+                    }
+                }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts += 1; }
+                
+            }
+            // Level 2
+            else if (skill.hasClass("level2")) {
+                
+                // check level 1
+                if (!skill.parent().prev().children(".level1").hasClass("skillSelected")) {
+                    checkCost(skill.parent().prev().children(".level1"));
+                }
+                
+                if (skill.hasClass("regSkill")) {
+                    if (skill.parent().hasClass("skill01")) { reqPts += 1; }
+                    else if (skill.parent().hasClass("skill02")) { reqPts += 2; }
+                }
+                else if (skill.hasClass("tacSkill")) { reqPts += 3; }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts += 2; }
+                
+            }
+            // Level 3
+            else if (skill.hasClass("level3")) {
+                
+                // check level 2
+                if (!skill.parent().prev().children(".level2").hasClass("skillSelected")) {
+                    checkCost(skill.parent().prev().children(".level2"));
+                }
+
+                if (skill.hasClass("regSkill")) {
+                    if (skill.parent().hasClass("skill01")) { reqPts += 2; }
+                    else if (skill.parent().hasClass("skill02")) { reqPts += 3; }
+                }
+                else if (skill.hasClass("tacSkill")) { reqPts += 6; }
+                else if (skill.hasClass("tacAbil") || skill.hasClass("permSkill")) { reqPts += 3; }
+                
+            }
+            // Ult
+            else if (skill.hasClass("ultSkill")) { reqPts += 2; }
+            // Skill Ability
+            else if (skill.hasClass("skillAbil")) { 
+                
+                reqPts += 3; 
+                // check level 3
+                if (!skill.parent().parent().siblings(".level3").hasClass("skillSelected")) {
+                    checkCost(skill.parent().parent().siblings(".level3"));
+                }
+                
+            }
+            
+            
+        }
+
+    }
+    
+    function enableSkills(skill) {
+        
+        remPts -= reqPts;
+        $(".remSkillPts").html(remPts);
+        console.log("COST: " + reqPts);
+        reqPts = 0;
+        
+        
+        if (skill.hasClass("skillAbil")) {
+            
+            enableSkills(skill.parent().parent().siblings(".level3"));
+
+        }
+        else if (skill.hasClass("level3")) {
+            skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil").addClass("skillUnlocked");
+            enableSkills(skill.parent().prev().children(".level2"));
+        }
+        else if (skill.hasClass("level2")) {
+
+            skill.parent().next().children(".level3").addClass("skillUnlocked");
+            enableSkills(skill.parent().prev().children(".level1"));
+        }
+        else if (skill.hasClass("level1")) {
+            skill.parent().next().children(".level2").addClass("skillUnlocked");
+        }
+
+        // enable
+        skill.addClass("skillSelected");
+
+    }
+    
+    function disableSkills(skill) {
+        
+        
+        remPts -= reqPts;
+        $(".remSkillPts").html(remPts);
+        console.log("COST: " + reqPts);
+        reqPts = 0;
+        
+        // if not a default skill
+        if (!(skill.parent().hasClass("skill01") || skill.parent().hasClass("skill02") || skill.parent().hasClass("skill11"))) {
+            
+            // disable
+            skill.removeClass("skillSelected");
+            
+            // lv1 lock -> lv 2 -> lv 3 -> abils
+            if (skill.hasClass("level1")) {
+                skill.parent().next().children(".level2").removeClass("skillUnlocked");
+                disableSkills(skill.parent().next().children(".level2"));
+            }
+
+            // lv 2 lock -> lv 3 -> abils
+            else if (skill.hasClass("level2")) {
+                skill.parent().next().children(".level3").removeClass("skillUnlocked");
+                disableSkills(skill.parent().next().children(".level3"));
+            }
+
+            // lv 3 lock -> abils
+            else if (skill.hasClass("level3")) {
+                skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil").removeClass("skillUnlocked");
+                disableSkills(skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil"));
+            }
+            else if (skill.hasClass("skillAbil")) {
+                skill.removeClass("skillSelected");
+            }
+            
+        }
+        // if it IS a default skill, don't remove the default skill but keep functionality for the other levels
+        else {
+            // lv 2 lock -> lv 3 -> abils
+            if (skill.hasClass("level2")) {
+                // disable
+                skill.removeClass("skillSelected");
+                
+                skill.parent().next().children(".level3").removeClass("skillUnlocked");
+                disableSkills(skill.parent().next().children(".level3"));
+            }
+
+            // lv 3 lock -> abils
+            else if (skill.hasClass("level3")) {
+                // disable
+                skill.removeClass("skillSelected"); 
+                skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil").removeClass("skillUnlocked");
+                disableSkills(skill.siblings(".skillAbilities").children(".abilityItem").children(".skillAbil"));
+            }
+            else if (skill.hasClass("skillAbil")) {
+                skill.removeClass("skillSelected");
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    // default build code 
+    // af 11 1000 0000 0000 0000 0 000000 0000000000
+    // ts 33 3000 3b00 3b00 3a00 1 300333 3333333333
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
     
@@ -889,7 +2753,7 @@ jQuery(document).ready(function ($) {
             
             // 1 Island In The Sky 虚空の浮島
             {
-                name: "Void's Island", //
+                name: "Island of the Void", //
                 type: "RAID BATTLE",
                 // difficulty
                 diff: "",
@@ -12273,7 +14137,7 @@ jQuery(document).ready(function ($) {
         { // 25
             category: "Story",
             question: "What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?",
-            choice: ["Milene", "Murrie", "Melroph", "Einrain"],
+            choice: ["Milene", "Murrie", "Melrouf", "Einrain"], // Melrophe :/
             answer: ["Murrie"]
         },
         { // 26
