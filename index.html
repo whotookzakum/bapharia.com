@@ -29,6 +29,15 @@
         <!-- JavaScript files -->
         <script type="text/javascript" src="scripts/main.js"></script>
         
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFYTLGB8B9"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-WFYTLGB8B9');
+        </script>
         
         <!-- Screen Size Validator -->
         <!-- <script>
@@ -166,7 +175,9 @@
                                 <img src="images/skills/02.png" draggable="false">
                             </div>
                             
-                            <p class="tooltip">Skill tooltip</p>
+                            <p class="reqPoints" style="display:none;"></p>
+                            
+                            <div class="tooltip">Skill tooltip</div>
                             
                         </div>
                         
@@ -175,9 +186,10 @@
                                 <img src="images/skills/02.png" draggable="false">
                             </div>
                             
-                            <p class="tooltip">Skill tooltip</p>
-                            
                             <p class="reqPoints" style="left: 51px;">1</p>
+                            
+                            <div class="tooltip">Skill tooltip</div>
+                            
                         </div>
                         
                         <div class="regskillItem skill01" style="z-index: 517;">
@@ -187,7 +199,7 @@
                             
                             <p class="reqPoints" style="left: 51px;">2</p>
                             
-                            <p class="tooltip">Skill tooltip</p>
+                            <div class="tooltip">Skill tooltip</div>
                             
                         </div>
                         
@@ -201,7 +213,9 @@
                                 <img src="images/skills/02.png" draggable="false">
                             </div>
                             
-                            <p class="tooltip">Skill tooltip</p>
+                            <p class="reqPoints" style="display:none;"></p>
+                            
+                            <div class="tooltip">Skill tooltip</div>
                             
                         </div>
                         
@@ -210,7 +224,7 @@
                                 <img src="images/skills/02.png" draggable="false">
                             </div>
                             
-                            <p class="tooltip">Skill tooltip</p>
+                            <div class="tooltip">Skill tooltip</div>
                             
                             <p class="reqPoints">2</p>
                             
@@ -223,7 +237,7 @@
 
                             <p class="reqPoints">3</p>
                             
-                            <p class="tooltip">Skill tooltip</p>
+                            <div class="tooltip">Skill tooltip</div>
                             
                         </div>
                         
@@ -244,7 +258,9 @@
                                     <img src="images/skills/af/11.png" draggable="false">
                                 </div>
                                 
-                                <p class="tooltip">Skill tooltip</p>
+                                <p class="reqPoints" style="display:none;"></p>
+                                
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -256,7 +272,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -277,7 +293,7 @@
                                             <img class="abilityA" src="images/skills/af/11a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -285,7 +301,7 @@
                                             <img class="abilityB" src="images/skills/af/11b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
                                     
 
@@ -306,7 +322,7 @@
                                 </div>
                                 
                                 <p class="reqPoints">2</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -318,7 +334,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -330,7 +346,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -339,7 +355,7 @@
                                             <img class="abilityA" src="images/skills/af/12a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -347,7 +363,7 @@
                                             <img class="abilityB" src="images/skills/af/12b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
 
                                 </div>
@@ -374,7 +390,16 @@
                                 </div>
                                 
                                 <p class="reqPoints">1</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip
+                                    <!-- Example Template
+                                    <p>Blow Beat Lv 1</p>
+                                    <div class="skillToolBorder">
+                                        <p>skill points: 1<br>
+                                            class level: 2<br></p>
+                                        <p style="height: 8px;"><br></p>
+                                        <p>An all-directional attack centered around yourself. <br>Enemies that are hit will be provoked.</p>
+                                    </div> -->
+                                </div>
 
                             </div>
 
@@ -386,7 +411,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -398,7 +423,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -407,7 +432,7 @@
                                             <img class="abilityA" src="images/skills/af/21a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -415,7 +440,7 @@
                                             <img class="abilityB" src="images/skills/af/21b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
 
                                 </div>
@@ -435,7 +460,7 @@
                                 </div>
                                 
                                 <p class="reqPoints">2</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -447,7 +472,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -459,7 +484,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -468,7 +493,7 @@
                                             <img class="abilityA" src="images/skills/af/22a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -476,7 +501,7 @@
                                             <img class="abilityB" src="images/skills/af/22b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
 
                                 </div>
@@ -503,7 +528,7 @@
                                 </div>
                                 
                                 <p class="reqPoints">1</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -515,7 +540,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -527,7 +552,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -536,7 +561,7 @@
                                             <img class="abilityA" src="images/skills/af/31a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -544,7 +569,7 @@
                                             <img class="abilityB" src="images/skills/af/31b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
 
                                 </div>
@@ -564,7 +589,7 @@
                                 </div>
                                 
                                 <p class="reqPoints">2</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -576,7 +601,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -588,7 +613,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -597,7 +622,7 @@
                                             <img class="abilityA" src="images/skills/af/32a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -605,7 +630,7 @@
                                             <img class="abilityB" src="images/skills/af/32b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
 
                                 </div>
@@ -632,7 +657,7 @@
                                 </div>
                                 
                                 <p class="reqPoints">1</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -644,7 +669,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -656,7 +681,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -665,7 +690,7 @@
                                             <img class="abilityA" src="images/skills/af/41a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -673,7 +698,7 @@
                                             <img class="abilityB" src="images/skills/af/41b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
 
                                 </div>
@@ -693,7 +718,7 @@
                                 </div>
                                 
                                 <p class="reqPoints">2</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -705,7 +730,7 @@
                                 </div>
 
                                 <p class="reqPoints">3</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                             </div>
 
@@ -717,7 +742,7 @@
                                 </div>
 
                                 <p class="reqPoints">6</p>
-                                <p class="tooltip">Skill tooltip</p>
+                                <div class="tooltip">Skill tooltip</div>
 
                                 <div class="skillAbilities">
 
@@ -726,7 +751,7 @@
                                             <img class="abilityA" src="images/skills/af/42a.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability A tooltip</p>
+                                        <div class="tooltip abilAtooltip">Ability A tooltip</div>
                                     </div>
                                     
                                     <div class="abilityItem">
@@ -734,7 +759,7 @@
                                             <img class="abilityB" src="images/skills/af/42b.png" style="margin-bottom: 1.5vw" draggable="false">
                                         </div>
                                         <p class="reqPoints">3</p>
-                                        <p class="tooltip">Ability B tooltip</p>
+                                        <div class="tooltip abilBtooltip">Ability B tooltip</div>
                                     </div>
                                     
                                 </div>
@@ -754,7 +779,7 @@
                         </div>
                         
                         <p class="reqPoints">2</p>
-                        <p class="tooltip">Skill tooltip</p>
+                        <div class="tooltip">Skill tooltip</div>
                         
                     </div>
                     
