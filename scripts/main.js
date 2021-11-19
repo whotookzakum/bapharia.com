@@ -730,7 +730,7 @@ jQuery(document).ready(function ($) {
                     reqPts: ["1","3","6"],
                     reqLv: ["4","17","24"],
                     text: [
-                            "Temporarily apply the Shield Up status effect<br>Can't be used during Guard Break", 
+                            "Temporarily grants  Shield Up status effect<br>Can't be used during Guard Break", 
                             "Increases skill duration", 
                             "Reduces skill cooldown"
                     ],
@@ -1984,6 +1984,7 @@ jQuery(document).ready(function ($) {
         var skill = skillHolder[currentLang][classIndex][skillIndex];
         
         // Reg skills
+        
         /*
         $(".tacskillItem").each(function(index){
             index += 2;
@@ -1991,12 +1992,98 @@ jQuery(document).ready(function ($) {
                 $(this).html(skill[index].title + "<br>" + skill[index].text[i]);
             });
         }); 
+        */
+        
+        
+        
         
         $(".level1").each(function(index){
             
-            $(this).nextUntil(".tooltip").next().html(skill[index].title + "<br>" + skill[index].text[0]);
+            // lv 1
+            $(this).nextUntil(".tooltip").next().html(
+                // skill name + level
+                "<p>" + skillHolder[currentLang][classIndex][index].title + " Lv 1" + "<br></p>" + 
+
+                // Req points & req level
+                "<div class='skillToolBorder'><p>skill points: " + skillHolder[currentLang][classIndex][index].reqPts[0] + "<br>class level: " + skillHolder[currentLang][classIndex][index].reqLv[0] + "<br></p>" + 
+
+                // spacing
+                '<p style="height: 8px;"><br></p>'
+
+                // skill description
+                + skillHolder[currentLang][classIndex][index].text[0] + "</div>"
+            );
+            
+            // lv 2
+            $(this).parent().next().children(".tooltip").html(
+                // skill name + level
+                "<p>" + skillHolder[currentLang][classIndex][index].title + " Lv 2" + "<br></p>" + 
+
+                // Req points & req level
+                "<div class='skillToolBorder'><p>skill points: " + skillHolder[currentLang][classIndex][index].reqPts[1] + "<br>class level: " + skillHolder[currentLang][classIndex][index].reqLv[1] + "<br></p>" + 
+
+                // spacing
+                '<p style="height: 8px;"><br></p>'
+
+                // skill description
+                + skillHolder[currentLang][classIndex][index].text[1] + "</div>"
+            );
+            
+            // lv 3
+            $(this).parent().next().next().children(".tooltip").html(
+                // skill name + level
+                "<p>" + skillHolder[currentLang][classIndex][index].title + " Lv 3" + "<br></p>" + 
+
+                // Req points & req level
+                "<div class='skillToolBorder'><p>skill points: " + skillHolder[currentLang][classIndex][index].reqPts[2] + "<br>class level: " + skillHolder[currentLang][classIndex][index].reqLv[2] + "<br></p>" + 
+
+                // spacing
+                '<p style="height: 8px;"><br></p>'
+
+                // skill description
+                + skillHolder[currentLang][classIndex][index].text[2] + "</div>"
+            );
+            
+            if ($(this).parent().hasClass("tacskillItem")) {
+                
+                // ability A
+                $(this).parent().next().next().children(".skillAbilities").children(".abilityItem").children(".abilAtooltip").html(
+                    // skill name + level
+                    "<p>" + skillHolder[currentLang][classIndex][index].abil[0].title + " Lv 1" + "<br></p>" + 
+
+                    // Req points & req level
+                    "<div class='skillToolBorder'><p>skill points: " + skillHolder[currentLang][classIndex][index].abil[0].reqPts + "<br>class level: " + skillHolder[currentLang][classIndex][index].abil[0].reqLv + "<br></p>" + 
+
+                    // spacing
+                    '<p style="height: 8px;"><br></p>'
+
+                    // skill description
+                    + skillHolder[currentLang][classIndex][index].abil[0].text + "</div>"
+                );
+                
+                // ability B
+                $(this).parent().next().next().children(".skillAbilities").children(".abilityItem").children(".abilBtooltip").html(
+                    // skill name + level
+                    "<p>" + skillHolder[currentLang][classIndex][index].abil[1].title + " Lv 1" + "<br></p>" + 
+
+                    // Req points & req level
+                    "<div class='skillToolBorder'><p>skill points: " + skillHolder[currentLang][classIndex][index].abil[1].reqPts + "<br>class level: " + skillHolder[currentLang][classIndex][index].abil[1].reqLv + "<br></p>" + 
+
+                    // spacing
+                    '<p style="height: 8px;"><br></p>'
+
+                    // skill description
+                    + skillHolder[currentLang][classIndex][index].abil[1].text + "</div>"
+                );
+                
+                
+            }
+            
             
         });
+        
+        
+        /*
         $(".level2").each(function(index){
             
             $(this).nextUntil(".tooltip").next().html(skill[index].title + "<br>" + skill[index].text[1]);
@@ -2009,6 +2096,7 @@ jQuery(document).ready(function ($) {
         });
         */
         
+        /*
         $(".skill01>.level1+.tooltip").html(skill.title + "<br>" + skill.text[0]);
         $(".skill01>.level2+.tooltip").html(skill.title + "<br>" + skill.text[1]);
         $(".skill01>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
@@ -2022,13 +2110,14 @@ jQuery(document).ready(function ($) {
         $(".skill11>.level1+.tooltip").html(skill.title + "<br>" + skill.text[0]);
         $(".skill11>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
         $(".skill11>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
-        
+        */
         /*
         $(".abilityA").each(function(index){
             $(this).parent().next().next().html(skillHolder[currentLang][classIndex][skillIndex].abil[index].title);
         });
         */
         
+        /*
         skillIndex += 1; skill = skillHolder[currentLang][classIndex][skillIndex];
         $(".skill12>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
         $(".skill12>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
@@ -2063,9 +2152,11 @@ jQuery(document).ready(function ($) {
         $(".skill42>.level1+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[0]);
         $(".skill42>.level2+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[1]);
         $(".skill42>.level3+.reqPoints+.tooltip").html(skill.title + "<br>" + skill.text[2]);
+        */
         
-        
-    }
+    } // End OpenSkills()
+    
+    
     
     $(".tacSkill").click(function(){
         skillBuild($(this));
