@@ -19,17 +19,32 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
         
 
-        <!-- CSS file -->
-        <link rel="stylesheet" href="index.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/navigation.css">
+        <link rel="stylesheet" href="css/map.css">
+        <link rel="stylesheet" href="css/imagine.css">
+        <link rel="stylesheet" href="css/crafting.css">
+        <link rel="stylesheet" href="css/classes.css">
+        <link rel="stylesheet" href="css/guide.css">
+        <link rel="stylesheet" href="css/about.css">
         
         <!-- jQuery -->
         <script src="scripts/jquery-3.6.0.min.js" type="text/javascript"></script>
         <script src="scripts/jquery.color-2.1.2.min.js" type="text/javascript"></script>
         
-        <!-- JavaScript files -->
+        <!-- JavaScript -->
+        <script type="text/javascript" src="scripts/text.js"></script>
+        <script type="text/javascript" src="scripts/about.js"></script>
+        <script type="text/javascript" src="scripts/classes.js"></script>
+        <script type="text/javascript" src="scripts/crafting.js"></script>
+        <script type="text/javascript" src="scripts/guide.js"></script>
+        <script type="text/javascript" src="scripts/imagine.js"></script>
+        <script type="text/javascript" src="scripts/map.js"></script>
+        <script type="text/javascript" src="scripts/navigation.js"></script>
         <script type="text/javascript" src="scripts/main.js"></script>
         
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFYTLGB8B9"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -48,73 +63,58 @@
 
     <body>
         
-        <div id="header" oncontextmenu="return false">
-        
-            <div class="navibar">
-                
-                
-                
-                <a class="menubutton">
-                    <img id="buttonImajinn" class="navicon" src="images/imajinn.svg" draggable="false" style="width: 3.1vw;"/>
-                    <p class="menutext">Imagine<br><br></p>
-                </a>
-                
-                <a class="menubutton">
-                    <img id="buttonCrafting" class="navicon" src="images/crafting.svg" draggable="false" style="width: 2.741vw;"/>
-                    <p class="menutext">Crafting<br><br></p>
-                </a>
-                
-                <a class="menubutton">
-                    <img id="buttonWorldMap" class="navicon" src="images/worldmap.svg" draggable="false" style="width: 2.758vw;"/>
-                    <p class="menutext">World<br>Map</p>
-                </a>
-                
-                <a class="menubutton">
-                    <img id="buttonGuide" class="navicon" src="images/guide.svg" draggable="false" style="width: 2.865vw;"/>
-                    <p class="menutext">Game<br>Guide</p>
-                </a>
-                
-                
-                <a class="menubutton">
-                    <img id="buttonAegis" class="navicon" src ="images/aficon.svg" draggable="false" style="width: 2.520vw;"/>
-                    <p class="menutext">Aegis<br>Fighter</p>
-                </a>
-                <a class="menubutton">
-                    <img id="buttonTwin" class="navicon" src ="images/tsicon.svg" draggable="false" style="width: 2.633vw;"/>
-                    <p class="menutext">Twin<br>Striker</p>
-                </a>
-                <a class="menubutton">
-                    <img id="buttonBlast" class="navicon" src ="images/baicon.svg" draggable="false" style="width: 3.163vw;"/>
-                    <p class="menutext">Blast<br>Archer</p>
-                </a>
-                <a class="menubutton">
-                    <img id="buttonSpell" class="navicon" src ="images/scicon.svg" draggable="false" style="width: 2.482vw;"/>
-                    <p class="menutext">Spell<br>Caster</p>
-                </a>
-                <a class="menubutton" style="display: none">
-                    <img id="buttonHeavy" class="navicon" src ="images/hsicon.svg" draggable="false" style="width: 2.643vw;"/>
-                    <p class="menutext">Heavy<br>Smasher</p>
-                </a>
-                
-                
-                
-                
+        <!-- Site Navigation -->
+        <div class="navibar">
+            <a id="buttonAbout" class="navicon">z</a>
+            <div class="collapsable">
+                <img id="buttonImajinn" class="navicon" src="images/imajinn.svg" draggable="false"/>
+                <img id="buttonCrafting" class="navicon" src="images/crafting.svg" draggable="false"/>
+                <img id="buttonWorldMap" class="navicon" src="images/worldmap.svg" draggable="false"/>
+                <img id="buttonGuide" class="navicon" src="images/guide.svg" draggable="false"/>
+                <img id="buttonAegis" class="navicon" src ="images/aficon.svg" draggable="false"/>
+                <img id="buttonTwin" class="navicon" src ="images/tsicon.svg" draggable="false"/>
+                <img id="buttonBlast" class="navicon" src ="images/baicon.svg" draggable="false"/>
+                <img id="buttonSpell" class="navicon" src ="images/scicon.svg" draggable="false"/>
+                <img id="buttonHeavy" class="navicon" src ="images/hsicon.svg" draggable="false"/>
+            </div>
+            <div class="arrow-holder">
+                <button class="arrow arrow-left"></button>
             </div>
             
         </div>
         
+        <p class="copyright">© Copyright 2021 Bapharia.com. All rights reserved. </p>
+        
+        <!-- Country Flags (Locale Select) -->
+        <div class="locales" oncontextmenu="return false">
+            <div class="locale-hint">
+                <img src="images/flags/united-kingdom.png" draggable="false">
+                <span>English (press e)</span>
+            </div>
+            <div class="locale-hint">
+                <img src="images/flags/japan.png" draggable="false">
+                <span style="font-family: 'Noto Sans JP'">Jキーで日本語変換</span>
+            </div>
+            <div class="locale-hint">
+                <img src="images/flags/brazil.png" draggable="false">
+                <span>Brazilian Portuguese (press B)</span>
+            </div>
+            <div class="locale-hint">
+                <img src="images/flags/russia.png" draggable="false">
+                <span>Press R for Russian</span>
+            </div>
+            
+            
+            
+        </div>
         
         
+        <!-- Site Contents -->
         <div id="container" oncontextmenu="return false">
 
             <!-- Background images
             Could be rewritten to only need 2 dividers, active and new bg-->
             <div id="bg-default" class="bg-default-animation" style="background-image: url(images/0.png);" draggable="false"></div>
-            <div id="bg-af" style="background-image: url(images/af.png); opacity: 0;" draggable="false"></div>
-            <div id="bg-ts" style="background-image: url(images/ts.png); opacity: 0;" draggable="false"></div>
-            <div id="bg-ba" style="background-image: url(images/ba.png); opacity: 0;" draggable="false"></div>
-            <div id="bg-sc" style="background-image: url(images/sc.png); opacity: 0;" draggable="false"></div>
-            <div id="bg-hs" style="background-image: url(images/0.png); opacity: 0;" draggable="false"></div>
             
             
             <!-- CLASS PAGES -->
@@ -3290,11 +3290,11 @@
 
             
             <!-- MAP PAGE -->
-            <div id="mapContainer">
+            <div id="mapContainer" style="display: block">
                 
                 <!-- Search and Map list dropdown -->
                 <!-- Searchability for elite monsters/resource names? -->
-                <div id="mapToolbar">
+                <div id="mapToolbar" style="display: none;">
                     
                     <!-- Search Bar -->
                     <img class="searchIcons" style="position: absolute; z-index: 40; left: 1.1vw; top: 1vw; filter: invert() brightness(1.1); transform: scale(1.2); width: 0.638vw;" src="images/map/search.svg" draggable="false">
@@ -3437,7 +3437,7 @@
                 
                 
                 <!-- ASTERIA PLAIN -->
-                <div id="mapAsteriaPlain">
+                <div id="mapAsteriaPlain" style="display: block">
                     <img class="mapImage" src="images/map/asteriaPlain.png" draggable="false">
                     
     
@@ -4246,7 +4246,7 @@
             
             
             <!-- CRAFTING PAGE -->
-            <div id="craftingContainer">
+            <div id="craftingContainer" style="display: blck">
                 <img class="craftBg" src="images/crafting/craftBGwep.jpg" draggable="false">
                 <!-- List Selector -->
                 <div class="wepType">
@@ -5423,84 +5423,68 @@
             
             
             <!-- ABOUT PAGE AND TRIVIA -->
-            <div id="pageAbout">
+            <div id="page-about">
                 
-                <div class="createdBy" style="border-left: 2px solid gray; border-right: 2px solid gray; width: 30%; margin: auto; ">
-                    <p style="font-weight: bold; margin-top: 0.729vw;">Blue Protocol Fansite</p>
-                    <p class="authorDefault" style="margin-top: -0.729vw;">Created by Zakum <br></p>
-                    <p class="authorHidden" style="margin-top: -0.729vw;">Discord:&nbsp;&nbsp;Zakum#3080 <br></p>
+                <div class="about-panel">
+                    <p><span style="font-weight: bold;">Blue Protocol Fansite</span><br>Created by Zakum#3080</p>
                 </div>
+                
+                <div class="about-panel">
+                    <p><span style="font-weight: bold;">Special Thanks</span><br>tan, santa, maru, sigmy, tiny, rhy, kazarune, masi, niko<br></p>
+                    <p><span style="font-weight: bold;">Translations</span><br>Rubens "Ryuno" Moreira (pt br), Sniper Mask (ru), vadimhalo (ru)</p>
+                    <p><span style="font-weight: bold;">Game assets are property of</span><br>© bandai namco online inc.<br>© bandai namco studios inc.</p>
+                    <p class="references">
+                        <span style="font-weight: bold;">References</span><br>
+                        <a href="https://docs.google.com/document/d/1zLKK_ZkcXPyNR3yLarz1r2LOjcwi200vLeBDwXIFBF0/edit">beater's guide</a>
+                        <a href="https://h1g.jp/blue-protocol/">h1g</a>
+                        <a href="https://blue-protocol.info">info database</a>
+                        <a href="https://burupuro-kouryaku.com/">ranpon</a>
+                        <a href="https://bonyou.info/blue-protocol/">bonyou</a>
+                        <a href="https://baskmedia.jp/blue-protocol/">kanbatch</a>
+                        <a href="https://asterleeds.com/maps">asterleeds</a>
+                        <br>
+                        <a href="https://www.the-luno.com/blue-protocol/">the luno</a>
+                        <a href="https://gamebattleroyal.com/blue-protocol-zokusei/">tokka</a>
+                        <a href="https://msfl.tokyo/blue-protocol-imagine#toc3">msfl</a>
+                        <a href="https://blueprotocol-db.com/">jp database</a>
+                        <a href="https://blueprotocol.swiki.jp/">jp wiki</a>
+                    </p>
                     
-                <div style="margin: auto; text-align: center">
-                    
-                    <div class="aboutText">
-                        
-                        <div style="border-color: blue; filter: drop-shadow(0 0 2px blue)">
-                        <p style="font-weight: bold;">Game assets are property of<br></p>
-                        <p style=" margin-top: -0.729vw;">
-                            © bandai namco online inc.<br>
-                            © bandai namco studios inc.
-                        </p>
-                        </div>
-                        
-                        <p style="margin-bottom: 0"><br></p>
-                        
-                        <div style="border-color: deepskyblue; filter: drop-shadow(0 0 2px deepskyblue)">
-                        <p style="font-weight: bold;">References<br></p>
-                        <p class="references" style="margin-top: -0.729vw;">
-                            <a href="https://docs.google.com/document/d/1zLKK_ZkcXPyNR3yLarz1r2LOjcwi200vLeBDwXIFBF0/edit">beater's guide</a>
-                            <a href="https://h1g.jp/blue-protocol/">h1g</a>
-                            <a href="https://blue-protocol.info">info database</a>
-                            <br>
-                            <a href="https://burupuro-kouryaku.com/">ranpon</a>
-                            <a href="https://bonyou.info/blue-protocol/">bonyou</a>
-                            <a href="https://baskmedia.jp/blue-protocol/">kanbatch</a>
-                            <br>
-                            <a href="https://asterleeds.com/maps">asterleeds</a>
-                            <a href="https://www.the-luno.com/blue-protocol/">the luno</a>
-                            <a href="https://gamebattleroyal.com/blue-protocol-zokusei/">tokka</a>
-                            <br>
-                            <a href="https://msfl.tokyo/blue-protocol-imagine#toc3">msfl</a>
-                            <a href="https://blueprotocol-db.com/">jp database</a>
-                            <a href="https://blueprotocol.swiki.jp/">jp wiki</a>
-                        </p>
-                        </div>
-                        
-                    </div>
+                    <!-- Social Links -->
+                    <a href="https://discord.gg/ZKwhn3a4yH" target="_blank"><img class="sns-icon" src="images/discord.webp" draggable="false"/></a>
+
+                    <a href="https://youtube.com/zakum" target="_blank"><img class="sns-icon" src="images/youtube.webp" draggable="false"/></a>
 
 
+                    <a href="https://twitter.com/hmyawp" target="_blank"><img class="sns-icon" src="images/twitter.webp" draggable="false"/></a>
 
-                    <div class="aboutText" style="text-align: center">
-                        
-                        <div style="border-color: crimson; filter: drop-shadow(0 0 2px crimson)">
-                        <p style="font-weight: bold;">Special Thanks<br></p>
-                        <p style="margin-top: -0.729vw;">tan, santa, maru, sigmy, tiny,<br>rhy, yozora<br></p>
-                        </div>
-                        
-                        <p style="margin-bottom: 0"><br></p>
+                    <a href="https://reddit.com/r/BlueProtocolOnline" target="_blank"><img class="sns-icon" src="images/reddit.webp" draggable="false"/></a>
 
-                        <div style=" border-color: purple; filter: drop-shadow(0 0 2px purple);">
-                        <p style="font-weight: bold;">Translations<br></p>
-                        <p style="margin-top: -0.729vw;">Rubens "Ryuno" Moreira (pt br)<br>Sniper Mask (ru)<br><br><br></p>
-                        </div>
-                        
+                    <!-- Paypal Dono -->
+                    <form action="https://www.paypal.com/donate" method="post" target="_top" style="display:inline-block">
+                    <input type="hidden" name="hosted_button_id" value="JEYPMC4Z3QL3J" />
+                    <input class="sns-icon" type="image" src="images/paypal.png" border="0" name="submit" title="Support the site via PayPal!" alt="Donate with PayPal button" />
+                    <!-- <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" /> -->
+                    </form>
 
-                    </div>
-                
+                    <a href="https://www.patreon.com/zakum" target="_blank"><img class="sns-icon" src="images/patreon.png" draggable="false" title="Support the site via Patreon!"/></a>
                 </div>
 
-                
-                <p style="font-weight: bold; margin-top: 1vw;">Enjoy some Blue Protocol Trivia!</p>
-                
-                <div id="pageTrivia">
-                    <p class="triviaCategory">category</p>
-                    <p class="triviaQuestion">question</p>
-                    <button class="triviaChoices" style="border-top: 2px solid #120e0e;">choice 1</button>
-                    <button class="triviaChoices">choice 2</button>
-                    <button class="triviaChoices">choice 3</button>
-                    <button class="triviaChoices" style="border-bottom: 2px solid #120e0e;">choice 4</button>
+                <div class="about-panel">
+                    <p style="font-weight: bold; margin: ">Enjoy some Blue Protocol Trivia!</p>
+                    <div id="pageTrivia" style="display:block">
+                        <p class="triviaCategory" style="margin: 0; text-align: left;">Story</p>
+                        <p class="triviaQuestion" style="margin: 0; text-align: left;">What is the name of the girl in charge of Adventurer Registration at the Frontiering Station?</p>
+                        <button class="triviaChoices" style="border-top: 2px solid #120e0e; border-left: 2px solid #120e0e;">Divine Haven Hill</button>
+                        <button class="triviaChoices" style="border-top: 2px solid #120e0e; border-right: 2px solid #120e0e;">Soundless Foothills</button>
+                        <button class="triviaChoices" style="border-bottom: 2px solid #120e0e; border-left: 2px solid #120e0e;">Healing Boost Buff</button>
+                        <button class="triviaChoices" style="border-bottom: 2px solid #120e0e; border-right: 2px solid #120e0e;">Project Sky Blue</button>
+                    </div>
                 </div>
-                <p><br></p>
+                
+                
+                
+                
             </div>
                     
                     
@@ -5510,70 +5494,6 @@
             
         </div>
            
-        
-        
-        
-        
-        <div id="footer" oncontextmenu="return false">
-            
-            
-            
-            <div class="copyright">
-                
-                <p class="copyrightText">© Copyright 2021 Bapharia.com. All rights reserved. </p>
-                <img id="buttonAbout" class="iconother" src="images/about2.svg" style="width: 1.25vw; top: -0.6em; padding-right: 0.26vw;" draggable="false"/>
-                <a class="hitcounter" style="top: -110px;"><img src="https://www.worldflagcounter.com/hMM/" alt="Flag Counter"></a>
-            </div>
-            
-            <p class="langHint">
-                hotkeys:&nbsp;&nbsp;&nbsp;
-                <a style="font-size: .6vw; font-family: Kosugi Maru">(E) </a> english&nbsp;&nbsp;&nbsp;
-                <a style="font-size: .6vw; font-family: Kosugi Maru">(J) 日本語</a>
-                &nbsp;&nbsp;&nbsp;
-                <a style="font-size: .6vw; font-family: Kosugi Maru">(P) </a>português
-                &nbsp;&nbsp;&nbsp;
-                <a style="font-size: .6vw; font-family: Kosugi Maru">(R) </a><a style="font-size: 0.75vw">русски</a>
-                &nbsp;&nbsp;&nbsp;
-                <!--<a style="font-size: .6vw; font-family: Kosugi Maru">(F) </a>français-->
-            </p>
-             
-            <div class="socials">
-                
-                
-                <a href="https://discord.gg/ZKwhn3a4yH" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/discord.webp" draggable="false"/>
-                </a>
-                
-                <a href="https://youtube.com/zakum" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/youtube.webp" draggable="false"/>
-                </a>
-                
-                <!--
-                <a href="https://twitter.com/hmyawp" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/twitter.webp" draggable="false"/>
-                </a>
-                
-                <a href="https://reddit.com/r/BlueProtocolOnline" target="_blank" style="border:0;">
-                    <img class="iconother" src="images/reddit.webp" draggable="false"/>
-                </a>
-                -->
-                
-                <!-- Paypal Dono -->
-                <form action="https://www.paypal.com/donate" method="post" target="_top" style="display:inline-block">
-                <input type="hidden" name="hosted_button_id" value="JEYPMC4Z3QL3J" />
-                <input class="iconother" style="border:0;" type="image" src="images/paypal.png" border="0" name="submit" title="Support the site via PayPal!" alt="Donate with PayPal button" />
-                <!-- <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" /> -->
-                </form>
-                
-                <a href="https://www.patreon.com/zakum" target="_blank">
-                    <img class="iconother" style="border:0;" src="images/patreon.png" draggable="false" title="Support the site via Patreon!"/>
-                </a>
-            </div>
-            
-            
-            
-            
-        </div>
         
     </body>
 </html>
