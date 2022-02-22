@@ -234,16 +234,10 @@ function dispImajinn(holder) {
 
 // Open Imajinn Page
 function openImajinn() {
-
+    console.log("OPENING IMAJINN...");
     imajInitial = false;
     $("#ImajinnContainer").css("display","block");
 
     dispImajinn(listHolder);
 }
 
-// Close Imajinn Page
-function closeImajinn() {
-
-    $("#ImajinnContainer").css("display","none");
-
-}

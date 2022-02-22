@@ -1,11 +1,9 @@
-// MAP
-
 var currentMap = "#mapAsterleeds"; // Could set this to "" and then in dispMap remove the else statements
 var newMap = "#mapAsterleeds";
-var tooltip = document.querySelectorAll(".tooltip");
+
 document.addEventListener('mousemove', trackMouse, false);
 
-// Hover over mapName selectors, only if not the current zone
+// Hovering over .currentZone (blue zone name) will make it darker, however hovering over other zones should increase opacity.
 $(".mapName").mouseenter(function() {
     if (!$(this).hasClass("currentZone")) {
         $(this).css("opacity","0.8"); 
@@ -19,20 +17,9 @@ $(".mapName").mouseleave(function(){
 
 // Open page
 function openWorldMap() {
-
-    $("#mapContainer").css("display", "block");
     dispMap();
-
 }
 
-// Close page 
-function closeWorldMap() {
-
-    $("#mapContainer").css("display","none");
-
-}
-
-// Write a script to change border color for mapIcons, i.e. if it contains("Exploration Point") it will turn white. Currently have it written inline as border-color for EACH element, an inefficient code that needs to be optimized.
 $(".msqNumber").click(function(){
     $(".msqNumber").each(function(index){
         var pos = $(this).position();
@@ -69,7 +56,8 @@ $("#mapSearch").keyup(function(event){
 
 });
 
-// Map Tooltip - Mouse Tracker
+// Tooltip - Mouse Tracker
+var tooltip = document.querySelectorAll(".tooltip");
 function trackMouse(e) {
     for (var i=tooltip.length; i--;) {
         tooltip[i].style.left = e.pageX + 20 + 'px';
@@ -82,75 +70,20 @@ function trackMouse(e) {
 
 // Display the map
 function dispMap() {
-
-
-    // Asteria Plain
-    if (newMap == '#mapAsteriaPlain') {
-
-        if (currentMap != "#mapAsteriaPlain") {
-            $("#mapAsteriaPlain").css("opacity","0");
-            $("#mapAsteriaPlain").css("display","block");
-            $(currentMap).stop().animate({opacity: 0}, 300);
-
-            setTimeout(function(){
-                $(currentMap).css("display", "none");
-                currentMap = "#mapAsteriaPlain";
-            }, 300);
-
-            $("#mapAsteriaPlain").stop().animate({opacity: 1}, 300);
-        } 
-        else {
-            $(newMap).css("display","block");
-        }
-
+    
+    // Switch maps
+    if (newMap !== currentMap) {
+        // Fade in new map while fading out current map, then update current map.
+        $(newMap).css("opacity","0");
+        $(newMap).css("display","block");
+        $(currentMap).stop().animate({opacity: 0}, 300);
+        setTimeout(function(){
+            $(currentMap).css("display", "none");
+            currentMap = newMap;
+        }, 300);
+        $(newMap).stop().animate({opacity: 1}, 300);
     }
-
-
-    // Bahamar Highland
-    if (newMap == '#mapBahamarHighlands') {
-
-        if (currentMap != "#mapBahamarHighlands") {
-            $("#mapBahamarHighlands").css("opacity","0");
-            $("#mapBahamarHighlands").css("display","block");
-            $(currentMap).stop().animate({opacity: 0}, 300);
-
-            setTimeout(function(){
-                $(currentMap).css("display", "none");
-                currentMap = "#mapBahamarHighlands";
-            }, 300);
-
-            $("#mapBahamarHighlands").stop().animate({opacity: 1}, 300);
-        }
-        else {
-            $(newMap).css("display","block");
-        }
-
-    }
-
-
-    // Asterleeds
-    if (newMap == '#mapAsterleeds') {
-
-        if (currentMap != "#mapAsterleeds") {
-            $("#mapAsterleeds").css("opacity","0");
-            $("#mapAsterleeds").css("display","block");
-            $(currentMap).stop().animate({opacity: 0}, 300);
-
-            setTimeout(function(){
-                $(currentMap).css("display", "none");
-                currentMap = "#mapAsterleeds";
-            }, 300);
-
-            $("#mapAsterleeds").stop().animate({opacity: 1}, 300);
-
-        }
-        else {
-            $(newMap).css("display","block");
-        }
-
-
-    }
-
+    
     // 0 English 1 Japanese
     $(".text-storage").html(mapText[currentLang].storage);
     $(".text-memorystand").html(mapText[currentLang].memorystand);
@@ -311,7 +244,6 @@ function dispMap() {
     $(".togtextLiquid").html(mapText[currentLang].togtextLiquid);
     $(".togglesHeader").html(mapText[currentLang].togglesHeader);
 
-
     // Search
     $("#mapSearch").attr("placeholder", mapText[currentLang].searchTitle);
     $(".listAster").html(mapText[currentLang].listAsterleeds);
@@ -328,14 +260,12 @@ function dispMap() {
     $(".listLarpal").html(mapText[currentLang].listLarpal);
     $(".listBergmahl").html(mapText[currentLang].listBergmahl);
 
-
-
 }
 
-// Map Switcher
+// Map List selections will highlight zone and switch regions if necessary
 $(".mapListItem").click(function(){
 
-    // Reset MAP NAME opacity and color to original values;
+    // Reset zone name color and  opacity to original values;
     $(".mapName").removeClass("currentZone");
     $(".mapName").css("opacity","0.6");
 
@@ -364,7 +294,7 @@ $(".mapListItem").click(function(){
             $(".minsterhornName").css("opacity","1");
         }
 
-        // Open the map
+        // Switch region if necessary
         newMap = "#mapAsteriaPlain";
         dispMap();
 
@@ -395,13 +325,14 @@ $(".mapListItem").click(function(){
             $(".bergmahlName").css("opacity","1");
         }
 
-        // Open the map
+        // Switch region if necessary
         newMap = "#mapBahamarHighlands";
         dispMap();
     }
 
     // Asterleeds map
     if ($(this).is(".listAsterleeds")){
+        // Switch region if necessary
         newMap = "#mapAsterleeds";
         dispMap();
     }

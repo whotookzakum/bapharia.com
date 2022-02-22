@@ -26,12 +26,6 @@ function openClasses(currentClass) {
 
 }
 
-function closeClasses(currentClass) {
-    $("#classContainer").css("display","none");
-    $(".contentViewer").css("display","none");
-
-}
-
 function openSkills (currentClass) {
 
     // IMAGES

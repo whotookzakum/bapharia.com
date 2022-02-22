@@ -1,5 +1,3 @@
-// CRAFTING 
-
 // Material Icons
 var iLuno = "images/map/luno.svg";
 var iFlower = "images/map/flower2.svg";
@@ -56,13 +54,6 @@ function openCrafting() {
 
     listWeapons(wepHolder[currentLang]);
     dispWeapon(wepHolder[currentLang]);
-}
-
-
-function closeCrafting() {
-
-    $("#craftingContainer").css("display","none");
-
 }
 
 // Toggle Weapon Level

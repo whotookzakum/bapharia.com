@@ -7,8 +7,7 @@ jQuery(document).ready(function ($) {
         } else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I     
             return false;
         }
-    });
-    
+    }); 
     
     var currentLang = 0;
     
@@ -354,82 +353,5 @@ jQuery(document).ready(function ($) {
         }
         
     }
-    var aboutPageOpen = false;
-    $("#buttonAbout").click(function(){
-        if (aboutPageOpen == true) {
-            $("#page-about").css("top","130%");
-            aboutPageOpen = false;
-        }
-        else {
-            $("#page-about").css("top","20%");
-            aboutPageOpen = true;
-        }
-    });
-    
-    var menuOpen = true;
-    $(".arrow-holder").click(function(){
-        if (menuOpen == true) {
-            $(".collapsable").width('0px');
-            menuOpen = false;
-        }
-        else {
-            $(".collapsable").width('487px');
-            menuOpen = true;
-        }
-        $(".arrow").toggleClass("arrow-right");
-        $(".arrow").toggleClass("arrow-left");
-    });
-    /*-----------------------------------------------------------------------------------------------*/
-    
-    
-    /* Elements in Portuguese by Ryuno
-    
-    EARTH
-    Terra
 
-Reduz a velocidade de movimento dos inimigos
-Quando acumulado suficiente,
-imobiliza e causa dano aos inimigos
-    
-    FIRE
-    Fogo
-
-Causa dano de fogo ao longo do tempo
-Quando acumulado suficiente,
-uma explosão de alto dano ocorre
-    
-    DARK
-    Trevas
-
-Causa dano ao longo do tempo
-Quando acumulado suficiente, 
-imobiliza e causa dano aos inimigos
-
-    ICE
-    Gelo
-
-Reduz a velocidade de movimento dos inimigos
-Quando acumulado suficiente, 
-congela inimigos e causa dano
-    
-    LIGHTNING
-    Relâmpago
-
-Causa dano elétrico ao longo do tempo e aumenta o intervalo de skill dos inimigos
-Quando acumulado suficiente, 
-uma explosão de alto dano ocorre
-    
-    LIGHT
-    Luz
-
-Causa dano de luz ao longo do tempo e empurra inimigos para longe
-Quando acumulado suficiente, 
-uma explosão de alto dano ocorre
-    
-    
-    */
-    
-    
-    
-    
-    });
+});

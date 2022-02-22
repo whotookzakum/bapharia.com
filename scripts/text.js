@@ -39,16 +39,16 @@ var classDescriptions = [
             text: '<span style="font-style: italic;">A ranged magician class that deals high burst damage by manipulating the elements.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">EP Gauge<br></span>Tactical skills consume EP gauge instead of going on cooldown. EP can be charged, but will leave you vulnerable while doing so.</span>', // manifestation (engram)
             video: "images/skills/sc.mp4"
         }
-    ]
+    ],
     
     // JAPANESE
-    
+    [],
     
     // BRAZILIAN PORTUGUESE
-    
+    [],
     
     // RUSSIAN
-    
+    []
 
 ]
 
@@ -9254,7 +9254,7 @@ var dungHolder = [
     // ENGLISH
     [
 
-        // 1 Island In The Sky 虚空の浮島
+        // 1 Island In The Sky 虚空の浮島 "Void('s) Island"
         {
             name: "Island of the Void", //
             type: "RAID BATTLE",
@@ -9626,6 +9626,58 @@ var dungHolder = [
     [],
     
     // RUSSIAN
-    [],
+    []
 
 ]
+
+
+   /*-----------------------------------------------------------------------------------------------*/
+    
+    
+    /* Elements in Portuguese by Ryuno
+    
+    EARTH
+    Terra
+
+Reduz a velocidade de movimento dos inimigos
+Quando acumulado suficiente,
+imobiliza e causa dano aos inimigos
+    
+    FIRE
+    Fogo
+
+Causa dano de fogo ao longo do tempo
+Quando acumulado suficiente,
+uma explosão de alto dano ocorre
+    
+    DARK
+    Trevas
+
+Causa dano ao longo do tempo
+Quando acumulado suficiente, 
+imobiliza e causa dano aos inimigos
+
+    ICE
+    Gelo
+
+Reduz a velocidade de movimento dos inimigos
+Quando acumulado suficiente, 
+congela inimigos e causa dano
+    
+    LIGHTNING
+    Relâmpago
+
+Causa dano elétrico ao longo do tempo e aumenta o intervalo de skill dos inimigos
+Quando acumulado suficiente, 
+uma explosão de alto dano ocorre
+    
+    LIGHT
+    Luz
+
+Causa dano de luz ao longo do tempo e empurra inimigos para longe
+Quando acumulado suficiente, 
+uma explosão de alto dano ocorre
+    
+    
+    */
+    

@@ -55,12 +55,8 @@ $(".guideMenuButton").click(function(){
 function openGuide() {
     $("#guideContainer").css("display","block");
 
-    $(currentGuide).css("display","block");
+    
 
-}
-
-function closeGuide() {
-    $("#guideContainer").css("display","none");
 }
 
 // Bubbles

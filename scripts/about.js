@@ -1,18 +1,6 @@
-// ABOUT
-
-$("#buttonAbout").click(function(){
-    if ($("#pageAbout").css("display")=="none") {
-        $("#pageAbout").css("display", "block")
-        openTrivia();
-    } else {
-        $("#pageAbout").css("display", "none");
-    }
-});
-
 // Trivia
 // Generate map names and skill names from a list?
 // Automatically generate "what class's skill is __?" and " __ is an ability for what skill? questions?
-
 
 function openTrivia() {
     var triviaQuestion = $(".triviaQuestion");
@@ -91,8 +79,6 @@ function openTrivia() {
         qIndex++;
 
     });
-
-
 
 } // End Trivia
 
