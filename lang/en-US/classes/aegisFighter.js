@@ -599,4 +599,3 @@ const SKILLS_AEGIS_FIGHTER = [
         ]
     }
 ]
-
