@@ -1,11 +1,15 @@
 #page-about {
     position: absolute;
-    top: 50%;
-    max-width: 800px;
+    top: 150%;
+    max-width: 700px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 200;
     transition: top 0.35s;
+
+    &.show {
+        top: 50% !important;
+    }
 
     h3, h4 {
         margin: 0;
@@ -19,7 +23,7 @@
         -webkit-backdrop-filter: blur(5px);
         text-align: center;
         margin-bottom: 0.5em;
-        padding: 1rem 3rem;
+        padding: 1rem 2rem;
 
         a {
             color: deepskyblue;
@@ -64,7 +68,6 @@
     button {
         display: inline-block;
         background-color: #141010;
-        /* #120e0e*/
         color: #c8c8c8;
         padding: 0.2em;
         border: 1px solid #120e0e;
@@ -99,11 +102,17 @@
     }
 }
 
-#page-about-backdrop {
+#modal-backdrop {
+    
     position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: red;
-    opacity: 0.3;
+    opacity: 0;
     z-index: 190;
+    transition: opacity 0.35s ease;
+
+    &.show {
+        opacity: 0.1;
+    }
 }

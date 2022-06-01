@@ -1,14 +1,20 @@
-import React from "react";
 import './about.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // About component
-function About(props) {
-    
+function About(props: any) {
+
+    let visibility = "";
+    if (props.visible) {
+        visibility = "show";
+    } else { 
+        visibility = "";
+    }
+
     return (
         <>
-            <div id="page-about-backdrop"></div>
-            <article id="page-about show">
+            <div id="modal-backdrop" className={visibility} onClick={props.toggleModal}></div>
+            <article id="page-about" className={visibility}>
                 <section>
                     <h3>Blue Protocol Fansite</h3>
                     Created by Zakum#3080
@@ -16,7 +22,7 @@ function About(props) {
 
                 <section>
                     <h3>Special Thanks</h3>
-                    tan, santa, maru, sigmy, tiny, rhy, kazarune, masi, niko, 0wl <br /><br />
+                    tan, santa, maru, sigmy, tiny, rhy, kazarune, masi, niko, 0wl, saintmorning <br /><br />
 
                     <h3>Translations</h3>
                     Rubens "Ryuno" Moreira (pt br), Sniper Mask (ru), vadimhalo (ru) <br /><br />

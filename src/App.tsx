@@ -10,16 +10,17 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 library.add(fab);
 
 function App() {
-	const [modalIsShowing, setModalVisibility] = useState(false);
+	const [aboutIsShowing, setModalVisibility] = useState(false);
 
     const toggleModal = () => {
-        setModalVisibility(modalIsShowing => !modalIsShowing);
+        setModalVisibility(aboutIsShowing => !aboutIsShowing);
+		console.log(aboutIsShowing);
     }
 
 	return (
 		<>
-			<button onClick={toggleModal}>Hey</button>
-			<About isShowing={modalIsShowing}/>
+			<button onClick={toggleModal} style={{position: "absolute", zIndex: "300"}}>hey</button>
+			<About visible={aboutIsShowing} toggleFunction={toggleModal} />
 		</>
 	);
 }
