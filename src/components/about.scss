@@ -1,0 +1,109 @@
+#page-about {
+    position: absolute;
+    top: 50%;
+    max-width: 800px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    transition: top 0.35s;
+
+    h3, h4 {
+        margin: 0;
+    }
+
+    section {
+        box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.67);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        text-align: center;
+        margin-bottom: 0.5em;
+        padding: 1rem 3rem;
+
+        a {
+            color: deepskyblue;
+            margin: 0.5rem;
+
+            &:hover {
+                filter: brightness(0.7);
+            }
+        }
+
+        .icon {
+            color: white;
+            font-size: 1.6rem;
+            margin: 0.5rem;
+        }
+    }
+
+    form {
+        display: inline-block;
+
+        #paypal-donation {
+            width: 0;
+            padding: 0;
+            border: 0;
+        }
+    }
+}
+
+#trivia-wrapper {
+    text-align: left;
+
+    h4 {
+        font-family: "Mate SC";
+        color: #b7b7b7;
+    }
+
+    h3 {
+        text-transform: lowercase;
+        padding-bottom: 0.5em;
+    }
+
+    button {
+        display: inline-block;
+        background-color: #141010;
+        /* #120e0e*/
+        color: #c8c8c8;
+        padding: 0.2em;
+        border: 1px solid #120e0e;
+        cursor: pointer;
+        width: 50%;
+        font: inherit;
+        text-transform: lowercase;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+
+        &:active {
+            filter: brightness(0.6);
+        }
+
+        &:nth-of-type(1) {
+            border-width: 2px 1px 1px 2px;
+        }
+
+        &:nth-of-type(2) {
+            border-width: 2px 2px 1px 1px;
+        }
+
+        &:nth-of-type(3) {
+            border-width: 1px 1px 2px 2px;
+        }
+
+        &:nth-of-type(4) {
+            border-width: 1px 2px 2px 1px;
+        }
+    }
+}
+
+#page-about-backdrop {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    opacity: 0.3;
+    z-index: 190;
+}
