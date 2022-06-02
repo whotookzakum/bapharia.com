@@ -21,10 +21,12 @@ function App() {
 
 	return (
 		<>
-			<div style={{display: "flex", gap: "calc(50% - 300px)"}}>
+			<div className="wrapper">
 				<Navigation />
-				<Guide/>
-
+				<div className="content">
+					<Guide/>
+				</div>
+				<div className="crosshair"></div>
 			</div>
 			
 			{/* <button onClick={toggleModal} style={{position: "absolute", zIndex: "300"}}>hey</button>
