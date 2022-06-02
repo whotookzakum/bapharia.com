@@ -1,4 +1,6 @@
 import About from "./components/About";
+import Guide from "./components/Guide";
+import Navigation from "./components/Navigation";
 import { useState } from "react";
 import "./App.scss";
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -19,8 +21,14 @@ function App() {
 
 	return (
 		<>
-			<button onClick={toggleModal} style={{position: "absolute", zIndex: "300"}}>hey</button>
-			<About visible={aboutIsShowing} toggleFunction={toggleModal} />
+			<div style={{display: "flex", gap: "calc(50% - 300px)"}}>
+				<Navigation />
+				<Guide/>
+
+			</div>
+			
+			{/* <button onClick={toggleModal} style={{position: "absolute", zIndex: "300"}}>hey</button>
+			<About visible={aboutIsShowing} toggleFunction={toggleModal} /> */}
 		</>
 	);
 }
