@@ -14,6 +14,7 @@ function About(props: any) {
     return (
         <>
             <div id="modal-backdrop" className={visibility} onClick={props.toggleModal}></div>
+            <div id="modal-backdrop2" className={visibility} onClick={props.toggleModal}></div>
             <article id="page-about" className={visibility}>
                 <section>
                     <h3>Blue Protocol Fansite</h3>

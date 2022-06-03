@@ -14,23 +14,23 @@ library.add(fab);
 function App() {
 	const [aboutIsShowing, setModalVisibility] = useState(false);
 
-    const toggleModal = () => {
-        setModalVisibility(aboutIsShowing => !aboutIsShowing);
+	const toggleModal = () => {
+		setModalVisibility(aboutIsShowing => !aboutIsShowing);
 		console.log(aboutIsShowing);
-    }
+	}
 
 	return (
 		<>
 			<div className="wrapper">
 				<Navigation />
-				<div className="content">
-					<Guide/>
+				<div className="middle-wrapper">
+					<Guide />
 				</div>
-				<div className="crosshair"></div>
+				<div className="right"></div>
 			</div>
-			
-			{/* <button onClick={toggleModal} style={{position: "absolute", zIndex: "300"}}>hey</button>
-			<About visible={aboutIsShowing} toggleFunction={toggleModal} /> */}
+
+			<button onClick={toggleModal} style={{ position: "absolute", zIndex: "300", left: "0", top: "0" }}>hey</button>
+			<About visible={aboutIsShowing} toggleFunction={toggleModal} />
 		</>
 	);
 }
