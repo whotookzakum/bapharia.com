@@ -493,52 +493,7 @@ jQuery(document).ready(function ($) {
     });
     
     /*--------------------------------------------------------------------------------------------------------------------------------------*/
-    
-    // CLASS PAGES
-    
-    var classDescriptions = [
-        
-        // ENGLISH
-        [
-            // AEGIS FIGHTER
-            {
-                name: "Aegis Fighter",
-                icon: "images/aficon.svg",
-                chart: "images/skills/afchart.png",
-                elements: '<img src="images/crafting/light.png" style="filter: brightness(0.9) sepia(1) saturate(300%) hue-rotate(0)" draggable="false">',
-                text: '<span style="font-style: italic;">A melee knight class that has powerful crowd control and tanking abilities.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Shield<br></span>Block incoming attacks with your shield, consuming shield gauge. If shield gauge reaches zero, all shield-utilizing skills will be temporarily disabled.</span>', // can also initiate a counterattack // impenetrable/divine defense
-                video: "images/skills/af.mp4"
-            },
-            // TWIN STRIKER
-            {
-                name: "Twin Striker",
-                icon: "images/tsicon.svg",
-                chart: "images/skills/tschart.png",
-                elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false">',
-                text: '<span style="font-style: italic;">A front line melee class that wields axes in both hands.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">Combo Meter<br></span>Damaging enemies builds combo meter, which increases damage. Meter will reset to 0 if knocked down.</span>', // berserk
-                video: "images/skills/ts.mp4"
-            },
-            // BLAST ARCHER
-            {
-                name: "Blast Archer",
-                icon: "images/baicon.svg",
-                chart: "images/skills/bachart.png",
-                elements: '<img src="images/crafting/earth.png" style="filter: brightness(0.3) sepia(1) saturate(500%) hue-rotate(-25deg)" draggable="false">',
-                text: "<span style='font-style: italic;'>A ranged bowman class that specializes in supporting allies and debuffing enemies.<br></span><span style='position: relative; top: 0.5vw;'><span style='font-weight: bold;'>Weakness Targeting<br></span>Manually aim at enemies' weak points to deal additional damage.</span>", // sharp eyes
-                video: "images/skills/ba.mp4"
-            },
-            // SPELL CASTER
-            {
-                name: "Spell Caster",
-                icon: "images/scicon.svg",
-                chart: "images/skills/scchart.png",
-                elements: '<img src="images/crafting/fire.png" style="filter: brightness(0.1) sepia(1) saturate(5000%) hue-rotate(0)" draggable="false"><img src="images/crafting/lightning.png" style="filter: brightness(0.7) sepia(1) saturate(300%) hue-rotate(15deg)" draggable="false"><img src="images/crafting/ice.png" style="filter: brightness(0.6) sepia(1) saturate(200%) hue-rotate(140deg)" draggable="false">',
-                text: '<span style="font-style: italic;">A ranged magician class that deals high burst damage by manipulating the elements.<br></span><span style="position: relative; top: 0.5vw;"><span style="font-weight: bold;">EP Gauge<br></span>Tactical skills consume EP gauge instead of going on cooldown. EP can be charged, but will leave you vulnerable while doing so.</span>', // manifestation (engram)
-                video: "images/skills/sc.mp4"
-            }
-        ]
-        
-    ]
+
     
     var skillHolder = [
         // ENGLISH
