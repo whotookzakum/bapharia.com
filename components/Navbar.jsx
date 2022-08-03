@@ -18,8 +18,9 @@ export function Navbar() {
                     </li>
                 </menu>
                 <div>
-                    <IconWorld />
+                    
                     <input type="text" placeholder='Search' />
+                    <IconWorld />
                 </div>
             </div>
         </nav>
