@@ -1,16 +1,26 @@
 import styles from '../styles/components/navbar.module.scss';
 import Link from 'next/link';
+import { IconWorld } from '@tabler/icons';
 
 export function Navbar() {
-    return(
+    return (
         <nav className={styles.navbar}>
-            <header>
-                Bapharia
-            </header>
-            <div className={styles["nav-links"]}>
-                <Link href="hey">Interactive</Link>
-                <Link href="guides">Guides</Link>
-                <Link href="about">About</Link>
+            <div className={styles["nav-body"]}>
+                <menu className={styles["nav-links"]}>
+                    <li className={styles.active}>
+                        <Link href="#">News</Link>
+                    </li>
+                    <li>
+                        <Link href="#">Interactive</Link>
+                    </li>
+                    <li>
+                        <Link href="#">Guides</Link>
+                    </li>
+                </menu>
+                <div>
+                    <IconWorld />
+                    <input type="text" placeholder='Search' />
+                </div>
             </div>
         </nav>
     )
