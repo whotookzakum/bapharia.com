@@ -7,8 +7,6 @@ import Date from "../../components/Date";
 import AnchorJS from 'anchor-js';
 import { useEffect } from "react";
 
-
-
 export async function getStaticProps({ params }) {
     const guideData = await getGuideData(params.id);
     return {
