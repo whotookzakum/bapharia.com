@@ -21,7 +21,7 @@
 
 	.card {
 		position: relative;
-		height: 300px;
+		min-height: 200px; // 200-300px
 		padding: var(--space-xs);
 		z-index: 0;
 		box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
