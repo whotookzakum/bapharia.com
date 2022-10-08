@@ -4,7 +4,7 @@
 	import { t } from '../lib/functions/i18n';
 	import en from '/src/lib/locales/en/pages/index.json';
 	import ja from '/src/lib/locales/ja/pages/index.json';
-	const resource = en;
+	const resource = ja;
 	
 	onMount(() => {
 		console.log(navigator.language);

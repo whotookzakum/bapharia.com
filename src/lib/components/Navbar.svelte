@@ -18,7 +18,8 @@
 </nav>
 
 <style lang="scss">
-	$link: #0ba0a0;
+	@use '../styles/colors' as *;
+
 	.navbar {
 		display: flex;
 		align-items: center;
