@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import HeroBanner from '../lib/components/HeroBanner.svelte';
+	import Item from '../lib/components/Item.svelte';
+	import ItemList from '../lib/components/ItemList.svelte';
 	import { t } from '../lib/functions/i18n';
 	import en from '/src/lib/locales/en/pages/index.json';
 	import ja from '/src/lib/locales/ja/pages/index.json';
@@ -12,6 +14,52 @@
 </script>
 
 <HeroBanner title={t('pageTitle', resource)} subtext={t('pageSlug', resource)} />
+
+<ItemList>
+	<Item 
+		name="Ancient Flame Bow" 
+		type="Axe" 
+		itemType="weapon" 
+		reqAR=2 
+		imgSrc="axe1.png" 
+	/>
+	<Item 
+		name="Ancient Flame Bow" 
+		type="Axe" 
+		itemType="weapon" 
+		reqAR=2 
+		imgSrc="axe1.png" 
+	/>
+	<Item 
+		name="Ancient Flame Bow" 
+		type="Axe" 
+		itemType="weapon" 
+		reqAR=2 
+		imgSrc="axe1.png" 
+	/>
+	<Item 
+		name="Ancient Flame Bow" 
+		type="Axe" 
+		itemType="weapon" 
+		reqAR=2 
+		imgSrc="axe1.png" 
+	/>
+	<Item 
+		name="Ancient Flame Bow" 
+		type="Axe" 
+		itemType="weapon" 
+		reqAR=2 
+		imgSrc="axe1.png" 
+	/>
+	<Item 
+		name="Ancient Flame Bow" 
+		type="Axe" 
+		itemType="weapon" 
+		reqAR=2 
+		imgSrc="axe1.png" 
+	/>
+</ItemList>
+
 <article>
 	<h3>{t('whatIsBP_title', resource)}</h3>
 	<p>{t('whatIsBP_description', resource)}</p>
