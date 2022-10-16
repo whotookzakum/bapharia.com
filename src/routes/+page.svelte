@@ -71,7 +71,7 @@
 			'2': '</a>',
 			'3': '<a href="/skills">',
 			'4': '<a href="/crafting">',
-			'5': '<a href="https://discord.gg/ZKwhn3a4yH" target="_blank" rel="noreferrer noopener nofollow" />'
+			'5': '<a href="https://discord.gg/ZKwhn3a4yH" target="_blank" rel="noreferrer noopener nofollow">'
 		})}
 	</p>
 </article>

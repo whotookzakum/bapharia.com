@@ -13,6 +13,8 @@
 </header>
 
 <style lang="scss">
+	@use '../styles/colors' as *;
+
 	.hero-banner {
 		margin: 4em 0;
 		margin-bottom: calc(4em + 73px);
@@ -25,8 +27,7 @@
 
 		h2 {
 			font-size: var(--step-1);
-			color: #429ef3;
-			color: #999;
+			color: var(--color-text-accent-dark);
 		}
 	}
 </style>
