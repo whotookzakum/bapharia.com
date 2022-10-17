@@ -8,47 +8,28 @@
 
 <style lang="scss">
 	aside {
-		--color-bg: rgb(31, 31, 31);
-		--color-border: rgb(61, 61, 61);
-		color: #f5f0f0;
+		--color-bg: rgb(34, 51, 99);
+		--color-border: rgb(24, 127, 187);
+		color: var(--text1);
 		background: var(--color-bg);
 		padding: var(--space-xs);
 		margin: var(--space-xs) 0;
 		border-left: 4px solid var(--color-border);
 		box-shadow: 0 2px 8px rgb(12, 12, 12);
+		line-height: 1.5;
 
 		&::before {
 			font-size: var(--step--1);
-			font-weight: bold;
 			display: block;
-			margin-bottom: var(--space-2xs);
+			margin-bottom: var(--space-3xs);
 			text-transform: uppercase;
-			opacity: 0.8;
-		}
-	}
-    
-	aside.warning {
-		--color-bg: rgb(99, 34, 34);
-		--color-border: rgb(187, 24, 24);
-		&::before {
-			content: 'Warning';
+			color: var(--text2);
 		}
 	}
 
 	aside.note {
-		--color-bg: rgb(34, 51, 99);
-		--color-border: rgb(24, 127, 187);
-
 		&::before {
 			content: 'Note';
-		}
-	}
-
-	aside.hint {
-		--color-bg: rgb(34, 99, 37);
-		--color-border: rgb(29, 187, 24);
-		&::before {
-			content: 'Hint';
 		}
 	}
 
@@ -59,20 +40,22 @@
 			content: 'Tip';
 		}
 	}
-
+    
 	aside.caution {
 		--color-bg: rgb(99, 78, 34);
 		--color-border: rgb(187, 149, 24);
+		
 		&::before {
 			content: 'Caution';
+			color: hsl(240, 5%, 78%);
 		}
 	}
 
-	aside.other {
-		--color-bg: rgb(153, 31, 76);
-		--color-border: rgb(249, 53, 124);
+	aside.warning {
+		--color-bg: rgb(99, 34, 34);
+		--color-border: rgb(187, 24, 24);
 		&::before {
-			content: 'Other';
+			content: 'Warning';
 		}
 	}
 </style>

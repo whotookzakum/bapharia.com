@@ -71,7 +71,7 @@
 		flex-direction: column;
 		gap: var(--space-m);
 		font-size: var(--step--1);
-		color: var(--color-text-accent);
+		color: var(--text2);
 	}
 	
 	.footer-links {
@@ -81,14 +81,14 @@
 	}
 
 	a {
-		border-bottom-width: 1px;
+		border-bottom-width: 0px;
 	}
 
 	strong {
 		display: block;
 		margin: 0 0 var(--space-3xs) 0;
 		font-weight: 500;
-		color: var(--color-text);
+		color: var(--text1);
 	}
 
 	ul {

@@ -21,8 +21,6 @@
 </nav>
 
 <style lang="scss">
-	@use '../styles/colors' as *;
-
 	.navbar {
 		background-color: var(--color-bg);
 		// position: sticky;
@@ -56,11 +54,11 @@
 		border-bottom: 4px solid transparent;
 
 		&:hover {
-			border-top-color: $link;
+			border-top-color: var(--accent);
 		}
 		
 		&.active {
-			color: $link;
+			color: var(--accent);
 		}
 	}
 

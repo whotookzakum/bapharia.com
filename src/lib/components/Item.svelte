@@ -38,25 +38,31 @@
 </li>
 
 <style lang="scss">
-	@use '../styles/colors' as *;
+	$black: #000;
+	$gray: #242424;
+	$lightgray: #d0d0d0;
+	$midgray: #333;
+	$yellow: #ffce04;
+	$highlight-hover: #fff;
+	$highlight-active: #e7f837;
 
 	.item {
 		display: flex;
 		gap: var(--space-2xs);
-        cursor: pointer;
-		color: $light;
+		cursor: pointer;
+		color: var(--text1);
 
 		&:hover {
 			.item-data,
 			.req-ar {
-				box-shadow: 0 0 0 2px $i-highlight-hover;
+				box-shadow: 0 0 0 2px $highlight-hover;
 			}
 		}
 
 		&:active {
 			.item-data,
 			.req-ar {
-				box-shadow: 0 0 0 2px $i-highlight-active;
+				box-shadow: 0 0 0 2px $highlight-active;
 			}
 		}
 	}
@@ -65,11 +71,11 @@
 		border-radius: 4px;
 		overflow: hidden;
 		display: flex;
-		
+
 		flex: 1;
 
 		.item-thumbnail-wrapper {
-			background: $i-black;
+			background: $black;
 			padding: var(--space-3xs);
 		}
 
@@ -79,13 +85,13 @@
 			width: 100%;
 
 			&-main {
-				background: $i-gray;
+				background: $gray;
 				padding: var(--space-3xs);
 			}
 
 			&-sub {
-				color: $i-midgray;
-                background: $i-lightgray;
+				color: $midgray;
+				background: $lightgray;
 				font-size: var(--step--2);
 				font-weight: 600;
 				padding: var(--space-3xs);
@@ -109,7 +115,7 @@
 		}
 
 		.unobtained-tag {
-			background: $i-yellow;
+			background: $yellow;
 			text-align: center;
 			padding-top: 1px;
 			border-radius: 3px;
@@ -127,7 +133,7 @@
 		flex: 1;
 
 		.req-ar-text {
-			background: $i-black;
+			background: $black;
 			padding: var(--space-3xs);
 			width: 100%;
 			text-align: center;
@@ -138,13 +144,13 @@
 			margin: auto;
 			font-size: var(--step-2);
 			font-weight: 700;
-			color: $i-midgray;
-            background: $i-lightgray;
-            width: 100%;
-            display: flex;
-            flex: 1;
-            justify-content: center;
-            align-items: center;
+			color: $midgray;
+			background: $lightgray;
+			width: 100%;
+			display: flex;
+			flex: 1;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 </style>

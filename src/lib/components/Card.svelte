@@ -17,8 +17,6 @@
 </div>
 
 <style lang="scss">
-    @use '../styles/colors' as *;
-
 	.card {
 		position: relative;
 		min-height: 200px; // 200-300px
@@ -26,7 +24,7 @@
 		z-index: 0;
 		box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
 		cursor: pointer;
-        color: $light;
+        color: var(--text1);
 	}
 	.card-title {
 		margin: 0;
@@ -80,7 +78,7 @@
 		h5 {
 			margin: 0;
 			font-weight: 400;
-			color: $link; // #8d1144
+			color: var(--accent); 
 		}
 
 		span {
