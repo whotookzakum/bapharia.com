@@ -1,32 +1,34 @@
 <script>
+	import { page } from '$app/stores';
 	import LocaleSelector from './LocaleSelector.svelte';
+
+	const links = [
+		{ title: 'Home', href: '/' },
+		{ title: 'Guides', href: '/guides' },
+		{ title: 'Map', href: '/map' },
+		{ title: 'Skills', href: '/skills' },
+		{ title: 'Crafting', href: '/crafting' },
+		{ title: 'Translator', href: '/translator' },
+		{ title: 'Database', href: '/db' }
+	];
 </script>
 
 <nav class="navbar">
 	<div class="nav-content">
 		<div class="nav-links">
-			<a href="/" class="active">Home</a>
-			<a href="/guides">Guides</a>
-			<a href="/map">Map</a>
-			<a href="/skills">Skills</a>
-			<a href="/crafting">Crafting</a>
-			<a href="/translator">Translator</a>
-			<a href="/db">Database</a>
+			{#each links as item}
+				<a class:active={$page.url.pathname === item.href} href={item.href}>
+					{item.title}
+				</a>
+			{/each}
 		</div>
-		<!-- <LocaleSelector value={$locale} on:locale-changed={(e) => setupI18n({ withLocale: e.detail })} /> -->
 		<div class="nav-extras">
-			<input type="text" placeholder="Search" />
+			<LocaleSelector/>
 		</div>
 	</div>
 </nav>
 
 <style lang="scss">
-	.navbar {
-		background-color: var(--color-bg);
-		// position: sticky;
-		top: 0;
-	}
-
 	.nav-content {
 		display: flex;
 		align-items: center;
@@ -56,15 +58,9 @@
 		&:hover {
 			border-top-color: var(--accent);
 		}
-		
+
 		&.active {
 			color: var(--accent);
 		}
-	}
-
-	.nav-extras {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
 	}
 </style>

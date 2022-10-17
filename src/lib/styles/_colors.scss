@@ -1,71 +1,3 @@
-// Global colors
-$dark: #00171F;
-$light: #f5f0f0;
-$lightgray: #d0d0d0;
-$gray: #999;
-$midgray: #555;
-$darkgray: #353535;
-$link: #0ba0a0; // #429ef3
-// #003459 #007EA7 #00A8E8
-
-
-// #8d1144
-
-
-
-
-:root {
-
-
-    --color-accent: hsl(180, 87%, 34%);
-    --color: #00171F;
-    --s-900: hsl(240, 10%, 8%); // dark
-    --s-800: hsl(240, 10%, 18%);
-    --s-700: hsl(240, 10%, 28%);
-    --s-600: hsl(240, 10%, 38%);
-    --s-500: hsl(240, 10%, 48%);
-    --s-400: hsl(240, 10%, 58%);
-    --s-300: hsl(240, 10%, 68%);
-    --s-200: hsl(240, 10%, 78%);
-    --s-100: hsl(240, 10%, 88%);
-    --s-50: hsl(240, 10%, 98%);
-
-    --gray-900: hsl(0, 0%, 5%);
-    --gray-800: hsl(0, 0%, 15%);
-    --gray-700: hsl(0, 0%, 25%);
-    --gray-600: hsl(0, 0%, 35%);
-    --gray-500: hsl(0, 0%, 45%);
-    --gray-400: hsl(0, 0%, 55%);
-    --gray-300: hsl(0, 0%, 65%);
-    --gray-200: hsl(0, 0%, 75%);
-    --gray-100: hsl(0, 0%, 85%); // lightgray
-    --gray-50: hsl(0, 0%, 95%);
-
-
-    // Brand color
-    // --brand-light: hsl(220, 100%, 65%);
-
-
-    // --brand-dark: hsl(203, 58%, 47%);
-    // --text1-dark: hsl(240 15% 85%);
-    // --text2-dark: hsl(240 5% 65%);
-    // --surface1-dark: hsl(240 30% 8%);
-    // --surface2-dark: hsl(240 20% 10%);
-    // --surface3-dark: hsl(240 20% 13%);
-    // --surface4-dark: hsl(240 20% 17%);
-
-
-
-
-    // --brand-dark: hsl(203, 58%, 47%);
-    // --text1-dark: hsl(240 15% 85%);
-    // --text2-dark: hsl(240 5% 65%);
-
-    // --surface2-dark: hsl(240 20% 10%);
-    // --surface3-dark: hsl(240 20% 13%);
-    // --surface4-dark: hsl(240 20% 17%);
-}
-
 :root {
     // Light
     --accent-light: hsl(220 100% 65%);
@@ -87,7 +19,12 @@ $link: #0ba0a0; // #429ef3
     --surface3-dark: hsl(240, 25%, 5%);
     --surface-shadow-dark: hsl(240, 25%, 4%);
 
+    // beautiful velvety crimson #8d1144
+}
 
+// Default/Auto Light
+:root {
+    color-scheme: light;
     --accent: var(--accent-light);
     --text1: var(--text1-light);
     --text2: var(--text2-light);
@@ -96,7 +33,39 @@ $link: #0ba0a0; // #429ef3
     --surface2: var(--surface2-light);
     --surface3: var(--surface3-light);
     --surface-shadow: var(--surface-shadow-light);
+}
 
+// Auto Dark
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --accent: var(--accent-dark);
+        --text1: var(--text1-dark);
+        --text2: var(--text2-dark);
+        --bg: var(--bg-dark);
+        --surface1: var(--surface1-dark);
+        --surface2: var(--surface2-dark);
+        --surface3: var(--surface3-dark);
+        --surface-shadow: var(--surface-shadow-dark);
+    }
+}
+
+// Manual Light
+[color-scheme="light"] {
+    color-scheme: light;
+    --accent: var(--accent-light);
+    --text1: var(--text1-light);
+    --text2: var(--text2-light);
+    --bg: var(--bg-light);
+    --surface1: var(--surface1-light);
+    --surface2: var(--surface2-light);
+    --surface3: var(--surface3-light);
+    --surface-shadow: var(--surface-shadow-light);
+}
+
+// Manual Dark
+[color-scheme="dark"] {
+    color-scheme: dark;
     --accent: var(--accent-dark);
     --text1: var(--text1-dark);
     --text2: var(--text2-dark);
@@ -106,35 +75,3 @@ $link: #0ba0a0; // #429ef3
     --surface3: var(--surface3-dark);
     --surface-shadow: var(--surface-shadow-dark);
 }
-
-// @media (prefers-color-scheme: dark) {
-//     :root {
-//         --brand: var(--brand-dark);
-//         --text1: var(--text1-dark);
-//         --text2: var(--text2-dark);
-//         --surface1: var(--surface1-dark);
-//         --surface2: var(--surface2-dark);
-//         --surface3: var(--surface3-dark);
-//         --surface4: var(--surface4-dark);
-
-
-
-//         --color-text: var(--text1-dark);
-//         --color-bg: var(--surface1-dark);
-//         --color-text-accent: var(--gray-100);
-//         --color-text-accent-dark: #{$gray};
-//     }
-
-//     body {
-//         font-weight: 300;
-//     }
-// }
-
-// @media (prefers-color-scheme: light) {
-//     :root {
-//         --color-text: #{$dark};
-//         --color-bg: #{$light};
-//         --color-text-accent: #{$darkgray};
-//         --color-text-accent-dark: #{$midgray};
-//     }
-// }

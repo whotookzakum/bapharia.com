@@ -38,7 +38,7 @@
 			</ul>
 		</div>
 		<div>
-			<strong>Links</strong>
+			<strong>Community</strong>
 			<ul>
 				<li>
 					<a href="https://discord.gg/ZKwhn3a4yH" target="_blank" rel="noreferrer noopener nofollow">Discord</a>
@@ -63,7 +63,8 @@
 
 <style lang="scss">
 	.page-footer {
-		border-top: 1px solid rgba(153, 153, 153, 0.5);
+		--border-color: hsla(240, 25%, 60%, 0.5);
+		border-top: 1px solid var(--border-color);
 		margin-top: var(--space-m);
 		line-height: 1.6;
 		padding: var(--space-m) 0;
