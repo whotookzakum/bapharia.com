@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/Article.astro
 title: 'Liquid Memories'
+author: 'Zakum'
 date: '2022-08-03'
 ---
 

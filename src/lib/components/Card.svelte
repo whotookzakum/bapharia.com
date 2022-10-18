@@ -1,23 +1,25 @@
 <script>
 	export let title;
+	export let href;
 	export let category;
 	export let caption;
 	export let bgSrc;
 </script>
 
-<div class="card">
+<a class="card" href={href}>
 	<div class="card-bg">
 		<img src={`/images/${bgSrc}`} alt="Card Background" />
 	</div>
-	<h3 class="card-title">{title}</h3>
+	<strong class="card-title">{title}</strong>
 	<div class="card-caption">
 		<h5>{category}</h5>
 		<span>{caption}</span>
 	</div>
-</div>
+</a>
 
 <style lang="scss">
 	.card {
+		border: none;
 		position: relative;
 		min-height: 200px; // 200-300px
 		padding: var(--space-xs);
@@ -28,7 +30,7 @@
         color: var(--text1-dark);
 	}
 	.card-title {
-		margin: 0;
+		font-size: var(--step-2);
 	}
 	.card-bg {
 		position: absolute;

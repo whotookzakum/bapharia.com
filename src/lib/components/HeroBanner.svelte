@@ -1,29 +1,31 @@
 <script>
 	export let title;
-	export let author = undefined;
+	export let author;
 	export let subtext;
 </script>
 
 <header class="hero-banner">
-	<h1>{title}</h1>
+	<h1 class="title">{title}</h1>
 	{#if author}
-		<h2>{author}</h2>
+		<span class="author">{author}</span>
 	{/if}
-	<h2>{subtext}</h2>
+	<span class="subtext">{subtext}</span>
 </header>
 
 <style lang="scss">
 	.hero-banner {
-		margin: 4em 0;
-		margin-bottom: calc(4em + 73px);
+		padding: var(--space-2xl) 0;
 
-		h1,
-		h2 {
+		.title {
 			margin: 0;
-			max-width: 50ch;
+			max-width: 20ch;
 		}
 
-		h2 {
+		.author, 
+		.subtext {
+			display: block;
+			margin: 0;
+			max-width: 50ch;
 			font-size: var(--step-1);
 			color: var(--accent);
 		}

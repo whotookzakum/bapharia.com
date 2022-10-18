@@ -35,10 +35,6 @@
 		justify-content: space-between;
 		max-width: 1400px;
 		margin: 0 auto;
-
-		input {
-			max-width: 21ch;
-		}
 	}
 
 	.nav-links {

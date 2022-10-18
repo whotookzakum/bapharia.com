@@ -1,8 +1,8 @@
 <script>
-	import HeroBanner from '../../lib/components/HeroBanner.svelte';
-	import StickyNote from '../../lib/components/StickyNote.svelte';
-	import Item from '../../lib/components/Item.svelte';
-	import ItemList from '../../lib/components/ItemList.svelte';
+	import HeroBanner from '../../../lib/components/HeroBanner.svelte';
+	import StickyNote from '../../../lib/components/StickyNote.svelte';
+	import Item from '../../../lib/components/Item.svelte';
+	import ItemList from '../../../lib/components/ItemList.svelte';
 </script>
 
 <HeroBanner title="Page Title" subtext="Some page slug here." />

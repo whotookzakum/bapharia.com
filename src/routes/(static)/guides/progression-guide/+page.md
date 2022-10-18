@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/Article.astro
 title: 'Progression Guide'
+author: 'Zakum'
 date: '2022-08-03'
 ---
 

@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/Article.astro
-title: 'Main Story Quests'
+title: 'Main Story'
+author: 'Zakum'
 date: '2022-08-03'
 ---
 

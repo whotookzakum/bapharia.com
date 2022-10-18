@@ -1,7 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
-	import HeroBanner from '../lib/components/HeroBanner.svelte';
-	import { t } from '../lib/functions/i18n';
+	import HeroBanner from '../../lib/components/HeroBanner.svelte';
+	import StickyNote from '../../lib/components/StickyNote.svelte';
+	import { t } from '../../lib/functions/i18n';
 	import en from '/src/lib/locales/en/pages/index.json';
 	import ja from '/src/lib/locales/ja/pages/index.json';
 	const resource = en;
@@ -23,8 +24,16 @@
 			'1': '<a href="/map">',
 			'2': '</a>',
 			'3': '<a href="/skills">',
-			'4': '<a href="/crafting">',
-			'5': '<a href="https://discord.gg/ZKwhn3a4yH" target="_blank" rel="noreferrer noopener nofollow">'
+			'4': '<a href="/crafting">'
+		})}
+	</p>
+	<StickyNote type="tip">
+		{t('baphariaNameExplanation', resource)}
+	</StickyNote>
+	<p>
+		{@html t('whatIsBapharia_description2', resource, {
+			'1': '<a href="https://discord.gg/ZKwhn3a4yH" target="_blank" rel="noreferrer noopener nofollow">',
+			'2': '</a>'
 		})}
 	</p>
 </article>
