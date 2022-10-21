@@ -15,7 +15,22 @@
 		fuga cumque laborum mollitia ea. Ipsa.
 	</p>
 
+	<StickyNote type="note">
+		This is a sticky note.<br />
+		The available types are Note, Tip, Caution, and Warning.
+	</StickyNote>
+
 	<StickyNote type="tip">
+		This is a sticky note.<br />
+		The available types are Note, Tip, Caution, and Warning.
+	</StickyNote>
+
+	<StickyNote type="caution">
+		This is a sticky note.<br />
+		The available types are Note, Tip, Caution, and Warning.
+	</StickyNote>
+
+	<StickyNote type="warning">
 		This is a sticky note.<br />
 		The available types are Note, Tip, Caution, and Warning.
 	</StickyNote>

@@ -1,5 +1,6 @@
 <script>
-	import SunAndMoon from './SunAndMoon.svelte';
+	import IconMoon from './icons/IconMoon.svelte';
+	import IconSun from './icons/IconSun.svelte';
 
 	const getTheme = () => {
 		return localStorage.getItem('theme-preference');
@@ -67,9 +68,9 @@
 	aria-live="polite"
 >
 	{#if theme === 'dark'}
-		<div class="light" />
+		<IconSun />
 	{:else}
-		<div class="dark" />
+		<IconMoon />
 	{/if}
 </button>
 
@@ -82,25 +83,5 @@
 		&:hover {
 			color: var(--text1);
 		}
-	}
-
-	.light,
-	.dark {
-		background: var(--accent);
-		width: 32px;
-		aspect-ratio: 1/1;
-        mask-size: 100%;
-
-		&:hover {
-			background: var(--text1);
-		}
-	}
-
-	.light {
-		mask-image: url('/images/elements/UI_IconAttribute_5.png');
-	}
-
-	.dark {
-		mask-image: url('/images/elements/UI_IconAttribute_6.png');
 	}
 </style>
