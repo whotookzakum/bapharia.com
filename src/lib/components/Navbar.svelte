@@ -1,6 +1,8 @@
 <script>
 	import { page } from '$app/stores';
 	import LocaleSelector from './LocaleSelector.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
+	
 
 	const links = [
 		{ title: 'Home', href: '/' },
@@ -11,7 +13,22 @@
 		{ title: 'Translator', href: '/translator' },
 		{ title: 'Database', href: '/db' }
 	];
+
+	
+
+	// };
+
+	// const reflectPreference = () => {
+	// 	document.firstElementChild.setAttribute('data-theme', theme.value);
+
+	// 	document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
+	// };
+
+
 </script>
+
+<!-- https://nicobachner.com/sveltekit-theme-switch -->
+<!-- https://web.dev/building-a-color-scheme -->
 
 <nav class="navbar">
 	<div class="nav-content">
@@ -23,7 +40,8 @@
 			{/each}
 		</div>
 		<div class="nav-extras">
-			<LocaleSelector/>
+			<ThemeToggle />
+			<LocaleSelector />
 		</div>
 	</div>
 </nav>
@@ -37,16 +55,22 @@
 		margin: 0 auto;
 	}
 
+	.nav-extras {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+		position: relative;
+	}
+
 	.nav-links {
+		display: flex;
+		align-items: center;
 		margin: 0;
 		padding: 0;
 		list-style: none;
-		display: flex;
-		align-items: center;
 	}
 
 	a {
-		display: block;
 		padding: 1rem;
 		border-top: 4px solid transparent;
 		border-bottom: 4px solid transparent;

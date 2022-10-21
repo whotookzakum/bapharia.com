@@ -16,61 +16,106 @@
 		</select>
 	</div>
 </div> -->
-
 <script>
-	let lang = "en";
+	// MVP
+	// Get locale from cache if exists
+	// If it doesn't exist, default to browser locale
+	// Else default to english
+	// Selecting an option caches the selected locale
+	// List gets updated to show current locale at top
+
+	let lang = 'en';
+
+	let localeItems = [
+		{
+			lng: 'English',
+			localeCode: 'en'
+		},
+		{
+			lng: '日本語',
+			localeCode: 'ja'
+		},
+		{
+			lng: 'Português',
+			localeCode: 'br-pt'
+		},
+		{
+			lng: 'Deustch',
+			localeCode: 'de'
+		},
+		{
+			lng: 'Pусский',
+			localeCode: 'ru'
+		},
+		{
+			lng: 'Français',
+			localeCode: 'fr'
+		},
+		{
+			lng: '한국어',
+			localeCode: 'kr'
+		},
+		{
+			lng: '中文',
+			localeCode: 'cn'
+		}
+	];
+
+	function handleClick(e) {
+		updateListOrder(e);
+		updateLocale(e);
+	}
+
+	function updateListOrder(e) {
+		const clickedItemValue = e.target.dataset.value;
+		const localeItem = localeItems.find((item) => item.localeCode === clickedItemValue);
+		const index = localeItems.indexOf(localeItem);
+		if (index > -1) {
+			localeItems.splice(index, 1);
+			localeItems.unshift(localeItem);
+			localeItems = localeItems;
+		}
+	}
+
+	function updateLocale(e) {}
+
+	let isOpen = false;
 </script>
 
-<menu class="lang-selector">
-	<li class={lang === 'en' ? 'selected' : ''} on:click={() => (lang = 'en')}>
-		<img
-			src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-united-kingdom_1f1ec-1f1e7.png"
-			alt=""
-		/>
-	</li>
-	<li class={lang === 'ja' ? 'selected' : ''} on:click={() => (lang = 'ja')}>
-		<img
-			src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-japan_1f1ef-1f1f5.png"
-			alt=""
-		/>
-	</li>
-	<li class={lang === 'br' ? 'selected' : ''} on:click={() => (lang = 'br')}>
-		<img
-			src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/322/flag-brazil_1f1e7-1f1f7.png"
-			alt=""
-		/>
-	</li>
+<menu class="locale-selector" class:show={isOpen} on:click={() => (isOpen = !isOpen)}>
+	{#each localeItems as item (item.localeCode)}
+		<li>
+			<button on:click={(e) => handleClick(e)} data-value={item.localeCode} aria-label={item.lng}>
+				{item.lng}
+			</button>
+		</li>
+	{/each}
 </menu>
 
 <style lang="scss">
-	.lang-selector {
-		list-style: none;
-		padding: 0;
-		position: absolute;
-		top: 0;
-		cursor: pointer;
+	.locale-selector {
+		--font-height: 21px;
+		--spacing: var(--space-3xs);
 
-		img {
-			display: block;
-			max-width: 32px;
+		cursor: default;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		height: calc(var(--font-height) + var(--spacing) * 2);
+		overflow: hidden;
+
+		&.show {
+			overflow: visible;
 		}
 
-		li {
-			display: none;
-			padding: 0.5em;
+		button {
+			border: none;
+			font: inherit;
+			background: none;
+			padding: var(--spacing) 0;
 
 			&:hover {
-				background: var(--surface2);
-			}
-		}
-
-		li.selected {
-			display: block;
-		}
-
-		&:hover {
-			li {
-				display: block;
+				color: var(--accent);
 			}
 		}
 	}

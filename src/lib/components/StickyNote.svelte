@@ -10,7 +10,7 @@
 	aside {
 		--color-bg: rgb(34, 51, 99);
 		--color-border: rgb(24, 127, 187);
-		color: var(--text1);
+		color: var(--text1-dark);
 		background: var(--color-bg);
 		padding: var(--space-xs);
 		margin: var(--space-xs) 0;
@@ -23,7 +23,7 @@
 			display: block;
 			margin-bottom: var(--space-3xs);
 			text-transform: uppercase;
-			color: var(--text2);
+			color: var(--text2-dark);
 		}
 	}
 
