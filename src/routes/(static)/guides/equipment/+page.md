@@ -31,7 +31,7 @@ Weapons can be leveled up at a crafting machine using EXP crystals. Item drops c
 Weapon level cannot be increased past your current class' level. A level 20 Blast Archer can only level their bow to Lv 20, even if the weapon's max level is 35.
 
 <StickyNote type="caution">
-    A weapon that is a higher level than your current class cannot be equipped.
+    A weapon that is a higher level than your current class level cannot be equipped.
 </StickyNote>
 
 Let's say you have a Lv 35 Aegis Fighter and a Lv 20 Spell Caster. You can craft and level up a staff on your Aegis Fighter. However, if you level the staff to 25, your Spell Caster won't be able to equip it until class Lv 25.

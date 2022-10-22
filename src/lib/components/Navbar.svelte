@@ -47,6 +47,10 @@
 </nav>
 
 <style lang="scss">
+	.navbar {
+		// background: var(--surface2);
+	}
+
 	.nav-content {
 		display: flex;
 		align-items: center;
