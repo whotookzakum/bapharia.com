@@ -13,7 +13,6 @@
     4. filters
     
  -->
-
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
@@ -23,25 +22,62 @@
 
 	onMount(async () => {
 		if (browser) {
-			const leaflet = await import('leaflet');
+			const L = await import('leaflet');
 
-			map = leaflet.map(mapElement).setView([51.505, -0.09], 13);
+			// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
-			// leaflet
-			// 	.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			// 		attribution:
-			// 			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-			// 	})
-			// 	.addTo(map);
-            leaflet
-                .imageOverlay('/images/map/UI_MapCty001.png', [[0, 0], [1634, 824]])
-                .addTo(map);
+			const bounds = [
+				[0, 0], // padding
+				[824, 1634] // image dimensions
+			];
 
-			leaflet
-				.marker([51.5, -0.09])
-				.addTo(map)
-				.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-				.openPopup();
+			// L.CRS.Simple is a simple CRS that maps longitude and latitude into `x` and `y` directly. May be used for maps of flat surfaces (e.g. game maps).
+			const mapOptions = {
+				crs: L.CRS.Simple,
+				minZoom: -2,
+				maxZoom: 1,
+				maxBounds: bounds,
+				maxBoundsViscosity: 1.0
+			};
+
+			// Create map
+			map = L.map(mapElement, mapOptions);
+
+			// Used to load and display a single image over specific bounds of the map. Extends `Layer`.
+			L.imageOverlay('/images/map/UI_MapCty001.png', [
+				[0, 0],
+				[824, 1634]
+			]).addTo(map);
+
+			// fitBounds() sets a map view that contains the given geographical bounds with the maximum zoom level possible.
+			map.fitBounds(bounds);
+
+			// Define a custom icon
+			const warpGate = L.icon({
+				iconUrl: '/images/map/UI_Map_12.png',
+				shadowUrl: '',
+
+				iconSize: [64, 64], // size of the icon
+				shadowSize: [50, 64], // size of the shadow
+				iconAnchor: [32, 32], // point of the icon which will correspond to marker's location
+				shadowAnchor: [4, 62], // the same for the shadow
+				popupAnchor: [0, -24] // point from which the popup should open relative to the iconAnchor
+			});
+
+			// Add marker
+			L.marker([467, 576], {icon: warpGate}).addTo(map)
+				// .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+				// .openPopup();
+
+			// Warp points
+			L.marker([230, 520], {icon: warpGate}).addTo(map)
+			L.marker([185, 724], {icon: warpGate}).addTo(map)
+			L.marker([409, 822], {icon: warpGate}).addTo(map)
+			L.marker([287, 822], {icon: warpGate}).addTo(map)
+			L.marker([269, 955], {icon: warpGate}).addTo(map)
+			L.marker([464, 1024], {icon: warpGate}).addTo(map)
+			L.marker([532, 700], {icon: warpGate}).addTo(map)
+			L.marker([677, 701], {icon: warpGate}).addTo(map)
 		}
 	});
 
@@ -57,9 +93,13 @@
 
 <style>
 	@import 'leaflet/dist/leaflet.css';
-    
-    .leaflet-map {
-        width: 100%;
-        height: 100%;
-    }
+
+	.leaflet-map {
+		width: 100%;
+		height: 100%;
+		background-image: url('/images/map/mapbg.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+	}
 </style>
