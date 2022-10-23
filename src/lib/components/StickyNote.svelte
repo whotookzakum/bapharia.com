@@ -32,7 +32,8 @@
 		padding: var(--space-xs);
 		margin: var(--space-xs) 0;
 		border-left: 4px solid var(--color-border);
-		box-shadow: 0 2px 8px rgb(12, 12, 12);
+		box-shadow: 0 2px 8px var(--surface-shadow);
+		transition: var(--transition-shadow);
 		line-height: 1.5;
 	}
 

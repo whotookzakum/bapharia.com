@@ -10,12 +10,6 @@
     font-display: swap;
 }
 
-:root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-    --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-}
-
 /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1400,18,1.25,7,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
 /* @link https://utopia.fyi/space/calculator?c=320,21,1.2,1140,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6, */
@@ -54,7 +48,16 @@
 
 body {
     font-size: var(--step-0);
-    // font-size: var(--font-size-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: var(--space-xl);
+    margin-bottom: 0;
 }
 
 h1 {
@@ -87,7 +90,10 @@ p {
 }
 
 article {
-    p, li, aside, .video {
+    p,
+    li,
+    aside,
+    .video {
         max-width: 50ch;
     }
 
@@ -96,18 +102,6 @@ article {
         margin-bottom: var(--space-2xs);
     }
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    // font-family: "Skip Std";
-    margin-top: var(--space-xl);
-    margin-bottom: 0;
-}
-
 
 a {
     color: inherit;
@@ -118,3 +112,29 @@ a {
         color: var(--accent);
     }
 }
+
+
+// @font-face {
+//     font-family: "Skip Std";
+//     src: url("/fonts/SkipStd.ttf");
+//     font-display: swap;
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//     font-family: "Skip Std";
+// }
+
+// :root {
+//     --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+//     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+//     --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+// }
+
+// body {
+//     font-size: var(--font-size-base);
+// }

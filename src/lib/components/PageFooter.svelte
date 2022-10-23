@@ -72,12 +72,13 @@
 <style lang="scss">
 	.page-footer {
 		background: var(--surface2);
+		transition: var(--transition-bg);
 	}
 
 	.footer-content {
 		--border-color: hsla(240, 25%, 60%, 0.5);
 		// border-top: 1px solid var(--border-color);
-		margin: var(--space-m) auto auto auto;
+		margin: var(--space-xl) auto auto auto;
 		line-height: 1.6;
 		padding: var(--space-m) 1em;
 		display: flex;
@@ -85,6 +86,7 @@
 		gap: var(--space-m);
 		font-size: var(--step--1);
 		color: var(--text2);
+		transition: var(--transition-color);
 		// background: red;
 
 		max-width: 1400px;
@@ -105,6 +107,7 @@
 		margin: 0 0 var(--space-3xs) 0;
 		font-weight: 500;
 		color: var(--text1);
+		transition: var(--transition-color);
 	}
 
 	ul {

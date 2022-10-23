@@ -3,7 +3,6 @@
 	import LocaleSelector from './LocaleSelector.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 	
-
 	const links = [
 		{ title: 'Home', href: '/' },
 		{ title: 'Guides', href: '/guides' },
@@ -13,18 +12,6 @@
 		{ title: 'Translator', href: '/translator' },
 		{ title: 'Database', href: '/db' }
 	];
-
-	
-
-	// };
-
-	// const reflectPreference = () => {
-	// 	document.firstElementChild.setAttribute('data-theme', theme.value);
-
-	// 	document.querySelector('#theme-toggle')?.setAttribute('aria-label', theme.value);
-	// };
-
-
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
@@ -48,7 +35,9 @@
 
 <style lang="scss">
 	.navbar {
-		// background: var(--surface2);
+		background: var(--surface2);
+		transition: var(--transition-bg), var(--transition-shadow);
+		box-shadow: 0 0 4px var(--surface-shadow);
 	}
 
 	.nav-content {
