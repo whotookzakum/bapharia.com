@@ -34,7 +34,7 @@
 			// L.CRS.Simple is a simple CRS that maps longitude and latitude into `x` and `y` directly. May be used for maps of flat surfaces (e.g. game maps).
 			const mapOptions = {
 				crs: L.CRS.Simple,
-				minZoom: -2,
+				minZoom: -1,
 				maxZoom: 1,
 				maxBounds: bounds,
 				maxBoundsViscosity: 1.0
@@ -44,7 +44,7 @@
 			map = L.map(mapElement, mapOptions);
 
 			// Used to load and display a single image over specific bounds of the map. Extends `Layer`.
-			L.imageOverlay('/images/map/UI_MapCty001.png', [
+			L.imageOverlay('/images/map/maps/UI_MapCty001.png', [
 				[0, 0],
 				[824, 1634]
 			]).addTo(map);
@@ -53,31 +53,229 @@
 			map.fitBounds(bounds);
 
 			// Define a custom icon
-			const warpGate = L.icon({
-				iconUrl: '/images/map/UI_Map_12.png',
-				shadowUrl: '',
-
-				iconSize: [64, 64], // size of the icon
-				shadowSize: [50, 64], // size of the shadow
-				iconAnchor: [32, 32], // point of the icon which will correspond to marker's location
-				shadowAnchor: [4, 62], // the same for the shadow
-				popupAnchor: [0, -24] // point from which the popup should open relative to the iconAnchor
+			const iconWarpGate = L.icon({
+				iconUrl: '/images/map/markers/UI_Map_12.png',
+				iconSize: [64, 64],
+				iconAnchor: [32, 32],
+				popupAnchor: [0, -24]
 			});
 
-			// Add marker
-			L.marker([467, 576], {icon: warpGate}).addTo(map)
-				// .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-				// .openPopup();
+			const icons = [
+				{
+					name: 'Elite Monster',
+					iconUrl: '/images/map/markers/UI_Map_04.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Weapon Shop',
+					iconUrl: '/images/map/markers/UI_Map_07.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Potion Shop',
+					iconUrl: '/images/map/markers/UI_Map_09.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Warp Gate',
+					iconUrl: '/images/map/markers/UI_Map_12.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Crafting Machine',
+					iconUrl: '/images/map/markers/UI_Map_19.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Exchange',
+					iconUrl: '/images/map/markers/UI_Map_20.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Storage',
+					iconUrl: '/images/map/markers/UI_Map_40.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Class Master',
+					iconUrl: '/images/map/markers/UI_Map_65.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Weapon Reconstructor',
+					iconUrl: '/images/map/markers/UI_Map_67.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Unknown_1',
+					iconUrl: '/images/map/markers/UI_Map_69.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Imagine Research Institute',
+					iconUrl: '/images/map/markers/UI_Map_71.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				},
+				{
+					name: 'Liquid Memory Stand',
+					iconUrl: '/images/map/markers/UI_Map_72.png',
+					iconSize: [64, 64],
+					iconAnchor: [32, 32],
+					popupAnchor: [0, -24]
+				}
+			];
 
-			// Warp points
-			L.marker([230, 520], {icon: warpGate}).addTo(map)
-			L.marker([185, 724], {icon: warpGate}).addTo(map)
-			L.marker([409, 822], {icon: warpGate}).addTo(map)
-			L.marker([287, 822], {icon: warpGate}).addTo(map)
-			L.marker([269, 955], {icon: warpGate}).addTo(map)
-			L.marker([464, 1024], {icon: warpGate}).addTo(map)
-			L.marker([532, 700], {icon: warpGate}).addTo(map)
-			L.marker([677, 701], {icon: warpGate}).addTo(map)
+			const markers = [
+				{
+					category: 'Warp Gate',
+					coords: [467, 576],
+					description: 'City Gate Square'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [230, 520],
+					description: 'Asterleeds Beach'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [185, 724],
+					description: 'Revolving Helm Pavilion'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [409, 822],
+					description: 'Frontiering Station'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [287, 822],
+					description: 'The Double-Faced Coin'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [269, 955],
+					description: 'Arena Entrance'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [464, 1024],
+					description: 'Shrine Entrance'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [532, 700],
+					description: 'Coat of Arms Plaza'
+				},
+				{
+					category: 'Warp Gate',
+					coords: [677, 701],
+					description: 'Asterleeds Port'
+				},
+				{
+					category: 'Imagine Research Institute',
+					coords: [310, 838]
+				},
+				{
+					category: 'Crafting Machine',
+					coords: [537, 790]
+				},
+				{
+					category: 'Crafting Machine',
+					coords: [545, 798]
+				},
+				{
+					category: 'Weapon Reconstructor',
+					coords: [648, 820]
+				},
+				{
+					category: 'Weapon Reconstructor',
+					coords: [366, 822]
+				},
+				{
+					category: 'Weapon Reconstructor',
+					coords: [135, 758]
+				},
+				{
+					category: 'Class Master',
+					coords: [510, 1020]
+				},
+				{
+					category: 'Class Master',
+					coords: [510, 1020]
+				},
+				{
+					category: 'Liquid Memory Stand',
+					coords: [264, 545]
+				},
+				{
+					category: 'Liquid Memory Stand',
+					coords: [204, 945]
+				},
+				{
+					category: 'Liquid Memory Stand',
+					coords: [580, 735]
+				},
+				{
+					category: 'Exchange',
+					coords: [442, 882],
+					zIndex: 140
+				},
+				{
+					category: 'Potion Shop',
+					coords: [342, 964]
+				},
+				{
+					category: 'Weapon Shop',
+					coords: [304, 980]
+				},
+				{
+					category: 'Storage',
+					coords: [321, 832]
+				},
+				{
+					category: 'Storage',
+					coords: [405, 886]
+				},
+				{
+					category: 'Unknown_1',
+					coords: [439, 878]
+				}
+			];
+
+			markers.forEach((marker) => {
+				const icon = icons.find((icon) => icon.name === marker.category);
+
+				L.marker(marker.coords, { icon: L.icon(icon) })
+					.addTo(map)
+					.setZIndexOffset(marker.zIndex)
+					.bindPopup(
+						`<strong>${marker.category}</strong>
+						<br>
+						${marker.description || ''}`
+					);
+			});
 		}
 	});
 
@@ -101,5 +299,6 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
+		cursor: inherit;
 	}
 </style>
