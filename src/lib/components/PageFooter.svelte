@@ -31,6 +31,15 @@
 				<strong>Other</strong>
 				<ul>
 					<li>
+						<a href="/news">News</a>
+					</li>
+					<li>
+						<a href="/game-updates">Game Updates</a>
+					</li>
+					<li>
+						<a href="/changelog">Changelog</a>
+					</li>
+					<li>
 						<a href="/credits">Credits</a>
 					</li>
 					<li>

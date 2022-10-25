@@ -30,7 +30,7 @@
 		color: var(--text1-dark);
 		background: var(--color-bg);
 		padding: var(--space-xs);
-		margin: var(--space-xs) 0;
+		margin: var(--space-m) 0;
 		border-left: 4px solid var(--color-border);
 		box-shadow: 0 2px 8px var(--surface-shadow);
 		transition: var(--transition-shadow);
