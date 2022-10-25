@@ -35,6 +35,7 @@
 		padding: var(--space-s);
 		box-shadow: 0 2px 4px var(--surface-shadow);
 		transition: var(--transition-bg), var(--transition-color), var(--transition-shadow);
+		max-width: 50ch;
 		
 		h4 {
 			margin: 0;

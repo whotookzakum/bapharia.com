@@ -17,6 +17,5 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--space-m);
-        max-width: 50ch;
 	}
 </style>
