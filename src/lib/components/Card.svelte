@@ -26,7 +26,6 @@
 		z-index: 0;
 		box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
 		box-shadow: 0 4px 14px var(--surface-shadow);
-		cursor: pointer;
         color: var(--text1-dark);
 	}
 	.card-title {

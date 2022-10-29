@@ -97,7 +97,6 @@
 		--font-height: 21px;
 		--spacing: var(--space-3xs);
 
-		cursor: default;
 		list-style: none;
 		margin: 0;
 		padding: 0;

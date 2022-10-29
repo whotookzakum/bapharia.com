@@ -1,29 +1,25 @@
 <script>
-	export let name;
-	export let type;
-	export let itemType;
-	export let reqAR;
-	export let imgSrc;
+	import { currentImagineId } from '../stores'
+	export let data
+
+	function handleClick() {
+		currentImagineId.set(data.id)
+	}
 </script>
 
-<li class="item">
+<li class="item" on:click={handleClick}>
 	<div class="item-data">
 		<div class="item-thumbnail-wrapper">
-			<img class="item-thumbnail" src={`/images/${imgSrc}`} alt="Item Thumbnail" />
+			<!-- <img class="item-thumbnail" src={`/images/${data.imgSrc}`} alt="Item Icon" /> -->
 		</div>
 		<div class="item-info">
 			<div class="item-info-main">
-				<span class="item-name">{name}</span>
-				<span class="item-type">
-					{type}
-					{#if itemType === 'weapon'}
-						(Weapon)
-					{/if}
-				</span>
+				<span class="item-name">{data.name}</span>
+				<span class="item-type">{data.type}</span>
 			</div>
 			<div class="item-info-sub">
 				<span class="owned-amount">
-					{#if itemType === 'weapon'}
+					{#if data.type === 'weapon'}
 						Owned: <b>0</b>
 					{/if}
 				</span>
@@ -33,7 +29,7 @@
 	</div>
 	<div class="req-ar">
 		<span class="req-ar-text">Req. AR</span>
-		<span class="req-ar-number">{reqAR}</span>
+		<span class="req-ar-number">{data.reqAR}</span>
 	</div>
 </li>
 
@@ -49,7 +45,6 @@
 	.item {
 		display: flex;
 		gap: var(--space-2xs);
-		cursor: pointer;
 		color: var(--text1);
 
 		&:hover {

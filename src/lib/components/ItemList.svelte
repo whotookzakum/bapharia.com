@@ -1,9 +1,12 @@
 <script>
-
+	import Item from "./Item.svelte";
+    export let items;
 </script>
 
 <ol class="item-list">
-    <slot/>
+    {#each items as item}
+        <Item data={item} />
+    {/each}
 </ol>
 
 <style lang="scss">

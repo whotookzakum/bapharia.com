@@ -1,6 +1,6 @@
 <script>
 	import Navbar from '../../lib/components/Navbar.svelte';
-import '../../lib/styles/globals.scss';
+	import '../../lib/styles/globals.scss';
 </script>
 
 <main>
@@ -10,11 +10,7 @@ import '../../lib/styles/globals.scss';
 	<slot />
 </main>
 
-<style>
-	* { 
-		cursor: url('/images/cursor.png'), default;
-	}
-
+<style lang="scss">
 	.nav-wrapper {
 		position: fixed;
 		top: 0;

@@ -301,4 +301,5 @@
 		background-position: 50% 50%;
 		cursor: inherit;
 	}
+	
 </style>
