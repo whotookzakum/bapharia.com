@@ -10,7 +10,9 @@
 <li class="item" on:click={handleClick}>
 	<div class="item-data">
 		<div class="item-thumbnail-wrapper">
-			<!-- <img class="item-thumbnail" src={`/images/${data.imgSrc}`} alt="Item Icon" /> -->
+			{#if data.imgSrc}
+				<img class="item-thumbnail" src={`/images/${data.imgSrc}`} alt="Item Icon" />
+			{/if}
 		</div>
 		<div class="item-info">
 			<div class="item-info-main">
