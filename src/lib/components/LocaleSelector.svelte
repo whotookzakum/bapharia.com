@@ -77,7 +77,9 @@
 		}
 	}
 
-	function updateLocale(e) {}
+	function updateLocale(e) {
+		
+	}
 
 	let isOpen = false;
 </script>

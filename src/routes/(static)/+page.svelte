@@ -2,10 +2,6 @@
 	import { onMount } from 'svelte';
 	import HeroBanner from '../../lib/components/HeroBanner.svelte';
 	import StickyNote from '../../lib/components/StickyNote.svelte';
-	import Box from '../../lib/components/Box.svelte';
-	import latestNews from '../../lib/data/latestNews.json';
-	import gameUpdates from '../../lib/data/gameUpdates.json';
-	import changelog from '../../lib/data/changelog.json';
 	import { t } from '../../lib/functions/i18n';
 	import en from '/src/lib/locales/en/pages/index.json';
 	import ja from '/src/lib/locales/ja/pages/index.json';
@@ -42,26 +38,6 @@
 			})}
 		</p>
 	</section>
-	<aside class="updates-column">
-		<Box 
-			title="Latest News" 
-			item={latestNews[0]} 
-			href="/news" 
-			linkText="View all news.." 
-		/>
-		<Box
-			title="Game Updates"
-			item={gameUpdates[0]}
-			href="/game-updates"
-			linkText="View all versions.."
-		/>
-		<Box 
-			title="Site Updates" 
-			item={changelog[0]} 
-			href="/changelog" 
-			linkText="View all changes.." 
-		/>
-	</aside>
 </article>
 
 <style lang="scss">

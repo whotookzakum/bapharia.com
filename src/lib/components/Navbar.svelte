@@ -35,9 +35,12 @@
 
 <style lang="scss">
 	.navbar {
+		position: sticky;
+		top: 0;
+		z-index: 500;
+		box-shadow: 0 0 4px var(--surface-shadow);
 		background: var(--surface2);
 		transition: var(--transition-bg), var(--transition-shadow);
-		box-shadow: 0 0 4px var(--surface-shadow);
 	}
 
 	.nav-content {

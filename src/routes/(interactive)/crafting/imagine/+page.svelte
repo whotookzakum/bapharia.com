@@ -69,7 +69,6 @@
 
 	<div style="display: flex; gap: 1rem;">
 		<ItemList items={imagines} />
-		<h3>{imagineType}</h3>
 		<div style="width: 900px">
 			<h2 class="item-name">{data.name}</h2>
 			<div class="item-details" class:level-not-initial={currentLevel > 1}>

@@ -31,15 +31,6 @@
 				<strong>Other</strong>
 				<ul>
 					<li>
-						<a href="/news">News</a>
-					</li>
-					<li>
-						<a href="/game-updates">Game Updates</a>
-					</li>
-					<li>
-						<a href="/changelog">Changelog</a>
-					</li>
-					<li>
 						<a href="/credits">Credits</a>
 					</li>
 					<li>
@@ -82,6 +73,7 @@
 	.page-footer {
 		background: var(--surface2);
 		transition: var(--transition-bg);
+		box-shadow: 0 0 4px var(--surface-shadow);
 	}
 
 	.footer-content {
