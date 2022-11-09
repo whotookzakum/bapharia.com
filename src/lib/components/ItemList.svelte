@@ -17,6 +17,8 @@
         display: flex;
         flex-direction: column;
         gap: var(--space-2xs);
-        max-width: 420px;
+        width: 420px;
+        max-height: 700px;
+        overflow: scroll;
     }
 </style>

@@ -48,6 +48,7 @@
 		display: flex;
 		gap: var(--space-2xs);
 		color: var(--text1);
+		width: 100%;
 
 		&:hover {
 			.item-data,
@@ -68,12 +69,17 @@
 		border-radius: 4px;
 		overflow: hidden;
 		display: flex;
-
 		flex: 1;
 
 		.item-thumbnail-wrapper {
 			background: $black;
 			padding: var(--space-3xs);
+		}
+
+		.item-thumbnail {
+			display: block;
+			width: 64px;
+			height: 64px;
 		}
 
 		.item-info {

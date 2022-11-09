@@ -28,7 +28,7 @@
 
 			const bounds = [
 				[0, 0], // padding
-				[824, 1634] // image dimensions
+				[1080, 1920] // image dimensions
 			];
 
 			// L.CRS.Simple is a simple CRS that maps longitude and latitude into `x` and `y` directly. May be used for maps of flat surfaces (e.g. game maps).
@@ -44,13 +44,13 @@
 			map = L.map(mapElement, mapOptions);
 
 			// Used to load and display a single image over specific bounds of the map. Extends `Layer`.
-			L.imageOverlay('/images/map/maps/UI_MapCty001.png', [
-				[0, 0],
-				[824, 1634]
-			]).addTo(map);
+			L.imageOverlay('/images/map/maps/UI_MapCty001.png', bounds).addTo(map);
 
 			// fitBounds() sets a map view that contains the given geographical bounds with the maximum zoom level possible.
-			map.fitBounds(bounds);
+			// map.fitBounds(bounds);
+
+			// setView manually sets view to specific coordinates with a specified zoom level
+			map.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0)
 
 			// Define a custom icon
 			const iconWarpGate = L.icon({
@@ -150,117 +150,129 @@
 			const markers = [
 				{
 					category: 'Warp Gate',
-					coords: [467, 576],
+					coords: [550, 829],
 					description: 'City Gate Square'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [230, 520],
+					coords: [313, 773],
 					description: 'Asterleeds Beach'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [185, 724],
+					coords: [268, 977],
 					description: 'Revolving Helm Pavilion'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [409, 822],
+					coords: [492, 1075],
 					description: 'Frontiering Station'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [287, 822],
+					coords: [370, 1075],
 					description: 'The Double-Faced Coin'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [269, 955],
+					coords: [352, 1208],
 					description: 'Arena Entrance'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [464, 1024],
+					coords: [547, 1277],
 					description: 'Shrine Entrance'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [532, 700],
+					coords: [615, 953],
 					description: 'Coat of Arms Plaza'
 				},
 				{
 					category: 'Warp Gate',
-					coords: [677, 701],
+					coords: [760, 954],
 					description: 'Asterleeds Port'
 				},
 				{
 					category: 'Imagine Research Institute',
-					coords: [310, 838]
+					coords: [393, 1091]
 				},
 				{
 					category: 'Crafting Machine',
-					coords: [537, 790]
+					coords: [620, 1043]
 				},
 				{
 					category: 'Crafting Machine',
-					coords: [545, 798]
+					coords: [628, 1051]
 				},
 				{
 					category: 'Weapon Reconstructor',
-					coords: [648, 820]
+					coords: [731, 1073]
 				},
 				{
 					category: 'Weapon Reconstructor',
-					coords: [366, 822]
+					coords: [449, 1075]
 				},
 				{
 					category: 'Weapon Reconstructor',
-					coords: [135, 758]
+					coords: [218, 1011]
 				},
 				{
 					category: 'Class Master',
-					coords: [510, 1020]
-				},
-				{
-					category: 'Class Master',
-					coords: [510, 1020]
+					coords: [593, 1273]
 				},
 				{
 					category: 'Liquid Memory Stand',
-					coords: [264, 545]
+					coords: [347, 798]
 				},
 				{
 					category: 'Liquid Memory Stand',
-					coords: [204, 945]
+					coords: [287, 1198]
 				},
 				{
 					category: 'Liquid Memory Stand',
-					coords: [580, 735]
+					coords: [663, 988]
 				},
 				{
 					category: 'Exchange',
-					coords: [442, 882],
+					coords: [525, 1135],
 					zIndex: 140
 				},
 				{
 					category: 'Potion Shop',
-					coords: [342, 964]
+					coords: [425, 1217]
 				},
 				{
 					category: 'Weapon Shop',
-					coords: [304, 980]
+					coords: [387, 1233]
 				},
 				{
 					category: 'Storage',
-					coords: [321, 832]
+					coords: [404, 1085]
 				},
 				{
 					category: 'Storage',
-					coords: [405, 886]
+					coords: [488, 1139]
+				},
+				{
+					category: 'Storage',
+					coords: [720, 929]
+				},
+				{
+					category: 'Storage',
+					coords: [583, 1021]
+				},
+				{
+					category: 'Storage',
+					coords: [324, 1088]
+				},
+				{
+					category: 'Storage',
+					coords: [228, 980]
 				},
 				{
 					category: 'Unknown_1',
-					coords: [439, 878]
+					coords: [522, 1131]
 				}
 			];
 

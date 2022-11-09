@@ -31,7 +31,7 @@
 		}
 
 		if (imagineType === 0) {
-			skillType = ".";
+			skillType = "　";
 			imgSrc = `Imagine/Passive/UI_Icon_${imagine.id}.png`
 		}
 
@@ -61,7 +61,7 @@
 	$: currentLevelData = data.level_data.find((levelData) => levelData.level === currentLevel);
 </script>
 
-<div style="margin-top: 8rem">
+<div>
 	<input type="radio" name="imagine-type" id="battle-imagine" value={1} bind:group={imagineType} />
 	<label for="battle-imagine">Battle Imagine</label>
 	<input type="radio" name="imagine-type" id="inner-imagine" value={0} bind:group={imagineType} />

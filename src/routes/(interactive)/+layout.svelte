@@ -3,25 +3,14 @@
 	import '../../lib/styles/globals.scss';
 </script>
 
+<Navbar />
 <main>
-	<div class="nav-wrapper">
-		<Navbar />
-	</div>
 	<slot />
 </main>
 
 <style lang="scss">
-	.nav-wrapper {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 100;
-		background: var(--surface1);
-		width: 100%;
-	}
-	
 	main {
-		height: 100vh;
+		height: calc(100vh - 61px);
         width: 100vw;
 	}
 </style>
