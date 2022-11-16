@@ -48,6 +48,20 @@
 			category: 'Referential',
 			caption: 'List of features that have been confirmed to be in development.',
 			bgSrc: 'head.png'
+		},
+		{
+			title: 'Abnormal Statuses',
+			href: '/guides/abnormal-statuses',
+			category: 'Referential',
+			caption: 'List of known buffs and debuffs.',
+			bgSrc: 'head.png'
+		},
+		{
+			title: 'Elements',
+			href: '/guides/elements',
+			category: 'Referential',
+			caption: 'List of elements and their effects.',
+			bgSrc: 'head.png'
 		}
 	];
 
