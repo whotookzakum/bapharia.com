@@ -17,7 +17,7 @@ Liquid Memories are buffs that be activated at a **Liquid Memory Stand**.
 | ![Green Liquid Memory](/images/liquidMemory/green.svg)   | Grants discounted prices in shops. |
 
 ## How to unlock
-Liquid memories can be unlocked through side quests and exploration. There are currently two vials for every color. Check the world map for the side quest locations.
+Liquid memories can be unlocked through side quests and exploration. There are currently two vials for each color. Check the [map](/map) for the quest locations.
 
 ## How to use
 Once you finish a side quest, you will unlock one empty vial to store a single color of liquid memories.

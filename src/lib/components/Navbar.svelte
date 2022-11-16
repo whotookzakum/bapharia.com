@@ -9,7 +9,6 @@
 		{ title: 'Map', href: '/map' },
 		{ title: 'Skills', href: '/skills' },
 		{ title: 'Crafting', href: '/crafting' },
-		{ title: 'Translator', href: '/translator' },
 		{ title: 'Database', href: '/db' }
 	];
 </script>
@@ -66,7 +65,7 @@
 		list-style: none;
 	}
 
-	a {
+	a:not(.nav-logo) {
 		padding: 1rem;
 		border-top: 4px solid transparent;
 		border-bottom: 4px solid transparent;
@@ -78,5 +77,11 @@
 		&.active {
 			color: var(--accent);
 		}
+	}
+
+	a::after {
+		// content: '✨';
+		position: absolute;
+		font-size: var(--step--1);
 	}
 </style>

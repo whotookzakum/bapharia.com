@@ -13,8 +13,7 @@ An overview of all the gear in the world of Regnus.
 
 ## 🗡️ Weapons
 Weapons can be crafted at the crafting machine found in town. Upon creation, the weapon will have some random values:
-- Initial weapon level
-- Elemental efficacy
+- Elemental ATK
 - Bonus damage against a certain monster type
 - Number of slots (used for fusion)
 
@@ -24,17 +23,6 @@ See them in detail in this video:
     title="RNG aspects of weapon crafting" 
     id="jNDsR4DZkC8"
 />
-
-### Weapon Leveling
-Weapons can be leveled up at a crafting machine using EXP crystals. Item drops can also be used, but they give considerably reduced EXP. Leveling up your weapon increases its stats.
-
-Weapon level cannot be increased past your current class' level. A level 20 Blast Archer can only level their bow to Lv 20, even if the weapon's max level is 35.
-
-<StickyNote type="caution">
-    A weapon that is a higher level than your current class level cannot be equipped.
-</StickyNote>
-
-Let's say you have a Lv 35 Aegis Fighter and a Lv 20 Spell Caster. You can craft and level up a staff on your Aegis Fighter. However, if you level the staff to 25, your Spell Caster won't be able to equip it until class Lv 25.
 
 ### Weapon Fusion
 Fusion is the process of attaching Battle Imagine to your weapon to provide passive stat boosts. Weapons must have at least one empty slot to be eligible for fusion. Speak to the Weapon Reconstructor in town to begin. 
@@ -84,12 +72,12 @@ When a battle imagine is equipped to your character, its ability and stats will 
 
 Up to 2 battle imagine can be equipped (duplicates allowed) and their cooldowns are independent of each other.
 
-### Inner Imagine
-Inner Imagine are equippable artifacts that provide passive stat bonuses. 
+### Enhance Imagine
+Enhance Imagine are equippable items that provide passive stat bonuses. 
 
-Like battle imagine, inner imagine can be crafted at the Imagine Research Institute and will randomly take one of the available abilities shown in the crafting menu.
+Like battle imagine, enhance imagine can be crafted at the Imagine Research Institute and will randomly take one of the available abilities shown in the crafting menu.
 
-There are 5 inner imagine slots--they can only be equipped in their respective slots. Equipping higher tier inner imagine allows you to increase your Adventurer Rank.
+There are 5 enhance imagine slots--they can only be equipped in their respective slots. Equipping higher tier enhance imagine allows you to increase your Adventurer Rank.
 
 <Video 
     title="Imagine System" 
@@ -100,10 +88,10 @@ There are 5 inner imagine slots--they can only be equipped in their respective s
 ### Mount Imagine
 Mount Imagine are rideable creatures useful in traversing the open world.
 
-Mounts consume energy to travel at a fast pace. During the CBT, a mount would constantly consume energy while active. Mount energy would not passively recover. Once energy reached 0, the mount could not be used until its energy was recharged by visiting Asterleeds.
+Mounts have a standard running speed which is faster than running on foot. They also have a faster sprinting speed which consumes the Dash Gauge. The gauge will recover while not dashing.
 
 <StickyNote type="note">
-    The mount system is being reworked. There will be a medium speed (faster than running) and a fast speed (consumes energy). There may be other ways to recharge energy as well.
+    Mount animations will not disrupt your movement. You can mount, dismount, and attack in one fluid motion without pausing!
 </StickyNote>
 
-The only mount imagine available in past playtests was the Land Fox, obtainable at Lv 8 from Studz's side quest in Minsterhorn.
+The only mount imagine available in CBT was the Land Fox, obtainable at Lv 8 from Studz's side quest in Minsterhorn.
