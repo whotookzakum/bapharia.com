@@ -1,10 +1,13 @@
 <script>
 	import Navbar from '../../lib/components/Navbar.svelte';
 	import '../../lib/styles/globals.scss';
+	import CommandMenu from './CommandMenu.svelte';
 </script>
 
 <Navbar />
+
 <main>
+	<CommandMenu />
 	<slot />
 </main>
 
