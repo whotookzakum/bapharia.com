@@ -1,10 +1,12 @@
 <script>
 	import Navbar from '../../lib/components/Navbar.svelte';
 	import PageFooter from '../../lib/components/PageFooter.svelte';
+	import HeroBanner from '../../lib/components/HeroBanner.svelte';
 	import '../../lib/styles/globals.scss';
 </script>
 
 <Navbar />
+<!-- <HeroBanner title="Bapharia" subtext="The ultimate BLUE PROTOCOL information base." /> -->
 <main>
 	<slot />
 </main>

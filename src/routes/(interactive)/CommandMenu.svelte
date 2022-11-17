@@ -59,6 +59,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        flex: 1;
 		max-width: 320px;
     }
 </style>

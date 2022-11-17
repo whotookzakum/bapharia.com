@@ -7,16 +7,42 @@
 	<div class="info-box">
 		<section class="tactical-skills">
 			<header class="category-title">タクティカルスキル</header>
+			<ul class="skills">
+				<li>
+					<Skill type="tactical" classId="6" skillId="608" />
+				</li>
+				<li>
+					<Skill type="tactical" classId="6" skillId="608" />
+				</li>
+				<li>
+					<Skill type="tactical" classId="6" skillId="608" />
+				</li>
+				<li>
+					<Skill type="tactical" classId="6" skillId="608" />
+				</li>
+			</ul>
 		</section>
 		<section class="ult-skill">
 			<header class="category-title">ULTスキル</header>
-			<Skill/>
+			<ul class="skills">
+				<li>
+					<Skill type="ult" classId="6" skillId="608" />
+				</li>
+			</ul>
 		</section>
 		<section class="battle-imagine">
 			<header class="category-title">バトルイマジン</header>
 		</section>
 		<section class="regular-skills">
 			<header class="category-title">レギュラースキル</header>
+			<ul class="skills">
+				<li>
+					<Skill type="regular_main" classId="6" skillId="608" />
+				</li>
+				<li>
+					<Skill type="regular_sub" classId="6" skillId="608" />
+				</li>
+			</ul>
 		</section>
 	</div>
 </section>
@@ -52,5 +78,12 @@
 		color: rgb(13, 41, 46);
 		padding-bottom: 0.2rem;
 		border-bottom: 1px solid rgb(21, 41, 40);
+	}
+
+	ul.skills {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
 	}
 </style>
