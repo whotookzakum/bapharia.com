@@ -15,6 +15,10 @@
 <style lang="scss">
 	.hero-banner {
 		padding: var(--space-2xl) 0;
+		// background-image: url('/images/op.png');
+		// background-size: 100%;
+		// background-position: 50% 50%;
+		// background-repeat: no-repeat;
 
 		.title {
 			margin: 0;

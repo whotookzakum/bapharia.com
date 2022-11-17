@@ -40,7 +40,7 @@
 			href: '/guides/main-story',
 			category: 'Referential', // Lore
 			caption: 'The main story of BLUE PROTOCOL, including the flow of the quest line.',
-			bgSrc: 'msq.svg'
+			bgSrc: '5.png'
 		},
 		{
 			title: 'Upcoming Features',
@@ -54,14 +54,14 @@
 			href: '/guides/abnormal-statuses',
 			category: 'Referential',
 			caption: 'List of known buffs and debuffs.',
-			bgSrc: 'head.png'
+			bgSrc: '4.png'
 		},
 		{
 			title: 'Elements',
 			href: '/guides/elements',
 			category: 'Referential',
 			caption: 'List of elements and their effects.',
-			bgSrc: 'head.png'
+			bgSrc: '3.png'
 		}
 	];
 

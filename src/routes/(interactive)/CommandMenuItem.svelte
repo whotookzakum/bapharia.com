@@ -23,6 +23,7 @@
 		align-items: center;
 		background: linear-gradient(90deg, rgba(0, 0, 0, 0.733), transparent);
 		padding: 0 var(--space-m);
+		position: relative;
 
 		&:nth-child(2n + 1) {
 			--color: rgba(187, 255, 0, 0.8);

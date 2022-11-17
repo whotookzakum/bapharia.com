@@ -259,7 +259,7 @@
 
 	.hp-st {
         --color: #29fdac;
-		padding: var(--space-2xs) var(--space-s);
+		padding: var(--space-2xs);
         padding-bottom: var(--space-xs);
 		display: flex;
         flex-direction: column;
