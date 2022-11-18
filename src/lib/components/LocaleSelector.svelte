@@ -28,35 +28,35 @@
 
 	let localeItems = [
 		{
-			lng: 'English',
+			lng: 'EN',
 			localeCode: 'en'
 		},
 		{
-			lng: '日本語',
+			lng: 'JA',
 			localeCode: 'ja'
 		},
 		{
-			lng: 'Português',
+			lng: 'PT',
 			localeCode: 'br-pt'
 		},
 		{
-			lng: 'Deustch',
+			lng: 'DE',
 			localeCode: 'de'
 		},
 		{
-			lng: 'Pусский',
+			lng: 'RU',
 			localeCode: 'ru'
 		},
 		{
-			lng: 'Français',
+			lng: 'FR',
 			localeCode: 'fr'
 		},
 		{
-			lng: '한국어',
+			lng: 'KR',
 			localeCode: 'kr'
 		},
 		{
-			lng: '中文',
+			lng: 'CN',
 			localeCode: 'cn'
 		}
 	];

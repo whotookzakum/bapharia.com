@@ -1,61 +1,105 @@
 <script>
-	import { onMount } from 'svelte';
-	import HeroBanner from '../../lib/components/HeroBanner.svelte';
-	import StickyNote from '../../lib/components/StickyNote.svelte';
-	import { t } from '../../lib/functions/i18n';
-	import en from '/src/lib/locales/en/pages/index.json';
-	import ja from '/src/lib/locales/ja/pages/index.json';
-	const resource = en;
-
-	onMount(() => {
-		console.log(navigator.language);
-	});
+	import PageFooter from '../../lib/components/PageFooter.svelte';
+	import Guides from './Guides.svelte';
+	import InteractivePages from './InteractivePages.svelte';
 </script>
 
-<HeroBanner title={t('pageTitle', resource)} subtext={t('pageSlug', resource)} />
-<article>
-	<section>
-		<h3>{t('whatIsBP_title', resource)}</h3>
-		<p>{t('whatIsBP_description', resource)}</p>
-		<p>{t('whatIsBP_description2', resource)}</p>
-
-		<h3>{t('whatIsBapharia_title', resource)}</h3>
-		<p>
-			{@html t('whatIsBapharia_description', resource, {
-				'1': '<a href="/map">',
-				'2': '</a>',
-				'3': '<a href="/skills">',
-				'4': '<a href="/crafting">'
-			})}
-		</p>
-		<StickyNote type="tip">
-			{t('baphariaNameExplanation', resource)}
-		</StickyNote>
-		<p>
-			{@html t('whatIsBapharia_description2', resource, {
-				'1': '<a href="https://discord.gg/ZKwhn3a4yH" target="_blank" rel="noreferrer noopener nofollow">',
-				'2': '</a>'
-			})}
-		</p>
-	</section>
-</article>
+<main>
+	<h1>Bapharia</h1>
+    <InteractivePages/>
+    <Guides/>
+</main>
+<PageFooter/>
 
 <style lang="scss">
-	article {
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		gap: var(--space-m);
-		margin-top: var(--space-xl);
+	main {
+		max-width: 1400px;
+        padding: 1em;
+        margin: auto;
+        margin-top: 20vh;
+	}
 
-		h3:first-of-type {
-			margin: 0;
+
+    h1 {
+        margin: 0;
+        text-align: center;
+        font-size: var(--step-4);
+    }
+</style>
+
+<!-- <main>
+	<section class="no-parallax">
+		<h1>Fun fact:</h1>
+	</section>
+	<section class="parallax bg">
+		<h1>
+			The sound that occurs when you snap your fingers is made by your middle finger hitting your
+			palm!
+		</h1>
+	</section>
+	<section class="no-parallax">
+		<h1>Have a nice day!</h1>
+	</section>
+</main>
+
+<style lang="scss">
+	main {
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+		perspective: 2px;
+	}
+
+	section {
+		transform-style: preserve-3d;
+		position: relative;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+	}
+
+	.no-parallax {
+		// background-color: #111;
+		z-index: 999;
+	}
+
+	section h1 {
+		text-align: center;
+		font-size: 4rem;
+		font-family: sans-serif;
+	}
+
+	.parallax h1 {
+		width: 60%;
+		font-size: 2rem;
+	}
+
+	.parallax::after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transform: translateZ(-3px) scale(1);
+		background-size: 100%;
+		z-index: -1;
+	}
+
+	.bg::after {
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+			url('https://picsum.photos/1080/720');
+		background-size: cover;
+	}
+
+	@media screen and (min-width: 768px) {
+		section h1 {
+			font-size: 8rem;
+		}
+		.parallax h1 {
+			font-size: 4rem;
 		}
 	}
-
-	.updates-column {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-m);
-	}
-</style>
+</style> -->

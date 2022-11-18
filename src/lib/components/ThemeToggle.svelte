@@ -2,18 +2,18 @@
 	import IconMoon from './icons/IconMoon.svelte';
 	import IconSun from './icons/IconSun.svelte';
 
-	const getTheme = () => {
+	let getTheme = () => {
 		return localStorage.getItem('theme-preference');
 	};
 
-	const setTheme = (theme) => {
+	let setTheme = (theme) => {
 		localStorage.setItem('theme-preference', theme);
 		document.documentElement.setAttribute('color-scheme', theme);
 	};
 
 	let theme;
 
-	const toggleTheme = () => {
+	let toggleTheme = () => {
 		theme = getTheme();
 
 		if (theme === 'light') {
@@ -28,17 +28,17 @@
 
 <svelte:head>
 	<script>
-		const getTheme = () => {
+		getTheme = () => {
 			return localStorage.getItem('theme-preference');
 		};
 
-		const setTheme = (theme) => {
+		setTheme = (theme) => {
 			localStorage.setItem('theme-preference', theme);
 			document.documentElement.setAttribute('color-scheme', theme);
 		};
 
 		// Use cached theme; if null then default to system theme
-		const theme = getTheme();
+		theme = getTheme();
 
 		if (theme) {
 			setTheme(theme);

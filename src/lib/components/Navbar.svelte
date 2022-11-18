@@ -18,13 +18,7 @@
 
 <nav class="navbar">
 	<div class="nav-content">
-		<div class="nav-links">
-			{#each links as item}
-				<a class:active={$page.url.pathname === item.href} href={item.href}>
-					{item.title}
-				</a>
-			{/each}
-		</div>
+		<img class="logo" src="/images/logo.png" alt="">
 		<div class="nav-extras">
 			<ThemeToggle />
 			<LocaleSelector />
@@ -37,16 +31,19 @@
 		position: sticky;
 		top: 0;
 		z-index: 500;
-		box-shadow: 0 0 4px var(--surface-shadow);
-		background: var(--surface2);
 		transition: var(--transition-bg), var(--transition-shadow);
+		padding: var(--space-m);
+	}
+
+	img.logo {
+		max-width: 42px;
+		filter: brightness(0.95);
 	}
 
 	.nav-content {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 1400px;
 		margin: 0 auto;
 	}
 
@@ -57,31 +54,4 @@
 		position: relative;
 	}
 
-	.nav-links {
-		display: flex;
-		align-items: center;
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	a:not(.nav-logo) {
-		padding: 1rem;
-		border-top: 4px solid transparent;
-		border-bottom: 4px solid transparent;
-
-		&:hover {
-			border-top-color: var(--accent);
-		}
-
-		&.active {
-			color: var(--accent);
-		}
-	}
-
-	a::after {
-		// content: '✨';
-		position: absolute;
-		font-size: var(--step--1);
-	}
 </style>
