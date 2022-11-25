@@ -139,6 +139,12 @@
 </section>
 
 <style lang="scss">
+	section {
+		// max-width: 800px;
+		margin: auto;
+        min-height: 80vh;
+	}
+
 	.card-grid {
 		display: grid;
 		justify-content: center;
@@ -158,6 +164,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-3xs);
+		margin-top: 0.5rem;
 
 		label {
 			background: var(--surface2);
@@ -166,7 +173,6 @@
 			border-radius: 0.3rem;
 			box-shadow: 0 2px 4px var(--surface-shadow);
 			color: var(--text2);
-			margin-top: 0.5rem;
 			-webkit-user-select: none;
 			-ms-user-select: none;
 			user-select: none;

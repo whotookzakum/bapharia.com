@@ -1,5 +1,6 @@
 <script>
 	import PageFooter from '../../lib/components/PageFooter.svelte';
+	import Database from './Database.svelte';
 	import Guides from './Guides.svelte';
 	import InteractivePages from './InteractivePages.svelte';
 </script>
@@ -8,6 +9,7 @@
 	<h1>Bapharia</h1>
     <InteractivePages/>
     <Guides/>
+	<Database/>
 </main>
 <PageFooter/>
 
