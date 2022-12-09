@@ -1,6 +1,6 @@
 <script>
 	import PageFooter from '../lib/components/PageFooter.svelte';
-	import Database from './Database.svelte';
+	import Database from '$lib/components/database/Database.svelte';
 	import Guides from './Guides.svelte';
 	import InteractivePages from './InteractivePages.svelte';
 

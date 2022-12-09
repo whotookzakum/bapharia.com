@@ -16,5 +16,6 @@
 		font-size: var(--step--1);
 		color: var(--text2);
 		transition: var(--transition-color);
+		text-align: center;
 	}
 </style>
