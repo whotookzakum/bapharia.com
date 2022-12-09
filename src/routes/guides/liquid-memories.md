@@ -2,6 +2,9 @@
 title: 'Liquid Memories'
 author: 'Zakum'
 date: '2022-08-03'
+category: 'Game Systems'
+caption: 'Liquid Memories are passive buffs that aid you in combat, crafting, and resource gathering.'
+featuredImg: 'liquidmemory.svg'
 ---
 
 Liquid Memories are buffs that be activated at a **Liquid Memory Stand**.

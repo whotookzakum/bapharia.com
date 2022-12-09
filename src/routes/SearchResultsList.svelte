@@ -1,6 +1,6 @@
 <script>
 	import SearchResult from './SearchResult.svelte';
-	import { databaseQuery } from '../../lib/stores';
+	import { databaseQuery } from '../lib/stores';
 
 	const items = [
 		{

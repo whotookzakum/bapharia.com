@@ -1,14 +1,16 @@
 <script>
-	import PageFooter from '../../lib/components/PageFooter.svelte';
+	import PageFooter from '../lib/components/PageFooter.svelte';
 	import Database from './Database.svelte';
 	import Guides from './Guides.svelte';
 	import InteractivePages from './InteractivePages.svelte';
+
+	export let data
 </script>
 
 <main>
 	<h1>Bapharia</h1>
     <InteractivePages/>
-    <Guides/>
+    <Guides data={data.guides} />
 	<Database/>
 </main>
 <PageFooter/>

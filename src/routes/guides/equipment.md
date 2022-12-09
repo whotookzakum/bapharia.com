@@ -2,11 +2,14 @@
 title: 'Equipment'
 author: 'Zakum'
 date: '2022-08-03'
+category: 'Game Systems'
+caption: 'Detailed breakdowns of gear and their stats.'
+featuredImg: 'op.png'
 ---
 
 <script>
-    import StickyNote from '../../../../lib/components/StickyNote.svelte';
-    import Video from '../../../../lib/components/Video.svelte';
+    import StickyNote from '$lib/components/StickyNote.svelte';
+    import Video from '$lib/components/Video.svelte';
 </script>
 
 An overview of all the gear in the world of Regnus.

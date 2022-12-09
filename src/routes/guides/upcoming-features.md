@@ -2,6 +2,9 @@
 title: 'Upcoming Features'
 author: 'Zakum'
 date: '2022-08-03'
+category: 'Referential'
+caption: 'List of features that have been confirmed to be in development.'
+featuredImg: 'head.png'
 ---
 
 Summaries of past developer livestreams and tweets, indicating content that is confirmed to be in development, under consideration, or not in consideration.

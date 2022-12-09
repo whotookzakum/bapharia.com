@@ -2,6 +2,9 @@
 title: 'Elements'
 author: 'Zakum'
 date: '2022-08-03'
+category: 'Referential'
+caption: 'List of elements and their effects.'
+featuredImg: '3.png'
 ---
 
 ### Elemental Effects

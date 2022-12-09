@@ -1,5 +1,5 @@
 <script>
-	import { databaseQuery } from '../../lib/stores';
+	import { databaseQuery } from '../lib/stores';
 </script>
 
 <div id="search-box-wrapper">

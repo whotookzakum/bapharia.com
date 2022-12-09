@@ -19,6 +19,7 @@
 
 <style lang="scss">
 	.card {
+		display: block;
 		border: none;
 		position: relative;
 		min-height: 200px; // 200-300px

@@ -2,10 +2,13 @@
 title: 'Combat'
 author: "Zakum"
 date: 'August 3, 2022'
+category: 'Game Systems'
+caption: 'A brief overview of all mechanics related to combat in BLUE PROTOCOL.'
+featuredImg: 'test.png'
 ---
 
 <script>
-    import StickyNote from '../../../../lib/components/StickyNote.svelte';
+    import StickyNote from '$lib/components/StickyNote.svelte';
 </script>
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action. Let's take a look at each one.
