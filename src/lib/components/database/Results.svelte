@@ -49,26 +49,23 @@
 </script>
 
 <div id="search-results-wrapper">
-	<span class="component-label" style="opacity: 1">Results</span>
-	<div style="display: flex; gap: 2rem;">
-		<dl id="search-results" class="box">
-			{#each filteredItems as item}
-				<div class="result">
-					<img src={`/images/${item.imgSrc}`} alt="Item Icon" width="64px" height="64px" />
-					<div class="result-text">
-						<dt>{item.name}</dt>
-						<dd>{item.type}</dd>
-						<dd>ID: {item.id}</dd>
-					</div>
+	<h3 class="component-label">Results</h3>
+	<dl id="search-results" class="box" style="flex: 1;">
+		{#each filteredItems as item}
+			<div class="result">
+				<img src={`/images/${item.imgSrc}`} alt="Item Icon" width="64px" height="64px" />
+				<div class="result-text">
+					<dt>{item.name}</dt>
+					<dd>{item.type}</dd>
+					<dd>ID: {item.id}</dd>
 				</div>
-			{/each}
-		</dl>
-		<div class="preview-pane box" style="flex: 1">Yo</div>
-	</div>
+			</div>
+		{/each}
+	</dl>
 </div>
 
 <style lang="scss">
-	#search-results {
+	dl#search-results {
 		padding: 0;
 		margin: 0;
 		grid-column: span 2;

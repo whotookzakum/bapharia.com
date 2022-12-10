@@ -12,7 +12,7 @@
 <div id="search-filters-wrapper">
 	<div style="display: flex; gap: 1rem">
 		<div style="flex: 1">
-			<span class="component-label">Item Type</span>
+			<h3 class="component-label">Filters</h3>
 			<menu id="filters" class="box">
 				{#each Object.keys(filters) as key}
 					<li class={key.toLowerCase()}>
@@ -63,7 +63,6 @@
 	}
 
 	input[type='checkbox'] {
-		// accent-color: currentColor !important;
 		accent-color: var(--accent);
 		position: absolute;
 		z-index: 10;
@@ -77,23 +76,4 @@
 			filter: brightness(1);
 		}
 	}
-
-	// .consumables {
-	// 	color: hsl(357, 49%, 50%);
-	// }
-	// .cosmetics {
-	// 	color: hsl(180, 42%, 47%);
-	// }
-	// .imagine {
-	// 	color: hsl(39, 54%, 55%);
-	// }
-	// .materials {
-	// 	color: hsl(128, 45%, 40%);
-	// }
-	// .skills {
-	// 	color: hsl(323, 38%, 46%);
-	// }
-	// .weapons {
-	// 	color: hsl(221, 38%, 46%);
-	// }
 </style>
