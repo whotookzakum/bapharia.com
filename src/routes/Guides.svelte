@@ -50,7 +50,7 @@
 		min-height: 80vh;
 	}
 
-	.card-grid {
+	ul.card-grid {
 		display: grid;
 		justify-content: center;
 		grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));

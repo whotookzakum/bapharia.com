@@ -1,10 +1,12 @@
 <script>
 	export let title;
 	export let id;
+	export let bleed;
 </script>
 
 <iframe
 	class="video"
+	class:full-bleed={bleed}
 	title="Video showcasing {title}"
 	src="https://www.youtube.com/embed/{id}"
 	allow="fullscreen"

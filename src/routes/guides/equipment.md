@@ -25,6 +25,7 @@ See them in detail in this video:
 <Video 
     title="RNG aspects of weapon crafting" 
     id="jNDsR4DZkC8"
+    bleed
 />
 
 ### Weapon Fusion
@@ -82,6 +83,7 @@ There are 5 enhance imagine slots--they can only be equipped in their respective
 <Video 
     title="Imagine System" 
     id="8fOrP_ziOi8?start=55"
+    bleed
 />
 
 

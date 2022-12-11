@@ -7,7 +7,7 @@ caption: 'List of known buffs and debuffs.'
 featuredImg: '4.png'
 ---
 
-### Buffs
+<h2 class="full-bleed">Buffs</h2>
 
 | Icon | Status | Effect |
 |:-----|--------|--------|
@@ -41,7 +41,7 @@ featuredImg: '4.png'
 | ![Light DEF Up](/images/StatusAilment/UI_StatusAilment_.png) | Light DEF Up | Increases defense against Light damage |
 | ![Dark DEF Up](/images/StatusAilment/UI_StatusAilment_.png) | Dark DEF Up | Increases defense against Dark damage |
 
-### Debuffs
+<h2 class="full-bleed">Debuffs</h2>
 
 | Icon | Status | Effect |
 |:-----|--------|--------|
