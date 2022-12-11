@@ -22,7 +22,8 @@
 
 		.title {
 			margin: 0;
-			max-width: 20ch;
+			// max-width: 20ch;
+			margin-bottom: 1rem;
 		}
 
 		.author, 
@@ -30,8 +31,9 @@
 			display: block;
 			margin: 0;
 			max-width: 50ch;
-			font-size: var(--step-1);
+			font-size: var(--step-0);
 			color: var(--accent);
+			// line-height: 1.75;
 		}
 	}
 </style>

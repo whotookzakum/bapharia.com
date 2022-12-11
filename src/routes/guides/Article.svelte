@@ -1,20 +1,22 @@
 <script>
 	import AnchorJS from 'anchor-js';
 	import { onMount } from 'svelte';
-	import HeroBanner from './HeroBanner.svelte';
 	export let title;
 	export let author;
 	export let date;
 
 	onMount(() => {
 		const anchors = new AnchorJS();
-		anchors.add('article h2');
-		anchors.add('article h3');
+		anchors.add('h2');
+		anchors.add('h3');
 	});
 </script>
 
-<HeroBanner {title} author="By {author}" subtext="Last updated {date}" />
-
 <article>
+	<header>
+		<h1>{title}</h1>
+		<span>By {author}</span>
+		<span>Last updated {date}</span>
+	</header>
 	<slot />
 </article>

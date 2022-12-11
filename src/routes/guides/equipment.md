@@ -12,9 +12,9 @@ featuredImg: 'op.png'
     import Video from '$lib/components/Video.svelte';
 </script>
 
-An overview of all the gear in the world of Regnus.
+## An overview of all the gear in the world of Regnus.
 
-## 🗡️ Weapons
+## Weapons
 Weapons can be crafted at the crafting machine found in town. Upon creation, the weapon will have some random values:
 - Elemental ATK
 - Bonus damage against a certain monster type
@@ -56,10 +56,7 @@ The default cooldown for ultimates is 60 seconds. The tactical ability **Reduce 
 
 With these combined, you can reduce your ULT cooldown from 60s to 46.64s (or lower). -->
 
-
-
-
-## 🐈 Imagine
+## Imagine
 Imagine are the souls of creatures that inhabit the world of BLUE PROTOCOL.
 <!-- > *Imajinn are the embodiment of spiritual elements, such as powerful emotions or thoughts of a living creature.*   -->
 

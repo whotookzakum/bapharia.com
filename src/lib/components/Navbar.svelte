@@ -1,16 +1,6 @@
 <script>
-	import { page } from '$app/stores';
 	import LocaleSelector from './LocaleSelector.svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
-	
-	const links = [
-		{ title: 'Home', href: '/' },
-		{ title: 'Guides', href: '/guides' },
-		{ title: 'Map', href: '/map' },
-		{ title: 'Skills', href: '/skills' },
-		{ title: 'Crafting', href: '/crafting' },
-		{ title: 'Database', href: '/db' }
-	];
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
@@ -18,7 +8,9 @@
 
 <nav class="navbar">
 	<div class="nav-content">
-		<img class="logo" src="/images/logo.png" alt="">
+		<a href="/">
+			<img class="logo" src="/images/logo.png" alt="Logo">
+		</a>
 		<div class="nav-extras">
 			<ThemeToggle />
 			<LocaleSelector />
@@ -28,16 +20,27 @@
 
 <style lang="scss">
 	.navbar {
-		position: sticky;
+		position: fixed;
 		top: 0;
-		z-index: 500;
+		width: 100%;
+		// z-index: 500;
 		transition: var(--transition-bg), var(--transition-shadow);
 		padding: var(--space-m);
+
+		a {
+			border: none;
+		}
 	}
 
 	img.logo {
 		max-width: 42px;
-		filter: brightness(0.95);
+		filter: brightness(0.95) drop-shadow(0 2px 1px var(--surface-shadow));
+		transition: all 0.2s ease;
+
+		&:hover {
+			transform: translateY(-4px);
+			filter: brightness(0.95) drop-shadow(0 6px 1px var(--surface-shadow));
+		}
 	}
 
 	.nav-content {

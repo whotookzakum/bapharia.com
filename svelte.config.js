@@ -12,7 +12,7 @@ const config = {
 		sveltePreprocess(),
 		mdsvex({ 
 			extensions: ['.md'],
-			layout: "/src/lib/components/Article.svelte"
+			layout: "/src/routes/guides/Article.svelte"
 		})
 	]
 };
