@@ -6,13 +6,13 @@
 	export let bgSrc;
 </script>
 
-<a class="card" href={href}>
+<a class="card" {href}>
 	<div class="card-bg">
 		<img src={`/images/${bgSrc}`} alt="Card Background" />
 	</div>
-	<strong class="card-title">{title}</strong>
+	<h3 class="card-title">{title}</h3>
 	<div class="card-caption">
-		<h5>{category}</h5>
+		<span class="category">{category}</span>
 		<span>{caption}</span>
 	</div>
 </a>
@@ -22,15 +22,20 @@
 		display: block;
 		border: none;
 		position: relative;
-		min-height: 200px; // 200-300px
+		min-height: 200px;
 		padding: var(--space-xs);
 		z-index: 0;
-		box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
-		box-shadow: 0 4px 14px var(--surface-shadow);
-        color: var(--text1-dark);
+		box-shadow: 0 3px 6px var(--surface-shadow); // same as .box
+		color: var(--text1-dark);
+		line-height: normal;
 	}
 	.card-title {
 		font-size: var(--step-2);
+		margin: 0;
+		line-height: unset;
+		font-weight: bolder;
+		letter-spacing: unset;
+		
 	}
 	.card-bg {
 		position: absolute;
@@ -42,7 +47,7 @@
 		background-color: black;
 
 		img[src$='.svg'] {
-			transform: scale(3);
+			transform: scale(2);
 		}
 
 		img[src$='.png'] {
@@ -51,6 +56,8 @@
 			height: 100%;
 		}
 
+		// Before: top shadow on card
+		// After: background
 		&::before,
 		&::after {
 			content: '';
@@ -63,8 +70,8 @@
 		}
 
 		&::before {
-			background: linear-gradient(black, transparent 40%);
-			opacity: 0.4;
+			background: linear-gradient(black, transparent 50%);
+			opacity: 0.5;
 		}
 
 		&::after {
@@ -76,24 +83,20 @@
 		opacity: 0;
 		transform: translateY(20%);
 		transition: all 0.1s ease-in-out;
-		line-height: 1.3;
+		font-weight: bolder;
+		display: grid;
+		gap: var(--space-2xs);
 
-		h5 {
-			margin: 0;
-			font-weight: 400;
-			color: var(--accent); 
-		}
-
-		span {
-			display: block;
-			margin-top: var(--space-xs);
+		.category {
+			color: var(--accent);
+			font-size: var(--step-0);
 		}
 	}
 	.card:hover {
 		.card-bg {
-            &::before {
-                opacity: 0;
-            }
+			&::before {
+				opacity: 0;
+			}
 			&::after {
 				opacity: 0.85;
 			}

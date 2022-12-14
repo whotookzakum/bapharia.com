@@ -45,7 +45,7 @@
 
 <style lang="scss">
 	section {
-		// max-width: 800px;
+		// max-width: 1000px;
 		margin: auto;
 		min-height: 80vh;
 	}
@@ -57,6 +57,7 @@
 		gap: var(--space-s-m);
 		padding: 0;
 		list-style: none;
+		max-width: 100%;
 	}
 
 	label[for='filters'] {
