@@ -30,7 +30,7 @@
 	<menu class="card-grid">
 		{#each interactivePages as page}
 			<li key={page.title}>
-				<a href={page.href}>
+				<a class="box" href={page.href}>
 					<img src={`/images/${page.iconSrc}`} alt="Icon" />
 					<h3>{page.title}</h3>
 				</a>
@@ -63,23 +63,19 @@
     }
 
 	li {
-		background: var(--surface2);
-		box-shadow: 0 4px 14px var(--surface-shadow);
-		border-radius: 10px;
         transition: all 0.1s ease;
+		font-weight: bolder;
 
         &:hover {
             filter: brightness(1.1);
-            // transform: scale(1.05);
-            transform: translateY(-4px);
+            transform: translateY(-4px); // or scale(1.05)
             box-shadow: 0 8px 14px var(--surface-shadow);
         }
 
 		a {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			display: grid;
+			place-items: center;
+			gap: var(--space-2xs);
 			padding: var(--space-s);
 			width: 100%;
 			height: 100%;
@@ -96,9 +92,7 @@
 			font-size: var(--step-1);
 			color: var(--text2);
 			line-height: 1.2;
-			margin-top: 1rem;
-            // font-family: inherit;
-			text-align: center;
+			margin: 0;
 		}
 	}
 </style>

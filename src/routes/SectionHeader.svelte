@@ -10,11 +10,12 @@
 		align-items: center;
 		gap: 1rem;
 		color: var(--text2);
-		font-size: var(--step-0);
-		text-transform: uppercase;
+		font-size: 1rem;
 		font-family: inherit;
-		margin-bottom: 1rem;
+		text-transform: uppercase;
 		white-space: nowrap;
+		margin-bottom: 1rem;
+		max-width: 100%;
 
 		&::before,
 		&::after {

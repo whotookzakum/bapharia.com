@@ -10,8 +10,8 @@
 <main>
 	<h1>Bapharia</h1>
     <InteractivePages/>
-    <Guides data={data.guides} />
 	<Database/>
+	<Guides data={data.guides} />
 </main>
 <PageFooter/>
 
@@ -23,87 +23,10 @@
         margin-top: 20vh;
 	}
 
-
     h1 {
-        margin: 0;
-        text-align: center;
+        margin: auto;
+		letter-spacing: normal;
+		width: fit-content;
         font-size: var(--step-4);
     }
 </style>
-
-<!-- <main>
-	<section class="no-parallax">
-		<h1>Fun fact:</h1>
-	</section>
-	<section class="parallax bg">
-		<h1>
-			The sound that occurs when you snap your fingers is made by your middle finger hitting your
-			palm!
-		</h1>
-	</section>
-	<section class="no-parallax">
-		<h1>Have a nice day!</h1>
-	</section>
-</main>
-
-<style lang="scss">
-	main {
-		height: 100vh;
-		overflow-x: hidden;
-		overflow-y: auto;
-		perspective: 2px;
-	}
-
-	section {
-		transform-style: preserve-3d;
-		position: relative;
-		height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: white;
-	}
-
-	.no-parallax {
-		// background-color: #111;
-		z-index: 999;
-	}
-
-	section h1 {
-		text-align: center;
-		font-size: 4rem;
-		font-family: sans-serif;
-	}
-
-	.parallax h1 {
-		width: 60%;
-		font-size: 2rem;
-	}
-
-	.parallax::after {
-		content: ' ';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		transform: translateZ(-3px) scale(1);
-		background-size: 100%;
-		z-index: -1;
-	}
-
-	.bg::after {
-		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-			url('https://picsum.photos/1080/720');
-		background-size: cover;
-	}
-
-	@media screen and (min-width: 768px) {
-		section h1 {
-			font-size: 8rem;
-		}
-		.parallax h1 {
-			font-size: 4rem;
-		}
-	}
-</style> -->

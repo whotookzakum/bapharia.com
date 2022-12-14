@@ -15,18 +15,18 @@
 
 <section>
 	<SectionHeader text="Guides" />
-	<label for="filters">Filters</label>
+	<label class="component-label" for="filters">Filters</label>
 	<div id="filters">
 		<input
 			id="checkbox-game-systems"
 			type="checkbox"
 			bind:checked={$guideFilters['Game Systems']}
 		/>
-		<label for="checkbox-game-systems">Game Systems</label>
+		<label class="box" for="checkbox-game-systems">Game Systems</label>
 		<input id="checkbox-strategy" type="checkbox" bind:checked={$guideFilters['Strategy']} />
-		<label for="checkbox-strategy">Strategy</label>
+		<label class="box" for="checkbox-strategy">Strategy</label>
 		<input id="checkbox-referential" type="checkbox" bind:checked={$guideFilters['Referential']} />
-		<label for="checkbox-referential">Referential</label>
+		<label class="box" for="checkbox-referential">Referential</label>
 	</div>
 	<ul class="card-grid">
 		{#each guides as guide}
@@ -60,25 +60,14 @@
 		max-width: 100%;
 	}
 
-	label[for='filters'] {
-		text-transform: uppercase;
-		color: var(--text2);
-		font-size: var(--step--1);
-		display: block;
-	}
-
 	#filters {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-3xs);
-		margin-top: 0.5rem;
 
 		label {
-			background: var(--surface2);
 			padding: 0.5rem 1rem;
 			border: 1px solid var(--surface1);
-			border-radius: 0.3rem;
-			box-shadow: 0 2px 4px var(--surface-shadow);
 			color: var(--text2);
 			-webkit-user-select: none;
 			-ms-user-select: none;
@@ -87,6 +76,7 @@
 
 		input[type='checkbox'] {
 			display: none;
+			appearance: none;
 
 			&:checked + label {
 				color: var(--text1);
