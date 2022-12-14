@@ -1,10 +1,8 @@
 <footer class="page-footer">
 	<div class="footer-content">
-		<span> &copy; 2022 Bapharia.com. </span>
+		<span> &copy; 2022 Bapharia.com </span>
 		<br />
-		<span>
-			BLUE PROTOCOL is a trademark of BANDAI NAMCO ONLINE INC. & BANDAI NAMCO STUDIOS INC.
-		</span>
+		<a href="/credits">Credits</a>
 	</div>
 </footer>
 
@@ -17,5 +15,10 @@
 		color: var(--text2);
 		transition: var(--transition-color);
 		text-align: center;
+	}
+
+	a {
+		border: none;
+		color: var(--accent);
 	}
 </style>

@@ -1,8 +1,5 @@
 <script>
-	import IconAlert from './icons/IconAlert.svelte';
-	import IconNote from './icons/IconNote.svelte';
-	import IconTip from './icons/IconTip.svelte';
-	import IconWarning from './icons/IconWarning.svelte';
+	import Icon from '@iconify/svelte';
 
 	export let type;
 </script>
@@ -10,13 +7,17 @@
 <aside class="sticky-note {type}">
 	<i class="sticky-note-type">
 		{#if type === 'note'}
-			<IconNote />
+			<!-- tabler:clipboard-text -->
+			<Icon icon="material-symbols:sticky-note-2-outline-rounded" width="24" height="24" />
 		{:else if type === 'tip'}
-			<IconTip />
+			<!-- heroicons-outline:light-bulb -->
+			<Icon icon="material-symbols:tips-and-updates-outline" width="24" height="24" />
 		{:else if type === 'caution'}
-			<IconWarning />
+			<!-- tabler:alert-triangle -->
+			<Icon icon="material-symbols:warning-outline-rounded" width="24" height="24" />
 		{:else if type === 'warning'}
-			<IconAlert />
+			<!-- tabler:alert-octagon -->
+			<Icon icon="mdi:alert-octagon-outline" width="24" height="24" />
 		{/if}
 		{type}
 	</i>

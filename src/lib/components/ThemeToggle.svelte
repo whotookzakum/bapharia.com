@@ -1,6 +1,5 @@
 <script>
-	import IconMoon from './icons/IconMoon.svelte';
-	import IconSun from './icons/IconSun.svelte';
+	import Icon from '@iconify/svelte';
 
 	let getTheme = () => {
 		return localStorage.getItem('theme-preference');
@@ -13,14 +12,13 @@
 
 	let theme;
 
+	// Manually set theme to dark or light
 	let toggleTheme = () => {
 		theme = getTheme();
 
 		if (theme === 'light') {
-			console.log('manually set theme to dark');
 			setTheme('dark');
 		} else {
-			console.log('manually set theme to light');
 			setTheme('light');
 		}
 	};
@@ -68,9 +66,9 @@
 	aria-live="polite"
 >
 	{#if theme === 'dark'}
-		<IconSun />
+		<Icon icon="tabler:sun-high" width="24" height="24" />
 	{:else}
-		<IconMoon />
+		<Icon icon="tabler:moon" width="24" height="24" />
 	{/if}
 </button>
 
