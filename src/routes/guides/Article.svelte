@@ -1,6 +1,7 @@
 <script>
 	import AnchorJS from 'anchor-js';
 	import { onMount } from 'svelte';
+	import PageFooter from '../../lib/components/PageFooter.svelte';
 	export let title;
 	export let author;
 	export let date;
@@ -20,3 +21,4 @@
 	</header>
 	<slot />
 </article>
+<PageFooter/>

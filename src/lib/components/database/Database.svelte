@@ -6,7 +6,7 @@
 	import ItemDetails from './ItemDetails.svelte';
 </script>
 
-<section>
+<section class="fullpage">
 	<SectionHeader text="Database" />
 	<div class="layout">
 		<div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -21,8 +21,6 @@
 <style lang="scss">
 	section {
 		// max-width: 800px;
-		margin: auto;
-		min-height: 50vh;
 	}
 	.layout {
 		display: grid;

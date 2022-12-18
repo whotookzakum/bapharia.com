@@ -25,7 +25,8 @@
 	];
 </script>
 
-<section>
+<section class="fullpage">
+	<h1>Bapharia</h1>
 	<SectionHeader text='Interactive Pages'/>
 	<menu class="card-grid">
 		{#each interactivePages as page}
@@ -42,9 +43,14 @@
 <style lang="scss">
 	section {
 		max-width: 800px;
-		margin: auto;
-        min-height: 50vh;
 	}
+
+	h1 {
+        margin: auto;
+		letter-spacing: normal;
+		width: fit-content;
+        font-size: var(--step-4);
+    }
 
 	menu {
 		margin: 0;

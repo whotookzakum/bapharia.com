@@ -8,7 +8,6 @@
 </script>
 
 <main>
-	<h1>Bapharia</h1>
     <InteractivePages/>
 	<Database/>
 	<Guides data={data.guides} />
@@ -18,15 +17,7 @@
 <style lang="scss">
 	main {
 		max-width: 1400px;
-        padding: 1em;
+        padding: 0 1em;
         margin: auto;
-        margin-top: 20vh;
 	}
-
-    h1 {
-        margin: auto;
-		letter-spacing: normal;
-		width: fit-content;
-        font-size: var(--step-4);
-    }
 </style>

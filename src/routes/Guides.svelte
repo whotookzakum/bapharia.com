@@ -46,8 +46,6 @@
 <style lang="scss">
 	section {
 		// max-width: 1000px;
-		margin: auto;
-		min-height: 80vh;
 	}
 
 	ul.card-grid {
