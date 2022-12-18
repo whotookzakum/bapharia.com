@@ -9,7 +9,6 @@ featuredImg: 'head.png'
 
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
-    import Video from '$lib/components/Video.svelte';
 </script>
 
 ## Character Creator
