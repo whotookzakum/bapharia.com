@@ -1,10 +1,10 @@
 ---
 title: 'Combat'
 author: "Zakum"
-date: 'August 3, 2022'
+date: '2022-12-18'
 category: 'Game Systems'
-caption: 'A brief overview of all mechanics related to combat in BLUE PROTOCOL.'
-featuredImg: 'test.png'
+caption: 'An overview of all combat mechanics.'
+featuredImg: '26.jpg'
 ---
 
 <script>
@@ -13,43 +13,49 @@ featuredImg: 'test.png'
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action. Let's take a look at each one.
 
-### ⚔️ PvP
+## ⚔️ PvP
 There is no player versus player system in BLUE PROTOCOL. PvP refers to Party vs Party--player party vs enemy AI party. Similar to players, enemies will cooperate and try to take down you and your allies.
 
-### 🗡️ EXP & Drops Distribution
+## 🗡️ EXP & Drops
 All parties with a member that dealt at least 1 damage to a monster will receive full EXP and drops. If you and I are in separate parties and we both hit the same monster, **everyone** in both of our parties will get full rewards.
 
-### 🏃‍♀️ Stamina
-Stamina will be consumed when sprinting or dodging *while within an enemy's aggro range*. Dodging can be used to cancel most attack animations.
+## 🏃‍♀️ Stamina
+Stamina will be consumed when sprinting or dodging *while within an enemy's aggro range*. Dodging can be used to cancel most player animations.
 
-### 🔥 Elements
-Elemental attacks apply abnormal statuses on targets and boost damage output. They can be utilized through elemental skills and weapons with elements. View all the elements [here](/guides/elements).
+## 🔥 Elements
+Elemental attacks apply abnormal statuses on targets and boost damage output. They can be utilized through elemental skills, weapons with elements, and battle imagine with elements. 
 
-<StickyNote type="warning">
-    The following model is not fully tested and may contain inaccuracies. There are major unknowns listed below.
-</StickyNote>
+By accumulating elemental charge on an enemy, elemental effects will reach level 1 (debuff), 2 (stronger debuff), 3 (elemental burst) and end with a burst finish.
 
-Using elements on an enemy causes elemental charge to accumulate. For simplicity, let's use the number 100. 
+The full guide, including all elements and their effects, can be viewed [here](/guides/elements).
 
-When elemental charge exceeds 100 on an enemy, a debuff will be applied. The debuff is determined by the element that contributed the most charge towards reaching 100. So if we had Fire +40, Earth +30, and Ice +30, the Fire debuff would be applied. Attacking with different elements will still build elemental charge, but only one debuff will take effect.
-
-Unknown/untested aspects:  
-- Can the debuff's element change between levels, or is it permanently determined at level 1? If it can change, are subsequent levels based on total charge or individual level charge?
-- Does elemental charge overflow into the next level, or does it start at 0 for each level?
-- How is debuff and burst effect damage calculated when multiple players are attacking the same enemy?
-- What is the interaction between elemental skills and weapon elements?
-
-### 💪 Buffs & Debuffs
+## 💪 Buffs & Debuffs
 Abnormal statuses that can be applied to players or enemies. Check out the list [here](/guides/abnormal-statuses).
 
-### 🪄 Skills
-You can assign **4 tactical skills, 3 tactical abilities, 1 ultimate skill, and any amount of permanent skills**. View these on the interactive skill builder. The development team has stated that they prefer to add more skill diversity rather than a bunch of new classes.
+## 🪄 Skills
+Skill loadouts allow the following setup:
+- 4 tactical skills
+- 1 ultimate skill
+- 2 battle imagine
+- 2 basic attack
+- 2 class-specific abilities (passive)
+- 2 class-shared abilities (passive)
 
-### ⚙️ Mechanics
-**Assault Attack** Melee classes receive a damage bonus and enemy knockdown when dropping onto enemies from high ground.
-**Dodge Attack** Attack right after dodging will allow a seamless transition into the attack animation.
-**Perfect Dodge** Dodging with excellent timing will grant you class-unique bonuses and buffs indicated by a blue particle effect.
+The developers have stated that they prefer to add more skill diversity to existing classes than create new classes that aren't very unique.
+
+## ⚙️ Mechanics
+### Assault Attack
+Melee classes receive a damage bonus and enemy knockdown when dropping onto enemies from high ground. 
 
 <StickyNote type="note">
-    Elevation bonus was implemented internally, but removed before the network test.
+    Elevation bonus was implemented for ranged classes internally, but removed before the network test.
 </StickyNote>
+
+### Dodge Attack
+Attack right after dodging will allow a seamless transition into the attack animation.
+
+### Perfect Dodge
+Dodging with excellent timing will grant you class-unique bonuses and buffs indicated by a blue particle effect.
+
+### Party Chain
+The party chain is a combo count of all party members hits. As it accumulates, your party gains a slight damage increase. The higher the chain count, the less time you have to successfully perform another attack before the chain ends, resetting to 0.

@@ -1,5 +1,5 @@
 ---
-title: 'Character Appearance'
+title: 'Cosmetics'
 author: "Zakum"
 date: '2022-12-17'
 category: 'Game Systems'

@@ -4,7 +4,7 @@ author: 'Zakum'
 date: '2022-12-17'
 category: 'Game Systems'
 caption: 'An overview of all the gear in the world of Regnus.'
-featuredImg: 'op.png'
+featuredImg: '40.png'
 ---
 
 <script>
@@ -12,7 +12,7 @@ featuredImg: 'op.png'
     import Video from '$lib/components/Video.svelte';
 </script>
 
-This guide covers equippable items that **affect character stats and combat**. For cosmetic items, check [Character Appearance](/guides/character-appearance#cosmetic-items).
+This guide covers equippable items that **affect character stats and combat**. For cosmetic items, check [Cosmetics](/guides/cosmetics#cosmetic-items).
 
 ## Weapons
 Weapons provide stats, have an equipment level, and may have an element. Switching weapon types while in town will automatically change your class.

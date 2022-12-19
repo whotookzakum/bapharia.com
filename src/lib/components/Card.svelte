@@ -33,9 +33,9 @@
 		font-size: var(--step-2);
 		margin: 0;
 		line-height: unset;
-		font-weight: bolder;
+		font-weight: 600;
 		letter-spacing: unset;
-		
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.65);
 	}
 	.card-bg {
 		position: absolute;
@@ -50,7 +50,7 @@
 			transform: scale(2);
 		}
 
-		img[src$='.png'] {
+		img:not([src$='.svg']) {
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
@@ -71,12 +71,12 @@
 
 		&::before {
 			background: linear-gradient(black, transparent 50%);
-			opacity: 0.5;
+			opacity: 0.65;
 		}
 
 		&::after {
 			background: black;
-			opacity: 0.2;
+			opacity: 0.1;
 		}
 	}
 	.card-caption {
@@ -94,9 +94,6 @@
 	}
 	.card:hover {
 		.card-bg {
-			&::before {
-				opacity: 0;
-			}
 			&::after {
 				opacity: 0.85;
 			}

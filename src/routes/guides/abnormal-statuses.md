@@ -4,7 +4,7 @@ author: 'Zakum'
 date: '2022-08-03'
 category: 'Referential'
 caption: 'List of known buffs and debuffs.'
-featuredImg: '4.png'
+featuredImg: '33.jpg'
 ---
 
 <h2 class="full-bleed">Buffs</h2>

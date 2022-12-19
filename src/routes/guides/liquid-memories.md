@@ -1,15 +1,21 @@
 ---
 title: 'Liquid Memories'
 author: 'Zakum'
-date: '2022-08-03'
+date: '2022-12-18'
 category: 'Game Systems'
 caption: 'Liquid Memories are passive buffs that aid you in combat, crafting, and resource gathering.'
-featuredImg: 'liquidmemory.svg'
+featuredImg: '29.jpg'
 ---
 
-Liquid Memories are buffs that be activated at a **Liquid Memory Stand**.
+Liquid Memories are buffs that be activated at a **Memory Stand**.
 
-## Effects
+<script>
+    import StickyNote from '$lib/components/StickyNote.svelte';
+</script>
+
+<StickyNote type="warning">
+    The following information is outdated (weapon refinement was removed).
+</StickyNote>
 
 | Type           | Effect         |
 | :------------- | :------------- |
@@ -32,8 +38,8 @@ You can not drink a liquid memory if its effect is already active. You need to c
 
 ## Datamined Effects
 Below are some liquid memory effects that weren't available in the closed beta.
-- Increased chance to get a great success (high rarity when fusing battle imagine into a weapon)
-- Increased chance of getting more slots (on a weapon)
+- Increased chance to get a great success
+- Increased chance of more sockets when crafting weapons 
 - Increased respawn rate of resources
 - Increased EXP gained from enemies
 - Increased Luno gained from enemies

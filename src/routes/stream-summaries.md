@@ -1,22 +1,17 @@
 ---
-title: 'Upcoming Features'
+title: 'Stream Summaries'
 author: 'Zakum'
 date: '2022-08-03'
 category: 'Referential'
-caption: 'List of features that have been confirmed to be in development.'
-featuredImg: 'head.png'
+caption: 'Developer livestream summaries and features that have been confirmed to be in development.'
+featuredImg: '4.png'
 ---
 
 Summaries of past developer livestreams and tweets, indicating content that is confirmed to be in development, under consideration, or not in consideration.
 
-## TLDR
-- As of stream #6, there is no confirmation of another beta test.
-- Game will release with 5 classes (newest Heavy Smasher).
-- Housing and guilds confirmed. 
-- Combat will be improved greatly, including diversification of skill builds.
-- More cosmetics (can be dyed) and character customization.
-- No PvP.
-- No Trading (trading & merchant shops ONLY for housing materials *maybe*).
+## [BP News #6](https://www.youtube.com/watch?v=sH2B1ncdEWM)
+
+## [BP News #5](https://www.youtube.com/watch?v=iwdTAxpLWbU)
 
 ## [Official Twitter](https://twitter.com/blueprotocol_jp)
 - Twin Striker Changes
@@ -25,7 +20,7 @@ Summaries of past developer livestreams and tweets, indicating content that is c
 - [Shortcut ring customization](https://twitter.com/BLUEPROTOCOL_JP/status/1352526415900635137)
 - Anime opening song revealed to be Mirai by L’Arc en Ciel.
 
-## [Developer Stream #6](https://www.youtube.com/watch?v=Gimp2zwYYEY)
+## [BP News Extra - Progress update](https://www.youtube.com/watch?v=Gimp2zwYYEY)
 - 5th class: Heavy Smasher
 - More character customization in the aesthetics shop
 - Outfit previews will be added
@@ -65,7 +60,7 @@ Summaries of past developer livestreams and tweets, indicating content that is c
 - Heavy Smasher: Movement speed is the same as other classes, basics attacks are slow, abilities can give super armour, players can choose to increase defence but trade off speed.
 - Anime opening teaser announced
 
-## [Developer Stream #5](https://www.youtube.com/watch?v=vKCTOARdV-U)
+## [BP News Extra - Matchmaker Test info](https://www.youtube.com/watch?v=vKCTOARdV-U)
 Announcement of the Matchmaking Stress Test. Game client is same as in CBT.
 - Classes will not be limited to one tactical skill per column--you will be able to equip multiple skills in the same column instead of having to choose one.
 - New town: Salamzart Oasis.
@@ -75,7 +70,7 @@ Announcement of the Matchmaking Stress Test. Game client is same as in CBT.
     - Can now build two skills of the same element. 
     - Charging of some skills may be removed (experimenting with skills getting stronger effects through leveling instead of charging).
 
-## [Developer Stream #4](https://www.youtube.com/watch?v=OP63tLdML6k)
+## [BP News #4](https://www.youtube.com/watch?v=OP63tLdML6k)
 Mainly an overview of the [CBT Feedback Report](https://blue-protocol.com/news/detail.php?no=32).
 - As of stream #4, there is no planned time frame for another beta test or official service. If they deem that another test is necessary, then they will do another test.
 - More character customization (more customization options, part types, voice packs)
@@ -148,14 +143,14 @@ Mainly an overview of the [CBT Feedback Report](https://blue-protocol.com/news/d
 - Theatre mode to watch past cutscenes.
 - 4K/Ultrawide support --- not a priority, and it "doesn't capture the art's full beauty". 
 
-## [Developer Stream #3](https://www.youtube.com/watch?v=FW4CmTKxUak)
+## [BP News #3](https://www.youtube.com/watch?v=FW4CmTKxUak)
 - 7 accessory slots in total.
 - Item locking.
 - Animations for eating / drinking.
 - [Screenshot mode.](https://twitter.com/BLUEPROTOCOL_JP/status/1375356851479543808)
 - In-game leaderboard for time attack & arena.
 
-## [Developer Stream #2](https://www.youtube.com/watch?v=z86jJZTKrhw)
+## [BP News #2](https://www.youtube.com/watch?v=z86jJZTKrhw)
 - Paid features do not affect gameplay--they are for cosmetics and convenience only.
 - There will be a battle pass like in battle royales.
 - A benchmark software, with character creation, will be released before official launch.

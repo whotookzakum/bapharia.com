@@ -3,8 +3,8 @@ title: 'Elements'
 author: 'Zakum'
 date: '2022-12-17'
 category: 'Game Systems'
-caption: 'List of elements and their effects.'
-featuredImg: '3.png'
+caption: 'Explanation of the elemental system and a list of elemental effects.'
+featuredImg: '17.jpg'
 ---
 
 <script>
