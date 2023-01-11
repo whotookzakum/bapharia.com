@@ -1,5 +1,5 @@
 <div>
-    <h3 class="component-label">Details</h3>
+    <h3 class="component-label">Result</h3>
     <div class="details-pane box">
         <img src={`/images/axe1.png`} alt="Item Icon" width="64px" height="64px" />
         <dl>

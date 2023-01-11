@@ -3,34 +3,32 @@
 
 	const interactivePages = [
 		{
-			title: 'Map',
-			href: '/map',
-			iconSrc: 'msq.svg'
+			title: "Map",
+			href: "/map",
+			iconSrc: "msq.svg",
 		},
 		{
-			title: 'Skills',
-			href: '/skills',
-			iconSrc: 'imajinn.svg'
+			title: "Skills",
+			href: "/skills",
+			iconSrc: "imajinn.svg",
 		},
 		{
-			title: 'Crafting',
-			href: '/crafting',
-			iconSrc: 'crafting.svg'
+			title: "Crafting",
+			href: "/crafting",
+			iconSrc: "crafting.svg",
 		},
 		{
-			title: 'Menu',
-			href: '/menu',
-			iconSrc: 'liquidmemory.svg'
+			title: "Menu",
+			href: "/menu",
+			iconSrc: "liquidmemory.svg",
 		}
 	];
 </script>
 
-<section class="fullpage">
-	<h1>Bapharia</h1>
-	<SectionHeader text='Interactive Pages'/>
+<section>
 	<menu class="card-grid">
 		{#each interactivePages as page}
-			<li key={page.title}>
+			<li>
 				<a class="box" href={page.href}>
 					<img src={`/images/${page.iconSrc}`} alt="Icon" />
 					<h3>{page.title}</h3>
@@ -41,16 +39,15 @@
 </section>
 
 <style lang="scss">
-	section {
-		max-width: 800px;
-	}
+
+	
 
 	h1 {
-        margin: auto;
+		margin: auto;
 		letter-spacing: normal;
 		width: fit-content;
-        font-size: var(--step-4);
-    }
+		font-size: var(--step-4);
+	}
 
 	menu {
 		margin: 0;
@@ -58,25 +55,25 @@
 		list-style: none;
 		display: grid;
 		justify-content: center;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 		gap: var(--space-s);
 	}
 
-    @media (max-width: 800px) {
-        menu {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
+	@media (max-width: 800px) {
+		menu {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
 
 	li {
-        transition: all 0.1s ease;
+		transition: all 0.1s ease;
 		font-weight: bolder;
 
-        &:hover {
-            filter: brightness(1.1);
-            transform: translateY(-4px); // or scale(1.05)
-            box-shadow: 0 8px 14px var(--surface-shadow);
-        }
+		&:hover {
+			filter: brightness(1.1);
+			transform: translateY(-4px); // or scale(1.05)
+			box-shadow: 0 8px 14px var(--surface-shadow);
+		}
 
 		a {
 			display: grid;
@@ -85,7 +82,7 @@
 			padding: var(--space-s);
 			width: 100%;
 			height: 100%;
-            border: none;
+			border: none;
 		}
 
 		img {
@@ -100,5 +97,21 @@
 			line-height: 1.2;
 			margin: 0;
 		}
+	}
+
+	li:nth-child(1) {
+		background: var(--surface1) !important;
+	}
+
+	li:nth-child(2) {
+		background: var(--surface2) !important;
+	}
+
+	li:nth-child(3) {
+		background: var(--surface3) !important;
+	}
+
+	li:nth-child(4) {
+		background: var(--surface1) !important;
 	}
 </style>

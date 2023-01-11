@@ -1,20 +1,20 @@
 import adapter from '@sveltejs/adapter-auto';
-import sveltePreprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	kit: {
-		adapter: adapter()
-	},
 	extensions: ['.svelte', '.md'],
 	preprocess: [
-		sveltePreprocess(),
-		mdsvex({ 
+		vitePreprocess(),
+		mdsvex({
 			extensions: ['.md'],
-			layout: "/src/routes/guides/Article.svelte"
+			layout: '/src/routes/guides/Article.svelte'
 		})
-	]
+	],
+	kit: {
+		adapter: adapter()
+	}
 };
 
 export default config;

@@ -14,7 +14,6 @@
 </script>
 
 <section>
-	<SectionHeader text="Guides" />
 	<label class="component-label" for="filters">Filters</label>
 	<div id="filters">
 		<input
@@ -65,7 +64,7 @@
 
 		label {
 			padding: 0.5rem 1rem;
-			border: 1px solid var(--surface1);
+			border: 1px solid transparent;
 			color: var(--text2);
 			-webkit-user-select: none;
 			-ms-user-select: none;
