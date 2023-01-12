@@ -19,6 +19,10 @@ a {
     }
 }
 
+*:focus-visible {
+    outline: 2px solid var(--accent) !important;
+}
+
 input[type="text"] {
     font: inherit;
     color: inherit;
@@ -26,10 +30,6 @@ input[type="text"] {
 
     &::placeholder {
         color: var(--text2);
-    }
-
-    &:focus {
-        outline: 2px solid var(--accent);
     }
 }
 
@@ -258,11 +258,7 @@ dd {
 }
 
 dt {
-    font-weight: bolder;
-
-    &:not(:first-of-type) {
-        margin-top: 2ch;
-    }
+    font-weight: 600;
 }
 
 ::marker {

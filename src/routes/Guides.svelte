@@ -1,6 +1,5 @@
 <script>
 	import Card from '$lib/components/Card.svelte';
-	import SectionHeader from './SectionHeader.svelte';
 	import { localStorageStore } from 'fractils';
 	export let data;
 
@@ -14,7 +13,7 @@
 </script>
 
 <section>
-	<label class="component-label" for="filters">Filters</label>
+	<span class="component-label">Filters</span>
 	<div id="filters">
 		<input
 			id="checkbox-game-systems"

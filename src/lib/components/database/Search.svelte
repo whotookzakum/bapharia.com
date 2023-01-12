@@ -62,12 +62,12 @@
 	</label>
 	<ul id="search-results" class="box">
 		{#each filteredItems as item}
-			<li class="result">
+			<li class="search-result">
 				<img
 					src={`/images/${item.imgSrc}`}
 					alt="Item Icon"
-					width="64px"
-					height="64px"
+					width="64"
+					height="64"
 					loading="lazy"
 				/>
 				<b>{item.name}</b>
@@ -98,7 +98,7 @@
 		// min-height: 454px;
 	}
 
-	li.result {
+	li.search-result {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		column-gap: 1rem;
@@ -107,7 +107,7 @@
 		max-inline-size: none;
 
 		&:not(:last-child) {
-			border-bottom: 1px solid var(--surface3);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 		}
 
 		img {

@@ -26,10 +26,11 @@ hr {
 
 .box {
     background: var(--surface1);
-    // border-radius: 5px;
+    border-radius: 5px;
     border: 1px solid transparent;
     box-shadow: 0 2px 4px var(--surface-shadow);
     padding: 1rem;
+    overflow: hidden;
 }
 
 .component-label {
@@ -41,4 +42,14 @@ hr {
     display: block;
     margin-top: 0;
     margin-bottom: 0.5rem;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
