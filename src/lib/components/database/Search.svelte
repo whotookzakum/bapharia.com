@@ -1,37 +1,56 @@
 <script>
 	import { databaseQuery } from "$lib/stores";
-	const items = [
-		{
-			id: 7020109,
-			name: "Beginner's Axe",
-			type: "Weapon",
-			imgSrc: "axe1.png",
-		},
-		{
-			id: 11090324,
-			name: "Judgement Shield",
-			type: "Skill",
-			imgSrc: "axe1.png",
-		},
-		{
-			id: 300102,
-			name: "Edgerunner's Blade",
-			type: "Consumable",
-			imgSrc: "axe1.png",
-		},
-		{
-			id: 7020109,
-			name: "Beginner's Axe",
-			type: "Weapon",
-			imgSrc: "axe1.png",
-		},
-		{
-			id: 11090324,
-			name: "Judgement Shield",
-			type: "Skill",
-			imgSrc: "axe1.png",
-		},
-	];
+	import enemyParams from "$lib/ntdata/enemyparams.json";
+	import jpText from "$lib/ntdata/texts_ja_JP.json";
+	import _ from "lodash";
+
+	// const items = [
+	// 	{
+	// 		id: 7020109,
+	// 		name: "Beginner's Axe",
+	// 		type: "Weapon",
+	// 		imgSrc: "axe1.png",
+	// 	},
+	// 	{
+	// 		id: 11090324,
+	// 		name: "Judgement Shield",
+	// 		type: "Skill",
+	// 		imgSrc: "axe1.png",
+	// 	},
+	// 	{
+	// 		id: 300102,
+	// 		name: "Edgerunner's Blade",
+	// 		type: "Consumable",
+	// 		imgSrc: "axe1.png",
+	// 	},
+	// 	{
+	// 		id: 7020109,
+	// 		name: "Beginner's Axe",
+	// 		type: "Weapon",
+	// 		imgSrc: "axe1.png",
+	// 	},
+	// 	{
+	// 		id: 11090324,
+	// 		name: "Judgement Shield",
+	// 		type: "Skill",
+	// 		imgSrc: "axe1.png",
+	// 	},
+	// ];
+
+	let enemyParamText = jpText.find(
+		(entry) => entry.name === "enemyparam_text"
+	);
+
+	let items = enemyParams.map((item) => {
+		return {
+			...item,
+			name: enemyParamText.texts.find(
+				(enemy) => enemy.id === item.name_id
+			).text,
+		};
+	});
+
+	items = _.uniqBy(items, (item) => item.name);
 
 	let searchParams;
 	databaseQuery.subscribe((value) => (searchParams = value));
@@ -50,16 +69,18 @@
 </script>
 
 <div class="search">
-	<label>
+	<div>
 		<span class="component-label">Search</span>
-		<input
-			class="box"
-			id="search-box"
-			type="text"
-			placeholder="Search by item name or id"
-			on:input={(e) => databaseQuery.set(e.target.value)}
-		/>
-	</label>
+		<label>
+			<input
+				class="box"
+				id="search-box"
+				type="text"
+				placeholder="Search by item name or id"
+				on:input={(e) => databaseQuery.set(e.target.value)}
+			/>
+		</label>
+	</div>
 	<ul id="search-results" class="box">
 		{#each filteredItems as item}
 			<li class="search-result">
