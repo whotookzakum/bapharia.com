@@ -1,4 +1,14 @@
+<script>
+    import Enemy from "./templates/Enemy.svelte";
+    import Weapon from "./templates/Weapon.svelte";
+
+    export let item = {};
+</script>
+
 <div>
+    <p>{JSON.stringify(item.level_params[0])}</p>
+    <p>{JSON.stringify(item.appearance[0])}</p>
+    <p>{JSON.stringify(item.drop_items)}</p>
     <span class="component-label">Result</span>
     <div class="box">
         <header>
@@ -8,9 +18,9 @@
                 width="64"
                 height="64"
             />
-            <h3>Beginner's Axe <span>(Lv. 10)</span></h3>
-            <span>Weapon</span>
-            <span>ID: 7020109</span>
+            <h3>{item.name} <span>(Lv. 1)</span></h3>
+            <span>Enemy</span>
+            <span>ID: {item.id}</span>
             <img
                 class="element-img"
                 src="/images/elements/UI_IconAttribute_1.png"
@@ -19,39 +29,8 @@
                 height="32"
             />
         </header>
-        <dl>
-            <div>
-                <!-- <dt>Weapon Level</dt>
-                <dd>Lv. 10</dd>
-                
-                <dt>Element</dt>
-                <dd>Fire</dd> -->
-
-                <dt class="component-label">Stats</dt>
-                <dd>ATK <strong>271</strong></dd>
-                <dd>Crit Rate <strong>11%</strong></dd>
-                <dd>STR <strong>99</strong></dd>
-                <dd>VIT <strong>100</strong></dd>
-                <dd>DEX <strong>21</strong></dd>
-                <dd>INT <strong>81</strong></dd>
-                <dd>MND <strong>49</strong></dd>
-            </div>
-            <div>
-                <dt class="component-label">Special Effects</dt>
-                <dd>Ogre Killer <strong>9%~11% / 12%~18%</strong></dd>
-                <dd>Demihuman Killer <strong>9%~11% / 12%~18%</strong></dd>
-                <dd>Goblin Killer <strong>9%~11% / 12%~18%</strong></dd>
-
-                <!-- <dt>Sockets</dt>
-                <dd>1~4</dd> -->
-
-                <dt class="component-label">Crafting Recipe</dt>
-                <dd>Dragon Bone <strong>x13</strong></dd>
-                <dd>Drip Stone <strong>x4</strong></dd>
-                <dd>Suzuki Ore <strong>x1</strong></dd>
-                <dd>Luno <strong>20,000</strong></dd>
-            </div>
-        </dl>
+        <Enemy {item} />
+        <!-- <Weapon {item} /> -->
         <div class="model-viewer"></div>
     </div>
 </div>
@@ -86,21 +65,6 @@
             right: 0;
             top: 0;
             opacity: 0.5;
-        }
-    }
-
-    dl {
-        grid-template-columns: 20ch auto;
-        max-inline-size: none;
-
-        dd {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-        }
-
-        * {
-            margin: 0;
         }
     }
 

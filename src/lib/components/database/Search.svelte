@@ -1,9 +1,9 @@
 <script>
 	import { databaseQuery } from "$lib/stores";
-	import enemyParams from "$lib/ntdata/enemyparams.json";
-	import jpText from "$lib/ntdata/texts_ja_JP.json";
-	import _ from "lodash";
-
+	import { page } from "$app/stores";
+    import { goto } from "$app/navigation";
+	export let items;
+	
 	// const items = [
 	// 	{
 	// 		id: 7020109,
@@ -37,21 +37,8 @@
 	// 	},
 	// ];
 
-	let enemyParamText = jpText.find(
-		(entry) => entry.name === "enemyparam_text"
-	);
-
-	let items = enemyParams.map((item) => {
-		return {
-			...item,
-			name: enemyParamText.texts.find(
-				(enemy) => enemy.id === item.name_id
-			).text,
-		};
-	});
-
-	items = _.uniqBy(items, (item) => item.name);
-
+	// Add a way to query hiragana as well
+	
 	let searchParams;
 	databaseQuery.subscribe((value) => (searchParams = value));
 
@@ -66,18 +53,31 @@
 					return item;
 				}
 		  });
+
+	function updateSearchQuery(value) {
+		databaseQuery.set(value)
+
+		if (value.length > 0) {
+			$page.url.searchParams.set("db", value)
+		}
+		else {
+			$page.url.searchParams.delete("db")
+		}
+		goto(`?${$page.url.searchParams.toString()}`, { noScroll: true, replaceState: true, keepFocus: true })
+		
+	}
 </script>
 
-<div class="search">
+<div id="search" class="search">
 	<div>
-		<span class="component-label">Search</span>
 		<label>
+			<span class="component-label">Search</span>
 			<input
 				class="box"
 				id="search-box"
 				type="text"
 				placeholder="Search by item name or id"
-				on:input={(e) => databaseQuery.set(e.target.value)}
+				on:input={(e) => updateSearchQuery(e.target.value)}
 			/>
 		</label>
 	</div>
@@ -85,7 +85,7 @@
 		{#each filteredItems as item}
 			<li class="search-result">
 				<img
-					src={`/images/${item.imgSrc}`}
+					src={`/images/axe1.png`}
 					alt="Item Icon"
 					width="64"
 					height="64"
