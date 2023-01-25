@@ -1,70 +1,27 @@
 <script>
-	import { databaseQuery } from "$lib/stores";
 	import { page } from "$app/stores";
-    import { goto } from "$app/navigation";
-	export let items;
-	
-	// const items = [
-	// 	{
-	// 		id: 7020109,
-	// 		name: "Beginner's Axe",
-	// 		type: "Weapon",
-	// 		imgSrc: "axe1.png",
-	// 	},
-	// 	{
-	// 		id: 11090324,
-	// 		name: "Judgement Shield",
-	// 		type: "Skill",
-	// 		imgSrc: "axe1.png",
-	// 	},
-	// 	{
-	// 		id: 300102,
-	// 		name: "Edgerunner's Blade",
-	// 		type: "Consumable",
-	// 		imgSrc: "axe1.png",
-	// 	},
-	// 	{
-	// 		id: 7020109,
-	// 		name: "Beginner's Axe",
-	// 		type: "Weapon",
-	// 		imgSrc: "axe1.png",
-	// 	},
-	// 	{
-	// 		id: 11090324,
-	// 		name: "Judgement Shield",
-	// 		type: "Skill",
-	// 		imgSrc: "axe1.png",
-	// 	},
-	// ];
+	import { goto } from "$app/navigation";
+	import _ from "lodash";
+	import { checkStringIncludes } from "$lib/utils/string_utils";
+	export let allItems;
 
-	// Add a way to query hiragana as well
-	
-	let searchParams;
-	databaseQuery.subscribe((value) => (searchParams = value));
+	let searchQuery = $page.url.searchParams.get("db") || "";
 
-	$: filteredItems = !searchParams
-		? items
-		: items.filter((item) => {
-				const itemNameMatch = item.name
-					.toUpperCase()
-					.includes(searchParams.toUpperCase());
-				const itemIdMatch = item.id.toString().includes(searchParams);
-				if (itemNameMatch || itemIdMatch) {
-					return item;
-				}
-		  });
+	$: searchResults = allItems.filter((item) => {
+		const idMatch = checkStringIncludes(item.id, searchQuery)
+		const nameMatch = checkStringIncludes(item.name, searchQuery)
+		return idMatch || nameMatch;
+	});
 
-	function updateSearchQuery(value) {
-		databaseQuery.set(value)
-
-		if (value.length > 0) {
-			$page.url.searchParams.set("db", value)
-		}
-		else {
-			$page.url.searchParams.delete("db")
-		}
-		goto(`?${$page.url.searchParams.toString()}`, { noScroll: true, replaceState: true, keepFocus: true })
-		
+	function updateUrl() {
+		searchQuery
+			? $page.url.searchParams.set("db", searchQuery)
+			: $page.url.searchParams.delete("db");
+		goto(`?${$page.url.searchParams.toString()}`, {
+			noScroll: true,
+			replaceState: true,
+			keepFocus: true,
+		});
 	}
 </script>
 
@@ -77,12 +34,13 @@
 				id="search-box"
 				type="text"
 				placeholder="Search by item name or id"
-				on:input={(e) => updateSearchQuery(e.target.value)}
+				bind:value={searchQuery}
+				on:input={updateUrl}
 			/>
 		</label>
 	</div>
 	<ul id="search-results" class="box">
-		{#each filteredItems as item}
+		{#each searchResults as result}
 			<li class="search-result">
 				<img
 					src={`/images/axe1.png`}
@@ -91,9 +49,9 @@
 					height="64"
 					loading="lazy"
 				/>
-				<b>{item.name}</b>
-				<span>{item.type}</span>
-				<span>ID: {item.id}</span>
+				<b>{result.name}</b>
+				<span>{result.type}</span>
+				<span>ID: {result.id}</span>
 			</li>
 		{/each}
 	</ul>

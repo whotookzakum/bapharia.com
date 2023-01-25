@@ -12,7 +12,7 @@
 		(entry) => entry.name === "enemyparam_text"
 	);
 
-	let items = enemyParams.map((item) => {
+	let allItems = enemyParams.map((item) => {
 		return {
 			...item,
 			name: enemyParamText.texts.find(
@@ -25,8 +25,8 @@
 </script>
 
 <div class="db-wrapper">
-	<Search {items} />
-	<Result item={items[21]} />
+	<Search {allItems} />
+	<Result item={allItems[21]} />
 </div>
 
 <style lang="scss">
