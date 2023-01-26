@@ -26,7 +26,7 @@
 
 <div class="db-wrapper">
 	<Search {allItems} />
-	<Result item={allItems[21]} />
+	<Result item={allItems[1]} />
 </div>
 
 <style lang="scss">
