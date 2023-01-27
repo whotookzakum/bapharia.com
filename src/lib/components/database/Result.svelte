@@ -1,16 +1,17 @@
 <script>
-    import Enemy from "./templates/Enemy.svelte";
+    import ModelViewer from "../ModelViewer.svelte";
+import Enemy from "./templates/Enemy.svelte";
     import Weapon from "./templates/Weapon.svelte";
 
     export let item = {};
 </script>
 
 <div>
-    <p>{JSON.stringify(item.level_params[0])}</p>
-    <p>{JSON.stringify(item.appearance[0])}</p>
-    <p>{JSON.stringify(item.drop_items)}</p>
+    <!-- <p>{JSON.stringify(item.level_params[0])}</p>
+        <p>{JSON.stringify(item.appearance[0])}</p>
+        <p>{JSON.stringify(item.drop_items)}</p> -->
     <span class="component-label">Result</span>
-    <div class="box">
+    <article class="box">
         <header>
             <img
                 src={`/images/axe1.png`}
@@ -20,7 +21,7 @@
             />
             <h3>{item.name} <span>(Lv. 1)</span></h3>
             <span>Enemy</span>
-            <span>ID: {item.id}</span>
+            <span>ID: {item.enemy_id}</span>
             <img
                 class="element-img"
                 src="/images/elements/UI_IconAttribute_1.png"
@@ -31,8 +32,8 @@
         </header>
         <Enemy {item} />
         <!-- <Weapon {item} /> -->
-        <div class="model-viewer"></div>
-    </div>
+        <ModelViewer/>
+    </article>
 </div>
 
 <style lang="scss">
@@ -66,10 +67,5 @@
             top: 0;
             opacity: 0.5;
         }
-    }
-
-    .model-viewer {
-        background: black;
-        height: 300px;
     }
 </style>

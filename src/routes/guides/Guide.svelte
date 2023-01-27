@@ -13,7 +13,7 @@
 	});
 </script>
 
-<article>
+<article class="guide">
 	<header>
 		<h1>{title}</h1>
 		<span>By {author}</span>

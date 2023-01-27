@@ -51,7 +51,7 @@
 				/>
 				<b>{result.name}</b>
 				<span>{result.type}</span>
-				<span>ID: {result.id}</span>
+				<span>ID: {result.enemy_id}</span>
 			</li>
 		{/each}
 	</ul>
