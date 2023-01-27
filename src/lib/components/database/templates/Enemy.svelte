@@ -1,4 +1,5 @@
 <script>
+    import ModelViewer from "$lib/components/ModelViewer.svelte";
     import allItems from "$lib/ntdata/items.json";
     import texts from "$lib/ntdata/texts_ja_JP.json";
     import { browser } from "$app/environment";
@@ -43,22 +44,22 @@
     }
 
     function getFieldName(field) {
-        switch (field) {
-            case "fld001_N":
-                return "Minster Hills";
-            case "fld001_E":
-                return "Skyquake Fields";
-            case "fld001_W":
-                return "Andra Basin";
-            case "fld001_S":
-                return "Calm Eve Terraces";
-            case "fld002_E":
-                return "Soundless Foothills";
-            case "fld002_W":
-                return "Fiel Pond";
-            case "fld002_S":
-                return "Divine Haven Hill";
-        }
+        // switch (field) {
+        //     case "fld001_N":
+        //         return "Minster Hills";
+        //     case "fld001_E":
+        //         return "Skyquake Fields";
+        //     case "fld001_W":
+        //         return "Andra Basin";
+        //     case "fld001_S":
+        //         return "Calm Eve Terraces";
+        //     case "fld002_E":
+        //         return "Soundless Foothills";
+        //     case "fld002_W":
+        //         return "Fiel Pond";
+        //     case "fld002_S":
+        //         return "Divine Haven Hill";
+        // }
         switch (field) {
             case "fld001_N":
                 return "ミンスター丘陵";
@@ -139,6 +140,8 @@
             </dl>
         {/each}
     </section>
+
+    <ModelViewer />
 </div>
 
 <style lang="scss">
@@ -147,11 +150,7 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
-        max-height: 400px;
-        overflow: hidden;
         margin-block: 0.5rem;
-        -webkit-mask-image: linear-gradient(black, transparent);
-        mask-image: linear-gradient(black 70%, transparent);
     }
 
     h4 {

@@ -19,7 +19,7 @@
 				(enemy) => enemy.id === item.name_id
 			).text,
 		};
-	});
+	}).filter((item, index) => { return index < 6 });
 
 	// items = _.uniqBy(items, (item) => item.name);
 </script>
@@ -35,4 +35,10 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
 	}
+
+	@media (max-width: 800px) {
+		.db-wrapper {
+			grid-template-columns: 1fr;
+		}
+	} 
 </style>

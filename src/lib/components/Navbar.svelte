@@ -23,7 +23,7 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
-		// z-index: 500;
+		z-index: 500;
 		transition: var(--transition-bg), var(--transition-shadow);
 		padding: var(--space-m);
 

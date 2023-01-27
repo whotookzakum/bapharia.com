@@ -1,9 +1,9 @@
 <script>
-    import ModelViewer from "../ModelViewer.svelte";
-import Enemy from "./templates/Enemy.svelte";
+    import Enemy from "./templates/Enemy.svelte";
     import Weapon from "./templates/Weapon.svelte";
 
     export let item = {};
+    let detailsCollapsed = true;
 </script>
 
 <div>
@@ -30,9 +30,11 @@ import Enemy from "./templates/Enemy.svelte";
                 height="32"
             />
         </header>
-        <Enemy {item} />
-        <!-- <Weapon {item} /> -->
-        <ModelViewer/>
+        <div class:collapsed={detailsCollapsed}>
+            <Enemy {item} />
+            <!-- <Weapon {item} /> -->
+        </div>
+        <button class="box" on:click={() => detailsCollapsed = !detailsCollapsed}>Show {detailsCollapsed ? "more" : "less"}</button>
     </article>
 </div>
 
@@ -67,5 +69,21 @@ import Enemy from "./templates/Enemy.svelte";
             top: 0;
             opacity: 0.5;
         }
+    }
+
+    button {
+        background: var(--surface3);
+        padding: 0.5rem;
+        width: 100%;
+
+        &:hover, &:focus-visible {
+            filter: brightness(1.2)
+        }
+    }
+
+    .collapsed {
+        max-height: 465px;
+        -webkit-mask-image: linear-gradient(black, transparent);
+        mask-image: linear-gradient(black 70%, transparent);
     }
 </style>

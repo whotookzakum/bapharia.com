@@ -16,6 +16,7 @@
     shadow-intensity="1"
     camera-controls
     touch-action="pan-y"
+    tabindex="-1"
 />
 
 <style lang="scss">
