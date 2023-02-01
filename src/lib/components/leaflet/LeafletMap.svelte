@@ -17,11 +17,13 @@
 	import { onMount, onDestroy } from "svelte";
 	import { browser } from "$app/environment";
 	import icons from "./icons.json";
+	import "leaflet/dist/leaflet.css";
 
 	// rewrite as dynamic import
 	import asterleeds from "./Asterleeds.json";
 	import asteriaplain from "./AsteriaPlain.json";
 	import bahamarhighlands from "./BahamarHighlands.json";
+    import MapControls from "./MapControls.svelte";
 
 	let leafletMapElement;
 	let leafletMap;
@@ -45,6 +47,7 @@
 				maxZoom: 2,
 				maxBounds: bounds,
 				maxBoundsViscosity: 1.0,
+				zoomControl: false,
 			};
 
 			// Create map
@@ -78,10 +81,15 @@
 			// Add map labels
 			selectedMap.labels.forEach((label) => {
 				L.marker(label.coords, { opacity: 0 })
-					.bindTooltip(label.text, { direction: "bottom", permanent: true, className: "map-zone-label", opacity: 1 })
+					.bindTooltip(label.text, {
+						direction: "bottom",
+						permanent: true,
+						className: "map-zone-label",
+						opacity: 1,
+					})
 					.setZIndexOffset(-100)
 					.addTo(leafletMap);
-			})
+			});
 		}
 	});
 
@@ -93,11 +101,12 @@
 	});
 </script>
 
+
+<MapControls />
+
 <div class="leaflet-map" bind:this={leafletMapElement} />
 
-<style global>
-	@import "leaflet/dist/leaflet.css";
-
+<style global lang="scss">
 	.leaflet-map {
 		width: 100vw;
 		height: 100vh;
