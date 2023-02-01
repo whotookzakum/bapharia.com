@@ -4,12 +4,13 @@
 	import _ from "lodash";
 	import { checkStringIncludes } from "$lib/utils/string_utils";
 	export let allItems;
+	export let selectedItem;
 
 	let searchQuery = $page.url.searchParams.get("db") || "";
 
 	$: searchResults = allItems.filter((item) => {
-		const idMatch = checkStringIncludes(item.id, searchQuery)
-		const nameMatch = checkStringIncludes(item.name, searchQuery)
+		const idMatch = checkStringIncludes(item.id, searchQuery);
+		const nameMatch = checkStringIncludes(item.name, searchQuery);
 		return idMatch || nameMatch;
 	});
 
@@ -41,17 +42,19 @@
 	</div>
 	<ul id="search-results" class="box">
 		{#each searchResults as result}
-			<li class="search-result">
-				<img
-					src={`/images/axe1.png`}
-					alt="Item Icon"
-					width="64"
-					height="64"
-					loading="lazy"
-				/>
-				<b>{result.name}</b>
-				<span>{result.type}</span>
-				<span>ID: {result.enemy_id}</span>
+			<li>
+				<button class="search-result" on:click={() => selectedItem = result}>
+					<img
+						src={`/images/axe1.png`}
+						alt=""
+						width="64"
+						height="64"
+						loading="lazy"
+					/>
+					<b>{result.name}</b>
+					<span>Enemy</span>
+					<span>ID: {result.enemy_id}</span>
+				</button>
 			</li>
 		{/each}
 	</ul>
@@ -70,32 +73,52 @@
 	}
 
 	ul#search-results {
+		list-style: none;
 		padding: 0;
 		margin: 0;
 		display: block;
+		overflow: visible;
 		max-inline-size: none;
 		// min-height: 454px;
 	}
 
-	li.search-result {
+	button.search-result {
 		display: grid;
 		grid-template-columns: auto 1fr;
 		column-gap: 1rem;
 		padding: 0.8rem;
 		line-height: 1.4;
-		max-inline-size: none;
+		background: none;
+		border: none;
+		width: 100%;
+		text-align: left;
 
-		&:not(:last-child) {
-			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		b {
+			font-size: initial;
 		}
 
-		img {
+		& img {
 			grid-row: span 3;
 		}
 
 		span {
 			color: var(--text2);
-			font-size: var(--step--1);
+		}
+
+		&:hover, &:focus-visible {
+			background: var(--surface2);
+		}
+
+		&:focus-visible {
+			border-radius: 5px; // match .box
+		}
+	}
+
+	li {
+		max-inline-size: none;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 		}
 	}
 </style>

@@ -114,10 +114,11 @@
 			z-index: 3;
 			bottom: 0;
 			right: 0;
-			margin: 0.7rem 0.5rem;
+			margin: 0.8rem 0.4rem;
 			transform: rotate(-40deg);
 			color: var(--accent);
 			font-weight: 500;
+			line-height: 1;
 		}
 
 		&::before {

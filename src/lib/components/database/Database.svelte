@@ -19,14 +19,16 @@
 				(enemy) => enemy.id === item.name_id
 			).text,
 		};
-	}).filter((item, index) => { return index < 6 });
+	}).filter((item, index) => { return index < 600000 }); // 6 per page
+
+	let selectedItem = allItems[1];
 
 	// items = _.uniqBy(items, (item) => item.name);
 </script>
 
 <div class="db-wrapper">
-	<Search {allItems} />
-	<Result item={allItems[1]} />
+	<Search {allItems} bind:selectedItem />
+	<Result bind:item={selectedItem} />
 </div>
 
 <style lang="scss">

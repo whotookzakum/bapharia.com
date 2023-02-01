@@ -6,7 +6,7 @@
     import _ from "lodash";
 
     export let item;
-    const { hit_point, attack_power, defence_power } = item.level_params[0];
+    $: ({ hit_point, attack_power, defence_power } = item.level_params[0]);
     const {
         resist_slash,
         resist_thrust,
@@ -43,42 +43,40 @@
         // console.log(hi);
     }
 
+
+    const map_name_json = {
+    "fld001_N": "アンドラ盆地",
+    "fld001_S": "海鳴りの草原",
+    "fld001_W": "夕凪の段丘",
+    "fld001_E": "ミンスター丘陵",
+    "fld002_S": "神の見守る丘",
+    "fld002_E": "鎮まりの山麓",
+    "fld002_W": "フィエル嶺水池",
+    "fld004_N": "帰らずの砂塵",
+    "fld004_C": "レインフォール旧街道",
+    "fld004_W": "オルビド平野",
+    "fld004_S": "風止みの荒地",
+    "fld004_E": "陽炎の谷",
+    "fld003_C": "リッツェ交易街道",
+    "fld003_S": "ガレィリッジ廃道",
+    "fld003_E": "メリソス川流域",
+    "pub004": "音無き都・自由探索",
+    "pub007": "枷神の産屋・自由探索",
+    "pub009": "巨竜の爪痕・自由探索",
+    "pub0102": "機跡の谷・自由探索",
+    "pub0201": "ボルオム遺跡・自由探索",
+    "pub0801": "木漏れ日射す林道・自由探索",
+    "pub0802": "ともし火の森・自由探索",
+    "pub0803": "雨止まぬ森・自由探索",
+    "pub0804": "緋染めの樹林・自由探索",
+    "pub0901": "風精の舞台・自由探索",
+}
+
     function getFieldName(field) {
-        // switch (field) {
-        //     case "fld001_N":
-        //         return "Minster Hills";
-        //     case "fld001_E":
-        //         return "Skyquake Fields";
-        //     case "fld001_W":
-        //         return "Andra Basin";
-        //     case "fld001_S":
-        //         return "Calm Eve Terraces";
-        //     case "fld002_E":
-        //         return "Soundless Foothills";
-        //     case "fld002_W":
-        //         return "Fiel Pond";
-        //     case "fld002_S":
-        //         return "Divine Haven Hill";
-        // }
-        switch (field) {
-            case "fld001_N":
-                return "ミンスター丘陵";
-            case "fld001_E":
-                return "海鳴りの草原";
-            case "fld001_W":
-                return "アンドラ盆地";
-            case "fld001_S":
-                return "夕凪の段丘";
-            case "fld002_E":
-                return "鎮まりの山麓";
-            case "fld002_W":
-                return "フィエル嶺水地";
-            case "fld002_S":
-                return "神の見守る丘";
-        }
+        return map_name_json[field] || field
     }
 
-    const dropsUngrouped = item.drop_items.flatMap((drop) => {
+    $: dropsUngrouped = item.drop_items.flatMap((drop) => {
         const itemData = allItems.find((i) => i.id === drop.item_index);
         if (!itemData) return [];
         const itemNameStringId = itemData.name;
@@ -95,7 +93,7 @@
         };
     });
 
-    const dropGroups = _.groupBy(dropsUngrouped, (drop) => drop.content_id);
+    $: dropGroups = _.groupBy(dropsUngrouped, (drop) => drop.content_id);
 </script>
 
 <div class="wrapper">

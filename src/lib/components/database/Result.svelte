@@ -2,7 +2,7 @@
     import Enemy from "./templates/Enemy.svelte";
     import Weapon from "./templates/Weapon.svelte";
 
-    export let item = {};
+    export let item;
     let detailsCollapsed = true;
 </script>
 
@@ -31,7 +31,7 @@
             />
         </header>
         <div class:collapsed={detailsCollapsed}>
-            <Enemy {item} />
+            <Enemy bind:item />
             <!-- <Weapon {item} /> -->
         </div>
         <button class="box" on:click={() => detailsCollapsed = !detailsCollapsed}>Show {detailsCollapsed ? "more" : "less"}</button>
