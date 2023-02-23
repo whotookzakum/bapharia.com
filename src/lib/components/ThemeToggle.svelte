@@ -69,6 +69,7 @@
 		<Icon icon="tabler:sun-high" width="24" height="24" />
 	{:else}
 		<Icon icon="tabler:moon" width="24" height="24" />
+		<!-- material-symbols:night-sight-auto -->
 	{/if}
 </button>
 

@@ -18,10 +18,10 @@
 />
 <Navbar />
 <main>
-	<section>
+	<header>
 		<h1>Bapharia</h1>
 		<strong>The premier information hub for BLUE PROTOCOL.</strong>
-	</section>
+	</header>
 
 	<section>
 		<h2 id="interactive">Interactive</h2>

@@ -19,9 +19,9 @@ body {
 
 hr {
     border: none;
-    margin: 1.5em 0;
+    margin: 0.5rem 0;
     height: 1px;
-    background-color: rgba(128, 128, 128, 0.384);
+    background-color: var(--surface3);
 }
 
 .box {
@@ -55,6 +55,10 @@ hr {
     width: 1px;
 }
 
+label:has(input.visually-hidden:focus-visible) {
+    outline: 2px solid var(--accent);
+}
+
 .leaflet-marker-icon {
     width: 42px !important;
     height: 42px !important;
@@ -83,5 +87,17 @@ hr {
 }
 
 .iconify {
-    display: block !important;
+    // display: block !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.amount svg, .bonus svg {
+    vertical-align: sub;
 }
