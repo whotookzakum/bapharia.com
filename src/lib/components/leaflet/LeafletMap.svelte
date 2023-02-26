@@ -15,82 +15,85 @@
  -->
 <script>
 	import { onMount, onDestroy } from "svelte";
-	import { browser } from "$app/environment";
 	import icons from "./icons.json";
 	import "leaflet/dist/leaflet.css";
+	import SearchParams from "./SearchParams.svelte";
+	let searchParams;
 
 	// rewrite as dynamic import
 	import asterleeds from "./Asterleeds.json";
 	import asteriaplain from "./AsteriaPlain.json";
 	import bahamarhighlands from "./BahamarHighlands.json";
-    import MapControls from "./MapControls.svelte";
+	import MapControls from "./MapControls.svelte";
 
 	let leafletMapElement;
 	let leafletMap;
 	let selectedMap = bahamarhighlands;
 
 	onMount(async () => {
-		if (browser) {
-			const L = await import("leaflet");
+		const L = await import("leaflet");
 
-			// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
+		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
-			const bounds = [
-				[0, 0], // padding
-				[1080, 1920], // image dimensions
-			];
+		const bounds = [
+			[0, 0], // padding
+			[1080, 1920], // image dimensions
+		];
 
-			// L.CRS.Simple is a simple CRS that maps longitude and latitude into `x` and `y` directly. May be used for maps of flat surfaces (e.g. game maps).
-			const leafletMapOptions = {
-				crs: L.CRS.Simple,
-				minZoom: -1,
-				maxZoom: 2,
-				maxBounds: bounds,
-				maxBoundsViscosity: 1.0,
-				zoomControl: false,
-			};
+		// L.CRS.Simple is a simple CRS that maps longitude and latitude into `x` and `y` directly. May be used for maps of flat surfaces (e.g. game maps).
+		const leafletMapOptions = {
+			crs: L.CRS.Simple,
+			minZoom: -1,
+			maxZoom: 2,
+			maxBounds: bounds,
+			maxBoundsViscosity: 1.0,
+			zoomControl: false,
+		};
 
-			// Create map
-			leafletMap = L.map(leafletMapElement, leafletMapOptions);
+		// Create map
+		leafletMap = L.map(leafletMapElement, leafletMapOptions);
 
-			// Used to load and display a single image over specific bounds of the map. Extends `Layer`.
-			L.imageOverlay(selectedMap.imgSrc, bounds).addTo(leafletMap);
+		// Used to load and display a single image over specific bounds of the map. Extends `Layer`.
+		L.imageOverlay(selectedMap.imgSrc, bounds).addTo(leafletMap);
 
-			// fitBounds() sets a map view that contains the given geographical bounds with the maximum zoom level possible.
-			// leafletMap.fitBounds(bounds);
+		// fitBounds() sets a map view that contains the given geographical bounds with the maximum zoom level possible.
+		// leafletMap.fitBounds(bounds);
 
-			// setView manually sets view to specific coordinates with a specified zoom level
-			leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0);
+		// setView manually sets view to specific coordinates with a specified zoom level
+		leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0);
 
-			// Add markers
-			selectedMap.markers.forEach((marker) => {
-				const icon = icons.find(
-					(icon) => icon.name === marker.category
-				);
+		// Add markers
+		selectedMap.markers.forEach((marker) => {
+			const icon = icons.find((icon) => icon.name === marker.category);
 
-				L.marker(marker.coords, { icon: L.icon(icon) })
-					.addTo(leafletMap)
-					.setZIndexOffset(marker.zIndex)
-					.bindPopup(
-						`<strong>${marker.category}</strong>
+			L.marker(marker.coords, { icon: L.icon(icon) })
+				.addTo(leafletMap)
+				.setZIndexOffset(marker.zIndex)
+				.bindPopup(
+					`<strong>${marker.category}</strong>
 						<br>
 						${marker.description || ""}`
-					);
-			});
+				)
+				.on("popupopen", () => searchParams.set("marker", marker.description || ""))
+				.on("popupclose", () => searchParams.clear("marker"))
+		});
 
-			// Add map labels
-			selectedMap.labels.forEach((label) => {
-				L.marker(label.coords, { opacity: 0 })
-					.bindTooltip(label.text, {
-						direction: "bottom",
-						permanent: true,
-						className: "map-zone-label",
-						opacity: 1,
-					})
-					.setZIndexOffset(-100)
-					.addTo(leafletMap);
-			});
-		}
+		
+
+		// Add map labels
+		selectedMap.labels.forEach((label) => {
+			L.marker(label.coords, { opacity: 0 })
+				.bindTooltip(label.text, {
+					direction: "bottom",
+					permanent: true,
+					className: "map-zone-label",
+					opacity: 1,
+				})
+				.setZIndexOffset(-100)
+				.addTo(leafletMap);
+		});
+
+		// console.log(leafletMap._zoom)
 	});
 
 	onDestroy(async () => {
@@ -101,7 +104,7 @@
 	});
 </script>
 
-
+<SearchParams bind:this={searchParams} />
 <MapControls />
 
 <div class="leaflet-map" bind:this={leafletMapElement} />
