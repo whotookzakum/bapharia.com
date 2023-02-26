@@ -33,7 +33,7 @@
 		if (theme) {
 			document.documentElement.setAttribute("color-scheme", theme);
 		}
-		// If theme is null then fallback to system theme (in CSS) 
+		// If theme is null then fallback to system theme (in CSS)
 		// Add event listener to sync site theme with system theme
 		else {
 			window
