@@ -2,7 +2,7 @@
     --h: 220;
     --s: 15%;
     --l: 6%;
-    
+
     --text1: hsl(var(--h), 0%, calc(100% - var(--l) - 18%));
     --text2: hsl(var(--h), 0%, calc(100% - var(--l) - 32%));
     --bg: hsl(var(--h), var(--s), var(--l));
@@ -13,6 +13,16 @@
     --accent: hsl(calc(var(--h) - 0), calc(var(--s) + 20%), calc(var(--l) + 44%));
 }
 
-:root[color-scheme="dark"] {
-    color-scheme: dark;
+:root[color-scheme*="light"] {
+    --l: 56%;
+}
+
+:root[color-scheme*="dark"] {
+    --l: 6%;
+}
+
+@media (not (prefers-color-scheme: dark)) {
+    :root {
+        --l: 56%;
+    }
 }
