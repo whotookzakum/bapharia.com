@@ -22,16 +22,19 @@
 
 	// rewrite as dynamic import
 	import asterleeds from "./Asterleeds.json";
-	import asteriaplain from "./AsteriaPlain.json";
-	import bahamarhighlands from "./BahamarHighlands.json";
+	import asteriaplain from "./MapFld001.json";
+	import bahamarhighlands from "./MapFld002.json";
 	import MapControls from "./MapControls.svelte";
 
 	let leafletMapElement;
 	let leafletMap;
-	let selectedMap = bahamarhighlands;
 
 	onMount(async () => {
 		const L = await import("leaflet");
+
+
+
+		let selectedMap = await import("./MapFld001.json")
 
 		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
@@ -62,28 +65,36 @@
 		// setView manually sets view to specific coordinates with a specified zoom level
 		leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0);
 
-		// Add markers
-		selectedMap.markers.forEach((marker) => {
-			const icon = icons.find((icon) => icon.name === marker.category);
+		addMarkers(selectedMap.markers);
+		addLabels(selectedMap.labels);
+	});
 
-			L.marker(marker.coords, { icon: L.icon(icon) })
-				.addTo(leafletMap)
-				.setZIndexOffset(marker.zIndex)
+	function addMarkers(markerList) {
+		markerList.forEach(({ category, coords, zIndex, description }) => {
+			const icon = icons.find((icon) => icon.name === category);
+
+			const marker = L.marker(coords, { icon: L.icon(icon) })
+				.setZIndexOffset(zIndex)
 				.bindPopup(
-					`<strong>${marker.category}</strong>
+					`<strong>${category}</strong>
 						<br>
-						${marker.description || ""}`
+						${description || ""}`
 				)
-				.on("popupopen", () => searchParams.set("marker", marker.description || ""))
+				.on("popupopen", () => searchParams.set("marker", description))
 				.on("popupclose", () => searchParams.clear("marker"))
+				.addTo(leafletMap);
+
+			const markerFromUrl = searchParams.get("marker");
+			if (description === markerFromUrl) {
+				marker.openPopup();
+			}
 		});
+	}
 
-		
-
-		// Add map labels
-		selectedMap.labels.forEach((label) => {
-			L.marker(label.coords, { opacity: 0 })
-				.bindTooltip(label.text, {
+	function addLabels(labelList) {
+		labelList.forEach(({ coords, text }) => {
+			L.marker(coords, { opacity: 0 })
+				.bindTooltip(text, {
 					direction: "bottom",
 					permanent: true,
 					className: "map-zone-label",
@@ -92,9 +103,7 @@
 				.setZIndexOffset(-100)
 				.addTo(leafletMap);
 		});
-
-		// console.log(leafletMap._zoom)
-	});
+	}
 
 	onDestroy(async () => {
 		if (leafletMap) {

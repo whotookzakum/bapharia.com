@@ -19,4 +19,8 @@
         $page.url.searchParams.delete(param)
         goToUpdatedUrl()
     }
+
+    export function get(param) {
+        return $page.url.searchParams.get(param)
+    }
 </script>
