@@ -21,9 +21,6 @@
 	let searchParams;
 
 	// rewrite as dynamic import
-	import asterleeds from "./Asterleeds.json";
-	import asteriaplain from "./MapFld001.json";
-	import bahamarhighlands from "./MapFld002.json";
 	import MapControls from "./MapControls.svelte";
 
 	let leafletMapElement;
@@ -32,9 +29,9 @@
 	onMount(async () => {
 		const L = await import("leaflet");
 
-
-
-		let selectedMap = await import("./MapFld001.json")
+		const mapId = searchParams.get("map") ?? "Cty001"
+		let mapData = await import(`./maps/${mapId}.json`);
+		searchParams.set("map", mapId)
 
 		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
@@ -57,7 +54,7 @@
 		leafletMap = L.map(leafletMapElement, leafletMapOptions);
 
 		// Used to load and display a single image over specific bounds of the map. Extends `Layer`.
-		L.imageOverlay(selectedMap.imgSrc, bounds).addTo(leafletMap);
+		L.imageOverlay(mapData.imgSrc, bounds).addTo(leafletMap);
 
 		// fitBounds() sets a map view that contains the given geographical bounds with the maximum zoom level possible.
 		// leafletMap.fitBounds(bounds);
@@ -65,11 +62,12 @@
 		// setView manually sets view to specific coordinates with a specified zoom level
 		leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0);
 
-		addMarkers(selectedMap.markers);
-		addLabels(selectedMap.labels);
+		addMarkers(mapData.markers);
+		addLabels(mapData.labels);
 	});
 
 	function addMarkers(markerList) {
+		if (!markerList) return;
 		markerList.forEach(({ category, coords, zIndex, description }) => {
 			const icon = icons.find((icon) => icon.name === category);
 
@@ -92,6 +90,7 @@
 	}
 
 	function addLabels(labelList) {
+		if (!labelList) return;
 		labelList.forEach(({ coords, text }) => {
 			L.marker(coords, { opacity: 0 })
 				.bindTooltip(text, {
