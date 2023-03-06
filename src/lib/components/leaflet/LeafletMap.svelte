@@ -18,6 +18,7 @@
 	import icons from "./icons.json";
 	import "leaflet/dist/leaflet.css";
 	import SearchParams from "./SearchParams.svelte";
+	// import L from "leaflet";
 	let searchParams;
 
 	// rewrite as dynamic import
@@ -29,9 +30,9 @@
 	onMount(async () => {
 		const L = await import("leaflet");
 
-		const mapId = searchParams.get("map") ?? "Cty001"
+		const mapId = searchParams.get("map") ?? "Cty001";
 		let mapData = await import(`./maps/${mapId}.json`);
-		searchParams.set("map", mapId)
+		searchParams.set("map", mapId);
 
 		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
@@ -57,7 +58,7 @@
 		L.imageOverlay(mapData.imgSrc, bounds).addTo(leafletMap);
 
 		// fitBounds() sets a map view that contains the given geographical bounds with the maximum zoom level possible.
-		// leafletMap.fitBounds(bounds);
+		leafletMap.fitBounds(bounds);
 
 		// setView manually sets view to specific coordinates with a specified zoom level
 		leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0);
@@ -66,27 +67,49 @@
 		addLabels(mapData.labels);
 	});
 
-	function addMarkers(markerList) {
-		if (!markerList) return;
-		markerList.forEach(({ category, coords, zIndex, description }) => {
-			const icon = icons.find((icon) => icon.name === category);
+	function createMarker({ category, coords, zIndex, description }) {
+		const icon = { icon: L.icon(icons[category]) };
 
-			const marker = L.marker(coords, { icon: L.icon(icon) })
-				.setZIndexOffset(zIndex)
-				.bindPopup(
-					`<strong>${category}</strong>
+		const marker = L.marker(coords, icon)
+			.setZIndexOffset(zIndex)
+			.bindPopup(
+				`<strong>${category}</strong>
 						<br>
 						${description || ""}`
-				)
-				.on("popupopen", () => searchParams.set("marker", description))
-				.on("popupclose", () => searchParams.clear("marker"))
-				.addTo(leafletMap);
+			)
+			.on("popupopen", () => searchParams.set("marker", description))
+			.on("popupclose", () => searchParams.clear("marker"))
+			.addTo(leafletMap);
 
-			const markerFromUrl = searchParams.get("marker");
-			if (description === markerFromUrl) {
-				marker.openPopup();
+		const markerFromUrl = searchParams.get("marker");
+		if (description === markerFromUrl) {
+			marker.openPopup();
+		}
+
+		return marker;
+	}
+
+	function addMarkers(data) {
+		if (!data) return;
+		const overlayOptions = {};
+		const categories = Object.keys(data);
+
+		// Group markers by their category
+		categories.forEach((category) => {
+			if (data[category].length > 0) {
+				// Turn marker data into Leaflet Markers
+				const markers = data[category].map((marker) => createMarker(marker));
+
+				// Group markers in category into a single layer with LayerGroup and add to map
+				const layer = L.layerGroup(markers).addTo(leafletMap);
+
+				// Add to list of controls
+				overlayOptions[category] = layer;
 			}
 		});
+
+		// Add all layers to layer controls
+		L.control.layers(null, overlayOptions).addTo(leafletMap);
 	}
 
 	function addLabels(labelList) {
