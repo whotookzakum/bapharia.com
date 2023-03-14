@@ -1,18 +1,17 @@
 <script>
-	import IconCrafting from "../../../lib/components/icons/IconCrafting.svelte";
-    import IconImagine from "../../../lib/components/icons/IconImagine.svelte";
+	
 </script>
 
 <menu class="options">
 	<li>
         <a href="/crafting/imagine">
-            <IconImagine width={180} height={180} />
+            <!-- <IconImagine width={180} height={180} /> -->
             Imagine
         </a>
     </li>
 	<li>
         <a href="/crafting/weapons">
-            <IconCrafting width={180} height={180} />
+            <!-- <IconCrafting width={180} height={180} /> -->
             Weapon
         </a>
     </li>
