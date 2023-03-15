@@ -1,25 +1,10 @@
 <script>
-	import imagineData from '$lib/ntdata/imagine.json';
-	import allText from '$lib/ntdata/texts_ja_JP.json';
-	import ItemList from '$lib/components/ItemList.svelte';
-	import { currentImagineId } from '$lib/stores';
 	import ImagineDetails from './ImagineDetails.svelte';
-	
 
-	const texts = allText.find(category => category.name === "master_imagine_text")
+	export let data;
+	let imagines = data.imagines.filter(imagine => imagine.imagine_type === 1)
 
-	const data = imagineData.map(imagine => {
-
-	})
 	// .filter(item => item.imagine_type === 0)
-
-
-
-	// console.log(data)
-
-	
-
-	// console.log(texts)
 
 	
 
@@ -35,7 +20,7 @@
 	// 	const stringHolder = imagineStrings.texts.find((obj) => obj.id === imagine.imagine_name) || {};
 	// 	const skillDescHolder =
 	// 		imagineStrings.texts.find((obj) => obj.id === imagine.imagine_desc) || {};
-	// 	const recipeData = imagineRecipes.find((obj) => obj.imagin_id === imagine.id) || {};
+	// 	// const recipeData = imagineRecipes.find((obj) => obj.imagin_id === imagine.id) || {};
 
 	// 	let imgSrc = `Imagine/Active/UI_Icon_${imagine.id}.png`
 
@@ -60,7 +45,7 @@
 	// 		name: stringHolder.text,
 	// 		skillName: skillName,
 	// 		type: skillType,
-	// 		reqAR: recipeData.adventurer_rank,
+	// 		// reqAR: recipeData.adventurer_rank,
 	// 		imgSrc: imgSrc
 	// 	};
 	// }).filter((imagine) => imagine.imagine_type === imagineType);
@@ -89,7 +74,7 @@
 
 	<div style="display: flex; gap: 1rem;">
 		<!-- <ItemList items={imagines} /> -->
-		<!-- <ImagineDetails imagine={imagines[0]} /> -->
+		<ImagineDetails imagine={imagines[50]} />
 		<!-- <div style="width: 900px">
 			<h2 class="item-name">{data.name}</h2>
 			<div class="item-details" class:level-not-initial={currentLevel > 1}>
