@@ -26,6 +26,7 @@
 	// items = _.uniqBy(items, (item) => item.name);
 </script>
 
+<h2 id="db">Database</h2>
 <div class="db-wrapper">
 	<Search {allItems} bind:selectedItem />
 	<Result bind:item={selectedItem} />

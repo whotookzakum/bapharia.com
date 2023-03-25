@@ -44,9 +44,6 @@
 			name: "JP Wiki",
 			link: "https://blueprotocol.swiki.jp/",
 		},
-		{
-			name: "owl's Data",
-		},
 	];
 </script>
 
@@ -72,14 +69,22 @@
 
 <h3>References</h3>
 <ul>
-	{#each references as item}
+	<!-- {#each references as item}
 		<li>
 			<a href={item.link} target="_blank" rel="noopener noreferrer"
 				>{item.name}</a
 			>
 		</li>
-	{/each}
+	{/each} -->
 </ul>
+
+<div class="references">
+	{#each references as item}
+		<a href={item.link} target="_blank" rel="noopener noreferrer"
+			>{item.name}</a
+		>
+	{/each}
+</div>
 
 <h3>Game Contents</h3>
 <span>
@@ -91,6 +96,15 @@
 	h3 {
 		font-size: var(--step--1);
 		color: var(--accent);
+	}
+
+	.references a:not(:last-child) {
+		margin-right: 0.5ch;
+		line-height: 1.6;
+
+		&::after {
+			content: ",";
+		}
 	}
 
 	ul {

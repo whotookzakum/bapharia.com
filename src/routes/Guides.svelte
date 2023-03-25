@@ -1,51 +1,56 @@
 <script>
-	import Card from '$lib/components/Card.svelte';
-	import { localStorageStore } from 'fractils';
+	import Card from "$lib/components/Card.svelte";
+	import { localStorageStore } from "fractils";
 	export let data;
 
-	let guideFilters = localStorageStore('guide-filters', {
-		'Game Systems': true,
+	let guideFilters = localStorageStore("guide-filters", {
+		"Game Systems": true,
 		Strategy: true,
-		Referential: true
+		Referential: true,
 	});
 
-	$: guides = data.filter((guide) => $guideFilters[guide.meta.category])
+	$: guides = data.filter((guide) => $guideFilters[guide.meta.category]);
 </script>
 
-<section>
+<h2 id="guides">Guides</h2>
+<div class="grid g-50">
 	<span class="component-label">Filters</span>
-	<div id="filters">
-		<input
-			id="checkbox-game-systems"
-			type="checkbox"
-			bind:checked={$guideFilters['Game Systems']}
-		/>
-		<label class="box" for="checkbox-game-systems">Game Systems</label>
-		<input id="checkbox-strategy" type="checkbox" bind:checked={$guideFilters['Strategy']} />
-		<label class="box" for="checkbox-strategy">Strategy</label>
-		<input id="checkbox-referential" type="checkbox" bind:checked={$guideFilters['Referential']} />
-		<label class="box" for="checkbox-referential">Referential</label>
+	<div id="filters" class="flex">
+		<label class="box hover">
+			<input
+				type="checkbox"
+				bind:checked={$guideFilters["Game Systems"]}
+			/>
+			Game Systems
+		</label>
+		<label class="box hover">
+			<input type="checkbox" bind:checked={$guideFilters["Strategy"]} />
+			Strategy
+		</label>
+		<label class="box hover">
+			<input
+				type="checkbox"
+				bind:checked={$guideFilters["Referential"]}
+			/>
+			Referential
+		</label>
 	</div>
-	<ul class="card-grid">
-		{#each guides as guide}
-			<li>
-				<Card
-					title={guide.meta.title}
-					href={guide.path}
-					category={guide.meta.category}
-					caption={guide.meta.caption}
-					bgSrc={guide.meta.featuredImg}
-				/>
-			</li>
-		{/each}
-	</ul>
-</section>
+</div>
+<ul class="card-grid">
+	{#each guides as guide}
+		<li>
+			<Card
+				title={guide.meta.title}
+				href={guide.path}
+				category={guide.meta.category}
+				caption={guide.meta.caption}
+				bgSrc={guide.meta.featuredImg}
+			/>
+		</li>
+	{/each}
+</ul>
 
 <style lang="scss">
-	section {
-		// max-width: 1000px;
-	}
-
 	ul.card-grid {
 		display: grid;
 		justify-content: center;
@@ -57,26 +62,18 @@
 	}
 
 	#filters {
-		display: flex;
 		flex-wrap: wrap;
 		gap: var(--space-3xs);
 
-		label {
-			padding: 0.5rem 1rem;
-			border: 1px solid transparent;
-			color: var(--text2);
+		label.box {
+			padding: 0.5rem 0.75rem;
 			-webkit-user-select: none;
 			-ms-user-select: none;
 			user-select: none;
-		}
 
-		input[type='checkbox'] {
-			display: none;
-			appearance: none;
-
-			&:checked + label {
-				color: var(--text1);
+			&:has(input:checked) {
 				border-color: var(--accent);
+				background: var(--surface2);
 			}
 		}
 	}

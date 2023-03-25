@@ -6,6 +6,7 @@
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
 	import Credits from "./Credits.svelte";
+    import Donations from "./Donations.svelte";
 
 	export let data;
 </script>
@@ -24,24 +25,30 @@
 	</header>
 
 	<section>
-		<h2 id="interactive">Interactive</h2>
 		<InteractivePages />
 	</section>
 
 	<section>
-		<h2 id="db">Database</h2>
 		<Database />
 	</section>
 
 	<section>
-		<h2 id="guides">Guides</h2>
 		<Guides data={data.guides} />
 	</section>
 
-	<section>
-		<Credits />
-		<PageFooter />
+	<section class="grid" style="column-gap: 5rem; grid-template-columns: repeat(auto-fill, minmax(45ch, 1fr));">
+		<div>
+			<Donations />
+		</div>
+		<div>
+			<Credits />
+		</div>
+		
+		
 	</section>
+
+	<PageFooter />
+	
 </main>
 
 <style global lang="scss">

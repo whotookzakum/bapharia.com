@@ -5,6 +5,7 @@
 html {
     background-color: var(--bg);
     scroll-padding-top: var(--space-l); // For Article anchor links
+    color-scheme: dark;
 }
 
 body {
@@ -32,6 +33,11 @@ hr {
     box-shadow: 0 2px 4px var(--surface-shadow);
     padding: 1rem;
     overflow: hidden;
+
+    &.hover:hover {
+        background: var(--surface2);
+        border-color: var(--surface3);
+    }
 }
 
 .component-label {
@@ -101,4 +107,12 @@ label:has(input.visually-hidden:focus-visible) {
 
 .g-50 {
     gap: 0.5rem;
+}
+
+.g-25 {
+    gap: 0.25rem;
+}
+
+.skip-std {
+    font-family: "Skip Std";
 }

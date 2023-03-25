@@ -26,6 +26,7 @@
 	];
 </script>
 
+<h2 id="interactive">Interactive</h2>
 <nav>
 	{#each interactivePages as page}
 		{#if page.disabled}
