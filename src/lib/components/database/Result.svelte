@@ -6,7 +6,7 @@
     let detailsCollapsed = true;
 </script>
 
-<div>
+<div class="grid g-50" style="place-content: flex-start">
     <!-- <p>{JSON.stringify(item.level_params[0])}</p>
         <p>{JSON.stringify(item.appearance[0])}</p>
         <p>{JSON.stringify(item.drop_items)}</p> -->
@@ -34,7 +34,9 @@
             <Enemy bind:item />
             <!-- <Weapon {item} /> -->
         </div>
-        <button class="box" on:click={() => detailsCollapsed = !detailsCollapsed}>Show {detailsCollapsed ? "more" : "less"}</button>
+        <button class="box" on:click={() => detailsCollapsed = !detailsCollapsed}>
+            Show {detailsCollapsed ? "more" : "less"}
+        </button>
     </article>
 </div>
 

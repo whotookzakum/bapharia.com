@@ -27,23 +27,24 @@
 </script>
 
 <div id="search" class="search">
-	<div>
-		<label>
-			<span class="component-label">Search</span>
-			<input
-				class="box"
-				id="search-box"
-				type="text"
-				placeholder="Search by item name or id"
-				bind:value={searchQuery}
-				on:input={updateUrl}
-			/>
-		</label>
+	<div class="grid g-50">
+		<label for="search-box" class="component-label">Search</label>
+		<input
+			class="box"
+			id="search-box"
+			type="search"
+			placeholder="Start typing item name or id"
+			bind:value={searchQuery}
+			on:input={updateUrl}
+		/>
 	</div>
 	<ul id="search-results" class="box">
 		{#each searchResults as result}
 			<li>
-				<button class="search-result" on:click={() => selectedItem = result}>
+				<button
+					class="search-result"
+					on:click={() => (selectedItem = result)}
+				>
 					<img
 						src={`/images/axe1.png`}
 						alt=""
@@ -105,7 +106,8 @@
 			color: var(--text2);
 		}
 
-		&:hover, &:focus-visible {
+		&:hover,
+		&:focus-visible {
 			background: var(--surface2);
 		}
 
