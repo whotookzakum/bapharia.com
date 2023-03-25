@@ -68,16 +68,6 @@
 >
 
 <h3>References</h3>
-<ul>
-	<!-- {#each references as item}
-		<li>
-			<a href={item.link} target="_blank" rel="noopener noreferrer"
-				>{item.name}</a
-			>
-		</li>
-	{/each} -->
-</ul>
-
 <div class="references">
 	{#each references as item}
 		<a href={item.link} target="_blank" rel="noopener noreferrer"
@@ -105,12 +95,5 @@
 		&::after {
 			content: ",";
 		}
-	}
-
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		gap: 0;
 	}
 </style>

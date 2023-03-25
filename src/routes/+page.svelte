@@ -36,19 +36,11 @@
 		<Guides data={data.guides} />
 	</section>
 
-	<section class="grid" style="column-gap: 5rem; grid-template-columns: repeat(auto-fill, minmax(45ch, 1fr));">
-		<div>
-			<Donations />
-		</div>
-		<div>
-			<Credits />
-		</div>
-		
-		
+	<section>
+		<Donations />
+		<Credits />
+		<PageFooter />
 	</section>
-
-	<PageFooter />
-	
 </main>
 
 <style global lang="scss">
