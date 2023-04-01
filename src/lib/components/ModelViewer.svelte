@@ -9,7 +9,7 @@
     id="model-viewer"
     class="box"
     alt=""
-    src={`/SK_CH_E000_00.gltf`}
+    src={`/BigMommyDragonTities.glb`}
     ar
     loading="eager"
     reveal="auto"

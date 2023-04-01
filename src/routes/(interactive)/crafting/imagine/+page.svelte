@@ -1,4 +1,5 @@
 <script>
+	import ItemList from '$lib/components/crafting/ItemList.svelte';
 	import ImagineDetails from './ImagineDetails.svelte';
 
 	export let data;
@@ -64,6 +65,8 @@
 	// let currentLevel = 1;
 	// $: data = getImagineById($currentImagineId);
 	// $: currentLevelData = data.level_data.find((levelData) => levelData.level === currentLevel);
+
+	console.log(imagines);
 </script>
 
 <div>
@@ -73,7 +76,7 @@
 	<label for="enhance-imagine">Enhance Imagine</label> -->
 
 	<div style="display: flex; gap: 1rem;">
-		<!-- <ItemList items={imagines} /> -->
+		<ItemList items={imagines} />
 		<ImagineDetails imagine={imagines[50]} />
 		<!-- <div style="width: 900px">
 			<h2 class="item-name">{data.name}</h2>

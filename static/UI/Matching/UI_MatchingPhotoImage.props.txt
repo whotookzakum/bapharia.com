@@ -1,15 +1,12 @@
 TwoSided = false
 bDisableDepthTest = false
 bIsMasked = false
-ReferencedTextures[1] =
+ReferencedTextures[2] =
 {
-    ReferencedTextures[0] = Texture2D'/Game/UI/Matching/UI_MatchingMenuContentInfoImageMask.UI_MatchingMenuContentInfoImageMask'
+    ReferencedTextures[0] = Texture2D'/Game/UI/Image/Dungeon/UI_ImageDungeon_NoData.UI_ImageDungeon_NoData'
+    ReferencedTextures[1] = Texture2D'/Game/UI/Matching/UI_MatchingMenuContentInfoImageMask.UI_MatchingMenuContentInfoImageMask'
 }
-Expressions[2] =
-{
-    Expressions[0] = MaterialExpressionTextureSampleParameter2D'/Game/UI/Matching/UI_MatchingPhotoImage.MaterialExpressionTextureSampleParameter2D_0'
-    Expressions[1] = MaterialExpressionTextureSample'/Game/UI/Matching/UI_MatchingPhotoImage.MaterialExpressionTextureSample_1'
-}
+Expressions[0] = {}
 CachedExpressionData =
 {
     Parameters =
@@ -18,15 +15,28 @@ CachedExpressionData =
         {
             Entries[0] = { ParameterInfos[0]={} }
             Entries[1] = { ParameterInfos[0]={} }
-            Entries[2] = { ParameterInfos[0]={} }
+            Entries[2] =
+            {
+                ParameterInfos[1] =
+                {
+                    ParameterInfos[0] = { Name=InTexture }
+                }
+            }
             Entries[3] = { ParameterInfos[0]={} }
             Entries[4] = { ParameterInfos[0]={} }
         }
         ScalarValues[0] = {}
         VectorValues[0] = {}
-        TextureValues[0] = {}
+        TextureValues[1] =
+        {
+            TextureValues[0] = Texture2D'/Game/UI/Image/Dungeon/UI_ImageDungeon_NoData.UI_ImageDungeon_NoData'
+        }
     }
-    ReferencedTextures[0] = {}
+    ReferencedTextures[2] =
+    {
+        ReferencedTextures[0] = Texture2D'/Game/UI/Image/Dungeon/UI_ImageDungeon_NoData.UI_ImageDungeon_NoData'
+        ReferencedTextures[1] = Texture2D'/Game/UI/Matching/UI_MatchingMenuContentInfoImageMask.UI_MatchingMenuContentInfoImageMask'
+    }
 }
 BlendMode = BLEND_Translucent (2)
 OpacityMaskClipValue = 0.333
@@ -48,3 +58,4 @@ bUseMobileSpecular = false
 MobileSpecularPower = 16
 MobileSpecularMask = MSM_Constant (0)
 MobileMaskTexture = None
+TextureStreamingData[0] = {}

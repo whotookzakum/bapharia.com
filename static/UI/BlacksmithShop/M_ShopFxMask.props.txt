@@ -1,37 +1,60 @@
 TwoSided = false
 bDisableDepthTest = false
 bIsMasked = false
-ReferencedTextures[1] =
+ReferencedTextures[2] =
 {
-    ReferencedTextures[0] = Texture2D'/Game/UI/BlacksmithShop/UI_FxMask.UI_FxMask'
+    ReferencedTextures[0] = Texture2D'/Engine/EngineResources/DefaultTexture.DefaultTexture'
+    ReferencedTextures[1] = Texture2D'/Game/UI/BlacksmithShop/UI_FxMask.UI_FxMask'
 }
-Expressions[6] =
-{
-    Expressions[0] = MaterialExpressionTextureSample'/Game/UI/BlacksmithShop/M_ShopFxMask.MaterialExpressionTextureSample_1'
-    Expressions[1] = MaterialExpressionTextureSample'/Game/UI/BlacksmithShop/M_ShopFxMask.MaterialExpressionTextureSample_0'
-    Expressions[3] = MaterialExpressionScalarParameter'/Game/UI/BlacksmithShop/M_ShopFxMask.MaterialExpressionScalarParameter_0'
-}
+Expressions[0] = {}
 CachedExpressionData =
 {
     Parameters =
     {
         Entries[5] =
         {
-            Entries[0] = { ParameterInfos[0]={} }
+            Entries[0] =
+            {
+                ParameterInfos[1] =
+                {
+                    ParameterInfos[0] = { Name=MaskScale }
+                }
+            }
             Entries[1] = { ParameterInfos[0]={} }
-            Entries[2] = { ParameterInfos[0]={} }
+            Entries[2] =
+            {
+                ParameterInfos[1] =
+                {
+                    ParameterInfos[0] = { Name=MaskTex }
+                }
+            }
             Entries[3] = { ParameterInfos[0]={} }
             Entries[4] = { ParameterInfos[0]={} }
         }
-        ScalarValues[0] = {}
+        ScalarValues[1] = { 6 }
         VectorValues[0] = {}
-        TextureValues[0] = {}
+        TextureValues[1] =
+        {
+            TextureValues[0] = Texture2D'/Engine/EngineResources/DefaultTexture.DefaultTexture'
+        }
     }
-    ReferencedTextures[0] = {}
+    ReferencedTextures[3] =
+    {
+        ReferencedTextures[1] = Texture2D'/Game/UI/BlacksmithShop/UI_FxMask.UI_FxMask'
+        ReferencedTextures[2] = Texture2D'/Engine/EngineResources/DefaultTexture.DefaultTexture'
+    }
 }
 BlendMode = BLEND_Additive (3)
 OpacityMaskClipValue = 0.333
-CollectedTextureParameters[0] = {}
+CollectedTextureParameters[1] =
+{
+    CollectedTextureParameters[0] =
+    {
+        Texture = Texture2D'/Engine/EngineResources/DefaultTexture.DefaultTexture'
+        Name = MaskTex
+        Group = None
+    }
+}
 CollectedScalarParameters[1] =
 {
     CollectedScalarParameters[0] = { Value=6, Name=MaskScale, Group=None }
@@ -44,3 +67,4 @@ bUseMobileSpecular = false
 MobileSpecularPower = 16
 MobileSpecularMask = MSM_Constant (0)
 MobileMaskTexture = None
+TextureStreamingData[0] = {}

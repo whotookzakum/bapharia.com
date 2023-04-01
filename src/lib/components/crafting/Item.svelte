@@ -1,5 +1,5 @@
 <script>
-	import { currentImagineId } from '../stores'
+	import { currentImagineId } from '../../stores'
 	export let data
 
 	function handleClick() {
@@ -7,7 +7,7 @@
 	}
 </script>
 
-<li class="item" on:click={handleClick}>
+<li class="item">
 	<div class="item-data">
 		<div class="item-thumbnail-wrapper">
 			{#if data.imgSrc}

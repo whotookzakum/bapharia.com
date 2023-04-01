@@ -3,15 +3,9 @@ bDisableDepthTest = false
 bIsMasked = false
 ReferencedTextures[1] =
 {
-    ReferencedTextures[0] = Texture2D'/Game/UI/MiniMap/UI_MiniMapMask1.UI_MiniMapMask1'
+    ReferencedTextures[0] = Texture2D'/Game/UI/Map/MapImage/Cty001/UI_MapCty001.UI_MapCty001'
 }
-Expressions[9] =
-{
-    Expressions[0] = MaterialExpressionTextureSampleParameter2D'/Game/UI/MiniMap/M_UI_MiniMapBGScroll.MaterialExpressionTextureSampleParameter2D_2'
-    Expressions[2] = MaterialExpressionTextureSample'/Game/UI/MiniMap/M_UI_MiniMapBGScroll.MaterialExpressionTextureSample_0'
-    Expressions[3] = MaterialExpressionVectorParameter'/Game/UI/MiniMap/M_UI_MiniMapBGScroll.MaterialExpressionVectorParameter_6'
-    Expressions[4] = MaterialExpressionVectorParameter'/Game/UI/MiniMap/M_UI_MiniMapBGScroll.MaterialExpressionVectorParameter_5'
-}
+Expressions[0] = {}
 CachedExpressionData =
 {
     Parameters =
@@ -19,16 +13,39 @@ CachedExpressionData =
         Entries[5] =
         {
             Entries[0] = { ParameterInfos[0]={} }
-            Entries[1] = { ParameterInfos[0]={} }
-            Entries[2] = { ParameterInfos[0]={} }
+            Entries[1] =
+            {
+                ParameterInfos[2] =
+                {
+                    ParameterInfos[0] = { Name=uv1 }
+                    ParameterInfos[1] = { Name=uv0 }
+                }
+            }
+            Entries[2] =
+            {
+                ParameterInfos[1] =
+                {
+                    ParameterInfos[0] = { Name=BaseColor }
+                }
+            }
             Entries[3] = { ParameterInfos[0]={} }
             Entries[4] = { ParameterInfos[0]={} }
         }
         ScalarValues[0] = {}
-        VectorValues[0] = {}
-        TextureValues[0] = {}
+        VectorValues[2] =
+        {
+            VectorValues[0] = { R=1, G=1, B=0, A=1 }
+            VectorValues[1] = { R=0, G=0, B=0, A=1 }
+        }
+        TextureValues[1] =
+        {
+            TextureValues[0] = Texture2D'/Game/UI/Map/MapImage/Cty001/UI_MapCty001.UI_MapCty001'
+        }
     }
-    ReferencedTextures[0] = {}
+    ReferencedTextures[1] =
+    {
+        ReferencedTextures[0] = Texture2D'/Game/UI/Map/MapImage/Cty001/UI_MapCty001.UI_MapCty001'
+    }
 }
 BlendMode = BLEND_Translucent (2)
 OpacityMaskClipValue = 0.333
@@ -64,3 +81,4 @@ bUseMobileSpecular = false
 MobileSpecularPower = 16
 MobileSpecularMask = MSM_Constant (0)
 MobileMaskTexture = None
+TextureStreamingData[0] = {}

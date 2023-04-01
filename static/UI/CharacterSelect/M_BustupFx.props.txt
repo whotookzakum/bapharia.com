@@ -1,53 +1,73 @@
 TwoSided = false
 bDisableDepthTest = false
 bIsMasked = false
-ReferencedTextures[1] =
+ReferencedTextures[3] =
 {
     ReferencedTextures[0] = Texture2D'/Game/UI/BlacksmithShop/UI_FxTextureCloud.UI_FxTextureCloud'
+    ReferencedTextures[1] = Texture2D'/Game/UI/CaptureImage/BustUp/UI_CharacterSelectLargeCharaNoData.UI_CharacterSelectLargeCharaNoData'
+    ReferencedTextures[2] = Texture2D'/Game/UI/CharacterSelect/UI_BlurFx2.UI_BlurFx2'
 }
-Expressions[26] =
-{
-    Expressions[7] = MaterialExpressionScalarParameter'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionScalarParameter_0'
-    Expressions[9] = MaterialExpressionScalarParameter'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionScalarParameter_3'
-    Expressions[13] = MaterialExpressionTextureSample'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionTextureSample_1'
-    Expressions[15] = MaterialExpressionScalarParameter'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionScalarParameter_4'
-    Expressions[19] = MaterialExpressionScalarParameter'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionScalarParameter_1'
-    Expressions[20] = MaterialExpressionScalarParameter'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionScalarParameter_2'
-    Expressions[23] = MaterialExpressionTextureSampleParameter2D'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionTextureSampleParameter2D_2'
-    Expressions[24] = MaterialExpressionTextureSampleParameter2D'/Game/UI/CharacterSelect/M_BustupFx.MaterialExpressionTextureSampleParameter2D_3'
-}
+Expressions[0] = {}
 CachedExpressionData =
 {
     Parameters =
     {
         Entries[5] =
         {
-            Entries[0] = { ParameterInfos[0]={} }
+            Entries[0] =
+            {
+                ParameterInfos[5] =
+                {
+                    ParameterInfos[0] = { Name=RedNum }
+                    ParameterInfos[1] = { Name=BlurR }
+                    ParameterInfos[2] = { Name=BlurDist }
+                    ParameterInfos[3] = { Name=Param }
+                    ParameterInfos[4] = { Name=YugamiNum }
+                }
+            }
             Entries[1] = { ParameterInfos[0]={} }
-            Entries[2] = { ParameterInfos[0]={} }
+            Entries[2] =
+            {
+                ParameterInfos[1] =
+                {
+                    ParameterInfos[0] = { Name=tex }
+                }
+            }
             Entries[3] = { ParameterInfos[0]={} }
             Entries[4] = { ParameterInfos[0]={} }
         }
-        ScalarValues[0] = {}
+        ScalarValues[5] = { 0, 30, 0.00015, 0, 0 }
         VectorValues[0] = {}
-        TextureValues[0] = {}
+        TextureValues[1] =
+        {
+            TextureValues[0] = Texture2D'/Game/UI/CharacterSelect/UI_BlurFx2.UI_BlurFx2'
+        }
     }
-    ReferencedTextures[0] = {}
+    ReferencedTextures[3] =
+    {
+        ReferencedTextures[0] = Texture2D'/Game/UI/BlacksmithShop/UI_FxTextureCloud.UI_FxTextureCloud'
+        ReferencedTextures[1] = Texture2D'/Game/UI/CharacterSelect/UI_BlurFx2.UI_BlurFx2'
+        ReferencedTextures[2] = Texture2D'/Game/UI/CaptureImage/BustUp/UI_CharacterSelectLargeCharaNoData.UI_CharacterSelectLargeCharaNoData'
+    }
 }
 BlendMode = BLEND_Translucent (2)
 OpacityMaskClipValue = 0.333
-CollectedTextureParameters[2] =
+CollectedTextureParameters[1] =
 {
-    CollectedTextureParameters[0] = { Texture=None, Name=tex, Group=None }
-    CollectedTextureParameters[1] = { Texture=None, Name=tex, Group=None }
+    CollectedTextureParameters[0] =
+    {
+        Texture = Texture2D'/Game/UI/CharacterSelect/UI_BlurFx2.UI_BlurFx2'
+        Name = tex
+        Group = None
+    }
 }
 CollectedScalarParameters[5] =
 {
-    CollectedScalarParameters[0] = { Value=0.005, Name=RedNum, Group=None }
-    CollectedScalarParameters[1] = { Value=0, Name=None, Group=None }
-    CollectedScalarParameters[2] = { Value=0, Name=YugamiNum, Group=None }
-    CollectedScalarParameters[3] = { Value=0.00015, Name=BlurDist, Group=None }
-    CollectedScalarParameters[4] = { Value=30, Name=BlurR, Group=None }
+    CollectedScalarParameters[0] = { Value=0, Name=RedNum, Group=None }
+    CollectedScalarParameters[1] = { Value=30, Name=BlurR, Group=None }
+    CollectedScalarParameters[2] = { Value=0.00015, Name=BlurDist, Group=None }
+    CollectedScalarParameters[3] = { Value=0, Name=Param, Group=None }
+    CollectedScalarParameters[4] = { Value=0, Name=YugamiNum, Group=None }
 }
 CollectedVectorParameters[0] = {}
 FlattenedTexture = None
@@ -57,3 +77,4 @@ bUseMobileSpecular = false
 MobileSpecularPower = 16
 MobileSpecularMask = MSM_Constant (0)
 MobileMaskTexture = None
+TextureStreamingData[0] = {}
