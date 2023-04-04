@@ -8,15 +8,17 @@
     {#each data.skills as skill}
         <div class="box surface">
             <div class="flex" style="gap: 0.5rem">
-                <img src={skill.thumb} alt="" width="64" height="64" />
+                <div style={`background-image: url(${skill.skillTypeImg}); background-repeat: no-repeat`}>
+                    <img src={skill.thumb} alt="" width="64" height="64" />
+                </div>
                 <div class="grid">
                     <h5>{skill.name}</h5>
                     <div>{skill.skill_id}</div>
                 </div>
             </div>
 
-            <div>Skill type: {skill.skill_type}</div>
-
+            <div>Skill type {skill.skill_type} {skill.skillType}</div>
+            <div>Element <img src={skill.elementImg} alt="" width="24" height="24"></div>
             <div>
                 Class: <img
                     src={skill.classImg}
