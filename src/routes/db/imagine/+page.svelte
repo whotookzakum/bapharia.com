@@ -21,6 +21,13 @@
             {#if imagine.slot}
                 <div>Slot: <img src={imagine.slot} alt="" width="32" height="32"></div>
             {/if}
+            
+            {#if imagine.imagine_type === 0}
+                <div>Battle Score {imagine.imagine_max_level * 6}</div>
+            {:else}
+                <div>Battle Score {imagine.imagine_max_level * 10}</div>
+            {/if}
+
             <div>Element: <img src={imagine.element} alt="" width="24" height="24"> {imagine.params[imagine.params.length - 1].attribute_value}</div>
             <div>ATK {imagine.params[imagine.params.length - 1].offensive_power}</div>
             <div>DEF {imagine.params[imagine.params.length - 1].defensive_power}</div>

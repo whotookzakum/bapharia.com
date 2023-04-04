@@ -27,23 +27,31 @@
             </div>
 
             {#if skill.desc}
-            {#each skill.desc.split("\n") as skillLevelText, index}
-            <div>
-                {skillLevelText} 
-                {#if skill.skill_mastery_param[index]?.condition_class_level}
-                    (Class level {skill.skill_mastery_param[index].condition_class_level})
-                {/if}
-            </div>
-        {/each}
+                {#each skill.desc.split("\n") as skillLevelText, index}
+                    <div>
+                        {skillLevelText}
+                        {#if skill.skill_mastery_param[index]?.condition_class_level}
+                            (Class level {skill.skill_mastery_param[index]
+                                .condition_class_level})
+                        {/if}
+                        <!-- <video
+                            preload="none"
+                            src={`/PakMovies/SkillTree/SkillTree_${skill.skill_id}_1.mp4`}
+                        >
+                            <track kind="captions" />
+                        </video> -->
+                    </div>
+                {/each}
             {/if}
-            
-            <hr>
+
+            <hr />
             {#each skill.abilities as ability}
                 <div>{ability.skill_id}</div>
                 <div>
                     {ability.desc}
                     <!-- As long as they don't add α2, α3 then index 0 will work -->
-                    (Class level {ability.skill_mastery_param[0].condition_class_level})
+                    (Class level {ability.skill_mastery_param[0]
+                        .condition_class_level})
                 </div>
             {/each}
         </div>
@@ -66,5 +74,9 @@
         font-size: inherit;
         margin-top: 0.5rem;
         color: var(--accent);
+    }
+
+    video {
+        width: 100%;
     }
 </style>

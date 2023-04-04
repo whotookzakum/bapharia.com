@@ -136,7 +136,7 @@
 </script>
 
 <SearchParams bind:this={searchParams} />
-<MapControls />
+<!-- <MapControls /> -->
 
 <div class="leaflet-map" bind:this={leafletMapElement} />
 

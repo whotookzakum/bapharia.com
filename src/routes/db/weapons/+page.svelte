@@ -45,6 +45,7 @@
                 </div>
             {/if}
             {#if weapon.is_for_weapon_stickers === 0}
+                <div>Battle Score {weapon.weapon_max_level * 50}</div>
                 <div>
                     Element <img
                         src={weapon.elementImg}

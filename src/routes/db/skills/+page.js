@@ -24,7 +24,6 @@ function getSkillThumbnail(skill) {
     // Skill type 0 = LMB
     // Skill type 1 = RMB
     
-
     if (skill.is_default_skill && skill.skill_type === 0) return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Main.png`
     if (skill.is_default_skill && skill.skill_type === 1) return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Sub.png`
     if (skill.skill_type === 6) return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png`
