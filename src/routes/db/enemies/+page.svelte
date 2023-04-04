@@ -1,7 +1,6 @@
 <script>
     import _ from "lodash";
     export let data;
-    console.log(data.enemies[1]);
 </script>
 
 <main>
