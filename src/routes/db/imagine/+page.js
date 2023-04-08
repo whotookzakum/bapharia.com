@@ -1,4 +1,4 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
+import texts from "$lib/apiextAGS/texts/en_US.json";
 import imagineData from "$lib/apiext/imagine.json";
 import imagineParams from "$lib/apiext/imagine/param_level.json";
 import imaginePerks from "$lib/apiext/imagine/perk_pick.json";

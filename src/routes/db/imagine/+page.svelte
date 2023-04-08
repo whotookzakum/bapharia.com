@@ -7,7 +7,7 @@
     {#each data.imagines as imagine}
         <div class="box surface">
             <div class="flex" style="gap: 0.5rem">
-                <img src={imagine.thumb} alt="" />
+                <img src={imagine.thumb} alt="" width="64" height="64" />
                 <div class="grid">
                     <h5>{imagine.name}</h5>
                     <span>{imagine.id}</span>
@@ -43,7 +43,7 @@
                 <div>
                     {ability.name} {ability.probability}%
                     {#each ability.stats as stat}
-                        {stat.name} {stat.value}
+                        {stat.name} {stat.value} &nbsp;
                     {/each}
                 </div>
             {/each}
