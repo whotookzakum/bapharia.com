@@ -1,4 +1,4 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
+import texts from "$lib/apiextAGS/texts/en_US.json";
 import weaponsData from "$lib/apiext/weapons.json";
 import weaponsStatsData from "$lib/apiext/weapon_status_levels.json";
 import recipesData from "$lib/apiext/craft.json";

@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit'
-import imagineData from '$lib/ntdata/imagine.json';
+import imagineData from '$lib/apiext/imagine.json';
 
 export const GET = async ({ params, fetch }) => {
     const texts_ja_JP = await fetch("/api/locale/ja_JP")

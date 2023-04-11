@@ -29,7 +29,7 @@
 	</section>
 
 	<section>
-		<Database />
+		<!-- <Database /> -->
 	</section>
 
 	<section>

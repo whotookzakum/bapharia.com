@@ -8,7 +8,7 @@
         <div class="box surface">
             <div class="grid">
                 <h5>{map.name_en || map.name_translated}</h5>
-                <div>{map.id}</div>
+                <div>{map.id} {map.map_id}</div>
             </div>
             {#if map.mapImage}
                 <img src={map.mapImage} alt="" class="map-image">

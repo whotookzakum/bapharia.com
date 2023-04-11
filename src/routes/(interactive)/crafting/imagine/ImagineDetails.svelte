@@ -1,7 +1,7 @@
 <script>
     import ItemDetails from "$lib/components/crafting/ItemDetails.svelte";
-    import imagineParams from "$lib/ntdata/imagine_param_level.json";
-    import imagineRecipes from "$lib/ntdata/imagine_recepi.json";
+    import imagineParams from "$lib/apiext/imagine_param_level.json";
+    import imagineRecipes from "$lib/apiext/imagine_recepi.json";
     export let imagine;
 
     const param_data = imagineParams.filter(

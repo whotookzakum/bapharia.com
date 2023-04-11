@@ -1,8 +1,8 @@
 <script>
 	import Result from "./Result.svelte";
 	import Search from "./Search.svelte";
-	import enemyParams from "$lib/ntdata/enemyparams.json";
-	import jpText from "$lib/ntdata/texts_ja_JP.json";
+	import enemyParams from "$lib/apiext/enemyparams.json";
+	import jpText from "$lib/apiext/texts/ja_JP.json";
 	import _ from "lodash";
 
 	// Manually add some values:

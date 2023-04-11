@@ -1,7 +1,7 @@
 <script>
     import ModelViewer from "$lib/components/ModelViewer.svelte";
-    import allItems from "$lib/ntdata/items.json";
-    import texts from "$lib/ntdata/texts_ja_JP.json";
+    import allItems from "$lib/apiext/items.json";
+    import texts from "$lib/apiext/texts/ja_JP.json";
     import { browser } from "$app/environment";
     import _ from "lodash";
 

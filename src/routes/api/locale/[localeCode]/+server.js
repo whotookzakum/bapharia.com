@@ -11,7 +11,7 @@ function combineObjectKeyWithValue(arr, key, value) {
 }
 
 export const GET = async ({ params }) => {
-    const allTexts = await import(`../../../../lib/ntdata/texts_${params.localeCode}.json`);
+    const allTexts = await import(`../../../../lib/apiext/texts/${params.localeCode}.json`);
 
     const textsArray = allTexts.default.map((category) => {
 

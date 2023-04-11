@@ -1,4 +1,4 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
+import texts from "$lib/apiextAGS/texts/en_US.json";
 import tokensData from "$lib/apiext/token.json";
 
 function getText(ns, id) {

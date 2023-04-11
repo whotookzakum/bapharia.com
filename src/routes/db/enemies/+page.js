@@ -1,4 +1,4 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
+import texts from "$lib/apiextAGS/texts/en_US.json";
 import enemiesData from "$lib/apiext/enemyparams.json";
 import itemsData from "$lib/apiext/items.json";
 import treasuresData from "$lib/apiext/treasures.json";

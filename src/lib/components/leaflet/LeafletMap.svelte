@@ -44,8 +44,8 @@
 		// L.CRS.Simple is a simple CRS that maps longitude and latitude into `x` and `y` directly. May be used for maps of flat surfaces (e.g. game maps).
 		const leafletMapOptions = {
 			crs: L.CRS.Simple,
-			minZoom: -1,
-			maxZoom: 2,
+			minZoom: -1, // -1
+			maxZoom: 2, // 2  
 			maxBounds: bounds,
 			maxBoundsViscosity: 1.0,
 			zoomControl: false,
@@ -61,7 +61,7 @@
 		leafletMap.fitBounds(bounds);
 
 		// setView manually sets view to specific coordinates with a specified zoom level
-		leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0);
+		leafletMap.setView([bounds[1][0] / 2, bounds[1][1] / 2], 0); // zoom level 0
 
 		addMarkers(mapData.markers);
 		addLabels(mapData.labels);
@@ -70,7 +70,14 @@
 	function createMarker({ category, coords, zIndex, description }) {
 		const icon = { icon: L.icon(icons[category]) };
 
-		const marker = L.marker(coords, icon)
+		// Rotate 90 deg clockwise (-y, x)
+		const convertedCoords = 
+			[
+				-coords[1] / 70 + 586.5, 
+				coords[0] / 70 + 1210.5
+			]
+
+		const marker = L.marker(convertedCoords, icon)
 			.setZIndexOffset(zIndex)
 			.bindPopup(
 				`<strong>${category}</strong>

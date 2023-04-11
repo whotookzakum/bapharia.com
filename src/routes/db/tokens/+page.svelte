@@ -7,7 +7,7 @@
     {#each data.tokens as token}
         <div class="box surface">
             <div class="flex" style="gap: 0.5rem">
-                <img src={token.thumb} alt="" style="flex: 0" />
+                <img src={token.thumb} alt="" style="align-self: flex-start" />
                 <div class="grid">
                     <h5>{token.name}</h5>
                     <div>{token.id}</div>

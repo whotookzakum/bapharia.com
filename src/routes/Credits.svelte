@@ -64,7 +64,7 @@
 
 <h3>Special Thanks</h3>
 <span
-	>Tan, Santa, Maru, Sigmy, tiny, Rhy, Kazarune, owl, SaintMorning, Ando</span
+	>Tan, Santa, Maru, Sigmy, tiny, Rhy, Kazarune, owl, SaintMorning, Ando, marko, Voldy, IncinerateZ</span
 >
 
 <h3>References</h3>
