@@ -1,0 +1,118 @@
+@use './colors' as *;
+@use './typography' as *;
+@use './variables' as *;
+
+html {
+    background-color: var(--bg);
+    scroll-padding-top: var(--space-l); // For Article anchor links
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+	accent-color: var(--accent);
+}
+
+* {
+    box-sizing: border-box;
+    cursor: url('/images/cursor.png'), default;
+}
+
+hr {
+    border: none;
+    margin: 0.5rem 0;
+    height: 1px;
+    background-color: var(--surface3);
+}
+
+.box {
+    background: var(--surface1);
+    border-radius: 5px;
+    border: 1px solid transparent;
+    border: 1px solid var(--surface2);
+    box-shadow: 0 2px 4px var(--surface-shadow);
+    padding: 1rem;
+    overflow: hidden;
+
+    &.hover:hover {
+        background: var(--surface2);
+        border-color: var(--surface3);
+    }
+}
+
+.component-label {
+    text-transform: uppercase;
+    color: var(--text2);
+    font-size: var(--step--1);
+    font-family: inherit;
+    font-weight: normal;
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+label:has(input.visually-hidden:focus-visible) {
+    outline: 2px solid var(--accent);
+}
+
+.leaflet-marker-icon {
+    width: 42px !important;
+    height: 42px !important;
+    object-fit: none;
+    cursor: inherit !important;
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+.map-zone-label {
+    background: unset !important;
+    font-family: "Skip Std";
+    color: #f2e0c1 !important;
+    border-color: transparent !important;
+    font-size: 1rem !important;
+    // text-shadow: 0 0px 3px var(--surface-shadow);
+    box-shadow: unset !important;
+    margin: 0 !important;
+
+    &::before {
+        content: unset !important;
+        border: unset !important;
+    }
+}
+
+.iconify {
+    // display: block !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.amount svg, .bonus svg {
+    vertical-align: sub;
+}
+
+.g-50 {
+    gap: 0.5rem;
+}
+
+.g-25 {
+    gap: 0.25rem;
+}
+
+.skip-std {
+    font-family: "Skip Std";
+}
