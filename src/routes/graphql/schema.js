@@ -7,6 +7,7 @@ type Query {
 	pokemon(first: Int, after: String): SpeciesConnection!
 	species(id: Int!): Species
 	favorites: [Species!]!
+	allSpecies: [Species!]!
 }
 
 type Species {
@@ -124,6 +125,9 @@ export const resolvers = {
 		},
 		favorites() {
 			return favorites.map((id) => data.species[id - 1])
+		},
+		allSpecies() {
+			return data.species
 		}
 	},
 	Mutation: {
