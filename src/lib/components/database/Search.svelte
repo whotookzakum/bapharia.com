@@ -1,32 +1,40 @@
 <script>
 	import { page } from "$app/stores";
 	import { goto } from "$app/navigation";
-	import _ from "lodash";
-	import { checkStringIncludes } from "$lib/utils/string_utils";
-	export let allItems;
-	export let selectedItem;
+	import { browser } from "$app/environment";
 
-	let searchQuery = $page.url.searchParams.get("db") || "";
+	let searchQuery = $page.url.searchParams.get("search") || "";
+	let selectedResult = $page.url.searchParams.get("result") || "";
 
-	$: searchResults = allItems.filter((item) => {
-		const idMatch = checkStringIncludes(item.id, searchQuery);
-		const nameMatch = checkStringIncludes(item.name, searchQuery);
-		return idMatch || nameMatch;
-	});
+	$: {
+		if (browser) {
+			searchQuery
+				? $page.url.searchParams.set("search", searchQuery)
+				: $page.url.searchParams.delete("search");
 
-	function updateUrl() {
-		searchQuery
-			? $page.url.searchParams.set("db", searchQuery)
-			: $page.url.searchParams.delete("db");
-		goto(`?${$page.url.searchParams.toString()}`, {
-			noScroll: true,
-			replaceState: true,
-			keepFocus: true,
-		});
+			selectedResult
+				? $page.url.searchParams.set("result", selectedResult)
+				: $page.url.searchParams.delete("result");
+
+			goto(`?${$page.url.searchParams.toString()}`, {
+				noScroll: true,
+				replaceState: true,
+				keepFocus: true,
+			});
+		}
 	}
+
+	const entries = graphql(`
+		query MyLists @load {
+			items {
+				id
+			}
+		}
+	`);
+
 </script>
 
-<div id="search" class="search">
+<form id="search" class="search">
 	<div class="grid g-50">
 		<label for="search-box" class="component-label">Search</label>
 		<input
@@ -35,31 +43,34 @@
 			type="search"
 			placeholder="Start typing item name or id"
 			bind:value={searchQuery}
-			on:input={updateUrl}
 		/>
 	</div>
-	<ul id="search-results" class="box">
-		{#each searchResults as result}
-			<li>
-				<button
-					class="search-result"
-					on:click={() => (selectedItem = result)}
-				>
-					<img
-						src={`/images/axe1.png`}
-						alt=""
-						width="64"
-						height="64"
-						loading="lazy"
-					/>
-					<b>{result.name}</b>
-					<span>Enemy</span>
-					<span>ID: {result.enemy_id}</span>
-				</button>
-			</li>
-		{/each}
-	</ul>
-</div>
+	{#if $entries.fetching}
+		<div>LOADING</div>
+	{:else}
+		<ul id="search-results" class="box">
+			{#each $entries.data.items as entry}
+				<li>
+					<button
+						class="search-result"
+						on:click={() => (selectedResult = entry.id)}
+					>
+						<img
+							src={`/images/axe1.png`}
+							alt=""
+							width="64"
+							height="64"
+							loading="lazy"
+						/>
+						<b>{entry.name}</b>
+						<span>Enemy</span>
+						<span>ID: {entry.id}</span>
+					</button>
+				</li>
+			{/each}
+		</ul>
+	{/if}
+</form>
 
 <style lang="scss">
 	.search {

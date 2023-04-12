@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import PageFooter from "../lib/components/PageFooter.svelte";
 	import Database from "$lib/components/database/Database.svelte";
 	import Guides from "./Guides.svelte";
@@ -7,11 +7,6 @@
 	import Navbar from "$lib/components/Navbar.svelte";
 	import Credits from "./Credits.svelte";
     import Donations from "./Donations.svelte";
-
-	export let data;
-
-	$: ({MyList} = data)
-	$: console.log($MyList.data)
 </script>
 
 <MetaTags
@@ -32,7 +27,7 @@
 	</section>
 
 	<section>
-		<!-- <Database /> -->
+		<Database />
 	</section>
 
 	<section>
