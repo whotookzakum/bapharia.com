@@ -5,6 +5,7 @@ type Query {
 	species(id: Int!): Species
 	favorites: [Species!]!
 	allSpecies: [Species!]!
+	items: [Item!]!
 }
 
 type Species {
@@ -101,4 +102,9 @@ type Subscription {
 
 type SpeciesFavoriteToggledOutput {
 	species: Species!
+}
+
+type Item {
+	id: Int!
+	name: String!
 }

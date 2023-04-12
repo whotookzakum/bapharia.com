@@ -1,111 +1,10 @@
 import data from './data/data.js'
 import { createSchema } from 'graphql-yoga'
-
-export const typeDefs = `scalar Map
-
-type Query {
-	pokemon(first: Int, after: String): SpeciesConnection!
-	species(id: Int!): Species
-	favorites: [Species!]!
-	allSpecies: [Species!]!
-}
-
-type Species {
-	id: Int!
-	name: String!
-	flavor_text: String!
-	base_stats: Map!
-	favorite: Boolean!
-	evolution_chain: [Species!]!
-	moves(first: Int, after: String): SpeciesMoveConnection!
-	types: [Type!]!
-	sprites: SpeciesSprites!
-}
-
-type SpeciesSprites {
-	front: String!
-	back: String!
-}
-
-type SpeciesMove {
-	learned_at: Int!
-	method: String!
-	move: Move!
-}
-
-type Move {
-	name: String!
-	power: Int
-	accuracy: Int
-	pp: Int!
-	type: Type
-}
-
-enum Type {
-	Grass
-	Poison
-	Fire
-	Flying
-	Water
-	Bug
-	Normal
-	Electric
-	Ground
-	Fairy
-	Fighting
-	Psychic
-	Rock
-	Steel
-	Ice
-	Ghost
-	Dragon
-}
-
-type SpeciesConnection {
-	edges: [SpeciesEdge!]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-}
-
-type SpeciesEdge {
-	cursor: String
-	node: Species
-}
-
-type SpeciesMoveConnection {
-	edges: [SpeciesMoveEdge!]!
-	pageInfo: PageInfo!
-	totalCount: Int!
-}
-
-type SpeciesMoveEdge {
-	cursor: String
-	node: SpeciesMove
-}
-
-type PageInfo {
-	endCursor: String
-	hasNextPage: Boolean!
-	hasPreviousPage: Boolean!
-	startCursor: String
-}
-
-type Mutation {
-	toggleFavorite(id: Int!): ToggleFavoriteOutput
-}
-
-type ToggleFavoriteOutput {
-	species: Species
-}
-
-type Subscription {
-	speciesFavoriteToggled: SpeciesFavoriteToggledOutput!
-}
-
-type SpeciesFavoriteToggledOutput {
-	species: Species!
-}
-`
+import { getItems } from './resolvers.js'
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 // the list of favorites
 const favorites = []
@@ -128,6 +27,10 @@ export const resolvers = {
 		},
 		allSpecies() {
 			return data.species
+		},
+		items() {
+			const items = getItems()
+			return items.items
 		}
 	},
 	Mutation: {
@@ -177,7 +80,10 @@ export const resolvers = {
 	}
 }
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export const schema = createSchema({
-	typeDefs,
+	typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf-8'),
 	resolvers
 })

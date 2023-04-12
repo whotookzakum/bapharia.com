@@ -9,6 +9,9 @@
     import Donations from "./Donations.svelte";
 
 	export let data;
+
+	$: ({MyList} = data)
+	$: console.log($MyList.data)
 </script>
 
 <MetaTags
@@ -33,7 +36,7 @@
 	</section>
 
 	<section>
-		<Guides data={data.guides} />
+		<!-- <Guides data={data.guides} /> -->
 	</section>
 
 	<section>
