@@ -28,6 +28,7 @@
 		query MyLists @load {
 			items {
 				id
+				name
 			}
 		}
 	`);
