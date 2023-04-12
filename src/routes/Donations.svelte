@@ -5,8 +5,8 @@
 <h2>Hey there!</h2>
 <p>
     Thanks for visiting, whether it's your first time or 1000th time. After
-    hundreds of hours, here's a resource that <i>hopefully</i> provides players
-    with exactly what they need.
+    hundreds of hours, here's a resource that <i>hopefully</i> provides players with
+    exactly what they need.
 </p>
 <p>
     <b>Bapharia will always be free to use.</b> If the site has been helpful to you,
@@ -19,7 +19,11 @@
 </p>
 <p>
     <b>If you'd like to send me a tip</b>, you can do so on
-    <a href="" class="box hover kofi"
+    <a
+        href="https://ko-fi.com/whotookzakum"
+        class="box hover kofi"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
         ><Icon
             icon="simple-icons:kofi"
             height="18"
@@ -27,26 +31,48 @@
             style="margin-bottom: -3px"
         /> Ko-Fi</a
     >,
-    <a href="" class="box hover patreon"
+    <a
+        href="https://www.patreon.com/zakum"
+        class="box hover patreon"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
         ><Icon icon="logos:patreon" height="15" style="margin-bottom: -1px" /> Patreon</a
     >, or
-    <a href="" class="box hover paypal"
+    <a
+        href=""
+        class="box hover paypal"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
         ><Icon icon="logos:paypal" style="margin-bottom: -1px" /> PayPal</a
     >. Donations are very much appreciated and never required. Donors will be
     given a special discord role, with exclusive channel access.
 </p>
 <p>
     <b>Other ways you can help</b> include subbing on
-    <a href="" class="box hover youtube"
+    <a
+        href="https://www.youtube.com/zakum?sub_confirmation=1"
+        class="box hover youtube"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
         ><Icon icon="logos:youtube-icon" height="12" /> YouTube</a
     >, following on
-    <a href="" class="box hover twitch"><Icon icon="cib:twitch" height="16" style="margin-bottom: -1px" /> Twitch</a>, joining the
-    <a href="" class="box hover discord"
+    <a
+        href="https://www.twitch.tv/playmaple3"
+        class="box hover twitch"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        ><Icon icon="cib:twitch" height="16" style="margin-bottom: -1px" /> Twitch</a
+    >, joining the
+    <a
+        href="https://discord.gg/ZKwhn3a4yH"
+        class="box hover discord"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
         ><Icon icon="logos:discord-icon" height="13" /> Discord</a
     > server, and sharing Bapharia with your friends!
 </p>
 <p>
-    Thanks for always stopping by,<br/>
+    Thanks for always stopping by,<br />
     Zakum
 </p>
 <span class="skip-std">貴公らのたびに幸運があらんことを。</span>
@@ -80,7 +106,7 @@
     }
 
     .discord {
-        color: #5865F2;
+        color: #5865f2;
     }
 
     .paypal {
