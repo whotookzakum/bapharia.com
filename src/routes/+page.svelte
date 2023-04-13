@@ -7,6 +7,8 @@
 	import Navbar from "$lib/components/Navbar.svelte";
 	import Credits from "./Credits.svelte";
     import Donations from "./Donations.svelte";
+
+	export let data;
 </script>
 
 <MetaTags
@@ -31,7 +33,7 @@
 	</section>
 
 	<section>
-		<!-- <Guides data={data.guides} /> -->
+		<Guides data={data.guides} />
 	</section>
 
 	<section>
