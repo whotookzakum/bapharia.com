@@ -31,6 +31,11 @@ export const resolvers = {
 		items() {
 			const items = getItems()
 			return items.items
+		},
+		item(_, { id }) {
+			const items = getItems()
+			const item = items.items.find(item => item.id === id)
+			return item
 		}
 	},
 	Mutation: {
