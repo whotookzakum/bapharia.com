@@ -3,6 +3,7 @@
 	import { goto } from "$app/navigation";
 	import { browser } from "$app/environment";
 	import { graphql } from "$houdini";
+	import Icon from "@iconify/svelte";
 
 	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
@@ -28,7 +29,17 @@
 		query MyLists @load {
 			items {
 				id
-				name
+				bapharia {
+					name {
+						ja_JP
+						en_US
+					}
+					thumb
+					category {
+						ja_JP
+						en_US
+					}
+				}
 			}
 		}
 	`);
@@ -43,7 +54,7 @@
 	$: {
 		_itemVariables = () => {
 			return {
-				id: parseInt(userSelectedEntryId) || 121000000
+				id: parseInt(userSelectedEntryId) || 121000000,
 			};
 		};
 	}
@@ -52,15 +63,30 @@
 		query item($id: Int!) @load {
 			item(id: $id) {
 				id
-				name
+				bapharia {
+					name {
+						ja_JP
+						en_US
+					}
+					thumb
+					category {
+						ja_JP
+						en_US
+					}
+				}
 			}
 		}
 	`);
+
+	let userLocale = "ja_JP";
+	userLocale = "en_US";
+
+	let detailsCollapsed = true;
 </script>
 
 <h2 id="db">Database</h2>
 <div class="db-wrapper">
-	<form id="search" class="search">
+	<form id="search" class="search-pane">
 		<div>
 			<label for="search-box" class="component-label">Search</label>
 			<input
@@ -78,56 +104,77 @@
 				{#each $entries.data.items as entry}
 					<li>
 						<button
-							class="search-result"
 							on:click={() => (userSelectedEntryId = entry.id)}
 						>
 							<img
-								src={`/images/axe1.png`}
+								src={entry.bapharia.thumb}
 								alt=""
 								width="64"
 								height="64"
 								loading="lazy"
 							/>
-							<b>{entry.name}</b>
-							<span>Enemy</span>
-							<span>ID: {entry.id}</span>
+							<div class="grid">
+								<b>{entry.bapharia.name[userLocale]}</b>
+								<span
+									>{entry.bapharia.category[userLocale]}</span
+								>
+								<span>ID: {entry.id}</span>
+							</div>
 						</button>
 					</li>
 				{/each}
 			</ul>
 		{/if}
 	</form>
-	<div>
+	<div class="details-pane">
 		<span class="component-label">Details</span>
-		<article class="box">
-			{#if !$item.fetching}
-				<header>
-					<img
-						src={`/images/axe1.png`}
-						alt="Item Icon"
-						width="64"
-						height="64"
-					/>
-					<h3>{$item.data.item.name} <span>(Lv. 1)</span></h3>
-					<span>Item</span>
-					<span>ID: {$item.data.item.id}</span>
-					<img
-						class="element-img"
-						src="/images/elements/UI_IconAttribute_1.png"
-						alt="Fire"
-						width="32"
-						height="32"
-					/>
-				</header>
-			{/if}
-			<!-- <div class:collapsed={detailsCollapsed}>
-				<Enemy bind:item />
-				<Weapon {item} />
-			</div>
-			<button class="box" on:click={() => detailsCollapsed = !detailsCollapsed}>
-				Show {detailsCollapsed ? "more" : "less"}
-			</button> -->
-		</article>
+		<div class="box">
+			<article>
+				{#if !$item.fetching}
+					<header>
+						<img
+							src={$item.data.item.bapharia.thumb}
+							alt="Item Icon"
+							width="64"
+							height="64"
+						/>
+						<h3>
+							{$item.data.item.bapharia.name[userLocale]}
+							<span>(Lv. 1)</span>
+						</h3>
+						<span
+							>{$item.data.item.bapharia.category[
+								userLocale
+							]}</span
+						>
+						<span>ID: {$item.data.item.id}</span>
+						<img
+							class="element-img"
+							src="/images/elements/UI_IconAttribute_1.png"
+							alt="Fire"
+							width="32"
+							height="32"
+						/>
+					</header>
+				{/if}
+				<div class:collapsed={detailsCollapsed}>
+
+				</div>
+			</article>
+			<label class="details-expander">
+				<Icon
+					icon={detailsCollapsed ? "mdi:arrow-down" : "mdi:arrow-up"}
+					width="18"
+					height="18"
+					style="margin-top:3px"
+				/>
+				<input
+					type="checkbox"
+					class="visually-hidden"
+					bind:checked={detailsCollapsed}
+				/>
+			</label>
+		</div>
 	</div>
 </div>
 
@@ -144,7 +191,7 @@
 		}
 	}
 
-	.search {
+	.search-pane {
 		display: grid;
 		gap: 2rem;
 		align-content: flex-start;
@@ -163,103 +210,116 @@
 		overflow: visible;
 		max-inline-size: none;
 		// min-height: 454px;
-	}
 
-	button.search-result {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		column-gap: 1rem;
-		padding: 0.8rem;
-		line-height: 1.4;
-		background: none;
-		border: none;
-		width: 100%;
-		text-align: left;
-		user-select: inherit;
+		li {
+			max-inline-size: none;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+			}
+		}
 
 		b {
 			font-size: initial;
 		}
 
-		& img {
-			grid-row: span 3;
-		}
-
 		span {
 			color: var(--text2);
 		}
 
-		&:hover,
-		&:focus-visible {
-			background: var(--surface2);
-		}
+		button {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			padding: 0.8rem;
+			user-select: auto;
+			width: 100%;
+			background: none;
+			border: none;
+			text-align: left;
+			line-height: 1.4;
 
-		&:focus-visible {
-			border-radius: 5px; // match .box
+			&:hover,
+			&:focus-visible {
+				background: var(--surface2);
+			}
+
+			&:focus-visible {
+				border-radius: 5px;
+			}
 		}
 	}
 
-	li {
-		max-inline-size: none;
+	.details-pane {
+		article {
+			border: 1px solid var(--surface2);
+			border-top-right-radius: 5px;
+			border-top-left-radius: 5px;
+			border-bottom: none;
+			padding: 1rem;
+		}
 
-		&:not(:last-child) {
+		.box {
+			padding: 0;
+			overflow: visible;
+			border: none;
+		}
+
+		header {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			align-items: center;
+			column-gap: 1rem;
+			padding-bottom: 1rem;
+			line-height: 1.4;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		}
-	}
+			position: relative;
 
-	article {
-		display: block;
-		width: 100%;
-		flex: 1;
-		justify-self: center;
-	}
+			img {
+				grid-row: span 3;
+			}
 
-	header {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		align-items: center;
-		column-gap: 1rem;
-		padding-bottom: 1rem;
-		line-height: 1.4;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		position: relative;
+			h3 {
+				margin: 0;
+				font-size: var(--step-1);
+			}
 
-		img {
-			grid-row: span 3;
-		}
+			span {
+				color: var(--text2);
+				font-size: var(--step--1);
+			}
 
-		h3 {
-			margin: 0;
-			font-size: var(--step-1);
+			.element-img {
+				position: absolute;
+				right: 0;
+				top: 0;
+				opacity: 0.5;
+			}
 		}
 
-		span {
-			color: var(--text2);
-			font-size: var(--step--1);
+		.collapsed {
+			max-height: 465px;
+			-webkit-mask-image: linear-gradient(black, transparent);
+			mask-image: linear-gradient(black 70%, transparent);
 		}
 
-		.element-img {
-			position: absolute;
-			right: 0;
-			top: 0;
-			opacity: 0.5;
+		.details-expander {
+			background: var(--surface2);
+			border: 1px solid var(--surface3); // or just border-top
+			display: block;
+			text-align: center;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+
+			&:hover,
+			&:has(:focus-visible) {
+				background: var(--surface3);
+				color: var(--accent);
+			}
+
+			&:has(:focus-visible) {
+				border-radius: 5px;
+			}
 		}
-	}
-
-	button {
-		background: var(--surface3);
-		padding: 0.5rem;
-		width: 100%;
-
-		&:hover,
-		&:focus-visible {
-			filter: brightness(1.2);
-		}
-	}
-
-	.collapsed {
-		max-height: 465px;
-		-webkit-mask-image: linear-gradient(black, transparent);
-		mask-image: linear-gradient(black 70%, transparent);
 	}
 </style>
