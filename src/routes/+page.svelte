@@ -7,6 +7,7 @@
 	import Navbar from "$lib/components/Navbar.svelte";
 	import Credits from "./Credits.svelte";
     import Donations from "./Donations.svelte";
+	import { page } from "$app/stores";
 
 	export let data;
 </script>
