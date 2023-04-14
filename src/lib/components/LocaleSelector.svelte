@@ -1,29 +1,48 @@
 <script>
 	import { userLocale } from "$lib/stores";
-	// MVP
-	// Get locale from cache if exists
-	// If it doesn't exist, default to browser locale
-	// Else default to english
-	// Selecting an option caches the selected locale
-	// List gets updated to show current locale at top
+	import { browser } from "$app/environment";
 
-	let selectedLocale;
+	let selectedLocale, cachedLocale, browserLocale;
 
-	$: userLocale.set(selectedLocale)
+	if (browser) { 
+		// Get locale from cache
+		selectedLocale = localStorage.getItem("user-locale")
+		// console.log("locale: " + selectedLocale)
+	}
+
+	$: if (browser) {
+		// Set new locale when changed
+		localStorage.setItem("user-locale", selectedLocale);
+		userLocale.set(selectedLocale);
+		// console.log("locale updated: " + selectedLocale)
+	}
 
 	let locales = [
 		{
-			name: 'EN',
-			code: 'en_US'
+			name: "EN",
+			code: "en_US",
 		},
 		{
-			name: 'JA',
-			code: 'ja_JP'
-		}
+			name: "JA",
+			code: "ja_JP",
+		},
 	];
 </script>
 
+<svelte:head>
+	<script>
+		// Check if any locale is cached, else cache the browser locale
+		cachedLocale = localStorage.getItem("user-locale")
+		if (!cachedLocale) {
+			browserLocale = navigator.language.includes("ja") ? "ja_JP" : "en_US"
+			localStorage.setItem("user-locale", browserLocale)
+			// console.log("no cached locale.. cached browser locale: " + browserLocale)
+		}
+	</script>
+</svelte:head>
+
 <select id="locale-selector" class="box" bind:value={selectedLocale}>
+	ITS
 	{#each locales as locale}
 		<option value={locale.code}>{locale.name}</option>
 	{/each}
