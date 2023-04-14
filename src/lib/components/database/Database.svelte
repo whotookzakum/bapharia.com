@@ -4,8 +4,8 @@
 	import { browser } from "$app/environment";
 	import { graphql } from "$houdini";
     import DatabaseDetails from "./DatabaseDetails.svelte";
+	import { userLocale } from "$lib/stores";
 	
-
 	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
 	let userSelectedEntryId = $page.url.searchParams.get("result");
@@ -44,9 +44,6 @@
 			}
 		}
 	`);
-
-	let userLocale = "ja_JP";
-	userLocale = "en_US";
 </script>
 
 <h2 id="db">Database</h2>
@@ -79,9 +76,9 @@
 								loading="lazy"
 							/>
 							<div class="grid">
-								<b>{entry.bapharia.name[userLocale]}</b>
+								<b>{entry.bapharia.name[$userLocale]}</b>
 								<span
-									>{entry.bapharia.category[userLocale]}</span
+									>{entry.bapharia.category[$userLocale]}</span
 								>
 								<span>ID: {entry.id}</span>
 							</div>
@@ -91,7 +88,7 @@
 			</ul>
 		{/if}
 	</form>
-	<DatabaseDetails url={$page.url} />
+	<DatabaseDetails entryId={parseInt(userSelectedEntryId) || 121000000 } />
 </div>
 
 <style lang="scss">

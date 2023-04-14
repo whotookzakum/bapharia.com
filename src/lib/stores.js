@@ -9,3 +9,4 @@ export const currency = writable({
     rate: 1,
     decimals: 0,
 })
+export const userLocale = writable("en_US")

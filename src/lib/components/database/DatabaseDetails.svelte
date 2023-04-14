@@ -1,24 +1,25 @@
 <script>
     import { graphql } from "$houdini";
     import Icon from "@iconify/svelte";
+    import { userLocale } from "$lib/stores";
 
-    
+    export let entryId;
 
     // Result details
-	export const _itemVariables = ({url}) => {
+	export let _itemVariables = () => {
 		return {
-			id: parseInt(url.searchParams.get("result")) || 121000000,
+			id: entryId,
 		};
 	};
 
 
-	// $: {
-	// 	_itemVariables = () => {
-	// 		return {
-	// 			id: parseInt(userSelectedEntryId) || 121000000,
-	// 		};
-	// 	};
-	// }
+	$: {
+		_itemVariables = () => {
+			return {
+				id: entryId,
+			};
+		};
+	}
 
 	const item = graphql(`
 		query item($id: Int!) @load {
@@ -38,10 +39,6 @@
 			}
 		}
 	`);
-
-	let userLocale = "ja_JP";
-	userLocale = "en_US";
-
 	let detailsCollapsed = true;
 </script>
 
@@ -58,12 +55,12 @@
                         height="64"
                     />
                     <h3>
-                        {$item.data.item.bapharia.name[userLocale]}
+                        {$item.data.item.bapharia.name[$userLocale]}
                         <span>(Lv. 1)</span>
                     </h3>
                     <span
                         >{$item.data.item.bapharia.category[
-                            userLocale
+                            $userLocale
                         ]}</span
                     >
                     <span>ID: {$item.data.item.id}</span>

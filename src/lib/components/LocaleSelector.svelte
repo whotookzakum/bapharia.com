@@ -1,4 +1,5 @@
 <script>
+	import { userLocale } from "$lib/stores";
 	// MVP
 	// Get locale from cache if exists
 	// If it doesn't exist, default to browser locale
@@ -6,16 +7,18 @@
 	// Selecting an option caches the selected locale
 	// List gets updated to show current locale at top
 
-	let selectedLocale = "en-US";
+	let selectedLocale;
+
+	$: userLocale.set(selectedLocale)
 
 	let locales = [
 		{
 			name: 'EN',
-			code: 'en-US'
+			code: 'en_US'
 		},
 		{
 			name: 'JA',
-			code: 'ja-JP'
+			code: 'ja_JP'
 		}
 	];
 </script>
