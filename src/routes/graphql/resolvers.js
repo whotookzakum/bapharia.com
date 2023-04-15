@@ -5,6 +5,12 @@ import enemiesData from "./japan/enemyparams.json";
 import treasuresData from "./japan/treasures.json";
 import costumesData from "./japan/costume.json";
 import gesturesData from "./japan/emotes.json";
+import imagineData from "./japan/imagine.json";
+import imagineParams from "./japan/imagine/param_level.json";
+import imaginePerks from "./japan/imagine/perk_pick.json";
+import weaponPerks from "./japan/weaponperks.json";
+import perksData from "./japan/perks.json";
+import recipesData from "./japan/imagine/recepi.json";
 
 function getText(ns, id) {
     const texts = {
@@ -22,14 +28,29 @@ function getText(ns, id) {
 
 function getCategory(entryType, category) {
 
+    if (entryType === "imagine") {
+        switch (category) {
+            case 0:
+                return {
+                    ja_JP: "エンハンスイマジン",
+                    en_US: "Augment Imagine"
+                }
+            case 1:
+                return {
+                    ja_JP: "バトルイマジン",
+                    en_US: "Combat Imagine"
+                }
+        }
+    }
+
     if (entryType === "enemy") {
-        switch(category) {
+        switch (category) {
             case 1:
                 return {
                     ja_JP: "ボスエネミー",
                     en_US: "Boss Enemy"
                 }
-            default: 
+            default:
                 return {
                     ja_JP: "エネミー",
                     en_US: "Enemy"
@@ -39,42 +60,42 @@ function getCategory(entryType, category) {
 
     if (entryType === "item") {
         switch (category) {
-            case 0: 
+            case 0:
                 return {
                     ja_JP: "消費アイテム",
                     en_US: "Consumable"
                 }
-            case 1: 
+            case 1:
                 return {
                     ja_JP: "売却専用アイテム", // Sell items (fish, luno gems)
                     en_US: "Sell-only item"
                 }
-            case 2: 
+            case 2:
                 return {
                     ja_JP: "アビリティプラグ",
                     en_US: "Ability Plug"
                 }
-            case 3: 
+            case 3:
                 return {
                     ja_JP: "汎用素材アイテム", // General purpose item (materials, etc)
                     en_US: "General Item"
                 }
-            case 4: 
+            case 4:
                 return {
                     ja_JP: "イデア",
                     en_US: "Trace"
                 }
-            case 5: 
+            case 5:
                 return {
                     ja_JP: "セットボックス",
                     en_US: "Set Box"
                 }
-            case 6: 
+            case 6:
                 return {
                     ja_JP: "セレクトボックス",
                     en_US: "Selection Box"
                 }
-            case 7: 
+            case 7:
                 return {
                     ja_JP: "ランダムボックス", // Random Box (random plug..)
                     en_US: "Random Box"
@@ -90,15 +111,15 @@ function getThumbnail(category, id) {
         case 4: return `/UI/Icon/Item/EnemyMaterial/UI_Icon_Idea.png`
         case 6: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png`
         case 7: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Random.png`
-        case 1: 
-            // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
-        case 3: 
-            // ``
+        case 1:
+        // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
+        case 3:
+        // ``
         case 5:
-            // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
-            // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
-            // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
-            // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
+        // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
+        // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
+        // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
+        // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
         default: return `/UI/Icon/Common/UI_Icon_Empty.png`
     }
 }
@@ -159,7 +180,7 @@ export const getEnemies = () => {
                     name: "Treasure Chest"
                 }
             }
-            
+
             return drop
         })
 
@@ -201,7 +222,7 @@ export const getCostumes = () => {
         const desc = getText("costume_text", costume.desc)
         const pathToThumb = getPartsPath(costume.costume_parts_name)
         const thumb = pathToThumb ? `/UI/Icon/Costume/${pathToThumb}/${costume.icon_name}.png` : ""
-    
+
         return {
             ...costume,
             id: `${costume.id}`,
@@ -236,11 +257,96 @@ export const getGestures = () => {
     return gestures
 }
 
+export const getImagines = () => {
+    const imagines = imagineData.map(imagine => {
+        const name = getText("master_imagine_text", imagine.imagine_name)
+        const desc = getText("master_imagine_text", imagine.imagine_desc)
+        let thumb = `/UI/Icon/Imagine/Battle/UI_Icon_${imagine.id}.png`
+        let slot;
+        if (imagine.imagine_type === 0) {
+            thumb = `/UI/Icon/Imagine/Picture/UI_Icon_${imagine.id}.png`
+            Object.keys(imagine).filter(key => key.includes("equip_position")).forEach(key => {
+                if (imagine[key] === 1) {
+                    let slotId = key.split("equip_position")[1]
+                    slot = `/UI/MyCharaMenu/UI_MyCharaMenuImagineIcon2_${slotId}.png`
+                }
+            })
+        }
+        let element = `/UI/Icon/Attribute/UI_IconAttribute_Empty.png`
+        if (imagine.attribute > 0) {
+            // Attributes don't match their descriptions, so temporarily using text to find element.
+            // element = `/UI/Icon/Attribute/UI_IconAttribute_${imagine.attribute - 1}.png`
+            if (desc.ja_JP.includes("火属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_1.png`
+            if (desc.ja_JP.includes("雷属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_2.png`
+            if (desc.ja_JP.includes("氷属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_3.png`
+            if (desc.ja_JP.includes("土属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_4.png`
+            if (desc.ja_JP.includes("光属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_5.png`
+            if (desc.ja_JP.includes("闇属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_6.png`
+        }
+        const params = imagineParams.filter(item => item.pattern_id === imagine.param_type)
+        const abilities = imaginePerks.filter(perk => perk.table_id === imagine.table_id).map(imaginePerk => {
+            const weaponPerkData = weaponPerks.find(perk => perk.id === imaginePerk.imagine_perk_id)
+            const name = getText("weapon_perk_text", weaponPerkData.name)
+
+            let stats = []
+            for (let i = 0; i < 2; i++) {
+                let perkData = perksData.find(perk => perk.id === weaponPerkData.perk_id)
+                let id = perkData[`ability_name${i + 1}`]
+                let statName = getText("perk_text", id)
+                if (statName) {
+                    stats.push(
+                        {
+                            name: statName,
+                            value: weaponPerkData[`ability_parts${i + 1}_value1`]
+                        }
+                    )
+                }
+            }
+
+            return {
+                probability: imaginePerk.imagine_perk_rate,
+                name,
+                stats
+            }
+        })
+
+        const recipe = recipesData.find(rec => rec.imagin_id === imagine.id)
+        recipe.materials = recipe.materials.map(mat => {
+            const itemData = itemsData.find(item => item.id === mat.item_id)
+            return {
+                ...mat,
+                name: getText("item_text", itemData.name),
+                source: getText("item_text", itemData.obtaining_route_detail_id)
+            }
+        })
+
+        return {
+            ...imagine,
+            id: `${imagine.id}`,
+            bapharia: {
+                name,
+                desc,
+                thumb,
+                slot,
+                element,
+                params,
+                // Skill name and skill type on client?
+                abilities,
+                recipe,
+                category: getCategory("imagine", imagine.imagine_type),
+                filterGroup: "imagine"
+            }
+        }
+    })
+    return imagines
+}
+
 export const getDatabaseEntries = () => {
     const items = getItems()
     const enemies = getEnemies()
     const costumes = getCostumes()
     const gestures = getGestures()
+    const imagines = getImagines()
 
-    return [...items, ...enemies, ...costumes, ...gestures]
+    return [...items, ...enemies, ...costumes, ...gestures, ...imagines]
 }

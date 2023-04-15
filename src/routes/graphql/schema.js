@@ -45,6 +45,10 @@ export const resolvers = {
 				return 'Gesture'
 			}
 
+			if (obj.bapharia.filterGroup === "imagine") {
+				return 'Imagine'
+			}
+
 			return null
 		}
 	}
