@@ -1,11 +1,7 @@
 scalar Map
 
 type Query {
-	# items: [Item!]!
-	# item(id: String!): Item
-	# enemies: [Enemy!]!
-	# enemy(id: String!): Enemy
-	entries: [DBEntry]
+	entries(searchTerm: String!): [DBEntry]
 	entry(id: String!): DBEntry
 }
 

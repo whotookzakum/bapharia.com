@@ -25,10 +25,24 @@
 		});
 	}
 
+	export let _DatabaseEntriesVariables = () => {
+		return {
+			searchTerm: userSearchInput || "",
+		};
+	};
+
+	$: {
+		_DatabaseEntriesVariables = () => {
+			return {
+				searchTerm: userSearchInput || "",
+			};
+		};
+	}
+
 	// Search results
 	const entries = graphql(`
-		query DatabaseEntries @load {
-			entries {
+		query DatabaseEntries($searchTerm: String!) @load {
+			entries(searchTerm: $searchTerm) {
 				__typename
 				... on Item {
 					id

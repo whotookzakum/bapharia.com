@@ -4,29 +4,21 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 export const resolvers = {
 	Query: {
-		// items() {
-		// 	const items = getItems()
-		// 	return items.items
-		// },
-		// item(_, { id }) {
-		// 	const items = getItems()
-		// 	const item = items.find(item => item.id === id)
-		// 	return item
-		// },
-		// enemy(_, { id }) {
-		// 	const enemies = getEnemies()
-		// 	const enemy = enemies.find(item => item.id === id)
-		// 	return enemy
-		// },
-		// enemies() {
-		// 	const enemies = getEnemies()
-		// 	return enemies.enemies
-		// },
-		entries() {
+		entries(_, { searchTerm }) {
 			const entries = getDatabaseEntries()
+			if (searchTerm) {
+				const filteredResults = 
+					entries.filter(entry => 
+						entry.id.includes(searchTerm)
+						|| checkStringIncludes(entry.bapharia.name.ja_JP, searchTerm)
+						|| checkStringIncludes(entry.bapharia.name.en_US, searchTerm)
+					)
+				return filteredResults
+			}
 			return entries
 		},
 		entry(_, { id }) {

@@ -5,13 +5,11 @@
 
     export let entryId;
 
-    // Result details
 	export let _DatabaseEntryVariables = () => {
 		return {
 			id: entryId,
 		};
 	};
-
 
 	$: {
 		_DatabaseEntryVariables = () => {
@@ -40,8 +38,6 @@
 		}
 	`);
 	let detailsCollapsed = true;
-
-	$: console.log($entry)
 </script>
 
 <div class="details-pane">
