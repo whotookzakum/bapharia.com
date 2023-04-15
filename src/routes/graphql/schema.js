@@ -65,6 +65,10 @@ export const resolvers = {
 				return 'Weapon'
 			}
 
+			if (obj.bapharia.filterGroup === "skills") {
+				return 'Skill'
+			}
+
 			return null
 		}
 	}
