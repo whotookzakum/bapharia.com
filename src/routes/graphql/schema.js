@@ -57,6 +57,14 @@ export const resolvers = {
 				return 'StampSet'
 			}
 
+			if (obj.bapharia.filterGroup === "tokens") {
+				return 'Token'
+			}
+
+			if (obj.bapharia.filterGroup === "weapons") {
+				return 'Weapon'
+			}
+
 			return null
 		}
 	}

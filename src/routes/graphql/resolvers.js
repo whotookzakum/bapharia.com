@@ -14,6 +14,7 @@ import recipesData from "./japan/imagine/recepi.json";
 import liquidMemoriesData from "./japan/liquid_memory.json";
 import accumulationLotteriesData from "./japan/liquid_memory_accumulate_lottery_table.json";
 import stampsData from "./japan/stamps.json";
+import tokensData from "./japan/token.json";
 
 function getText(ns, id) {
     const texts = {
@@ -425,6 +426,27 @@ export const getStampSets = () => {
     return stampSets
 }
 
+export const getTokens = () => {
+    const tokens = tokensData.map(token => {
+        const name = getText("master_token_text", token.name)
+        const desc = getText("master_token_text", token.desc)
+        const thumb = `/UI/Icon/Token/UI_Icon_${token.id}.png`
+    
+        return {
+            ...token,
+            id: `${token.id}`,
+            bapharia: {
+                name,
+                desc,
+                thumb,
+                category: { ja_JP: "トークン", en_US: "Token" },
+                filterGroup: "tokens"
+            }
+        }
+    })
+    return tokens
+}
+
 export const getDatabaseEntries = () => {
     const items = getItems()
     const enemies = getEnemies()
@@ -433,6 +455,7 @@ export const getDatabaseEntries = () => {
     const imagines = getImagines()
     const liquidMemories = getLiquidMemories()
     const stampSets = getStampSets()
+    const tokens = getTokens()
 
-    return [...items, ...enemies, ...costumes, ...gestures, ...imagines, ...liquidMemories, ...stampSets]
+    return [...items, ...enemies, ...costumes, ...gestures, ...imagines, ...liquidMemories, ...stampSets, ...tokens]
 }
