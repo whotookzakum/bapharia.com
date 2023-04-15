@@ -3,9 +3,9 @@
 	import { goto } from "$app/navigation";
 	import { browser } from "$app/environment";
 	import { graphql } from "$houdini";
-    import DatabaseDetails from "./DatabaseDetails.svelte";
+	import DatabaseDetails from "./DatabaseDetails.svelte";
 	import { userLocale } from "$lib/stores";
-	
+
 	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
 	let userSelectedEntryId = $page.url.searchParams.get("result");
@@ -27,18 +27,35 @@
 
 	// Search results
 	const entries = graphql(`
-		query MyLists @load {
-			items {
-				id
-				bapharia {
-					name {
-						ja_JP
-						en_US
+		query DatabaseEntries @load {
+			entries {
+				__typename
+				... on Item {
+					id
+					bapharia {
+						name {
+							ja_JP
+							en_US
+						}
+						thumb
+						category {
+							ja_JP
+							en_US
+						}
 					}
-					thumb
-					category {
-						ja_JP
-						en_US
+				}
+				... on Enemy {
+					id
+					bapharia {
+						name {
+							ja_JP
+							en_US
+						}
+						thumb
+						category {
+							ja_JP
+							en_US
+						}
 					}
 				}
 			}
@@ -63,7 +80,7 @@
 			<div>LOADING</div>
 		{:else}
 			<ul id="search-results" class="box">
-				{#each $entries.data.items as entry}
+				{#each $entries.data.entries as entry}
 					<li>
 						<button
 							on:click={() => (userSelectedEntryId = entry.id)}
@@ -78,7 +95,9 @@
 							<div class="grid">
 								<b>{entry.bapharia.name[$userLocale]}</b>
 								<span
-									>{entry.bapharia.category[$userLocale]}</span
+									>{entry.bapharia.category[
+										$userLocale
+									]}</span
 								>
 								<span>ID: {entry.id}</span>
 							</div>
@@ -88,7 +107,7 @@
 			</ul>
 		{/if}
 	</form>
-	<DatabaseDetails entryId={parseInt(userSelectedEntryId) || 121000000 } />
+	<DatabaseDetails entryId={userSelectedEntryId || "121000000"} />
 </div>
 
 <style lang="scss">

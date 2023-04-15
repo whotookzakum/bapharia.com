@@ -1,7 +1,7 @@
-import texts from "$lib/apiextAGS/texts/en_US.json";
-import enemiesData from "$lib/apiext/enemyparams.json";
-import itemsData from "$lib/apiext/items.json";
-import treasuresData from "$lib/apiext/treasures.json";
+import texts from "../../graphql/japan/texts/en_US.json";
+import enemiesData from "../../graphql/japan/enemyparams.json";
+import itemsData from "../../graphql/japan/items.json";
+import treasuresData from "../../graphql/japan/treasures.json";
 
 function getText(ns, id) {
     const namespaceTexts = texts.find(namespace => namespace.name === ns) || {}

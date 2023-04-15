@@ -1,22 +1,37 @@
 scalar Map
 
 type Query {
-	items: [Item!]!
-	item(id: Int!): Item
+	# items: [Item!]!
+	# item(id: String!): Item
+	# enemies: [Enemy!]!
+	# enemy(id: String!): Enemy
+	entries: [DBEntry]
+	entry(id: String!): DBEntry
 }
 
-type Item {
-	id: Int!
-	bapharia: BaphariaData
+interface DBEntry {
+	id: String!
+	bapharia: BaphariaData!
+}
+
+type Item implements DBEntry {
+	id: String!
+	bapharia: BaphariaData!
+}
+
+type Enemy implements DBEntry {
+	id: String!
+	bapharia: BaphariaData!
 }
 
 type BaphariaData {
-	name: Text!
+	name: Text
 	desc: Text
 	source: Text
 	effect: Text
 	thumb: String
 	category: Text
+	filterGroup: String
 }
 
 type Text {

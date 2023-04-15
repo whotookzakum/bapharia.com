@@ -8,8 +8,11 @@
 	import Credits from "./Credits.svelte";
     import Donations from "./Donations.svelte";
 	import { page } from "$app/stores";
+    import { getDatabaseEntries } from "./graphql/resolvers";
 
 	export let data;
+
+	// console.log(getDatabaseEntries())
 </script>
 
 <MetaTags

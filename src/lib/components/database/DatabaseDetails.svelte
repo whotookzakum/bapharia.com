@@ -6,7 +6,7 @@
     export let entryId;
 
     // Result details
-	export let _itemVariables = () => {
+	export let _DatabaseEntryVariables = () => {
 		return {
 			id: entryId,
 		};
@@ -14,16 +14,16 @@
 
 
 	$: {
-		_itemVariables = () => {
+		_DatabaseEntryVariables = () => {
 			return {
 				id: entryId,
 			};
 		};
 	}
 
-	const item = graphql(`
-		query item($id: Int!) @load {
-			item(id: $id) {
+	const entry = graphql(`
+		query DatabaseEntry($id: String!) @load {
+			entry(id: $id) {
 				id
 				bapharia {
 					name {
@@ -40,34 +40,36 @@
 		}
 	`);
 	let detailsCollapsed = true;
+
+	$: console.log($entry)
 </script>
 
 <div class="details-pane">
     <span class="component-label">Details</span>
     <div class="box">
         <article>
-            {#if !$item.fetching}
+            {#if !$entry.fetching}
                 <header>
                     <img
-                        src={$item.data.item.bapharia.thumb}
-                        alt="Item Icon"
+                        src={$entry.data.entry.bapharia.thumb}
+                        alt=""
                         width="64"
                         height="64"
                     />
                     <h3>
-                        {$item.data.item.bapharia.name[$userLocale]}
+                        {$entry.data.entry.bapharia.name[$userLocale]}
                         <span>(Lv. 1)</span>
                     </h3>
                     <span
-                        >{$item.data.item.bapharia.category[
+                        >{$entry.data.entry.bapharia.category[
                             $userLocale
                         ]}</span
                     >
-                    <span>ID: {$item.data.item.id}</span>
+                    <span>ID: {$entry.data.entry.id}</span>
                     <img
                         class="element-img"
                         src="/images/elements/UI_IconAttribute_1.png"
-                        alt="Fire"
+                        alt=""
                         width="32"
                         height="32"
                     />
