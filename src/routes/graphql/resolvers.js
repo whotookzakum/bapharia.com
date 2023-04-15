@@ -21,6 +21,7 @@ import craftingRecipesData from "./japan/craft.json";
 import masterPerkPicks from "./japan/master_weapon_perk_picks.json";
 import lotteryData from "./japan/master_reward_lottery_groups.json";
 import skillsData from "./japan/skill_data.json";
+import mapsData from "./maps.json";
 import _ from "lodash";
 
 
@@ -39,6 +40,50 @@ function getText(ns, id) {
 }
 
 function getCategory(entryType, category) {
+
+    if (entryType === "map") {
+        if (category.includes("dng") || category.includes("Dng")) {
+            return {
+                ja_JP: "ダンジョン",
+                en_US: "Dungeon"
+            }
+        }
+        if (category.includes("fld") || category.includes("Fld")) {
+            return {
+                ja_JP: "フィールド",
+                en_US: "Field"
+            }
+        }
+        if (category.includes("cty") || category.includes("Cty")) {
+            return {
+                ja_JP: "街",
+                en_US: "City"
+            }
+        }
+        if (category.includes("arn") || category.includes("Arn")) {
+            return {
+                ja_JP: "闘技場",
+                en_US: "Arena"
+            }
+        }
+        if (category.includes("twr") || category.includes("Twr")) {
+            return {
+                ja_JP: "塔",
+                en_US: "Tower"
+            }
+        }
+        if (category.includes("rai") || category.includes("Rai")) {
+            return {
+                ja_JP: "レイド",
+                en_US: "Raid"
+            }
+        }
+        // "pat" is still unknown
+        return {
+            ja_JP: "マップ",
+            en_US: "Map"
+        }
+    }
 
     if (entryType === "weapon") {
         switch (category) {
@@ -806,6 +851,23 @@ export const getSkills = () => {
     return result
 }
 
+export const getMaps = () => {
+    return mapsData.map(map => {
+        return {
+            ...map,
+            id: `${map.map_id}`,
+            bapharia: {
+                name: {
+                    ja_JP: map.name,
+                    en_US: map.name_en || map.name_jp_cbt || map.name_translated
+                },
+                category: getCategory("map", map.map_id),
+                filterGroup: "maps"
+            }
+        }
+    })
+}
+
 export const getDatabaseEntries = () => {
     const items = getItems()
     const enemies = getEnemies()
@@ -817,6 +879,7 @@ export const getDatabaseEntries = () => {
     const tokens = getTokens()
     const weapons = getWeapons()
     const skills = getSkills()
+    const maps = getMaps()
 
-    return [...items, ...enemies, ...costumes, ...gestures, ...imagines, ...liquidMemories, ...stampSets, ...tokens, ...weapons, ...skills]
+    return [...items, ...enemies, ...costumes, ...gestures, ...imagines, ...liquidMemories, ...stampSets, ...tokens, ...weapons, ...skills, ...maps]
 }

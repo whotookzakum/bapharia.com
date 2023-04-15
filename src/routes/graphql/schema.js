@@ -69,6 +69,10 @@ export const resolvers = {
 				return 'Skill'
 			}
 
+			if (obj.bapharia.filterGroup === "maps") {
+				return 'GameMap'
+			}
+
 			return null
 		}
 	}
