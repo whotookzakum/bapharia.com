@@ -37,6 +37,10 @@ export const resolvers = {
 				return 'Enemy'
 			}
 
+			if (obj.bapharia.filterGroup === "costumes") {
+				return 'Costume'
+			}
+
 			return null
 		}
 	}

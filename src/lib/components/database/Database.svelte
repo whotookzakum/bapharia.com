@@ -41,7 +41,7 @@
 
 	// Search results
 	const entries = graphql(`
-		query DatabaseEntries($searchTerm: String!) @load {
+		query DatabaseEntries($searchTerm: String) @load {
 			entries(searchTerm: $searchTerm) {
 				__typename
 				... on Item {
@@ -59,6 +59,20 @@
 					}
 				}
 				... on Enemy {
+					id
+					bapharia {
+						name {
+							ja_JP
+							en_US
+						}
+						thumb
+						category {
+							ja_JP
+							en_US
+						}
+					}
+				}
+				... on Costume {
 					id
 					bapharia {
 						name {
@@ -108,11 +122,7 @@
 							/>
 							<div class="grid">
 								<b>{entry.bapharia.name[$userLocale]}</b>
-								<span
-									>{entry.bapharia.category[
-										$userLocale
-									]}</span
-								>
+								<span>{entry.bapharia.category[$userLocale]}</span>
 								<span>ID: {entry.id}</span>
 							</div>
 						</button>

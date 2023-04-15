@@ -3,6 +3,7 @@ import ja_JP from "./japan/texts/ja_JP.json";
 import itemsData from "./japan/items.json";
 import enemiesData from "./japan/enemyparams.json";
 import treasuresData from "./japan/treasures.json";
+import costumesData from "./japan/costume.json";
 
 function getText(ns, id) {
     const texts = {
@@ -176,9 +177,49 @@ export const getEnemies = () => {
     return enemies
 }
 
+function getPartsPath(name) {
+    if (name.includes("hat")) return "Hat"
+    if (name.includes("bdl")) return "Lower"
+    if (name.includes("udw")) return "Underwear"
+    if (name.includes("sho")) return "Shoes"
+    if (name.includes("bdu")) return "Upper"
+    if (name.includes("glv")) return "Glove"
+    if (name.includes("acc_hpb")) return "AccessoryHipBack"
+    if (name.includes("acc_hdt")) return "AccessoryHeadTop"
+    if (name.includes("acc_hdm")) return "AccessoryHeadMid"
+    if (name.includes("acc_hdl")) return "AccessoryHeadLow"
+    if (name.includes("acc_hde")) return "AccessoryHeadEar"
+    if (name.includes("acc_fng")) return "AccessoryFinger"
+    if (name.includes("acc_bdb")) return "AccessoryBodyBack"
+    else return
+}
+
+export const getCostumes = () => {
+    const costumes = costumesData.map(costume => {
+        const name = getText("costume_text", costume.name)
+        const desc = getText("costume_text", costume.desc)
+        const pathToThumb = getPartsPath(costume.costume_parts_name)
+        const thumb = pathToThumb ? `/UI/Icon/Costume/${pathToThumb}/${costume.icon_name}.png` : ""
+    
+        return {
+            ...costume,
+            id: `${costume.id}`,
+            bapharia: {
+                name,
+                desc,
+                thumb,
+                category: { ja_JP: "コスチューム", en_US: "Costume" },
+                filterGroup: "costumes"
+            }
+        }
+    })
+    return costumes
+}
+
 export const getDatabaseEntries = () => {
     const items = getItems()
     const enemies = getEnemies()
+    const costumes = getCostumes()
 
-    return [...items, ...enemies]
+    return [...items, ...enemies, ...costumes]
 }

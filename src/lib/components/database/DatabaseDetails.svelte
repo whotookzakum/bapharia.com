@@ -1,9 +1,9 @@
 <script>
-    import { graphql } from "$houdini";
-    import Icon from "@iconify/svelte";
-    import { userLocale } from "$lib/stores";
+	import { graphql } from "$houdini";
+	import Icon from "@iconify/svelte";
+	import { userLocale } from "$lib/stores";
 
-    export let entryId;
+	export let entryId;
 
 	export let _DatabaseEntryVariables = () => {
 		return {
@@ -41,58 +41,56 @@
 </script>
 
 <div class="details-pane">
-    <span class="component-label">Details</span>
-    <div class="box">
-        <article>
-            {#if !$entry.fetching}
-                <header>
-                    <img
-                        src={$entry.data.entry.bapharia.thumb}
-                        alt=""
-                        width="64"
-                        height="64"
-                    />
-                    <h3>
-                        {$entry.data.entry.bapharia.name[$userLocale]}
-                        <span>(Lv. 1)</span>
-                    </h3>
-                    <span
-                        >{$entry.data.entry.bapharia.category[
-                            $userLocale
-                        ]}</span
-                    >
-                    <span>ID: {$entry.data.entry.id}</span>
-                    <img
-                        class="element-img"
-                        src="/images/elements/UI_IconAttribute_1.png"
-                        alt=""
-                        width="32"
-                        height="32"
-                    />
-                </header>
-            {/if}
-            <div class:collapsed={detailsCollapsed}>
-                
-            </div>
-        </article>
-        <label class="details-expander">
-            <Icon
-                icon={detailsCollapsed ? "mdi:arrow-down" : "mdi:arrow-up"}
-                width="18"
-                height="18"
-                style="margin-top:3px"
-            />
-            <input
-                type="checkbox"
-                class="visually-hidden"
-                bind:checked={detailsCollapsed}
-            />
-        </label>
-    </div>
+	<span class="component-label">Details</span>
+	<div class="box">
+		<article>
+			{#if !$entry.fetching}
+				<header>
+					<img
+						src={$entry.data.entry.bapharia.thumb}
+						alt=""
+						width="64"
+						height="64"
+					/>
+					<h3>
+						{$entry.data.entry.bapharia.name[$userLocale]}
+						<span>(Lv. 1)</span>
+					</h3>
+					<span
+						>{$entry.data.entry.bapharia.category[
+							$userLocale
+						]}</span
+					>
+					<span>ID: {$entry.data.entry.id}</span>
+					<img
+						class="element-img"
+						src="/images/elements/UI_IconAttribute_1.png"
+						alt=""
+						width="32"
+						height="32"
+					/>
+				</header>
+			{/if}
+			<div class:collapsed={detailsCollapsed} />
+		</article>
+		<label class="details-expander">
+			<Icon
+				icon={detailsCollapsed ? "mdi:arrow-down" : "mdi:arrow-up"}
+				width="18"
+				height="18"
+				style="margin-top:3px"
+			/>
+			<input
+				type="checkbox"
+				class="visually-hidden"
+				bind:checked={detailsCollapsed}
+			/>
+		</label>
+	</div>
 </div>
 
 <style lang="scss">
-    .details-pane {
+	.details-pane {
 		article {
 			border: 1px solid var(--surface2);
 			border-top-right-radius: 5px;

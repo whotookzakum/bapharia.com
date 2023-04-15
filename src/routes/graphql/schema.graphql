@@ -1,21 +1,11 @@
 scalar Map
 
 type Query {
-	entries(searchTerm: String!): [DBEntry]
+	entries(searchTerm: String): [DBEntry]
 	entry(id: String!): DBEntry
 }
 
 interface DBEntry {
-	id: String!
-	bapharia: BaphariaData!
-}
-
-type Item implements DBEntry {
-	id: String!
-	bapharia: BaphariaData!
-}
-
-type Enemy implements DBEntry {
 	id: String!
 	bapharia: BaphariaData!
 }
@@ -33,4 +23,19 @@ type BaphariaData {
 type Text {
 	ja_JP: String!
 	en_US: String!
+}
+
+type Item implements DBEntry {
+	id: String!
+	bapharia: BaphariaData!
+}
+
+type Enemy implements DBEntry {
+	id: String!
+	bapharia: BaphariaData!
+}
+
+type Costume implements DBEntry {
+	id: String!
+	bapharia: BaphariaData!
 }
