@@ -114,6 +114,19 @@
 						}
 					}
 				}
+				... on LiquidMemory {
+					id
+					bapharia {
+						name {
+							ja_JP
+							en_US
+						}
+						category {
+							ja_JP
+							en_US
+						}
+					}
+				}
 			}
 		}
 	`);

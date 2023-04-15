@@ -49,6 +49,10 @@ export const resolvers = {
 				return 'Imagine'
 			}
 
+			if (obj.bapharia.filterGroup === "liquidMemories") {
+				return 'LiquidMemory'
+			}
+
 			return null
 		}
 	}
