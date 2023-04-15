@@ -1,5 +1,5 @@
 import { createSchema } from 'graphql-yoga'
-import { getItems, getEnemies, getDatabaseEntries } from './resolvers.js'
+import { getDatabaseEntries } from './resolvers.js'
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -39,6 +39,10 @@ export const resolvers = {
 
 			if (obj.bapharia.filterGroup === "costumes") {
 				return 'Costume'
+			}
+
+			if (obj.bapharia.filterGroup === "gestures") {
+				return 'Gesture'
 			}
 
 			return null

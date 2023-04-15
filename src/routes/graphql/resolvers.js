@@ -4,6 +4,7 @@ import itemsData from "./japan/items.json";
 import enemiesData from "./japan/enemyparams.json";
 import treasuresData from "./japan/treasures.json";
 import costumesData from "./japan/costume.json";
+import gesturesData from "./japan/emotes.json";
 
 function getText(ns, id) {
     const texts = {
@@ -216,10 +217,30 @@ export const getCostumes = () => {
     return costumes
 }
 
+export const getGestures = () => {
+    const gestures = gesturesData.map(gesture => {
+        const name = getText("master_emote_text", gesture.name)
+        const thumb = `/UI/Icon/Emote/UI_Emote_${gesture.emote_id}.png`
+
+        return {
+            ...gesture,
+            id: gesture.emote_id,
+            bapharia: {
+                name,
+                thumb,
+                category: { ja_JP: "ジェスチャー", en_US: "Gesture" },
+                filterGroup: "gestures"
+            }
+        }
+    })
+    return gestures
+}
+
 export const getDatabaseEntries = () => {
     const items = getItems()
     const enemies = getEnemies()
     const costumes = getCostumes()
+    const gestures = getGestures()
 
-    return [...items, ...enemies, ...costumes]
+    return [...items, ...enemies, ...costumes, ...gestures]
 }

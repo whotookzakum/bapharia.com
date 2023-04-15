@@ -86,6 +86,20 @@
 						}
 					}
 				}
+				... on Gesture {
+					id
+					bapharia {
+						name {
+							ja_JP
+							en_US
+						}
+						thumb
+						category {
+							ja_JP
+							en_US
+						}
+					}
+				}
 			}
 		}
 	`);
