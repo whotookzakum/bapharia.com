@@ -13,6 +13,7 @@ import perksData from "./japan/perks.json";
 import recipesData from "./japan/imagine/recepi.json";
 import liquidMemoriesData from "./japan/liquid_memory.json";
 import accumulationLotteriesData from "./japan/liquid_memory_accumulate_lottery_table.json";
+import stampsData from "./japan/stamps.json";
 
 function getText(ns, id) {
     const texts = {
@@ -408,6 +409,22 @@ export const getLiquidMemories = () => {
     return liquidMemories
 }
 
+export const getStampSets = () => {
+    const stampSets = stampsData.map(stampSet => {
+        const name = getText("master_stamp_categories_text", stampSet.category_name_text)
+        return {
+            ...stampSet,
+            id: `${stampSet.category_id}`,
+            bapharia: {
+                name,
+                category: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
+                filterGroup: "stampSets"
+            }
+        }
+    })
+    return stampSets
+}
+
 export const getDatabaseEntries = () => {
     const items = getItems()
     const enemies = getEnemies()
@@ -415,6 +432,7 @@ export const getDatabaseEntries = () => {
     const gestures = getGestures()
     const imagines = getImagines()
     const liquidMemories = getLiquidMemories()
+    const stampSets = getStampSets()
 
-    return [...items, ...enemies, ...costumes, ...gestures, ...imagines, ...liquidMemories]
+    return [...items, ...enemies, ...costumes, ...gestures, ...imagines, ...liquidMemories, ...stampSets]
 }

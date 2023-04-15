@@ -53,6 +53,10 @@ export const resolvers = {
 				return 'LiquidMemory'
 			}
 
+			if (obj.bapharia.filterGroup === "stampSets") {
+				return 'StampSet'
+			}
+
 			return null
 		}
 	}
