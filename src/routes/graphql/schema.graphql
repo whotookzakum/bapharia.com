@@ -13,8 +13,8 @@ interface DBEntry {
 type BaphariaData {
 	name: Text
 	desc: Text
-	source: Text
-	effect: Text
+	sourceDesc: Text
+	effectDesc: Text
 	thumb: String
 	category: Text
 	filterGroup: String
@@ -28,6 +28,13 @@ type Text {
 type Item implements DBEntry {
 	id: String!
 	bapharia: BaphariaData!
+	item_level: Int
+	item_exp: Int
+	adventurer_rank: Int
+	dungeon_only: Boolean
+	no_sale_flag: Boolean
+	price_player_sells: Int
+	price_player_buys: Int
 }
 
 type Enemy implements DBEntry {

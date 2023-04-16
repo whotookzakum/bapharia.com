@@ -33,6 +33,27 @@
 						ja_JP
 						en_US
 					}
+					desc {
+						ja_JP
+						en_US
+					}
+					sourceDesc {
+						ja_JP
+						en_US
+					}
+					effectDesc {
+						ja_JP
+						en_US
+					}
+				}
+				... on Item {
+					dungeon_only
+					item_level
+					item_exp
+					adventurer_rank
+					no_sale_flag
+					price_player_buys
+					price_player_sells
 				}
 			}
 		}
@@ -54,7 +75,9 @@
 					/>
 					<h3>
 						{$entry.data.entry.bapharia.name[$userLocale]}
-						<span>(Lv. 1)</span>
+						{#if $entry.data.entry.item_level}
+							<span>(Lv. {$entry.data.entry.item_level})</span>
+						{/if}
 					</h3>
 					<span
 						>{$entry.data.entry.bapharia.category[
@@ -70,8 +93,60 @@
 						height="32"
 					/>
 				</header>
+				<div class:collapsed={detailsCollapsed}>
+					{#if $entry.data.entry.bapharia.desc}
+						<h4>Description</h4>
+						<p>{$entry.data.entry.bapharia.desc[$userLocale]}</p>
+					{/if}
+					{#if $entry.data.entry.dungeon_only}
+						<div>(Dungeon-only)</div>
+					{/if}
+					{#if $entry.data.entry.bapharia.sourceDesc}
+						<h4>Source</h4>
+						<p>
+							{$entry.data.entry.bapharia.sourceDesc[$userLocale]}
+						</p>
+					{/if}
+					{#if $entry.data.entry.bapharia.effectDesc}
+						<h4>Effect</h4>
+						<p>
+							{$entry.data.entry.bapharia.effectDesc[$userLocale]}
+						</p>
+					{/if}
+					{#if $entry.data.entry.item_exp}
+						<h4>Item EXP</h4>
+						<p>{$entry.data.entry.item_exp}</p>
+					{/if}
+					{#if $entry.data.entry.adventurer_rank}
+						<h4>Item EXP</h4>
+						<p>{$entry.data.entry.adventurer_rank}</p>
+					{/if}
+					{#if !$entry.data.entry.no_sale_flag}
+						<div>
+							Sells for {$entry.data.entry.price_player_sells}
+							<img
+								src="/UI/Common/UI_CmnMoney1.png"
+								alt=""
+								width="24"
+								height="24"
+								style="margin: -7px -4px"
+							/>
+						</div>
+					{/if}
+					{#if $entry.data.entry.price_player_buys !== 99999 && $entry.data.entry.price_player_buys !== 1}
+						<div>
+							Buy for {$entry.data.entry.price_player_buys}
+							<img
+								src="/UI/Common/UI_CmnMoney1.png"
+								alt=""
+								width="24"
+								height="24"
+								style="margin: -7px -4px"
+							/>
+						</div>
+					{/if}
+				</div>
 			{/if}
-			<div class:collapsed={detailsCollapsed} />
 		</article>
 		<label class="details-expander">
 			<Icon

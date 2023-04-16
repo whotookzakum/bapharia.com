@@ -201,8 +201,8 @@ export const getItems = () => {
     const items = itemsData.map(item => {
         const name = getText("item_text", item.name)
         const desc = getText("item_text", item.desc)
-        const source = getText("item_text", item.obtaining_route_detail_id)
-        const effect = getText("item_text", item.item_effect_desc_text)
+        const sourceDesc = getText("item_text", item.obtaining_route_detail_id)
+        const effectDesc = getText("item_text", item.item_effect_desc_text)
         const thumb = getThumbnail(item.category, item.id)
         const category = getCategory("item", item.category)
 
@@ -212,8 +212,8 @@ export const getItems = () => {
             bapharia: {
                 name,
                 desc,
-                source,
-                effect,
+                sourceDesc,
+                effectDesc,
                 thumb,
                 category,
                 filterGroup: "items"
@@ -388,7 +388,7 @@ export const getImagines = () => {
             return {
                 ...mat,
                 name: getText("item_text", itemData.name),
-                source: getText("item_text", itemData.obtaining_route_detail_id)
+                sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
             }
         })
 
@@ -568,7 +568,7 @@ export const getWeapons = () => {
                 return {
                     ...mat,
                     name: getText("item_text", itemData.name),
-                    source: getText("item_text", itemData.obtaining_route_detail_id)
+                    sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
                 }
             })
         }
@@ -605,7 +605,7 @@ export const getWeapons = () => {
                     const dropData = enemyData.drop_items.find(drop => drop.item_index === treasureData.id)
                     treasureSources.push(
                         {
-                            name: getText("enemyparam_text", enemyData.name_id),
+                            sourceDesc: getText("enemyparam_text", enemyData.name_id),
                             probability: dropData.drop_rate / 100,
                             location: dropData.content_id
                         }
