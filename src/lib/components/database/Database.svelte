@@ -44,156 +44,15 @@
 		query DatabaseEntries($searchTerm: String) @load {
 			entries(searchTerm: $searchTerm) {
 				__typename
-				... on Item {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
+				id
+				name {
+					ja_JP
+					en_US
 				}
-				... on Enemy {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on Costume {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on Gesture {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on Imagine {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on LiquidMemory {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on StampSet {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on Token {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on Weapon {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on Skill {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						thumb
-						category {
-							ja_JP
-							en_US
-						}
-					}
-				}
-				... on GameMap {
-					id
-					bapharia {
-						name {
-							ja_JP
-							en_US
-						}
-						category {
-							ja_JP
-							en_US
-						}
-					}
+				thumb
+				category {
+					ja_JP
+					en_US
 				}
 			}
 		}
@@ -223,15 +82,15 @@
 							on:click={() => (userSelectedEntryId = entry.id)}
 						>
 							<img
-								src={entry.bapharia.thumb}
+								src={entry.thumb}
 								alt=""
 								width="64"
 								height="64"
 								loading="lazy"
 							/>
 							<div class="grid">
-								<b>{entry.bapharia.name[$userLocale]}</b>
-								<span>{entry.bapharia.category[$userLocale]}</span>
+								<b>{entry.name[$userLocale]}</b>
+								<span>{entry.category[$userLocale]}</span>
 								<span>ID: {entry.id}</span>
 							</div>
 						</button>

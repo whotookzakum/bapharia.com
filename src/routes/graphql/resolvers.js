@@ -209,15 +209,13 @@ export const getItems = () => {
         return {
             ...item,
             id: `${item.id}`,
-            bapharia: {
-                name,
-                desc,
-                sourceDesc,
-                effectDesc,
-                thumb,
-                category,
-                filterGroup: "items"
-            }
+            name,
+            desc,
+            sourceDesc,
+            effectDesc,
+            thumb,
+            category,
+            filterGroup: "items"
         }
     })
 
@@ -259,12 +257,10 @@ export const getEnemies = () => {
         return {
             ...enemy,
             id: enemy.enemy_id,
-            bapharia: {
-                name,
-                drops,
-                category: getCategory("enemy", enemy.is_boss),
-                filterGroup: "enemies"
-            }
+            name,
+            drops,
+            category: getCategory("enemy", enemy.is_boss),
+            filterGroup: "enemies"
         }
     })
 
@@ -298,13 +294,11 @@ export const getCostumes = () => {
         return {
             ...costume,
             id: `${costume.id}`,
-            bapharia: {
-                name,
-                desc,
-                thumb,
-                category: { ja_JP: "コスチューム", en_US: "Costume" },
-                filterGroup: "costumes"
-            }
+            name,
+            desc,
+            thumb,
+            category: { ja_JP: "コスチューム", en_US: "Costume" },
+            filterGroup: "costumes"
         }
     })
     return costumes
@@ -318,12 +312,10 @@ export const getGestures = () => {
         return {
             ...gesture,
             id: gesture.emote_id,
-            bapharia: {
-                name,
-                thumb,
-                category: { ja_JP: "ジェスチャー", en_US: "Gesture" },
-                filterGroup: "gestures"
-            }
+            name,
+            thumb,
+            category: { ja_JP: "ジェスチャー", en_US: "Gesture" },
+            filterGroup: "gestures"
         }
     })
     return gestures
@@ -334,13 +326,13 @@ export const getImagines = () => {
         const name = getText("master_imagine_text", imagine.imagine_name)
         const desc = getText("master_imagine_text", imagine.imagine_desc)
         let thumb = `/UI/Icon/Imagine/Battle/UI_Icon_${imagine.id}.png`
-        let slot;
+        let slotImg;
         if (imagine.imagine_type === 0) {
             thumb = `/UI/Icon/Imagine/Picture/UI_Icon_${imagine.id}.png`
             Object.keys(imagine).filter(key => key.includes("equip_position")).forEach(key => {
                 if (imagine[key] === 1) {
                     let slotId = key.split("equip_position")[1]
-                    slot = `/UI/MyCharaMenu/UI_MyCharaMenuImagineIcon2_${slotId}.png`
+                    slotImg = `/UI/MyCharaMenu/UI_MyCharaMenuImagineIcon2_${slotId}.png`
                 }
             })
         }
@@ -395,19 +387,18 @@ export const getImagines = () => {
         return {
             ...imagine,
             id: `${imagine.id}`,
-            bapharia: {
-                name,
-                desc,
-                thumb,
-                slot,
-                element,
-                params,
-                // Skill name and skill type on client?
-                abilities,
-                recipe,
-                category: getCategory("imagine", imagine.imagine_type),
-                filterGroup: "imagine"
-            }
+            name,
+            desc,
+            thumb,
+            slotImg,
+            element,
+            params,
+            // Skill name and skill type on client?
+            abilities,
+            recipe,
+            category: getCategory("imagine", imagine.imagine_type),
+            filterGroup: "imagine"
+
         }
     })
     return imagines
@@ -423,7 +414,7 @@ export const getLiquidMemories = () => {
             const desc = getText("master_liquid_memory_text", level.efficacy_value_desc)
             desc.en_US = desc.en_US.replace("{value}", level.efficacy_value).replace("{count}", level.use_count)
             desc.ja_JP = desc.ja_JP.replace("{value}", level.efficacy_value).replace("{count}", level.use_count).replace("(実機非表示)", "")
-            
+
             return {
                 ...level,
                 desc
@@ -467,12 +458,10 @@ export const getLiquidMemories = () => {
         return {
             ...memory,
             id: `${memory.id}`,
-            bapharia: {
-                name,
-                accumulate_condition_parameters: accumulate,
-                category: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
-                filterGroup: "liquidMemories"
-            }
+            name,
+            accumulate_condition_parameters: accumulate,
+            category: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
+            filterGroup: "liquidMemories"
         }
     })
     return liquidMemories
@@ -484,11 +473,10 @@ export const getStampSets = () => {
         return {
             ...stampSet,
             id: `${stampSet.category_id}`,
-            bapharia: {
-                name,
-                category: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
-                filterGroup: "stampSets"
-            }
+            name,
+            category: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
+            filterGroup: "stampSets"
+
         }
     })
     return stampSets
@@ -499,17 +487,15 @@ export const getTokens = () => {
         const name = getText("master_token_text", token.name)
         const desc = getText("master_token_text", token.desc)
         const thumb = `/UI/Icon/Token/UI_Icon_${token.id}.png`
-    
+
         return {
             ...token,
             id: `${token.id}`,
-            bapharia: {
-                name,
-                desc,
-                thumb,
-                category: { ja_JP: "トークン", en_US: "Token" },
-                filterGroup: "tokens"
-            }
+            name,
+            desc,
+            thumb,
+            category: { ja_JP: "トークン", en_US: "Token" },
+            filterGroup: "tokens"
         }
     })
     return tokens
@@ -617,18 +603,16 @@ export const getWeapons = () => {
         return {
             ...weapon,
             id: `${weapon.id}`,
-            bapharia: {
-                name,
-                thumb: `/UI/Icon/Weapon/UI_Icon_${weapon.id}.png`,
-                classImg,
-                stats,
-                elementImg,
-                recipe,
-                abilities,
-                treasureSources,
-                category: getCategory("weapon", weapon.is_for_weapon_stickers),
-                filterGroup: "weapons"
-            }
+            name,
+            thumb: `/UI/Icon/Weapon/UI_Icon_${weapon.id}.png`,
+            classImg,
+            stats,
+            elementImg,
+            recipe,
+            abilities,
+            treasureSources,
+            category: getCategory("weapon", weapon.is_for_weapon_stickers),
+            filterGroup: "weapons"
         }
     })
     return weapons
@@ -679,21 +663,21 @@ function getSkillType(skillType) {
 }
 
 const skills_A = [
-    615, 608, 620, 
+    615, 608, 620,
     710, 712, 721, 730, 731,
-    1106, 1115, 1119, 1118, 1114, 1121, 
+    1106, 1115, 1119, 1118, 1114, 1121,
     1232, 1231, 1207, 1230, 1211,
     1910, 1911, 1912, 1920, 1921, 1922
 ]
 
 const skills_A_B = [
-    732, 
+    732,
     1103, 1113
 ]
 
 const skills_A_D = [
-    602, 623, 619, 617, 618, 
-    1117, 1104, 
+    602, 623, 619, 617, 618,
+    1117, 1104,
     1220, 1222,
     1930, 1931, 1932
 ]
@@ -703,9 +687,9 @@ const skills_A_R = [
 ]
 
 const skills_B = [
-    609, 
-    713, 716, 723, 
-    1110, 1116, 
+    609,
+    713, 716, 723,
+    1110, 1116,
     1205, 1206, 1223,
     1923, 1913
 ]
@@ -719,17 +703,17 @@ const skills_D = [
 ]
 
 const skills_R = [
-    613, 622, 
+    613, 622,
     1233,
     1933
 ]
 
 const skills_R_B = [
-    
+
 ]
 
 const skills_R_D = [
-    
+
 ]
 
 const ele_light = [
@@ -737,7 +721,7 @@ const ele_light = [
 ]
 
 const ele_earth = [
-    623, 
+    623,
     1920, 1930, 1911, 1932
 ]
 
@@ -759,7 +743,7 @@ function getSkillTypeImg(skill) {
     // B = buff
     // R = recovery
     // D = debuff?
-    
+
     if (skills_A.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A.png`
     if (skills_A_B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_B.png`
     if (skills_A_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_D.png`
@@ -826,18 +810,16 @@ export const getSkills = () => {
         acc.push({
             ...curr,
             id: `${curr.skill_id}`,
-            bapharia: {
-                name,
-                desc,
-                thumb,
-                classImg,
-                abilities: [],
-                skillType,
-                skillTypeImg,
-                elementImg,
-                category: { ja_JP: "スキル", en_US: "Skill" },
-                filterGroup: "skills"
-            }
+            name,
+            desc,
+            thumb,
+            classImg,
+            abilities: [],
+            skillType,
+            skillTypeImg,
+            elementImg,
+            category: { ja_JP: "スキル", en_US: "Skill" },
+            filterGroup: "skills"
         });
 
         return acc;
@@ -856,14 +838,12 @@ export const getMaps = () => {
         return {
             ...map,
             id: `${map.map_id}`,
-            bapharia: {
-                name: {
-                    ja_JP: map.name,
-                    en_US: map.name_en || map.name_jp_cbt || map.name_translated
-                },
-                category: getCategory("map", map.map_id),
-                filterGroup: "maps"
-            }
+            name: {
+                ja_JP: map.name,
+                en_US: map.name_en || map.name_jp_cbt || map.name_translated
+            },
+            category: getCategory("map", map.map_id),
+            filterGroup: "maps"
         }
     })
 }

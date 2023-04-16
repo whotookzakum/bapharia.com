@@ -7,17 +7,10 @@ type Query {
 
 interface DBEntry {
 	id: String!
-	bapharia: BaphariaData!
-}
-
-type BaphariaData {
 	name: Text
 	desc: Text
-	sourceDesc: Text
-	effectDesc: Text
 	thumb: String
 	category: Text
-	filterGroup: String
 }
 
 type Text {
@@ -27,7 +20,13 @@ type Text {
 
 type Item implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
+
+	sourceDesc: Text
+	effectDesc: Text
 	item_level: Int
 	item_exp: Int
 	adventurer_rank: Int
@@ -39,50 +38,86 @@ type Item implements DBEntry {
 
 type Enemy implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type Costume implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type Gesture implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type Imagine implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
+
+	price_player_sells: Int
+	imagine_type: Int
+	imagine_max_level: Int
+	slotImg: String
+	elementImg: String
 }
 
 type LiquidMemory implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type StampSet implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type Token implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type Weapon implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type Skill implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }
 
 type GameMap implements DBEntry {
 	id: String!
-	bapharia: BaphariaData!
+	name: Text
+	desc: Text
+	thumb: String
+	category: Text
 }

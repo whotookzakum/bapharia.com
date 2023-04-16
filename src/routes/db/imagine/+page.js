@@ -1,11 +1,11 @@
-import texts from "$lib/apiextAGS/texts/en_US.json";
-import imagineData from "$lib/apiext/imagine.json";
-import imagineParams from "$lib/apiext/imagine/param_level.json";
-import imaginePerks from "$lib/apiext/imagine/perk_pick.json";
-import weaponPerks from "$lib/apiext/weaponperks.json";
-import perksData from "$lib/apiext/perks.json";
-import recipesData from "$lib/apiext/imagine/recepi.json";
-import itemsData from "$lib/apiext/items.json";
+import texts from "../../graphql/global/texts/en_US.json";
+import imagineData from "../../graphql/japan/imagine.json";
+import imagineParams from "../../graphql/japan/imagine/param_level.json";
+import imaginePerks from "../../graphql/japan/imagine/perk_pick.json";
+import weaponPerks from "../../graphql/japan/weaponperks.json";
+import perksData from "../../graphql/japan/perks.json";
+import recipesData from "../../graphql/japan/imagine/recepi.json";
+import itemsData from "../../graphql/japan/items.json";
 
 function getText(ns, id) {
     const namespaceTexts = texts.find(namespace => namespace.name === ns) || {}

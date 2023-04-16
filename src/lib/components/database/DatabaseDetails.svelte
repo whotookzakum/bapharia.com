@@ -23,38 +23,37 @@
 		query DatabaseEntry($id: String!) @load {
 			entry(id: $id) {
 				id
-				bapharia {
-					name {
-						ja_JP
-						en_US
-					}
-					thumb
-					category {
-						ja_JP
-						en_US
-					}
-					desc {
-						ja_JP
-						en_US
-					}
-					sourceDesc {
-						ja_JP
-						en_US
-					}
-					effectDesc {
-						ja_JP
-						en_US
-					}
+				name {
+					ja_JP
+					en_US
 				}
-				... on Item {
-					dungeon_only
-					item_level
-					item_exp
-					adventurer_rank
-					no_sale_flag
-					price_player_buys
-					price_player_sells
+				desc {
+					ja_JP
+					en_US
 				}
+				thumb
+				category {
+					ja_JP
+					en_US
+				}
+				# recipe
+				# ... on Item {
+				# 	dungeon_only
+				# 	item_level
+				# 	item_exp
+				# 	adventurer_rank
+				# 	no_sale_flag
+				# 	price_player_buys
+				# 	price_player_sells
+				# }
+				# ... on Imagine {
+				# 	imagine_max_level
+				# 	price_player_sells
+				# 	imagine_type
+				# 	imagine_max_level
+				# 	slotImg
+				# 	elementImg
+				# }
 			}
 		}
 	`);
@@ -68,19 +67,19 @@
 			{#if !$entry.fetching}
 				<header>
 					<img
-						src={$entry.data.entry.bapharia.thumb}
+						src={$entry.data.entry.thumb}
 						alt=""
 						width="64"
 						height="64"
 					/>
 					<h3>
-						{$entry.data.entry.bapharia.name[$userLocale]}
+						{$entry.data.entry.name[$userLocale]}
 						{#if $entry.data.entry.item_level}
 							<span>(Lv. {$entry.data.entry.item_level})</span>
 						{/if}
 					</h3>
 					<span
-						>{$entry.data.entry.bapharia.category[
+						>{$entry.data.entry.category[
 							$userLocale
 						]}</span
 					>
@@ -94,23 +93,23 @@
 					/>
 				</header>
 				<div class:collapsed={detailsCollapsed}>
-					{#if $entry.data.entry.bapharia.desc}
+					{#if $entry.data.entry.desc}
 						<h4>Description</h4>
-						<p>{$entry.data.entry.bapharia.desc[$userLocale]}</p>
+						<p>{$entry.data.entry.desc[$userLocale]}</p>
 					{/if}
 					{#if $entry.data.entry.dungeon_only}
 						<div>(Dungeon-only)</div>
 					{/if}
-					{#if $entry.data.entry.bapharia.sourceDesc}
+					{#if $entry.data.entry.sourceDesc}
 						<h4>Source</h4>
 						<p>
-							{$entry.data.entry.bapharia.sourceDesc[$userLocale]}
+							{$entry.data.entry.sourceDesc[$userLocale]}
 						</p>
 					{/if}
-					{#if $entry.data.entry.bapharia.effectDesc}
+					{#if $entry.data.entry.effectDesc}
 						<h4>Effect</h4>
 						<p>
-							{$entry.data.entry.bapharia.effectDesc[$userLocale]}
+							{$entry.data.entry.effectDesc[$userLocale]}
 						</p>
 					{/if}
 					{#if $entry.data.entry.item_exp}

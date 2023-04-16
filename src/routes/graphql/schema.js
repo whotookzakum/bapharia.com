@@ -14,8 +14,8 @@ export const resolvers = {
 				const filteredResults = 
 					entries.filter(entry => 
 						entry.id.includes(searchTerm)
-						|| checkStringIncludes(entry.bapharia.name.ja_JP, searchTerm)
-						|| checkStringIncludes(entry.bapharia.name.en_US, searchTerm)
+						|| checkStringIncludes(entry.name.ja_JP, searchTerm)
+						|| checkStringIncludes(entry.name.en_US, searchTerm)
 					)
 				return filteredResults
 			}
@@ -29,47 +29,47 @@ export const resolvers = {
 	DBEntry: {
 		// https://the-guild.dev/graphql/tools/docs/resolvers#unions-and-interfaces
 		__resolveType(obj, context, info) {
-			if (obj.bapharia.filterGroup === "items") {
+			if (obj.filterGroup === "items") {
 				return 'Item'
 			}
 
-			if (obj.bapharia.filterGroup === "enemies") {
+			if (obj.filterGroup === "enemies") {
 				return 'Enemy'
 			}
 
-			if (obj.bapharia.filterGroup === "costumes") {
+			if (obj.filterGroup === "costumes") {
 				return 'Costume'
 			}
 
-			if (obj.bapharia.filterGroup === "gestures") {
+			if (obj.filterGroup === "gestures") {
 				return 'Gesture'
 			}
 
-			if (obj.bapharia.filterGroup === "imagine") {
+			if (obj.filterGroup === "imagine") {
 				return 'Imagine'
 			}
 
-			if (obj.bapharia.filterGroup === "liquidMemories") {
+			if (obj.filterGroup === "liquidMemories") {
 				return 'LiquidMemory'
 			}
 
-			if (obj.bapharia.filterGroup === "stampSets") {
+			if (obj.filterGroup === "stampSets") {
 				return 'StampSet'
 			}
 
-			if (obj.bapharia.filterGroup === "tokens") {
+			if (obj.filterGroup === "tokens") {
 				return 'Token'
 			}
 
-			if (obj.bapharia.filterGroup === "weapons") {
+			if (obj.filterGroup === "weapons") {
 				return 'Weapon'
 			}
 
-			if (obj.bapharia.filterGroup === "skills") {
+			if (obj.filterGroup === "skills") {
 				return 'Skill'
 			}
 
-			if (obj.bapharia.filterGroup === "maps") {
+			if (obj.filterGroup === "maps") {
 				return 'GameMap'
 			}
 
