@@ -118,7 +118,7 @@
 						<p>{$entry.data.entry.item_exp}</p>
 					{/if}
 					{#if $entry.data.entry.adventurer_rank}
-						<h4>Item EXP</h4>
+						<h4>Adventurer Rank</h4>
 						<p>{$entry.data.entry.adventurer_rank}</p>
 					{/if}
 					{#if !$entry.data.entry.no_sale_flag}
