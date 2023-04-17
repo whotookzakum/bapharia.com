@@ -314,7 +314,7 @@ export const getGestures = () => {
             id: gesture.emote_id,
             name,
             thumb,
-            category: { ja_JP: "ジェスチャー", en_US: "Gesture" },
+            category: { ja_JP: "ジェスチャー", en_US: "Emote" },
             filterGroup: "gestures"
         }
     })

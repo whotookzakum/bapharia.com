@@ -1,6 +1,6 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
-import liquidMemoriesData from "$lib/apiext/liquid_memory.json";
-import accumulationLotteriesData from "$lib/apiext/liquid_memory_accumulate_lottery_table.json";
+import texts from "../../graphql/japan/texts/ja_JP.json";
+import liquidMemoriesData from "../../graphql/japan/liquid_memory.json";
+import accumulationLotteriesData from "../../graphql/japan/liquid_memory_accumulate_lottery_table.json";
 
 function getText(ns, id) {
     const namespaceTexts = texts.find(namespace => namespace.name === ns) || {}

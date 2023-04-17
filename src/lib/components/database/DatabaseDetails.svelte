@@ -5,6 +5,8 @@
 	import Item from "./templates/Item.svelte";
 	import Imagine from "./templates/Imagine.svelte";
     import Weapon from "./templates/Weapon.svelte";
+    import Costume from "./templates/Costume.svelte";
+    import EntrySummary from "./EntrySummary.svelte";
 
 	export let entryId;
 
@@ -184,39 +186,7 @@
 		<article>
 			{#if !$entry.fetching}
 				<header>
-					<img
-						src={$entry.data.entry.thumb}
-						alt=""
-						width="64"
-						height="64"
-					/>
-					<h3>
-						{$entry.data.entry.name[$userLocale]}
-						{#if $entry.data.entry.item_level}
-							<span>(Lv. {$entry.data.entry.item_level})</span>
-						{/if}
-						{#if $entry.data.entry.imagine_max_level}
-							<span
-								>(Lv. {$entry.data.entry
-									.imagine_max_level})</span
-							>
-						{/if}
-						{#if $entry.data.entry.weapon_max_level}
-							<span
-								>(Lv. {$entry.data.entry
-									.weapon_max_level})</span
-							>
-						{/if}
-					</h3>
-					<span class={`${$entry.data.entry.__typename}`}>{$entry.data.entry.category[$userLocale]}</span>
-					<span>ID: {$entry.data.entry.id}</span>
-					<img
-						class="element-img"
-						src="/images/elements/UI_IconAttribute_1.png"
-						alt=""
-						width="32"
-						height="32"
-					/>
+					<EntrySummary data={$entry.data.entry} moreDetails />
 				</header>
 				<div class:collapsed={detailsCollapsed}>
 					{#if $entry.data.entry.__typename === "Item"}
@@ -227,6 +197,9 @@
 					{/if}
 					{#if $entry.data.entry.__typename === "Weapon"}
 						<Weapon data={$entry.data.entry} />
+					{/if}
+					{#if $entry.data.entry.__typename === "Costume"}
+						<Costume data={$entry.data.entry} />
 					{/if}
 				</div>
 			{/if}
@@ -284,14 +257,7 @@
 
 			span {
 				color: var(--text2);
-				font-size: var(--step--1);
-			}
-
-			.element-img {
-				position: absolute;
-				right: 0;
-				top: 0;
-				opacity: 0.5;
+				// font-size: var(--step--1);
 			}
 		}
 

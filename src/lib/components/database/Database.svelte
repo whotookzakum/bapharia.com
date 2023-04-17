@@ -5,6 +5,7 @@
 	import { graphql } from "$houdini";
 	import DatabaseDetails from "./DatabaseDetails.svelte";
 	import { userLocale } from "$lib/stores";
+	import EntrySummary from "./EntrySummary.svelte";
 
 	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
@@ -63,23 +64,6 @@
 			}
 		}
 	`);
-
-	function getAttributeImg(value) {
-		switch (value) {
-			case 6:
-				return 5;
-			case 5:
-				return 2;
-			case 4:
-				return 3;
-			case 3:
-				return 1;
-			case 2:
-				return 4;
-			case 7:
-				return 6;
-		}
-	}
 </script>
 
 <h2 id="db">Database</h2>
@@ -104,42 +88,7 @@
 						<button
 							on:click={() => (userSelectedEntryId = entry.id)}
 						>
-							<img
-								src={entry.thumb}
-								alt=""
-								width="64"
-								height="64"
-								loading="lazy"
-							/>
-							<div class="grid">
-								<div class="skip-std">
-									{entry.name[$userLocale]}
-								</div>
-								<div class={`${entry.__typename}`}>
-									{entry.category[$userLocale]}
-								</div>
-								<div class="entry-id">ID: {entry.id}</div>
-							</div>
-							<div class="extra-icons">
-								<!-- {#if entry.classImg}
-									<img
-										src={entry.classImg}
-										alt=""
-										width="32"
-										height="32"
-									/>
-								{/if} -->
-								{#if entry.attribute > 0}
-									<img
-										src={`/images/elements/UI_IconAttribute_${getAttributeImg(
-											entry.attribute
-										)}.png`}
-										alt=""
-										width="32"
-										height="32"
-									/>
-								{/if}
-							</div>
+							<EntrySummary data={entry} />
 						</button>
 					</li>
 				{/each}
@@ -196,17 +145,13 @@
 		}
 
 		button {
-			display: flex;
-			align-items: center;
-			gap: 0.8rem;
 			padding: 0.8rem;
 			user-select: auto;
 			width: 100%;
 			background: none;
 			border: none;
 			text-align: left;
-			line-height: 1.4;
-			// font-weight: 100;
+			
 
 			&:hover,
 			&:focus-visible {
@@ -217,13 +162,5 @@
 				border-radius: 5px;
 			}
 		}
-	}
-
-	.extra-icons {
-		position: absolute;
-		opacity: 0.4;
-		display: flex;
-		top: 0.8rem;
-		right: 0.8rem;
 	}
 </style>
