@@ -72,6 +72,32 @@ type Imagine implements DBEntry {
 	imagine_max_level: Int
 	slotImg: String
 	elementImg: String
+	params: [ImagineParams]!
+	abilities: [Ability]!
+}
+
+type ImagineParams {
+	level: Int
+	skill: Int
+	attribute_value: Int
+	offensive_power: Int
+	str: Int
+	vit: Int
+	dex: Int
+	mnd: Int
+	int: Int
+	defensive_power: Int
+}
+
+type Ability {
+	probability: Int
+	name: Text
+	stats: [Stat]!
+}
+
+type Stat {
+	name: Text
+	value: Int
 }
 
 type LiquidMemory implements DBEntry {

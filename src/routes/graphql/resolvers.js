@@ -105,12 +105,12 @@ function getCategory(entryType, category) {
             case 0:
                 return {
                     ja_JP: "エンハンスイマジン",
-                    en_US: "Augment Imagine"
+                    en_US: "Augment Echo"
                 }
             case 1:
                 return {
                     ja_JP: "バトルイマジン",
-                    en_US: "Combat Imagine"
+                    en_US: "Combat Echo"
                 }
         }
     }
@@ -336,16 +336,16 @@ export const getImagines = () => {
                 }
             })
         }
-        let element = `/UI/Icon/Attribute/UI_IconAttribute_Empty.png`
+        let elementImg = `/UI/Icon/Attribute/UI_IconAttribute_Empty.png`
         if (imagine.attribute > 0) {
-            // Attributes don't match their descriptions, so temporarily using text to find element.
-            // element = `/UI/Icon/Attribute/UI_IconAttribute_${imagine.attribute - 1}.png`
-            if (desc.ja_JP.includes("火属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_1.png`
-            if (desc.ja_JP.includes("雷属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_2.png`
-            if (desc.ja_JP.includes("氷属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_3.png`
-            if (desc.ja_JP.includes("土属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_4.png`
-            if (desc.ja_JP.includes("光属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_5.png`
-            if (desc.ja_JP.includes("闇属性")) element = `/UI/Icon/Attribute/UI_IconAttribute_6.png`
+            // Attributes don't match their descriptions, so temporarily using text to find elementImg.
+            // elementImg = `/UI/Icon/Attribute/UI_IconAttribute_${imagine.attribute - 1}.png`
+            if (desc.ja_JP.includes("火属性")) elementImg = `/UI/Icon/Attribute/UI_IconAttribute_1.png`
+            if (desc.ja_JP.includes("雷属性")) elementImg = `/UI/Icon/Attribute/UI_IconAttribute_2.png`
+            if (desc.ja_JP.includes("氷属性")) elementImg = `/UI/Icon/Attribute/UI_IconAttribute_3.png`
+            if (desc.ja_JP.includes("土属性")) elementImg = `/UI/Icon/Attribute/UI_IconAttribute_4.png`
+            if (desc.ja_JP.includes("光属性")) elementImg = `/UI/Icon/Attribute/UI_IconAttribute_5.png`
+            if (desc.ja_JP.includes("闇属性")) elementImg = `/UI/Icon/Attribute/UI_IconAttribute_6.png`
         }
         const params = imagineParams.filter(item => item.pattern_id === imagine.param_type)
         const abilities = imaginePerks.filter(perk => perk.table_id === imagine.table_id).map(imaginePerk => {
@@ -391,7 +391,7 @@ export const getImagines = () => {
             desc,
             thumb,
             slotImg,
-            element,
+            elementImg,
             params,
             // Skill name and skill type on client?
             abilities,

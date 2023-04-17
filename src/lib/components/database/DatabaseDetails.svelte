@@ -2,6 +2,8 @@
 	import { graphql } from "$houdini";
 	import Icon from "@iconify/svelte";
 	import { userLocale } from "$lib/stores";
+    import Item from "./templates/Item.svelte";
+    import Imagine from "./templates/Imagine.svelte";
 
 	export let entryId;
 
@@ -36,24 +38,57 @@
 					ja_JP
 					en_US
 				}
-				# recipe
-				# ... on Item {
-				# 	dungeon_only
-				# 	item_level
-				# 	item_exp
-				# 	adventurer_rank
-				# 	no_sale_flag
-				# 	price_player_buys
-				# 	price_player_sells
-				# }
-				# ... on Imagine {
-				# 	imagine_max_level
-				# 	price_player_sells
-				# 	imagine_type
-				# 	imagine_max_level
-				# 	slotImg
-				# 	elementImg
-				# }
+				... on Item {
+					sourceDesc {
+						ja_JP
+						en_US
+					}
+					effectDesc {
+						ja_JP
+						en_US
+					}
+					dungeon_only
+					item_level
+					item_exp
+					adventurer_rank
+					no_sale_flag
+					price_player_buys
+					price_player_sells
+				}
+				... on Imagine {
+					imagine_max_level
+					price_player_sells
+					imagine_type
+					imagine_max_level
+					slotImg
+					elementImg
+					params {
+						level
+						skill
+						attribute_value
+						offensive_power
+						str
+						vit
+						dex
+						mnd
+						int
+						defensive_power
+					}
+					abilities {
+						probability
+						name {
+							ja_JP
+							en_US
+						}
+						stats {
+							value
+							name {
+								ja_JP
+								en_US
+							}
+						}
+					}
+				}
 			}
 		}
 	`);
@@ -77,12 +112,14 @@
 						{#if $entry.data.entry.item_level}
 							<span>(Lv. {$entry.data.entry.item_level})</span>
 						{/if}
+						{#if $entry.data.entry.imagine_max_level}
+							<span
+								>(Lv. {$entry.data.entry
+									.imagine_max_level})</span
+							>
+						{/if}
 					</h3>
-					<span
-						>{$entry.data.entry.category[
-							$userLocale
-						]}</span
-					>
+					<span>{$entry.data.entry.category[$userLocale]}</span>
 					<span>ID: {$entry.data.entry.id}</span>
 					<img
 						class="element-img"
@@ -93,56 +130,11 @@
 					/>
 				</header>
 				<div class:collapsed={detailsCollapsed}>
-					{#if $entry.data.entry.desc}
-						<h4>Description</h4>
-						<p>{$entry.data.entry.desc[$userLocale]}</p>
+					{#if $entry.data.entry.__typename === "Item"}
+						<Item data={$entry.data.entry} />
 					{/if}
-					{#if $entry.data.entry.dungeon_only}
-						<div>(Dungeon-only)</div>
-					{/if}
-					{#if $entry.data.entry.sourceDesc}
-						<h4>Source</h4>
-						<p>
-							{$entry.data.entry.sourceDesc[$userLocale]}
-						</p>
-					{/if}
-					{#if $entry.data.entry.effectDesc}
-						<h4>Effect</h4>
-						<p>
-							{$entry.data.entry.effectDesc[$userLocale]}
-						</p>
-					{/if}
-					{#if $entry.data.entry.item_exp}
-						<h4>Item EXP</h4>
-						<p>{$entry.data.entry.item_exp}</p>
-					{/if}
-					{#if $entry.data.entry.adventurer_rank}
-						<h4>Adventurer Rank</h4>
-						<p>{$entry.data.entry.adventurer_rank}</p>
-					{/if}
-					{#if !$entry.data.entry.no_sale_flag}
-						<div>
-							Sells for {$entry.data.entry.price_player_sells}
-							<img
-								src="/UI/Common/UI_CmnMoney1.png"
-								alt=""
-								width="24"
-								height="24"
-								style="margin: -7px -4px"
-							/>
-						</div>
-					{/if}
-					{#if $entry.data.entry.price_player_buys !== 99999 && $entry.data.entry.price_player_buys !== 1}
-						<div>
-							Buy for {$entry.data.entry.price_player_buys}
-							<img
-								src="/UI/Common/UI_CmnMoney1.png"
-								alt=""
-								width="24"
-								height="24"
-								style="margin: -7px -4px"
-							/>
-						</div>
+					{#if $entry.data.entry.__typename === "Imagine"}
+						<Imagine data={$entry.data.entry} />
 					{/if}
 				</div>
 			{/if}
@@ -209,6 +201,16 @@
 				top: 0;
 				opacity: 0.5;
 			}
+		}
+
+		h4 {
+			margin: 0;
+			font-size: var(--step-0);
+		}
+
+		p {
+			margin: 0;
+			line-height: initial;
 		}
 
 		.collapsed {
