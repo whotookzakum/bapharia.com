@@ -72,7 +72,7 @@ type Imagine implements DBEntry {
 	imagine_max_level: Int
 	slotImg: String
 	elementImg: String
-	params: [ImagineParams]!
+	params: [LevelParams]!
 	abilities: [Ability]!
 	recipe: Recipe
 }
@@ -81,6 +81,19 @@ type Recipe {
 	adventurer_rank: Int
 	price: Int
 	materials: [Material]!
+	# Weapon
+	use_money: Int
+	difficulty: Int
+	bonus_rate: Int
+	base_ability_rate1: Int
+	base_ability_rate2: Int
+	base_ability_rate3: Int
+	base_ability_rate4: Int
+	bonus_ability_rate1: Int
+	bonus_ability_rate2: Int
+	bonus_ability_rate3: Int
+	bonus_ability_rate4: Int
+	great_success_tokens: Int
 }
 
 # Similar to Item
@@ -89,9 +102,11 @@ type Material {
 	amount: Int
 	name: Text
 	sourceDesc: Text
+	# Weapon
+	need_num: Int
 }
 
-type ImagineParams {
+type LevelParams {
 	level: Int
 	skill: Int
 	attribute_value: Int
@@ -102,12 +117,20 @@ type ImagineParams {
 	mnd: Int
 	int: Int
 	defensive_power: Int
+	# Weapon
+	critical_power: Int
 }
 
 type Ability {
 	probability: Int
 	name: Text
+	# Imagine
 	stats: [Stat]!
+	# Weapon
+	big_success_max_value: Int
+	big_success_min_value: Int
+	success_max_value: Int
+	success_min_value: Int
 }
 
 type Stat {
@@ -145,7 +168,22 @@ type Weapon implements DBEntry {
 	desc: Text
 	thumb: String
 	category: Text
+
+	weapon_max_level: Int
 	classImg: String
+	price_player_sells: Int
+	price_player_buys: Int
+	elementImg: String
+	stats: [LevelParams]!
+	abilities: [Ability]!
+	recipe: Recipe
+	treasureSources: [TreasureSource]
+}
+
+type TreasureSource {
+	location: GameMap
+	name: Text
+	probability: Int
 }
 
 type Skill implements DBEntry {

@@ -95,8 +95,10 @@
 							/>
 							<div class="grid">
 								<b>{entry.name[$userLocale]}</b>
-								<span>{entry.category[$userLocale]}</span>
-								<span>ID: {entry.id}</span>
+								<span class={`${entry.__typename}`}
+									>{entry.category[$userLocale]}</span
+								>
+								<span class="entry-id">ID: {entry.id}</span>
 							</div>
 							{#if entry.classImg}
 								<img
@@ -169,7 +171,7 @@
 			font-size: initial;
 		}
 
-		span {
+		span.entry-id {
 			color: var(--text2);
 		}
 

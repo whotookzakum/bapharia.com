@@ -4,6 +4,7 @@
 	import { userLocale } from "$lib/stores";
 	import Item from "./templates/Item.svelte";
 	import Imagine from "./templates/Imagine.svelte";
+    import Weapon from "./templates/Weapon.svelte";
 
 	export let entryId;
 
@@ -105,6 +106,72 @@
 						}
 					}
 				}
+				... on Weapon {
+					weapon_max_level
+					price_player_sells
+					price_player_buys
+					classImg
+					elementImg
+					stats {
+						level
+						attribute_value
+						offensive_power
+						str
+						vit
+						dex
+						mnd
+						int
+						defensive_power
+						critical_power
+					}
+					abilities {
+						probability
+						name {
+							ja_JP
+							en_US
+						}
+						big_success_max_value
+						big_success_min_value
+						success_max_value
+						success_min_value
+					}
+					recipe {
+						difficulty
+						use_money
+						base_ability_rate1
+						base_ability_rate2
+						base_ability_rate3
+						base_ability_rate4
+						bonus_rate
+						great_success_tokens
+						materials {
+							id
+							need_num
+							name {
+								ja_JP
+								en_US
+							}
+							sourceDesc {
+								ja_JP
+								en_US
+							}
+						}
+					}
+					treasureSources {
+						location {
+							id
+							name {
+								ja_JP
+								en_US
+							}
+						}
+						name {
+							ja_JP
+							en_US
+						}
+						probability
+					}
+				}
 			}
 		}
 	`);
@@ -134,8 +201,14 @@
 									.imagine_max_level})</span
 							>
 						{/if}
+						{#if $entry.data.entry.weapon_max_level}
+							<span
+								>(Lv. {$entry.data.entry
+									.weapon_max_level})</span
+							>
+						{/if}
 					</h3>
-					<span>{$entry.data.entry.category[$userLocale]}</span>
+					<span class={`${$entry.data.entry.__typename}`}>{$entry.data.entry.category[$userLocale]}</span>
 					<span>ID: {$entry.data.entry.id}</span>
 					<img
 						class="element-img"
@@ -151,6 +224,9 @@
 					{/if}
 					{#if $entry.data.entry.__typename === "Imagine"}
 						<Imagine data={$entry.data.entry} />
+					{/if}
+					{#if $entry.data.entry.__typename === "Weapon"}
+						<Weapon data={$entry.data.entry} />
 					{/if}
 				</div>
 			{/if}

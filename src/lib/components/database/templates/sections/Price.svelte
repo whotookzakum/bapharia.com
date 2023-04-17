@@ -1,5 +1,6 @@
 <script>
-    export let sellPrice, buyPrice, no_sale_flag;
+    export let sellPrice, buyPrice;
+    export let no_sale_flag = null;
 </script>
 
 {#if !no_sale_flag && sellPrice}
@@ -15,7 +16,7 @@
     </div>
 {/if}
 
-{#if buyPrice && buyPrice !== 99999 && buyPrice !== 1}
+{#if buyPrice && buyPrice !== 99999 && buyPrice !== 1 && buyPrice !== 999999999}
     <div>
         Buy for {buyPrice}
         <img

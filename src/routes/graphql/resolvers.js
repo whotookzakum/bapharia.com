@@ -517,6 +517,7 @@ function findObjectByItemId(objectsArray, innerObject, itemId, keyToFind) {
 export const getWeapons = () => {
     const weapons = weaponsData.map(weapon => {
         const name = getText("weapon_text", weapon.name)
+        const desc = getText("weapon_text", weapon.desc)
         const classImg =
             weapon.equip_class > 10
                 ? `/UI/Icon/Class/UI_IconClass_${weapon.equip_class}.png`
@@ -554,6 +555,7 @@ export const getWeapons = () => {
                 const itemData = itemsData.find(item => item.id === mat.item_id)
                 return {
                     ...mat,
+                    id: `${itemData.id}`,
                     name: getText("item_text", itemData.name),
                     sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
                 }
@@ -563,12 +565,12 @@ export const getWeapons = () => {
         const abilities = masterPerkPicks.filter(perk => perk.table_id === weapon.level_table).map(currentPerk => {
             const weaponPerk = weaponPerks.find(perk => perk.id === currentPerk.perk_id)
             let perkData = perksData.find(perk => perk.id === weaponPerk.perk_id)
-            const perk_name = getText("perk_text", perkData.ability_name1)
+            const name = getText("perk_text", perkData.ability_name1)
 
             return {
                 ...currentPerk,
                 probability: currentPerk.weight,
-                perk_name
+                name
             }
         })
 
@@ -592,9 +594,12 @@ export const getWeapons = () => {
                     const dropData = enemyData.drop_items.find(drop => drop.item_index === treasureData.id)
                     treasureSources.push(
                         {
-                            sourceDesc: getText("enemyparam_text", enemyData.name_id),
-                            probability: dropData.drop_rate / 100,
-                            location: dropData.content_id
+                            name: getText("enemyparam_text", enemyData.name_id),
+                            probability: dropData.drop_rate,
+                            location: {
+                                id: dropData.content_id,
+                                name: getMapName(dropData.content_id)
+                            }
                         }
                     )
                 }
@@ -605,6 +610,7 @@ export const getWeapons = () => {
             ...weapon,
             id: `${weapon.id}`,
             name,
+            desc,
             thumb: `/UI/Icon/Weapon/UI_Icon_${weapon.id}.png`,
             classImg,
             stats,
@@ -832,6 +838,14 @@ export const getSkills = () => {
     })
 
     return result
+}
+
+function getMapName(id) {
+    const mapData = mapsData.find(map => map.map_id.toLowerCase() === id.toLowerCase())
+    return {
+        ja_JP: mapData?.name || "-",
+        en_US: mapData?.name_en || mapData?.name_jp_cbt || mapData?.name_translated || "-"
+    }
 }
 
 export const getMaps = () => {
