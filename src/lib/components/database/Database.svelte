@@ -58,10 +58,28 @@
 				}
 				... on Weapon {
 					classImg
+					attribute
 				}
 			}
 		}
 	`);
+
+	function getAttributeImg(value) {
+		switch (value) {
+			case 6:
+				return 5;
+			case 5:
+				return 2;
+			case 4:
+				return 3;
+			case 3:
+				return 1;
+			case 2:
+				return 4;
+			case 7:
+				return 6;
+		}
+	}
 </script>
 
 <h2 id="db">Database</h2>
@@ -94,21 +112,34 @@
 								loading="lazy"
 							/>
 							<div class="grid">
-								<b>{entry.name[$userLocale]}</b>
-								<span class={`${entry.__typename}`}
-									>{entry.category[$userLocale]}</span
-								>
-								<span class="entry-id">ID: {entry.id}</span>
+								<div class="skip-std">
+									{entry.name[$userLocale]}
+								</div>
+								<div class={`${entry.__typename}`}>
+									{entry.category[$userLocale]}
+								</div>
+								<div class="entry-id">ID: {entry.id}</div>
 							</div>
-							{#if entry.classImg}
-								<img
-									class="class-icon"
-									src={entry.classImg}
-									alt=""
-									width="32"
-									height="32"
-								/>
-							{/if}
+							<div class="extra-icons">
+								<!-- {#if entry.classImg}
+									<img
+										src={entry.classImg}
+										alt=""
+										width="32"
+										height="32"
+									/>
+								{/if} -->
+								{#if entry.attribute > 0}
+									<img
+										src={`/images/elements/UI_IconAttribute_${getAttributeImg(
+											entry.attribute
+										)}.png`}
+										alt=""
+										width="32"
+										height="32"
+									/>
+								{/if}
+							</div>
 						</button>
 					</li>
 				{/each}
@@ -123,13 +154,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
-	}
-
-	.class-icon {
-		position: absolute;
-		bottom: 0.8rem;
-		right: 0.8rem;
-		opacity: 0.5;
 	}
 
 	@media (max-width: 800px) {
@@ -167,11 +191,7 @@
 			}
 		}
 
-		b {
-			font-size: initial;
-		}
-
-		span.entry-id {
+		.entry-id {
 			color: var(--text2);
 		}
 
@@ -186,6 +206,7 @@
 			border: none;
 			text-align: left;
 			line-height: 1.4;
+			// font-weight: 100;
 
 			&:hover,
 			&:focus-visible {
@@ -196,5 +217,13 @@
 				border-radius: 5px;
 			}
 		}
+	}
+
+	.extra-icons {
+		position: absolute;
+		opacity: 0.4;
+		display: flex;
+		top: 0.8rem;
+		right: 0.8rem;
 	}
 </style>
