@@ -10,7 +10,7 @@
 <DungeonOnly isTrue={data.dungeon_only} />
 <Price
     no_sale_flag={data.no_sale_flag}
-    salePrice={data.price_player_sells}
+    sellPrice={data.price_player_sells}
     buyPrice={data.price_player_buys}
 />
 <ItemExp value={data.item_exp} />

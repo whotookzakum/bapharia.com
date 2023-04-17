@@ -2,8 +2,8 @@
 	import { graphql } from "$houdini";
 	import Icon from "@iconify/svelte";
 	import { userLocale } from "$lib/stores";
-    import Item from "./templates/Item.svelte";
-    import Imagine from "./templates/Imagine.svelte";
+	import Item from "./templates/Item.svelte";
+	import Imagine from "./templates/Imagine.svelte";
 
 	export let entryId;
 
@@ -83,6 +83,22 @@
 						stats {
 							value
 							name {
+								ja_JP
+								en_US
+							}
+						}
+					}
+					recipe {
+						adventurer_rank
+						price
+						materials {
+							id
+							amount
+							name {
+								ja_JP
+								en_US
+							}
+							sourceDesc {
 								ja_JP
 								en_US
 							}

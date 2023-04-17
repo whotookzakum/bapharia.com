@@ -74,6 +74,21 @@ type Imagine implements DBEntry {
 	elementImg: String
 	params: [ImagineParams]!
 	abilities: [Ability]!
+	recipe: Recipe
+}
+
+type Recipe {
+	adventurer_rank: Int
+	price: Int
+	materials: [Material]!
+}
+
+# Similar to Item
+type Material {
+	id: String!
+	amount: Int
+	name: Text
+	sourceDesc: Text
 }
 
 type ImagineParams {
@@ -130,6 +145,7 @@ type Weapon implements DBEntry {
 	desc: Text
 	thumb: String
 	category: Text
+	classImg: String
 }
 
 type Skill implements DBEntry {

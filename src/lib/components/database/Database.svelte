@@ -9,6 +9,8 @@
 	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
 	let userSelectedEntryId = $page.url.searchParams.get("result");
+
+	// Bugged: blocks link navigation since its reacting to page.url updates as well
 	$: if (browser) {
 		userSearchInput
 			? $page.url.searchParams.set("search", userSearchInput)
@@ -54,6 +56,9 @@
 					ja_JP
 					en_US
 				}
+				... on Weapon {
+					classImg
+				}
 			}
 		}
 	`);
@@ -93,6 +98,15 @@
 								<span>{entry.category[$userLocale]}</span>
 								<span>ID: {entry.id}</span>
 							</div>
+							{#if entry.classImg}
+								<img
+									class="class-icon"
+									src={entry.classImg}
+									alt=""
+									width="32"
+									height="32"
+								/>
+							{/if}
 						</button>
 					</li>
 				{/each}
@@ -107,6 +121,13 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
+	}
+
+	.class-icon {
+		position: absolute;
+		bottom: 0.8rem;
+		right: 0.8rem;
+		opacity: 0.5;
 	}
 
 	@media (max-width: 800px) {
@@ -136,6 +157,7 @@
 		// min-height: 454px;
 
 		li {
+			position: relative;
 			max-inline-size: none;
 
 			&:not(:last-child) {

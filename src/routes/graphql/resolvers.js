@@ -33,7 +33,7 @@ function getText(ns, id) {
     let result = {};
     Object.keys(texts).forEach(lang => {
         const namespaceObj = texts[lang].find(namespace => namespace.name === ns) || {}
-        const textObj = namespaceObj.texts.find(obj => obj.id === id) || {}
+        const textObj = namespaceObj.texts.find(obj => obj.id == id) || {}
         result[lang] = textObj.text || "-"
     })
     return result
@@ -379,6 +379,7 @@ export const getImagines = () => {
             const itemData = itemsData.find(item => item.id === mat.item_id)
             return {
                 ...mat,
+                id: `${itemData.id}`,
                 name: getText("item_text", itemData.name),
                 sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
             }
