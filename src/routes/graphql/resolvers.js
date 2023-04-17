@@ -176,23 +176,30 @@ function getCategory(entryType, category) {
     }
 }
 
-function getThumbnail(category, id) {
-    switch (category) {
-        case 0: return `/UI/Icon/Item/Consumption/UI_Icon_${id}.png`
-        case 2: return `/UI/Icon/Item/Material/UI_Icon_Fusion_1.png`
-        case 4: return `/UI/Icon/Item/EnemyMaterial/UI_Icon_Idea.png`
-        case 6: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png`
-        case 7: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Random.png`
-        case 1:
-        // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
-        case 3:
-        // ``
-        case 5:
-        // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
-        // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
-        // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
-        // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
-        default: return `/UI/Icon/Common/UI_Icon_Empty.png`
+function getThumbnail(entryType, category, id) {
+
+    if (entryType === "enemy" || entryType === "map" || entryType === "liquidMemory" || entryType === "stamp") {
+        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+    }
+
+    if (entryType === "item") {
+        switch (category) {
+            case 0: return `/UI/Icon/Item/Consumption/UI_Icon_${id}.png`
+            case 2: return `/UI/Icon/Item/Material/UI_Icon_Fusion_1.png`
+            case 4: return `/UI/Icon/Item/EnemyMaterial/UI_Icon_Idea.png`
+            case 6: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png`
+            case 7: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Random.png`
+            case 1:
+            // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
+            case 3:
+            // ``
+            case 5:
+            // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
+            // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
+            // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
+            // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
+            default: return `/UI/Icon/Common/UI_Icon_Empty.png`
+        }
     }
 }
 
@@ -203,7 +210,7 @@ export const getItems = () => {
         const desc = getText("item_text", item.desc)
         const sourceDesc = getText("item_text", item.obtaining_route_detail_id)
         const effectDesc = getText("item_text", item.item_effect_desc_text)
-        const thumb = getThumbnail(item.category, item.id)
+        const thumb = getThumbnail("item", item.category, item.id)
         const category = getCategory("item", item.category)
 
         return {
@@ -259,6 +266,7 @@ export const getEnemies = () => {
             id: enemy.enemy_id,
             name,
             drops,
+            thumb: getThumbnail("enemy"),
             category: getCategory("enemy", enemy.is_boss),
             filterGroup: "enemies"
         }
@@ -460,6 +468,7 @@ export const getLiquidMemories = () => {
             ...memory,
             id: `${memory.id}`,
             name,
+            thumb: getThumbnail("liquidMemory"),
             accumulate_condition_parameters: accumulate,
             category: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
             filterGroup: "liquidMemories"
@@ -475,9 +484,9 @@ export const getStampSets = () => {
             ...stampSet,
             id: `${stampSet.category_id}`,
             name,
+            thumb: getThumbnail("map"),
             category: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
             filterGroup: "stampSets"
-
         }
     })
     return stampSets
@@ -857,6 +866,7 @@ export const getMaps = () => {
                 ja_JP: map.name,
                 en_US: map.name_en || map.name_jp_cbt || map.name_translated
             },
+            thumb: getThumbnail("map"),
             category: getCategory("map", map.map_id),
             filterGroup: "maps"
         }

@@ -3,8 +3,8 @@
 	import { goto } from "$app/navigation";
 	import { browser } from "$app/environment";
 	import { graphql } from "$houdini";
-	import DatabaseDetails from "./DatabaseDetails.svelte";
 	import { userLocale } from "$lib/stores";
+	import DatabaseDetails from "./DatabaseDetails.svelte";
 	import EntrySummary from "./EntrySummary.svelte";
 
 	// URL updates
@@ -64,6 +64,11 @@
 			}
 		}
 	`);
+
+	const placeholderText = {
+		ja_JP: "アイテム名かIDで検索",
+		en_US: "Start typing item name or id"
+	}
 </script>
 
 <h2 id="db">Database</h2>
@@ -75,19 +80,16 @@
 				class="box"
 				id="search-box"
 				type="search"
-				placeholder="Start typing item name or id"
+				placeholder={placeholderText[$userLocale]}
 				bind:value={userSearchInput}
 			/>
 		</div>
-		{#if $entries.fetching}
-			<div>LOADING</div>
-		{:else}
+		{#if !$entries.fetching}
 			<ul id="search-results" class="box">
 				{#each $entries.data.entries as entry}
 					<li>
 						<button
-							on:click={() => (userSelectedEntryId = entry.id)}
-						>
+							on:click={() => (userSelectedEntryId = entry.id)}>
 							<EntrySummary data={entry} />
 						</button>
 					</li>
@@ -123,7 +125,7 @@
 	}
 
 	ul#search-results {
-		list-style: none;
+		list-style-type: none;
 		padding: 0;
 		margin: 0;
 		display: block;
@@ -132,16 +134,11 @@
 		// min-height: 454px;
 
 		li {
-			position: relative;
 			max-inline-size: none;
 
 			&:not(:last-child) {
 				border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 			}
-		}
-
-		.entry-id {
-			color: var(--text2);
 		}
 
 		button {
@@ -151,7 +148,6 @@
 			background: none;
 			border: none;
 			text-align: left;
-			
 
 			&:hover,
 			&:focus-visible {

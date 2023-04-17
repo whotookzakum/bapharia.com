@@ -1,4 +1,4 @@
-import texts from "$lib/apiextAGS/texts/en_US.json";
+import texts from "../../graphql/global/texts/en_US.json";
 import tokensData from "../../graphql/japan/token.json";
 
 function getText(ns, id) {
