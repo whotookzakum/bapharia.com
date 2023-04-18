@@ -79,7 +79,7 @@
 <div class="entry-summary flex" class:more-details={moreDetails}>
     <img
         src={data.thumb}
-        style={`background-image: url(${data.skillBackgroundImg}); background-repeat: no-repeat`}
+        style={`background-image: url(${data.skillBackgroundImg || ""}); background-repeat: no-repeat`}
         alt=""
         width="64"
         height="64"

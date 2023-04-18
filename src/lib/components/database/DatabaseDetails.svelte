@@ -10,6 +10,7 @@
     import StampSet from "./templates/StampSet.svelte";
     import LiquidMemory from "./templates/LiquidMemory.svelte";
     import Skill from "./templates/Skill.svelte";
+    import Map from "./templates/Map.svelte";
 
 	export let entryId;
 
@@ -221,6 +222,9 @@
 						condition_class_level
 					}
 				}
+				... on GameMap {
+					mapImages
+				}
 			}
 		}
 	`);
@@ -261,6 +265,10 @@
 						<Skill data={$entry.data.entry} />
 					{/if}
 					<!-- Gestures have no data -->
+					{#if $entry.data.entry.__typename === "GameMap"}
+						<Map data={$entry.data.entry} />
+					{/if}
+					<!-- Enemies -->
 				</div>
 			{/if}
 		</article>

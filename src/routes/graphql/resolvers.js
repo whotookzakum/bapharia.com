@@ -237,7 +237,35 @@ function getCategory(entryType, category) {
 
 function getThumbnail(entryType, category, id) {
 
-    if (entryType === "enemy" || entryType === "map" || entryType === "liquidMemory" || entryType === "stamp") {
+    if (entryType === "map") {
+        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+        return `/UI/Icon/QuestJournal/UI_QuestJournal_Adventure_L.png`
+    }
+
+    if (entryType === "enemy") {
+        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+        return `/UI/Icon/Unidentified/UI_Icon_Unidentified_0.png`
+    }
+
+    if (entryType === "liquidMemory") {
+        switch (id) {
+            case 12: // increased enemy drop rate
+            case 22: // increased enemy exp
+            case 10: // faster gathering speed
+            case 20: // greater harvest when gathering
+                return `/images/liquidMemory/orange.png`
+            case 18: // increased alliance exp
+                return `/images/liquidMemory/purple.png`
+            case 17: // more GC from missions
+                return `/images/liquidMemory/blue.png`
+            case 21: // reduce luno cost when crafting weapons
+            case 19: // increased profits when selling
+            case 15: // cheaper prices from npc shops
+                return `/images/liquidMemory/green.png`
+        }
+    }
+
+    if (entryType === "stamp") {
         return `/UI/Icon/Class/UI_IconClass_Nodata.png`
     }
 
@@ -527,7 +555,7 @@ export const getLiquidMemories = () => {
             ...memory,
             id: `${memory.id}`,
             name,
-            thumb: getThumbnail("liquidMemory"),
+            thumb: getThumbnail("liquidMemory", _, memory.id),
             accumulate_condition_parameters: accumulate,
             category: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
             filterGroup: "liquidMemories"
