@@ -1,13 +1,13 @@
 <script>
 	import { graphql } from "$houdini";
 	import Icon from "@iconify/svelte";
-	import { userLocale } from "$lib/stores";
 	import Item from "./templates/Item.svelte";
 	import Imagine from "./templates/Imagine.svelte";
     import Weapon from "./templates/Weapon.svelte";
     import Costume from "./templates/Costume.svelte";
     import EntrySummary from "./EntrySummary.svelte";
     import Token from "./templates/Token.svelte";
+    import StampSet from "./templates/StampSet.svelte";
 
 	export let entryId;
 
@@ -175,6 +175,11 @@
 						probability
 					}
 				}
+				... on StampSet {
+					stamp_data {
+						stamp_id
+					}
+				}
 			}
 		}
 	`);
@@ -204,6 +209,9 @@
 					{/if}
 					{#if $entry.data.entry.__typename === "Token"}
 						<Token data={$entry.data.entry} />
+					{/if}
+					{#if $entry.data.entry.__typename === "StampSet"}
+						<StampSet data={$entry.data.entry} />
 					{/if}
 				</div>
 			{/if}

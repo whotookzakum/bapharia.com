@@ -20,72 +20,76 @@
         }
     }
 
-    let categoryText = data.__typename;
-    if (data.__typename === "Enemy") {
-        categoryText = {
-            ja_JP: "エネミー",
-            en_US: "Enemy",
-        };
-    }
-    if (data.__typename === "Item") {
-        categoryText = {
-            ja_JP: "アイテム",
-            en_US: "Item",
-        };
-    }
-    if (data.__typename === "Weapon") {
-        categoryText = {
-            ja_JP: "武器",
-            en_US: "Weapon",
-        };
-    }
-    if (data.__typename === "Skill") {
-        categoryText = {
-            ja_JP: "スキル",
-            en_US: "Skill",
-        };
-    }
-    if (data.__typename === "Gesture") {
-        categoryText = {
-            ja_JP: "ジェスチャー",
-            en_US: "Emote",
-        };
-    }
-    if (data.__typename === "StampSet") {
-        categoryText = {
-            ja_JP: "スタンプセット",
-            en_US: "Stamp Set",
-        };
-    }
-    if (data.__typename === "LiquidMemory") {
-        categoryText = {
-            ja_JP: "リキッドメモリ",
-            en_US: "Liquid Memory",
-        };
-    }
-    if (data.__typename === "Imagine") {
-        categoryText = {
-            ja_JP: "イマジン",
-            en_US: "Echo",
-        };
-    }
-    if (data.__typename === "Token") {
-        categoryText = {
-            ja_JP: "トークン",
-            en_US: "Token",
-        };
-    }
-    if (data.__typename === "GameMap") {
-        categoryText = {
-            ja_JP: "マップ",
-            en_US: "Map",
-        };
-    }
-    if (data.__typename === "Costume") {
-        categoryText = {
-            ja_JP: "コスチューム",
-            en_US: "Costume",
-        };
+    let categoryText;
+
+    $: {
+        categoryText = data.__typename;
+        if (data.__typename === "Enemy") {
+            categoryText = {
+                ja_JP: "エネミー",
+                en_US: "Enemy",
+            };
+        }
+        if (data.__typename === "Item") {
+            categoryText = {
+                ja_JP: "アイテム",
+                en_US: "Item",
+            };
+        }
+        if (data.__typename === "Weapon") {
+            categoryText = {
+                ja_JP: "武器",
+                en_US: "Weapon",
+            };
+        }
+        if (data.__typename === "Skill") {
+            categoryText = {
+                ja_JP: "スキル",
+                en_US: "Skill",
+            };
+        }
+        if (data.__typename === "Gesture") {
+            categoryText = {
+                ja_JP: "ジェスチャー",
+                en_US: "Emote",
+            };
+        }
+        if (data.__typename === "StampSet") {
+            categoryText = {
+                ja_JP: "スタンプセット",
+                en_US: "Stamp Set",
+            };
+        }
+        if (data.__typename === "LiquidMemory") {
+            categoryText = {
+                ja_JP: "リキッドメモリ",
+                en_US: "Liquid Memory",
+            };
+        }
+        if (data.__typename === "Imagine") {
+            categoryText = {
+                ja_JP: "イマジン",
+                en_US: "Echo",
+            };
+        }
+        if (data.__typename === "Token") {
+            categoryText = {
+                ja_JP: "トークン",
+                en_US: "Token",
+            };
+        }
+        if (data.__typename === "GameMap") {
+            categoryText = {
+                ja_JP: "マップ",
+                en_US: "Map",
+            };
+        }
+        if (data.__typename === "Costume") {
+            categoryText = {
+                ja_JP: "コスチューム",
+                en_US: "Costume",
+            };
+        }
     }
 </script>
 
@@ -106,7 +110,9 @@
                 {/if}
             </h3>
             <div>
-                <span class={`${data.__typename} box pill`}>{data.category[$userLocale]}</span>
+                <span class={`${data.__typename} box pill`}
+                    >{data.category[$userLocale]}</span
+                >
                 <span class="entry-id box pill">ID: {data.id}</span>
             </div>
         {:else}
@@ -114,7 +120,9 @@
                 {data.name[$userLocale]}
             </div>
             <div>
-                <span class={`${data.__typename} box pill`}>{categoryText[$userLocale]}</span>
+                <span class={`${data.__typename} box pill`}
+                    >{categoryText[$userLocale]}</span
+                >
                 <span class="entry-id box pill">ID: {data.id}</span>
             </div>
         {/if}
@@ -201,11 +209,11 @@
         --h: 60;
     }
 
-    .Item {
-        --h: 120;
+    .StampSet {
+        --h: 90;
     }
 
-    .StampSet {
+    .Item {
         --h: 120;
     }
 
