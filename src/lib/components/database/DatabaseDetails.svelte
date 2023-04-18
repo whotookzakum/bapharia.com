@@ -7,6 +7,7 @@
     import Weapon from "./templates/Weapon.svelte";
     import Costume from "./templates/Costume.svelte";
     import EntrySummary from "./EntrySummary.svelte";
+    import Token from "./templates/Token.svelte";
 
 	export let entryId;
 
@@ -188,7 +189,7 @@
 				<header>
 					<EntrySummary data={$entry.data.entry} moreDetails />
 				</header>
-				<div class:collapsed={detailsCollapsed}>
+				<div class="entry-details" class:collapsed={detailsCollapsed}>
 					{#if $entry.data.entry.__typename === "Item"}
 						<Item data={$entry.data.entry} />
 					{/if}
@@ -200,6 +201,9 @@
 					{/if}
 					{#if $entry.data.entry.__typename === "Costume"}
 						<Costume data={$entry.data.entry} />
+					{/if}
+					{#if $entry.data.entry.__typename === "Token"}
+						<Token data={$entry.data.entry} />
 					{/if}
 				</div>
 			{/if}
@@ -222,6 +226,12 @@
 
 <style lang="scss">
 	.details-pane {
+		div.box {
+			padding: 0;
+			overflow: visible;
+			border: none;
+		}
+
 		article {
 			border: 1px solid var(--surface2);
 			border-top-right-radius: 5px;
@@ -230,45 +240,13 @@
 			padding: 1rem;
 		}
 
-		div.box {
-			padding: 0;
-			overflow: visible;
-			border: none;
-		}
-
 		header {
-			display: grid;
-			grid-template-columns: auto 1fr;
-			align-items: center;
-			column-gap: 1rem;
 			padding-bottom: 1rem;
-			line-height: 1.4;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-			position: relative;
-
-			img {
-				grid-row: span 3;
-			}
-
-			h3 {
-				margin: 0;
-				font-size: var(--step-1);
-			}
-
-			span {
-				color: var(--text2);
-				// font-size: var(--step--1);
-			}
 		}
 
-		h4 {
-			margin: 0;
-			font-size: var(--step-0);
-		}
-
-		p {
-			margin: 0;
-			line-height: initial;
+		.entry-details {
+			padding-top: 1rem;
 		}
 
 		.collapsed {

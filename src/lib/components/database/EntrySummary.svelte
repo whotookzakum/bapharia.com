@@ -96,13 +96,13 @@
             <h3>
                 {data.name[$userLocale]}
                 {#if data.item_level}
-                    <span>(Lv. {data.item_level})</span>
+                    <i>(Lv. {data.item_level})</i>
                 {/if}
                 {#if data.imagine_max_level}
-                    <span>(Lv. {data.imagine_max_level})</span>
+                    <i>(Lv. {data.imagine_max_level})</i>
                 {/if}
                 {#if data.weapon_max_level}
-                    <span>(Lv. {data.weapon_max_level})</span>
+                    <i>(Lv. {data.weapon_max_level})</i>
                 {/if}
             </h3>
             <div>
@@ -153,6 +153,12 @@
             margin: 0;
             font-size: var(--step-0);
             max-inline-size: unset;
+        }
+
+        i {
+            font-style: normal;
+            font-size: var(--step--1);
+            color: var(--accent);
         }
     }
 
