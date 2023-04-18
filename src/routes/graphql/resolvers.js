@@ -235,7 +235,7 @@ function getCategory(entryType, category) {
     }
 }
 
-function getThumbnail(entryType, category, id) {
+function getThumbnail(entryType, category, id, class_type) {
 
     if (entryType === "map") {
         return `/UI/Icon/Class/UI_IconClass_Nodata.png`
@@ -287,6 +287,52 @@ function getThumbnail(entryType, category, id) {
             // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
             default: return `/UI/Icon/Common/UI_Icon_Empty.png`
         }
+    }
+
+    if (entryType === "skill") {
+        // Dummy Action
+        if (id === 102) {
+            return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+        }
+        switch (category) {
+            case 0: // && skill.is_default_skill
+                return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Main.png`
+            case 1: // && skill.is_default_skill
+                return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Sub.png`
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                return `/UI/Icon/PlayerSkill/Class${class_type}/UI_PlayerSkill_${id}.png`
+            case 6: 
+                return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png`
+            case 8:
+                return `/UI/Icon/PlayerAbility/Class/Class${class_type}/UI_PlayerAbilityC_${id}.png`
+            case 9: 
+                return `/UI/Icon/PlayerAbility/Base/Class${class_type}/UI_PlayerAbilityB_${id}.png`
+            case 7: // Dodge
+            case 10: // Aerial attack
+            case 11: // ???
+            case 12: // Springboard jump
+            case 13: // Ukemi 
+            default: 
+                return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+        }
+    }
+
+    if (entryType === "costume") {
+        // Pure F Cherry underwear
+        if (id.includes("190000405")) {
+            return `/UI/Icon/Common/UI_Icon_Empty.png`
+        }
+        return `/UI/Icon/Costume/${category}/${id}.png`
+    }
+
+    if (entryType === "token") {
+        if (id === 149000100 || id === 120000900) {
+            return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+        }
+        return `/UI/Icon/Token/UI_Icon_${id}.png`
     }
 }
 
@@ -384,7 +430,7 @@ export const getCostumes = () => {
         const name = getText("costume_text", costume.name)
         const desc = getText("costume_text", costume.desc)
         const pathToThumb = getPartsPath(costume.costume_parts_name)
-        const thumb = pathToThumb ? `/UI/Icon/Costume/${pathToThumb}/${costume.icon_name}.png` : ""
+        const thumb = getThumbnail("costume", pathToThumb, costume.icon_name)
 
         return {
             ...costume,
@@ -583,7 +629,7 @@ export const getTokens = () => {
     const tokens = tokensData.map(token => {
         const name = getText("master_token_text", token.name)
         const desc = getText("master_token_text", token.desc)
-        const thumb = `/UI/Icon/Token/UI_Icon_${token.id}.png`
+        const thumb = getThumbnail("token", _, token.id)
 
         return {
             ...token,
@@ -838,15 +884,6 @@ function getElementImg(skill) {
     return `/UI/Icon/Attribute/UI_IconAttribute_Empty.png`
 }
 
-function getSkillThumbnail(skill) {
-    if (skill.is_default_skill && skill.skill_type === 0) return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Main.png`
-    if (skill.is_default_skill && skill.skill_type === 1) return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Sub.png`
-    if (skill.skill_type === 8) return `/UI/Icon/PlayerAbility/Class/Class${skill.class_type}/UI_PlayerAbilityC_${skill.skill_id}.png`
-    if (skill.skill_type === 9) return `/UI/Icon/PlayerAbility/Base/Class${skill.class_type}/UI_PlayerAbilityB_${skill.skill_id}.png`
-    if (skill.skill_type === 6) return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png`
-    return `/UI/Icon/PlayerSkill/Class${skill.class_type}/UI_PlayerSkill_${skill.skill_id}.png`
-}
-
 export const getSkills = () => {
 
     const result = skillsData.reduce((acc, curr) => {
@@ -873,7 +910,7 @@ export const getSkills = () => {
         // If skill does not have a condition_skill_id_1, add it to the result array
         const name = getText("master_skill_data_text", curr.skill_name)
         const desc = getText("master_skill_data_text", curr.skill_desc_array[curr.skill_desc_array.length - 1].desc)
-        const thumb = getSkillThumbnail(curr)
+        const thumb = getThumbnail("skill", curr.skill_type, curr.skill_id, curr.class_type)
         const classImg = getClassThumbnail(curr.class_type)
         const skillBackgroundImg = getSkillTypeImg(curr)
         const elementImg = getElementImg(curr)
