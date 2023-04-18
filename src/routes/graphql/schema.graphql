@@ -144,6 +144,26 @@ type LiquidMemory implements DBEntry {
 	desc: Text
 	thumb: String
 	category: Text
+
+	efficacy_parameters: [LMEffect]!
+	accumulate_condition_parameters: [LMChargeCondition]!
+	bottle_accumulate_limit: Int
+}
+
+type LMEffect {
+	desc: Text
+	occurancy_rate: Int
+	cost: Int
+}
+
+type LMChargeCondition {
+	desc: Text
+	rates: [LMChargeRate]!
+}
+
+type LMChargeRate {
+	accumulate_value: Int
+	lottery_rate: Int
 }
 
 type StampSet implements DBEntry {

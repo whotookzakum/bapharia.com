@@ -8,6 +8,7 @@
     import EntrySummary from "./EntrySummary.svelte";
     import Token from "./templates/Token.svelte";
     import StampSet from "./templates/StampSet.svelte";
+    import LiquidMemory from "./templates/LiquidMemory.svelte";
 
 	export let entryId;
 
@@ -180,6 +181,27 @@
 						stamp_id
 					}
 				}
+				... on LiquidMemory {
+					bottle_accumulate_limit
+					efficacy_parameters {
+						desc {
+							ja_JP
+							en_US
+						}
+						occurancy_rate
+						cost
+					}
+					accumulate_condition_parameters {
+						desc {
+							ja_JP
+							en_US
+						}
+						rates {
+							accumulate_value
+							lottery_rate
+						}
+					}
+				}
 			}
 		}
 	`);
@@ -212,6 +234,9 @@
 					{/if}
 					{#if $entry.data.entry.__typename === "StampSet"}
 						<StampSet data={$entry.data.entry} />
+					{/if}
+					{#if $entry.data.entry.__typename === "LiquidMemory"}
+						<LiquidMemory data={$entry.data.entry} />
 					{/if}
 				</div>
 			{/if}

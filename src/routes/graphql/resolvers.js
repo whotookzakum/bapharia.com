@@ -421,7 +421,7 @@ export const getLiquidMemories = () => {
         memory.efficacy_parameters = memory.efficacy_parameters.map(level => {
             // Currently all liquid memories use "use_count" and not "use_time"
             const desc = getText("master_liquid_memory_text", level.efficacy_value_desc)
-            desc.en_US = desc.en_US.replace("{value}", level.efficacy_value).replace("{count}", level.use_count)
+            desc.en_US = desc.en_US.replace("{value}", level.efficacy_value).replace("{count}", level.use_count).replace("(Not Visible in Live Build) ", "")
             desc.ja_JP = desc.ja_JP.replace("{value}", level.efficacy_value).replace("{count}", level.use_count).replace("(実機非表示)", "")
 
             return {
