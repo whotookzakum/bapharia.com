@@ -41,6 +41,65 @@ function getText(ns, id) {
 
 function getCategory(entryType, category) {
 
+    if (entryType === "skill") {
+        switch (category) {
+            case 0: // LMB
+            case 1: // RMB
+                return {
+                    ja_JP: "ベースアクション",
+                    en_US: "Basic Attack"
+                }
+            case 2: // Tac skill attack
+            case 3: // Tac skill attack
+            case 4: // Tac skill attack
+            case 5:  // Tac skill buff
+                return {
+                    ja_JP: "タクティカルスキル",
+                    en_US: "Tactical Skill",
+                }
+            case 6: 
+                return {
+                    ja_JP: "ULTスキル",
+                    en_US: "Ultimate Attack",
+                }
+            case 7: 
+                return {
+                    ja_JP: "回避",
+                    en_US: "Dodge",
+                }
+            case 8: 
+                return {
+                    ja_JP: "クラスアビリティ",
+                    en_US: "Class Ability",
+                }
+            case 9: 
+                return {
+                    ja_JP: "ベースアビリティ",
+                    en_US: "Base Ability", // All classes
+                }
+            case 10: 
+                return {
+                    ja_JP: "エリアル攻撃",
+                    en_US: "Aerial Attack",
+                }
+            case 11: 
+                return {
+                    ja_JP: "？？？",
+                    en_US: "???",
+                }
+            case 12: 
+                return {
+                    ja_JP: "踏み台ジャンプ",
+                    en_US: "Springboard Jump",
+                }
+            case 13: 
+                return {
+                    ja_JP: "受け身",
+                    en_US: "受け身",
+                }
+        }
+    }
+
     if (entryType === "map") {
         if (category.includes("dng") || category.includes("Dng")) {
             return {
@@ -647,37 +706,6 @@ function getClassThumbnail(classId) {
     return `/UI/Icon/Class/UI_IconClass_${classId}.png`
 }
 
-function getSkillType(skillType) {
-    // Skill type 0 = LMB
-    // Skill type 1 = RMB
-    // Skill type 2, 3, 4 = Tactical skill (attack)
-    // Skill type 5 = Tactical skill (Buff)
-    // Skill type 6 = Ultimate
-    // Skill type 7 = Dodge
-    // Skill type 8 = Class-specific passive
-    // Skill type 9 = General passive
-    // Skill type 10 = Aerial attack?
-    // Skill type 11 = Hat trick????
-    // Skill type 12 = Springboard jump attack
-    // Skill type 13 = Ukemi???
-    switch (skillType) {
-        case 0:
-        case 1: return "ベースアクション"
-        case 2:
-        case 3:
-        case 4:
-        case 5: return "タクティカルスキル"
-        case 6: return "ULTスキル"
-        case 7: return "回避"
-        case 8: return "クラスアビリティ"
-        case 9: return "ベースアビリティ"
-        case 10: return "エリアル攻撃"
-        case 11: return "？？？"
-        case 12: return "踏み台ジャンプ"
-        case 13: return "受け身？"
-    }
-}
-
 const skills_A = [
     615, 608, 620,
     710, 712, 721, 730, 731,
@@ -819,8 +847,7 @@ export const getSkills = () => {
         const desc = getText("master_skill_data_text", curr.skill_desc_array[curr.skill_desc_array.length - 1].desc)
         const thumb = getSkillThumbnail(curr)
         const classImg = getClassThumbnail(curr.class_type)
-        const skillType = getSkillType(curr.skill_type)
-        const skillTypeImg = getSkillTypeImg(curr)
+        const skillBackgroundImg = getSkillTypeImg(curr)
         const elementImg = getElementImg(curr)
 
         acc.push({
@@ -831,10 +858,9 @@ export const getSkills = () => {
             thumb,
             classImg,
             abilities: [],
-            skillType,
-            skillTypeImg,
+            skillBackgroundImg,
             elementImg,
-            category: { ja_JP: "スキル", en_US: "Skill" },
+            category: getCategory("skill", curr.skill_type),
             filterGroup: "skills"
         });
 

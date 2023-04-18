@@ -59,7 +59,15 @@
 				}
 				... on Weapon {
 					classImg
+					elementImg
 					attribute
+				}
+				... on Skill {
+					elementImg
+					skillBackgroundImg
+				}
+				... on Imagine {
+					elementImg
 				}
 			}
 		}

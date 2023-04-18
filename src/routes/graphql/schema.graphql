@@ -131,6 +131,15 @@ type Ability {
 	big_success_min_value: Int
 	success_max_value: Int
 	success_min_value: Int
+	# Skill
+	skill_id: Int
+	desc: Text
+	skill_mastery_param: [SkillMasteryParam]
+}
+
+type SkillMasteryParam {
+	level: Int
+	condition_class_level: Int
 }
 
 type Stat {
@@ -226,6 +235,14 @@ type Skill implements DBEntry {
 	desc: Text
 	thumb: String
 	category: Text
+
+	class_type: Int
+	skillBackgroundImg: String
+	skill_type: Int
+	skill_mastery_param: [SkillMasteryParam]
+	elementImg: String
+	classImg: String
+	abilities: [Ability]!
 }
 
 type GameMap implements DBEntry {

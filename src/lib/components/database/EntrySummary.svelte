@@ -3,23 +3,6 @@
     export let data;
     export let moreDetails = false;
 
-    function getAttributeImg(value) {
-        switch (value) {
-            case 6:
-                return 5;
-            case 5:
-                return 2;
-            case 4:
-                return 3;
-            case 3:
-                return 1;
-            case 2:
-                return 4;
-            case 7:
-                return 6;
-        }
-    }
-
     let categoryText;
 
     $: {
@@ -94,7 +77,13 @@
 </script>
 
 <div class="entry-summary flex" class:more-details={moreDetails}>
-    <img src={data.thumb} alt="" width="64" height="64" />
+    <img
+        src={data.thumb}
+        style={`background-image: url(${data.skillBackgroundImg}); background-repeat: no-repeat`}
+        alt=""
+        width="64"
+        height="64"
+    />
     <div class="grid g-25">
         {#if moreDetails}
             <h3>
@@ -131,11 +120,9 @@
         <!-- {#if data.classImg}
             <img src={data.classImg} alt="" width="32" height="32" />
         {/if} -->
-        {#if data.attribute > 0}
+        {#if data.elementImg && !data.elementImg.includes("Attribute_Empty")}
             <img
-                src={`/images/elements/UI_IconAttribute_${getAttributeImg(
-                    data.attribute
-                )}.png`}
+                src={data.elementImg}
                 alt=""
                 width="32"
                 height="32"
@@ -172,7 +159,6 @@
 
     .extra-icons {
         position: absolute;
-        opacity: 0.4;
         right: 0;
         top: 0;
     }

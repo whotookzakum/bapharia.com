@@ -9,6 +9,7 @@
     import Token from "./templates/Token.svelte";
     import StampSet from "./templates/StampSet.svelte";
     import LiquidMemory from "./templates/LiquidMemory.svelte";
+    import Skill from "./templates/Skill.svelte";
 
 	export let entryId;
 
@@ -202,6 +203,24 @@
 						}
 					}
 				}
+				... on Skill {
+					classImg
+					elementImg
+					skillBackgroundImg
+					abilities {
+						skill_id
+						desc {
+							ja_JP
+							en_US
+						}
+						skill_mastery_param {
+							condition_class_level
+						}
+					}
+					skill_mastery_param {
+						condition_class_level
+					}
+				}
 			}
 		}
 	`);
@@ -238,6 +257,10 @@
 					{#if $entry.data.entry.__typename === "LiquidMemory"}
 						<LiquidMemory data={$entry.data.entry} />
 					{/if}
+					{#if $entry.data.entry.__typename === "Skill"}
+						<Skill data={$entry.data.entry} />
+					{/if}
+					<!-- Gestures have no data -->
 				</div>
 			{/if}
 		</article>
