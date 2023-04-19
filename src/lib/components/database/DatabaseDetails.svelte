@@ -308,11 +308,7 @@
 			padding-bottom: 1rem;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 		}
-
-		.entry-details {
-			padding-top: 1rem;
-		}
-
+		
 		.collapsed {
 			max-height: 465px;
 			-webkit-mask-image: linear-gradient(black, transparent);

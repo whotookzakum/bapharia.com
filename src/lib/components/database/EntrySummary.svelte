@@ -164,6 +164,7 @@
     }
 
     .pill {
+        // display: inline-block;
         padding: 0.2rem 0.5rem;
         margin-block: 0.2rem;
         width: fit-content;

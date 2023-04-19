@@ -15,23 +15,22 @@
     $: isBattleImagine = data.imagine_type === 1;
     $: isEnhanceImagine = data.imagine_type === 0;
     // Max level stats for now, but fetching all level stats to add a level selector later
+    $: currentLevel = data.imagine_max_level
     $: levelStats = data.params.find(
-        (set) => set.level === data.imagine_max_level
+        (set) => set.level === currentLevel
     )
 </script>
 
 <Price sellPrice={data.price_player_sells} />
 {#if isBattleImagine}
-    <ImagineSkill value={levelStats.skill} />
-    <BattleScore value={data.imagine_max_level * 10} />
+    <Stats values={levelStats} battleScore={currentLevel * 10} />
 {/if}
 {#if isEnhanceImagine}
     <ImagineSlot imgSrc={data.slotImg} />
-    <BattleScore value={data.imagine_max_level * 6} />
+    <Stats values={levelStats} battleScore={currentLevel * 6} />
 {/if}
-<Stats values={levelStats} />
-<Element imgSrc={data.elementImg} value={levelStats.attribute_value} />
+<Recipe recipe={data.recipe} />
 <Abilities abilities={data.abilities} />
 <Description text={data.desc} />
-<Recipe recipe={data.recipe} />
+
 
