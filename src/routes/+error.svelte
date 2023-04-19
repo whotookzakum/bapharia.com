@@ -2,22 +2,22 @@
 	import Navbar from '../lib/components/Navbar.svelte';
 	import PageFooter from '../lib/components/PageFooter.svelte';
 	import '../lib/styles/globals.scss';
-	// import { page } from '$app/stores';
+	import { page } from '$app/stores';
 </script>
 
 <Navbar />
 <main>
-	<!-- <h1>{$page.status}</h1>
+	<h1>{$page.status}</h1>
 	{#if $page.status === 404}
 		<span>The requested page could not be found.</span>
-	{/if} -->
-	<p>
-		Check to make sure the URL is correct. If you think this is a mistake, let us know on <a
-			href="https://discord.gg/ZKwhn3a4yH"
-			target="_blank"
-			rel="noopener noreferrer">Discord</a
-		>.
-	</p>
+		<p>
+			Check to make sure the URL is correct. If you think this is a mistake, let us know on <a
+				href="https://discord.gg/ZKwhn3a4yH"
+				target="_blank"
+				rel="noopener noreferrer">Discord</a
+			>.
+		</p>
+	{/if}
 </main>
 <PageFooter />
 

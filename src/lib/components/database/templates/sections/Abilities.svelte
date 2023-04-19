@@ -8,22 +8,41 @@
 {:else}
     <h4>Abilities</h4>
 {/if}
-{#each abilities as ability}
-    <div>
-        {ability.name[$userLocale]}
-        ({ability.probability}%)
-        {#if ability.stats}
-            <ul>
-                {#each ability.stats as stat}
-                    {#if stat.value > 0}
-                        <li>{stat.name[$userLocale]} {stat.value}</li>
+<table>
+    <thead>
+        <tr>
+            <th>付与アビリティ候補</th>
+            <th>効果名</th>
+            <th>効果値</th>
+            <th>確率</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each abilities as ability}
+            <tr>
+                <td>{ability.name[$userLocale]}</td>
+                <td>
+                    {#if ability.stats}
+                        {#each ability.stats as stat}
+                            {#if stat.value > 0}
+                                {stat.name[$userLocale]} <br />
+                            {/if}
+                        {/each}
                     {/if}
-                {/each}
-            </ul>
-        {/if}
-        {#if ability.big_success_max_value}
-            Great Success: +{ability.big_success_min_value}% ~ {ability.big_success_max_value}%;
-            Success: +{ability.success_min_value}% ~ {ability.success_max_value}%
-        {/if}
-    </div>
-{/each}
+                </td>
+                <td>
+                    {#each ability.stats as stat}
+                        {#if stat.value > 0}
+                            {stat.value} <br />
+                        {/if}
+                    {/each}
+                </td>
+                <td>{ability.probability}%</td>
+                {#if ability.big_success_max_value}
+                    Great Success: +{ability.big_success_min_value}% ~ {ability.big_success_max_value}%;
+                    Success: +{ability.success_min_value}% ~ {ability.success_max_value}%
+                {/if}
+            </tr>
+        {/each}
+    </tbody>
+</table>

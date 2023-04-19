@@ -5,12 +5,12 @@
 </script>
 
 <h4>Recipe</h4>
-<dl>
+<!-- <dl>
     <div class="row">
         <dt>Req. Adventurer Rank</dt>
         <dd>{recipe.adventurer_rank || recipe.difficulty}</dd>
     </div>
-    <hr>
+    <hr />
     {#each recipe.materials as material}
         <div class="row">
             <dt>
@@ -19,15 +19,43 @@
                 </a>
             </dt>
             <dd>{material.amount || material.need_num}</dd>
-            <!-- <dd>({material.sourceDesc[$userLocale]})</dd> -->
+            <dd>({material.sourceDesc[$userLocale]})</dd>
         </div>
     {/each}
-    <hr>
+    <hr />
     <div class="row">
         <dt>Luno</dt>
         <dd>{recipe.price || recipe.use_money} <LunoIcon /></dd>
     </div>
-</dl>
+</dl> -->
+
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Hint</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each recipe.materials as material}
+            <tr>
+                <td>
+                    <a href={`?result=${material.id}`}>
+                        {material.name[$userLocale]}
+                    </a>
+                </td>
+                <td>{material.sourceDesc[$userLocale]}</td>
+                <td>{material.amount || material.need_num}</td>
+            </tr>
+        {/each}
+        <tr>
+            <td colspan="2">Luno</td>
+            
+            <td>{recipe.price || recipe.use_money} <LunoIcon /></td>
+        </tr>
+    </tbody>
+</table>
 
 <style lang="scss">
     dl {

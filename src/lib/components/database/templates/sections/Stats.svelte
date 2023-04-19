@@ -1,10 +1,9 @@
 <script>
     import { userLocale } from "$lib/stores";
-    import Icon from "@iconify/svelte";
 
     export let values;
     export let battleScore = null;
-    
+
     const texts = {
         skillPower: {
             ja_JP: "スキル効果値",
@@ -75,12 +74,6 @@
     {/if}
     {#if values.skill}
         <div class="row">
-            <dt>{texts.elementAtk[$userLocale]}</dt>
-            <dd>83293</dd>
-        </div>
-    {/if}
-    {#if values.skill}
-        <div class="row">
             <dt>{texts.skillPower[$userLocale]}</dt>
             <dd>{values.skill}</dd>
         </div>
@@ -90,7 +83,7 @@
             <dt>{texts.battleScore[$userLocale]}</dt>
             <dd>{battleScore}</dd>
         </div>
-        <hr/>
+        <hr>
     {/if}
     {#if values.offensive_power}
         <div class="row">
@@ -158,12 +151,11 @@
             <dd>{values.stamina}</dd>
         </div>
     {/if}
-    
 </dl>
 
 <style lang="scss">
     dl {
-        // max-inline-size: none;
+        max-inline-size: none;
         gap: 0.25rem;
         margin: 0.25rem 0;
         padding: 0 1rem;

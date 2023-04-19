@@ -120,7 +120,7 @@ label:has(input.visually-hidden:focus-visible) {
 }
 
 .entry-details {
-    padding-top: 1rem;
+    padding-top: 0.5rem;
 
     h4 {
         font-size: var(--step-0);
@@ -130,8 +130,42 @@ label:has(input.visually-hidden:focus-visible) {
         }
     }
 
+    h5 {
+        font-size: initial;
+    }
+
     p, li {
         max-inline-size: none;
         margin: 0;
+    }
+
+    table {
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        border-collapse: collapse;
+        line-height: 1.8;
+        margin: 0.25rem 0;
+        overflow: hidden;
+
+        td:nth-child(3),
+        td:nth-child(4),
+        th:nth-child(3),
+        th:nth-child(4),
+        td[colspan="2"]+td {
+            text-align: right;
+        }
+
+        thead tr {
+            background: var(--surface3);
+        }
+
+        tr + tr {
+            border-top: 1px solid var(--surface3);
+        }
+
+        td,
+        th {
+            padding: 0.5rem 1rem;
+        }
     }
 }
