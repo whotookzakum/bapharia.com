@@ -33,7 +33,12 @@
                 <td>
                     {#each ability.stats as stat}
                         {#if stat.value > 0}
-                            {stat.value} <br />
+                            {#if stat.name.ja_JP.includes("ダメージ") || stat.name.ja_JP.includes("会心")}
+                                {stat.value}%
+                            {:else}
+                                {stat.value}
+                            {/if}
+                            <br />
                         {/if}
                     {/each}
                 </td>

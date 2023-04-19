@@ -36,6 +36,6 @@
 <BattleScore value={data.weapon_max_level * 50} />
 <Element imgSrc={data.elementImg} value={levelStats.attribute_value} />
 <img class="class-icon" src={data.classImg} alt="" width="32" height="32" />
-<Stats values={levelStats} />
+<!-- <Stats values={levelStats} /> -->
 <Abilities abilities={data.abilities} />
 <TreasureSources sources={data.treasureSources} />

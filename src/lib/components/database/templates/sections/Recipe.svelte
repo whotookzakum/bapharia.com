@@ -2,56 +2,49 @@
     import { userLocale } from "$lib/stores";
     import LunoIcon from "./LunoIcon.svelte";
     export let recipe;
+
+    let sources = recipe.materials.map(mat => false);
+    const toggleSource = (index) => {
+        sources[index] = !sources[index];
+    };
 </script>
 
 <h4>Recipe</h4>
-<!-- <dl>
-    <div class="row">
-        <dt>Req. Adventurer Rank</dt>
-        <dd>{recipe.adventurer_rank || recipe.difficulty}</dd>
-    </div>
-    <hr />
-    {#each recipe.materials as material}
-        <div class="row">
-            <dt>
-                <a href={`?result=${material.id}`}>
-                    {material.name[$userLocale]}
-                </a>
-            </dt>
-            <dd>{material.amount || material.need_num}</dd>
-            <dd>({material.sourceDesc[$userLocale]})</dd>
-        </div>
-    {/each}
-    <hr />
-    <div class="row">
-        <dt>Luno</dt>
-        <dd>{recipe.price || recipe.use_money} <LunoIcon /></dd>
-    </div>
-</dl> -->
-
 <table>
     <thead>
         <tr>
-            <th>Item</th>
-            <th>Hint</th>
-            <th>Amount</th>
+            <th>素材</th>
+            <th>必要数</th>
         </tr>
     </thead>
     <tbody>
-        {#each recipe.materials as material}
+        {#each recipe.materials as material, index}
             <tr>
                 <td>
                     <a href={`?result=${material.id}`}>
                         {material.name[$userLocale]}
                     </a>
+                    <button
+                        class="hint-toggle"
+                        on:click={() => toggleSource(index)}
+                    >
+                        <img
+                            src="/UI/Common/UI_CmnIconInfo.png"
+                            alt="Hint"
+                            width="28"
+                            height="28"
+                            style="margin: -9px 0"
+                        />
+                    </button>
+                    <div class="hint" class:show={sources[index]}>
+                        {material.sourceDesc[$userLocale]}
+                    </div>
                 </td>
-                <td>{material.sourceDesc[$userLocale]}</td>
                 <td>{material.amount || material.need_num}</td>
             </tr>
         {/each}
         <tr>
-            <td colspan="2">Luno</td>
-            
+            <td colspan="1">Luno</td>
             <td>{recipe.price || recipe.use_money} <LunoIcon /></td>
         </tr>
     </tbody>
@@ -74,5 +67,25 @@
 
     dt {
         font-weight: normal;
+    }
+
+    .hint-toggle {
+        padding: 0;
+        border: none;
+        background: none;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+    }
+
+    .hint {
+        display: none;
+        color: var(--text2);
+        font-size: var(--step--1);
+
+        &.show {
+            display: block;
+        }
     }
 </style>

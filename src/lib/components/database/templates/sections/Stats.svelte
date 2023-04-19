@@ -1,11 +1,14 @@
 <script>
     import { userLocale } from "$lib/stores";
+    import Icon from "@iconify/svelte";
 
-    export let values;
-    export let battleScore = null;
-
+    export let levelParams;
+    export let maxLevel;
+    export let battleScoreMultiplier = 1;
+    $: sliderValue = maxLevel;
+    $: currentLevelStats = levelParams.find((set) => set.level === sliderValue);
     const texts = {
-        skillPower: {
+        skill: {
             ja_JP: "スキル効果値",
             en_US: "Skill Power",
         },
@@ -13,27 +16,27 @@
             ja_JP: "バトルスコア",
             en_US: "Battle Score",
         },
-        atk: {
+        offensive_power: {
             ja_JP: "攻撃力",
             en_US: "Attack",
         },
-        elementAtk: {
+        attribute_value: {
             ja_JP: "属性攻撃力",
             en_US: "Elemental Power",
         },
-        def: {
+        defensive_power: {
             ja_JP: "防御力",
             en_US: "Defense",
         },
-        critDmg: {
+        critical_power: {
             ja_JP: "会心力",
             en_US: "Critical Power",
         },
-        critRate: {
+        critical_chance: {
             ja_JP: "会心率",
             en_US: "",
         },
-        hp: {
+        max_hp: {
             ja_JP: "最大HP",
             en_US: "Max HP",
         },
@@ -62,95 +65,72 @@
             en_US: "Max ST",
         },
     };
+
+    $: {
+        if (sliderValue > maxLevel) sliderValue = maxLevel;
+        else if (sliderValue < 1) sliderValue = 1;
+    }
 </script>
 
-<h4>Stats</h4>
-<dl>
-    {#if values.attribute_value}
-        <div class="row">
-            <dt>{texts.elementAtk[$userLocale]}</dt>
-            <dd>{values.attribute_value}</dd>
-        </div>
-    {/if}
-    {#if values.skill}
-        <div class="row">
-            <dt>{texts.skillPower[$userLocale]}</dt>
-            <dd>{values.skill}</dd>
-        </div>
-    {/if}
-    {#if battleScore}
-        <div class="row">
-            <dt>{texts.battleScore[$userLocale]}</dt>
-            <dd>{battleScore}</dd>
-        </div>
-        <hr>
-    {/if}
-    {#if values.offensive_power}
-        <div class="row">
-            <dt>{texts.atk[$userLocale]}</dt>
-            <dd>{values.offensive_power}</dd>
-        </div>
-    {/if}
-    {#if values.defensive_power}
-        <div class="row">
-            <dt>{texts.def[$userLocale]}</dt>
-            <dd>{values.defensive_power}</dd>
-        </div>
-    {/if}
-    {#if values.critical_power}
-        <div class="row">
-            <dt>{texts.critDmg[$userLocale]}</dt>
-            <dd>{values.critical_power}%</dd>
-        </div>
-    {/if}
-    {#if values.critical_chance}
-        <div class="row">
-            <dt>{texts.critRate[$userLocale]}</dt>
-            <dd>{values.critical_chance}</dd>
-        </div>
-    {/if}
-    {#if values.max_hp}
-        <div class="row">
-            <dt>{texts.hp[$userLocale]}</dt>
-            <dd>{values.max_hp}</dd>
-        </div>
-    {/if}
-    {#if values.str}
-        <div class="row">
-            <dt>{texts.str[$userLocale]}</dt>
-            <dd>{values.str}</dd>
-        </div>
-    {/if}
-    {#if values.vit}
-        <div class="row">
-            <dt>{texts.vit[$userLocale]}</dt>
-            <dd>{values.vit}</dd>
-        </div>
-    {/if}
-    {#if values.dex}
-        <div class="row">
-            <dt>{texts.dex[$userLocale]}</dt>
-            <dd>{values.dex}</dd>
-        </div>
-    {/if}
-    {#if values.mnd}
-        <div class="row">
-            <dt>{texts.mnd[$userLocale]}</dt>
-            <dd>{values.mnd}</dd>
-        </div>
-    {/if}
-    {#if values.int}
-        <div class="row">
-            <dt>{texts.int[$userLocale]}</dt>
-            <dd>{values.int}</dd>
-        </div>
-    {/if}
-    {#if values.stamina}
-        <div class="row">
-            <dt>{texts.stamina[$userLocale]}</dt>
-            <dd>{values.stamina}</dd>
-        </div>
-    {/if}
+<div class="flex g-25" style="align-items: baseline; justify-content: space-between; padding-right: 1rem;">
+    <h4>Stats</h4>
+    <!-- <div>
+        Level
+        <input
+            class="input-level"
+            class:not-max={sliderValue !== maxLevel}
+            type="number"
+            bind:value={sliderValue}
+            max={maxLevel}
+            min="1"
+        />
+    </div> -->
+</div>
+<dl class:not-max={sliderValue !== maxLevel}>
+    <div class="row">
+        <dt>Level</dt>
+
+        <dd class="flex g-50" style="padding: 0; line-height: 1">
+            <input
+                type="range"
+                bind:value={sliderValue}
+                max={maxLevel}
+                min="1"
+                aria-label="Level selector"
+                style="max-width: 100px"
+            />
+            <input
+                class="input-level"
+                class:not-max={sliderValue !== maxLevel}
+                type="number"
+                bind:value={sliderValue}
+                max={maxLevel}
+                min="1"
+            />
+        </dd>
+    </div>
+
+    {#each ["attribute_value", "skill"] as stat}
+        {#if currentLevelStats[stat]}
+            <div class="row">
+                <dt>{texts[stat][$userLocale]}</dt>
+                <dd>{currentLevelStats[stat]}</dd>
+            </div>
+        {/if}
+    {/each}
+    <div class="row">
+        <dt>{texts.battleScore[$userLocale]}</dt>
+        <dd>{sliderValue * battleScoreMultiplier}</dd>
+    </div>
+    <hr />
+    {#each ["offensive_power", "defensive_power", "critical_power", "critical_chance", "max_hp", "str", "vit", "dex", "mnd", "int", "stamina"] as stat}
+        {#if currentLevelStats[stat] >= 0}
+            <div class="row">
+                <dt>{texts[stat][$userLocale]}</dt>
+                <dd>{currentLevelStats[stat]}</dd>
+            </div>
+        {/if}
+    {/each}
 </dl>
 
 <style lang="scss">
@@ -170,5 +150,21 @@
 
     dt {
         font-weight: normal;
+    }
+
+    .not-max dd,
+    .not-max.input-level {
+        color: #fe5162;
+    }
+
+    .input-level {
+        border-radius: 5px;
+        font: inherit;
+        font-weight: 600;
+        background: var(--surface2);
+        border: 1px solid var(--surface3);
+        padding: 0.25rem 0.25rem;
+        width: 4.2ch;
+        text-align: right;
     }
 </style>

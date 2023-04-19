@@ -10,7 +10,7 @@ html {
 
 body {
     margin: 0;
-	accent-color: var(--accent);
+    accent-color: var(--accent);
 }
 
 * {
@@ -103,7 +103,8 @@ label:has(input.visually-hidden:focus-visible) {
     display: grid;
 }
 
-.amount svg, .bonus svg {
+.amount svg,
+.bonus svg {
     vertical-align: sub;
 }
 
@@ -134,7 +135,8 @@ label:has(input.visually-hidden:focus-visible) {
         font-size: initial;
     }
 
-    p, li {
+    p,
+    li {
         max-inline-size: none;
         margin: 0;
     }
@@ -148,10 +150,9 @@ label:has(input.visually-hidden:focus-visible) {
         overflow: hidden;
 
         td:nth-child(3),
-        td:nth-child(4),
+        td:last-child,
         th:nth-child(3),
-        th:nth-child(4),
-        td[colspan="2"]+td {
+        th:last-child {
             text-align: right;
         }
 
@@ -159,7 +160,7 @@ label:has(input.visually-hidden:focus-visible) {
             background: var(--surface3);
         }
 
-        tr + tr {
+        tr+tr {
             border-top: 1px solid var(--surface3);
         }
 
@@ -168,4 +169,15 @@ label:has(input.visually-hidden:focus-visible) {
             padding: 0.5rem 1rem;
         }
     }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
 }
