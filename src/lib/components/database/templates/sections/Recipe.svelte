@@ -51,24 +51,6 @@
 </table>
 
 <style lang="scss">
-    dl {
-        max-inline-size: none;
-        gap: 0.25rem;
-        margin: 0.25rem 0;
-        padding: 0 1rem;
-        border-left: 6px solid var(--surface3);
-    }
-
-    .row {
-        display: flex;
-        justify-content: space-between;
-        font-weight: 600;
-    }
-
-    dt {
-        font-weight: normal;
-    }
-
     .hint-toggle {
         padding: 0;
         border: none;

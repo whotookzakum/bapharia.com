@@ -170,10 +170,10 @@
         color: #fe5162;
     }
 
-    .level-text {
+    h5.level-text {
         font: inherit;
         margin: 0;
-        line-height: 1.75;
+        line-height: 1.4;
     }
 
     .level-hint {
