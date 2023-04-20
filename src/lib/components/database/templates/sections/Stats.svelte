@@ -6,7 +6,19 @@
     export let maxLevel;
     export let battleScoreMultiplier = 1;
     $: sliderValue = maxLevel;
-    $: currentLevelStats = levelParams.find((set) => set.level === sliderValue);
+    let currentLevelStats, battleScore;
+    $: {
+        // also works: Math.max(Math.min(sliderValue, maxLevel), 1)
+        if (sliderValue > maxLevel) {
+            sliderValue = maxLevel;
+        }
+        if (sliderValue > 0) {
+            currentLevelStats = levelParams.find(
+                (set) => set.level === sliderValue
+            );
+            battleScore = sliderValue * battleScoreMultiplier;
+        }
+    }
     const texts = {
         skill: {
             ja_JP: "スキル効果値",
@@ -65,40 +77,20 @@
             en_US: "Max ST",
         },
     };
-
-    $: {
-        if (sliderValue > maxLevel) sliderValue = maxLevel;
-        else if (sliderValue < 1) sliderValue = 1;
-    }
 </script>
 
-<div class="flex g-25" style="align-items: baseline; justify-content: space-between; padding-right: 1rem;">
-    <h4>Stats</h4>
-    <!-- <div>
-        Level
-        <input
-            class="input-level"
-            class:not-max={sliderValue !== maxLevel}
-            type="number"
-            bind:value={sliderValue}
-            max={maxLevel}
-            min="1"
-        />
-    </div> -->
-</div>
+<h4>Stats</h4>
 <dl class:not-max={sliderValue !== maxLevel}>
-    <div class="row">
-        <dt>Level</dt>
-
-        <dd class="flex g-50" style="padding: 0; line-height: 1">
-            <input
-                type="range"
-                bind:value={sliderValue}
-                max={maxLevel}
-                min="1"
-                aria-label="Level selector"
-                style="max-width: 100px"
-            />
+    <div class="grid g-50">
+        <div>
+            <dt>
+                <h5 class="level-text">Level {sliderValue !== maxLevel ? "Sync ▼" : ""}</h5>
+            </dt>
+            <dd class="level-hint">
+                Enter a value between <b>1</b> and <b>{maxLevel}</b>
+            </dd>
+        </div>
+        <div class="flex g-25" style="grid-template-columns: 70% 30%">
             <input
                 class="input-level"
                 class:not-max={sliderValue !== maxLevel}
@@ -107,8 +99,15 @@
                 max={maxLevel}
                 min="1"
             />
-        </dd>
+            <button
+                class="box reset-level"
+                on:click={() => (sliderValue = maxLevel)}
+            >
+                Reset
+            </button>
+        </div>
     </div>
+    <hr />
 
     {#each ["attribute_value", "skill"] as stat}
         {#if currentLevelStats[stat]}
@@ -120,7 +119,7 @@
     {/each}
     <div class="row">
         <dt>{texts.battleScore[$userLocale]}</dt>
-        <dd>{sliderValue * battleScoreMultiplier}</dd>
+        <dd>{battleScore}</dd>
     </div>
     <hr />
     {#each ["offensive_power", "defensive_power", "critical_power", "critical_chance", "max_hp", "str", "vit", "dex", "mnd", "int", "stamina"] as stat}
@@ -153,7 +152,8 @@
     }
 
     .not-max dd,
-    .not-max.input-level {
+    .not-max.input-level,
+    .not-max h5 {
         color: #fe5162;
     }
 
@@ -161,10 +161,44 @@
         border-radius: 5px;
         font: inherit;
         font-weight: 600;
+        font-size: 1.1rem;
+        background: var(--bg);
+        border: none;
+        padding: 0.4rem 0.4rem;
+        min-height: 44px;
+        min-width: 44px;
+        width: 7ch;
+    }
+
+    h5.level-text {
+        font: inherit;
+        margin: 0;
+    }
+
+    .level-hint {
+        font-weight: normal;
+        margin: 0;
+        color: var(--text2) !important;
+        font-size: var(--step--1);
+        line-height: 1;
+
+        b {
+            color: var(--text1);
+        }
+    }
+
+    button.reset-level {
+        border-radius: 5px;
+        font-size: var(--step--1);
+        padding: 0.25rem 0.5rem;
+        color: var(--accent);
         background: var(--surface2);
         border: 1px solid var(--surface3);
-        padding: 0.25rem 0.25rem;
-        width: 4.2ch;
-        text-align: right;
+        box-shadow: none;
+
+        &:hover,
+        &:focus-visible {
+            background: var(--surface3);
+        }
     }
 </style>
