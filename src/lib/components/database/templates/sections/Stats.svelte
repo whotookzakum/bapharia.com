@@ -128,10 +128,12 @@
     </div>
     <hr />
     {#each ["offensive_power", "defensive_power", "critical_power", "critical_chance", "max_hp", "str", "vit", "dex", "mnd", "int", "stamina"] as stat}
-        {#if currentLevelStats[stat] >= 0}
+        {#if currentLevelStats[stat] && currentLevelStats[stat] >= 0}
             <div class="row">
                 <dt>{texts[stat][$userLocale]}</dt>
-                <dd>{currentLevelStats[stat]}</dd>
+                <dd>
+                    {currentLevelStats[stat]}{ stat === "critical_power" || stat === "critical_chance" ? "%" : ""}
+                </dd>
             </div>
         {/if}
     {/each}

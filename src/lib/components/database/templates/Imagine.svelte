@@ -1,14 +1,12 @@
 <script>
-    import ModelViewer from "$lib/components/ModelViewer.svelte";
     import {
-        Element,
         ImagineSlot,
         Stats,
-        BattleScore,
         ImagineSkill,
         Abilities,
         Recipe,
         Price,
+        Model,
     } from "./sections";
 
     export let data;
@@ -42,8 +40,10 @@
     </div>
 </div>
 <Recipe recipe={data.recipe} />
-<Abilities abilities={data.abilities} />
+<Abilities abilities={data.abilities} itemType={data.__typename} />
 {#if isBattleImagine}
-    <h4>Model</h4>
-    <ModelViewer />
+    <Model />
+{/if}
+{#if isEnhanceImagine}
+    <!-- Artwork of the e. imagine -->
 {/if}

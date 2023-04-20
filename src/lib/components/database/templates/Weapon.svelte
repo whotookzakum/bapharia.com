@@ -3,22 +3,35 @@
         Description,
         Recipe,
         Price,
-        BattleScore,
-        Element,
         Stats,
         Abilities,
-        TreasureSources
+        TreasureSources,
+        Model,
     } from "./sections";
 
     export let data;
-    // Max level stats for now, but fetching all level stats to add a level selector later
-    $: levelStats = data.stats.find(
-        (set) => set.level === data.weapon_max_level
-    );
 </script>
 
-<Price sellPrice={data.price_player_sells} buyPrice={data.price_player_buys} />
-<Description text={data.desc} />
+<div
+    class="grid"
+    style="grid-template-columns: 1fr 1fr; gap: 2rem; align-items: flex-start"
+>
+    <div>
+        <Stats
+            levelParams={data.stats}
+            maxLevel={data.weapon_max_level}
+            battleScoreMultiplier={50}
+        />
+    </div>
+    <div>
+        <h4>Misc</h4>
+        <Price
+            sellPrice={data.price_player_sells}
+            buyPrice={data.price_player_buys}
+        />
+    </div>
+</div>
+
 {#if data.recipe}
     <Recipe recipe={data.recipe} />
     <h5>Success:</h5>
@@ -33,9 +46,10 @@
     <div>4 socket 35%</div>
     <div>Great Success ticket cost: {data.recipe.great_success_tokens}</div>
 {/if}
-<BattleScore value={data.weapon_max_level * 50} />
-<Element imgSrc={data.elementImg} value={levelStats.attribute_value} />
+<!-- <Element imgSrc={data.elementImg} value={levelStats.attribute_value} /> -->
 <img class="class-icon" src={data.classImg} alt="" width="32" height="32" />
-<!-- <Stats values={levelStats} /> -->
-<Abilities abilities={data.abilities} />
+
+<Abilities abilities={data.abilities} itemType={data.__typename} />
 <TreasureSources sources={data.treasureSources} />
+<Description text={data.desc} />
+<Model />
