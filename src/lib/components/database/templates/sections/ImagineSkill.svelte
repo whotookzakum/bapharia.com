@@ -32,12 +32,6 @@
 </div>
 
 <style lang="scss">
-    .border-left {
-        margin: 0.25rem 0;
-        padding: 0 1rem;
-        border-left: 6px solid var(--surface3);
-    }
-
     h5 {
         margin: 0;
         color: var(--accent);

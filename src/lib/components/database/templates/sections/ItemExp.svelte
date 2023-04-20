@@ -2,5 +2,4 @@
     export let value
 </script>
 
-<h4>Item EXP</h4>
-<p>{value}</p>
+<p class="border-left">Item EXP {value}</p>

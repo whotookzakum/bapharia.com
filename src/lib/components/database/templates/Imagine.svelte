@@ -7,6 +7,7 @@
         Recipe,
         Price,
         Model,
+        LargeImage
     } from "./sections";
 
     export let data;
@@ -16,7 +17,7 @@
 
 <div
     class="grid"
-    style="grid-template-columns: 1fr 1fr; gap: 2rem; align-items: flex-start"
+    style=""
 >
     <div>
         <Stats 
@@ -42,8 +43,19 @@
 <Recipe recipe={data.recipe} />
 <Abilities abilities={data.abilities} itemType={data.__typename} />
 {#if isBattleImagine}
-    <!-- <Model /> -->
+    <!-- use BattleL image as poster -->
+    <Model modelSrc="/BigMommyDragonTities.glb" posterImg={data.thumb.replace("Battle", "BattleL")} />
 {/if}
 {#if isEnhanceImagine}
-    <!-- Artwork of the e. imagine -->
+    <h4>Graphic and Scene</h4>
+    <LargeImage noHeader imgSrc={data.thumb.replace("Picture", "PictureL")} />
+    <LargeImage noHeader imgSrc={data.thumb.replace("Picture", "FullImage")} fullWidth width="1920" height="1080" />
 {/if}
+
+<style lang="scss">
+    .grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: 2rem; 
+        align-items: flex-start;
+    }
+</style>

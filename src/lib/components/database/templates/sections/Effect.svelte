@@ -4,4 +4,4 @@
 </script>
 
 <h4>Effect</h4>
-<p>{text[$userLocale]}</p>
+<p class="border-left">{text[$userLocale]}</p>

@@ -30,3 +30,5 @@
         </li>
     {/each}
 </ol>
+
+<!-- Skill Video -->

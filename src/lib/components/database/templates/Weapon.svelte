@@ -46,7 +46,7 @@
     <TreasureSources sources={data.treasureSources} />
 {/if}
 <Description text={data.desc} />
-<!-- <Model /> -->
+<Model modelSrc="/BigMommyDragonTities.glb" posterImg={data.thumb.replace("Weapon", "WeaponL")} />
 
 <style lang="scss">
     .grid {

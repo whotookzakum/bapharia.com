@@ -323,14 +323,26 @@
 			border-bottom-left-radius: 5px;
 			border-bottom-right-radius: 5px;
 
-			&:hover,
-			&:has(:focus-visible) {
+			&:hover {
 				background: var(--surface3);
 				color: var(--accent);
 			}
+		}
 
-			&:has(:focus-visible) {
+		@supports selector(:has(*)) {
+			.details-expander:has(:focus-visible) {
 				border-radius: 5px;
+				background: var(--surface3);
+				color: var(--accent);
+			}
+		}
+
+		@supports not selector(:has(*)) {
+			.details-expander:focus-within {
+				border-radius: 5px;
+				outline: 2px solid var(--accent);
+				background: var(--surface3);
+				color: var(--accent);
 			}
 		}
 	}
