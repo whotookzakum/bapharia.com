@@ -110,7 +110,7 @@
             Reset
         </button>
     </div>
-    <hr>
+    <hr />
 </div>
 
 <dl class:not-max={sliderValue !== maxLevel}>
@@ -138,7 +138,8 @@
 </dl>
 
 <style lang="scss">
-    dl, .level-section {
+    dl,
+    .level-section {
         max-inline-size: none;
         gap: 0.25rem;
         margin: 0;
@@ -156,8 +157,14 @@
 
     .row {
         display: flex;
+        column-gap: 0.5rem;
         justify-content: space-between;
         font-weight: 600;
+        flex-wrap: wrap;
+    }
+
+    dd {
+        margin: 0;
     }
 
     dt {
