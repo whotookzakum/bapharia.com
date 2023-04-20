@@ -33,7 +33,7 @@
     <p>{slotId[$userLocale]}</p>
 </div>
 
-<style>
+<style lang="scss">
     .border-left {
         margin: 0.25rem 0;
         padding: 0 1rem;

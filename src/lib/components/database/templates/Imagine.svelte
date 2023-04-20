@@ -42,7 +42,7 @@
 <Recipe recipe={data.recipe} />
 <Abilities abilities={data.abilities} itemType={data.__typename} />
 {#if isBattleImagine}
-    <Model />
+    <!-- <Model /> -->
 {/if}
 {#if isEnhanceImagine}
     <!-- Artwork of the e. imagine -->

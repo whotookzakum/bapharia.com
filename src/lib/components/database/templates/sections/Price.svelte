@@ -1,7 +1,8 @@
 <script>
     import LunoIcon from "./LunoIcon.svelte";
 
-    export let sellPrice, buyPrice;
+    export let sellPrice = null;
+    export let buyPrice = null;
     export let no_sale_flag = null;
 </script>
 

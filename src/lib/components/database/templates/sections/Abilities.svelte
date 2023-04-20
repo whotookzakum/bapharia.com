@@ -1,7 +1,6 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let abilities, itemType;
-    console.log(abilities);
 </script>
 
 {#if itemType === "Weapon"}

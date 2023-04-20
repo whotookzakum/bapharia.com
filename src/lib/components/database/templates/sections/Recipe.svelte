@@ -49,6 +49,12 @@
         </tr>
     </tbody>
 </table>
+{#if recipe.bonus_rate}
+    <p>Great Success rate: <b>{recipe.bonus_rate}%</b></p>
+{/if}
+{#if recipe.great_success_tokens}
+    <p>Tickets needed to guarantee Great Success: <b>{recipe.great_success_tokens}</b></p>
+{/if}
 
 <style lang="scss">
     .hint-toggle {
@@ -69,5 +75,9 @@
         &.show {
             display: block;
         }
+    }
+
+    h5 {
+        margin: 0;
     }
 </style>

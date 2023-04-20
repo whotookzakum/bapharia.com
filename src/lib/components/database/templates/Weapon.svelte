@@ -7,23 +7,27 @@
         Abilities,
         TreasureSources,
         Model,
+        Sockets,
+        Element,
+        Class
     } from "./sections";
-
     export let data;
+    console.log(data)
 </script>
 
-<div
-    class="grid"
-    style="grid-template-columns: 1fr 1fr; gap: 2rem; align-items: flex-start"
->
+<div class="grid">
+    {#if data.stats.length > 0}
+        <div>
+            <Stats
+                levelParams={data.stats}
+                maxLevel={data.weapon_max_level}
+                battleScoreMultiplier={50}
+            />
+        </div>
+    {/if}
     <div>
-        <Stats
-            levelParams={data.stats}
-            maxLevel={data.weapon_max_level}
-            battleScoreMultiplier={50}
-        />
-    </div>
-    <div>
+        <Class imgSrc={data.classImg} />
+        <Element imgSrc={data.elementImg} />
         <h4>Misc</h4>
         <Price
             sellPrice={data.price_player_sells}
@@ -31,25 +35,23 @@
         />
     </div>
 </div>
-
 {#if data.recipe}
     <Recipe recipe={data.recipe} />
-    <h5>Success:</h5>
-    <div>1 socket {data.recipe.base_ability_rate1}%</div>
-    <div>2 socket {data.recipe.base_ability_rate2}%</div>
-    <div>3 socket {data.recipe.base_ability_rate3}%</div>
-    <div>4 socket {data.recipe.base_ability_rate4}%</div>
-    <h5>Great Success ({data.recipe.bonus_rate}%):</h5>
-    <div>1 socket 0%</div>
-    <div>2 socket 15%</div>
-    <div>3 socket 50%</div>
-    <div>4 socket 35%</div>
-    <div>Great Success ticket cost: {data.recipe.great_success_tokens}</div>
+    <Sockets data={data.recipe} />
 {/if}
-<!-- <Element imgSrc={data.elementImg} value={levelStats.attribute_value} /> -->
-<img class="class-icon" src={data.classImg} alt="" width="32" height="32" />
-
-<Abilities abilities={data.abilities} itemType={data.__typename} />
-<TreasureSources sources={data.treasureSources} />
+{#if data.abilities.length > 0}
+    <Abilities abilities={data.abilities} itemType={data.__typename} />
+{/if}
+{#if data.treasureSources.length > 0}
+    <TreasureSources sources={data.treasureSources} />
+{/if}
 <Description text={data.desc} />
-<Model />
+<!-- <Model /> -->
+
+<style lang="scss">
+    .grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: 2rem; 
+        align-items: flex-start;
+    }
+</style>
