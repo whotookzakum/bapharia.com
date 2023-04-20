@@ -80,35 +80,40 @@
 </script>
 
 <h4>Stats</h4>
-<dl class:not-max={sliderValue !== maxLevel}>
-    <div class="grid g-50">
-        <div>
-            <dt>
-                <h5 class="level-text">Level {sliderValue !== maxLevel ? "Sync ▼" : ""}</h5>
-            </dt>
-            <dd class="level-hint">
-                Enter a value between <b>1</b> and <b>{maxLevel}</b>
-            </dd>
-        </div>
-        <div class="flex g-25" style="grid-template-columns: 70% 30%">
+
+<div class="level-section grid g-50" class:not-max={sliderValue !== maxLevel}>
+    <div>
+        <h5 class="level-text">
+            Level {sliderValue !== maxLevel ? "Sync ▼" : ""}
+        </h5>
+        <p class="level-hint" id="level-sync-description">
+            Enter a level between <b>1</b> and <b>{maxLevel}</b>
+        </p>
+    </div>
+    <div class="level-controls grid g-50">
+        <label class="input-level-wrapper">
+            <span class="visually-hidden">Level</span>
+            <span aria-hidden="true">Lv.</span>
             <input
                 class="input-level"
-                class:not-max={sliderValue !== maxLevel}
                 type="number"
                 bind:value={sliderValue}
                 max={maxLevel}
                 min="1"
+                aria-describedby="level-sync-description"
             />
-            <button
-                class="box reset-level"
-                on:click={() => (sliderValue = maxLevel)}
-            >
-                Reset
-            </button>
-        </div>
+        </label>
+        <button
+            class="box reset-level"
+            on:click={() => (sliderValue = maxLevel)}
+        >
+            Reset
+        </button>
     </div>
-    <hr />
+    <hr>
+</div>
 
+<dl class:not-max={sliderValue !== maxLevel}>
     {#each ["attribute_value", "skill"] as stat}
         {#if currentLevelStats[stat]}
             <div class="row">
@@ -133,12 +138,20 @@
 </dl>
 
 <style lang="scss">
-    dl {
+    dl, .level-section {
         max-inline-size: none;
         gap: 0.25rem;
-        margin: 0.25rem 0;
+        margin: 0;
         padding: 0 1rem;
         border-left: 6px solid var(--surface3);
+    }
+
+    dl {
+        margin-bottom: 0.5rem;
+    }
+
+    .level-section {
+        margin-top: 0.5rem;
     }
 
     .row {
@@ -152,27 +165,15 @@
     }
 
     .not-max dd,
-    .not-max.input-level,
+    .not-max .input-level-wrapper,
     .not-max h5 {
         color: #fe5162;
     }
 
-    .input-level {
-        border-radius: 5px;
-        font: inherit;
-        font-weight: 600;
-        font-size: 1.1rem;
-        background: var(--bg);
-        border: none;
-        padding: 0.4rem 0.4rem;
-        min-height: 44px;
-        min-width: 44px;
-        width: 7ch;
-    }
-
-    h5.level-text {
+    .level-text {
         font: inherit;
         margin: 0;
+        line-height: 1.75;
     }
 
     .level-hint {
@@ -180,17 +181,60 @@
         margin: 0;
         color: var(--text2) !important;
         font-size: var(--step--1);
-        line-height: 1;
+        line-height: 1.4;
 
         b {
             color: var(--text1);
         }
     }
 
+    .level-controls {
+        grid-template-columns: auto auto;
+    }
+
+    label.input-level-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        background: var(--bg);
+        border-radius: 5px;
+        padding-left: 0.8rem;
+        font: inherit;
+        font-weight: 600;
+        text-transform: uppercase;
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    @supports selector(:has(*)) {
+        .input-level-wrapper:has(:focus-visible) {
+            outline: 2px solid var(--accent);
+        }
+    }
+
+    @supports not selector(:has(*)) {
+        .input-level-wrapper:focus-within {
+            outline: 2px solid var(--accent);
+        }
+    }
+
+    input.input-level {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+
+        &:focus,
+        &:focus-visible {
+            outline: none !important;
+        }
+    }
+
     button.reset-level {
         border-radius: 5px;
-        font-size: var(--step--1);
-        padding: 0.25rem 0.5rem;
+        padding: 0.5rem;
         color: var(--accent);
         background: var(--surface2);
         border: 1px solid var(--surface3);
@@ -199,6 +243,10 @@
         &:hover,
         &:focus-visible {
             background: var(--surface3);
+        }
+
+        &:active {
+            filter: brightness(0.9);
         }
     }
 </style>
