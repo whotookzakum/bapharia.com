@@ -352,10 +352,8 @@
 				background: var(--surface3);
 				color: var(--accent);
 			}
-		}
 
-		@supports selector(:has(*)) {
-			.details-expander:has(:focus-visible) {
+			&:has(:focus-visible) {
 				border-radius: 5px;
 				background: var(--surface3);
 				color: var(--accent);

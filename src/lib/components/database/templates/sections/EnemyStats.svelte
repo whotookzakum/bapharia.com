@@ -80,7 +80,7 @@
         </label>
         <button
             class="box reset-level"
-            on:click={() => (sliderValue = maxLevel)}
+            on:click={() => (sliderValue = 1)}
         >
             Reset
         </button>

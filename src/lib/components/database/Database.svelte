@@ -6,6 +6,7 @@
 	import { userLocale } from "$lib/stores";
 	import DatabaseDetails from "./DatabaseDetails.svelte";
 	import EntrySummary from "./EntrySummary.svelte";
+	import SearchFilters from "./SearchFilters.svelte";
 
 	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
@@ -75,8 +76,8 @@
 
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
-		en_US: "Start typing item name or id"
-	}
+		en_US: "Start typing item name or id",
+	};
 </script>
 
 <h2 id="db">Database</h2>
@@ -84,41 +85,24 @@
 	<form id="search" class="search-pane">
 		<div>
 			<label for="search-box" class="component-label">Search</label>
-			<input
-				class="box"
-				id="search-box"
-				type="search"
-				placeholder={placeholderText[$userLocale]}
-				bind:value={userSearchInput}
-			/>
-		</div>
-		<div>
-			<span class="pill box Item">Items</span>
-			<span class="pill box Enemy">Enemies</span>
-			<span class="pill box Token">Tokens</span>
-			<span class="pill box Skill">Skills</span>
-			<span class="pill box Weapon">Weapons</span>
-			<span class="pill box StampSet">Stamp Sets</span>
-			<span class="pill box Imagine">Imagine</span>
-			<span class="pill box GameMap">Maps</span>
-			<span class="pill box LiquidMemory">Liquid Memories</span>
-			<span class="pill box Costume">Costumes</span>
-			<span class="pill box Gesture">Gestures</span>
-			<div>Level</div>
-			<div>Min.</div>
-			<div>Max.</div>
-			<div>Adventurer Rank</div>
-			<div>Min.</div>
-			<div>Max.</div>
-			<div>Class</div>
-			<div>Element</div>
+			<div class="box search-and-filters">
+				<input
+					class="box"
+					id="search-box"
+					type="search"
+					placeholder={placeholderText[$userLocale]}
+					bind:value={userSearchInput}
+				/>
+				<SearchFilters />
+			</div>
 		</div>
 		{#if !$entries.fetching}
 			<ul id="search-results" class="box">
 				{#each $entries.data.entries as entry}
 					<li>
 						<button
-							on:click={() => (userSelectedEntryId = entry.id)}>
+							on:click={() => (userSelectedEntryId = entry.id)}
+						>
 							<EntrySummary data={entry} />
 						</button>
 					</li>
@@ -134,6 +118,22 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
+	}
+
+	.search-and-filters.box {
+		padding: 0;
+		border: none;
+		overflow: visible;
+
+		input.box {
+			box-shadow: none;
+			border-bottom: unset;
+		}
+
+		input.box:not(:focus-visible) {
+			border-bottom-left-radius: unset;
+			border-bottom-right-radius: unset;
+		}
 	}
 
 	@media (max-width: 800px) {
