@@ -42,6 +42,23 @@ type Enemy implements DBEntry {
 	desc: Text
 	thumb: String
 	category: Text
+
+	level_params: [LevelParams]!
+	drop_items: [EnemyDrop]!
+}
+
+type EnemyDrop {
+	content_id: String
+	drop_num_crv: Int
+	drop_num_lv1: Int
+	drop_num_lv100: Int
+	drop_num_rnd: Int
+	drop_rate: Int
+	item_index: Int
+	level_max: Int
+	level_min: Int
+	name: Text
+	type: Int
 }
 
 type Costume implements DBEntry {
@@ -119,6 +136,16 @@ type LevelParams {
 	defensive_power: Int
 	# Weapon
 	critical_power: Int
+	# Enemy
+	attack_power: Int
+	attack_power_factor: Int
+	defence_power: Int
+	defence_power_factor: Int
+	exp_crv: Int
+	exp_lv1: Int
+	exp_lv100: Int
+	hit_point: Int
+	hit_point_factor: Int
 }
 
 type Ability {

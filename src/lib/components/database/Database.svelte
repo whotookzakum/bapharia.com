@@ -92,6 +92,27 @@
 				bind:value={userSearchInput}
 			/>
 		</div>
+		<div>
+			<span class="pill box Item">Items</span>
+			<span class="pill box Enemy">Enemies</span>
+			<span class="pill box Token">Tokens</span>
+			<span class="pill box Skill">Skills</span>
+			<span class="pill box Weapon">Weapons</span>
+			<span class="pill box StampSet">Stamp Sets</span>
+			<span class="pill box Imagine">Imagine</span>
+			<span class="pill box GameMap">Maps</span>
+			<span class="pill box LiquidMemory">Liquid Memories</span>
+			<span class="pill box Costume">Costumes</span>
+			<span class="pill box Gesture">Gestures</span>
+			<div>Level</div>
+			<div>Min.</div>
+			<div>Max.</div>
+			<div>Adventurer Rank</div>
+			<div>Min.</div>
+			<div>Max.</div>
+			<div>Class</div>
+			<div>Element</div>
+		</div>
 		{#if !$entries.fetching}
 			<ul id="search-results" class="box">
 				{#each $entries.data.entries as entry}

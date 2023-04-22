@@ -3,95 +3,70 @@
 
     export let levelParams;
     export let maxLevel = 1;
-    export let battleScoreMultiplier = 1;
-    $: sliderValue = maxLevel;
-    let currentLevelStats, battleScore;
+    let sliderValue = 1;
+    let currentLevelStats;
     $: {
         if (sliderValue > maxLevel) {
             sliderValue = maxLevel;
         }
         if (sliderValue > 0) {
-            currentLevelStats = levelParams.find(
-                (set) => set.level === sliderValue
-            );
-            battleScore = sliderValue * battleScoreMultiplier;
+            currentLevelStats = levelParams[0]
+            // UNCONFIRMED THEORY: 
+            // multiply level by level factor, i.e.
+            // HP + (Enemy Level * HP Factor)
         }
     }
     const texts = {
-        skill: {
-            ja_JP: "スキル効果値",
-            en_US: "Skill Power",
+        hit_point: {
+            ja_JP: "HP",
+            en_US: "HP",
         },
-        battleScore: {
-            ja_JP: "バトルスコア",
-            en_US: "Battle Score",
+        hit_point_factor: {
+            ja_JP: "HP ファクター",
+            en_US: "HP Factor",
         },
-        offensive_power: {
+        attack_power: {
             ja_JP: "攻撃力",
             en_US: "Attack",
         },
-        attribute_value: {
-            ja_JP: "属性攻撃力",
-            en_US: "Elemental Power",
+        attack_power_factor: {
+            ja_JP: "攻撃力ファクター",
+            en_US: "Attack Factor",
         },
-        defensive_power: {
+        defence_power: {
             ja_JP: "防御力",
             en_US: "Defense",
         },
-        critical_power: {
-            ja_JP: "会心力",
-            en_US: "Critical Power",
+        defence_power_factor: {
+            ja_JP: "防御力ファクター",
+            en_US: "Defense Factor",
         },
-        critical_chance: {
-            ja_JP: "会心率",
-            en_US: "",
+        exp_lv1: {
+            ja_JP: "経験値 (Lv. 1)",
+            en_US: "EXP (Lv. 1)",
         },
-        max_hp: {
-            ja_JP: "最大HP",
-            en_US: "Max HP",
+        exp_lv100: {
+            ja_JP: "経験値 (Lv. 100)",
+            en_US: "EXP (Lv. 100)",
         },
-        str: {
-            ja_JP: "筋力",
-            en_US: "Strength",
-        },
-        vit: {
-            ja_JP: "耐久力",
-            en_US: "Resilience",
-        },
-        dex: {
-            ja_JP: "器用さ",
-            en_US: "Dexterity",
-        },
-        mnd: {
-            ja_JP: "精神力",
-            en_US: "Spirit",
-        },
-        int: {
-            ja_JP: "知力",
-            en_US: "Intellect",
-        },
-        stamina: {
-            ja_JP: "最大ST",
-            en_US: "Max ST",
+        exp_crv: {
+            ja_JP: "経験値カーブ",
+            en_US: "EXP Curve",
         },
     };
 </script>
 
 <h4>Stats</h4>
 
-<div class="level-section grid g-50" class:not-max={sliderValue !== maxLevel}>
+<div class="level-section grid g-50">
     <div>
-        <h5 class="level-text">
-            Level {sliderValue !== maxLevel ? "Sync ▼" : ""}
-        </h5>
-        {#if levelParams.length > 1}
-            <p class="level-hint" id="level-sync-description">
-                Enter a level between <b>1</b> and <b>{maxLevel}</b>
-            </p>
-        {/if}
+        <h5 class="level-text">Level</h5>
+        <p class="level-hint" id="level-sync-description">
+            Enter a level between <b>1</b> and <b>{maxLevel}</b>
+        </p>
     </div>
     <div class="level-controls grid g-50">
-        <label class="input-level-wrapper" class:cant-edit={levelParams.length <= 1}>
+        <label class="input-level-wrapper">
             <span class="visually-hidden">Level</span>
             <span aria-hidden="true">Lv.</span>
             <input
@@ -100,14 +75,12 @@
                 bind:value={sliderValue}
                 max={maxLevel}
                 min="1"
-                disabled={levelParams.length <= 1}
                 aria-describedby="level-sync-description"
             />
         </label>
         <button
             class="box reset-level"
             on:click={() => (sliderValue = maxLevel)}
-            disabled={levelParams.length <= 1}
         >
             Reset
         </button>
@@ -115,30 +88,12 @@
     <hr />
 </div>
 
-<dl class:not-max={sliderValue !== maxLevel}>
-    {#each ["attribute_value", "skill"] as stat}
+<dl>
+    {#each ["hit_point", "hit_point_factor", "attack_power", "attack_power_factor", "defence_power", "defence_power_factor", "exp_lv1", "exp_lv100", "exp_crv"] as stat}
         {#if currentLevelStats[stat]}
             <div class="row">
                 <dt>{texts[stat][$userLocale]}</dt>
                 <dd>{currentLevelStats[stat]}</dd>
-            </div>
-        {/if}
-    {/each}
-    <div class="row">
-        <dt>{texts.battleScore[$userLocale]}</dt>
-        <dd>{battleScore}</dd>
-    </div>
-    <hr />
-    {#each ["offensive_power", "defensive_power", "critical_power", "critical_chance", "max_hp", "str", "vit", "dex", "mnd", "int", "stamina"] as stat}
-        {#if currentLevelStats[stat] && currentLevelStats[stat] >= 0}
-            <div class="row">
-                <dt>{texts[stat][$userLocale]}</dt>
-                <dd>
-                    {currentLevelStats[stat]}{stat === "critical_power" ||
-                    stat === "critical_chance"
-                        ? "%"
-                        : ""}
-                </dd>
             </div>
         {/if}
     {/each}
@@ -176,12 +131,6 @@
 
     dt {
         font-weight: normal;
-    }
-
-    .not-max dd,
-    .not-max .input-level-wrapper,
-    .not-max h5 {
-        color: #fe5162;
     }
 
     h5.level-text {
@@ -233,12 +182,6 @@
     @supports not selector(:has(*)) {
         .input-level-wrapper:focus-within {
             outline: 2px solid var(--accent);
-        }
-
-        .input-level-wrapper.cant-edit {
-            color: var(--text2);
-            background: var(--surface2);
-            filter: brightness(0.9) saturate(0);
         }
     }
 

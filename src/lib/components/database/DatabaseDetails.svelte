@@ -11,6 +11,7 @@
     import LiquidMemory from "./templates/LiquidMemory.svelte";
     import Skill from "./templates/Skill.svelte";
     import Map from "./templates/Map.svelte";
+    import Enemy from "./templates/Enemy.svelte";
 
 	export let entryId;
 
@@ -225,6 +226,28 @@
 				... on GameMap {
 					mapImages
 				}
+				... on Enemy {
+					level_params {
+						attack_power
+						attack_power_factor
+						defence_power
+						defence_power_factor
+						exp_crv
+						exp_lv1
+						exp_lv100
+						hit_point
+						hit_point_factor
+					}
+					drop_items {
+						content_id
+						name {
+							ja_JP
+							en_US
+						}
+						drop_rate
+						item_index
+					}
+				}
 			}
 		}
 	`);
@@ -268,7 +291,9 @@
 					{#if $entry.data.entry.__typename === "GameMap"}
 						<Map data={$entry.data.entry} />
 					{/if}
-					<!-- Enemies -->
+					{#if $entry.data.entry.__typename === "Enemy"}
+						<Enemy data={$entry.data.entry} />
+					{/if}
 				</div>
 			{/if}
 		</article>
