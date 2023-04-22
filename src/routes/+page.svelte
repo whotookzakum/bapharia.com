@@ -1,12 +1,11 @@
-<script lang="ts">
+<script>
 	import PageFooter from "../lib/components/PageFooter.svelte";
 	import Database from "$lib/components/database/Database.svelte";
 	import Guides from "./Guides.svelte";
 	import InteractivePages from "./InteractivePages.svelte";
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
-	import Credits from "./Credits.svelte";
-    import Donations from "./Donations.svelte";
+    import Outro from "./Outro.svelte";
 
 	export let data;
 </script>
@@ -29,7 +28,7 @@
 	</section>
 
 	<section>
-		<!-- <Database /> -->
+		<Database />
 	</section>
 
 	<section>
@@ -37,8 +36,7 @@
 	</section>
 
 	<section>
-		<Donations />
-		<Credits />
+		<Outro />
 		<PageFooter />
 	</section>
 </main>

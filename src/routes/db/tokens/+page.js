@@ -1,5 +1,5 @@
-import texts from "$lib/apiextAGS/texts/en_US.json";
-import tokensData from "$lib/apiext/token.json";
+import texts from "../../graphql/global/texts/en_US.json";
+import tokensData from "../../graphql/japan/token.json";
 
 function getText(ns, id) {
     const namespaceTexts = texts.find(namespace => namespace.name === ns) || {}

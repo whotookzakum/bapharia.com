@@ -1,6 +1,6 @@
 <script>
     export let data;
-    // console.log(data.skills);
+    console.log(data.skills);
 </script>
 
 <main>

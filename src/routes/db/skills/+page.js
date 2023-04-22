@@ -1,5 +1,5 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
-import skillsData from "$lib/apiext/skill_data.json";
+import texts from "../../graphql/japan/texts/ja_JP.json";
+import skillsData from "../../graphql/japan/skill_data.json";
 import _ from "lodash";
 
 function getText(ns, id) {

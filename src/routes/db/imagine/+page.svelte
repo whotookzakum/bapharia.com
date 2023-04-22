@@ -1,5 +1,6 @@
 <script>
     export let data;
+    // console.log(data.imagines[50])
 </script>
 
 <main>

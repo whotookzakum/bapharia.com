@@ -10,14 +10,14 @@
 	<h1>{$page.status}</h1>
 	{#if $page.status === 404}
 		<span>The requested page could not be found.</span>
+		<p>
+			Check to make sure the URL is correct. If you think this is a mistake, let us know on <a
+				href="https://discord.gg/ZKwhn3a4yH"
+				target="_blank"
+				rel="noopener noreferrer">Discord</a
+			>.
+		</p>
 	{/if}
-	<p>
-		Check to make sure the URL is correct. If you think this is a mistake, let us know on <a
-			href="https://discord.gg/ZKwhn3a4yH"
-			target="_blank"
-			rel="noopener noreferrer">Discord</a
-		>.
-	</p>
 </main>
 <PageFooter />
 

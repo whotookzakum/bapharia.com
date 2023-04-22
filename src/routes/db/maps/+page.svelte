@@ -1,5 +1,5 @@
 <script>
-    import maps from "$lib/maps.json";
+    import maps from "../../graphql/maps.json";
 </script>
 
 <main>

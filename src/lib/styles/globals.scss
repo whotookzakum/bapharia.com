@@ -10,7 +10,7 @@ html {
 
 body {
     margin: 0;
-	accent-color: var(--accent);
+    accent-color: var(--accent);
 }
 
 * {
@@ -46,6 +46,8 @@ hr {
     font-size: var(--step--1);
     font-family: inherit;
     font-weight: normal;
+    display: inline-block;
+    margin-bottom: 0.5rem;
 }
 
 .visually-hidden {
@@ -101,7 +103,8 @@ label:has(input.visually-hidden:focus-visible) {
     display: grid;
 }
 
-.amount svg, .bonus svg {
+.amount svg,
+.bonus svg {
     vertical-align: sub;
 }
 
@@ -115,4 +118,141 @@ label:has(input.visually-hidden:focus-visible) {
 
 .skip-std {
     font-family: "Skip Std";
+}
+
+.entry-details {
+    padding-top: 0.5rem;
+
+    h4 {
+        font-size: var(--step-0);
+
+        &:first-of-type {
+            // margin: 0;
+        }
+    }
+
+    h5 {
+        font-size: initial;
+    }
+
+    p,
+    li {
+        max-inline-size: none;
+        margin: 0;
+    }
+
+    table {
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        border-collapse: collapse;
+        line-height: 1.8;
+        margin: 0.25rem 0;
+        overflow: hidden;
+
+        td:nth-child(3),
+        td:last-child,
+        th:nth-child(3),
+        th:last-child {
+            text-align: right;
+        }
+
+        thead tr {
+            background: var(--surface3);
+        }
+
+        tr+tr {
+            border-top: 1px solid var(--surface3);
+        }
+
+        td,
+        th {
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    p.border-left {
+        margin: 0;
+    }
+
+    .border-left {
+        margin: 0.25rem 0;
+        padding: 0 1rem;
+        border-left: 6px solid var(--surface3);
+        align-items: center;
+    }
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.pill {
+    padding: 0.2rem 0.5rem;
+    margin-block: 0.2rem;
+    width: fit-content;
+    font-size: var(--step--2);
+    border-radius: 1rem;
+    --s: 70%;
+    --l: 18%;
+    background-color: hsl(var(--h), var(--s), var(--l));
+    color: hsl(var(--h), calc(var(--s) - 30%), calc(var(--l) + 70%));
+    border-color: hsl(var(--h), calc(var(--s) - 20%), calc(var(--l) + 10%));
+    --surface-shadow: rgba(0, 0, 0, 0.212);
+    white-space: nowrap;
+}
+
+.entry-id {
+    --h: 0;
+    --s: 0%;
+}
+
+.Enemy {
+    --h: 0;
+}
+
+.Token {
+    --h: 30;
+}
+
+.Skill {
+    --h: 60;
+}
+
+.StampSet {
+    --h: 90;
+}
+
+.Item {
+    --h: 120;
+}
+
+.Imagine {
+    --h: 150;
+}
+
+.Weapon {
+    --h: 180;
+}
+
+.GameMap {
+    --h: 210;
+}
+
+.LiquidMemory {
+    --h: 240;
+}
+
+.Costume {
+    --h: 270;
+}
+
+.Gesture {
+    --h: 300;
 }

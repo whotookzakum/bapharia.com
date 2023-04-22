@@ -1,14 +1,14 @@
-import texts from "$lib/apiextAGS/texts/en_US.json";
-import weaponsData from "$lib/apiext/weapons.json";
-import weaponsStatsData from "$lib/apiext/weapon_status_levels.json";
-import recipesData from "$lib/apiext/craft.json";
-import itemsData from "$lib/apiext/items.json";
-import weaponPerks from "$lib/apiext/weaponperks.json";
-import masterPerkPicks from "$lib/apiext/master_weapon_perk_picks.json";
-import perksData from "$lib/apiext/perks.json";
-import lotteryData from "$lib/apiext/master_reward_lottery_groups.json";
-import treasuresData from "$lib/apiext/treasures.json";
-import enemiesData from "$lib/apiext/enemyparams.json";
+import texts from "../../graphql/global/texts/en_US.json";
+import weaponsData from "../../graphql/japan/weapons.json";
+import weaponsStatsData from "../../graphql/japan/weapon_status_levels.json";
+import recipesData from "../../graphql/japan/craft.json";
+import itemsData from "../../graphql/japan/items.json";
+import weaponPerks from "../../graphql/japan/weaponperks.json";
+import masterPerkPicks from "../../graphql/japan/master_weapon_perk_picks.json";
+import perksData from "../../graphql/japan/perks.json";
+import lotteryData from "../../graphql/japan/master_reward_lottery_groups.json";
+import treasuresData from "../../graphql/japan/treasures.json";
+import enemiesData from "../../graphql/japan/enemyparams.json";
 
 function getText(ns, id) {
     const namespaceTexts = texts.find(namespace => namespace.name === ns) || {}

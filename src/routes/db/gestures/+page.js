@@ -1,5 +1,5 @@
-import texts from "$lib/apiext/texts/ja_JP.json";
-import gesturesData from "$lib/apiext/emotes.json";
+import texts from "../../graphql/japan/texts/ja_JP.json";
+import gesturesData from "../../graphql/japan/emotes.json";
 
 function getText(ns, id) {
     const namespaceTexts = texts.find(namespace => namespace.name === ns) || {}
