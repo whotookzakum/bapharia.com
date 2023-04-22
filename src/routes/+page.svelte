@@ -5,14 +5,9 @@
 	import InteractivePages from "./InteractivePages.svelte";
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
-	import Credits from "./Credits.svelte";
-    import Donations from "./Donations.svelte";
-	import { page } from "$app/stores";
-    import { getDatabaseEntries } from "./graphql/resolvers";
+    import Outro from "./Outro.svelte";
 
 	export let data;
-
-	// console.log(getDatabaseEntries())
 </script>
 
 <MetaTags
@@ -41,8 +36,7 @@
 	</section>
 
 	<section>
-		<Donations />
-		<Credits />
+		<Outro />
 		<PageFooter />
 	</section>
 </main>
