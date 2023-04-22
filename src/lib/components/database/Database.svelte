@@ -89,10 +89,6 @@
 </script>
 
 <h2 id="db">Database</h2>
-
-<p>param "SEARCH" {$page.url.searchParams.get("search")}</p>
-<p>user search: {userSearchInput}</p>
-<p>entry id: {userSelectedEntryId}</p>
 <div class="db-wrapper">
 	<form id="search" class="search-pane">
 		<div>

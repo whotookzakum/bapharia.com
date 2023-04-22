@@ -387,7 +387,7 @@ export const getEnemies = () => {
                 return {
                     ...drop,
                     treasure,
-                    name: "Treasure Chest"
+                    name: { ja_JP: "宝箱", en_US: "Treasure Chest" }
                 }
             }
 

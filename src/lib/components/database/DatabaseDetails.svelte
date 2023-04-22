@@ -238,7 +238,7 @@
 						hit_point
 						hit_point_factor
 					}
-					drop_items {
+					drops {
 						content_id
 						name {
 							ja_JP
