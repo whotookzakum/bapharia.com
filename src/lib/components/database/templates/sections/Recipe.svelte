@@ -2,11 +2,6 @@
     import { userLocale } from "$lib/stores";
     import LunoIcon from "./LunoIcon.svelte";
     export let recipe;
-
-    let sources = recipe.materials.map(mat => false);
-    const toggleSource = (index) => {
-        sources[index] = !sources[index];
-    };
 </script>
 
 <h4>Recipe</h4>
@@ -18,27 +13,27 @@
         </tr>
     </thead>
     <tbody>
-        {#each recipe.materials as material, index}
+        {#each recipe.materials as material}
             <tr>
                 <td>
-                    <a href={`?result=${material.id}`}>
-                        {material.name[$userLocale]}
-                    </a>
-                    <button
-                        class="hint-toggle"
-                        on:click={() => toggleSource(index)}
-                    >
-                        <img
-                            src="/UI/Common/UI_CmnIconInfo.png"
-                            alt="Hint"
-                            width="28"
-                            height="28"
-                            style="margin: -9px 0"
-                        />
-                    </button>
-                    <div class="hint" class:show={sources[index]}>
-                        {material.sourceDesc[$userLocale]}
-                    </div>
+                    <details>
+                        <summary>
+                            <a href={`?result=${material.id}`}>
+                                {material.name[$userLocale]}
+                            </a>
+                            <img
+                                class="hint-icon"
+                                src="/UI/Common/UI_CmnIconInfo.png"
+                                alt="Hint"
+                                width="28"
+                                height="28"
+                                style="margin: -9px 0"
+                            />
+                        </summary>
+                        <p class="hint-text">
+                            {material.sourceDesc[$userLocale]}
+                        </p>
+                    </details>
                 </td>
                 <td>{material.amount || material.need_num}</td>
             </tr>
@@ -53,27 +48,32 @@
     <p>Great Success rate: <b>{recipe.bonus_rate}%</b></p>
 {/if}
 {#if recipe.great_success_tokens}
-    <p>Tickets needed to guarantee Great Success: <b>{recipe.great_success_tokens}</b></p>
+    <p>
+        Tickets needed to guarantee Great Success: <b
+            >{recipe.great_success_tokens}</b
+        >
+    </p>
 {/if}
 
 <style lang="scss">
-    .hint-toggle {
-        padding: 0;
-        border: none;
-        background: none;
-
-        &:hover {
-            filter: brightness(0.8);
+    details {
+        img.hint-icon:hover {
+            filter: brightness(0.7);
         }
-    }
 
-    .hint {
-        display: none;
-        color: var(--text2);
-        font-size: var(--step--1);
+        &::marker {
+            display: none;
+        }
 
-        &.show {
-            display: block;
+        summary {
+            list-style: none;
+            width: fit-content;
+        }
+
+        p.hint-text {
+            color: var(--text2);
+            font-size: var(--step--1);
+            margin: 0;
         }
     }
 
