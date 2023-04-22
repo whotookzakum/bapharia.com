@@ -1,49 +1,22 @@
 <script>
 	import { page } from "$app/stores";
 	import { goto } from "$app/navigation";
-	import { browser } from "$app/environment";
 	import { graphql } from "$houdini";
 	import { userLocale } from "$lib/stores";
 	import DatabaseDetails from "./DatabaseDetails.svelte";
 	import EntrySummary from "./EntrySummary.svelte";
 	import SearchFilters from "./SearchFilters.svelte";
+	import debounce from "lodash/debounce";
 
-	// URL updates
 	let userSearchInput = $page.url.searchParams.get("search");
-	let userSelectedEntryId = $page.url.searchParams.get("result");
-
-	// Bugged: blocks link navigation since its reacting to page.url updates as well
-	$: if (browser) {
-		userSearchInput
-			? $page.url.searchParams.set("search", userSearchInput)
-			: $page.url.searchParams.delete("search");
-
-		userSelectedEntryId
-			? $page.url.searchParams.set("result", userSelectedEntryId)
-			: $page.url.searchParams.delete("result");
-
-		goto(`?${$page.url.searchParams.toString()}`, {
-			noScroll: true,
-			replaceState: true,
-			keepFocus: true,
-		});
-	}
+	$: userSelectedEntryId = $page.url.searchParams.get("result");
 
 	export let _DatabaseEntriesVariables = () => {
 		return {
-			searchTerm: userSearchInput || "",
+			searchTerm: userSearchInput,
 		};
 	};
 
-	$: {
-		_DatabaseEntriesVariables = () => {
-			return {
-				searchTerm: userSearchInput || "",
-			};
-		};
-	}
-
-	// Search results
 	const entries = graphql(`
 		query DatabaseEntries($searchTerm: String) @load {
 			entries(searchTerm: $searchTerm) {
@@ -78,9 +51,48 @@
 		ja_JP: "アイテム名かIDで検索",
 		en_US: "Start typing item name or id",
 	};
+
+	const updateResults = debounce(() => {
+		_DatabaseEntriesVariables = () => {
+			return {
+				searchTerm: userSearchInput
+			};
+		};
+	}, 500);
+
+	const updateUrl = (resultId) => {
+		userSearchInput
+			? $page.url.searchParams.set("search", userSearchInput)
+			: $page.url.searchParams.delete("search");
+		
+		if (resultId) userSelectedEntryId = resultId
+		
+		userSelectedEntryId
+			? $page.url.searchParams.set("result", userSelectedEntryId)
+			: $page.url.searchParams.delete("result");
+
+		// Results are pushed to history, but searches are not.
+		// To add searches, create a separate function debouncing goto(). 
+		// Without debounce, every letter will be added to history = bad UX.
+		// However, as a consequence, the address bar won't update immediately.
+		goto(`?${$page.url.searchParams.toString()}`, {
+			noScroll: true,
+			replaceState: !resultId,
+			keepFocus: true,
+		});
+	}
+
+	const handleSearch = () => {
+		updateUrl()
+		updateResults()
+	};
 </script>
 
 <h2 id="db">Database</h2>
+
+<p>param "SEARCH" {$page.url.searchParams.get("search")}</p>
+<p>user search: {userSearchInput}</p>
+<p>entry id: {userSelectedEntryId}</p>
 <div class="db-wrapper">
 	<form id="search" class="search-pane">
 		<div>
@@ -92,6 +104,7 @@
 					type="search"
 					placeholder={placeholderText[$userLocale]}
 					bind:value={userSearchInput}
+					on:input={handleSearch}
 				/>
 				<SearchFilters />
 			</div>
@@ -101,7 +114,8 @@
 				{#each $entries.data.entries as entry}
 					<li>
 						<button
-							on:click={() => (userSelectedEntryId = entry.id)}
+							type="button"
+							on:click={() => updateUrl(entry.id)}
 						>
 							<EntrySummary data={entry} />
 						</button>

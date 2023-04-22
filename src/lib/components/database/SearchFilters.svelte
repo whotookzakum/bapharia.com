@@ -1,9 +1,8 @@
 <script>
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
-    import debounce from "lodash/debounce";
 
-    let detailsOpen = true;
+    let detailsOpen = false;
 
     const filters = {
         level: {
@@ -105,11 +104,7 @@
             },
         ],
     };
-
-    const doThing = debounce(() => console.log(filters.adventurer_rank.min), 1000)
 </script>
-
-<p>{filters.adventurer_rank.min}</p>
 
 <details class="box" bind:open={detailsOpen}>
     <summary class="details-expander">
@@ -203,7 +198,6 @@
                         bind:value={filters.adventurer_rank.min}
                         max="29"
                         min="1"
-                        on:input={doThing}
                     />
                 </label>
                 <div class="tilde" aria-hidden="true">~</div>

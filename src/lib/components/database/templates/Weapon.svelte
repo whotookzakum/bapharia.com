@@ -12,7 +12,6 @@
         Class
     } from "./sections";
     export let data;
-    console.log(data)
 </script>
 
 <div class="grid">
