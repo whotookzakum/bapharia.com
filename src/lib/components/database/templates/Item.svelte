@@ -16,7 +16,7 @@
         {#if data.effectDesc.ja_JP !== "-"}
             <Effect text={data.effectDesc} />
         {/if}
-        {#if data.sourceDesc.ja_JP !== "-"}
+        {#if !["-", "非公開"].includes(data.sourceDesc.ja_JP)}
             <Source text={data.sourceDesc} />
         {/if}
     </div>
