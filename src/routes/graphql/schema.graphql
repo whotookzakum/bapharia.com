@@ -44,8 +44,13 @@ type Enemy implements DBEntry {
 	category: Text
 
 	level_params: [LevelParams]!
+	found_in: [EnemyLocation]!
+}
+
+type EnemyLocation {
+	id: String
+	name: Text
 	drops: [EnemyDrop]!
-	treasure_chests: [EnemyDrop]!
 }
 
 type EnemyDrop {
@@ -58,14 +63,11 @@ type EnemyDrop {
 	item_index: Int
 	level_max: Int
 	level_min: Int
-	name: Text
 	type: Int
+	name: Text
 
-	treasure: TreasureData
-}
-
-type TreasureData {
-	id: Int
+	# Treasures
+	is_treasure_chest: Boolean
 	respawn_interval: Int
 	respawn_rate: Int
 	respawn_warranty: Int
@@ -77,13 +79,10 @@ type TreasureData {
 	thursday: Int
 	friday: Int
 	saturday: Int
-	rarity_rate: [TreasureRarity]!
-}
-
-type TreasureRarity {
-	rarity: Int
-	rate: Int
-	rewards: [TreasureReward]!
+	rarity_1_rate: Int
+	rarity_1_rewards: [TreasureReward]
+	rarity_3_rate: Int
+	rarity_3_rewards: [TreasureReward]
 }
 
 type TreasureReward {

@@ -3,15 +3,15 @@
 	import Icon from "@iconify/svelte";
 	import Item from "./templates/Item.svelte";
 	import Imagine from "./templates/Imagine.svelte";
-    import Weapon from "./templates/Weapon.svelte";
-    import Costume from "./templates/Costume.svelte";
-    import EntrySummary from "./EntrySummary.svelte";
-    import Token from "./templates/Token.svelte";
-    import StampSet from "./templates/StampSet.svelte";
-    import LiquidMemory from "./templates/LiquidMemory.svelte";
-    import Skill from "./templates/Skill.svelte";
-    import Map from "./templates/Map.svelte";
-    import Enemy from "./templates/Enemy.svelte";
+	import Weapon from "./templates/Weapon.svelte";
+	import Costume from "./templates/Costume.svelte";
+	import EntrySummary from "./EntrySummary.svelte";
+	import Token from "./templates/Token.svelte";
+	import StampSet from "./templates/StampSet.svelte";
+	import LiquidMemory from "./templates/LiquidMemory.svelte";
+	import Skill from "./templates/Skill.svelte";
+	import Map from "./templates/Map.svelte";
+	import Enemy from "./templates/Enemy.svelte";
 
 	export let entryId;
 
@@ -238,30 +238,36 @@
 						hit_point
 						hit_point_factor
 					}
-					drops {
-						content_id
+					found_in {
+						id
 						name {
 							ja_JP
 							en_US
 						}
-						drop_rate
-						item_index
-					}
-					treasure_chests {
-						content_id
-						drop_rate
-						treasure {
-							rarity_rate {
-								rarity
+						drops {
+							drop_rate
+							item_index
+							name {
+								ja_JP
+								en_US
+							}
+							is_treasure_chest
+							rarity_1_rate
+							rarity_3_rate
+							rarity_1_rewards {
+								reward_master_id
 								rate
-								rewards {
-									reward_type
-									reward_master_id
-									rate
-									name {
-										ja_JP
-										en_US
-									}
+								name {
+									ja_JP
+									en_US
+								}
+							}
+							rarity_3_rewards {
+								reward_master_id
+								rate
+								name {
+									ja_JP
+									en_US
 								}
 							}
 						}
@@ -352,7 +358,7 @@
 			padding-bottom: 1rem;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 		}
-		
+
 		.collapsed {
 			max-height: 465px;
 			-webkit-mask-image: linear-gradient(black, transparent);

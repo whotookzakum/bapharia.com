@@ -2,6 +2,13 @@
     import _ from "lodash";
     export let data;
     // console.log(data.enemies[1])
+    // data.enemies.forEach(enemy => {
+    //     if (enemy.drop_items.length > 0) {
+    //         enemy.drop_items.forEach(drop => {
+    //             console.log(typeof drop.content_id)
+    //         })
+    //     }
+    // });
 </script>
 
 <main>
