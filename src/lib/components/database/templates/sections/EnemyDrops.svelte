@@ -1,10 +1,12 @@
 <script>
     import { userLocale } from "$lib/stores";
     import _ from "lodash";
-    export let drops;
+    export let drops, treasure_chests;
 
     const groupedDrops = _.groupBy(drops, (drop) => drop.content_id);
     console.log(groupedDrops);
+
+    console.log(treasure_chests);
 </script>
 
 <h4>Drops</h4>
@@ -22,30 +24,38 @@
             {#each drops as drop}
                 <tr>
                     <td>
-                        <a href={`?result=${drop.item_index}#db`}>{drop.name[$userLocale]}</a>
+                        <a href={`?result=${drop.item_index}#db`}
+                            >{drop.name[$userLocale]}</a
+                        >
                     </td>
                     <td>{drop.drop_rate / 100}%</td>
-
-                    {#if drop.treasure?.rarity_rate}
-                        <td>
-                            <ul>
-                                {#each drop.treasure?.rarity_rate as chest}
-                                    <li>
-                                        <div>
-                                            Rarity {chest.rarity} chest ({chest.rate /
-                                                100}%)
-                                        </div>
-                                        {#each drop.treasure.lot_rate.filter((lot) => lot.rarity_min === chest.rarity) as lot}
-                                            <div>
-                                                {lot.reward_master_id}
-                                                {lot.rate / 100}%
-                                            </div>
+                </tr>
+            {/each}
+            {#each treasure_chests.filter((chests) => chests.content_id === mapId) as chest}
+                <tr>
+                    <td>
+                        Treasure Chest
+                        <ul>
+                            {#each chest.treasure.rarity_rate as chestRates}
+                                <li>
+                                    Rarity {chestRates.rarity} Chest ({chestRates.rate /
+                                        100}%)
+                                    <ul>
+                                        {#each chestRates.rewards as reward}
+                                            <li>
+                                                <a
+                                                    href={`?result=${reward.reward_master_id}#db`}
+                                                    >{reward.name[$userLocale]} ({reward.rate /
+                                                        100}%)</a
+                                                >
+                                            </li>
                                         {/each}
-                                    </li>
-                                {/each}
-                            </ul>
-                        </td>
-                    {/if}
+                                    </ul>
+                                </li>
+                            {/each}
+                        </ul>
+                    </td>
+                    <td style="vertical-align: top">{chest.drop_rate / 100}%</td>
                 </tr>
             {/each}
         </tbody>

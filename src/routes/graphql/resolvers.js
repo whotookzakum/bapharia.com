@@ -22,6 +22,7 @@ import masterPerkPicks from "./japan/master_weapon_perk_picks.json";
 import lotteryData from "./japan/master_reward_lottery_groups.json";
 import skillsData from "./japan/skill_data.json";
 import mapsData from "./maps.json";
+import adventureBoardsData from "./japan/master_adventure_board.json"
 import _ from "lodash";
 
 
@@ -33,6 +34,7 @@ function getText(ns, id) {
     let result = {};
     Object.keys(texts).forEach(lang => {
         const namespaceObj = texts[lang].find(namespace => namespace.name === ns) || {}
+        // console.log(namespaceObj)
         const textObj = namespaceObj.texts.find(obj => obj.id == id) || {}
         result[lang] = textObj.text || "-"
     })
@@ -57,42 +59,42 @@ function getCategory(entryType, category) {
                     ja_JP: "タクティカルスキル",
                     en_US: "Tactical Skill",
                 }
-            case 6: 
+            case 6:
                 return {
                     ja_JP: "ULTスキル",
                     en_US: "Ultimate Attack",
                 }
-            case 7: 
+            case 7:
                 return {
                     ja_JP: "回避",
                     en_US: "Dodge",
                 }
-            case 8: 
+            case 8:
                 return {
                     ja_JP: "クラスアビリティ",
                     en_US: "Class Ability",
                 }
-            case 9: 
+            case 9:
                 return {
                     ja_JP: "ベースアビリティ",
                     en_US: "Base Ability", // All classes
                 }
-            case 10: 
+            case 10:
                 return {
                     ja_JP: "エリアル攻撃",
                     en_US: "Aerial Attack",
                 }
-            case 11: 
+            case 11:
                 return {
                     ja_JP: "？？？",
                     en_US: "???",
                 }
-            case 12: 
+            case 12:
                 return {
                     ja_JP: "踏み台ジャンプ",
                     en_US: "Springboard Jump",
                 }
-            case 13: 
+            case 13:
                 return {
                     ja_JP: "受け身",
                     en_US: "受け身",
@@ -304,18 +306,18 @@ function getThumbnail(entryType, category, id, class_type) {
             case 4:
             case 5:
                 return `/UI/Icon/PlayerSkill/Class${class_type}/UI_PlayerSkill_${id}.png`
-            case 6: 
+            case 6:
                 return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png`
             case 8:
                 return `/UI/Icon/PlayerAbility/Class/Class${class_type}/UI_PlayerAbilityC_${id}.png`
-            case 9: 
+            case 9:
                 return `/UI/Icon/PlayerAbility/Base/Class${class_type}/UI_PlayerAbilityB_${id}.png`
             case 7: // Dodge
             case 10: // Aerial attack
             case 11: // ???
             case 12: // Springboard jump
             case 13: // Ukemi 
-            default: 
+            default:
                 return `/UI/Icon/Class/UI_IconClass_Nodata.png`
         }
     }
@@ -369,36 +371,70 @@ export const getEnemies = () => {
 
         // Spawn locations are found in client. Some enemies may spawn in a map but not drop anything. Maybe use radio buttons to select a mob's spawn locations, then update stats if they are different, and show drops for that map if there are any.
 
-        const drops = enemy.drop_items.map(drop => {
-            const item = itemsData.find(itm => itm.id === drop.item_index)
-
-            // Regular dropped item
-            if (item) {
+        const drops = enemy.drop_items
+            .filter(drop => itemsData.find(itm => itm.id === drop.item_index))
+            .map(drop => {
+                const item = itemsData.find(itm => itm.id === drop.item_index)
                 return {
                     ...drop,
                     name: getText("item_text", item.name)
                 }
-            }
+            })
 
-            const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
+        const treasure_chests = enemy.drop_items
+            .filter(drop => treasuresData.find(treasure => treasure.id === drop.item_index))
+            .map(drop => {
+                const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
+                if (treasure) {
+                    treasure.rarity_rate = treasure.rarity_rate.map(entry => {
+                        const rewards =
+                            treasure.lot_rate
+                                .filter(reward => reward.rarity_min === entry.rarity)
+                                .map(reward => {
+                                    let name;
+                                    if (reward.reward_type === 3) {
+                                        const item = itemsData.find(i => i.id === reward.reward_master_id)
+                                        name = getText("item_text", item.name)
+                                    }
+                                    if (reward.reward_type === 33) {
+                                        const imagine = imagineData.find(i => i.id === reward.reward_master_id)
+                                        name = getText("master_imagine_text", imagine?.imagine_name)
+                                    }
+                                    if (reward.reward_type === 15) {
+                                        const liqmem = liquidMemoriesData.find(mem => mem.id === reward.reward_master_id)
+                                        name = getText("master_liquid_memory_text", liqmem.efficacy_name)
+                                    }
+                                    if (reward.reward_type === 28) {
+                                        namespace = "master_adventure_boards_text"
+                                        const board = adventureBoardsData.find(b => b.id === reward.reward_master_id)
+                                        name = getText("master_liquid_memory_text", board.name)
+                                    }
+                                    return {
+                                        ...reward,
+                                        name,
+                                        reward_master_id: `${reward.reward_master_id}`
+                                    }
+                                })
+                        return {
+                            ...entry,
+                            rewards
+                        }
+                    })
 
-            // Treasure box
-            if (treasure) {
-                return {
-                    ...drop,
-                    treasure,
-                    name: { ja_JP: "宝箱", en_US: "Treasure Chest" }
+                    return {
+                        ...drop,
+                        treasure,
+                        name: { ja_JP: "宝箱", en_US: "Treasure Chest" }
+                    }
                 }
-            }
-
-            return drop
-        })
+            })
 
         return {
             ...enemy,
             id: enemy.enemy_id,
             name,
             drops,
+            treasure_chests,
             thumb: getThumbnail("enemy"),
             category: getCategory("enemy", enemy.is_boss),
             filterGroup: "enemies"

@@ -247,6 +247,25 @@
 						drop_rate
 						item_index
 					}
+					treasure_chests {
+						content_id
+						drop_rate
+						treasure {
+							rarity_rate {
+								rarity
+								rate
+								rewards {
+									reward_type
+									reward_master_id
+									rate
+									name {
+										ja_JP
+										en_US
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
