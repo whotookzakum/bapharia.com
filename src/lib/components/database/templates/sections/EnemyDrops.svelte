@@ -1,12 +1,9 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let locations;
-
-    console.log(locations);
 </script>
 
 <h4>Drops</h4>
-
 {#each locations as location}
     {#if location.id}
         <div class="skip-std">
