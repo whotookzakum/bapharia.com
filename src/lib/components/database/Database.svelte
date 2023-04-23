@@ -39,6 +39,7 @@
 				... on Skill {
 					elementImg
 					skillBackgroundImg
+					skill_type
 				}
 				... on Imagine {
 					elementImg

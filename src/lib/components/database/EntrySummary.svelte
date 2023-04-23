@@ -4,6 +4,7 @@
     export let moreDetails = false;
 
     let categoryText;
+    let backgroundStyle = ""
 
     $: {
         categoryText = data.__typename;
@@ -26,6 +27,7 @@
             };
         }
         if (data.__typename === "Skill") {
+            if (data.skill_type <= 6) backgroundStyle = `background-image: url(${data.skillBackgroundImg})`
             categoryText = {
                 ja_JP: "スキル",
                 en_US: "Skill",
@@ -79,7 +81,8 @@
 <div class="entry-summary flex" class:more-details={moreDetails}>
     <img
         src={data.thumb}
-        style={`background-image: url(${data.skillBackgroundImg || ""}); background-repeat: no-repeat`}
+        class="entry-thumb"
+        style={backgroundStyle}
         alt=""
         width="64"
         height="64"
@@ -139,6 +142,10 @@
         max-inline-size: none;
         width: 100%;
         line-height: 1.4;
+    }
+
+    .entry-thumb {
+        background-repeat: no-repeat;
     }
 
     .entry-summary.more-details {
