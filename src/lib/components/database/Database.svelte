@@ -106,18 +106,21 @@
 			</div>
 		</div>
 		{#if !$entries.fetching}
-			<ul id="search-results" class="box">
-				{#each $entries.data.entries as entry}
-					<li>
-						<button
-							type="button"
-							on:click={() => updateUrl(entry.id)}
-						>
-							<EntrySummary data={entry} />
-						</button>
-					</li>
-				{/each}
-			</ul>
+			<div>
+				<span class="component-label">Results ({$entries.data.entries.length})</span>
+				<ul id="search-results" class="box">
+					{#each $entries.data.entries as entry}
+						<li>
+							<button
+								type="button"
+								on:click={() => updateUrl(entry.id)}
+							>
+								<EntrySummary data={entry} />
+							</button>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		{/if}
 	</form>
 	<DatabaseDetails entryId={userSelectedEntryId || "121000000"} />
