@@ -139,7 +139,9 @@
 				</ul>
 			</div>
 			{#if $entries.data.entries.pageInfo.hasNextPage}
-			
+				<!-- <button on:click={entries.data.entries.loadNextPage}>
+					load more
+				</button> -->
 			{/if}
 		{/if}
 	</form>
