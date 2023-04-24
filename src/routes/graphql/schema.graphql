@@ -1,8 +1,26 @@
 scalar Map
 
 type Query {
-	entries(searchTerm: String): [DBEntry]
+	entries(searchTerm: String, first: Int, after: String): DBConnection!
 	entry(id: String!): DBEntry
+}
+
+type DBConnection {
+	edges: [EntryEdge!]!
+	pageInfo: PageInfo!
+	totalResults: Int!
+}
+
+type EntryEdge {
+	cursor: String
+	node: DBEntry
+}
+
+type PageInfo {
+	endCursor: String
+	hasNextPage: Boolean!
+	hasPreviousPage: Boolean!
+	startCursor: String
 }
 
 interface DBEntry {

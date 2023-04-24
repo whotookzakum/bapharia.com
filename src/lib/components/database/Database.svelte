@@ -19,34 +19,48 @@
 
 	const entries = graphql(`
 		query DatabaseEntries($searchTerm: String) @load {
-			entries(searchTerm: $searchTerm) {
-				__typename
-				id
-				name {
-					ja_JP
-					en_US
+			entries(searchTerm: $searchTerm, first: 6) @paginate {
+				totalResults
+				pageInfo {
+					endCursor
+					hasNextPage
+					hasPreviousPage
+					startCursor
 				}
-				thumb
-				category {
-					ja_JP
-					en_US
-				}
-				... on Weapon {
-					classImg
-					elementImg
-					attribute
-				}
-				... on Skill {
-					elementImg
-					skillBackgroundImg
-					skill_type
-				}
-				... on Imagine {
-					elementImg
+				edges {
+					node {
+						__typename
+						id
+						name {
+							ja_JP
+							en_US
+						}
+						thumb
+						category {
+							ja_JP
+							en_US
+						}
+						... on Weapon {
+							classImg
+							elementImg
+							attribute
+						}
+						... on Skill {
+							elementImg
+							skillBackgroundImg
+							skill_type
+						}
+						... on Imagine {
+							elementImg
+						}
+					}
+					cursor
 				}
 			}
 		}
 	`);
+
+	// $: console.log($entries.data)
 
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
@@ -56,7 +70,7 @@
 	const updateResults = debounce(() => {
 		_DatabaseEntriesVariables = () => {
 			return {
-				searchTerm: userSearchInput
+				searchTerm: userSearchInput,
 			};
 		};
 	}, 500);
@@ -65,15 +79,15 @@
 		userSearchInput
 			? $page.url.searchParams.set("search", userSearchInput)
 			: $page.url.searchParams.delete("search");
-		
-		if (resultId) userSelectedEntryId = resultId
-		
+
+		if (resultId) userSelectedEntryId = resultId;
+
 		userSelectedEntryId
 			? $page.url.searchParams.set("result", userSelectedEntryId)
 			: $page.url.searchParams.delete("result");
 
 		// Results are pushed to history, but searches are not.
-		// To add searches, create a separate function debouncing goto(). 
+		// To add searches, create a separate function debouncing goto().
 		// Without debounce, every letter will be added to history = bad UX.
 		// However, as a consequence, the address bar won't update immediately.
 		goto(`?${$page.url.searchParams.toString()}`, {
@@ -81,11 +95,11 @@
 			replaceState: !resultId,
 			keepFocus: true,
 		});
-	}
+	};
 
 	const handleSearch = () => {
-		updateUrl()
-		updateResults()
+		updateUrl();
+		updateResults();
 	};
 </script>
 
@@ -108,20 +122,25 @@
 		</div>
 		{#if !$entries.fetching}
 			<div>
-				<span class="component-label">Results ({$entries.data.entries.length})</span>
+				<span class="component-label"
+					>Results ({$entries.data.entries.totalResults})</span
+				>
 				<ul id="search-results" class="box">
-					{#each $entries.data.entries as entry}
+					{#each $entries.data.entries.edges as entry}
 						<li>
 							<button
 								type="button"
-								on:click={() => updateUrl(entry.id)}
+								on:click={() => updateUrl(entry.node.id)}
 							>
-								<EntrySummary data={entry} />
+								<EntrySummary data={entry.node} />
 							</button>
 						</li>
 					{/each}
 				</ul>
 			</div>
+			{#if $entries.data.entries.pageInfo.hasNextPage}
+			
+			{/if}
 		{/if}
 	</form>
 	<DatabaseDetails entryId={userSelectedEntryId || "121000000"} />

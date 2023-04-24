@@ -8,18 +8,23 @@ import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 export const resolvers = {
 	Query: {
-		entries(_, { searchTerm }) {
-			const entries = getDatabaseEntries()
-			if (searchTerm) {
-				const filteredResults = 
+		async entries(_, args) {
+			let entries = getDatabaseEntries()
+			if (args.searchTerm) {
+				entries = 
 					entries.filter(entry => 
-						entry.id.includes(searchTerm)
-						|| checkStringIncludes(entry.name.ja_JP, searchTerm)
-						|| checkStringIncludes(entry.name.en_US, searchTerm)
+						entry.id.includes(args.searchTerm)
+						|| checkStringIncludes(entry.name.ja_JP, args.searchTerm)
+						|| checkStringIncludes(entry.name.en_US, args.searchTerm)
 					)
-				return filteredResults
 			}
-			return entries
+
+			const { connectionFromArray } = await import('./connections.mjs')
+
+			const connection = connectionFromArray(entries, args)
+			connection.totalResults = entries.length
+
+			return connection
 		},
 		entry(_, { id }) {
 			const entries = getDatabaseEntries()
