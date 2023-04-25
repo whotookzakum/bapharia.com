@@ -1,9 +1,9 @@
 import { createSchema } from 'graphql-yoga'
 import { getDatabaseEntries } from './resolvers.js'
-import * as fs from 'fs';
-import * as path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+// import * as fs from 'fs';
+// import * as path from 'path';
+// import { fileURLToPath } from 'url';
+// import { dirname } from 'path';
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 export const resolvers = {
@@ -83,8 +83,8 @@ export const resolvers = {
 	}
 }
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
 
 export const typeDefs = `scalar Map
 
