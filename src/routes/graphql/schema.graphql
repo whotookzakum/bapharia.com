@@ -1,8 +1,26 @@
 scalar Map
 
 type Query {
-	entries(searchTerm: String): [DBEntry]
+	entries(searchTerm: String, first: Int, after: String): DBConnection!
 	entry(id: String!): DBEntry
+}
+
+type DBConnection {
+	edges: [EntryEdge!]!
+	pageInfo: PageInfo!
+	totalResults: Int!
+}
+
+type EntryEdge {
+	cursor: String
+	node: DBEntry
+}
+
+type PageInfo {
+	endCursor: String
+	hasNextPage: Boolean!
+	hasPreviousPage: Boolean!
+	startCursor: String
 }
 
 interface DBEntry {
@@ -44,6 +62,12 @@ type Enemy implements DBEntry {
 	category: Text
 
 	level_params: [LevelParams]!
+	found_in: [EnemyLocation]!
+}
+
+type EnemyLocation {
+	id: String
+	name: Text
 	drops: [EnemyDrop]!
 }
 
@@ -57,8 +81,39 @@ type EnemyDrop {
 	item_index: Int
 	level_max: Int
 	level_min: Int
-	name: Text
 	type: Int
+	name: Text
+
+	# Treasures
+	is_treasure_chest: Boolean
+	respawn_interval: Int
+	respawn_rate: Int
+	respawn_warranty: Int
+	respawn_time: Int
+	sunday: Int
+	monday: Int
+	tuesday: Int
+	wednesday: Int
+	thursday: Int
+	friday: Int
+	saturday: Int
+	rarity_1_rate: Int
+	rarity_1_rewards: [TreasureReward]
+	rarity_3_rate: Int
+	rarity_3_rewards: [TreasureReward]
+}
+
+type TreasureReward {
+	lot_flat: Int
+	reward_master_id: String
+	reward_amount_min: Int
+	reward_amount_max: Int
+	reward_type: Int
+	rarity_min: Int
+	rarity_max: Int
+	rate: Int
+	condition_times: Int
+	name: Text
 }
 
 type Costume implements DBEntry {

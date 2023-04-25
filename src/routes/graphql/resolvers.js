@@ -22,6 +22,8 @@ import masterPerkPicks from "./japan/master_weapon_perk_picks.json";
 import lotteryData from "./japan/master_reward_lottery_groups.json";
 import skillsData from "./japan/skill_data.json";
 import mapsData from "./maps.json";
+import adventureBoardsData from "./japan/master_adventure_board.json"
+import itemIcons from "./itemicons.json"
 import _ from "lodash";
 
 
@@ -57,42 +59,42 @@ function getCategory(entryType, category) {
                     ja_JP: "タクティカルスキル",
                     en_US: "Tactical Skill",
                 }
-            case 6: 
+            case 6:
                 return {
                     ja_JP: "ULTスキル",
                     en_US: "Ultimate Attack",
                 }
-            case 7: 
+            case 7:
                 return {
                     ja_JP: "回避",
                     en_US: "Dodge",
                 }
-            case 8: 
+            case 8:
                 return {
                     ja_JP: "クラスアビリティ",
                     en_US: "Class Ability",
                 }
-            case 9: 
+            case 9:
                 return {
                     ja_JP: "ベースアビリティ",
                     en_US: "Base Ability", // All classes
                 }
-            case 10: 
+            case 10:
                 return {
                     ja_JP: "エリアル攻撃",
                     en_US: "Aerial Attack",
                 }
-            case 11: 
+            case 11:
                 return {
                     ja_JP: "？？？",
                     en_US: "???",
                 }
-            case 12: 
+            case 12:
                 return {
                     ja_JP: "踏み台ジャンプ",
                     en_US: "Springboard Jump",
                 }
-            case 13: 
+            case 13:
                 return {
                     ja_JP: "受け身",
                     en_US: "受け身",
@@ -270,23 +272,24 @@ function getThumbnail(entryType, category, id, class_type) {
     }
 
     if (entryType === "item") {
-        switch (category) {
-            case 0: return `/UI/Icon/Item/Consumption/UI_Icon_${id}.png`
-            case 2: return `/UI/Icon/Item/Material/UI_Icon_Fusion_1.png`
-            case 4: return `/UI/Icon/Item/EnemyMaterial/UI_Icon_Idea.png`
-            case 6: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png`
-            case 7: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Random.png`
-            case 1:
-            // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
-            case 3:
-            // ``
-            case 5:
-            // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
-            // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
-            // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
-            // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
-            default: return `/UI/Icon/Common/UI_Icon_Empty.png`
-        }
+        return itemIcons[id]
+        // switch (category) {
+        //     case 0: return `/UI/Icon/Item/Consumption/UI_Icon_${id}.png`
+        //     case 2: return `/UI/Icon/Item/Material/UI_Icon_Fusion_1.png`
+        //     case 4: return `/UI/Icon/Item/EnemyMaterial/UI_Icon_Idea.png`
+        //     case 6: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png`
+        //     case 7: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Random.png`
+        //     case 1:
+        //     // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
+        //     case 3:
+        //     // ``
+        //     case 5:
+        //     // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
+        //     // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
+        //     // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
+        //     // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
+        //     default: return `/UI/Icon/Common/UI_Icon_Empty.png`
+        // }
     }
 
     if (entryType === "skill") {
@@ -304,18 +307,18 @@ function getThumbnail(entryType, category, id, class_type) {
             case 4:
             case 5:
                 return `/UI/Icon/PlayerSkill/Class${class_type}/UI_PlayerSkill_${id}.png`
-            case 6: 
+            case 6:
                 return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png`
             case 8:
                 return `/UI/Icon/PlayerAbility/Class/Class${class_type}/UI_PlayerAbilityC_${id}.png`
-            case 9: 
+            case 9:
                 return `/UI/Icon/PlayerAbility/Base/Class${class_type}/UI_PlayerAbilityB_${id}.png`
             case 7: // Dodge
             case 10: // Aerial attack
             case 11: // ???
             case 12: // Springboard jump
             case 13: // Ukemi 
-            default: 
+            default:
                 return `/UI/Icon/Class/UI_IconClass_Nodata.png`
         }
     }
@@ -366,39 +369,54 @@ export const getEnemies = () => {
 
     const enemies = enemiesData.map(enemy => {
         const name = getText("enemyparam_text", enemy.name_id)
+        let found_in = []
 
-        // Spawn locations are found in client. Some enemies may spawn in a map but not drop anything. Maybe use radio buttons to select a mob's spawn locations, then update stats if they are different, and show drops for that map if there are any.
+        // Spawn locations are found in client. Some enemies may spawn in a map but not drop anything.
 
-        const drops = enemy.drop_items.map(drop => {
-            const item = itemsData.find(itm => itm.id === drop.item_index)
+        const allDrops =
+            enemy.drop_items
+                .map(drop => {
+                    const item = itemsData.find(itm => itm.id === drop.item_index)
+                    if (item) {
+                        return {
+                            ...drop,
+                            name: getText("item_text", item.name),
+                            is_treasure_chest: false
+                        }
+                    }
 
-            // Regular dropped item
-            if (item) {
-                return {
-                    ...drop,
-                    name: getText("item_text", item.name)
-                }
+                    const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
+                    if (treasure) {
+                        const chestData = getTreasureChestData(drop.item_index)
+                        return {
+                            ...drop,
+                            name: { ja_JP: "宝箱", en_US: "Treasure Chest" },
+                            is_treasure_chest: true,
+                            ...chestData
+                        }
+                    }
+                })
+
+        if (allDrops.length > 0) {
+            const dropsByLocation = _.groupBy(allDrops, (drop) => drop?.content_id)
+            if (dropsByLocation) {
+                found_in =
+                Object.entries(dropsByLocation)
+                    .map(([mapId, drops]) => {
+                        const mapData = getMapData(mapId)
+                        return {
+                            ...mapData,
+                            drops
+                        }
+                    })
             }
-
-            const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
-
-            // Treasure box
-            if (treasure) {
-                return {
-                    ...drop,
-                    treasure,
-                    name: { ja_JP: "宝箱", en_US: "Treasure Chest" }
-                }
-            }
-
-            return drop
-        })
+        }
 
         return {
             ...enemy,
             id: enemy.enemy_id,
             name,
-            drops,
+            found_in,
             thumb: getThumbnail("enemy"),
             category: getCategory("enemy", enemy.is_boss),
             filterGroup: "enemies"
@@ -406,6 +424,84 @@ export const getEnemies = () => {
     })
 
     return enemies
+}
+
+const getTreasureRewardName = (ns, id) => {
+    switch (ns) {
+        case 3: 
+            const item = itemsData.find(i => i.id === id)
+            return getText("item_text", item.name)
+        case 33: 
+            const imagine = imagineData.find(i => i.id === id)
+            if (imagine) {
+                return getText("master_imagine_text", imagine.imagine_name)
+            }
+            // Can also be a lottery
+            else {
+                // console.log("Could not find namespace for id " + id)
+                return { ja_JP: "Might be another chest", en_US: "Might be another chest" }
+            }
+        case 15: 
+            const liqmem = liquidMemoriesData.find(i => i.id === id)
+            return getText("master_liquid_memory_text", liqmem.efficacy_name)
+        case 28: 
+            const board = adventureBoardsData.find(i => i.id === id)
+            return getText("master_adventure_boards_text", board.name)
+    }
+}
+
+const getTreasureChestData = (chestId) => {
+    const treasureChest = treasuresData.find(treasure => treasure.id === chestId)
+    if (!treasureChest) return "Treasure chest data not found"
+
+    let rarity_1_rate, rarity_3_rate;
+    let rarity_1_rewards = []
+    let rarity_3_rewards = []
+
+    // Probability of normal chest
+    const rarity_1_data = treasureChest?.rarity_rate?.find(chest => chest.rarity === 1)
+
+    if (rarity_1_data) {
+        rarity_1_rate = rarity_1_data.rate
+
+        // Rewards for normal chest
+        rarity_1_rewards =
+            treasureChest.lot_rate
+                .filter(reward => reward.rarity_max === 1)
+                .map(reward => {
+                    const name = getTreasureRewardName(reward.reward_type, reward.reward_master_id)
+                    return {
+                        ...reward,
+                        name
+                    }
+                })
+    }
+
+    // Probability of gold chest
+    const rarity_3_data = treasureChest.rarity_rate.find(chest => chest.rarity === 3)
+    if (rarity_3_data) {
+        rarity_3_rate = rarity_3_data.rate
+
+        // Rewards for gold chest
+        rarity_3_rewards =
+            treasureChest.lot_rate
+                .filter(reward => reward.rarity_min === 3)
+                // Add reward item name
+                .map(reward => {
+                    const name = getTreasureRewardName(reward.reward_type, reward.reward_master_id)
+                    return {
+                        ...reward,
+                        name
+                    }
+                })
+    }
+
+    return {
+        rarity_1_rate,
+        rarity_1_rewards,
+        rarity_3_rate,
+        rarity_3_rewards
+    }
 }
 
 function getPartsPath(name) {
@@ -962,6 +1058,29 @@ export const getMaps = () => {
             filterGroup: "maps"
         }
     })
+}
+
+const getMapData = (id) => {
+    let mapData = mapsData.find(
+        map => map.map_id.toLowerCase() === id.toLowerCase()
+            || map.free_exploration_id?.toLowerCase() === id.toLowerCase()
+    )
+    if (mapData) {
+        return {
+            id: mapData.map_id,
+            name: {
+                ja_JP: mapData.name,
+                en_US: mapData.name_en || mapData.name_jp_cbt || mapData.name_translated
+            }
+        }
+    }
+    return {
+        id: null,
+        name: {
+            ja_JP: "-",
+            en_US: "-"
+        }
+    }
 }
 
 export const getDatabaseEntries = () => {
