@@ -95,13 +95,13 @@
                     style="margin-bottom: -1px"
                 /> Patreon</a
             >, or
-            <a
+            <!-- <a
                 href=""
                 class="box hover paypal"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                ><Icon icon="logos:paypal" style="margin-bottom: -1px" /> PayPal</a
-            >. Donations are very much appreciated and never required. Donors
+                ><Icon icon="logos:paypal" style="margin-bottom: -1px" /> PayPal</a>.  -->
+            Donations are very much appreciated and never required. Donors
             will be given a special discord role, with exclusive channel access.
         </p>
         <p>
@@ -244,10 +244,6 @@
         }
     }
 
-    .text-2 {
-        color: var(--text2);
-    }
-
     .box.hover {
         padding: 0.25rem 0.4rem;
         white-space: nowrap;
@@ -285,9 +281,9 @@
         color: #5865f2;
     }
 
-    .paypal {
-        color: #009cde;
-    }
+    // .paypal {
+    //     color: #009cde;
+    // }
 
     :global(.kofi) {
         position: relative;

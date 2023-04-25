@@ -76,8 +76,4 @@
             margin: 0;
         }
     }
-
-    h5 {
-        margin: 0;
-    }
 </style>

@@ -4,6 +4,7 @@
 			title: "Map",
 			href: "/map",
 			iconSrc: "msq.svg",
+			disabled: true
 		},
 		{
 			title: "Skills",

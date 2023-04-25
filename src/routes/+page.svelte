@@ -36,7 +36,7 @@
 	</section>
 
 	<section>
-		<Outro />
+		<!-- <Outro /> -->
 		<PageFooter />
 	</section>
 </main>
