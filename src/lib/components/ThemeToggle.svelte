@@ -101,6 +101,7 @@
 		justify-content: center;
 		width: 44px;
 		height: 44px;
+		pointer-events: auto;
 
 		img {
 			filter: sepia(1) saturate(10)

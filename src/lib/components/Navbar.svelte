@@ -1,6 +1,6 @@
 <script>
-	import LocaleSelector from './LocaleSelector.svelte';
-	import ThemeToggle from './ThemeToggle.svelte';
+	import LocaleSelector from "./LocaleSelector.svelte";
+	import ThemeToggle from "./ThemeToggle.svelte";
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
@@ -9,7 +9,7 @@
 <nav class="navbar">
 	<div class="nav-content">
 		<a href="/">
-			<img class="logo" src="/images/logo.png" alt="Logo">
+			<img class="logo" src="/images/logo.png" alt="Logo" />
 		</a>
 		<div class="nav-extras">
 			<ThemeToggle />
@@ -25,11 +25,24 @@
 		width: 100%;
 		z-index: 500;
 		transition: var(--transition-bg), var(--transition-shadow);
-		padding: var(--space-m);
+		padding: var(--space-xs); // 2xs to m
+		// pointer-events: none; // if no background
+		background: #0c0a18;
+		border-bottom: 1px solid hsl(249, 41%, 12%);
+		box-shadow: 0 2px 2px rgba(22, 18, 43, 0.3);
+	}
 
-		a {
-			border: none;
-		}
+	.nav-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 auto;
+		max-width: 1400px
+	}
+
+	a {
+		border: none;
+		pointer-events: auto;
 	}
 
 	img.logo {
@@ -39,15 +52,9 @@
 
 		&:hover {
 			transform: translateY(-4px);
-			filter: brightness(0.95) drop-shadow(0 6px 1px var(--surface-shadow));
+			filter: brightness(0.95)
+				drop-shadow(0 6px 1px var(--surface-shadow));
 		}
-	}
-
-	.nav-content {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		margin: 0 auto;
 	}
 
 	.nav-extras {
@@ -56,5 +63,4 @@
 		align-items: center;
 		position: relative;
 	}
-
 </style>

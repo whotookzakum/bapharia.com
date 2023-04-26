@@ -50,7 +50,7 @@
 
 <style lang="scss">
 	#locale-selector {
-		
+		pointer-events: auto;
 		padding: 0.5rem;
 		height: 44px;
 		min-width: 44px;

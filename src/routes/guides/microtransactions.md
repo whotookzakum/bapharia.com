@@ -4,7 +4,7 @@ author: "Zakum"
 date: '2023-2-23'
 category: 'Game Systems'
 caption: "About features that are available when spending real-life money."
-featuredImg: '4.png'
+featuredImg: "/guides/microtransactions/banner.webp"
 ---
 
 <script>

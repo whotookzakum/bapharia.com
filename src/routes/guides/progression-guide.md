@@ -4,7 +4,7 @@ author: 'Zakum'
 date: '2022-08-03'
 category: 'Strategy'
 caption: 'Suggestions on how to level up quickly and advance through the game.'
-featuredImg: 'char.png'
+featuredImg: "/guides/progressionguide/banner.webp"
 ---
 
 This guide is to quickly get through the game contents and **will most likely change when new story quests are added and AR requirements are higher**. Information is current as of the Closed Beta Test.
