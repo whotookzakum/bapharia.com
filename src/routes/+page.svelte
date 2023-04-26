@@ -19,7 +19,7 @@
 />
 <Navbar />
 <main>
-	<!-- <header>
+	<header>
 		<h1>Bapharia (β)</h1>
 		<strong>The premier information hub for BLUE PROTOCOL.</strong>
 	</header>
@@ -30,7 +30,7 @@
 
 	<section>
 		<Database />
-	</section> -->
+	</section>
 
 	<section>
 		<Guides data={data.guides} />

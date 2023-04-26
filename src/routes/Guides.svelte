@@ -2,24 +2,7 @@
 	import { userLocale } from "$lib/stores";
 	import { browser } from "$app/environment";
 	import Card from "$lib/components/Card.svelte";
-	import { onMount } from "svelte";
 	export let data;
-
-	let filters;
-	if (browser) {
-		filters = JSON.parse(localStorage.getItem("guide-filters"));
-	}
-	filters ??= {
-		"Game Systems": true,
-		Strategy: true,
-		Referential: true,
-	};
-
-	const arr = ["Game Systems", "Strategy", "Referential"]
-	let selected = arr.map(() => true)
-	let text = selected.map((o, i) => arr[i])
-
-	console.log(filters);
 
 	const filtersText = {
 		"Game Systems": {
@@ -36,28 +19,36 @@
 		},
 	};
 
-	// $: if (browser) {
-	// 	localStorage.setItem("guide-filters", JSON.stringify(filters));
-	// 	console.log("setting filters to: ")
-	// 	console.log(filters)
-	// }
+	let filters;
+	if (browser) {
+		filters = JSON.parse(localStorage.getItem("guide-filters"));
+	}
+	filters ??= {
+		// False to hide all by default (server render) or wrap ul.card-grid in {if browser}
+		// This will break accessibility if javascript is disabled
+		// True to show all by default
+		"Game Systems": true,
+		Strategy: true,
+		Referential: true,
+	};
 
-	$: guides = data.filter((guide) => arr.filter((o, i) => selected[i]).includes(guide.meta.category));
+	$: if (browser) {
+		localStorage.setItem("guide-filters", JSON.stringify(filters));
+	}
+
+	$: guides = data.filter((guide) => filters[guide.meta.category]);
 </script>
 
 <h2 id="guides">Guides</h2>
-<div class="grid g-50">
-	<span class="component-label">Filters</span>
-	<div id="filters" class="flex">
-		{#each Object.keys(filters) as filter, index}
-			<label class="box hover">
-				<input type="checkbox" bind:checked={selected[index]} />
-				{filtersText[filter][$userLocale]}
-			</label>
-		{/each}
-	</div>
-</div>
-<p>Checked: {arr.filter((o, i) => selected[i])}</p>
+<!-- <span class="component-label">Filters</span>
+<div id="guide-filters" class="flex">
+	{#each Object.keys(filters) as filter}
+		<label class="box hover">
+			<input type="checkbox" bind:checked={filters[filter]} />
+			{filtersText[filter][$userLocale]}
+		</label>
+	{/each}
+</div> -->
 <ul class="card-grid">
 	{#each guides as guide}
 		<li>
@@ -83,7 +74,7 @@
 		max-width: 100%;
 	}
 
-	#filters {
+	#guide-filters {
 		flex-wrap: wrap;
 		gap: var(--space-3xs);
 
