@@ -125,7 +125,7 @@
 				<span class="component-label"
 					>Results ({$entries.data.entries.totalResults})</span
 				>
-				<ul id="search-results" class="box">
+				<ul id="search-results" class="box" role="list">
 					{#each $entries.data.entries.edges as entry}
 						<li>
 							<button

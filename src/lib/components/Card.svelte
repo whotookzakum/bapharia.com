@@ -12,14 +12,14 @@
 
 <div class="card box">
 	<a class="card-title skip-std" {href}>{title}</a>
-	<p class="card-caption" aria-hidden="true">
-		<strong class="category">{category}</strong>
-		{caption}
-	</p>
-	<p class="card-caption visually-hidden">
-		<strong class="category">{category}</strong><br />
-		{caption}
-	</p>
+	<div class="card-caption" aria-hidden="true">
+		<span class="category">{category}</span>
+		<p>{caption}</p>
+	</div>
+	<div class="card-caption visually-hidden">
+		<span class="category">{category}</span>
+		<p>{caption}</p>
+	</div>
 	<label class="favorite">
 		<input
 			type="checkbox"
@@ -78,16 +78,19 @@
 		height: 100%;
 	}
 
-	p.card-caption {
-		margin: 0;
+	.card-caption {
 		opacity: 0;
 		transform: translateY(20%);
 		transition: all 0.1s ease-in-out;
-		display: grid;
-		gap: var(--space-2xs);
 		pointer-events: none;
 
-		strong.category {
+		p {
+			margin-bottom: 0;
+			margin-top: var(--space-2xs);
+		}
+
+		.category {
+			font-weight: 600;
 			color: var(--accent);
 			font-size: var(--step-0);
 		}
@@ -136,7 +139,7 @@
 			filter: brightness(0.15);
 		}
 
-		p.card-caption {
+		.card-caption {
 			opacity: 1;
 			visibility: visible;
 			transform: translateY(0);
@@ -153,7 +156,7 @@
 				filter: brightness(0.15);
 			}
 
-			p.card-caption {
+			.card-caption {
 				opacity: 1;
 				visibility: visible;
 				transform: translateY(0);

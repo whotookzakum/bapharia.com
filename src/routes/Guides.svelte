@@ -49,7 +49,7 @@
 		</label>
 	{/each}
 </div> -->
-<ul class="card-grid">
+<ul class="card-grid" role="list">
 	{#each guides as guide}
 		<li>
 			<Card
@@ -70,7 +70,7 @@
 		grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
 		gap: var(--space-s-m);
 		padding: 0;
-		list-style: none;
+		list-style-type: none;
 		max-width: 100%;
 	}
 

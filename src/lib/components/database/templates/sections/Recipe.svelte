@@ -66,7 +66,7 @@
         }
 
         summary {
-            list-style: none;
+            list-style-type: none;
             width: fit-content;
         }
 

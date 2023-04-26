@@ -4,7 +4,7 @@
 </script>
 
 <h4>Found In</h4>
-<ul class="border-left">
+<ul class="border-left" role="list">
     {#each locations as location}
         <li><a href={`?result=${location.id}#db`}>{location.name[$userLocale]}</a></li>
     {/each}
@@ -12,7 +12,7 @@
 
 <style lang="scss">
     ul {
-        list-style: none;
+        list-style-type: none;
         gap: 0;
     }
 </style>
