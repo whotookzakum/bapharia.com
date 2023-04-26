@@ -26,7 +26,7 @@ Below is a list of interactions you can perform by yourself, with other players,
 - Misc consumables (such as firecrackers)
 
 <figure class="full-bleed">
-    <img src="/images/39.jpg" alt="Rock, paper, scissors demo">
+    <img src="/guides/social-features/rps.jpg" alt="Rock, paper, scissors demo">
     <figcaption>Rock, Paper Scissors duel beginning. Who says there's no PvP?</figcaption>
 </figure>
 
