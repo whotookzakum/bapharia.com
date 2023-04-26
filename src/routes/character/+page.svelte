@@ -147,6 +147,12 @@
             {/each}
         </ul>
     </nav>
+    <div class="battle-build">
+        <img src="/UI/MyCharaMenu/UI_MyCharaMenuBattleCordeSetHeadingBg.png" alt="">
+        <div class="loadout">
+
+        </div>
+    </div>
     <div class="bg-elements">
         <img src="/UI/CommandMenu/UI_CommandMenuBgCorner.png" alt="" />
         <img
@@ -288,5 +294,13 @@
         gap: 1rem;
         align-items: center;
         padding-right: 2rem;
+    }
+
+    .loadout {
+        width: 920px;
+        height: 686px;
+        background-image: url("/UI/MyCharaMenu/UI_MyCharaMenuBattleCordeBgPattern.png"), url("/UI/MyCharaMenu/UI_MyCharaMenuBattleSetBg.png");
+        background-repeat: no-repeat;
+        background-position: 100% 0%;
     }
 </style>
