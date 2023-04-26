@@ -19,11 +19,11 @@
 
 	let locales = [
 		{
-			name: "EN",
+			name: "English",
 			code: "en_US",
 		},
 		{
-			name: "JA",
+			name: "日本語",
 			code: "ja_JP",
 		},
 	];
@@ -36,12 +36,12 @@
 		if (!cachedLocale) {
 			browserLocale = navigator.language.includes("ja") ? "ja_JP" : "en_US"
 			localStorage.setItem("user-locale", browserLocale)
-			// console.log("no cached locale.. cached browser locale: " + browserLocale)
+			// console.log("no cached locale.. caching browser locale: " + browserLocale)
 		}
 	</script>
 </svelte:head>
 
-<select id="locale-selector" class="box" bind:value={selectedLocale}>
+<select id="locale-selector" class="box hover" bind:value={selectedLocale}>
 	ITS
 	{#each locales as locale}
 		<option value={locale.code}>{locale.name}</option>
@@ -50,11 +50,10 @@
 
 <style lang="scss">
 	#locale-selector {
-		background: var(--surface2);
-		color: var(--text1);
-		border: none;
-		font-size: initial;
+		
 		padding: 0.5rem;
+		height: 44px;
+		min-width: 44px;
 		// appearance: none;
 	}
 </style>
