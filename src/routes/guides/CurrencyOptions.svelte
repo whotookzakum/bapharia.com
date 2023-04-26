@@ -26,9 +26,8 @@
     ];
 
     let selected = "JPY";
-    
-    $: currency.set(CURRENCIES.find(c => c.code === selected))
 
+    $: currency.set(CURRENCIES.find((c) => c.code === selected));
 </script>
 
 <div class="box">

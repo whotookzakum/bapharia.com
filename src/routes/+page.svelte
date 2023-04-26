@@ -6,6 +6,7 @@
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
     import Outro from "./Outro.svelte";
+	import Card from "$lib/components/Card.svelte";
 
 	export let data;
 </script>
@@ -18,7 +19,7 @@
 />
 <Navbar />
 <main>
-	<header>
+	<!-- <header>
 		<h1>Bapharia (β)</h1>
 		<strong>The premier information hub for BLUE PROTOCOL.</strong>
 	</header>
@@ -29,7 +30,7 @@
 
 	<section>
 		<Database />
-	</section>
+	</section> -->
 
 	<section>
 		<Guides data={data.guides} />
@@ -37,9 +38,11 @@
 
 	<section>
 		<!-- <Outro /> -->
-		<PageFooter />
+		
 	</section>
 </main>
+
+<PageFooter />
 
 <style global lang="scss">
 	main {

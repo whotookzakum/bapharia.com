@@ -17,9 +17,7 @@ const config = {
 				rehypeSlug,
 				[
 					rehypeAutolinkHeadings,
-					{
-						behavior: 'wrap'
-					}
+					{ behavior: 'wrap' }
 				]
 			]
 		})
