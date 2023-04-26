@@ -34,7 +34,7 @@
 			/>
 		</span>
 	</label>
-	<img class="bg-img" src={bgSrc} alt="" loading="lazy" />
+	<img class="bg-img" src={bgSrc} alt="" loading="lazy" width="640" height="360" />
 </div>
 
 <style lang="scss">
