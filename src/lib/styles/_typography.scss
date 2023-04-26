@@ -14,7 +14,7 @@ a {
     text-decoration: none;
     border-bottom: 0.24em solid var(--accent);
 
-    &:hover, 
+    &:hover,
     &:focus-visible {
         color: var(--accent);
     }
@@ -24,7 +24,8 @@ a {
     outline: 2px solid var(--accent) !important;
 }
 
-input[type="text"], input[type="search"] {
+input[type="text"],
+input[type="search"] {
     font: inherit;
     color: inherit;
     caret-color: var(--accent);
@@ -236,17 +237,27 @@ article.guide {
         width: unset;
     }
 
-    .anchorjs-link {
-        transform: translateX(20%);
-        position: absolute;
-        transition: opacity .05s linear, transform .05s linear;
-        border: none;
-        margin-top: 0.2rem;
-        color: var(--accent);
-    }
+    :where(h2, h3, h4, h5, h6) a {
+        border-bottom: 0.2em solid transparent;
+        position: relative;
 
-    *:hover>.anchorjs-link {
-        transform: translateX(0);
+        &:hover {
+            color: inherit;
+            border-color: var(--accent) !important;
+        }
+
+        &::after {
+            position: absolute;
+            padding-top: 0.25em;
+            padding-left: 0.25em;
+            content: ' \1f517';
+            opacity: 0;
+            font-size: 0.8em;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
     }
 }
 

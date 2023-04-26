@@ -1,16 +1,8 @@
 <script>
-	import AnchorJS from 'anchor-js';
-	import { onMount } from 'svelte';
-	import PageFooter from '../../lib/components/PageFooter.svelte';
+	import PageFooter from "../../lib/components/PageFooter.svelte";
 	export let title;
 	export let author;
 	export let date;
-
-	onMount(() => {
-		const anchors = new AnchorJS();
-		anchors.add('h2');
-		anchors.add('h3');
-	});
 </script>
 
 <article class="guide">
@@ -21,4 +13,4 @@
 	</header>
 	<slot />
 </article>
-<PageFooter/>
+<PageFooter />
