@@ -97,6 +97,7 @@
             <input
                 class="input-level"
                 type="number"
+                inputmode="numeric"
                 bind:value={sliderValue}
                 max={maxLevel}
                 min="1"
