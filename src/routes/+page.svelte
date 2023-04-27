@@ -6,6 +6,7 @@
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	import Navbar from "$lib/components/Navbar.svelte";
     import Outro from "./Outro.svelte";
+	import Card from "$lib/components/Card.svelte";
 
 	export let data;
 </script>
@@ -37,9 +38,11 @@
 
 	<section>
 		<!-- <Outro /> -->
-		<PageFooter />
+		
 	</section>
 </main>
+
+<PageFooter />
 
 <style global lang="scss">
 	main {

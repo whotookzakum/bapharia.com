@@ -4,7 +4,7 @@ author: 'Zakum'
 date: '2023-3-3'
 category: 'Game Systems'
 caption: 'Frequently Asked Questions.'
-featuredImg: '32.jpg'
+featuredImg: "/guides/faq/banner.webp"
 ---
 
 ### What is Blue Protocol?

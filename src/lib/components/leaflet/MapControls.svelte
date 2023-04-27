@@ -115,7 +115,7 @@
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                     <small>({markers.filter(m => m.type === category).length})</small>
                 </summary>
-                <ul class="marker-toggles-list">
+                <ul class="marker-toggles-list" role="list">
                     {#each markers.filter((m) => m.type === category) as marker}
                         <li>
                             <label class="marker-toggle">
@@ -182,7 +182,7 @@
     }
 
     .marker-toggles-list {
-        list-style: none;
+        list-style-type: none;
         padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;

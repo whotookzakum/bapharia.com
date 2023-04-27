@@ -3,7 +3,7 @@
     export let items;
 </script>
 
-<ol class="item-list">
+<ol class="item-list" role="list">
     {#each items as item}
         <Item data={item} />
     {/each}
@@ -13,7 +13,7 @@
     .item-list {
         padding: 0;
         margin: 0;
-        list-style: none;
+        list-style-type: none;
         display: flex;
         flex-direction: column;
         gap: var(--space-2xs);

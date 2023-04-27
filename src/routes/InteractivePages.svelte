@@ -63,7 +63,6 @@
 	nav {
 		margin: 0;
 		padding: 0;
-		list-style: none;
 		display: grid;
 		justify-content: center;
 		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

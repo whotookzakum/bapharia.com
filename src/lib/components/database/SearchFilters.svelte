@@ -245,7 +245,7 @@
     }
 
     summary.details-expander {
-        list-style: none;
+        list-style-type: none;
         display: flex;
         align-items: center;
         gap: 0.15rem;

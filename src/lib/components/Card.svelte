@@ -10,20 +10,16 @@
 	let isFavorited = false;
 </script>
 
-<div class="card">
-	<a class="box" {href}>
-		<img
-			class="card-bg"
-			src={`/images/${bgSrc}`}
-			alt="Card Background"
-			loading="lazy"
-		/>
-		<h3 class="card-title">{title}</h3>
-		<div class="card-caption">
-			<strong class="category">{category}</strong>
-			<span>{caption}</span>
-		</div>
-	</a>
+<div class="card box">
+	<a class="card-title skip-std" {href}>{title}</a>
+	<div class="card-caption" aria-hidden="true">
+		<span class="category">{category}</span>
+		<p>{caption}</p>
+	</div>
+	<div class="card-caption visually-hidden">
+		<span class="category">{category}</span>
+		<p>{caption}</p>
+	</div>
 	<label class="favorite">
 		<input
 			type="checkbox"
@@ -38,38 +34,40 @@
 			/>
 		</span>
 	</label>
+	<img class="bg-img" src={bgSrc} alt="" loading="lazy" width="640" height="360" />
 </div>
 
 <style lang="scss">
 	.card {
-		position: relative;	
-	}
-
-	a {
-		display: block;
-		border: none;
 		position: relative;
+		padding: 0;
 		min-height: 200px;
 		padding: var(--space-xs);
-		z-index: 0;
-		color: var(--text1);
-		line-height: 1.4;
-
-		// &::after {
-		// 	content: '';
-		// 	position: absolute;
-		// 	z-index: -1;
-		// 	background: rgb(34, 67, 165);
-		// 	border: 1px solid hsl(225, 66%, 59%);
-		// 	width: 80px;
-		// 	height: 120px;
-		// 	bottom: -60px;
-		// 	right: -30px;
-		// 	transform: rotate(45deg);
-		// }
+		background: none;
+		border: none;
+		user-select: none;
 	}
 
-	img.card-bg {
+	a.card-title {
+		display: block;
+		border: none;
+		color: var(--text1);
+		line-height: 1.4;
+		font-size: var(--step-1);
+		margin: 0;
+		font-weight: 500;
+		letter-spacing: unset;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+		outline: none !important;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	img.bg-img {
 		position: absolute;
 		z-index: -1;
 		inset: 0;
@@ -80,24 +78,25 @@
 		height: 100%;
 	}
 
-	h3.card-title {
-		font-size: var(--step-1);
-		margin: 0;
-		font-weight: 500;
-		letter-spacing: unset;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
-	}
-
 	.card-caption {
 		opacity: 0;
 		transform: translateY(20%);
 		transition: all 0.1s ease-in-out;
-		display: grid;
-		gap: var(--space-2xs);
+		pointer-events: none;
+
+		p {
+			margin-bottom: 0;
+			margin-top: var(--space-2xs);
+		}
 
 		.category {
+			font-weight: 600;
 			color: var(--accent);
 			font-size: var(--step-0);
+		}
+
+		&:not(.visually-hidden) {
+			visibility: hidden;
 		}
 	}
 
@@ -116,7 +115,7 @@
 			filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 1));
 		}
 
-		&:hover, 
+		&:hover,
 		input:focus-visible + span,
 		input:checked + span {
 			color: #8d1144;
@@ -131,15 +130,37 @@
 		}
 	}
 
-	// .card:focus-within,
-	.card:hover, 
-	.card a:focus-visible {
-		.card-bg {
+	.card:has(:focus-visible) {
+		outline: 2px solid var(--accent);
+	}
+
+	.card:where(:hover, :has(:focus-visible)) {
+		img.bg-img {
 			filter: brightness(0.15);
 		}
+
 		.card-caption {
 			opacity: 1;
+			visibility: visible;
 			transform: translateY(0);
+		}
+	}
+
+	@supports not selector(:has(*)) {
+		.card:focus-within {
+			outline: 2px solid var(--accent);
+
+			// to hide click use another element that will take the outline and use a:focus-within ~ and label:focus-within ~ to activate outline
+
+			img.bg-img {
+				filter: brightness(0.15);
+			}
+
+			.card-caption {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
 		}
 	}
 </style>

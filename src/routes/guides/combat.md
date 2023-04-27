@@ -4,7 +4,7 @@ author: "Zakum"
 date: '2022-12-18'
 category: 'Game Systems'
 caption: 'An overview of all combat mechanics.'
-featuredImg: '26.jpg'
+featuredImg: "/guides/combat/banner.jpg"
 ---
 
 <script>
