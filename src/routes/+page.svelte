@@ -1,14 +1,6 @@
 <script>
-	import PageFooter from "../lib/components/PageFooter.svelte";
-	import Database from "$lib/components/database/Database.svelte";
-	import Guides from "./Guides.svelte";
-	import InteractivePages from "./InteractivePages.svelte";
 	import MetaTags from "$lib/components/MetaTags.svelte";
-	import Navbar from "$lib/components/Navbar.svelte";
-    import Outro from "./Outro.svelte";
-	import Card from "$lib/components/Card.svelte";
-
-	export let data;
+	import Icon from "@iconify/svelte";
 </script>
 
 <MetaTags
@@ -17,42 +9,40 @@
 	image="favicon"
 	color="#fff"
 />
-<Navbar />
-<main>
-	<header>
-		<h1>Bapharia (β)</h1>
-		<strong>The premier information hub for BLUE PROTOCOL.</strong>
-	</header>
-
-	<section>
-		<InteractivePages />
-	</section>
-
-	<section>
-		<Database />
-	</section>
-
-	<section>
-		<Guides data={data.guides} />
-	</section>
-
-	<section>
-		<!-- <Outro /> -->
-		
-	</section>
-</main>
-
-<PageFooter />
+<div class="all">
+	<header />
+	<main>
+		<img src="/images/logo.png" alt="" />
+		<h1>Bapharia 2.0</h1>
+		<p>Hang tight, updates are coming soon.</p>
+	</main>
+	<footer>&copy; 2021-2023 Bapharia.com</footer>
+</div>
 
 <style global lang="scss">
-	main {
-		max-width: 1400px;
+	.all {
 		display: grid;
-		gap: var(--space-xl);
-		padding: 0 1em;
-		margin: auto;
+		text-align: center;
+		padding: 1em;
+		height: 100vh;
+		align-content: space-between;
+		justify-items: center;
+		
+		* {
+			margin: 0;
+		}
+
+		p {
+			color: var(--accent);
+		}
 	}
-	h1 {
-		margin-top: 20vh;
+
+	footer {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		width: 100%;
+		color: gray;
+		font-size: var(--step--1);
 	}
 </style>

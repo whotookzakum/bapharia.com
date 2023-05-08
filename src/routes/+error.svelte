@@ -1,11 +1,8 @@
 <script>
-	import Navbar from '../lib/components/Navbar.svelte';
-	import PageFooter from '../lib/components/PageFooter.svelte';
 	import '../lib/styles/globals.scss';
 	import { page } from '$app/stores';
 </script>
 
-<Navbar />
 <main>
 	<h1>{$page.status}</h1>
 	{#if $page.status === 404}
@@ -19,7 +16,6 @@
 		</p>
 	{/if}
 </main>
-<PageFooter />
 
 <style>
 	main {

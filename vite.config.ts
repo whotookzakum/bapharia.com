@@ -1,9 +1,8 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
-import houdini from 'houdini/vite'
 
 const config: UserConfig = {
-	plugins: [houdini(), sveltekit()]
+	plugins: [sveltekit()]
 };
 
 export default config;
