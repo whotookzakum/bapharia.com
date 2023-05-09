@@ -87,15 +87,19 @@ main.guide {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
-        // background-attachment: fixed;
+        background-attachment: fixed;
         grid-column: 1 / 6 !important;
         position: relative;
         z-index: 1;
+        margin-bottom: 4rem;
+        overflow-x: hidden;
+
+        perspective: 1px;
 
         &::after {
             content: '';
             position: absolute;
-            inset: 0;
+            inset: -500%;
             z-index: -1;
             background: rgba(17, 17, 17, 0.8);
         }
@@ -110,6 +114,18 @@ main.guide {
             font-size: var(--step-0);
             line-height: 1.4;
             color: var(--accent);
+        }
+
+        img {
+            grid-column: 1/-1;
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            // height: 100%;
+            z-index: -1;
+            transform: translateZ(-1px) scale(2);
+            transform-style: preserve-3d;
+            
         }
     }
 

@@ -7,8 +7,10 @@
 <MetaTags title={`${title} — Bapharia`} description={caption} />
 
 <article>
-	<header style:background-image={`url('${featuredImg}')`}>
+	<header >
+		<img src={featuredImg} alt="" loading="lazy">
 		<h1>{title}</h1>
+		
 		<p class="skip-std">
 			By {author} <br/>
 			Last updated {formattedDate}
