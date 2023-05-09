@@ -12,10 +12,8 @@
 </script>
 
 <MetaTags
-	title="HOME"
+	title="Bapharia — The premier information hub for BLUE PROTOCOL."
 	description="The premier information hub for BLUE PROTOCOL. Theorycrafting, guides, and leaks—all in one place!"
-	image="favicon"
-	color="#fff"
 />
 <Navbar />
 <main>
