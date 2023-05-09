@@ -1,15 +1,18 @@
 <script>
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	export let title, author, date, caption, category, featuredImg;
+	const formattedDate = new Date(date).toLocaleDateString()
 </script>
 
 <MetaTags title={`${title} — Bapharia`} description={caption} />
 
 <article>
-	<header>
+	<header style:background-image={`url('${featuredImg}')`}>
 		<h1>{title}</h1>
-		<span>By {author}</span>
-		<span>Last updated {date}</span>
+		<p class="skip-std">
+			By {author} <br/>
+			Last updated {formattedDate}
+		</p>
 	</header>
 	<slot />
 </article>

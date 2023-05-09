@@ -69,7 +69,7 @@ For example, on the Dragon Nail weapons:
 |Demihuman Killer| +9% ~ +11%                 | +4% ~ +7%            | 60%         |
 
 ### Weapon Sockets
-Sockets are where you attach Ability Plugs into weapons. The number of empty sockets will be determined by whether the weapon was a success or a great success.
+Sockets are where you attach **Ability Plugs** into weapons. The number of empty sockets will be determined by whether the weapon was a success or a great success.
 
 | Socket Count | Probability (Great Success) | Probability (Success) |
 |:-------------|-----------------------------|-----------------------|

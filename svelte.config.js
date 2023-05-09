@@ -22,11 +22,7 @@ const config = {
 				],
 				[
 					rehypeToc,
-					{
-						cssClasses: {
-							toc: "toc box"
-						}
-					}
+					{}
 				]
 			]
 		})
