@@ -12,12 +12,6 @@ thumbImg: "/guides/social-features/thumb.webp"
     import StickyNote from '$lib/components/StickyNote.svelte';
 </script>
 
-<style>
-    table {
-        grid-column: 2;
-    }
-</style>
-
 ## Player Interactions
 Below is a list of interactions you can perform by yourself, with other players, or with NPCs.
 - Hand Holding

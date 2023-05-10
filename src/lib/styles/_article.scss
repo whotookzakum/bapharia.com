@@ -6,40 +6,6 @@ main.guide {
     position: relative;
 }
 
-@media (max-width: 1200px) {
-    main.guide {
-        grid-template-columns: 20rem 1fr;
-
-        .bg-img-wrapper {
-            width: calc(100% - 20rem);
-            margin-left: 20rem;
-        }
-
-        article {
-            grid-column: 2;
-        }
-
-        .toc {
-            display: none;
-        }
-    }
-}
-
-@media (max-width: 850px) {
-    main.guide {
-        grid-template-columns: 1fr;
-
-        .bg-img-wrapper {
-            width: 100%;
-            margin: 0;
-        }
-
-        .all-guides-wrapper {
-            display: none;
-        }
-    }
-}
-
 .bg-img-wrapper {
     position: fixed;
     left: 0;
@@ -64,6 +30,7 @@ article {
     display: grid;
     grid-template-columns: 1fr 1fr min(50ch, calc(100% - 2rem)) 1fr 1fr;
     // column-gap: 0.5rem;
+    position: relative;
 
     // Backdrop on the article, offset by the height of the header
     &::after {
@@ -80,13 +47,15 @@ article {
 
     &>img,
     .full-bleed,
-    table {
-        width: min(100%, 850px);
+    table,
+    figure img {
+        width: min(100%, 850px) !important;
         grid-column: 1 / 6;
         margin: 1rem auto;
     }
 
-    &>img {
+    &>img,
+    figure img {
         filter: brightness(0.7);
         transition: all 0.4s ease;
 
@@ -127,6 +96,7 @@ header {
     height: 100vh;
     position: sticky;
     top: 0;
+    z-index: 4;
 
     ol {
         gap: 0;
@@ -198,4 +168,69 @@ aside {
 
 .page-footer {
     grid-column: 2;
+}
+
+.scroll-tracker {
+    content: "";
+    position: fixed;
+    left: 20rem;
+    right: 20rem;
+    height: 4px;
+    z-index: 1;
+    background: var(--accent);
+    transform-origin: left;
+    animation: trackScroll 1s linear forwards;
+    animation-timeline: scroll-tracker-timeline;
+    box-shadow: 0 1px 2px var(--surface-shadow);
+}
+
+@keyframes trackScroll {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@media (max-width: 1200px) {
+    main.guide {
+        grid-template-columns: 20rem 1fr;
+
+        .bg-img-wrapper {
+            width: calc(100% - 20rem);
+            margin-left: 20rem;
+        }
+
+        article {
+            grid-column: 2;
+        }
+
+        .toc {
+            display: none;
+        }
+
+        .scroll-tracker {
+            right: 0;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    main.guide {
+        grid-template-columns: 1fr;
+
+        .bg-img-wrapper {
+            width: 100%;
+            margin: 0;
+        }
+
+        .all-guides-wrapper {
+            display: none;
+        }
+
+        .scroll-tracker {
+            left: 0;
+        }
+    }
 }
