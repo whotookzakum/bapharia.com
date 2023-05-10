@@ -1,7 +1,7 @@
 ---
 title: 'Weapons & Plugs'
 author: 'Zakum'
-date: '2023-4-13'
+date: '2023-5-10'
 category: 'Game Systems'
 caption: 'All about the weapon and ability plug system.'
 bannerImg: "/guides/weapons/banner.webp"
@@ -82,7 +82,7 @@ Sockets are where you attach **Ability Plugs** into weapons. The number of empty
 Socket Expansion tickets can be used to open more sockets on a weapon with less than 4 sockets.
 
 #### Ability Plugs
-Ability Plugs are items you can use to strengthen a weapon by attaching them to empty weapon sockets. They can  provide stat bonuses and strengthen specific skills. Some Plugs provide passive stat boosts, such as ATK/DEF/STR etc., and some provide skill-enhancing effects. They current come in grades of G1/G2/G3.
+Ability Plugs are items you can use to strengthen a weapon by attaching them to empty weapon sockets. They can  provide stat bonuses and strengthen specific skills. Some Plugs provide passive stat boosts, such as ATK/DEF/STR etc., and some provide skill-enhancing effects. They currently come in grades of G1/G2/G3.
 
 Speak to the Weapon Reconstructor NPC to attach Plugs by using Union Paste. Plugs can be obtained as dungeon rewards, through Adventure Boards, and from events. Union Paste is acquired from quests and dungeons.
 
@@ -93,6 +93,6 @@ Plugs can be removed using Plug Removal Tickets, though if you wish to keep the 
 Plugs do not increase your Battle Score.
 
 ## Weapon Elements
-Weapons can have an [element](/guides/elements), so when you are using non-elemental skills you will generate elemental charge of your weapon element. You will also do bonus damage to enemies that are weak against that element. 
+Weapons can have an [element](/guides/elements), so you can generate elemental charge even when using non-elemental skills. You will also do bonus damage to enemies that are weak against that element. 
 
 Elemental skills will take priority over weapon element, so Spell Casters may want to take that into consideration (either when playing with others or deciding on a weapon to craft).

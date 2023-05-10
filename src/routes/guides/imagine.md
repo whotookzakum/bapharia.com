@@ -1,7 +1,7 @@
 ---
 title: 'Imagine'
 author: 'Zakum'
-date: '2023-4-13'
+date: '2023-5-10'
 category: 'Game Systems'
 caption: 'An overview of the Imagine system, including types of Imagine and how to obtain them.'
 bannerImg: "/guides/imagine/banner.webp"
