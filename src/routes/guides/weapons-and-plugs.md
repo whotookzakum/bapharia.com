@@ -4,7 +4,8 @@ author: 'Zakum'
 date: '2023-4-13'
 category: 'Game Systems'
 caption: 'All about the weapon and ability plug system.'
-featuredImg: "/guides/weapons/banner.webp"
+bannerImg: "/guides/weapons/banner.webp"
+thumbImg: "/guides/weapons/thumb.webp"
 ---
 
 <script>

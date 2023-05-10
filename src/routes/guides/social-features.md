@@ -4,7 +4,8 @@ author: "Zakum"
 date: '2022-12-18'
 category: 'Game Systems'
 caption: 'Features that are not directly part of the main gameplay loop.'
-featuredImg: "/guides/social-features/banner.webp"
+bannerImg: "/guides/social-features/banner.webp"
+thumbImg: "/guides/social-features/thumb.webp"
 ---
 
 <script>

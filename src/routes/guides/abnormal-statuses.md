@@ -4,7 +4,8 @@ author: 'Zakum'
 date: '2022-08-03'
 category: 'Referential'
 caption: 'List of known buffs and debuffs.'
-featuredImg: "/guides/abnormal-statuses/banner.webp"
+bannerImg: "/guides/abnormal-statuses/banner.webp"
+thumbImg: "/guides/abnormal-statuses/thumb.webp"
 ---
 
 <h2 class="full-bleed">Buffs</h2>

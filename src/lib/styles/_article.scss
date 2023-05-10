@@ -1,6 +1,6 @@
 main.guide {
     display: grid;
-    grid-template-columns: 15rem 1fr 15rem;
+    grid-template-columns: 20rem 1fr 20rem;
     margin: auto;
     align-items: start;
 
@@ -24,8 +24,8 @@ main.guide {
     }
     
     .all-guides-wrapper {
-
-
+        grid-column: 1;
+        grid-row: 1;
     }
 
     .guides-list {
@@ -66,12 +66,26 @@ main.guide {
         grid-column: 3;
     }
 
+    img,
     .full-bleed,
     table {
-        width: 100%;
+        width: min(100%, 850px);
         grid-column: 1 / 6;
-        max-width: 850px;
-        margin: auto;
+        margin: 1rem auto;
+    }
+
+    article > img:not(.bg-img) {
+        filter: brightness(0.7);
+        transition: all 0.4s ease;
+
+        &:hover {
+            filter: brightness(1);
+        }
+    }
+
+    figcaption {
+        text-align: center;
+        margin: 0.25rem 0;
     }
 
     p,
@@ -83,23 +97,20 @@ main.guide {
         display: grid;
         grid-template-columns: 1fr 1fr min(50ch, calc(100% - 2rem)) 1fr 1fr;
         align-content: center;
-        min-height: max(20vw, 40vh); // 40vh
+        min-height: max(20vw, 40vh);
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: 50% 50%;
+        background-position: 50%;
         background-attachment: fixed;
         grid-column: 1 / 6 !important;
         position: relative;
         z-index: 1;
-        margin-bottom: 4rem;
-        overflow-x: hidden;
-
-        perspective: 1px;
+        margin-bottom: var(--space-l);
 
         &::after {
             content: '';
             position: absolute;
-            inset: -500%;
+            inset: 0;
             z-index: -1;
             background: rgba(17, 17, 17, 0.8);
         }
@@ -115,28 +126,16 @@ main.guide {
             line-height: 1.4;
             color: var(--accent);
         }
-
-        img {
-            grid-column: 1/-1;
-            position: absolute;
-            inset: 0;
-            margin: 0;
-            // height: 100%;
-            z-index: -1;
-            transform: translateZ(-1px) scale(2);
-            transform-style: preserve-3d;
-            
-        }
     }
 
-    img {
+    .bg-img {
+        grid-column: 1/-1;
+        position: absolute;
+        margin: 0;
+        height: 100%;
         width: 100%;
         object-fit: cover;
-        margin: 1rem 0;
-    }
-
-    table img {
-        width: unset;
+        z-index: -1;
     }
 
     :where(h2, h3, h4, h5, h6) {
@@ -163,15 +162,25 @@ main.guide {
     }
 }
 
+@media (max-width: 1200px) {
+    main.guide {
+        grid-template-columns: 20rem 1fr;
+
+        article {
+            grid-column: 2;
+        }
+
+        .toc {
+            display: none;
+        }
+    }
+}
+
 @media (max-width: 850px) {
     main.guide {
         grid-template-columns: 1fr;
 
-        article {
-            grid-column: 1;
-        }
-
-        .toc {
+        .all-guides-wrapper {
             display: none;
         }
     }

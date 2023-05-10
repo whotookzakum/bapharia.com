@@ -57,7 +57,7 @@
 				href={guide.path}
 				category={guide.meta.category}
 				caption={guide.meta.caption}
-				bgSrc={guide.meta.featuredImg}
+				bgSrc={guide.meta.thumbImg}
 			/>
 		</li>
 	{/each}

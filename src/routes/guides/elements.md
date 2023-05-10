@@ -4,7 +4,8 @@ author: 'Zakum'
 date: '2022-12-17'
 category: 'Game Systems'
 caption: 'Explanation of the elemental system and a list of elemental effects.'
-featuredImg: "/guides/elements/banner.webp"
+bannerImg: "/guides/elements/banner.webp"
+thumbImg: "/guides/elements/thumb.webp"
 ---
 
 <script>

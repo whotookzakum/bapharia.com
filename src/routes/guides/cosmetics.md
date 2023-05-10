@@ -4,7 +4,8 @@ author: "Zakum"
 date: '2022-12-17'
 category: 'Game Systems'
 caption: "All about customizing your character's appearance!"
-featuredImg: "/guides/cosmetics/banner.webp"
+bannerImg: "/guides/cosmetics/banner.webp"
+thumbImg: "/guides/cosmetics/thumb.webp"
 ---
 
 <script>

@@ -4,7 +4,8 @@ author: 'Zakum'
 date: '2022-08-03'
 category: 'Referential'
 caption: 'The main story of BLUE PROTOCOL, including the flow of the quest line.'
-featuredImg: "/guides/mainstory/banner.webp"
+bannerImg: "/guides/mainstory/banner.webp"
+thumbImg: "/guides/mainstory/thumb.webp"
 ---
 
 A quick recap of the steps to completing the main story.
