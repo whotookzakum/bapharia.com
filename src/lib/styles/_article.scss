@@ -4,175 +4,6 @@ main.guide {
     margin: auto;
     align-items: start;
     position: relative;
-
-    .all-guides-wrapper, .toc {
-        padding: 1rem;
-        background: var(--surface1);
-        height: 100vh;
-        position: sticky;
-        top: 0;
-
-        ol {
-            gap: 0;
-            list-style-type: none;
-            padding-left: 1rem;
-            margin: 0;
-        }
-
-        a {
-            border: none;
-        }
-    }
-    
-    .all-guides-wrapper {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    .guides-list {
-        display: grid;
-
-        a {
-            border: none;
-        }
-    }
-
-    .toc {
-        grid-column: 3;
-        grid-row: 1;
-
-        &::before {
-            content: "In this article";
-            display: block;
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            border-bottom: 1px solid var(--surface2);
-        }
-    }
-
-    article {
-        width: 100%;
-        grid-column: 2;
-        grid-row: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr min(50ch, calc(100% - 2rem)) 1fr 1fr;
-        // column-gap: 0.5rem;
-
-        // Backdrop on the article, offset by the height of the header
-        &::after {
-            content: '';
-            position: absolute;
-            inset: max(20vw, 40vh) 0 0 0;
-            z-index: -1;
-            background: var(--bg);
-        }
-    }
-
-    article>* {
-        grid-column: 3;
-    }
-
-    .active {
-        color: var(--accent);
-        background: var(--surface2);
-    }
-
-    & > img,
-    .full-bleed,
-    table {
-        width: min(100%, 850px);
-        grid-column: 1 / 6;
-        margin: 1rem auto;
-    }
-
-    article > img:not(.bg-img) {
-        filter: brightness(0.7);
-        transition: all 0.4s ease;
-
-        &:hover {
-            filter: brightness(1);
-        }
-    }
-
-    figcaption {
-        text-align: center;
-        margin: 0.25rem 0;
-    }
-
-    p,
-    aside {
-        max-inline-size: unset;        
-    }
-
-    header {
-        display: grid;
-        grid-template-columns: 1fr 1fr min(50ch, calc(100% - 2rem)) 1fr 1fr;
-        align-content: center;
-        min-height: max(20vw, 40vh);
-        grid-column: 1 / 6 !important;
-        position: relative;
-        z-index: 1;
-        margin-bottom: var(--space-l);
-        background: rgba(17, 17, 17, 0.8);
-
-        & > * {
-            grid-column: 3;
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        p {
-            font-size: var(--step-0);
-            line-height: 1.4;
-            color: var(--accent);
-        }
-    }
-
-
-    .bg-img-wrapper {
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        // height: 30vh;
-        width: calc(100% - 40rem);
-        margin: auto;
-        overflow: hidden;
-    }
-
-    .bg-img {
-        height: max(20vw, 40vh);
-        width: 100%;
-        object-fit: cover;
-    }
-
-    article {
-        // opacity: 0.3;
-    }
-
-    :where(h2, h3, h4, h5, h6) {
-        margin-block: var(--space-xl) 0;
-
-        &:hover a {
-            opacity: 1;
-        }
-
-        a {
-            opacity: 0;
-            border: none;
-            margin-left: 0.25em;
-            font-size: 1.4rem;
-
-            &::after {
-                content: "\1f517";
-            }
-        }
-    }
-
-    .page-footer {
-        grid-column: 2;
-    }
 }
 
 @media (max-width: 1200px) {
@@ -207,4 +38,164 @@ main.guide {
             display: none;
         }
     }
+}
+
+.bg-img-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    // height: 30vh;
+    width: calc(100% - 40rem);
+    margin: auto;
+    overflow: hidden;
+
+    .bg-img {
+        height: max(20vw, 40vh);
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+article {
+    width: 100%;
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr min(50ch, calc(100% - 2rem)) 1fr 1fr;
+    // column-gap: 0.5rem;
+
+    // Backdrop on the article, offset by the height of the header
+    &::after {
+        content: '';
+        position: absolute;
+        inset: max(20vw, 40vh) 0 0 0;
+        z-index: -1;
+        background: var(--bg);
+    }
+
+    &>* {
+        grid-column: 3;
+    }
+
+    &>img,
+    .full-bleed,
+    table {
+        width: min(100%, 850px);
+        grid-column: 1 / 6;
+        margin: 1rem auto;
+    }
+
+    &>img {
+        filter: brightness(0.7);
+        transition: all 0.4s ease;
+
+        &:hover {
+            filter: brightness(1);
+        }
+    }
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr min(50ch, calc(100% - 2rem)) 1fr 1fr;
+    align-content: center;
+    min-height: max(20vw, 40vh);
+    grid-column: 1 / 6 !important;
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--space-l);
+    background: rgba(17, 17, 17, 0.8);
+
+    &>* {
+        grid-column: 3;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    p {
+        font-size: var(--step-0);
+        line-height: 1.4;
+        color: var(--accent);
+    }
+}
+
+.all-guides-wrapper,
+.toc {
+    padding: 1rem;
+    background: var(--surface1);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+
+    ol {
+        gap: 0;
+        list-style-type: none;
+        padding-left: 1rem;
+        margin: 0;
+    }
+
+    a {
+        border: none;
+    }
+}
+
+.all-guides-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+
+    .guides-list {
+        display: grid;
+    
+        a {
+            border: none;
+        }
+    }
+}
+
+.toc {
+    grid-column: 3;
+    grid-row: 1;
+
+    &::before {
+        content: "In this article";
+        display: block;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        border-bottom: 1px solid var(--surface2);
+    }
+}
+
+.active {
+    color: var(--accent);
+    background: var(--surface2);
+}
+
+p,
+aside {
+    max-inline-size: unset;
+}
+
+:where(h2, h3, h4, h5, h6) {
+    margin-block: var(--space-xl) 0;
+
+    &:hover a {
+        opacity: 1;
+    }
+
+    a {
+        opacity: 0;
+        border: none;
+        margin-left: 0.25em;
+        font-size: 1.4rem;
+
+        &::after {
+            content: "\1f517";
+        }
+    }
+}
+
+.page-footer {
+    grid-column: 2;
 }
