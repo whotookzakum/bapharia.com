@@ -10,7 +10,7 @@
 
 <main class="guide">
     <div class="all-guides-wrapper">
-        <a href="/#db">Home</a>
+        <a href="/#db">Home</a><br/>
         <span>All Guides</span>
         <hr />
         <nav class="guides-list">
