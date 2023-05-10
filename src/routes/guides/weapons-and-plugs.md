@@ -19,10 +19,12 @@ thumbImg: "/guides/weapons/thumb.webp"
     bleed
 />
 
-Weapons provide stats, have an equipment level, and may have an element. 
+## Overview
+Weapons provide stats, and may have an element. They are one of the three equipment that influence your damage, along with [Battle Imagine](/guides/imagine#battle-imagine) and [Enhance Imagine](/guides/imagine#enhance-imagine)
 
 Switching weapon types while in town will automatically change your class (once you have completed the Class Master's quest). Base weapons for each class can be purchased from the vendor in Asterleeds.
 
+### Battle Score
 Weapons provide **50 &times; (Item Level)** Battle Score, and they will level sync if their max item level is higher than your current class level.
 
 ## Crafting
@@ -32,7 +34,7 @@ Weapons can be crafted at the Crafting Machine found in town. Their recipes can 
     Weapon Adventure Boards often contain items that help you craft the weapon faster, so be sure to check all their rewards!
 </StickyNote>
 
-After learning the recipe, view the required materials at the Crafting Machine and hover over the information icons to see how to get them. Note that there is a minimum Adventurer Rank requirement to craft weapons.
+After learning the recipe, view the required materials at the Crafting Machine and hover over the information icons to see how to get them. Note that weapons have varying Adventurer Rank requirements to craft.
 
 <StickyNote type="tip">
     Use the Wishlist feature to show the crafting materials as a checklist without opening the menu!

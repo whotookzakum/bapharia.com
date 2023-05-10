@@ -63,7 +63,7 @@ Up to **5** Enhance Imagine can be worn, each in their respective, uniquely-shap
 Like Battle Imagine, Enhance Imagine each come with a randomly selected **Ability** from their available abilities list.
 
 ### Recipes
-Enhance Imagine recipes are acquired through completing their respective Adventure Boards. Quest icons that look like they have horns typically reward these Adventure Boards.
+Enhance Imagine recipes are acquired through completing their respective Adventure Boards. Quest icons that look like they have horns typically reward these Adventure Boards. Make sure to check the Adventurer Rank requirement for an Enhance Imagine before attempting to gather materials for it.
 
 <StickyNote type="tip">
     If you know the name of the Enhance Imagine you want to craft, check the quest rewards before accepting. Otherwise, complete the quest and check the Adventure Board's final reward—the recipe's name—to see which Imagine it is.
