@@ -16,7 +16,7 @@
                 <ol>
                     {#each guides.filter((g) => g.meta.category === category) as guide}
                         <li>
-                            <a href={guide.path}>{guide.meta.title}</a>
+                            <a class:active={$page.url.pathname === guide.path} href={guide.path}>{guide.meta.title}</a>
                         </li>
                     {/each}
                 </ol>

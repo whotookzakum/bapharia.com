@@ -6,9 +6,13 @@
 
 <MetaTags title={`${title} — Bapharia`} description={caption} />
 
+
+<div class="bg-img-wrapper">
+	<img class="bg-img" src={bannerImg} alt="" loading="lazy" />
+</div>
+
 <article>
-	<header style:background-image={`url('${bannerImg}')`}>
-		<img class="bg-img" src={bannerImg} alt="" loading="lazy" />
+	<header>
 		<h1>{title}</h1>
 		<p class="skip-std">
 			By {author} <br />
