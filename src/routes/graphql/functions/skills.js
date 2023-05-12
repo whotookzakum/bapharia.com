@@ -6,6 +6,7 @@ import { getText, getThumbnail, getCategory } from "./utils";
 // Buffs and debuffs applied by a skill
 // Cooldown
 // Is class-shared ability?
+// Check if skill background colors are on client
 
 function getClassThumbnail(classId) {
     // Class 6 = Blast Archer
@@ -19,107 +20,94 @@ function getClassThumbnail(classId) {
     return `/UI/Icon/Class/UI_IconClass_${classId}.png`
 }
 
-const skills_A = [
-    615, 608, 620,
-    710, 712, 721, 730, 731,
-    1106, 1115, 1119, 1118, 1114, 1121,
-    1232, 1231, 1207, 1230, 1211,
-    1910, 1911, 1912, 1920, 1921, 1922
-]
+const skillTypes = {
+    // A: Attack (Red)
+    // B: Buff (Purple)
+    // D: Debuff (Green)
+    // R: Recovery (Blue) 
 
-const skills_A_B = [
-    732,
-    1103, 1113
-]
+    A: [
+        615, 608, 620,
+        710, 712, 721, 730, 731,
+        1106, 1115, 1119, 1118, 1114, 1121,
+        1232, 1231, 1207, 1230, 1211,
+        1910, 1911, 1912, 1920, 1921, 1922
+    ],
+    A_B: [
+        732,
+        1103, 1113
+    ],
+    A_D: [
+        602, 623, 619, 617, 618,
+        1117, 1104,
+        1220, 1222,
+        1930, 1931, 1932
+    ],
+    A_R: [
+        711, 714, 715
+    ],
+    B: [
+        609,
+        713, 716, 723,
+        1110, 1116,
+        1205, 1206, 1223,
+        1923, 1913
+    ],
+    B_D: [
+        621
+    ],
+    D: [
+        1212
+    ],
+    R: [
+        613, 622,
+        1233,
+        1933
+    ],
+    R_B: [],
+    R_D: []
+}
 
-const skills_A_D = [
-    602, 623, 619, 617, 618,
-    1117, 1104,
-    1220, 1222,
-    1930, 1931, 1932
-]
-
-const skills_A_R = [
-    711, 714, 715
-]
-
-const skills_B = [
-    609,
-    713, 716, 723,
-    1110, 1116,
-    1205, 1206, 1223,
-    1923, 1913
-]
-
-const skills_B_D = [
-    621
-]
-
-const skills_D = [
-    1212
-]
-
-const skills_R = [
-    613, 622,
-    1233,
-    1933
-]
-
-const skills_R_B = [
-
-]
-
-const skills_R_D = [
-
-]
-
-const ele_light = [
-    1230, 1231, 1232
-]
-
-const ele_earth = [
-    623,
-    1920, 1930, 1911, 1932
-]
-
-const ele_fire = [
-    730, 731, 732,
-    1103, 1113, 1119
-]
-
-const ele_thunder = [
-    1106, 1115, 1118
-]
-
-const ele_ice = [
-    1117, 1104, 1114
-]
+const skillElements = {
+    light: [
+        1230, 1231, 1232
+    ],
+    earth: [
+        623,
+        1920, 1930, 1911, 1932
+    ],
+    fire: [
+        730, 731, 732,
+        1103, 1113, 1119
+    ],
+    thunder: [
+        1106, 1115, 1118
+    ],
+    ice: [
+        1117, 1104, 1114
+    ]
+}
 
 function getSkillTypeImg(skill) {
-    // A = attack?
-    // B = buff
-    // R = recovery
-    // D = debuff?
-
-    if (skills_A.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A.png`
-    if (skills_A_B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_B.png`
-    if (skills_A_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_D.png`
-    if (skills_A_R.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_R.png`
-    if (skills_B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B.png`
-    if (skills_B_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B_D.png`
-    if (skills_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_D.png`
-    if (skills_R.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R.png`
-    if (skills_R_B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_B.png`
-    if (skills_R_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_D.png`
+    if (skillTypes.A.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A.png`
+    if (skillTypes.A_B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_B.png`
+    if (skillTypes.A_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_D.png`
+    if (skillTypes.A_R.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_R.png`
+    if (skillTypes.B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B.png`
+    if (skillTypes.B_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B_D.png`
+    if (skillTypes.D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_D.png`
+    if (skillTypes.R.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R.png`
+    if (skillTypes.R_B.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_B.png`
+    if (skillTypes.R_D.includes(skill.skill_id)) return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_D.png`
     return `/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png`
 }
 
 function getElementImg(skill) {
-    if (ele_fire.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_1.png`
-    if (ele_thunder.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_2.png`
-    if (ele_ice.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_3.png`
-    if (ele_earth.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_4.png`
-    if (ele_light.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_5.png`
+    if (skillElements.fire.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_1.png`
+    if (skillElements.thunder.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_2.png`
+    if (skillElements.ice.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_3.png`
+    if (skillElements.earth.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_4.png`
+    if (skillElements.light.includes(skill.skill_id)) return `/UI/Icon/Attribute/UI_IconAttribute_5.png`
     return `/UI/Icon/Attribute/UI_IconAttribute_Empty.png`
 }
 
