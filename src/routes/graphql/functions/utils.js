@@ -1,6 +1,6 @@
-import en_US from "../global/texts/en_US.json";
-import ja_JP from "../japan/texts/ja_JP.json";
-import itemIcons from "../itemicons.json"
+import en_US from "../bp_server/global/texts/en_US.json";
+import ja_JP from "../bp_server/japan/texts/ja_JP.json";
+import itemIcons from "../bp_client/japan/itemicons.json"
 
 export function getText(ns, id) {
     const texts = {

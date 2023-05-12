@@ -1,11 +1,15 @@
-import imagineData from "../japan/imagine.json";
-import imagineParams from "../japan/imagine/param_level.json";
-import imaginePerks from "../japan/imagine/perk_pick.json";
-import weaponPerks from "../japan/weaponperks.json";
-import perksData from "../japan/perks.json";
-import imagineRecipesData from "../japan/imagine/recepi.json";
-import itemsData from "../japan/items.json";
+import imagineData from "../bp_server/japan/imagine.json";
+import imagineParams from "../bp_server/japan/imagine/param_level.json";
+import imaginePerks from "../bp_server/japan/imagine/perk_pick.json";
+import weaponPerks from "../bp_server/japan/weaponperks.json";
+import perksData from "../bp_server/japan/perks.json";
+import imagineRecipesData from "../bp_server/japan/imagine/recepi.json";
+import itemsData from "../bp_server/japan/items.json";
 import { getText, getCategory } from "./utils";
+
+// TO DO:
+// Skill name and skill type (client)
+// Drops from treasure chests
 
 const imagines = imagineData.map(imagine => {
     const name = getText("master_imagine_text", imagine.imagine_name)
@@ -79,12 +83,10 @@ const imagines = imagineData.map(imagine => {
         slotImg,
         elementImg,
         params,
-        // Skill name and skill type on client?
         abilities,
         recipe,
         category: getCategory("imagine", imagine.imagine_type),
         filterGroup: "imagine"
-
     }
 })
 

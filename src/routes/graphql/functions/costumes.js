@@ -1,4 +1,4 @@
-import costumesData from "../japan/costume.json";
+import costumesData from "../bp_server/japan/costume.json";
 import { getText, getThumbnail } from "./utils";
 
 function getPartsPath(name) {

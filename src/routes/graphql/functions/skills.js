@@ -1,5 +1,11 @@
-import skillsData from "../japan/skill_data.json";
+import skillsData from "../bp_server/japan/skill_data.json";
 import { getText, getThumbnail, getCategory } from "./utils";
+
+// TO DO:
+// Skill vidoes
+// Buffs and debuffs applied by a skill
+// Cooldown
+// Is class-shared ability?
 
 function getClassThumbnail(classId) {
     // Class 6 = Blast Archer

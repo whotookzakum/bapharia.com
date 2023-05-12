@@ -1,5 +1,11 @@
-import itemsData from "../japan/items.json";
+import itemsData from "../bp_server/japan/items.json";
 import { getText, getThumbnail, getCategory } from "./utils";
+
+// TO DO:
+// Drops from (w/ drop rate)
+// Gathered in (w/ drop rate)
+// Available in (dungeon/map)
+// Used in [recipe]
 
 const items = itemsData.map(item => {
     const name = getText("item_text", item.name)

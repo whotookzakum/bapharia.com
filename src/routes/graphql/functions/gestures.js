@@ -1,4 +1,4 @@
-import gesturesData from "../japan/emotes.json";
+import gesturesData from "../bp_server/japan/emotes.json";
 import { getText } from "./utils";
 
 const gestures = gesturesData.map(gesture => {

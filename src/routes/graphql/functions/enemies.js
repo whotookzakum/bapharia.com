@@ -1,12 +1,17 @@
-import itemsData from "../japan/items.json";
-import treasuresData from "../japan/treasures.json";
-import enemiesData from "../japan/enemyparams.json";
-import imagineData from "../japan/imagine.json";
+import itemsData from "../bp_server/japan/items.json";
+import treasuresData from "../bp_server/japan/treasures.json";
+import enemiesData from "../bp_server/japan/enemyparams.json";
+import imagineData from "../bp_server/japan/imagine.json";
 import _ from "lodash";
 import { getMapData } from "./maps"
 import { getText, getThumbnail, getCategory } from "./utils";
-import adventureBoardsData from "../japan/master_adventure_board.json"
-import liquidMemoriesData from "../japan/liquid_memory.json";
+import adventureBoardsData from "../bp_server/japan/master_adventure_board.json"
+import liquidMemoriesData from "../bp_server/japan/liquid_memory.json";
+
+// TO DO:
+// Treasure chest drops
+// Spawn locations (client)
+// Stats (if possible); elemental weakness etc
 
 const getTreasureRewardName = (ns, id) => {
     switch (ns) {

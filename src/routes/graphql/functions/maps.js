@@ -1,5 +1,13 @@
-import mapsData from "../maps.json";
+import mapsData from "../bp_client/japan/maps.json";
 import { getThumbnail, getCategory } from "./utils";
+
+// TO DO:
+// Mob locations
+// Treasure chests
+// Nappo count
+// Available resources
+// NPCs
+// Supplies for dungeons (supply.json)
 
 const maps = mapsData.map(map => {
     return {

@@ -9,3 +9,11 @@ export { default as tokens } from "./tokens.js"
 export { default as liquidMemories } from "./liquidmemories.js"
 export { default as imagines } from "./imagines.js"
 export { default as weapons } from "./weapons.js"
+
+// Not yet implemented
+// export { default as npcs } from "./npcs.js"
+// export { default as shops } from "./shops.js"
+// export { default as quests } from "./quests.js"
+// export { default as adventureBoards } from "./adventureBoards.js"
+// export { default as bodyParts } from "./bodyParts.js" (UI/Icon/Avatar)
+// export { default as abnormalStatuses } from "./abnormalStatuses.js" (client)

@@ -1,13 +1,13 @@
-import weaponsData from "../japan/weapons.json";
-import weaponsStatsData from "../japan/weapon_status_levels.json";
-import craftingRecipesData from "../japan/craft.json";
-import masterPerkPicks from "../japan/master_weapon_perk_picks.json";
-import lotteryData from "../japan/master_reward_lottery_groups.json";
-import itemsData from "../japan/items.json";
-import weaponPerks from "../japan/weaponperks.json";
-import perksData from "../japan/perks.json";
-import treasuresData from "../japan/treasures.json";
-import enemiesData from "../japan/enemyparams.json";
+import weaponsData from "../bp_server/japan/weapons.json";
+import weaponsStatsData from "../bp_server/japan/weapon_status_levels.json";
+import craftingRecipesData from "../bp_server/japan/craft.json";
+import masterPerkPicks from "../bp_server/japan/master_weapon_perk_picks.json";
+import lotteryData from "../bp_server/japan/master_reward_lottery_groups.json";
+import itemsData from "../bp_server/japan/items.json";
+import weaponPerks from "../bp_server/japan/weaponperks.json";
+import perksData from "../bp_server/japan/perks.json";
+import treasuresData from "../bp_server/japan/treasures.json";
+import enemiesData from "../bp_server/japan/enemyparams.json";
 import { getText, getCategory } from "./utils";
 import { getMapName } from "./maps";
 

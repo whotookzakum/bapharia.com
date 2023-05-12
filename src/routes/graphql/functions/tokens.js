@@ -1,5 +1,8 @@
-import tokensData from "../japan/token.json";
+import tokensData from "../bp_server/japan/token.json";
 import { getText, getThumbnail } from "./utils";
+
+// TO DO:
+// Try to figure out meaning of the values
 
 const tokens = tokensData.map(token => {
     const name = getText("master_token_text", token.name)
