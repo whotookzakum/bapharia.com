@@ -26,8 +26,7 @@ thumbImg: "/guides/liqmem/thumb.webp"
 Liquid Memories are buffs that assist the player in progression-related tasks. While they don't increase combat prowess, they provide convenient effects that can increase efficiency when collecting materials or selling items.
 
 ## How to unlock
-After reaching Adventurer Rank 3, complete the quest "Welcome to the Memory Stand!" which can be accepted from the quest receptionist in Asterleeds. 
-Afterwards, Liquid Memory bottles can be unlocked through quests (and possibly hidden throughout the world). Check the [map](/map) for the quest locations.
+After reaching Adventurer Rank 3, complete the quest [*When Life Gives You Memories*](/guides/liquid-memories#greater-harvest-when-gathering) which can be accepted from the quest receptionist in Asterleeds. Afterwards, Liquid Memory bottles can be unlocked through **quests**, **treasure chests**, and **Adventure Boards**. Check [Bottle Acquisition](/guides/liquid-memories#bottle-acquisition) below to get started.
 
 There are up to **three bottles** (M1, M2, M3) for each buff. Unlocking more bottles will increase the buff's duration or effectiveness.
 
@@ -57,54 +56,215 @@ Below are some liquid memory effects that weren't available in the closed beta o
 - Increased Luno gained from enemies
 
 ## Bottle Acquisition
+<StickyNote type="tip">
+    This section will be updated with new information when available! Join our <a href="https://discord.gg/ZKwhn3a4yH" rel="noreferrer noopener nofollow" target="_blank">discord</a> to know when updates roll out.
+</StickyNote>
 
 ### Greater harvest when gathering
-#### When Life Gives You Memories
-**Requires Adv. Rank 3.**  
-Accept the quest "When Life Gives You Memories" from the quest receptionist in the Frontiering Station at Asterleeds. Listen to the Memory Stand Attendant's explanation on Liquid Memories to complete. This quest is required to unlock the Memory Stand.
+#### When Life Gives You Memories <!-- SQ101_127 メモリスタンドへようこそ！ -->
+<StickyNote type="note">
+    This quest is required to unlock the Memory Stand and has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed Murrie's Main Quest <i>Register as an Adventurer!</i></li>
+        <!-- To accept -->
+        <li>Reached Adventurer Rank 3</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *When Life Gives You Memories* from the quest receptionist in the Frontiering Station at Asterleeds.
+2. Go to Free Exploration: Dragon's Rive and gather Rimestar Herb and Pyrid Ore. Report to the Memory Stand attendant to complete.
+
+
+
+#### Treasure Chest in Hollowed Tempest
+Open the treasure chest found in the Northeast area of [Erstgreen Sands: Hollowed Tempest](/?search=Fld004_N&result=Fld004_N#db).
+![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106782174608379924/image.png)
 
 <hr>
 
 ### Gathering speed up
-#### Apprentice In An Appren-tizzy
-**Requires Class Lv. 20.**  
-Accept the quest "Apprentice In An Appren-tizzy" from Patti next to the Asterleeds Beach Memory Stand. 
-<!-- Speak to Hanna at the Shrine entrance in Asterleeds. Complete Pillar of Divinity (Advanced Survey) to obtain the Engram Collector and give it to Hanna. Report back to Patti to complete. -->
+#### Apprentice In An Appren-tizzy <!-- SQ101_128 困った見習い -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Quest Receptionist's Sub Quest <i>When Life Gives You Memories</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 20</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *Apprentice In An Appren-tizzy* from Patti next to the Asterleeds Beach Memory Stand. 
+2. Speak to Hanna at the Shrine entrance in Asterleeds. 
+3. Complete Pillar of Divinity (Additional Survey) to obtain the Engram Collector and give it to Hanna. Report back to Patti to complete.
+
+#### Treasure Chest in Olvid Plains
+Open the treasure chest found on the Southwest peninsula of [Erstgreen Sands: Olvid Plains](/?search=Fld004_W&result=Fld004_W#db).
+![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106782059294371921/image.png)
+
+#### Treasure Chest in Borwam Ruins
+Open the treasure chest found in the middle room on the 2nd floor of [Free Exploration: Borwam Ruins](/?search=pat0802&result=pat0802#db), accessible via [Erstgreen Sands: Shimmering Valley](/?result=Fld004_E&search=Fld004_E#db).
+![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106809526147096576/image.png)
 
 <hr>
 
 ### Increased EXP from enemies
-#### 次なる成長の試練
+#### The Next Step <!-- SQ101_146 次なる成長の試練 -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Class Master's Sub Quest <i>A World of Possibilities</i></li>
+        <li>Reached Adventurer Rank 6</li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 30</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *The Next Step* from the Class Master.
+2. Complete Rush Battle: Stage 3.
+
+#### Treasure Chest in West Bernhart Peninsula
 
 <hr>
 
-
 ### Increased enemy drop rate
-#### Treasure Chest in Melisos River Basin
-Open the treasure chest found in the Northwest region of Melisos River Basin.
-![Chest Location](https://cdn.discordapp.com/attachments/1066964551444201473/1097469547176546304/image.png)
-
 #### The Laid-Back Lab's Latest
-**Requires Class Lv. 13.**  
-Accept the quest "The Laid-Back Lab's Latest" (おっとり研究者の最新作) from Louise in Asterleeds. She can be found up the Northeast stairs by The Revolving Helm Pavillion warp gate. 
+<!-- SQ101_131 おっとり研究者の最新作 -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Quest Receptionist's Sub Quest <i>When Life Gives You Memories</i></li>
+        <li>Completed Feste's Main Quest <i>Pillar of Divinity</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 13</li>
+    </ul>
+</StickyNote>
 
-Gather 5 Moonstones in Quellmount's Foot (can only be obtained during nighttime) and report back to Louise. Next, gather 5 Sunshine Shells in Fier Highwaters (can only be obtained during daytime) and report back to Louise to complete. <!-- ルイーゼ, 廻る舵輪亭, 空間転送ポータル, 満月石, ニッコウガイ -->
+1. Accept the quest *The Laid-Back Lab's Latest* (おっとり研究者の最新作) from Louise in Asterleeds. She can be found up the Northeast stairs by The Revolving Helm Pavillion warp gate.
+2. Gather 5 Moonstones in Quellmount's Foot (can only be obtained during nighttime) and report back to Louise. 
+3. Gather 5 Sunshine Shells in Fier Highwaters (can only be obtained during daytime) and report back to Louise to complete. <!-- ルイーゼ, 廻る舵輪亭, 空間転送ポータル, 満月石, ニッコウガイ -->
+
+#### Treasure Chest in Melisos River Basin
+Open the treasure chest found in the Northwest part of [Montegnor Valley: Melisos River Basin](/?search=Fld003_E&result=Fld003_E#db).
+![Chest Location](https://cdn.discordapp.com/attachments/1066964551444201473/1097469547176546304/image.png)
 
 <hr>
 
 ### More GC when completing missions
-#### 初心、帰りて
+#### Back to the Beginning
+<!-- SQ101_140 初心、帰りて -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Quest Receptionist's Sub Quest <i>When Life Gives You Memories</i></li>
+        <li>Completed the young man's Sub Quest <i>The Stone That Got Away</i></li>
+        <li>Completed the Troupe Leader's Wife's Main Quest <i>The Troupe's Songstress</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 25</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *Back to the Beginning* from Stadz.
+2. Gather the valuable stone in Evenlee Terrace.
+
+<hr>
 
 ### Increased Alliance EXP
-#### 再確認は大事
+#### Never Hurts to Doublecheck!
+<!-- SQ102_250 再確認は大事 -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Quest Receptionist's Sub Quest <i>When Life Gives You Memories</i></li>
+        <li>Completed Meyer's Sub Quest <i>Smells Like Team Spirit</i></li>
+        <li>Completed Feste's Main Quest <i>Soundless City</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 18</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *Never Hurts to Doublecheck!* from the Quest Receptionist in Asterleeds.
+2. Complete the dungeon Steelwalker Ravine: Resurvey.
+
+#### Treasure Chest in West Bernhart Peninsula
+
+#### Treasure Chest<!-- in 308054004 (Map 3080500 not found in NT client) -->
+
+<hr>
 
 ### Cheaper prices from NPC shops
 
+#### Waiting for the Goat to Go
+<!-- SQ101_129 不気味な香りの交換条件 -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Quest Receptionist's Sub Quest <i>When Life Gives You Memories</i></li>
+        <li>Completed Feste's Main Quest <i>Banishing an Aberration</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 14</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *Waiting for the Goat to Go* (不気味な香りの交換条件) from Godot/Old Man in Asterleeds, found near the Shrine.
+2. Defeat the named enemy [Ghastly Goat](/?result=E004_00_01_01001) in Quellmount's Foot and report back to Godot.
+
+#### Treasure Chest in West Bernhart Peninsula
+
+<hr>
+
 ### Reduced luno cost when crafting weapons
-#### 幻怪の商人
+#### Divination Intervention
+<!-- SQ101_141 幻怪の商人 -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed the Quest Receptionist's Sub Quest <i>When Life Gives You Memories</i></li>
+        <li>Completed Feste's Main Quest <i>Banishing an Aberration</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 14</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *Divination Intervention* from Zoe.
+2. Gather 10 Mothergreen in Godswatch Rise.
+
+#### Treasure Chest in Breathless Wasteland
+Open the treasure chest found in the central part of [Erstgreen Sands: Breathless Wasteland](/?search=Fld004_S&result=Fld004_S#db).
+![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106781515670630480/image.png)
+
+<hr>
 
 ### Increased profits when selling
-#### 見習いには難しい発注
+#### Revising the Process
+<!-- SQ101_143 見習いには難しい発注 -->
+<StickyNote type="note">
+    This quest has the following prerequisites: 
+    <ul>
+        <!-- To unlock -->
+        <li>Completed Patti's Sub Quest <i>Apprentice In An Appren-tizzy</i></li>
+        <!-- To accept -->
+        <li>Reached Class Lv. 14</li>
+    </ul>
+</StickyNote>
+
+1. Accept the quest *Revising the Process* from Patti at Asterleeds Beach Memory Stand. 
+2. Speak with someone at the Development Bureau.
+3. Complete the dungeon Raycrisstal Mine: Resurvey.
+
+#### Treasure Chest in Torchlight Thickets
+Open the treasure chest found in the Southwest room in [Free Exploration: Torchlight Thickets](/?search=pat0802&result=pat0802#db), accessible via [Bahamar Highlands: Fier Highwaters](/?result=Fld002_W&search=Fld002_W#db).
+![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106799305156739103/image.png)
+
+#### Rewarded in Adventure Board
+<!-- Possibly from adventure board: ab900000015 reward 900000015 & 900000115 -->
 
 <style lang="scss">
 
@@ -135,7 +295,7 @@ Gather 5 Moonstones in Quellmount's Foot (can only be obtained during nighttime)
 
         // Color coded Table of Contents
         // Index is 1 lower than above because nth-of-type does not count the h3 "Unused Effects" here, while it does above.
-        .toc-item-h3:nth-of-type(#{$i - 1}) {
+        /* .toc-item-h3:nth-of-type(#{$i - 1}) {
             @if $i <= 4 {
                 color: #ed6f18;
             } 
@@ -148,14 +308,28 @@ Gather 5 Moonstones in Quellmount's Foot (can only be obtained during nighttime)
             @if $i > 6 and $i <= 10 {
                 color: #419f3f;
             }
+        } */
+
+        .toc-item-h4 {
+            display: none;
         }
     }
 
     h4 {
-        font-size: 1em;
+        font-size: 1.12em;
+
         & + p {
-            margin-top: 0;
+            margin: 0;
         }
+
+         /* & ~ p {
+            margin-left: 1.5rem;
+        } */
+    }
+
+    ol {
+        margin: 0;
+        font-size: 18px;
     }
 
     .toc-item-h4 {
