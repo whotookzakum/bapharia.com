@@ -17,7 +17,7 @@
     ];
 </script>
 
-<div class="box">
+<div>
     {#each PLATFORMS as platform}
         <label>
             <input

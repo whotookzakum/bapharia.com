@@ -3,6 +3,8 @@
     import _ from "lodash";
     import { platformId, currency } from "$lib/stores";
     import Icon from "@iconify/svelte";
+    import CurrencyOptions from "./CurrencyOptions.svelte";
+    import PlatformOptions from "./PlatformOptions.svelte";
 
     export let releaseSales = false;
 
@@ -24,10 +26,10 @@
 <div class="rose-orb-packs grid full-bleed">
     {#each PACKS as pack}
         <div class="box">
-            <div class="amount">
-                <Icon
-                    icon="simple-icons:crystal"
-                    color="#e72757"
+            <div class="amount skip-std flex g-50">
+                <img
+                    src="/UI/Gasha/UI_GashaBtnIconRoseOrb.png"
+                    alt="Rose Orb"
                     width="24"
                     height="24"
                 />
@@ -63,8 +65,8 @@
     }
 
     .amount {
-        font-family: "Skip Std";
         font-size: var(--step-0);
+        align-items: center;
     }
 
     .price {

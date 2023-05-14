@@ -30,7 +30,7 @@
     $: currency.set(CURRENCIES.find((c) => c.code === selected));
 </script>
 
-<div class="box">
+<div>
     {#each CURRENCIES as c}
         <label>
             <input

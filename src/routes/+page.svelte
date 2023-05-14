@@ -36,7 +36,6 @@
 
 	<section>
 		<!-- <Outro /> -->
-		
 	</section>
 </main>
 
