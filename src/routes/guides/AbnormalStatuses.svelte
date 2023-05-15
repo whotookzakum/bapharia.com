@@ -516,6 +516,12 @@
         // },
         {
             category: "buff",
+            name: "Heal?",
+            imgSrc: "/UI/Icon/StatusAilment/UI_StatusAilment_4064.png",
+            desc: "",
+        },
+        {
+            category: "buff",
             name: "Critical Rate Up",
             imgSrc: "/UI/Icon/StatusAilment/UI_StatusAilment_4063.png",
             desc: "Increases the chance of critical hits",

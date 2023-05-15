@@ -63,7 +63,7 @@
         {
             name: "Dark",
             desc: "Attacks may miss",
-            burst: "Knockdown",
+            burst: "Small explosion & knockdown",
             finish: "Large explosion that deals heavy damage and inflicts Drained",
             images: [
                 "/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.png",
@@ -79,51 +79,43 @@
     {#each elements as element}
         <div class={`element box grid ${element.name}`}>
             <div class="flex g-50" style="align-items: center">
-                <img src={element.images[0]} alt="" />
+                <img src={element.images[0]} alt="" width="48" height="48" />
                 <h3>{element.name}</h3>
             </div>
-            
-                <div class="row">
-                    <div class="grid">
-                        <span class="component-label">Level 1 & 2</span>
-                        <span class="description">{element.desc}</span>
-                    </div>
-                    <div class="flex g-25">
-                        <img
-                            src={element.images[1]}
-                            alt=""
-                            width="65"
-                            height="75"
-                        />
-                        <img
-                            src={element.images[2]}
-                            alt=""
-                            width="65"
-                            height="75"
-                        />
-                    </div>
+            <div class="row">
+                <div class="grid">
+                    <span class="component-label">Level 1 & 2</span>
+                    <span class="description">{element.desc}</span>
                 </div>
-                <div class="row">
-                    <div class="grid">
-                        <span class="component-label"
-                            >Level 3 (Elemental Burst)</span
-                        >
-                        <span class="description">{element.burst}</span>
-                    </div>
+                <div class="flex g-25">
                     <img
-                        src={element.images[3]}
+                        src={element.images[1]}
+                        alt=""
+                        width="65"
+                        height="75"
+                    />
+                    <img
+                        src={element.images[2]}
                         alt=""
                         width="65"
                         height="75"
                     />
                 </div>
-                <div class="grid">
-                    <span class="component-label burst-finish"
-                        >Burst Finish</span
-                    >
-                    <span class="description">{element.finish}</span>
-                </div>
             </div>
+            <div class="row">
+                <div class="grid">
+                    <span class="component-label"
+                        >Level 3 (Elemental Burst)</span
+                    >
+                    <span class="description">{element.burst}</span>
+                </div>
+                <img src={element.images[3]} alt="" width="65" height="75" />
+            </div>
+            <div class="grid">
+                <span class="component-label burst-finish">Burst Finish</span>
+                <span class="description">{element.finish}</span>
+            </div>
+        </div>
     {/each}
 </div>
 
@@ -133,7 +125,6 @@
     }
 
     .elements-grid {
-        
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
         gap: 1rem;
         width: min(100%, 1200px) !important;

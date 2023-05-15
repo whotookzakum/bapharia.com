@@ -329,7 +329,6 @@ Open the treasure chest found in the Southwest room in [Free Exploration: Torchl
 
     ol {
         margin: 0;
-        font-size: 18px;
     }
 
     .toc-item-h4 {

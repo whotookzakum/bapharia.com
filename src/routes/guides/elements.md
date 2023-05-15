@@ -13,32 +13,60 @@ thumbImg: "/guides/elements/thumb.webp"
     import ElementsTable from './ElementsTable.svelte';
 </script>
 
-There are 6 elements that can be utilized in combat; fire, ice, lightning, earth, light, and dark.
+## The Six Elements
+Players can use 6 elements in BLUE PROTOCOL: Fire, Ice, Thunder, Earth, Light, and Dark. They can be utilized through elemental skills, elemental weapons, and elemental [Battle Imagine](/guides/imagine#battle-imagine).
+
+### Elemental Charge
+Attacking with elements will fill the Elemental Charge gauge underneath an enemy's health bar. Filling it past the level 1, 2, or 3 threshold will apply an **Elemental Effect** on the enemy. The gauge will be depleted over time.
+
+<StickyNote type="note">
+    Elemental charge is accumulated regardless of the element you are currently using, so all players can contribute towards the gauge. The element that has the most charge when reaching level 1 will be applied.
+</StickyNote>
+
+It's currently unknown whether a weapon's Elemental Power stat influences how fast elemental charge is built, or if its simply for damage against enemies with elemental weaknesses.
+
+### Effects
+At level 1 and 2, a debuff is applied, with level 2 being a stronger version. Level 3 triggers an *Elemental Burst*, which deals considerable damage and immobilizes the target.
 
 <ElementsTable />
 
-## Elemental Charge
-Attacking with elemental weapons, battle imagine, or skills will accumulate elemental charge on an enemy, indicated by the gauge under their health. When charged past level thresholds, **elemental effects** will be applied. The elemental charge gauge will be depleted over time.
+<StickyNote type="tip">
+    Enemies will also use elements to apply debuffs on players. If players get affected by the Ice or Earth Elemental Bursts, other players can hit them to help free them faster.
+</StickyNote>
 
-<!-- Elemental charge is accumulated regardless of the element of the weapon, skill, or imagine you are using in combat, so all players can contribute towards the gauge. -->
+## Burst Bonus Time
+Activating an Elemental Burst will trigger *Burst Bonus Time* for 10 seconds. Players and Battle Imagine will deal increased damage. 
 
-## Elemental Effects
-Elemental effects have 3 levels. At level 1, the element's respective status effect will be applied on the target. Level 2 strengthens the debuff from level 1. Level 3 triggers an elemental burst.
-
-Enemies will also use elements to apply status effects on players. If players get affected by ice or earth elemental bursts (which will immobilize them) other players can hit them to help free them faster.
-
-## Burst Finish
-Attacking during the elemental burst will charge the **burst finish** gauge, up to a max of 5 stages. After some time has elapsed, the burst finish will trigger as long as at least one stage of the gauge was filled. Its effectiveness is determined by the highest stage it was charged to.
+Additionally, a **Burst Finish Gauge** will appear with a level 1 indicator next to it. Attacking with elements will rapidly fill the gauge. Levels are increased by 1 each time the gauge is filled, up to level 5. 
 
 <StickyNote type="tip">
-    When an enemy reaches elemental burst (level 3), all players should attack it as much as possible!
+    The Burst Finish Gauge will start to flash white faster and faster as Burst Bonus Time comes to an end!
 </StickyNote>
 
-<!-- Element is applied => charge to level 1 => charge to level 2 => charge to level 3 (burst) & charge burst finish => burst finish damage -->
+<figure>
+    <video src="/guides/elements/burstfinish.mp4" controls></video>
+    <figcaption>Demonstration of the Elemental Burst and Burst Bonus Time mechanics.</figcaption>
+</figure>
 
-<!-- ## Closing notes
-<StickyNote type="warning">
-    The following are my <strong>unconfirmed</strong> thoughts on element mechanics.
-</StickyNote>
+### Burst Finish
+After Burst Bonus Time ends, a **Burst Finish** will occur, dealing massive damage determined by the level that was reached during the Burst Finish Gauge. Some elements will also apply buffs or debuffs after a Burst Finish.
 
-It seems that the element is permanently determined by the first hit on an enemy. Also, it would make sense that skills override weapon elements, i.e. fireblast would apply fire even when using a lightning weapon, because most classes have a non-elemental set of skills. If weapon overrode skill, then the fire abilities on twin striker couldn't be utilized effectively with a lightning weapon. -->
+## Elemental Weakness
+Attacking with the element that an enemy is weak against will allow you to do increased damage, indicated by an icon next to your damage numbers. The icon has 3 versions, denoting how effective the damage increase is.
+
+<div class="flex" style="justify-content: center">
+    <img src="/UI/DamageUI/UI_DamageUIWeakness1.png" alt="Weakness 1" width="48" height="84" />
+    <img src="/UI/DamageUI/UI_DamageUIWeakness2.png" alt="Weakness 2" width="48" height="84" /> 
+    <img src="/UI/DamageUI/UI_DamageUIWeakness3.png" alt="Weakness 3" width="48" height="84" /> 
+</div>
+
+It's currently unknown what the damage multipliers are, or how they can be derived from an enemy's elemental weakness.
+
+## Weapon-Skill interaction
+When using both an elemental weapon and an elemental skill, the skill's element will be prioritized. Most classes have a set of non-elemental skills if they want to use their weapon's element. However, Spell Caster players may want to consider that all of their tactical skills are elemental--they may be unable to use certain elements.
+
+<!-- エネミーに属性攻撃を与えるたびに属性値が蓄積していき、\n一定量を超えると最も多い属性の属性状態異常を起こします。\n（異なる属性の攻撃を当てても、属性値は蓄積します）\n属性状態異常はLv1、Lv2、バーストの3段階で\n段階が進むほど効果も高まります。
+
+武器の中には属性を持っているものがあります。\nエネミーの弱点属性と武器の属性が合致すると\nダメージ表記が変わり、与ダメージが増えていることが分かります。\n弱点属性を突くことで素早く敵を倒すことができるので、\n武器の属性も意識してみましょう。
+
+属性蓄積値を蓄積させてバーストを発生させると、\n一定時間バーストボーナスタイムとなります。\nボーナスタイム中は与ダメージがアップする状態となり、さらに\nバトルイマジンの与ダメージがよりアップするボーナスもあり\nバトルイマジンで効率よくダメージを与えることができます。\n\nまた、バーストボーナスタイム中は属性蓄積値を蓄積することで\nバーストフィニッシュゲージを増加します。\n一定以上ゲージが溜まるとバーストフィニッシュレベルがアップし\nバーストボーナスフィニッシュした時の効果を大きくできます。\nバーストフィニッシュレベルを上げて大ダメージも狙いましょう！ -->
