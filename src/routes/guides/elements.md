@@ -44,7 +44,9 @@ Additionally, a **Burst Finish Gauge** will appear with a level 1 indicator next
 </StickyNote>
 
 <figure>
-    <video src="/guides/elements/burstfinish.mp4" controls></video>
+    <video src="/guides/elements/burstfinish.mp4" controls preload="none" poster="/guides/elements/burstfinishposter.webp">
+        <track kind="captions">
+    </video>
     <figcaption>Demonstration of the Elemental Burst and Burst Bonus Time mechanics.</figcaption>
 </figure>
 
