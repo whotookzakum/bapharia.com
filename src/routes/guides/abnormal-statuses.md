@@ -1,7 +1,7 @@
 ---
 title: 'Abnormal Statuses'
 author: 'Zakum'
-date: '2022-08-03'
+date: '2023-5-14'
 category: 'Referential'
 caption: 'List of known buffs and debuffs.'
 bannerImg: "/guides/abnormal-statuses/banner.webp"
