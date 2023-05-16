@@ -74,7 +74,7 @@
             <b>If you'd like to send me a tip</b>, you can do so on
             <a
                 href="https://ko-fi.com/whotookzakum"
-                class="box hover kofi"
+                class="sns-tag kofi"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon
@@ -86,7 +86,7 @@
             >,
             <a
                 href="https://www.patreon.com/zakum"
-                class="box hover patreon"
+                class="sns-tag patreon"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon
@@ -97,7 +97,7 @@
             >, or
             <!-- <a
                 href=""
-                class="box hover paypal"
+                class="sns-tag paypal"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon icon="logos:paypal" style="margin-bottom: -1px" /> PayPal</a>.  -->
@@ -108,14 +108,14 @@
             <b>Other ways you can help</b> include subbing on
             <a
                 href="https://www.youtube.com/zakum?sub_confirmation=1"
-                class="box hover youtube"
+                class="sns-tag youtube"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon icon="logos:youtube-icon" height="12" /> YouTube</a
             >, following on
             <a
                 href="https://www.twitch.tv/playmaple3"
-                class="box hover twitch"
+                class="sns-tag twitch"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon
@@ -126,7 +126,7 @@
             >, joining the
             <a
                 href="https://discord.gg/ZKwhn3a4yH"
-                class="box hover discord"
+                class="sns-tag discord"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon icon="logos:discord-icon" height="13" /> Discord</a
@@ -242,66 +242,5 @@
         a {
             white-space: nowrap;
         }
-    }
-
-    .box.hover {
-        padding: 0.25rem 0.4rem;
-        white-space: nowrap;
-        line-height: 2.1;
-        background: var(--surface2);
-        border-color: var(--surface3);
-
-        &:hover,
-        &:focus-visible {
-            background: var(--surface3);
-        }
-    }
-
-    .skip-std {
-        font-size: var(--step-1);
-    }
-
-    .kofi {
-        color: white;
-    }
-
-    .patreon {
-        color: #ff424d;
-    }
-
-    .youtube {
-        color: #ea3223;
-    }
-
-    .twitch {
-        color: #9146ff;
-    }
-
-    .discord {
-        color: #5865f2;
-    }
-
-    // .paypal {
-    //     color: #009cde;
-    // }
-
-    :global(.kofi) {
-        position: relative;
-
-        &::before {
-            content: "";
-            z-index: 1;
-            top: 10px;
-            left: 8px;
-            width: 11px;
-            height: 9px;
-            position: absolute;
-            background: #ff5e5b;
-        }
-    }
-
-    :global(.kofi svg) {
-        position: relative;
-        z-index: 2;
     }
 </style>

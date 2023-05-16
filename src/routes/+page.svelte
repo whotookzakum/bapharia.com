@@ -7,6 +7,7 @@
 	import Navbar from "$lib/components/Navbar.svelte";
     import Outro from "./Outro.svelte";
 	import Card from "$lib/components/Card.svelte";
+    import Partners from "./Partners.svelte";
 
 	export let data;
 </script>
@@ -32,6 +33,10 @@
 
 	<section>
 		<Guides data={data.guides} />
+	</section>
+
+	<section>
+		<Partners />
 	</section>
 
 	<section>
