@@ -1,6 +1,14 @@
 <script>
+    import { browser } from "$app/environment";
 	import LocaleSelector from "./LocaleSelector.svelte";
 	import ThemeToggle from "./ThemeToggle.svelte";
+
+	let slider;
+	$: if (browser) {
+		// document.documentElement.style.setProperty("--h", slider)
+	}
+
+	if (browser) console.log(document.documentElement.style.getPropertyValue("--h"))
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
@@ -15,6 +23,7 @@
 			<ThemeToggle />
 			<LocaleSelector />
 		</div>
+		<!-- <input type="range" name="" id="" min="0" max="360" bind:value={slider}> -->
 	</div>
 </nav>
 
