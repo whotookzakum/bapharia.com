@@ -27,7 +27,9 @@
             / 255
         );
 
-    --text1: hsl(130, 0%, calc(96% - var(--hi) * 100%));
+    --L: max(calc(100% - var(--hi) * 100%), calc(var(--hi) * 100%));
+    // --L: max(0%, 100%);
+    --text1: hsl(130, 0%, var(--L));
 
     // @if $hi < 0.5 {
     //     --text1: black;

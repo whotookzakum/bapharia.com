@@ -3,9 +3,13 @@
 	import LocaleSelector from "./LocaleSelector.svelte";
 	import ThemeToggle from "./ThemeToggle.svelte";
 
-	let slider;
+	let sliderR = 28;
+	let sliderG = 28; 
+	let sliderB = 28;
 	$: if (browser) {
-		// document.documentElement.style.setProperty("--h", slider)
+		document.documentElement.style.setProperty("--r", sliderR)
+		document.documentElement.style.setProperty("--g", sliderG)
+		document.documentElement.style.setProperty("--b", sliderB)
 	}
 
 	if (browser) console.log(document.documentElement.style.getPropertyValue("--h"))
@@ -23,7 +27,11 @@
 			<ThemeToggle />
 			<LocaleSelector />
 		</div>
-		<!-- <input type="range" name="" id="" min="0" max="360" bind:value={slider}> -->
+		<div>
+			<input type="range" name="" id="" min="0" max="255" bind:value={sliderR}>
+			<input type="range" name="" id="" min="0" max="255" bind:value={sliderG}>
+			<input type="range" name="" id="" min="0" max="255" bind:value={sliderB}>
+		</div>
 	</div>
 </nav>
 
