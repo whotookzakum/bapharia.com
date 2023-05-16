@@ -41,8 +41,7 @@
 	</script>
 </svelte:head>
 
-<select id="locale-selector" class="box hover" bind:value={selectedLocale}>
-	ITS
+<select id="locale-selector" bind:value={selectedLocale}>
 	{#each locales as locale}
 		<option value={locale.code}>{locale.name}</option>
 	{/each}
@@ -55,5 +54,14 @@
 		height: 44px;
 		min-width: 44px;
 		// appearance: none;
+
+		background: none;
+		border: none;
+		border-radius: 5px;
+		border: 1px solid transparent;
+
+		&:hover, &:focus-visible {
+			background: var(--surface2);
+		}
 	}
 </style>

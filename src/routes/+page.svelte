@@ -4,7 +4,7 @@
 	import Guides from "./Guides.svelte";
 	import InteractivePages from "./InteractivePages.svelte";
 	import MetaTags from "$lib/components/MetaTags.svelte";
-	import Navbar from "$lib/components/Navbar.svelte";
+	
     import Outro from "./Outro.svelte";
 	import Card from "$lib/components/Card.svelte";
     import Partners from "./Partners.svelte";
@@ -16,8 +16,8 @@
 	title="Bapharia — The premier information hub for BLUE PROTOCOL."
 	description="The premier information hub for BLUE PROTOCOL. Theorycrafting, guides, and leaks—all in one place!"
 />
-<Navbar />
-<main>
+
+<main id="#main" tabindex="-1">
 	<header>
 		<h1>Bapharia</h1>
 		<strong>The premier information hub for BLUE PROTOCOL.</strong>
@@ -54,6 +54,7 @@
 		padding: 0 1em;
 		margin: auto;
 	}
+
 	h1 {
 		margin-top: 20vh;
 	}

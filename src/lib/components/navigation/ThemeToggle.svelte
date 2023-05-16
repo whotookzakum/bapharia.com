@@ -67,7 +67,7 @@
 </svelte:head>
 
 <button
-	class="btn-theme-toggle box hover"
+	class="btn-theme-toggle"
 	on:click={toggleTheme}
 	aria-label="Toggle Light & Dark Theme"
 	aria-live="polite"
@@ -106,6 +106,14 @@
 		img {
 			filter: sepia(1) saturate(10)
 				hue-rotate(calc(var(--h) * 1deg + 120deg));
+		}
+
+		background: none;
+		border: none;
+		border-radius: 5px;
+
+		&:hover, &:focus-visible {
+			background: var(--surface2);
 		}
 	}
 </style>

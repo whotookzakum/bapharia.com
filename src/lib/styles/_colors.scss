@@ -1,76 +1,64 @@
-:root {
+// :root[color-scheme*="light"] {
+//     --text1: hsl(220, 7%, 21%);
+//     --text2: hsl(220, 7%, 37%);
+//     --bg: hsl(218, 20%, 89%);
+//     --bg: white;
+//     --surface1: hsl(215, 33%, 81%);
+//     --surface2: hsl(215, 35%, 75%);
+//     --surface3: hsl(215, 47%, 70%);
+//     --surface-shadow: hsl(232, 13%, 80%);
+//     --accent: hsl(240, 100%, 50%);
+// }
+
+// :root[color-scheme*="clear skies"] {
+//     --text1: hsl(224, 47%, 18%); // l: 18~21
+//     --text2: hsl(224, 47%, 37%);
+//     --bg: hsl(220, 79%, 87%);
+//     --surface1: hsl(215, 68%, 81%);
+//     --surface2: hsl(215, 80%, 77%);
+//     --surface3: hsl(215, 53%, 67%);
+//     --surface-shadow: hsl(210, 28%, 70%);
+//     --accent: hsl(205, 100%, 40%);
+// }
+
+:root, :root[color-scheme*="dark"] {
     --h: 220;
-    --s: 35%;
-    --l: 6%;
-
-    // --text1: hsl(var(--h), 0%, calc(100% - var(--l) - 18%));
-    // --text2: hsl(var(--h), 0%, calc(100% - var(--l) - 32%));
-    // --bg: hsl(var(--h), var(--s), var(--l));
-    --surface1: hsl(var(--h), calc(var(--s) + 2%), calc(var(--l) + 4%));
-    --surface2: hsl(var(--h), calc(var(--s) + 3%), calc(var(--l) + 7%));
-    --surface3: hsl(var(--h), calc(var(--s) + 4%), calc(var(--l) + 9%));
-    --surface-shadow: hsl(var(--h), 25%, 4%);
-    --accent: hsl(calc(var(--h) - 0), calc(var(--s) + 20%), calc(var(--l) + 44%));
-
-
-    --r: 203;
-    --g: 230;
-    --b: 240;
-    --bg: rgb(var(--r), var(--g), var(--b));
-
-    --hi: calc(
-        (
-            (0.299 * var(--r)) + 
-            (0.587 * var(--g)) + 
-            (0.114 * var(--b)) 
-        )
-            / 255
-        );
-
-    --L: max(calc(100% - var(--hi) * 100%), calc(var(--hi) * 100%));
-    // --L: max(0%, 100%);
-    --text1: hsl(130, 0%, var(--L));
-
-    // @if $hi < 0.5 {
-    //     --text1: black;
-    // }
-    // @if $hi > 0.5 {
-    //     --text1: red;
-    // }
-}
-
-:root[color-scheme*="light"] {
-    --l: 80%;
-    // --s: 35%;
-    --r: 203;
-    --g: 230;
-    --b: 240;
-    // --accent: hsl(calc(var(--h) - 0), calc(var(--s) + 20%), calc(var(--l) - 34%));
-    // --surface-shadow: hsl(var(--h), 25%, 60%);
-}
-
-:root[color-scheme*="dark"] {
-    // --l: 6%;
-    --r: 03;
-    --g: 30;
-    --b: 40;
+    --text1: hsl(220, 0%, 89%);
+    --text2: hsl(220, 0%, 72%);
+    --bg: hsl(220, 15%, 6%);
+    --bg: hsl(249, 41%, 7%);
+    --surface1: hsl(220, 17%, 10%);
+    --surface2: hsl(220, 18%, 13%);
+    --surface3: hsl(220, 19%, 15%);
+    --surface-shadow: hsl(220, 25%, 4%);
+    --accent: hsl(210, 60%, 50%);
 }
 
 // underwater h 220 s 65
 // rosebed/vino l 6 h 320 s 45
-// retro night hsl(249, 41%, 7%)
-:root[color-scheme*="dark"] {
-    // --l: 7%;
-    // --s: 41%;
-    // --h: 249;
+// :root[color-scheme*="retro night"] {
+//     --text1: hsl(30, 60%, 50%);
+//     --text2: deeppink;
+//     --bg: hsl(249, 41%, 7%);
+//     --surface1: hsl(249, 41%, 12%);
+//     --surface2: hsl(249, 42%, 14%);
+//     --surface3: hsl(249, 43%, 17%);
+//     --surface-shadow: rgba(22, 18, 43, 0.3);
+//     --accent: hsl(162, 60%, 50%); // deepskyblue
+// }
 
-    // --accent: hsl(calc(var(--h) + 100), calc(var(--s) + 20%), calc(var(--l) + 44%));
-}
 
 
-
-@media (not (prefers-color-scheme: dark)) {
-    :root {
-        --l: 56%;
-    }
-}
+// @media (not (prefers-color-scheme: dark)) {
+//     :root {
+//         --text1: hsl(220, 7%, 21%);
+//         --text2: hsl(220, 7%, 37%);
+//         --bg: hsl(218, 20%, 89%);
+//         --bg: white;
+//         --surface1: hsl(215, 33%, 81%);
+//         --surface2: hsl(215, 35%, 75%);
+//         --surface3: hsl(215, 47%, 70%);
+//         --surface-shadow: hsl(232, 13%, 80%);
+//         --accent: hsl(240, 100%, 50%);
+//     }
+// }
