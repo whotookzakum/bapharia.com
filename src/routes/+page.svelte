@@ -19,7 +19,7 @@
 <Navbar />
 <main>
 	<header>
-		<h1>Bapharia (β)</h1>
+		<h1>Bapharia</h1>
 		<strong>The premier information hub for BLUE PROTOCOL.</strong>
 	</header>
 
@@ -40,7 +40,7 @@
 	</section>
 
 	<section>
-		<!-- <Outro /> -->
+		<Outro />
 	</section>
 </main>
 

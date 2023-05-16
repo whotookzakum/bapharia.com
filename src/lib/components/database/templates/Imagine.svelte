@@ -30,6 +30,7 @@
         {#if isBattleImagine}
             <!-- Need name and skillType -->
             <ImagineSkill
+                skillType={"attack"}
                 desc={data.desc}
             />
         {/if}
