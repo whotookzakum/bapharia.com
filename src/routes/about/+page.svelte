@@ -101,8 +101,8 @@
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 ><Icon icon="logos:paypal" style="margin-bottom: -1px" /> PayPal</a>.  -->
-            Donations are very much appreciated and never required. Donors
-            will be given a special discord role, with exclusive channel access.
+            Donations are very much appreciated and never required. Donors will be
+            given a special discord role, with exclusive channel access.
         </p>
         <p>
             <b>Other ways you can help</b> include subbing on

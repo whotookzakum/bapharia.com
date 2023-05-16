@@ -103,7 +103,6 @@
 	};
 </script>
 
-<h2 id="db">Database</h2>
 <div class="db-wrapper">
 	<form id="search" class="search-pane">
 		<div>

@@ -6,13 +6,13 @@
 	import Icon from "@iconify/svelte";
 
 	let detailsOpen = false;
-	let isExpanded = false;
+	let isExpanded = true;
 
 	const links = [
 		{
 			name: "Database",
 			imgSrc: "/images/psb.svg",
-			href: "/",
+			href: "/db",
 		},
 		{
 			name: "World Map",
@@ -212,10 +212,10 @@
 	}
 
 	.active {
-		color: var(--accent);
+		color: var(--accent) !important;
 
 		.icon {
-			background-color: var(--accent);
+			background-color: var(--accent) !important;
 		}
 	}
 
