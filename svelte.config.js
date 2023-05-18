@@ -13,7 +13,6 @@ const config = {
 		vitePreprocess(),
 		mdsvex({
 			extensions: ['.md', '.mdx', '.svx'],
-			layout: '/src/routes/guides/[slug]/Article.svelte',
 			rehypePlugins: [
 				rehypeSlug,
 				[

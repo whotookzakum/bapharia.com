@@ -309,10 +309,6 @@ Open the treasure chest found in the Southwest room in [Free Exploration: Torchl
                 color: #419f3f;
             }
         } */
-
-        .toc-item-h4 {
-            display: none;
-        }
     }
 
     h4 {
@@ -321,19 +317,11 @@ Open the treasure chest found in the Southwest room in [Free Exploration: Torchl
         & + p {
             margin: 0;
         }
-
-         /* & ~ p {
-            margin-left: 1.5rem;
-        } */
-    }
-
-    ol {
-        margin: 0;
     }
 
     .toc-item-h4 {
-        color: var(--text1);
-        list-style: number;
-        margin-left: 1rem;
+        display: none;
+        /* list-style: number;
+        margin-left: 1rem; */
     }
 </style>

@@ -1,195 +1,167 @@
-main.guide {
+.bg-img {
+    position: fixed;
+    top: 0;
+    left: var(--nav-width);
+    z-index: -1;
+    margin: 0;
+    width: calc(100% - var(--nav-width) - var(--toc-width));
+    height: var(--header-height);
+    object-fit: cover;
+    user-select: none;
+}
+
+article {
+    --header-height: max(20vw, 40vh);
+    --nav-width: 250px;
+    --toc-width: 20rem;
+    --text-width: 60ch;
     display: grid;
-    grid-template-columns: 20rem 1fr 20rem;
-    margin: auto;
-    align-items: start;
+    grid-template-columns: 1fr min(var(--text-width), calc(100% - 2rem)) 1fr var(--toc-width);
     position: relative;
 
-    .bg-img-wrapper {
-        position: fixed;
-        left: 0;
-        right: 0;
+    // Backdrop on header and article body
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+    }
+
+    &::after {
+        inset: var(--header-height) 0 0 0;
         z-index: -1;
-        // height: 30vh;
-        width: calc(100% - 40rem);
-        margin: auto;
-        overflow: hidden;
-    
-        .bg-img {
-            height: max(20vw, 40vh);
-            width: 100%;
-            object-fit: cover;
-        }
+        background: var(--bg);
     }
-    
-    article {
-        width: 100%;
-        grid-column: 2;
-        grid-row: 1;
-        display: grid;
-        grid-template-columns: 1fr 1fr min(60ch, calc(100% - 2rem)) 1fr 1fr;
-        // column-gap: 0.5rem;
-        position: relative;
-    
-        // Backdrop on the article, offset by the height of the header
-        &::after {
-            content: '';
-            position: absolute;
-            inset: max(20vw, 40vh) 0 0 0;
-            z-index: -1;
-            background: var(--bg);
-        }
-    
-        &>* {
-            grid-column: 3;
-        }
-    
-        
-        .full-bleed,
-        table,
-        &>video,
-        &>img,
-        figure,
-        figure img,
-        p img {
-            width: min(100%, 850px) !important;
-            grid-column: 1 / 6;
-            margin: 1rem auto;
-        }
 
-        figure video {
-            width: 100%;
-        }
-    
-        &>img,
-        figure img {
-            filter: brightness(0.7);
-            transition: all 0.4s ease;
-    
-            &:hover {
-                filter: brightness(1);
-            }
-        }
-    }
-    
-    header {
-        display: grid;
-        grid-template-columns: 1fr 1fr min(60ch, calc(100% - 2rem)) 1fr 1fr;
-        align-content: center;
-        min-height: max(20vw, 40vh);
-        grid-column: 1 / 6 !important;
-        position: relative;
-        z-index: 1;
-        margin-bottom: var(--space-l);
+    &::before {
         background: rgba(17, 17, 17, 0.8);
-    
-        &>* {
-            grid-column: 3;
-            line-height: 1.4;
-            margin: 0;
-        }
-    
-        p {
-            font-size: var(--step-0);
-            line-height: 1.4;
-            color: var(--accent);
-        }
-    }
-    
-    .all-guides-wrapper,
-    .toc {
-        padding: 1rem;
-        background: var(--surface1);
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        z-index: 4;
-        overflow: auto;
-    
-        ol {
-            gap: 0;
-            list-style-type: none;
-            padding-left: 1rem;
-            margin: 0;
-        }
-    
-        a {
-            border: none;
-        }
-    }
-    
-    .all-guides-wrapper {
-        grid-column: 1;
-        grid-row: 1;
-    
-        .guides-list {
-            display: grid;
-        
-            a {
-                border: none;
-            }
-        }
-    }
-    
-    .toc {
-        grid-column: 3;
-        grid-row: 1;
-    
-        &::before {
-            content: "In this article";
-            display: block;
-            padding-bottom: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            border-bottom: 1px solid var(--surface2);
-        }
-    }
-    
-    .active {
-        color: var(--accent);
-        background: var(--surface2);
-    }
-    
-    p,
-    aside {
-        max-inline-size: unset;
-    }
-    
-    :where(h2, h3, h4, h5, h6) {
-
-        &:hover a {
-            opacity: 1;
-        }
-    
-        a {
-            opacity: 0;
-            border: none;
-            margin-left: 0.25em;
-            font-size: 1.4rem;
-    
-            &::after {
-                content: "\1f517";
-            }
-        }
+        inset: 0;
+        z-index: 1;
+        height: var(--header-height);
     }
 
-    .page-footer {
+    &>* {
         grid-column: 2;
     }
-    
-    .scroll-tracker {
-        content: "";
-        position: fixed;
-        left: 20rem;
-        right: 20rem;
-        height: 4px;
-        z-index: 1;
-        background: var(--accent);
-        transform-origin: left;
-        animation: trackScroll 1s linear forwards;
-        animation-timeline: scroll-tracker-timeline;
-        box-shadow: 0 1px 2px var(--surface-shadow);
+
+
+    .full-bleed,
+    table,
+    &>video,
+    &>img:not(.bg-img),
+    figure,
+    figure img,
+    p img {
+        width: min(100%, 850px) !important;
+        grid-column: 1 / 4;
+        margin: 1rem auto;
     }
+
+    figure video {
+        width: 100%;
+    }
+
+    &>img:not(.bg-img),
+    figure img {
+        filter: brightness(0.7);
+        transition: filter 0.4s ease;
+
+        &:hover {
+            filter: brightness(1);
+        }
+    }
+}
+
+header {
+    display: grid;
+    place-content: center flex-start;
+    height: var(--header-height);
+    z-index: 1;
+    margin-bottom: var(--space-l);
+
+    &>* {
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    p {
+        font-size: var(--step-0);
+        line-height: 1.4;
+        color: var(--accent);
+    }
+}
+
+
+.toc {
+    grid-column: 4;
+    grid-row: 1/16;
+    padding: 1rem;
+    background: var(--surface1);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    overflow: auto;
+
+    ol {
+        gap: 0.5rem;
+        list-style-type: none;
+        padding-left: 1rem;
+        margin: 0;
+
+        ol {
+            margin-top: 0.5rem;
+        }
+    }
+
+    a {
+        border: none;
+    }
+
+    &::before {
+        content: "In this article";
+        display: block;
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        border-bottom: 1px solid var(--surface2);
+    }
+}
+
+p,
+aside {
+    max-inline-size: unset;
+}
+
+:where(h2, h3, h4, h5, h6) {
+
+    &:hover a {
+        opacity: 1;
+    }
+
+    a {
+        opacity: 0;
+        border: none;
+        margin-left: 0.25em;
+        font-size: 1.4rem;
+
+        &::after {
+            content: "\1f517";
+        }
+    }
+}
+
+
+.scroll-tracker {
+    content: "";
+    position: fixed;
+    inset: 0;
+    height: 4px;
+    z-index: 5;
+    background: var(--accent);
+    transform-origin: left;
+    animation: trackScroll 1s linear forwards;
+    animation-timeline: scroll-tracker-timeline;
+    box-shadow: 0 1px 2px var(--surface-shadow);
 }
 
 
@@ -198,49 +170,26 @@ main.guide {
     from {
         transform: scaleX(0);
     }
+
     to {
         transform: scaleX(1);
     }
 }
 
-@media (max-width: 1200px) {
-    main.guide {
-        grid-template-columns: 20rem 1fr;
-
-        .bg-img-wrapper {
-            width: calc(100% - 20rem);
-            margin-left: 20rem;
-        }
-
-        article {
-            grid-column: 2;
-        }
-
-        .toc {
-            display: none;
-        }
-
-        .scroll-tracker {
-            right: 0;
-        }
+@media (max-width: 1400px) {
+    article {
+        --toc-width: 0px;
+    }
+    .toc {
+        display: none;
     }
 }
 
 @media (max-width: 850px) {
-    main.guide {
-        grid-template-columns: 1fr;
-
-        .bg-img-wrapper {
-            width: 100%;
-            margin: 0;
-        }
-
-        .all-guides-wrapper {
-            display: none;
-        }
-
-        .scroll-tracker {
-            left: 0;
-        }
+    .navbar {
+        display: none;
+    }
+    article {
+        --nav-width: 0px;
     }
 }

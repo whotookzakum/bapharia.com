@@ -1,7 +1,7 @@
 <script>
 	import Navbar from "$lib/components/navigation/Navbar.svelte";
-	import PageFooter from "../lib/components/PageFooter.svelte";
-	import "../lib/styles/globals.scss";
+	import PageFooter from "$lib/components/PageFooter.svelte";
+	import "$lib/styles/globals.scss";
 	import { page } from "$app/stores";
 </script>
 

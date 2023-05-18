@@ -19,7 +19,7 @@ thumbImg: "/guides/faq/thumb.webp"
 <FAQ gameFeatures />
 
 <style lang="scss">
-    h2 {
+    /* h2 {
         grid-column: 1/6 !important;
         width: 100%;
         max-width: 850px;
@@ -29,5 +29,5 @@ thumbImg: "/guides/faq/thumb.webp"
         &:not(:first-of-type) {
             margin-top: 4rem;
         }
-    }
+    } */
 </style>

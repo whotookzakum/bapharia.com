@@ -1,7 +1,7 @@
 ---
 title: 'Weapons & Plugs'
 author: 'Zakum'
-date: '2023-5-10'
+date: '2023-5-17'
 category: 'Game Systems'
 caption: 'All about the weapon and ability plug system.'
 bannerImg: "/guides/weapons/banner.webp"
@@ -90,7 +90,19 @@ Speak to the Weapon Reconstructor NPC to attach Plugs by using Union Paste. Plug
 
 A plug will randomly be assigned a **1~5★** value when attached, indicating the strength of its effect. Tuning Tickets allow you to keep all your plugs inserted but reroll how many stars they have. There are also Ability Value Preservation Tickets, which lock the stars on an ability of your choice so that it doesn't get rerolled. The number of tickets needed will vary based on the weapon.
 
+| Precision | Probability |
+|-----------|-------------|
+| 5★        | 10%         |
+| 4★        | 10%         | 
+| 3★        | 20%         | 
+| 2★        | 30%         | 
+| 1★        | 30%         | 
+
 Plugs can be removed using Plug Removal Tickets, though if you wish to keep the plug, you will need Plug Retrieval Tickets. The number of tickets needed will vary based on the weapon. 
+
+<StickyNote type="tip">
+    The odds of crafting a weapon with a 4 sockets and only 5★ plugs are 0.000875%, or approximately 1 in 114,285 (without using any boosts). I recommend getting at least two 5★ plugs (5.23%) on your weapon *before* using tickets to reroll/lock plugs.
+</StickyNote>
 
 Plugs do not increase your Battle Score.
 

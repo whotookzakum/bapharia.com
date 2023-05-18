@@ -125,7 +125,7 @@
                 /> Twitch</a
             >, joining the
             <a
-                href="https://discord.gg/ZKwhn3a4yH"
+                href="/discord"
                 class="sns-tag discord"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
