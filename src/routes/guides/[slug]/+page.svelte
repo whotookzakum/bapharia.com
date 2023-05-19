@@ -12,7 +12,7 @@
 
 <div class="contents">
     <main id="#main" tabindex="-1">
-        <article>
+        <article class="guide">
             <img class="bg-img" src={data.meta.bannerImg} alt="" loading="lazy" />
             <header class="guide-header">
                 <h1>{data.meta.title}</h1>

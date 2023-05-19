@@ -10,11 +10,11 @@
     user-select: none;
 }
 
-.expanded + .contents main > article {
+.expanded+.contents article.guide {
     --nav-width: 250px;
 }
 
-article {
+article.guide {
     --header-height: max(20vw, 40vh);
     --nav-width: 70px;
     --toc-width: 20rem;
@@ -74,21 +74,6 @@ article {
             filter: brightness(1);
         }
     }
-
-    table {
-        background: var(--surface2);
-        padding: 1rem;
-        border-radius: 9px;
-        box-shadow: 0 2px 4px var(--surface-shadow);
-    
-        thead th {
-            text-transform: uppercase;
-            color: var(--text2);
-            font-weight: 500;
-            text-align: left;
-            padding-bottom: 0.25rem;
-        }
-    }
 }
 
 .guide-header {
@@ -111,7 +96,7 @@ article {
 }
 
 .toc {
-    grid-column: 4;
+    grid-column: 4 !important;
     grid-row: 1/16;
     padding: 1rem;
     background: var(--surface1);
@@ -197,9 +182,10 @@ aside {
 }
 
 @media (max-width: 1400px) {
-    article {
+    article.guide {
         --toc-width: 0px;
     }
+
     .toc {
         display: none;
     }
@@ -209,7 +195,8 @@ aside {
     .navbar {
         display: none;
     }
-    article {
+
+    article.guide {
         --nav-width: 0px;
     }
 }
