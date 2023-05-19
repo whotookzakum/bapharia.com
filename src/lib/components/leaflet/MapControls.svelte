@@ -100,7 +100,7 @@
                 en_US: "Asterliese",
             },
             icon: "mdi:map-marker",
-            href: "/map?map=Cty001"
+            href: "/map?zone=Cty001"
         },
         {
             name: {
@@ -108,7 +108,7 @@
                 en_US: "Asteria Plain",
             },
             icon: "mdi:map-marker",
-            href: "/map?map=Fld001"
+            href: "/map?zone=Fld001"
         },
         {
             name: {
@@ -116,7 +116,7 @@
                 en_US: "Bahamar Highlands",
             },
             icon: "mdi:map-marker",
-            href: "/map?map=Fld002"
+            href: "/map?zone=Fld002"
         },
     ];
 

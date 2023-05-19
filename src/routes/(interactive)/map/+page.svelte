@@ -1,24 +1,36 @@
 <script>
+    // https://github.com/ngyewch/svelte-leaflet/issues/3#issuecomment-1170333938
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import { onMount } from "svelte";
-    // import LeafletMap from "$lib/components/leaflet/LeafletMap.svelte";
-    import { LeafletMap, TileLayer } from "svelte-leafletjs?client";
-	import "leaflet/dist/leaflet.css";
-
-
+    import { LeafletMap, ImageOverlay } from "svelte-leafletjs?client";
+    import "leaflet/dist/leaflet.css";
+    import MapControls from "$lib/components/leaflet/MapControls.svelte";
+    import L from "leaflet?client";
+    import { page } from "$app/stores";
+    import "./styles.scss";
+    import { userLocale } from "$lib/stores";
     let leafletMap;
+    export let data;
+    $: zone = data.zone;
+
+    const bounds = [
+        [0, 0],
+        [1080, 1920],
+    ];
 
     const mapOptions = {
-        center: [1.364917, 103.822872],
-        zoom: 11,
+        crs: browser ? L.CRS.Simple : null,
+        center: [bounds[1][0] / 2, bounds[1][1] / 2],
+        zoom: 0,
+        minZoom: -1,
+        maxZoom: 2,
+        maxBounds: bounds,
+        maxBoundsViscosity: 1.0,
+        // zoomControl: false,
     };
-    const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-    const tileLayerOptions = {
-        minZoom: 0,
-        maxZoom: 20,
-        maxNativeZoom: 19,
-        attribution: "© OpenStreetMap contributors",
+
+    const imageOverlayOptions = {
+        attribution: "© Bandai Namco Online Inc. © Bandai Namco Studios Inc.",
     };
 </script>
 
@@ -26,24 +38,21 @@
     title={`World Map — Bapharia`}
     description={`Interactive map for BLUE PROTOCOL. Find enemies, locations, quests, treasure chests, gathering spots, and more!`}
 />
-<!-- <LeafletMap/> -->
 
-<div class="leaflet-wrapper">
-    {#if browser}
-        <LeafletMap bind:this={leafletMap} options={mapOptions}>
-            <TileLayer url={tileUrl} options={tileLayerOptions} />
-        </LeafletMap>
-    {/if}
-</div>
-
-<style lang="scss">
-	.leaflet-wrapper {
-		height: 100%;
-		background-image: url("/images/map/mapbg.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: 50% 50%;
-		cursor: inherit !important;
-		outline: none !important;
-	}
-</style>
+<MapControls />
+{#if browser}
+    <MetaTags
+        title={`${zone.name[$userLocale]} — Bapharia`}
+    />
+    <LeafletMap
+        bind:this={leafletMap}
+        options={mapOptions}
+        class="leaflet-wrapper"
+    >
+        <ImageOverlay
+            imageUrl={zone.imgSrc}
+            {bounds}
+            options={imageOverlayOptions}
+        />
+    </LeafletMap>
+{/if}

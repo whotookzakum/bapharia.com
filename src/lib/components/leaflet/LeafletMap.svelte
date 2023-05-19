@@ -57,7 +57,7 @@
 			maxZoom: 2, // 2  
 			maxBounds: bounds,
 			maxBoundsViscosity: 1.0,
-			zoomControl: false,
+			zoomControl: false
 		};
 
 		// Create map
