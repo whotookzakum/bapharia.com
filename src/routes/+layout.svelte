@@ -16,5 +16,6 @@
 	.layout {
 		display: grid;
 		grid-template-columns: auto 1fr;
+		align-items: flex-start;
 	}
 </style>

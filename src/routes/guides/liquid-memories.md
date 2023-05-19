@@ -57,7 +57,7 @@ Below are some liquid memory effects that weren't available in the closed beta o
 
 ## Bottle Acquisition
 <StickyNote type="tip">
-    This section will be updated with new information when available! Join our <a href="https://discord.gg/ZKwhn3a4yH" rel="noreferrer noopener nofollow" target="_blank">discord</a> to know when updates roll out.
+    This section will be updated with new information when available! Join our <a href="/discord" rel="noreferrer noopener nofollow" target="_blank">discord</a> to know when updates roll out.
 </StickyNote>
 
 ### Greater harvest when gathering

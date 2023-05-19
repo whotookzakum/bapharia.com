@@ -12,9 +12,9 @@
 
 <div class="contents">
     <main id="#main" tabindex="-1">
-        <article class="guide">
+        <article>
             <img class="bg-img" src={data.meta.bannerImg} alt="" loading="lazy" />
-            <header>
+            <header class="guide-header">
                 <h1>{data.meta.title}</h1>
                 <p>{data.meta.caption}</p>
                 <p class="skip-std">

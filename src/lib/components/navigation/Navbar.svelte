@@ -4,6 +4,7 @@
 	import { page } from "$app/stores";
 	import { fetchMarkdownPosts } from "$lib/utils";
 	import Icon from "@iconify/svelte";
+    import TimeInJapan from "./TimeInJapan.svelte";
 
 	let detailsOpen = false;
 	let isExpanded = true;
@@ -41,11 +42,15 @@
 <!-- https://web.dev/building-a-color-scheme -->
 
 <nav class="navbar flex" class:expanded={isExpanded}>
-	<a href="#main" class="visually-hidden show-when-focus-visible">Skip to main content</a>
+	<a href="#main" class="visually-hidden show-when-focus-visible"
+		>Skip to main content</a
+	>
 	<a href="/">
 		<img class="logo" src="/images/logo.png" alt="Logo" />
 		<span class="visually-hidden show-when-expanded">Bapharia</span>
 	</a>
+	<hr />
+	<TimeInJapan {isExpanded} />
 	<hr />
 	<div class="links">
 		{#each links as link}
@@ -61,7 +66,6 @@
 			</a>
 		{/each}
 	</div>
-
 	<hr />
 	<details bind:open={detailsOpen}>
 		<summary>
@@ -125,7 +129,6 @@
 	.expanded {
 		width: 250px;
 	}
-
 
 	.show-when-focus-visible:not(:focus-visible) {
 		height: 0;
@@ -192,11 +195,11 @@
 	}
 
 	details {
-		font-size: 16px;
+		font-size: var(--step-0);
 	}
 
 	.guides-list {
-		max-height: 300px !important;
+		max-height: 300px !important; // 300px ideal
 		overflow-y: auto !important;
 	}
 
@@ -222,10 +225,16 @@
 	.nav-extras {
 		align-items: center;
 		padding: 0 12px;
+		flex-wrap: wrap;
+	}
+
+	.navbar:not(.expanded) .nav-extras {
+		margin: 0 auto;
 	}
 
 	label {
-		width: fit-content;
+		width: 38px;
+		aspect-ratio: 1/1;
 		margin: auto 1rem 0.5rem auto;
 
 		&:hover {

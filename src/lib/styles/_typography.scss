@@ -49,22 +49,6 @@ aside i {
     font-weight: bolder;
 }
 
-article table {
-    background: var(--surface2);
-    padding: 1rem;
-    border-radius: 9px;
-    box-shadow: 0 2px 4px var(--surface-shadow);
-    margin: 1rem 0;
-
-    th {
-        text-transform: uppercase;
-        color: var(--text2);
-        font-weight: 500;
-        text-align: left;
-        padding-bottom: 0.25rem;
-    }
-}
-
 figure {
     margin: 1rem 0;
 
@@ -128,7 +112,7 @@ select {
 // ======================================================================
 
 h1 {
-    // margin-top: 20vh;
+    margin-top: 10vh;
 }
 
 h1,
@@ -138,7 +122,8 @@ h4,
 h5,
 h6 {
     font-family: "Skip Std", "Georgia", serif;
-    // margin-block: 1em 0;
+    margin-block: var(--h-size, 1rem) 0; 
+    font-size: var(--h-size, 1rem);
 }
 
 h1,
@@ -156,66 +141,37 @@ h6 {
 }
 
 h1 {
-    font-size: var(--step-6);
-    // max-inline-size: 20ch;
+    --h-size: var(--step-6);
 }
 
 h2 {
-    // font-size: var(--step-4);
-    font-size: 1.66em;
-    // margin-top: var(--space-2xl);
-    margin-top: 3.6em;
-    font-size: 28px;
-    // max-inline-size: 25ch;
+    --h-size: var(--step-5);
+
+    &:not(:first-of-type) {
+        margin-top: 3.6em;
+    }
 }
 
 h3 {
-    // font-size: var(--step-3);
-    font-size: 1.33em;
-    margin-top: 1.33em;
-    font-size: 24px;
-    // max-inline-size: 30ch;
+    // margin-top: 1.33em;
+    --h-size: var(--step-4);
 }
 
 h4 {
-    // font-size: var(--step-2);
-    font-size: 1.24em;
-    margin-top: 1.24em;
-    font-size: 22px;
-    // max-inline-size: 30ch;
+    --h-size: var(--step-3);
 }
 
 h5 {
-    // font-size: var(--step-1);
-    font-size: 1.12em;
-    margin-top: 1.12em;
-    font-size: 20px;
-    // max-inline-size: 35ch;
+    --h-size: var(--step-2);
 }
 
 h6 {
-    // font-size: var(--step-0);
-    font-size: 1em;
-    margin-top: 1em;
-    font-size: 18px;
-    // max-inline-size: 40ch;
+    --h-size: var(--step-1);
 }
 
 p, details {
-    font-size: 18px;
-    // line-height: 2;
+    font-size: var(--step-1);
 }
-
-article {
-    font-family: system-ui, sans-serif;
-}
-
-
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0;
-    // line-height: 1.4;
-}
-
 
 // ======================================================================
 // LISTS

@@ -288,9 +288,4 @@
     details[open] summary {
         color: var(--accent);
     }
-
-    .faq-wrapper {
-        display: grid;
-        gap: 1rem;
-    }
 </style>

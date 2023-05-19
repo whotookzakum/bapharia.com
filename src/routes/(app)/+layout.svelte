@@ -16,6 +16,6 @@
 		width: 100%;
 		gap: var(--space-xl);
 		padding: 0 1em;
-		margin: auto;
+		margin: 0 auto;
 	}
 </style>
