@@ -1,4 +1,5 @@
 <script>
+    import InputNumber from "$lib/components/InputNumber.svelte";
     import { userLocale } from "$lib/stores";
 
     export let levelParams;
@@ -91,20 +92,15 @@
         {/if}
     </div>
     <div class="level-controls grid g-50">
-        <label class="input-level-wrapper" class:cant-edit={levelParams.length <= 1}>
-            <span class="visually-hidden">Level</span>
-            <span aria-hidden="true">Lv.</span>
-            <input
-                class="input-level"
-                type="number"
-                inputmode="numeric"
-                bind:value={sliderValue}
-                max={maxLevel}
-                min="1"
-                disabled={levelParams.length <= 1}
-                aria-describedby="level-sync-description"
-            />
-        </label>
+        <InputNumber
+            description="Level"
+            shortName="LV."
+            bind:value={sliderValue}
+            max={maxLevel}
+            min="1"
+            disabled={levelParams.length <= 1}
+            describedby="level-sync-description"
+        />
         <button
             class="box reset-level"
             on:click={() => (sliderValue = maxLevel)}
@@ -180,7 +176,7 @@
     }
 
     .not-max dd,
-    .not-max .input-level-wrapper,
+    :global(.not-max .input-level-wrapper),
     .not-max h5 {
         color: #fe5162;
     }
@@ -205,56 +201,6 @@
 
     .level-controls {
         grid-template-columns: auto auto;
-    }
-
-    label.input-level-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        background: var(--bg);
-        border-radius: 5px;
-        padding-left: 0.8rem;
-        font: inherit;
-        font-weight: 600;
-        text-transform: uppercase;
-        min-height: 44px;
-        min-width: 44px;
-
-        &:has(:focus-visible) {
-            outline: 2px solid var(--accent);
-        }
-
-        &:has(:disabled) {
-            color: var(--text2);
-            background: var(--surface2);
-            filter: brightness(0.9) saturate(0);
-        }
-    }
-
-    @supports not selector(:has(*)) {
-        .input-level-wrapper:focus-within {
-            outline: 2px solid var(--accent);
-        }
-
-        .input-level-wrapper.cant-edit {
-            color: var(--text2);
-            background: var(--surface2);
-            filter: brightness(0.9) saturate(0);
-        }
-    }
-
-    input.input-level {
-        font: inherit;
-        color: inherit;
-        background: none;
-        border: none;
-        width: 100%;
-        height: 100%;
-
-        &:focus,
-        &:focus-visible {
-            outline: none !important;
-        }
     }
 
     button.reset-level {

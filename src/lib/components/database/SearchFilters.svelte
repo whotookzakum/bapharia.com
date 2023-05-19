@@ -1,6 +1,7 @@
 <script>
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
+    import InputNumber from "../InputNumber.svelte";
 
     let detailsOpen = false;
 
@@ -142,39 +143,35 @@
                     class="component-label"
                     style="grid-area: tl"
                     for="level-min-input"
+                    aria-hidden="true"
                 >
                     Min
                 </label>
-                <label class="input-level-wrapper" style="grid-area: bl">
-                    <span class="visually-hidden">Level</span>
-                    <span aria-hidden="true">Lv.</span>
-                    <input
-                        id="level-min-input"
-                        class="input-level"
-                        type="number"
-                        bind:value={filters.level.min}
-                        max="100"
-                        min="1"
-                    />
-                </label>
+                <InputNumber
+                    style="grid-area: bl"
+                    description="Min Level"
+                    shortName="LV."
+                    id="level-min-input"
+                    bind:value={filters.level.min}
+                    max={filters.level.max}
+                    min="1"
+                />
                 <div class="tilde" aria-hidden="true">~</div>
                 <label
                     for="level-max-input"
                     class="component-label"
-                    style="grid-area: tr">Max</label
+                    style="grid-area: tr"
+                    aria-hidden="true">Max</label
                 >
-                <label class="input-level-wrapper" style="grid-area: br">
-                    <span class="visually-hidden">Level</span>
-                    <span aria-hidden="true">Lv.</span>
-                    <input
-                        id="level-max-input"
-                        class="input-level"
-                        type="number"
-                        bind:value={filters.level.max}
-                        max="100"
-                        min="1"
-                    />
-                </label>
+                <InputNumber
+                    style="grid-area: br"
+                    description="Max Level"
+                    shortName="LV."
+                    id="level-max-input"
+                    bind:value={filters.level.max}
+                    max="100"
+                    min={filters.level.min}
+                />
             </div>
         </section>
 
@@ -185,39 +182,35 @@
                     class="component-label"
                     style="grid-area: tl"
                     for="ar-min-input"
+                    aria-hidden="true"
                 >
                     Min
                 </label>
-                <label class="input-level-wrapper" style="grid-area: bl">
-                    <span class="visually-hidden">Adventurer Rank</span>
-                    <span aria-hidden="true">AR</span>
-                    <input
-                        id="ar-min-input"
-                        class="input-level"
-                        type="number"
-                        bind:value={filters.adventurer_rank.min}
-                        max="29"
-                        min="1"
-                    />
-                </label>
+                <InputNumber
+                    style="grid-area: bl"
+                    description="Min Adventurer Rank"
+                    shortName="AR"
+                    id="ar-min-input"
+                    bind:value={filters.adventurer_rank.min}
+                    max={filters.adventurer_rank.max}
+                    min="1"
+                />
                 <div class="tilde" aria-hidden="true">~</div>
                 <label
                     for="ar-max-input"
                     class="component-label"
-                    style="grid-area: tr">Max</label
+                    style="grid-area: tr"
+                    aria-hidden="true">Max</label
                 >
-                <label class="input-level-wrapper" style="grid-area: br">
-                    <span class="visually-hidden">Adventurer Rank</span>
-                    <span aria-hidden="true">AR</span>
-                    <input
-                        id="ar-max-input"
-                        class="input-level"
-                        type="number"
-                        bind:value={filters.adventurer_rank.max}
-                        max="30"
-                        min="2"
-                    />
-                </label>
+                <InputNumber
+                    style="grid-area: br"
+                    description="Max Adventurer Rank"
+                    shortName="AR"
+                    id="ar-max-input"
+                    bind:value={filters.adventurer_rank.max}
+                    max="30"
+                    min={filters.adventurer_rank.min}
+                />
             </div>
         </section>
 
@@ -327,55 +320,5 @@
         grid-area: c;
         justify-self: center;
         font-size: var(--step-2);
-    }
-
-    label.input-level-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        background: var(--bg);
-        border-radius: 5px;
-        padding-left: 0.8rem;
-        font: inherit;
-        font-weight: 600;
-        text-transform: uppercase;
-        min-height: 44px;
-        min-width: 44px;
-
-        &:has(:focus-visible) {
-            outline: 2px solid var(--accent);
-        }
-
-        &:has(:disabled) {
-            color: var(--text2);
-            background: var(--surface2);
-            filter: brightness(0.9) saturate(0);
-        }
-    }
-
-    @supports not selector(:has(*)) {
-        .input-level-wrapper:focus-within {
-            outline: 2px solid var(--accent);
-        }
-
-        .input-level-wrapper.cant-edit {
-            color: var(--text2);
-            background: var(--surface2);
-            filter: brightness(0.9) saturate(0);
-        }
-    }
-
-    input.input-level {
-        font: inherit;
-        color: inherit;
-        background: none;
-        border: none;
-        width: 100%;
-        height: 100%;
-
-        &:focus,
-        &:focus-visible {
-            outline: none !important;
-        }
     }
 </style>
