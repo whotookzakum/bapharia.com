@@ -4,7 +4,7 @@
 	import { page } from "$app/stores";
 	import { fetchMarkdownPosts } from "$lib/utils";
 	import Icon from "@iconify/svelte";
-    import TimeInJapan from "./TimeInJapan.svelte";
+	import TimeInJapan from "./TimeInJapan.svelte";
 
 	let detailsOpen = false;
 	let isExpanded = true;
@@ -49,53 +49,62 @@
 		<img class="logo" src="/images/logo.png" alt="Logo" />
 		<span class="visually-hidden show-when-expanded">Bapharia</span>
 	</a>
-	<hr />
-	<TimeInJapan {isExpanded} />
-	<hr />
-	<div class="links">
-		{#each links as link}
-			<a href={link.href} class:active={$page.url.pathname === link.href}>
-				<span
-					class="icon"
-					style={`mask: url(${link.imgSrc}) no-repeat center / contain;
-						-webkit-mask: url(${link.imgSrc}) no-repeat center / contain;`}
-				/>
-				<span class="visually-hidden show-when-expanded"
-					>{link.name}</span
+	<div class="nav-body">
+		<hr />
+		<TimeInJapan {isExpanded} />
+		<hr />
+		<div class="links">
+			{#each links as link}
+				<a
+					href={link.href}
+					class:active={$page.url.pathname === link.href}
 				>
-			</a>
-		{/each}
-	</div>
-	<hr />
-	<details bind:open={detailsOpen}>
-		<summary>
-			<span class="visually-hidden show-when-expanded">Guides</span>
-			{#if isExpanded}
-				<Icon
-					icon={detailsOpen ? "mdi:chevron-up" : "mdi:chevron-down"}
-					width="20"
-					height="20"
-					style="margin-left: auto;"
-				/>
-			{/if}
-		</summary>
-		<div class="guides-list visually-hidden show-when-expanded">
-			{#await fetchMarkdownPosts() then guides}
-				{#each guides as guide}
-					<a
-						class:active={$page.url.pathname === guide.path}
-						href={guide.path}>{guide.meta.title}</a
+					<span
+						class="icon"
+						style={`mask: url(${link.imgSrc}) no-repeat center / contain;
+						-webkit-mask: url(${link.imgSrc}) no-repeat center / contain;`}
+					/>
+					<span class="visually-hidden show-when-expanded"
+						>{link.name}</span
 					>
-				{/each}
-			{/await}
+				</a>
+			{/each}
 		</div>
-	</details>
-	<hr />
-	<div class="nav-extras flex g-50">
-		<span class="visually-hidden show-when-expanded show-when-focus-within">
-			<LocaleSelector />
-		</span>
-		<ThemeToggle />
+		<hr />
+		<details bind:open={detailsOpen}>
+			<summary>
+				<span class="visually-hidden show-when-expanded">Guides</span>
+				{#if isExpanded}
+					<Icon
+						icon={detailsOpen
+							? "mdi:chevron-up"
+							: "mdi:chevron-down"}
+						width="20"
+						height="20"
+						style="margin-left: auto;"
+					/>
+				{/if}
+			</summary>
+			<div class="guides-list visually-hidden show-when-expanded">
+				{#await fetchMarkdownPosts() then guides}
+					{#each guides as guide}
+						<a
+							class:active={$page.url.pathname === guide.path}
+							href={guide.path}>{guide.meta.title}</a
+						>
+					{/each}
+				{/await}
+			</div>
+		</details>
+		<hr />
+		<div class="nav-extras flex g-50">
+			<span
+				class="visually-hidden show-when-expanded show-when-focus-within"
+			>
+				<LocaleSelector />
+			</span>
+			<ThemeToggle />
+		</div>
 	</div>
 	<label class="flex">
 		<Icon
@@ -121,13 +130,18 @@
 		top: 0;
 		flex-direction: column;
 		padding: 0.5rem 0;
-		width: fit-content;
+		width: var(--nav-width);
 		overflow-y: auto;
 		--icon-size: 38px;
 	}
 
-	.expanded {
-		width: 250px;
+	:global(.navbar + .contents) {
+		--nav-width: 70px;
+	}
+
+	.expanded,
+	:global(.expanded + .contents) {
+		--nav-width: 250px;
 	}
 
 	.show-when-focus-visible:not(:focus-visible) {
