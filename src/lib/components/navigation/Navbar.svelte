@@ -36,6 +36,8 @@
 			href: "/menu",
 		},
 	];
+
+	// TO DO: tiny says use aria-expanded instead of visually-hidden?
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
@@ -106,7 +108,7 @@
 			<ThemeToggle />
 		</div>
 	</div>
-	<label class="flex">
+	<label class="flex" aria-hidden="true">
 		<Icon
 			icon={isExpanded ? "ri:expand-left-line" : "ri:expand-right-line"}
 			width="38"

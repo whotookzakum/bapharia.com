@@ -1,4 +1,5 @@
 <script>
+    import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
     import _ from "lodash";
 
@@ -92,11 +93,40 @@
         },
     ];
 
+    const maps = [
+        {
+            name: {
+                ja_JP: "交易都市アステルリーズ",
+                en_US: "Asterliese",
+            },
+            icon: "mdi:map-marker",
+            href: "/map?map=Cty001"
+        },
+        {
+            name: {
+                ja_JP: "アステリア平原",
+                en_US: "Asteria Plain",
+            },
+            icon: "mdi:map-marker",
+            href: "/map?map=Fld001"
+        },
+        {
+            name: {
+                ja_JP: "バハマール高原",
+                en_US: "Bahamar Highlands",
+            },
+            icon: "mdi:map-marker",
+            href: "/map?map=Fld002"
+        },
+    ];
+
+    let searchQuery = "";
+
     const categories = _.uniqBy(markers, (m) => m.type).map((m) => m.type);
 </script>
 
 <nav class="map-controls">
-    <input
+    <!-- <input
         type="checkbox"
         name=""
         id="show-map-controls"
@@ -104,8 +134,7 @@
         checked
     />
     <label for="show-map-controls" class="box">
-        <Icon icon="mdi:map-marker" width="24" height="24" />
-        <!-- or map-marker-radius -->
+        <Icon icon="mdi:map-marker-radius" width="24" height="24" />
     </label>
     <div class="controls-contents box">
         <h2>Markers</h2>
@@ -137,6 +166,16 @@
                 </ul>
             </details>
         {/each}
+    </div> -->
+    <div>
+        <input class="search box" type="text" placeholder="Search for a map" aria-label="Search for a map" bind:value={searchQuery} />
+        <ul class="search-results box" role="list">
+            {#each maps as map}
+                <li>
+                    <a class="flex g-50" href={map.href}><Icon icon={map.icon} /> {map.name[$userLocale]}</a> {searchQuery}
+                </li>
+            {/each}
+        </ul>
     </div>
 </nav>
 
@@ -145,11 +184,37 @@
         padding: 0.5rem;
     }
 
+    .search {
+        width: 30ch;
+    }
+
+    .search:focus-visible {
+        // box-shadow: none;
+        // border-bottom-right-radius: 0;
+        // border-bottom-left-radius: 0;
+        // outline: none !important;
+    }
+
+    .search:not(:focus-visible) + .search-results {
+        // display: none;
+    }
+
+    .search-results {
+        max-inline-size: none;
+        list-style-type: none;
+        gap: 0;
+
+        a {
+            align-items: center;
+            border: none;
+        }
+    }
+
     nav {
         margin: 1rem;
-        position: fixed;
+        position: absolute;
         z-index: 420;
-        right: 0;
+        left: 0;
         top: 0;
         display: grid;
         justify-items: flex-end;

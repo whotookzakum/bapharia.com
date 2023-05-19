@@ -19,6 +19,7 @@
 	import "leaflet/dist/leaflet.css";
 	import SearchParams from "./SearchParams.svelte";
 	// import L from "leaflet";
+	import { page } from "$app/stores";
 	let searchParams;
 
 	// rewrite as dynamic import
@@ -28,14 +29,19 @@
 
 	let leafletMapElement;
 	let leafletMap;
-	let mapData;
+	let mapData = getMapData("Cty001");
+
+	let mapId;
+
+	async function getMapData(id) {
+		let result = await import(`./maps/${id}.json`);
+		return result
+	}
 
 	onMount(async () => {
-		const L = await import("leaflet");
-
-		const mapId = searchParams.get("map") ?? "Cty001";
-		mapData = await import(`./maps/${mapId}.json`);
-		searchParams.set("map", mapId);
+		// const L = await import("leaflet");
+		
+		mapData = await import(`./maps/${$page.url.searchParams.get("map")}.json`);
 
 		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
@@ -146,22 +152,23 @@
 </script>
 
 {#if mapData}
-	<MetaTags title={`${mapData.name[$userLocale]} — Bapharia`} description={`Interactive map for the zone ${mapData.name[$userLocale]} in BLUE PROTOCOL.`} />
+	<!-- <MetaTags title={`${mapData.name[$userLocale]} — Bapharia`} description={`Interactive map for the zone ${mapData.name[$userLocale]} in BLUE PROTOCOL.`} /> -->
 {/if}
 
 <SearchParams bind:this={searchParams} />
-<!-- <MapControls /> -->
+<MapControls />
 
+<h1>{mapId} {searchParams?.get("map")}</h1>
 <div class="leaflet-map" bind:this={leafletMapElement} />
 
-<style global lang="scss">
+<style lang="scss">
 	.leaflet-map {
-		width: 100vw;
-		height: 100vh;
+		height: 100%;
 		background-image: url("/images/map/mapbg.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
 		cursor: inherit !important;
+		outline: none !important;
 	}
 </style>

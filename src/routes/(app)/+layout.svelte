@@ -15,7 +15,7 @@
 		display: grid;
 		width: 100%;
 		gap: var(--space-xl);
-		padding: 0 1em;
+		padding: 0 1rem;
 		margin: 0 auto;
 	}
 </style>

@@ -17,13 +17,12 @@
 	setInterval(() => (timeNow += 1000), 1000);
 </script>
 
-<div class="jst-time">
+<span class="visually-hidden">In Japan, it's {timeInJST}</span>
+<div class="jst-time" aria-hidden="true">
     {#if isExpanded}
         <Icon icon="mdi:clock-outline" color="var(--accent)" />
-        <span class="visually-hidden">In Japan, it's</span>
         <time>{timeInJST} JST</time>
     {:else}
-        <span class="visually-hidden">In Japan, it's</span>
         <time style="color: var(--accent)">{timeInJST.split(", ")[1]}</time>
     {/if}
 </div>
