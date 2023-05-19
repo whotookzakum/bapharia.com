@@ -105,7 +105,7 @@
 
 		img {
 			filter: sepia(1) saturate(10)
-				hue-rotate(calc(var(--h) * 1deg + 120deg));
+				hue-rotate(340deg);
 		}
 
 		background: none;

@@ -109,7 +109,7 @@
 	</label>
 </nav>
 
-<style global lang="scss">
+<style lang="scss">
 	.navbar {
 		position: sticky;
 		height: 100vh;
