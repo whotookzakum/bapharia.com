@@ -12,6 +12,8 @@
 	import Skill from "./templates/Skill.svelte";
 	import Map from "./templates/Map.svelte";
 	import Enemy from "./templates/Enemy.svelte";
+    import MetaTags from "../MetaTags.svelte";
+    import { userLocale } from "$lib/stores";
 
 	export let entryId;
 
@@ -278,6 +280,10 @@
 	`);
 	let detailsCollapsed = true;
 </script>
+
+{#if !$entry.fetching}
+	<MetaTags title={`${$entry.data.entry.name[$userLocale]} — Bapharia`} description={`All known data about ${$entry.data.entry.name[$userLocale]} in BLUE PROTOCOL.`} />
+{/if}
 
 <div class="details-pane">
 	<span class="component-label">Details</span>

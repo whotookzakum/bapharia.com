@@ -8,8 +8,6 @@
 
 <MetaTags title={`${data.meta.title} — Bapharia`} description={data.meta.caption} />
 
-
-
 <div class="contents">
     <main id="#main" tabindex="-1">
         <article class="guide">

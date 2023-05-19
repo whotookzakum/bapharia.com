@@ -2,6 +2,7 @@
 	import { userLocale } from "$lib/stores";
 	import { browser } from "$app/environment";
 	import Card from "$lib/components/Card.svelte";
+    import MetaTags from "$lib/components/MetaTags.svelte";
 	export let data;
 
 	const guides = data.guides
@@ -40,6 +41,8 @@
 
 	// $: guides = data.filter((guide) => filters[guide.meta.category]);
 </script>
+
+<MetaTags title={`Guides — Bapharia`} description={`Guides for BLUE PROTOCOL. Learn about game mechanics, find strategy guides, and check reference sheets!`} />
 
 <h1>Guides</h1>
 <!-- <span class="component-label">Filters</span>

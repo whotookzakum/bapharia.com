@@ -1,4 +1,5 @@
 <script>
+    import MetaTags from "$lib/components/MetaTags.svelte";
     import Icon from "@iconify/svelte";
     const references = [
         {
@@ -49,6 +50,8 @@
 
     let playAnimation = true;
 </script>
+
+<MetaTags title={`About — Bapharia`} description={`About Bapharia. Site credits and links to referenced material.`} />
 
 <input type="checkbox" bind:checked={playAnimation} />
 

@@ -23,15 +23,18 @@
 
 	// rewrite as dynamic import
 	import MapControls from "./MapControls.svelte";
+    import MetaTags from "../MetaTags.svelte";
+    import { userLocale } from "$lib/stores";
 
 	let leafletMapElement;
 	let leafletMap;
+	let mapData;
 
 	onMount(async () => {
 		const L = await import("leaflet");
 
 		const mapId = searchParams.get("map") ?? "Cty001";
-		let mapData = await import(`./maps/${mapId}.json`);
+		mapData = await import(`./maps/${mapId}.json`);
 		searchParams.set("map", mapId);
 
 		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
@@ -141,6 +144,10 @@
 		}
 	});
 </script>
+
+{#if mapData}
+	<MetaTags title={`${mapData.name[$userLocale]} — Bapharia`} description={`Interactive map for the zone ${mapData.name[$userLocale]} in BLUE PROTOCOL.`} />
+{/if}
 
 <SearchParams bind:this={searchParams} />
 <!-- <MapControls /> -->
