@@ -37,7 +37,6 @@
 		},
 	];
 
-	
 	let randomTextOptions = [
 		"BLUE PROTOCOL Tools",
 		"Do Not Porori!",
@@ -52,13 +51,16 @@
 		"Hand Holding! 🤝",
 		"Mixed Yarn Class!",
 		"Twin Striker Moon Jump",
-		"Dancing in Asterleeds! 💃"
-	]
-	
-	let randomText = randomTextOptions[Math.floor(Math.random() * randomTextOptions.length)];
+		"Dancing in Asterleeds! 💃",
+	];
+
+	let randomText =
+		randomTextOptions[Math.floor(Math.random() * randomTextOptions.length)];
 	$: if ($page.url.pathname !== "/") {
-		randomText = randomTextOptions[Math.floor(Math.random() * randomTextOptions.length)]
-		
+		randomText =
+			randomTextOptions[
+				Math.floor(Math.random() * randomTextOptions.length)
+			];
 	}
 	// TO DO: tiny says use aria-expanded instead of visually-hidden?
 </script>
@@ -140,10 +142,17 @@
 		</div>
 	</div>
 	<div class="nav-footer">
-		<a class="site-version" href="/changelog">{isExpanded ? "Version 0.9.2" : "v0.9.2"}</a>
+		<a
+			class="site-version"
+			href="/changelog"
+			class:active={$page.url.pathname === "/changelog"}
+			>{isExpanded ? "Version 0.9.2" : "v0.9.2"}</a
+		>
 		<label class="flex" aria-hidden="true">
 			<Icon
-				icon={isExpanded ? "ri:expand-left-line" : "ri:expand-right-line"}
+				icon={isExpanded
+					? "ri:expand-left-line"
+					: "ri:expand-right-line"}
 				width="38"
 				height="38"
 				style="margin-left: auto;"
@@ -162,6 +171,7 @@
 	.navbar {
 		position: sticky;
 		height: 100vh;
+		z-index: 1000;
 		background: var(--surface1);
 		top: 0;
 		flex-direction: column;
@@ -211,7 +221,6 @@
 		.text-wrapper {
 			display: grid;
 			grid-template-rows: auto 0fr;
-			
 		}
 
 		.hidden-text {
@@ -240,7 +249,8 @@
 
 		img.logo {
 			// transform: translateY(-4px);
-			filter: brightness(0.95) drop-shadow(0 6px 1px var(--surface-shadow));
+			filter: brightness(0.95)
+				drop-shadow(0 6px 1px var(--surface-shadow));
 		}
 	}
 
@@ -337,7 +347,8 @@
 		color: var(--text2);
 		text-decoration: underline;
 
-		&:hover, &:focus-visible {
+		&:hover,
+		&:focus-visible {
 			color: var(--accent);
 		}
 	}
