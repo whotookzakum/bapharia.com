@@ -7,6 +7,7 @@
     cursor: inherit !important;
     outline: none !important;
     position: relative;
+    font-family: "Public Sans", "Open Sans", "Helvetica", "Helvetica", sans-serif, system-ui;
 }
 
 .leaflet-control-container .leaflet-top.leaflet-left {
@@ -57,12 +58,12 @@
     filter: drop-shadow(0 0 2px black);
 
     &:hover, 
-    &:focus-visible {
+    &:focus {
         filter: drop-shadow(0 0 2px black) brightness(0.85);
     }
 
-    &[src*="UI_Map_12"]:hover, 
-    &[src*="UI_Map_12"]:focus-visible {
+    &[src*="UI_Map_12."]:hover, 
+    &[src*="UI_Map_12."]:focus {
         filter: hue-rotate(240deg) drop-shadow(0 0 4px #baff00) brightness(1.05);
     }
 }
@@ -77,9 +78,10 @@
     // background: var(--surface1);
     background: rgba(0, 0, 0, 0.95);
     color: white !important;
-    font-family: "Public Sans", "Open Sans", "Helvetica", "Helvetica", sans-serif, system-ui;
+    font-size: var(--step--1);
     padding: 0 !important;
     border-radius: 0 !important;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.8);
 }
 
 .leaflet-popup-tip {
@@ -90,9 +92,6 @@
     border-left: 20px solid #baff00;
     margin: 0 !important;
     padding: 1rem 20px;
-    // background-image: url('/UI/ToolTip/UI_ToolTip_Bg1.png');
-    // background-repeat: no-repeat;
-    // background-size: cover;
 }
 
 .leaflet-popup-close-button {
@@ -114,3 +113,22 @@
 //         border: unset !important;
 //     }
 // }
+
+.leaflet-control-attribution {
+    background: none !important;
+    color: darkgray;
+    font-weight: 500;
+    margin: 0.25rem !important;
+    // font-size: 11px;
+    
+    a {
+        border: none;
+        color: inherit;
+    }
+
+    a:hover, 
+    a:focus-visible {
+        text-decoration: none;
+        color: var(--accent);
+    }
+}

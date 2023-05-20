@@ -100,7 +100,7 @@
                 en_US: "Asterliese",
             },
             icon: "mdi:map-marker",
-            href: "/map?zone=Cty001"
+            href: "/map?zone=Cty001",
         },
         {
             name: {
@@ -108,7 +108,7 @@
                 en_US: "Asteria Plain",
             },
             icon: "mdi:map-marker",
-            href: "/map?zone=Fld001"
+            href: "/map?zone=Fld001",
         },
         {
             name: {
@@ -116,7 +116,15 @@
                 en_US: "Bahamar Highlands",
             },
             icon: "mdi:map-marker",
-            href: "/map?zone=Fld002"
+            href: "/map?zone=Fld002",
+        },
+        {
+            name: {
+                ja_JP: "test",
+                en_US: "Salamzahd Oasis",
+            },
+            icon: "mdi:map-marker",
+            href: "/map?zone=Cty002",
         },
     ];
 
@@ -126,17 +134,7 @@
 </script>
 
 <nav class="map-controls">
-    <!-- <input
-        type="checkbox"
-        name=""
-        id="show-map-controls"
-        class="visually-hidden"
-        checked
-    />
-    <label for="show-map-controls" class="box">
-        <Icon icon="mdi:map-marker-radius" width="24" height="24" />
-    </label>
-    <div class="controls-contents box">
+    <!-- <div class="controls-contents box">
         <h2>Markers</h2>
         {#each categories as category}
             <details>
@@ -167,12 +165,36 @@
             </details>
         {/each}
     </div> -->
+    <menu role="list">
+        <li>
+            <input
+                type="checkbox"
+                id="show-map-controls"
+                class="visually-hidden"
+                checked
+            />
+            <label class="flex box" for="show-map-controls">
+                <span class="visually-hidden">Markers</span>
+                <Icon icon="mdi:map-marker-radius" width="24" height="24" />
+            </label>
+        </li>
+        <li>hello</li>
+    </menu>
     <div>
-        <input class="search box" type="text" placeholder="Search for a map" aria-label="Search for a map" bind:value={searchQuery} />
+        <input
+            class="search box"
+            type="text"
+            placeholder="Search for a map"
+            aria-label="Search for a map"
+            bind:value={searchQuery}
+        />
         <ul class="search-results box" role="list">
             {#each maps as map}
                 <li>
-                    <a class="flex g-50" href={map.href}><Icon icon={map.icon} /> {map.name[$userLocale]}</a> {searchQuery}
+                    <a class="flex g-50" href={map.href}
+                        ><Icon icon={map.icon} /> {map.name[$userLocale]}</a
+                    >
+                    {searchQuery}
                 </li>
             {/each}
         </ul>
@@ -180,10 +202,6 @@
 </nav>
 
 <style lang="scss">
-    label.box {
-        padding: 0.5rem;
-    }
-
     .search {
         width: 30ch;
     }
@@ -220,58 +238,82 @@
         justify-items: flex-end;
         gap: 0.5rem;
 
-        .controls-contents {
-            transition: all 0.4s ease;
-        }
+        // .controls-contents {
+        //     transition: all 0.4s ease;
+        // }
 
-        input:not(:checked) ~ .controls-contents {
-            transform: translateX(35%);
-            opacity: 0;
-            visibility: hidden;
-        }
+        // input:not(:checked) ~ .controls-contents {
+        //     transform: translateX(35%);
+        //     opacity: 0;
+        //     visibility: hidden;
+        // }
     }
 
-    h2 {
-        font-size: var(--step-0);
-        margin-block: -0rem 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        max-inline-size: unset;
+    // h2 {
+    //     font-size: var(--step-0);
+    //     margin-block: -0rem 0.5rem;
+    //     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    //     max-inline-size: unset;
+    // }
+
+    // summary {
+    //     font-size: var(--step--1);
+    //     font-weight: 600;
+    //     text-transform: uppercase;
+    // }
+
+    // .marker-toggles-list {
+    //     list-style-type: none;
+    //     padding: 0;
+    //     display: grid;
+    //     grid-template-columns: 1fr 1fr;
+    //     max-inline-size: unset;
+    // }
+
+    // .marker-toggle {
+    //     display: flex;
+    //     align-items: center;
+    //     gap: 0.5rem;
+
+    //     img {
+    //         margin: -1rem;
+    //     }
+
+    //     input:not(:checked) {
+    //         & ~ img {
+    //             filter: grayscale(1) brightness(0.7);
+    //         }
+    //     }
+
+    //     &:has(input:not(:checked)) {
+    //         text-decoration: line-through;
+    //         filter: grayscale(1) brightness(0.7);
+    //     }
+    // }
+
+    input:checked + label {
+        color: var(--accent);
     }
 
-    summary {
-        // font-family: "Skip Std";
-        // color: var(--accent);
-        font-size: var(--step--1);
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
-    .marker-toggles-list {
-        list-style-type: none;
-        padding: 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        max-inline-size: unset;
-    }
-
-    .marker-toggle {
+    menu {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        list-style: none;
+    }
 
-        img {
-            margin: -1rem;
-        }
+    label {
+        display: grid;
+        place-content: center;
+        height: 44px;
+        width: 44px;
+        color: var(--text2);
 
-        input:not(:checked) {
-            & ~ img {
-                filter: grayscale(1) brightness(0.7);
-            }
+        &:hover {
+            color: var(--text1);
         }
+    }
 
-        &:has(input:not(:checked)) {
-            text-decoration: line-through;
-            filter: grayscale(1) brightness(0.7);
-        }
+    input:focus-visible + label {
+        // outline: var(--accent);
     }
 </style>
