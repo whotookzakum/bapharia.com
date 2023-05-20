@@ -1,14 +1,23 @@
 <script>
     // https://github.com/ngyewch/svelte-leaflet/issues/3#issuecomment-1170333938
+    import "leaflet/dist/leaflet.css";
+    import "./leaflet.scss";
+    import L from "leaflet?client";
+    import {
+        LeafletMap,
+        ImageOverlay,
+        Marker,
+        Icon,
+        Popup,
+        Tooltip,
+    } from "svelte-leafletjs?client";
+    // import LeafletMap from "$lib/components/leaflet/LeafletMap.svelte";
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import { LeafletMap, ImageOverlay } from "svelte-leafletjs?client";
-    import "leaflet/dist/leaflet.css";
     import MapControls from "$lib/components/leaflet/MapControls.svelte";
-    import L from "leaflet?client";
-    import { page } from "$app/stores";
-    import "./styles.scss";
+    import iconsData from "$lib/components/leaflet/icons.json";
     import { userLocale } from "$lib/stores";
+
     let leafletMap;
     export let data;
     $: zone = data.zone;
@@ -40,10 +49,9 @@
 />
 
 <MapControls />
+<!-- <LeafletMap /> -->
 {#if browser}
-    <MetaTags
-        title={`${zone.name[$userLocale]} — Bapharia`}
-    />
+    <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
     <LeafletMap
         bind:this={leafletMap}
         options={mapOptions}
@@ -54,5 +62,21 @@
             {bounds}
             options={imageOverlayOptions}
         />
+        {#each Object.keys(zone.markers) as markerGroup}
+            {#each zone.markers[markerGroup] as marker}
+                <Marker
+                    latLng={[
+                        -marker.coords[1] / 70 + 586.5,
+                        marker.coords[0] / 70 + 1210.5,
+                    ]}
+                >
+                    <Icon options={iconsData[markerGroup]} />
+                    <Popup>
+                        <strong>{markerGroup}</strong><br/>
+                        {marker.description}
+                    </Popup>
+                </Marker>
+            {/each}
+        {/each}
     </LeafletMap>
 {/if}

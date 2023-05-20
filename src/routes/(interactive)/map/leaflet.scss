@@ -1,0 +1,116 @@
+.leaflet-container {
+    height: 100%;
+    background-image: url("/images/map/mapbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: inherit !important;
+    outline: none !important;
+    position: relative;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left {
+    position: absolute;
+    left: auto;
+    right: 10px;
+}
+
+.leaflet-bar {
+    border: 1px solid var(--surface3) !important;
+    box-shadow: 0 2px 2px var(--surface-shadow) !important;
+
+    a {
+        color: var(--text2);
+    }
+
+    a, 
+    a:hover, 
+    a:focus-visible {
+        background: var(--surface1);
+        border-color: var(--surface2);
+    }
+
+    a:hover, 
+    a:focus-visible {
+        color: var(--text1);
+    }
+
+    a.leaflet-disabled {
+        color: gray !important;
+        background: var(--bg) !important;
+    }
+}
+
+
+
+.leaflet-marker-icon {
+    $icon-size: 64px;
+    $icon-size-clipped: 42px;
+    $margin-offset: calc(($icon-size - $icon-size-clipped) / 2); // 11px
+    width: $icon-size-clipped !important;
+    height: $icon-size-clipped !important;
+    object-fit: none;
+    object-position: 50%;
+    cursor: inherit !important;
+    margin-top: calc(-32px + $margin-offset) !important; // -32px + 11px
+    margin-left: calc(-32px + $margin-offset) !important;
+    filter: drop-shadow(0 0 2px black);
+
+    &:hover, 
+    &:focus-visible {
+        filter: drop-shadow(0 0 2px black) brightness(0.85);
+    }
+
+    &[src*="UI_Map_12"]:hover, 
+    &[src*="UI_Map_12"]:focus-visible {
+        filter: hue-rotate(240deg) drop-shadow(0 0 4px #baff00) brightness(1.05);
+    }
+}
+
+.leaflet-popup {
+    padding: 0 !important; 
+}
+
+.leaflet-popup-content-wrapper, 
+.leaflet-popup-tip {
+    // background: none;
+    // background: var(--surface1);
+    background: rgba(0, 0, 0, 0.95);
+    color: white !important;
+    font-family: "Public Sans", "Open Sans", "Helvetica", "Helvetica", sans-serif, system-ui;
+    padding: 0 !important;
+    border-radius: 0 !important;
+}
+
+.leaflet-popup-tip {
+    display: none !important;
+}
+
+.leaflet-popup-content {
+    border-left: 20px solid #baff00;
+    margin: 0 !important;
+    padding: 1rem 20px;
+    // background-image: url('/UI/ToolTip/UI_ToolTip_Bg1.png');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+}
+
+.leaflet-popup-close-button {
+    color: white !important;
+}
+
+// .map-zone-label {
+//     background: unset !important;
+//     font-family: "Skip Std";
+//     color: #f2e0c1 !important;
+//     border-color: transparent !important;
+//     font-size: 1rem !important;
+//     // text-shadow: 0 0px 3px var(--surface-shadow);
+//     box-shadow: unset !important;
+//     margin: 0 !important;
+
+//     &::before {
+//         content: unset !important;
+//         border: unset !important;
+//     }
+// }

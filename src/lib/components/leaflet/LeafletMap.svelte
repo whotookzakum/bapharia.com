@@ -40,8 +40,8 @@
 
 	onMount(async () => {
 		// const L = await import("leaflet");
-		
-		mapData = await import(`./maps/${$page.url.searchParams.get("map")}.json`);
+		mapId = searchParams.get("zone") ?? "Cty001"
+		mapData = await import(`./maps/${$page.url.searchParams.get("zone")}.json`);
 
 		// https://github.com/whotookzakum/toweroffantasy.info/blob/379d45d042698bf7e9f1c1ad80f6bf49cfca6b9c/scripts/map.js
 
@@ -158,7 +158,7 @@
 <SearchParams bind:this={searchParams} />
 <MapControls />
 
-<h1>{mapId} {searchParams?.get("map")}</h1>
+<!-- <h1>{mapId} {searchParams?.get("map")}</h1> -->
 <div class="leaflet-map" bind:this={leafletMapElement} />
 
 <style lang="scss">

@@ -1,5 +1,5 @@
 <script>
-    import "$lib/styles/_article.scss";
+    import "./article.scss";
     import PageFooter from "$lib/components/PageFooter.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
     export let data;
