@@ -165,22 +165,52 @@
             </details>
         {/each}
     </div> -->
-    <menu role="list">
+    <menu class="flex g-50" role="list">
+        <li>
+            <input
+                class="search box"
+                type="text"
+                placeholder="Search for a map"
+                aria-label="Search for a map"
+                bind:value={searchQuery}
+            />
+        </li>
         <li>
             <input
                 type="checkbox"
-                id="show-map-controls"
+                id="toggle-marker-list"
                 class="visually-hidden"
-                checked
             />
-            <label class="flex box" for="show-map-controls">
+            <label class="flex box" for="toggle-marker-list">
                 <span class="visually-hidden">Markers</span>
                 <Icon icon="mdi:map-marker-radius" width="24" height="24" />
             </label>
         </li>
-        <li>hello</li>
+        <li>
+            <input
+                type="checkbox"
+                id="toggle-map-list"
+                class="visually-hidden"
+            />
+            <label class="flex box" for="toggle-map-list">
+                <span class="visually-hidden">Markers</span>
+                <Icon icon="ph:map-trifold-fill" width="24" height="24" />
+            </label>
+        </li>
+        <li>
+            <input
+                type="checkbox"
+                id="toggle-hotkeys-hint"
+                class="visually-hidden"
+            />
+            <label class="flex box" for="toggle-hotkeys-hint">
+                <span class="visually-hidden">Markers</span>
+                <Icon icon="mingcute:hotkey-fill" width="24" height="24" />
+                <!-- material-symbols:keyboard-alt-outline-rounded -->
+            </label>
+        </li>
     </menu>
-    <div>
+    <!-- <div>
         <input
             class="search box"
             type="text"
@@ -198,12 +228,14 @@
                 </li>
             {/each}
         </ul>
-    </div>
+    </div> -->
 </nav>
 
 <style lang="scss">
     .search {
         width: 30ch;
+        // padding: 0;
+        max-height: 44px;
     }
 
     .search:focus-visible {
@@ -235,7 +267,6 @@
         left: 0;
         top: 0;
         display: grid;
-        justify-items: flex-end;
         gap: 0.5rem;
 
         // .controls-contents {
@@ -296,16 +327,19 @@
     }
 
     menu {
-        display: flex;
-        align-items: center;
         list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     label {
         display: grid;
         place-content: center;
-        height: 44px;
-        width: 44px;
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0;
         color: var(--text2);
 
         &:hover {

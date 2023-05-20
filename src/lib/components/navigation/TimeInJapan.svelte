@@ -40,5 +40,6 @@
 
 	:global(.navbar:not(.expanded) .jst-time) {
 		margin: 0 auto;
+		text-align: center;
 	}
 </style>
