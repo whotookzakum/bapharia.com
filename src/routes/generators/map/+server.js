@@ -1,134 +1,134 @@
 import iconUrls from "./iconUrls.json"
 import { json } from '@sveltejs/kit'
 
-function getName(pointName) {
-    if (pointName.includes("SynthesisShop")) {
+function getName(id) {
+    if (id.includes("SynthesisShop")) {
         return {
             ja_JP: "武器改造師",
             en_US: "Weapon Reconstructor"
         }
     }
-    if (pointName.includes("LockerTarget") || pointName.includes("Warehouse")) {
+    if (id.includes("LockerTarget") || id.includes("Warehouse")) {
         return {
             ja_JP: "倉庫",
             en_US: "Storage"
         }
     }
-    if (pointName.includes("LiquidMemory")) {
+    if (id.includes("LiquidMemory")) {
         return {
             ja_JP: "メモリスタンド",
             en_US: "Memory Stand"
         }
     }
-    if (pointName.includes("WarpPoint")) {
+    if (id.includes("WarpPoint")) {
         return {
             ja_JP: "空間転送ポータル",
             en_US: "Warp Gate"
         }
     }
-    if (pointName.includes("RankingBoard")) {
+    if (id.includes("RankingBoard")) {
         return {
             ja_JP: "ランキングボード",
             en_US: "Ranking Board"
         }
     }
-    if (pointName.includes("DyersShop")) {
+    if (id.includes("DyersShop")) {
         return {
             ja_JP: "カラーリングショップ",
             en_US: "Dyeworker"
         }
     }
-    if (pointName.includes("Esthe")) {
+    if (id.includes("Esthe")) {
         return {
             ja_JP: "エステサロン",
             en_US: "Beauty Salon"
         }
     }
-    if (pointName.includes("Guild")) {
+    if (id.includes("Guild")) {
         return {
             ja_JP: "チーム",
             en_US: "Guild"
         }
     }
-    if (pointName.includes("ImagineShop")) {
+    if (id.includes("ImagineShop")) {
         return {
             ja_JP: "イマジン研究所",
             en_US: "Echoforge"
         }
     }
-    if (pointName.includes("Itemsshop")) {
+    if (id.includes("Itemsshop")) {
         return {
             ja_JP: "道具屋",
             en_US: "Item Shop"
         }
     }
-    if (pointName.includes("Peddler") || pointName.includes("ExchangeShop")) {
+    if (id.includes("Peddler") || id.includes("ExchangeShop")) {
         return {
             ja_JP: "Peddler", // GC交換所
             en_US: "Peddler" // GC Shop
         }
     }
-    if (pointName.includes("Receptionist")) {
+    if (id.includes("Receptionist")) {
         return {
             ja_JP: "Quest Receptionist",
             en_US: "Quest Receptionist"
         }
     }
-    if (pointName.includes("TacticalAbility")) {
+    if (id.includes("TacticalAbility")) {
         return {
             ja_JP: "クラスマスター",
             en_US: "Class Master"
         }
     }
-    if (pointName.includes("Weaponshop")) {
+    if (id.includes("Weaponshop")) {
         return {
             ja_JP: "武器屋",
             en_US: "Weapon Shop"
         }
     }
-    if (pointName.includes("ChallengeBox")) {
+    if (id.includes("ChallengeBox")) {
         return {
             ja_JP: "CHALLENGE BOX",
             en_US: "CHALLENGE BOX"
         }
     }
-    if (pointName.includes("ArenaReception")) {
+    if (id.includes("ArenaReception")) {
         return {
             ja_JP: "ARENA RECEPTION",
             en_US: "ARENA RECEPTION"
         }
     }
-    if (pointName.includes("CraftMachine")) {
+    if (id.includes("CraftMachine")) {
         return {
             ja_JP: "転球練成儀",
             en_US: "Spheromutator"
         }
     }
-    if (pointName.includes("Fishing")) {
+    if (id.includes("Fishing")) {
         return {
             ja_JP: "釣り場",
             en_US: "Fishing Spot"
         }
     }
-    if (pointName.includes("CQ")) {
+    if (id.includes("CQ")) {
         return {
             ja_JP: "クラスクエスト",
             en_US: "Class Quest"
         }
     }
-    if (pointName.includes("MQ")) {
+    if (id.includes("MQ")) {
         return {
             ja_JP: "メインクエスト",
             en_US: "Main Quest"
         }
     }
-    if (pointName.includes("Npc_Murrie")) {
+    if (id.includes("Npc_Murrie")) {
         return {
             ja_JP: "ミューリィ",
             en_US: "Millie"
         }
     }
-    if (pointName.includes("SQ")) {
+    if (id.includes("SQ")) {
         return {
             ja_JP: "サブクエスト",
             en_US: "Sub Quest"
@@ -136,14 +136,14 @@ function getName(pointName) {
     }
 
     // Don't know for sure
-    if (pointName.includes("EQ")) {
+    if (id.includes("EQ")) {
         return {
             ja_JP: "eクエスト",
             en_US: "E Quest"
         }
     }
 
-    if (pointName.includes("TQ")) {
+    if (id.includes("TQ")) {
         return {
             ja_JP: "tクエスト",
             en_US: "T Quest"
@@ -154,6 +154,41 @@ function getName(pointName) {
     return {
         ja_JP: "-",
         en_US: "-"
+    }
+}
+
+function getCategory(id) {
+    if (
+        id.includes("Warehouse") ||
+        id.includes("Locker") ||
+        id.includes("LiquidMemory") ||
+        id.includes("RankingBoard") ||
+        id.includes("DyersShop") ||
+        id.includes("Esthe") ||
+        id.includes("Guild") ||
+        id.includes("ImagineShop") ||
+        id.includes("Itemsshop") ||
+        id.includes("Peddler") ||
+        id.includes("ExchangeShop") ||
+        id.includes("Receptionist") ||
+        id.includes("TacticalAbility") ||
+        id.includes("Weaponshop") ||
+        id.includes("Fishing") ||
+        id.includes("WarpPoint") ||
+        id.includes("CraftMachine") || 
+        id.includes("Murrie") ||
+        id.includes("SynthesisShop")
+    ) {
+        return "general"
+    }
+    else if (
+        id.includes("MQ") ||
+        id.includes("SQ") ||
+        id.includes("EQ") ||
+        id.includes("TQ") ||
+        id.includes("CQ")
+    ) {
+        return "quest"
     }
 }
 
@@ -175,13 +210,6 @@ export const GET = async () => {
 
     const allMarkers = allSceneComponents.map(point => {
         const id = point.Outer
-        const name = getName(id)
-        const iconUrl = iconUrls[name.ja_JP]
-        const coords = [
-            point.Properties.RelativeLocation.X,
-            point.Properties.RelativeLocation.Y,
-            point.Properties.RelativeLocation.Z,
-        ]
 
         // Exclude unused points
         if (
@@ -263,9 +291,19 @@ export const GET = async () => {
             return
         }
 
+        const name = getName(id)
+        const iconUrl = iconUrls[name.ja_JP]
+        const coords = [
+            point.Properties.RelativeLocation.X,
+            point.Properties.RelativeLocation.Y,
+            point.Properties.RelativeLocation.Z,
+        ]
+        const category = getCategory(id)
+
         return {
             // ...point,
             id,
+            category,
             name,
             iconUrl,
             coords

@@ -1,14 +1,11 @@
 <script>
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
-    import { fly } from "svelte/transition";
     import MarkersList from "./MarkersList.svelte";
     import HotkeysHint from "./HotkeysHint.svelte";
-    import { browser } from "$app/environment";
     import mapsData from "./maps.json";
-    import { showMarkersStore } from "$lib/stores";
 
-    // Hide irrelevant markers? i.e. hide city markers when on bahamar highlands map
+    export let markers;
 
     const maps = [
         {
@@ -87,10 +84,6 @@
     function handleKeyup(e) {
         keys[e.key] = false;
     }
-
-    let isChecked = false;
-
-    $: showMarkersStore.set(isChecked)
 </script>
 
 <svelte:window on:keydown={handleKeydown} on:keyup={handleKeyup} />
@@ -101,7 +94,7 @@
             <input
                 class="search box"
                 type="text"
-                placeholder="Search for a map {isChecked} {$showMarkersStore}"
+                placeholder="Search for a map"
                 aria-label="Search for a map"
                 bind:value={searchQuery}
                 bind:this={searchElement}
@@ -147,7 +140,6 @@
         </li>
     </menu>
     <div class="control-panels grid g-50">
-        <input type="checkbox" name="" id="" bind:checked={isChecked}>
         <!-- <ul class="search-results box" role="list">
             {#each maps as map}
                 <li>
@@ -162,7 +154,7 @@
             <HotkeysHint />
         {/if}
         {#if showMarkers}
-            <MarkersList />
+            <MarkersList {markers} />
         {/if}
         <!-- <dialog bind:this={mapList} transition:fly>
             hi

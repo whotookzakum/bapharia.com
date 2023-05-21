@@ -15,15 +15,11 @@
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import MapControls from "$lib/components/leaflet/MapControls.svelte";
-    import { userLocale, showMarkersStore } from "$lib/stores";
+    import { userLocale, markersVisibility } from "$lib/stores";
 
     let leafletMap;
     export let data;
     $: zone = data.zone;
-
-    $: if (leafletMap) {
-        console.log(leafletMap?.getMap()._layers)
-    };
 
     const bounds = [
         [0, 0],
@@ -38,7 +34,6 @@
         maxZoom: 3,
         maxBounds: bounds,
         maxBoundsViscosity: 1.0,
-        // zoomControl: false,
     };
 
     const imageOverlayOptions = {
@@ -51,7 +46,7 @@
     description={`Interactive map for BLUE PROTOCOL. Find enemies, locations, quests, treasure chests, gathering spots, and more!`}
 />
 
-<MapControls />
+<MapControls markers={zone.markers} />
 <!-- <LeafletMap /> -->
 {#if browser}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
@@ -66,8 +61,8 @@
             options={imageOverlayOptions}
         />
 
-        {#if $showMarkersStore}
-            {#each zone.markers as marker}
+        {#each zone.markers as marker}
+            {#if $markersVisibility[marker.name.en_US]}
                 <Marker
                     latLng={[
                         -marker.coords[1] / 70 + 586.5,
@@ -94,7 +89,7 @@
                         >
                     </Popup>
                 </Marker>
-            {/each}
-        {/if}
+            {/if}
+        {/each}
     </LeafletMap>
 {/if}

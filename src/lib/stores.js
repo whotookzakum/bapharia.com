@@ -10,4 +10,28 @@ export const currency = writable({
     decimals: 0,
 })
 export const userLocale = writable("en_US")
-export const showMarkersStore = writable(true)
+export const markersVisibility = writable({
+    "Weapon Reconstructor": true,
+    "Millie": true,
+    "Fishing Spot": true,
+    "Warp Gate": true,
+    "Storage": true,
+    "Ranking Board": true,
+    "Spheromutator": true,
+    "Dyeworker": true,
+    "Beauty Salon": true,
+    "Peddler": true,
+    "Guild": true,
+    "Echoforge": true,
+    "Item Shop": true,
+    "Memory Stand": true,
+    "Quest Receptionist": true,
+    "Class Maker": true,
+    "Weapon Shop": true,
+    "Class Master": true,
+    "Class Quest": true,
+    "E Quest": true,
+    "Main Quest": true,
+    "Sub Quest": true,
+    "T Quest": true
+})
