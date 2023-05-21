@@ -4,6 +4,7 @@
 
     import MarkersList from "./MarkersList.svelte";
     import HotkeysHint from "./HotkeysHint.svelte";
+    import { browser } from "$app/environment";
 
     // Hide irrelevant markers? i.e. hide city markers when on bahamar highlands map
 
@@ -43,13 +44,42 @@
     ];
 
     let searchQuery = "";
-
-    let showMarkers = true;
+    let searchElement;
     let showMapList = false;
+    let showMarkers = false;
     let showHotkeys = false;
 
     function handleClick() {}
+
+    let keys = {};
+
+    function handleKeydown(e) {
+        console.log(e.key)
+        keys[e.key] = true
+        if (keys.Control && keys.k) {
+            e.preventDefault();
+            searchElement.focus()
+        }
+        if (keys.Control && keys["'"]) {
+            e.preventDefault();
+            showMarkers = !showMarkers
+        }
+        if (keys.Control && keys[";"]) {
+            e.preventDefault();
+            showMapList = !showMapList
+        }
+        if (keys.Control && keys["/"]) {
+            e.preventDefault();
+            showHotkeys = !showHotkeys
+        }
+    }
+
+    function handleKeyup(e) {
+        keys[e.key] = false
+    }
 </script>
+
+<svelte:window on:keydown={handleKeydown} on:keyup={handleKeyup} />
 
 <nav class="map-controls grid g-50">
     <menu class="flex g-50" role="list">
@@ -60,20 +90,9 @@
                 placeholder="Search for a map"
                 aria-label="Search for a map"
                 bind:value={searchQuery}
+                bind:this={searchElement}
                 on:click|stopPropagation|preventDefault={handleClick}
             />
-        </li>
-        <li>
-            <input
-                type="checkbox"
-                id="toggle-marker-list"
-                class="visually-hidden"
-                bind:checked={showMarkers}
-            />
-            <label class="flex box" for="toggle-marker-list">
-                <span class="visually-hidden">Markers</span>
-                <Icon icon="mdi:map-marker-radius" width="24" height="24" />
-            </label>
         </li>
         <li>
             <input
@@ -85,6 +104,18 @@
             <label class="flex box" for="toggle-map-list">
                 <span class="visually-hidden">Markers</span>
                 <Icon icon="ph:map-trifold-fill" width="24" height="24" />
+            </label>
+        </li>
+        <li>
+            <input
+                type="checkbox"
+                id="toggle-marker-list"
+                class="visually-hidden"
+                bind:checked={showMarkers}
+            />
+            <label class="flex box" for="toggle-marker-list">
+                <span class="visually-hidden">Markers</span>
+                <Icon icon="mdi:map-marker-radius" width="24" height="24" />
             </label>
         </li>
         <li>

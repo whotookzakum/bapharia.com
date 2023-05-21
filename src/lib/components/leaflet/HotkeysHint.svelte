@@ -1,6 +1,5 @@
 <div class="box">
     <span>Hotkeys</span>
-
     <dl>
         <dt>Move</dt>
         <dd>
@@ -35,6 +34,11 @@
         <dd class="combo-input flex g-25">
             <kbd>Ctrl</kbd> +
             <kbd>'</kbd>
+        </dd>
+        <dt>Toggle Hotkeys Hint</dt>
+        <dd class="combo-input flex g-25">
+            <kbd>Ctrl</kbd> +
+            <kbd>/</kbd>
         </dd>
     </dl>
 </div>
