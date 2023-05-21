@@ -10,3 +10,4 @@ export const currency = writable({
     decimals: 0,
 })
 export const userLocale = writable("en_US")
+export const showMarkersStore = writable(true)

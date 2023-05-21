@@ -11,19 +11,19 @@
         Popup,
         Tooltip,
     } from "svelte-leafletjs?client";
-    import LayerGroup from "$lib/components/leaflet/LayerGroup.svelte";
-    // import Marker from "$lib/components/leaflet/Marker.svelte";
     // import LeafletMap from "$lib/components/leaflet/LeafletMap.svelte";
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import MapControls from "$lib/components/leaflet/MapControls.svelte";
-    import { userLocale } from "$lib/stores";
+    import { userLocale, showMarkersStore } from "$lib/stores";
 
     let leafletMap;
     export let data;
     $: zone = data.zone;
 
-    $: if (leafletMap) console.log(leafletMap?.getMap()._layers);
+    $: if (leafletMap) {
+        console.log(leafletMap?.getMap()._layers)
+    };
 
     const bounds = [
         [0, 0],
@@ -65,7 +65,8 @@
             {bounds}
             options={imageOverlayOptions}
         />
-        <LayerGroup>
+
+        {#if $showMarkersStore}
             {#each zone.markers as marker}
                 <Marker
                     latLng={[
@@ -84,13 +85,16 @@
                         />
                     {/if}
                     <Popup>
-                        <small style="color: var(--text2)">{marker.id}</small><br/>
+                        <small style="color: var(--text2)">{marker.id}</small
+                        ><br />
                         <strong>{marker.name.en_US}</strong><br />
                         <!-- {marker.description} -->
-                        <small style="color: var(--text2)">{marker.coords}</small>
+                        <small style="color: var(--text2)"
+                            >{marker.coords}</small
+                        >
                     </Popup>
                 </Marker>
             {/each}
-        </LayerGroup>
+        {/if}
     </LeafletMap>
 {/if}
