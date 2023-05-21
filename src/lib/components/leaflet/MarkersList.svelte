@@ -203,7 +203,7 @@
     }
 
     ul.markers-list {
-        list-style-group: none;
+        list-style-type: none;
         padding: 0;
         margin: 0;
         display: grid;

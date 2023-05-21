@@ -3,6 +3,7 @@
     import Icon from "@iconify/svelte";
 
     import MarkersList from "./MarkersList.svelte";
+    import HotkeysHint from "./HotkeysHint.svelte";
 
     // Hide irrelevant markers? i.e. hide city markers when on bahamar highlands map
 
@@ -46,6 +47,8 @@
     let showMarkers = true;
     let showMapList = false;
     let showHotkeys = false;
+
+    function handleClick() {}
 </script>
 
 <nav class="map-controls grid g-50">
@@ -57,6 +60,7 @@
                 placeholder="Search for a map"
                 aria-label="Search for a map"
                 bind:value={searchQuery}
+                on:click|stopPropagation|preventDefault={handleClick}
             />
         </li>
         <li>
@@ -108,8 +112,11 @@
                 </li>
             {/each}
         </ul> -->
+        {#if showHotkeys}
+            <HotkeysHint />
+        {/if}
         {#if showMarkers}
-            <MarkersList />
+            <!-- <MarkersList /> -->
         {/if}
     </div>
 </nav>
@@ -174,5 +181,9 @@
         &:hover {
             color: var(--text1);
         }
+    }
+
+    input:checked + label {
+        color: var(--accent);
     }
 </style>

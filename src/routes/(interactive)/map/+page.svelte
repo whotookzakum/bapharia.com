@@ -11,6 +11,8 @@
         Popup,
         Tooltip,
     } from "svelte-leafletjs?client";
+    import LayerGroup from "$lib/components/leaflet/LayerGroup.svelte";
+    // import Marker from "$lib/components/leaflet/Marker.svelte";
     // import LeafletMap from "$lib/components/leaflet/LeafletMap.svelte";
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
@@ -21,6 +23,8 @@
     let leafletMap;
     export let data;
     $: zone = data.zone;
+
+    $: if (leafletMap) console.log(leafletMap?.getMap()._layers);
 
     const bounds = [
         [0, 0],
@@ -62,21 +66,23 @@
             {bounds}
             options={imageOverlayOptions}
         />
-        {#each Object.keys(zone.markers) as markerGroup}
-            {#each zone.markers[markerGroup] as marker}
-                <Marker
-                    latLng={[
-                        -marker.coords[1] / 70 + 586.5,
-                        marker.coords[0] / 70 + 1210.5,
-                    ]}
-                >
-                    <Icon options={iconsData[markerGroup]} />
-                    <Popup>
-                        <strong>{markerGroup}</strong><br/>
-                        {marker.description}
-                    </Popup>
-                </Marker>
+        <LayerGroup>
+            {#each Object.keys(zone.markers) as markerGroup}
+                {#each zone.markers[markerGroup] as marker}
+                    <Marker
+                        latLng={[
+                            -marker.coords[1] / 70 + 586.5,
+                            marker.coords[0] / 70 + 1210.5,
+                        ]}
+                    >
+                        <Icon options={iconsData[markerGroup]} />
+                        <Popup>
+                            <strong>{markerGroup}</strong><br />
+                            {marker.description}
+                        </Popup>
+                    </Marker>
+                {/each}
             {/each}
-        {/each}
+        </LayerGroup>
     </LeafletMap>
 {/if}
