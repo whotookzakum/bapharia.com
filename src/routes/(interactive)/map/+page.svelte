@@ -17,7 +17,6 @@
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import MapControls from "$lib/components/leaflet/MapControls.svelte";
-    import iconsData from "$lib/components/leaflet/icons.json";
     import { userLocale } from "$lib/stores";
 
     let leafletMap;
@@ -36,7 +35,7 @@
         center: [bounds[1][0] / 2, bounds[1][1] / 2],
         zoom: 0,
         minZoom: -1,
-        maxZoom: 2,
+        maxZoom: 3,
         maxBounds: bounds,
         maxBoundsViscosity: 1.0,
         // zoomControl: false,
@@ -67,21 +66,30 @@
             options={imageOverlayOptions}
         />
         <LayerGroup>
-            {#each Object.keys(zone.markers) as markerGroup}
-                {#each zone.markers[markerGroup] as marker}
-                    <Marker
-                        latLng={[
-                            -marker.coords[1] / 70 + 586.5,
-                            marker.coords[0] / 70 + 1210.5,
-                        ]}
-                    >
-                        <Icon options={iconsData[markerGroup]} />
-                        <Popup>
-                            <strong>{markerGroup}</strong><br />
-                            {marker.description}
-                        </Popup>
-                    </Marker>
-                {/each}
+            {#each zone.markers as marker}
+                <Marker
+                    latLng={[
+                        -marker.coords[1] / 70 + 586.5,
+                        marker.coords[0] / 70 + 1210.5,
+                    ]}
+                >
+                    {#if marker.iconUrl}
+                        <Icon
+                            options={{
+                                iconUrl: marker.iconUrl,
+                                iconSize: [64, 64],
+                                iconAnchor: [32, 32],
+                                popupAnchor: [0, -16],
+                            }}
+                        />
+                    {/if}
+                    <Popup>
+                        <small style="color: var(--text2)">{marker.id}</small><br/>
+                        <strong>{marker.name.en_US}</strong><br />
+                        <!-- {marker.description} -->
+                        <small style="color: var(--text2)">{marker.coords}</small>
+                    </Popup>
+                </Marker>
             {/each}
         </LayerGroup>
     </LeafletMap>

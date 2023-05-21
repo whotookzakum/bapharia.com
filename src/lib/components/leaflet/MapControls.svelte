@@ -1,10 +1,11 @@
 <script>
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
-
+    import { fly } from "svelte/transition";
     import MarkersList from "./MarkersList.svelte";
     import HotkeysHint from "./HotkeysHint.svelte";
     import { browser } from "$app/environment";
+    import mapsData from "./maps.json";
 
     // Hide irrelevant markers? i.e. hide city markers when on bahamar highlands map
 
@@ -45,43 +46,51 @@
 
     let searchQuery = "";
     let searchElement;
+    let mapList;
     let showMapList = false;
     let showMarkers = false;
     let showHotkeys = false;
+
+    $: if (mapList) {
+        if (showMapList) {
+            mapList.showModal();
+        } else {
+            mapList.close();
+        }
+    }
 
     function handleClick() {}
 
     let keys = {};
 
     function handleKeydown(e) {
-        console.log(e.key)
-        keys[e.key] = true
+        keys[e.key] = true;
         if (keys.Control && keys.k) {
             e.preventDefault();
-            searchElement.focus()
+            searchElement.focus();
         }
         if (keys.Control && keys["'"]) {
             e.preventDefault();
-            showMarkers = !showMarkers
+            showMarkers = !showMarkers;
         }
         if (keys.Control && keys[";"]) {
             e.preventDefault();
-            showMapList = !showMapList
+            showMapList = !showMapList;
         }
         if (keys.Control && keys["/"]) {
             e.preventDefault();
-            showHotkeys = !showHotkeys
+            showHotkeys = !showHotkeys;
         }
     }
 
     function handleKeyup(e) {
-        keys[e.key] = false
+        keys[e.key] = false;
     }
 </script>
 
 <svelte:window on:keydown={handleKeydown} on:keyup={handleKeyup} />
 
-<nav class="map-controls grid g-50">
+<div class="map-controls grid g-50">
     <menu class="flex g-50" role="list">
         <li>
             <input
@@ -149,10 +158,31 @@
         {#if showMarkers}
             <!-- <MarkersList /> -->
         {/if}
+        <!-- <dialog bind:this={mapList} transition:fly>
+            hi
+        </dialog> -->
+
+        {#if showMapList}
+        <nav class="box">
+            <ul>
+                {#each mapsData as map}
+                    <li>
+                        <a href={`/map?zone=${map.map_id.split("_")[0]}`}>{map.name_en}</a>
+                    </li>
+                {/each}
+            </ul>
+        </nav>
+        {/if}
     </div>
-</nav>
+</div>
 
 <style lang="scss">
+    dialog {
+        &::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
     .search {
         width: 30ch;
         max-height: 44px;
@@ -185,7 +215,7 @@
         // max-width: 30ch;
     }
 
-    nav {
+    .map-controls {
         margin: 1rem;
         position: absolute;
         z-index: 420;

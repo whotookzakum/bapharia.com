@@ -46,7 +46,7 @@
 		"Eyebrow Angles 😏",
 		"The Blue Dot 🔵",
 		"Mirai Limited Edition 🎶",
-		"Cryy come back 😢",
+		"I miss Cryy 😢",
 		"In 10",
 		"Hand Holding! 🤝",
 		"Mixed Yarn Class!",

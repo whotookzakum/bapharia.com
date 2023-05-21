@@ -164,7 +164,7 @@
 <style lang="scss">
 	.leaflet-map {
 		height: 100%;
-		background-image: url("/images/map/mapbg.jpg");
+		background-image: url("/images/map/mapbg.png");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
