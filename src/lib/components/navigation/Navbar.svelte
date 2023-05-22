@@ -5,61 +5,18 @@
 	import { fetchMarkdownPosts } from "$lib/utils";
 	import Icon from "@iconify/svelte";
 	import TimeInJapan from "./TimeInJapan.svelte";
+	import links from "./links.json"
+	import randomMessages from "./randomMessages.json"
 
 	let detailsOpen = false;
 	let isExpanded = true;
 
-	const links = [
-		{
-			name: "Database",
-			imgSrc: "/images/psb.svg",
-			href: "/db",
-		},
-		{
-			name: "World Map",
-			imgSrc: "/images/msq.svg",
-			href: "/map",
-		},
-		{
-			name: "Skills",
-			imgSrc: "/images/imajinn.svg",
-			href: "/skills",
-		},
-		{
-			name: "Crafting",
-			imgSrc: "/images/crafting.svg",
-			href: "/crafting",
-		},
-		{
-			name: "Menu",
-			imgSrc: "/images/liquidmemory.svg",
-			href: "/menu",
-		},
-	];
-
-	let randomTextOptions = [
-		"BLUE PROTOCOL Tools",
-		"Do Not Porori!",
-		"Bulge Slider when?",
-		"Now with SEA servers!",
-		"Dyeable underwear 🩲",
-		"Eyebrow Angles 😏",
-		"The Blue Dot 🔵",
-		"Mirai Limited Edition 🎶",
-		"I miss Cryy 😢",
-		"In 10",
-		"Hand Holding! 🤝",
-		"Mixed Yarn Class!",
-		"Twin Striker Moon Jump",
-		"Dancing in Asterleeds! 💃",
-	];
-
-	let randomText =
-		randomTextOptions[Math.floor(Math.random() * randomTextOptions.length)];
+	let randomMessage =
+		randomMessages[Math.floor(Math.random() * randomMessages.length)];
 	$: if ($page.url.pathname !== "/") {
-		randomText =
-			randomTextOptions[
-				Math.floor(Math.random() * randomTextOptions.length)
+		randomMessage =
+			randomMessages[
+				Math.floor(Math.random() * randomMessages.length)
 			];
 	}
 	// TO DO: tiny says use aria-expanded instead of visually-hidden?
@@ -78,7 +35,7 @@
 			<span class="visually-hidden show-when-expanded">Bapharia</span>
 			<span
 				class="hidden-text visually-hidden show-when-expanded"
-				aria-hidden="true">{randomText}</span
+				aria-hidden="true">{randomMessage}</span
 			>
 		</span>
 	</a>

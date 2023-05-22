@@ -22,16 +22,8 @@
     import { onMount } from "svelte";
 
     let leafletMap;
-    // export let data;
-    // $: zone = data.zone;
-
-    const loadMap = async () => {
-        const mapId = $page.url.searchParams.get("zone") ?? "Cty001";
-        const zone = await import(
-            `../../../lib/components/leaflet/maps/${mapId}.json`
-        );
-        return zone
-    };
+    export let data;
+    $: zone = data.zone;
 
     const bounds = [
         [0, 0],
@@ -102,31 +94,49 @@
 
     let allMarkers = {};
 
-    $: $mapState.currentMapId = $page.url.searchParams.get("zone");
+    // if zone changes, then currentMarkerId gets reset to null to avoid opening markers of the same ID on different zones
+    $: {
+        let zoneFromUrl = $page.url.searchParams.get("zone");
+        let zoneFromStore = $mapState.currentMapId;
+        if (zoneFromUrl !== zoneFromStore) {
+            $mapState.currentMarkerId = null;
+            $mapState.currentMapId = zoneFromUrl || "Cty001";
+        }
+    }
+
+    const mapIdFromUrl = $page.url.searchParams.get("zone");
+    const mapIdFromStore = $mapState.currentMapId;
+    if (mapIdFromStore && !mapIdFromUrl) {
+        $page.url.searchParams.set("zone", mapIdFromStore);
+        goToUpdatedUrl()
+    }
 
     onMount(() => {
         const markerIdFromUrl = $page.url.searchParams.get("marker");
         const markerIdFromStore = $mapState.currentMarkerId;
-
+        // Open marker when visiting URL directly
         if (
             markerIdFromUrl &&
             zone.markers.some((marker) => marker.id === markerIdFromUrl)
         ) {
             allMarkers[markerIdFromUrl].getMarker().openPopup();
-        } else if (
+        }
+        // Persist open marker while switching routes
+        else if (
             markerIdFromStore &&
             zone.markers.some((marker) => marker.id === markerIdFromStore)
         ) {
             allMarkers[markerIdFromStore].getMarker().openPopup();
         }
 
-        const mapIdFromUrl = $page.url.searchParams.get("zone");
-        const mapIdFromStore = $mapState.currentMapId;
-        if (mapIdFromStore) {
-            $page.url.searchParams.set("zone", mapIdFromStore);
-        } else if (mapIdFromUrl) {
-            $mapState.currentMapId = mapIdFromUrl;
-        }
+        // const mapIdFromStore = $mapState.currentMapId;
+        // if (mapIdFromStore && !mapIdFromUrl) {
+        //     $page.url.searchParams.set("zone", mapIdFromStore);
+
+        // }
+        // else if (mapIdFromUrl) {
+        //     $mapState.currentMapId = mapIdFromUrl;
+        // }
     });
 </script>
 
@@ -135,23 +145,18 @@
     description={`Interactive map for BLUE PROTOCOL. Find enemies, locations, quests, treasure chests, gathering spots, and more!`}
 />
 
-<!-- <MapControls markers={zone.markers} /> -->
-
 {#if !browser}
     <h1 class="visually-hidden">World Map</h1>
 {/if}
 
-<!-- <LeafletMap /> -->
-
-
-    
-    {#await loadMap() then zone}
+{#if browser && zone}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
     <h1>
         {zone.name[$userLocale]}
         {$mapState.currentMarkerId}
         {$mapState.currentMapId}
     </h1>
+    <MapControls markers={zone.markers} />
     <LeafletMap bind:this={leafletMap} options={mapOptions}>
         <ImageOverlay
             imageUrl={zone.imgSrc}
@@ -182,8 +187,7 @@
                     {/if}
 
                     <Popup>
-                        <small style="color: var(--text2)"
-                            >{marker.id}</small
+                        <small style="color: var(--text2)">{marker.id}</small
                         ><br />
                         <strong>{marker.name[$userLocale]}</strong><br />
                         <!-- {marker.description} -->
@@ -195,8 +199,7 @@
             {/if}
         {/each}
     </LeafletMap>
-    {/await}
-
+{/if}
 
 <style lang="scss">
     h1 {
