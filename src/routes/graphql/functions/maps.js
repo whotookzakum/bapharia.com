@@ -8,6 +8,7 @@ import { getThumbnail, getCategory } from "./utils";
 // Available resources
 // NPCs
 // Supplies for dungeons (supply.json)
+// Quests
 
 const maps = mapsData.map(map => {
     return {

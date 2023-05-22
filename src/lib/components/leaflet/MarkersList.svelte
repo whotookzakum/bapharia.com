@@ -1,6 +1,7 @@
 <script>
     import _ from "lodash";
-    import { markersVisibility } from "$lib/stores";
+    import { userLocale, markersVisibility } from "$lib/stores";
+
     // const markers = [
     //     {
     //         name: "空間転送ポータル",
@@ -133,9 +134,13 @@
     let selectedTab = "general";
 
     // Get all categories unique to this map
-    const uniqueCategories = _.uniqBy(markers, (m) => m.category).map(
-        (m) => m.category
-    );
+    const uniqueCategories = _.uniqBy(markers, (m) => m.category)
+        .map((m) => m.category)
+        .sort((a, b) => {
+            if (a > b) return 1;
+            if (b < a) return -1;
+            return 0;
+        });
 
     // Get all markers that fall under the selected category
     $: markersInSelectedCategory = markers.filter(
@@ -152,102 +157,49 @@
         return 0;
     });
 
-
     function toggleAllMarkers(value) {
-        markerToggles.forEach(marker => $markersVisibility[marker.name.en_US] = value)
+        markerToggles.forEach(
+            (marker) => ($markersVisibility[marker.name.en_US] = value)
+        );
     }
-
 </script>
 
-<div class="markers-panel box">
-    <h2>Markers</h2>
+<h2>Markers</h2>
 
-    <div class="tab-selector flex">
-        {#each uniqueCategories as category}
-            <input
-                type="radio"
-                class="visually-hidden style-next-label"
-                id="toggle-{category}"
-                value={category}
-                bind:group={selectedTab}
-            />
-            <label for="toggle-{category}">{category}</label>
-        {/each}
-    </div>
-
-    <button on:click={() => toggleAllMarkers(true)}>Show all</button>
-    <button on:click={() => toggleAllMarkers(false)}>Hide all</button>
-
-
-    <ul class="markers-list grid g-50">
-        {#each markerToggles as marker, index}
-            <li class="grid">
-                <input
-                    type="checkbox"
-                    class="style-next-label visually-hidden"
-                    id="marker-{index}"
-                    bind:checked={$markersVisibility[marker.name.en_US]}
-                />
-                <label class="marker-toggle grid" for="marker-{index}">
-                    <img src={marker.iconUrl} alt="" width="64" height="64" />
-                    <span>{marker.name.en_US}</span>
-                </label>
-            </li>
-        {/each}
-    </ul>
-
-    <!-- {#each categories as category}
-        <details open>
-            <summary>
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-                <small
-                    >({markers.filter((m) => m.type === category)
-                        .length})</small
-                >
-            </summary>
-            <ul class="markers-list g-25" role="list">
-                {#each markers.filter((m) => m.tab === category) as marker}
-                    <li>
-                        <input
-                            type="checkbox"
-                            class="visually-hidden style-next-label"
-                            id={marker.name}
-                        />
-                        <label for={marker.name} class="marker-toggle flex">
-                            <img
-                                src={marker.imgSrc}
-                                alt=""
-                                width="48"
-                                height="48"
-                            />
-                            {marker.name}
-                        </label>
-                    </li>
-                {/each}
-            </ul>
-        </details>
-    {/each} -->
+<div class="tab-selector flex">
+    {#each uniqueCategories as category}
+        <input
+            type="radio"
+            class="visually-hidden style-next-label"
+            id="toggle-{category}"
+            value={category}
+            bind:group={selectedTab}
+        />
+        <label for="toggle-{category}">{category}</label>
+    {/each}
 </div>
 
+<button on:click={() => toggleAllMarkers(true)}>Show all</button>
+<button on:click={() => toggleAllMarkers(false)}>Hide all</button>
+
+<ul class="markers-list grid g-50">
+    {#each markerToggles as marker, index}
+        <li class="grid">
+            <input
+                type="checkbox"
+                class="style-next-label visually-hidden"
+                id="marker-{index}"
+                bind:checked={$markersVisibility[marker.name.en_US]}
+            />
+            <label class="marker-toggle grid" for="marker-{index}">
+                <img src={marker.iconUrl} alt="" width="64" height="64" />
+                <span>{marker.name[$userLocale]}</span>
+            </label>
+        </li>
+    {/each}
+</ul>
+
 <style lang="scss">
-    .markers-panel {
-        max-height: min(80vh, 700px);
-        overflow-y: scroll;
-    }
-
-    h2 {
-        font-size: var(--step-0);
-        margin-block: -0rem 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        max-inline-size: unset;
-    }
-
-    summary {
-        font-size: var(--step--1);
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-
     ul.markers-list {
         list-style-type: none;
         padding: 0;
@@ -266,23 +218,21 @@
         border-radius: 5px;
         background: var(--surface2);
         place-items: center;
-        // align-items: flex-start;
-        // justify-items: center;
         padding: 0.5rem;
         gap: 0;
 
         img {
             $icon-size: 64px;
             $icon-size-clipped: 48px;
-            $margin-offset: calc(($icon-size - $icon-size-clipped) / 2); // 11px
+            $margin-offset: calc(($icon-size - $icon-size-clipped) / 2);
             width: $icon-size-clipped !important;
             height: $icon-size-clipped !important;
             object-fit: none;
             object-position: 50%;
             cursor: inherit !important;
-            filter: drop-shadow(0 0 2px black);
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
         }
-        
+
         span {
             width: 100%;
             overflow: hidden;
@@ -295,13 +245,11 @@
         }
     }
 
-    .style-next-label:not(:checked) + label,
-    .style-next-label:disabled + label {
+    .style-next-label:not(:checked) + label {
         filter: brightness(1.2) contrast(0.5);
     }
 
-    :global([color-scheme*="dark"] .style-next-label:not(:checked) + label),
-    :global([color-scheme*="dark"] .style-next-label:disabled + label) {
+    :global([color-scheme*="dark"] .style-next-label:not(:checked) + label) {
         filter: brightness(0.6) !important;
     }
 

@@ -47,9 +47,16 @@
 />
 
 <MapControls markers={zone.markers} />
+
+{#if !browser}
+    <h1 class="visually-hidden">World Map</h1>
+{/if}
+
 <!-- <LeafletMap /> -->
+
 {#if browser}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
+    <h1>{zone.name[$userLocale]}</h1>
     <LeafletMap
         bind:this={leafletMap}
         options={mapOptions}
@@ -82,7 +89,7 @@
                     <Popup>
                         <small style="color: var(--text2)">{marker.id}</small
                         ><br />
-                        <strong>{marker.name.en_US}</strong><br />
+                        <strong>{marker.name[$userLocale]}</strong><br />
                         <!-- {marker.description} -->
                         <small style="color: var(--text2)"
                             >{marker.coords}</small
@@ -93,3 +100,16 @@
         {/each}
     </LeafletMap>
 {/if}
+
+<style lang="scss">
+    h1 {
+        position: absolute;
+        z-index: 1000;
+        margin: 0;
+        bottom: 1rem;
+        left: 1rem;
+        line-height: 1;
+        font-size: var(--step-5);
+        color: white;
+    }
+</style>

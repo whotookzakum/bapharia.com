@@ -1,47 +1,45 @@
-<div class="box">
-    <span>Hotkeys</span>
-    <dl>
-        <dt>Move</dt>
-        <dd>
-            <kbd>🡄</kbd>
-            <kbd>🡅</kbd>
-            <kbd>🡆</kbd>
-            <kbd>🡇</kbd>
-            <div
-                class="flex g-25"
-                style:margin-top="0.5rem"
-                style:font-size="var(--step--1)"
-            >
-                (Hold <span class="combo-input"><kbd>Shift</kbd></span> to go faster)
-            </div>
-        </dd>
-        <dt>Zoom in/out</dt>
-        <dd style="font-weight: 900;">
-            <kbd>+</kbd>
-            <kbd>−</kbd>
-        </dd>
-        <dt>Search</dt>
-        <dd class="combo-input flex g-25">
-            <kbd>Ctrl</kbd> +
-            <kbd>K</kbd>
-        </dd>
-        <dt>Toggle Map List</dt>
-        <dd class="combo-input flex g-25">
-            <kbd>Ctrl</kbd> +
-            <kbd>;</kbd>
-        </dd>
-        <dt>Toggle Marker List</dt>
-        <dd class="combo-input flex g-25">
-            <kbd>Ctrl</kbd> +
-            <kbd>'</kbd>
-        </dd>
-        <dt>Toggle Hotkeys Hint</dt>
-        <dd class="combo-input flex g-25">
-            <kbd>Ctrl</kbd> +
-            <kbd>/</kbd>
-        </dd>
-    </dl>
-</div>
+<h2>Hotkeys</h2>
+<dl>
+    <dt>Move</dt>
+    <dd>
+        <kbd>🡄</kbd>
+        <kbd>🡅</kbd>
+        <kbd>🡆</kbd>
+        <kbd>🡇</kbd>
+        <div
+            class="flex g-25"
+            style:margin-top="0.5rem"
+            style:font-size="var(--step--1)"
+        >
+            (Hold <span class="combo-input"><kbd>Shift</kbd></span> to go faster)
+        </div>
+    </dd>
+    <dt>Zoom in/out</dt>
+    <dd style="font-weight: 900;">
+        <kbd>+</kbd>
+        <kbd>−</kbd>
+    </dd>
+    <dt>Search</dt>
+    <dd class="combo-input flex g-25">
+        <kbd>Ctrl</kbd> +
+        <kbd>K</kbd>
+    </dd>
+    <dt>Toggle Map List</dt>
+    <dd class="combo-input flex g-25">
+        <kbd>Ctrl</kbd> +
+        <kbd>;</kbd>
+    </dd>
+    <dt>Toggle Marker List</dt>
+    <dd class="combo-input flex g-25">
+        <kbd>Ctrl</kbd> +
+        <kbd>'</kbd>
+    </dd>
+    <dt>Toggle Hotkeys Hint</dt>
+    <dd class="combo-input flex g-25">
+        <kbd>Ctrl</kbd> +
+        <kbd>/</kbd>
+    </dd>
+</dl>
 
 <style lang="scss">
     dl {

@@ -45,9 +45,9 @@
     let searchQuery = "";
     let searchElement;
     let mapList;
-    let showMapList = false;
-    let showMarkers = false;
-    let showHotkeys = false;
+    let showMapList = true;
+    let showMarkers = true;
+    let showHotkeys = true;
 
     $: if (mapList) {
         if (showMapList) {
@@ -56,8 +56,6 @@
             mapList.close();
         }
     }
-
-    function handleClick() {}
 
     let keys = {};
 
@@ -88,7 +86,12 @@
 
 <svelte:window on:keydown={handleKeydown} on:keyup={handleKeyup} />
 
-<div class="map-controls grid g-50">
+<div
+    class="map-controls flex"
+    class:split-panels={(showMapList && showMarkers) ||
+        (showMarkers && showHotkeys) ||
+        (showMapList && showHotkeys)}
+>
     <menu class="flex g-50" role="list">
         <li>
             <input
@@ -98,7 +101,6 @@
                 aria-label="Search for a map"
                 bind:value={searchQuery}
                 bind:this={searchElement}
-                on:click|stopPropagation|preventDefault={handleClick}
             />
         </li>
         <li>
@@ -118,6 +120,7 @@
                 type="checkbox"
                 id="toggle-marker-list"
                 class="visually-hidden"
+                value="hey"
                 bind:checked={showMarkers}
             />
             <label class="flex box" for="toggle-marker-list">
@@ -139,8 +142,8 @@
             </label>
         </li>
     </menu>
-    <div class="control-panels grid g-50">
-        <!-- <ul class="search-results box" role="list">
+
+    <!-- <ul class="search-results box" role="list">
             {#each maps as map}
                 <li>
                     <a class="flex g-50" href={map.href}
@@ -150,35 +153,55 @@
                 </li>
             {/each}
         </ul> -->
-        {#if showHotkeys}
-            <HotkeysHint />
-        {/if}
-        {#if showMarkers}
+    {#if showMapList}
+        <div class="box">
+            <nav>
+                <ul>
+                    {#each mapsData as map}
+                        <li>
+                            <a href={`/map?zone=${map.map_id.split("_")[0]}`}
+                                >{map.name_en}</a
+                            >
+                        </li>
+                    {/each}
+                </ul>
+            </nav>
+        </div>
+    {/if}
+    {#if showMarkers}
+        <div class="box">
             <MarkersList {markers} />
-        {/if}
-        <!-- <dialog bind:this={mapList} transition:fly>
-            hi
-        </dialog> -->
-
-        {#if showMapList}
-        <nav class="box">
-            <ul>
-                {#each mapsData as map}
-                    <li>
-                        <a href={`/map?zone=${map.map_id.split("_")[0]}`}>{map.name_en}</a>
-                    </li>
-                {/each}
-            </ul>
-        </nav>
-        {/if}
-    </div>
+        </div>
+    {/if}
+    {#if showHotkeys}
+        <div class="box">
+            <HotkeysHint />
+        </div>
+    {/if}
+    <div class="flex" style="flex-direction: column; background: red;" />
 </div>
 
 <style lang="scss">
-    dialog {
-        &::backdrop {
-            background-color: rgba(0, 0, 0, 0.5);
+    .map-controls {
+        padding: 1rem;
+        position: absolute;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        height: 100%;
+        flex-direction: column;
+        gap: 1rem;
+
+        & > .box {
+            max-height: 100%;
+            // flex: 1;
+            max-height: fit-content;
+            overflow-y: scroll;
         }
+    }
+
+    .split-panels .box {
+        flex: 1;
     }
 
     .search {
@@ -186,11 +209,10 @@
         max-height: 44px;
     }
 
-    .search:focus-visible {
-        // box-shadow: none;
-        // border-bottom-right-radius: 0;
-        // border-bottom-left-radius: 0;
-        // outline: none !important;
+    :global(.map-controls h2) {
+        font-size: var(--step-0);
+        margin-block: -0rem 0.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .search:not(:focus-visible) + .search-results {
@@ -207,18 +229,6 @@
             align-items: center;
             border: none;
         }
-    }
-
-    .control-panels {
-        // max-width: 30ch;
-    }
-
-    .map-controls {
-        margin: 1rem;
-        position: absolute;
-        z-index: 420;
-        left: 0;
-        top: 0;
     }
 
     menu {

@@ -29,9 +29,9 @@ export const markersVisibility = writable({
     "Class Maker": true,
     "Weapon Shop": true,
     "Class Master": true,
-    "Class Quest": true,
-    "E Quest": true,
-    "Main Quest": true,
-    "Sub Quest": true,
-    "T Quest": true
+    "Class Quest": false,
+    "E Quest": false,
+    "Main Quest": false,
+    "Sub Quest": false,
+    "T Quest": false
 })
