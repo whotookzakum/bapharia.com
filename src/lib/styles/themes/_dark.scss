@@ -1,0 +1,34 @@
+$text1: hsl(220, 0%, 89%);
+$text2: hsl(220, 0%, 72%);
+$bg: hsl(220, 15%, 6%);
+$surface1: hsl(220, 17%, 10%);
+$surface2: hsl(220, 18%, 13%);
+$surface3: hsl(220, 19%, 15%);
+$surface-shadow: hsl(220, 25%, 4%);
+$accent: hsl(210, 60%, 50%);
+
+:root[color-scheme*="dark"] {
+    color-scheme: dark;
+    --text1: #{$text1};
+    --text2: #{$text2};
+    --bg: #{$bg};
+    --surface1: #{$surface1};
+    --surface2: #{$surface2};
+    --surface3: #{$surface3};
+    --surface-shadow: #{$surface-shadow};
+    --accent: #{$accent};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --text1: #{$text1};
+        --text2: #{$text2};
+        --bg: #{$bg};
+        --surface1: #{$surface1};
+        --surface2: #{$surface2};
+        --surface3: #{$surface3};
+        --surface-shadow: #{$surface-shadow};
+        --accent: #{$accent};
+    }
+}

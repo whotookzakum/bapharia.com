@@ -1,16 +1,17 @@
 <script>
-	export let title,
-		description,
-		image,
-		color = undefined;
+	import { page } from "$app/stores";
+	export let title, description = undefined;
+	export let color = "#ffffff"
+	export let image = "/favicon.png";
 </script>
 
 <svelte:head>
-	<title>{title} // BAPHARIA</title>
+	<title>{title}</title>
 	<meta name="description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content={`/${image}.png`} />
+	<meta property="og:image" content={image} />
 	<meta name="theme-color" content={color} />
+	<link rel="canonical" href={`https://bapharia.com${$page.url.pathname}`} />
     <!-- <meta name="twitter:card" content="summary_large_image" key="misc-card" /> -->
 </svelte:head>

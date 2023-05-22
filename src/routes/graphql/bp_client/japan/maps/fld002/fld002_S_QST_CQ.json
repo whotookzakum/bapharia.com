@@ -1,0 +1,1104 @@
+[
+  {
+    "Type": "BoxComponent",
+    "Name": "BoxComponent_0",
+    "Outer": "CQ105_005_step3",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "BoxExtent": {
+        "X": 300.0,
+        "Y": 500.0,
+        "Z": 1000.0
+      },
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel6",
+        "CollisionEnabled": "ECollisionEnabled::NoCollision",
+        "CollisionProfileName": "Custom",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBPlayerPawn",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        },
+        "MaxAngularVelocity": 3599.9998
+      },
+      "OnComponentBeginOverlap": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "SBEventPointDefault'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step3'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.6"
+            },
+            "FunctionName": "HandleSensorComponentBeginOverlapEvent"
+          }
+        ]
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step3.SceneComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.29"
+      }
+    }
+  },
+  {
+    "Type": "BP_FlavorTextActor_C",
+    "Name": "CQ105_004_step1_Npc_02",
+    "Outer": "PersistentLevel",
+    "Template": "Default__BP_FlavorTextActor_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Field/NoticeBorad/BP_FlavorTextActor.BP_FlavorTextActor_C'",
+    "Properties": {
+      "Sphere": {
+        "ObjectName": "StaticMeshComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02.Sphere'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.31"
+      },
+      "BP_FlavorTextComponent": {
+        "ObjectName": "BP_FlavorTextComponent_C'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02.BP_FlavorTextComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.2"
+      },
+      "TextTable": "FP_CQ105_004_step1_Npc_02",
+      "FlavorTextTriggers": [
+        {
+          "TextIds_4_6213498D4A88DFD2759615939408D3D7": [
+            25,
+            26,
+            27
+          ],
+          "EventTrigger_8_00BF61FF4871EDAC9C2FA8BE0232C13E": {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_EventTrigger_FlavorText'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Event/EventTrigger/DT_EventTrigger_FlavorText.0"
+            },
+            "RowName": "FP_CQ105_004_step0_Npc_02"
+          }
+        },
+        {
+          "TextIds_4_6213498D4A88DFD2759615939408D3D7": [
+            25,
+            26,
+            27
+          ],
+          "EventTrigger_8_00BF61FF4871EDAC9C2FA8BE0232C13E": {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_EventTrigger_FlavorText'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Event/EventTrigger/DT_EventTrigger_FlavorText.0"
+            },
+            "RowName": "FP_CQ105_004_step0_Npc_02_step1"
+          }
+        }
+      ],
+      "RootComponent": {
+        "ObjectName": "BP_FlavorTextComponent_C'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02.BP_FlavorTextComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.2"
+      },
+      "BlueprintCreatedComponents": [
+        {
+          "ObjectName": "BP_FlavorTextComponent_C'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02.BP_FlavorTextComponent'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.2"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02.Sphere'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.31"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_FlavorTextComponent_C",
+    "Name": "BP_FlavorTextComponent",
+    "Outer": "CQ105_004_step1_Npc_02",
+    "Template": "BP_FlavorTextComponent_GEN_VARIABLE",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Field/NoticeBorad/BP_FlavorTextComponent.BP_FlavorTextComponent_C'",
+    "Properties": {
+      "TextTable": "FP_CQ105_004_step1_Npc_02",
+      "DefaultTextId": [],
+      "FlavorTextTriggers": [
+        {
+          "TextIds_4_6213498D4A88DFD2759615939408D3D7": [
+            25,
+            26,
+            27
+          ],
+          "EventTrigger_8_00BF61FF4871EDAC9C2FA8BE0232C13E": {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_EventTrigger_FlavorText'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Event/EventTrigger/DT_EventTrigger_FlavorText.0"
+            },
+            "RowName": "FP_CQ105_004_step0_Npc_02"
+          }
+        },
+        {
+          "TextIds_4_6213498D4A88DFD2759615939408D3D7": [
+            25,
+            26,
+            27
+          ],
+          "EventTrigger_8_00BF61FF4871EDAC9C2FA8BE0232C13E": {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_EventTrigger_FlavorText'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Event/EventTrigger/DT_EventTrigger_FlavorText.0"
+            },
+            "RowName": "FP_CQ105_004_step0_Npc_02_step1"
+          }
+        }
+      ],
+      "RelativeLocation": {
+        "X": -20480.0,
+        "Y": -44720.0,
+        "Z": 3950.0
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript",
+      "UCSModifiedProperties": [
+        {
+          "MemberParent": {
+            "ObjectName": "BlueprintGeneratedClass'BP_FlavorTextComponent_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/NoticeBorad/BP_FlavorTextComponent.17"
+          },
+          "MemberName": "TextTable",
+          "MemberGuid": "3C8CC9B4-4E6E0576-1E045399-AC46755B"
+        },
+        {
+          "MemberParent": {
+            "ObjectName": "BlueprintGeneratedClass'BP_FlavorTextComponent_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/NoticeBorad/BP_FlavorTextComponent.17"
+          },
+          "MemberName": "DefaultTextId",
+          "MemberGuid": "FCFD1ECF-4F3FDD6E-2839C796-C9A98D78"
+        },
+        {
+          "MemberParent": {
+            "ObjectName": "BlueprintGeneratedClass'BP_FlavorTextComponent_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/NoticeBorad/BP_FlavorTextComponent.17"
+          },
+          "MemberName": "FlavorTextTriggers",
+          "MemberGuid": "C698868D-47A853C0-AB2A75B3-82C126BB"
+        },
+        {
+          "MemberParent": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "MemberName": "RelativeLocation",
+          "MemberGuid": "00000000-00000000-00000000-00000000"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BP_InteractableEventPoint_C",
+    "Name": "CQ105_004_step0_Npc_02",
+    "Outer": "PersistentLevel",
+    "Template": "Default__BP_InteractableEventPoint_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Event/BP_InteractableEventPoint.BP_InteractableEventPoint_C'",
+    "Properties": {
+      "EventIcon": {
+        "ObjectName": "SBWidgetComponent2DNoOSR'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.EventIcon'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.18"
+      },
+      "StaticMesh": {
+        "ObjectName": "StaticMeshComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.StaticMesh'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.30"
+      },
+      "SBInteractionTarget": {
+        "ObjectName": "SBInteractionTargetComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.SBInteractionTarget'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.8"
+      },
+      "DefaultSceneRoot": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.24"
+      },
+      "EventTriggers": [
+        {
+          "QuestId_2_8C360ACA4929E622F60C01A4FD6482DE": "CQ105_004",
+          "EventTrigger_5_625E1E1248DBC6A41BCC23B2C8FAD84F": {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_EventTrigger_Class'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Event/EventTrigger/DT_EventTrigger_Class.0"
+            },
+            "RowName": "CQ105_004_step0_02"
+          }
+        }
+      ],
+      "bReplicates": true,
+      "NetDormancy": "DORM_Initial",
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.24"
+      },
+      "InstanceComponents": [
+        {
+          "ObjectName": "SBFieldStatusComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.SBFieldStatus'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.7"
+        }
+      ],
+      "BlueprintCreatedComponents": [
+        {
+          "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.DefaultSceneRoot'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.24"
+        },
+        {
+          "ObjectName": "SBInteractionTargetComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.SBInteractionTarget'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.8"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.StaticMesh'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.30"
+        },
+        {
+          "ObjectName": "SBWidgetComponent2DNoOSR'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.EventIcon'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.18"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "Level",
+    "Name": "PersistentLevel",
+    "Outer": "fld002_S_QST_CQ",
+    "Class": "UScriptClass'Level'",
+    "Properties": {
+      "Model": {
+        "ObjectName": "Model'fld002_S_QST_CQ:PersistentLevel.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.5"
+      },
+      "LevelBuildDataId": "FACE5C7F-466F90A5-D2CFC2B8-1C2B256D",
+      "WorldSettings": {
+        "ObjectName": "SBWorldSettings'fld002_S_QST_CQ:PersistentLevel.SBWorldSettings'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.19"
+      }
+    },
+    "Actors": [
+      {
+        "ObjectName": "SBWorldSettings'fld002_S_QST_CQ:PersistentLevel.SBWorldSettings'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.19"
+      },
+      null,
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ101_003_step1_Npc'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.10"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ104_003_step1_Npc_Sarah'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.12"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_Maschietta'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.14"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_01'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.13"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step0_Npc_01'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.15"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step0_Npc_02'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.16"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ101_003_step2_EX_Npc_Koz'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.11"
+      },
+      {
+        "ObjectName": "BP_InteractableEventPoint_C'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.3"
+      },
+      {
+        "ObjectName": "SBNpcSpawnPoint'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step2_Npc_Maschietta'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.17"
+      },
+      {
+        "ObjectName": "SBEventPointDefault'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.6"
+      },
+      {
+        "ObjectName": "BP_FlavorTextActor_C'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.1"
+      }
+    ],
+    "URL": {
+      "Protocol": "unreal",
+      "Host": "",
+      "Port": 7777,
+      "Valid": true,
+      "Map": "/Game/Maps/TitleMap",
+      "Op": [],
+      "Portal": ""
+    },
+    "Model": {
+      "ObjectName": "Model'fld002_S_QST_CQ:PersistentLevel.Model_0'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.5"
+    },
+    "ModelComponents": [],
+    "LevelScriptActor": null,
+    "NavListStart": null,
+    "NavListEnd": null,
+    "PrecomputedVisibilityHandler": {
+      "PrecomputedVisibilityCellBucketOriginXY": {
+        "X": 0.0,
+        "Y": 0.0
+      },
+      "PrecomputedVisibilityCellSizeXY": 0.0,
+      "PrecomputedVisibilityCellSizeZ": 0.0,
+      "PrecomputedVisibilityCellBucketSizeXY": 0,
+      "PrecomputedVisibilityNumCellBuckets": 0,
+      "PrecomputedVisibilityCellBuckets": []
+    },
+    "PrecomputedVolumeDistanceField": {
+      "VolumeMaxDistance": 0.0,
+      "VolumeBox": {
+        "Min": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Max": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "IsValid": 0
+      },
+      "VolumeSizeX": 0,
+      "VolumeSizeY": 0,
+      "VolumeSizeZ": 0,
+      "Data": []
+    }
+  },
+  {
+    "Type": "Model",
+    "Name": "Model_0",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'Model'",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "SphereRadius": 0.0
+    },
+    "Vectors": [],
+    "Points": [],
+    "Nodes": [],
+    "Surfs": [],
+    "NumSharedSides": 4,
+    "VertexBuffer": {
+      "Vertices": []
+    },
+    "LightingGuid": "37325DEE-4716D1A7-64EA52B4-E564F05F",
+    "LightmassSettings": []
+  },
+  {
+    "Type": "SBEventPointDefault",
+    "Name": "CQ105_005_step3",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBEventPointDefault'",
+    "Properties": {
+      "Events": [
+        "CQ105_005_step3"
+      ],
+      "QuestId": "CQ105_005",
+      "SensorComponent": {
+        "ObjectName": "BoxComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step3.BoxComponent_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.0"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step3.SceneComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.29"
+      }
+    }
+  },
+  {
+    "Type": "SBFieldStatusComponent",
+    "Name": "SBFieldStatus",
+    "Outer": "CQ105_004_step0_Npc_02",
+    "Class": "UScriptClass'SBFieldStatusComponent'",
+    "Properties": {
+      "Fixed": false,
+      "Status": "EFieldStatus::Unavailable",
+      "StatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ105_004_step0_Npc_02"
+      },
+      "CreationMethod": "EComponentCreationMethod::Instance"
+    }
+  },
+  {
+    "Type": "SBInteractionTargetComponent",
+    "Name": "SBInteractionTarget",
+    "Outer": "CQ105_004_step0_Npc_02",
+    "Template": "SBInteractionTarget_GEN_VARIABLE",
+    "Class": "UScriptClass'SBInteractionTargetComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.24"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "SBNavigationSystemConfig",
+    "Name": "SBNavigationSystemConfig_0",
+    "Outer": "SBWorldSettings",
+    "Class": "UScriptClass'SBNavigationSystemConfig'",
+    "Properties": {
+      "bCreateOnClient": true,
+      "bAutoSpawnMissingNavData": true
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ101_003_step1_Npc",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ101_003_step1_Npc",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/Ver1_00/MobNpc/CCD_Npc_R01_M400_fff_00.CCD_Npc_R01_M400_fff_00",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Common/NM40/AST_NM40_NPC_EXT.AST_NM40_NPC_EXT",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ101_003_step1",
+          "CQ101_003_done"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ101_003_step1_Npc"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ101_003_step1_Npc.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.20"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ101_003_step2_EX_Npc_Koz",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/NamedNpc/CCD_Npc_Koz.CCD_Npc_Koz",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Common/NM20/AST_NM20_NPC_EXT.AST_NM20_NPC_EXT",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ101_003_step2_EX"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ101_003_step2_EX_Npc_Koz"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ101_003_step2_EX_Npc_Koz.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.21"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ104_003_step1_Npc_Sarah",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ104_003_step1_Npc_Sarah",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/NamedNpc/CCD_Npc_Sarah.CCD_Npc_Sarah",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Quest/ClassMaster/AST_ClassMaster_NPC.AST_ClassMaster_NPC",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ104_003_step1",
+          "CQ104_003_done_EX"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ104_003_step1_Npc_Sarah"
+      },
+      "Animation": "wait00",
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ104_003_step1_Npc_Sarah.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.22"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ105_004_step0_Npc_01",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ105_004_step0_Npc_01",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/Ver1_00/MobNpc/CCD_Npc_R01_M200_fff_02.CCD_Npc_R01_M200_fff_02",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Common/NM20/AST_NM20_NPC_EXT.AST_NM20_NPC_EXT",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ105_004_step0_01",
+          "CQ105_004_step1_01"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ105_004_step0_Npc_01"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_01.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.23"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ105_004_step1_Npc_Maschietta",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ105_004_step1_Npc_Maschietta",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/NamedNpc/CCD_Npc_Maschietta.CCD_Npc_Maschietta",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Quest/TwinStriker/AST_TwinStriker.AST_TwinStriker",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ105_004_step1",
+          "CQ105_004_step2_EX",
+          "CQ105_004_done",
+          "CQ105_005_step1",
+          "CQ105_005_step2_EX",
+          "CQ105_005_done"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ105_004_step1_Npc_Maschietta"
+      },
+      "Animation": "wait00",
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_Maschietta.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.25"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ105_005_step0_Npc_01",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ105_005_step0_Npc_01",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/Ver1_00/MobNpc/CCD_Npc_R01_M200_grd_01.CCD_Npc_R01_M200_grd_01",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Quest/Gatekeeper_Left/AST_Gatekeeper_Left.AST_Gatekeeper_Left",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ105_005_step0_01",
+          "CQ105_005_step1_01"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ105_005_step0_Npc_01"
+      },
+      "Animation": "Wait00",
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step0_Npc_01.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.26"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ105_005_step0_Npc_02",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ105_005_step0_Npc_02",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/Ver1_00/MobNpc/CCD_Npc_R01_F200_fff_01.CCD_Npc_R01_F200_fff_01",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Common/NF20/AST_NF20_NPC_EXT.AST_NF20_NPC_EXT",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ105_005_step0_02",
+          "CQ105_005_step1_02"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ105_005_step0_Npc_02"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step0_Npc_02.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.27"
+      }
+    }
+  },
+  {
+    "Type": "SBNpcSpawnPoint",
+    "Name": "CQ105_005_step2_Npc_Maschietta",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBNpcSpawnPoint'",
+    "Properties": {
+      "ProfileDataId": "CQ105_005_step2_Npc_Maschietta",
+      "SpawnPriority": "ESBNpcSpawnPriority::High",
+      "SpawnSettings": {
+        "CharacterType": "ESBNpcSpawnPointCharacterType::CharaCreate",
+        "CharaCreate": {
+          "CharaCreateData": {
+            "AssetPathName": "/Game/Character/CreateData/TalkNpc/NamedNpc/CCD_Npc_Maschietta.CCD_Npc_Maschietta",
+            "SubPathString": ""
+          },
+          "AnimationSet": {
+            "AssetPathName": "/Game/Animations/NPC/Quest/TwinStriker/AST_TwinStriker.AST_TwinStriker",
+            "SubPathString": ""
+          }
+        }
+      },
+      "ScriptInfo": {
+        "MainTriggers": [
+          "CQ105_005_step2",
+          "CQ105_005_done_EX"
+        ]
+      },
+      "FieldStatusSettingHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'DT_FieldStatus_Class'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/FieldStatus/DT_FieldStatus_Class.0"
+        },
+        "RowName": "CQ105_005_step2_Npc_Maschietta"
+      },
+      "Animation": "wait00",
+      "RootComponent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_005_step2_Npc_Maschietta.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.28"
+      }
+    }
+  },
+  {
+    "Type": "SBWidgetComponent2DNoOSR",
+    "Name": "EventIcon",
+    "Outer": "CQ105_004_step0_Npc_02",
+    "Template": "EventIcon_GEN_VARIABLE",
+    "Class": "UScriptClass'SBWidgetComponent2DNoOSR'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.24"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "SBWorldSettings",
+    "Name": "SBWorldSettings",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBWorldSettings'",
+    "Properties": {
+      "NavigationSystemConfig": {
+        "ObjectName": "SBNavigationSystemConfig'fld002_S_QST_CQ:PersistentLevel.SBWorldSettings.SBNavigationSystemConfig_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.9"
+      },
+      "BookmarkArray": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ101_003_step1_Npc",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -20320.0,
+        "Y": -52070.0,
+        "Z": 4760.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 30.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ101_003_step2_EX_Npc_Koz",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -20255.0,
+        "Y": -52192.0,
+        "Z": 4762.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 30.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ104_003_step1_Npc_Sarah",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -22600.0,
+        "Y": -44800.0,
+        "Z": 3985.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -70.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ105_004_step0_Npc_01",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -24200.0,
+        "Y": -54500.0,
+        "Z": 5535.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -150.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot",
+    "Outer": "CQ105_004_step0_Npc_02",
+    "Template": "DefaultSceneRoot_GEN_VARIABLE",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -20480.0,
+        "Y": -44720.0,
+        "Z": 3835.0
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript",
+      "UCSModifiedProperties": [
+        {
+          "MemberParent": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "MemberName": "RelativeLocation",
+          "MemberGuid": "00000000-00000000-00000000-00000000"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ105_004_step1_Npc_Maschietta",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -18860.0,
+        "Y": -60210.0,
+        "Z": 5990.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 180.00006,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ105_005_step0_Npc_01",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -22590.0,
+        "Y": -50670.0,
+        "Z": 4540.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -20.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ105_005_step0_Npc_02",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -26100.0,
+        "Y": -53300.0,
+        "Z": 5445.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 70.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "CQ105_005_step2_Npc_Maschietta",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -82600.0,
+        "Y": -50100.0,
+        "Z": -620.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 180.00006,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent",
+    "Outer": "CQ105_005_step3",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -83270.0,
+        "Y": -50531.0,
+        "Z": -448.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 35.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMesh",
+    "Outer": "CQ105_004_step0_Npc_02",
+    "Template": "StaticMesh_GEN_VARIABLE",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": null,
+      "OverrideMaterials": [],
+      "AttachParent": {
+        "ObjectName": "SceneComponent'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step0_Npc_02.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.24"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "Sphere",
+    "Outer": "CQ105_004_step1_Npc_02",
+    "Template": "Sphere_GEN_VARIABLE",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "BodyInstance": {
+        "MaxAngularVelocity": 3599.9998
+      },
+      "AttachParent": {
+        "ObjectName": "BP_FlavorTextComponent_C'fld002_S_QST_CQ:PersistentLevel.CQ105_004_step1_Npc_02.BP_FlavorTextComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.2"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "World",
+    "Name": "fld002_S_QST_CQ",
+    "Class": "UScriptClass'World'",
+    "PersistentLevel": {
+      "ObjectName": "Level'fld002_S_QST_CQ:PersistentLevel'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld002/sublevel/fld002_S_QST_CQ.4"
+    },
+    "ExtraReferencedObjects": [],
+    "StreamingLevels": []
+  }
+]

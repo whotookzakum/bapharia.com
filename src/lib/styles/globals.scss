@@ -1,11 +1,12 @@
-@use './colors' as *;
-@use './typography' as *;
-@use './variables' as *;
+@import './colors';
+@import './typography';
+@import './variables';
 
 html {
     background-color: var(--bg);
     scroll-padding-top: var(--space-l); // For Article anchor links
-    color-scheme: dark;
+    scroll-timeline: scroll-tracker-timeline block;
+    // scroll-behavior: smooth;
 }
 
 body {
@@ -25,12 +26,16 @@ hr {
     background-color: var(--surface3);
 }
 
-.box {
+.box, .sns-tag {
     background: var(--surface1);
     border-radius: 5px;
+    box-shadow: 0 2px 4px var(--surface-shadow);
+}
+
+.box {
     border: 1px solid transparent;
     border: 1px solid var(--surface2);
-    box-shadow: 0 2px 4px var(--surface-shadow);
+    
     padding: 1rem;
     overflow: hidden;
 
@@ -64,31 +69,9 @@ label:has(input.visually-hidden:focus-visible) {
     outline: 2px solid var(--accent);
 }
 
-.leaflet-marker-icon {
-    width: 42px !important;
-    height: 42px !important;
-    object-fit: none;
-    cursor: inherit !important;
-}
-
-.leaflet-control-attribution {
-    display: none;
-}
-
-.map-zone-label {
-    background: unset !important;
-    font-family: "Skip Std";
-    color: #f2e0c1 !important;
-    border-color: transparent !important;
-    font-size: 1rem !important;
-    // text-shadow: 0 0px 3px var(--surface-shadow);
-    box-shadow: unset !important;
-    margin: 0 !important;
-
-    &::before {
-        content: unset !important;
-        border: unset !important;
-    }
+input.visually-hidden[type="checkbox"]:focus-visible + label,
+input.visually-hidden[type="radio"]:focus-visible + label {
+    outline: 2px solid var(--accent);
 }
 
 .iconify {
@@ -255,4 +238,65 @@ input[type="number"] {
 
 .Gesture {
     --h: 300;
+}
+
+.sns-tag {
+    padding: 0.25rem 0.4rem;
+    white-space: nowrap;
+    line-height: 2.1;
+    background: var(--surface2);
+    border: 1px solid var(--surface3);
+
+    &:hover,
+    &:focus-visible {
+        background: var(--surface2);
+    }
+}
+
+.skip-std {
+    font-size: var(--step-1);
+}
+
+.kofi {
+    color: white;
+}
+
+.patreon {
+    color: #ff424d;
+}
+
+.youtube, .youtube:hover {
+    color: #ea3223;
+}
+
+.twitch, .twitch:hover {
+    color: #9146ff;
+}
+
+.discord {
+    color: #5865f2;
+}
+
+.paypal {
+    color: #009cde;
+}
+
+.kofi {
+    position: relative;
+
+    &::before {
+        content: "";
+        z-index: 1;
+        top: 10px;
+        left: 8px;
+        width: 11px;
+        height: 9px;
+        position: absolute;
+        background: #ff5e5b;
+    }
+}
+
+.kofi svg {
+    position: relative;
+    z-index: 2;
 }
