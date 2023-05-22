@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import adapter from '@sveltejs/adapter-cloudflare';
+=======
+import adapter from '@sveltejs/adapter-static';
+>>>>>>> bcbc495587ac3ffd2872f9134abda2b4d0098f42
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex } from 'mdsvex';
 import path from 'path'
@@ -12,7 +16,11 @@ const config = {
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
+<<<<<<< HEAD
 			extensions: ['.md', '.mdx', '.svx'],
+=======
+			extensions: ['.md'],
+>>>>>>> bcbc495587ac3ffd2872f9134abda2b4d0098f42
 			rehypePlugins: [
 				rehypeSlug,
 				[

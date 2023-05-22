@@ -1,9 +1,17 @@
 <script>
+<<<<<<< HEAD
 	import "$lib/styles/globals.scss";
 	import { page } from "$app/stores";
 </script>
 
 <div class="wrapper">
+=======
+	import '../lib/styles/globals.scss';
+	import { page } from '$app/stores';
+</script>
+
+<main>
+>>>>>>> bcbc495587ac3ffd2872f9134abda2b4d0098f42
 	<h1>{$page.status}</h1>
 	{#if $page.status === 404}
 		<span>The requested page could not be found.</span>
@@ -16,7 +24,11 @@
 			>.
 		</p>
 	{/if}
+<<<<<<< HEAD
 </div>
+=======
+</main>
+>>>>>>> bcbc495587ac3ffd2872f9134abda2b4d0098f42
 
 <style>
 	.wrapper {
