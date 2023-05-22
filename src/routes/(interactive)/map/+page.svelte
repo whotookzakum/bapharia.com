@@ -23,7 +23,7 @@
 
     let leafletMap;
     export let data;
-    $: zone = data.zone;
+    $: zone = data.zone.default;
 
     const bounds = [
         [0, 0],
@@ -34,8 +34,8 @@
         crs: browser ? L.CRS.Simple : null,
         center: [bounds[1][0] / 2, bounds[1][1] / 2],
         zoom: 0,
-        minZoom: -1,
-        maxZoom: 3,
+        minZoom: -2, // -1
+        maxZoom: 3, // 3
         maxBounds: bounds,
         maxBoundsViscosity: 1.0,
     };
@@ -65,7 +65,7 @@
             keepFocus: true,
         });
     }
-    
+
     // if zone changes, then currentMarkerId gets reset to null to avoid opening markers of the same ID on different zones
     $: {
         let zoneFromUrl = $page.url.searchParams.get("zone");
@@ -91,16 +91,38 @@
             markerIdFromUrl &&
             zone.markers.some((marker) => marker.id === markerIdFromUrl)
         ) {
-            allMarkers[markerIdFromUrl].getMarker().openPopup();
+            allMarkers[markerIdFromUrl]?.getMarker().openPopup();
         }
         // Persist open marker while switching routes
         else if (
             markerIdFromStore &&
             zone.markers.some((marker) => marker.id === markerIdFromStore)
         ) {
-            allMarkers[markerIdFromStore].getMarker().openPopup();
+            allMarkers[markerIdFromStore]?.getMarker().openPopup();
         }
     });
+
+    function convertCoords(coords) {
+        switch (zone.id) {
+            case "Cty001":
+                return [-coords[1] / 70 + 586.5, coords[0] / 70 + 1210.5];
+            case "Cty002":
+                return [
+                    (-coords[1] / 21.3 + 1185) / 2,
+                    (coords[0] / 21.4 + 1735) / 2,
+                ];
+            case "Fld001":
+                return [
+                    (-coords[1] / 70 + 10) / 2,
+                    (coords[0] / 69.5 + 2610) / 2,
+                ];
+            case "Fld002":
+                return [
+                    (-coords[1] / 37 - 700) / 2,
+                    (coords[0] / 37 + 2680) / 2,
+                ];
+        }
+    }
 </script>
 
 <MetaTags
@@ -114,11 +136,7 @@
 
 {#if browser}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
-    <h1>
-        {zone.name[$userLocale]}
-        {$mapState.currentMarkerId}
-        {$mapState.currentMapId}
-    </h1>
+    <h1>{zone.name[$userLocale]}</h1>
     <MapControls markers={zone.markers} />
     <LeafletMap bind:this={leafletMap} options={mapOptions}>
         <ImageOverlay
@@ -129,10 +147,7 @@
         {#each zone.markers as marker}
             {#if $markersVisibility[marker.name.en_US]}
                 <Marker
-                    latLng={[
-                        -marker.coords[1] / 70 + 586.5,
-                        marker.coords[0] / 70 + 1210.5,
-                    ]}
+                    latLng={convertCoords(marker.coords)}
                     events={["popupopen", "popupclose"]}
                     on:popupopen={() => handlePopupOpen(marker.id)}
                     on:popupclose={() => handlePopupClose(marker.id)}

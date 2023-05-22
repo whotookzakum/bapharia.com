@@ -150,6 +150,43 @@ function getName(id) {
         }
     }
 
+    // Past cty01
+
+    if (id.includes("Mineral")) {
+        return {
+            ja_JP: "鉱石",
+            en_US: "Mineral"
+        }
+    }
+
+    if (id.includes("Plant")) {
+        return {
+            ja_JP: "植物",
+            en_US: "Plant"
+        }
+    }
+
+    if (id.includes("Aquatic")) {
+        return {
+            ja_JP: "水棲",
+            en_US: "Aquatic"
+        }
+    }
+
+    if (id.includes("FreeBuff")) {
+        return {
+            ja_JP: "Chef",
+            en_US: "Chef"
+        }
+    }
+
+    if (id.includes("Nappo")) {
+        return {
+            ja_JP: "ナッポ",
+            en_US: "Nappo"
+        }
+    }
+
 
     return {
         ja_JP: "-",
@@ -177,7 +214,9 @@ function getCategory(id) {
         id.includes("WarpPoint") ||
         id.includes("CraftMachine") || 
         id.includes("Murrie") ||
-        id.includes("SynthesisShop")
+        id.includes("SynthesisShop") ||
+        id.includes("FreeBuff") ||
+        id.includes("Nappo")
     ) {
         return "general"
     }
@@ -190,10 +229,19 @@ function getCategory(id) {
     ) {
         return "quest"
     }
+    else if (id.includes("Mineral")) {
+        return "mineral"
+    }
+    else if (id.includes("Plant")) {
+        return "plant"
+    }
+    else if (id.includes("Aquatic")) {
+        return "aquatic"
+    }
 }
 
 export const GET = async () => {
-    const allDataFiles = import.meta.glob('../../graphql/bp_client/japan/maps/cty01/*.json')
+    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld002/*.json`)
     const iterableDataFiles = Object.values(allDataFiles)
 
     const allData = await Promise.all(
@@ -291,6 +339,12 @@ export const GET = async () => {
             return
         }
 
+        if (id.includes("FreeBuffNpcSpawn")) {
+            return
+        }
+
+        // Quests can be refactored to includes CQ MQ SQ EQ TQ and !includes "start"
+
         const name = getName(id)
         const iconUrl = iconUrls[name.ja_JP]
         const coords = [
@@ -306,7 +360,9 @@ export const GET = async () => {
             category,
             name,
             iconUrl,
-            coords
+            coords,
+            // TreasureBoxId: point.Properties.TreasureBoxId, // not scene component
+            // TreasureBoxTag: point.Properties.TreasureBoxTag // not scene component
         }
     }).filter(point => point) // use .reduce instead?
 
