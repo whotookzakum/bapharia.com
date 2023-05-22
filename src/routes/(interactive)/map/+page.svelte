@@ -112,7 +112,7 @@
     <h1 class="visually-hidden">World Map</h1>
 {/if}
 
-{#if browser && zone}
+{#if browser}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
     <h1>
         {zone.name[$userLocale]}
