@@ -53,9 +53,13 @@
 
 <MetaTags title={`About — Bapharia`} description={`About Bapharia. Site credits and links to referenced material.`} />
 
-<input type="checkbox" bind:checked={playAnimation} />
+<h1>By Zakum</h1>
+<p>BLUE PROTOCOL is a trademark of BANDAI NAMCO ONLINE INC. & BANDAI
+    NAMCO STUDIOS INC.</p>
 
-<div class="outro-wrapper" class:unfold={playAnimation}>
+<input type="checkbox" bind:checked={playAnimation} style:display="none" />
+
+<div class="outro-wrapper" class:unfold={playAnimation} style:display="none">
     <div id="a-letter" class="box">
         <h2>Hey there!</h2>
         <p>

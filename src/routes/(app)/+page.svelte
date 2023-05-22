@@ -1,5 +1,6 @@
 <script>
 	import MetaTags from "$lib/components/MetaTags.svelte";
+    import StickyNote from "$lib/components/StickyNote.svelte";
 	import Partners from "./Partners.svelte";
 </script>
 
@@ -12,6 +13,10 @@
 	<h1>Bapharia</h1>
 	<strong>The premier information hub for BLUE PROTOCOL.</strong>
 </header>
+
+<StickyNote type="caution">
+	Under construction. Things may break/change.
+</StickyNote>
 
 <section>
 	<Partners />

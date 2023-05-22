@@ -44,7 +44,7 @@
 		<TimeInJapan {isExpanded} />
 		<hr />
 		<div class="links">
-			{#each links as link}
+			<!-- {#each links as link}
 				<a
 					href={link.href}
 					class="link"
@@ -59,7 +59,22 @@
 						>{link.name}</span
 					>
 				</a>
-			{/each}
+			{/each} -->
+			
+			<a
+				href={links[1].href}
+				class="link"
+				class:active={$page.url.pathname === links[1].href}
+			>
+				<span
+					class="icon"
+					style={`mask: url(${links[1].imgSrc}) no-repeat center / contain;
+					-webkit-mask: url(${links[1].imgSrc}) no-repeat center / contain;`}
+				/>
+				<span class="visually-hidden show-when-expanded"
+					>{links[1].name}</span
+				>
+			</a>
 		</div>
 		<hr />
 		<details bind:open={detailsOpen}>
