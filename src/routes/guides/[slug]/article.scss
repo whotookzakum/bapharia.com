@@ -19,24 +19,25 @@ article.guide {
     position: relative;
     // font-family: system-ui, sans-serif;
 
-    // Backdrop on header and article body
     &::before,
     &::after {
         content: '';
         position: absolute;
     }
 
-    &::after {
-        inset: var(--header-height) 0 0 0;
-        z-index: -1;
-        background: var(--bg);
-    }
-
+    // Header backdrop
     &::before {
         background: rgba(17, 17, 17, 0.8);
         inset: 0;
         z-index: 1;
         height: var(--header-height);
+    }
+
+    // Body backdrop
+    &::after {
+        inset: var(--header-height) 0 0 0;
+        z-index: -1;
+        background: var(--bg);
     }
 
     &>* {
@@ -184,6 +185,10 @@ aside {
 }
 
 @media (max-width: 850px) {
+    .layout {
+        grid-template-columns: 1fr !important;
+    }
+
     .navbar {
         display: none;
     }

@@ -2,139 +2,11 @@
     import _ from "lodash";
     import { userLocale, markersVisibility } from "$lib/stores";
 
-    // const markers = [
-    //     {
-    //         name: "空間転送ポータル",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_12.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "ダンジョン入り口",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_14.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "ネームドエネミー",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_04.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "武器屋",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_07.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "道具屋",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_09.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "転球練成儀",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_19.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     // {
-    //     //     name: "交換所",
-    //     //     imgSrc: "/UI/Icon/Map/UI_Map_20.png",
-    //     //     group: "general",
-    //     //     category: "general",
-    //     // },
-    //     {
-    //         name: "倉庫",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_40.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "クラスマスター",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_65.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "武器改造師",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_67.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "イマジン研究所",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_71.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "リキッドメモリースタンド",
-    //         imgSrc: "/UI/Icon/Map/UI_Map_72.png",
-    //         group: "general",
-    //         category: "general",
-    //     },
-    //     {
-    //         name: "鉱石系素材",
-    //         imgSrc: "/UI/Icon/Gather/UI_IconGatherMineral.png",
-    //         group: "mineral",
-    //         category: "resources",
-    //     },
-    //     {
-    //         name: "植物系素材",
-    //         imgSrc: "/UI/Icon/Gather/UI_IconGatherPlant.png",
-    //         group: "plant",
-    //         category: "resources",
-    //     },
-    //     {
-    //         name: "水産物系素材",
-    //         imgSrc: "/UI/Icon/Gather/UI_IconGatherAquatic.png",
-    //         group: "aquatic",
-    //         category: "resources",
-    //     },
-    //     {
-    //         name: "リキッドメモリー",
-    //         imgSrc: "",
-    //         group: "resource",
-    //         category: "resources",
-    //     },
-    // ];
-
     export let markers;
-
-    const tabs = [
-        {
-            name: "General",
-            category: "general",
-            id: "tab-general",
-        },
-        {
-            name: "Enemies",
-            category: "enemies",
-            id: "tab-enemies",
-        },
-        {
-            name: "Resources",
-            category: "resources",
-            id: "tab-resources",
-        },
-        {
-            name: "Quests",
-            category: "quests",
-            id: "tab-quests",
-        },
-        {
-            name: "Liquid Memories",
-            category: "liquidMemories",
-            id: "tab-memories",
-        },
-    ];
-
     let selectedTab = "general";
 
     // Get all categories unique to this map
-    const uniqueCategories = _.uniqBy(markers, (m) => m.category)
+    $: uniqueCategories = _.uniqBy(markers, (m) => m.category)
         .map((m) => m.category)
         .sort((a, b) => {
             if (a > b) return 1;
@@ -191,8 +63,14 @@
                 id="marker-{index}"
                 bind:checked={$markersVisibility[marker.name.en_US]}
             />
-            <label class="marker-toggle grid" for="marker-{index}">
-                <img src={marker.iconUrl} alt="" width="64" height="64" />
+            <label class="selection-box" for="marker-{index}">
+                <img
+                    class="marker-icon"
+                    src={marker.iconUrl}
+                    alt=""
+                    width="64"
+                    height="64"
+                />
                 <span>{marker.name[$userLocale]}</span>
             </label>
         </li>
@@ -206,43 +84,13 @@
         margin: 0;
         grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
         max-inline-size: unset;
-        font-size: var(--step--1);
-        text-align: center;
-
-        li {
-            line-height: 1.4;
-        }
     }
 
-    label.marker-toggle {
-        border-radius: 5px;
-        background: var(--surface2);
-        place-items: center;
-        padding: 0.5rem;
-        gap: 0;
-
-        img {
-            $icon-size: 64px;
-            $icon-size-clipped: 48px;
-            $margin-offset: calc(($icon-size - $icon-size-clipped) / 2);
-            width: $icon-size-clipped !important;
-            height: $icon-size-clipped !important;
-            object-fit: none;
-            object-position: 50%;
-            cursor: inherit !important;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
-        }
-
-        span {
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        &:hover,
-        &:focus-within {
-            background: var(--surface3);
-        }
+    label.selection-box span {
+        line-height: 1.4;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .style-next-label:not(:checked) + label {

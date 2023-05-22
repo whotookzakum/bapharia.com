@@ -3,51 +3,16 @@
     import Icon from "@iconify/svelte";
     import MarkersList from "./MarkersList.svelte";
     import HotkeysHint from "./HotkeysHint.svelte";
-    import mapsData from "./maps.json";
+    import MapsList from "./MapsList.svelte";
 
     export let markers;
-
-    const maps = [
-        {
-            name: {
-                ja_JP: "交易都市アステルリーズ",
-                en_US: "Asterliese",
-            },
-            icon: "mdi:map-marker",
-            href: "/map?zone=Cty001",
-        },
-        {
-            name: {
-                ja_JP: "アステリア平原",
-                en_US: "Asteria Plain",
-            },
-            icon: "mdi:map-marker",
-            href: "/map?zone=Fld001",
-        },
-        {
-            name: {
-                ja_JP: "バハマール高原",
-                en_US: "Bahamar Highlands",
-            },
-            icon: "mdi:map-marker",
-            href: "/map?zone=Fld002",
-        },
-        {
-            name: {
-                ja_JP: "test",
-                en_US: "Salamzahd Oasis",
-            },
-            icon: "mdi:map-marker",
-            href: "/map?zone=Cty002",
-        },
-    ];
 
     let searchQuery = "";
     let searchElement;
     let mapList;
     let showMapList = true;
-    let showMarkers = true;
-    let showHotkeys = true;
+    let showMarkers = false;
+    let showHotkeys = false;
 
     $: if (mapList) {
         if (showMapList) {
@@ -86,12 +51,7 @@
 
 <svelte:window on:keydown={handleKeydown} on:keyup={handleKeyup} />
 
-<div
-    class="map-controls flex"
-    class:split-panels={(showMapList && showMarkers) ||
-        (showMarkers && showHotkeys) ||
-        (showMapList && showHotkeys)}
->
+<div class="map-controls grid">
     <menu class="flex g-50" role="list">
         <li>
             <input
@@ -155,17 +115,7 @@
         </ul> -->
     {#if showMapList}
         <div class="box">
-            <nav>
-                <ul>
-                    {#each mapsData as map}
-                        <li>
-                            <a href={`/map?zone=${map.map_id.split("_")[0]}`}
-                                >{map.name_en}</a
-                            >
-                        </li>
-                    {/each}
-                </ul>
-            </nav>
+            <MapsList />
         </div>
     {/if}
     {#if showMarkers}
@@ -178,30 +128,26 @@
             <HotkeysHint />
         </div>
     {/if}
-    <div class="flex" style="flex-direction: column; background: red;" />
 </div>
 
 <style lang="scss">
     .map-controls {
-        padding: 1rem;
         position: absolute;
+        align-content: flex-start;
         z-index: 1001;
-        left: 0;
-        top: 0;
-        height: 100%;
-        flex-direction: column;
+        left: 1rem;
+        top: 1rem;
         gap: 1rem;
+        height: calc(100% - 2rem);
+        pointer-events: none;
 
-        & > .box {
-            max-height: 100%;
-            // flex: 1;
-            max-height: fit-content;
+        & > div {
             overflow-y: scroll;
         }
-    }
 
-    .split-panels .box {
-        flex: 1;
+        * {
+            pointer-events: auto;
+        }
     }
 
     .search {
