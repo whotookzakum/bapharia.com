@@ -44,33 +44,7 @@
         attribution: "© Bandai Namco Online Inc. © Bandai Namco Studios Inc.",
     };
 
-    // onMount(() => {
-    //     const cachedMarker = localStorage.getItem("map-marker")
-    //     if (cachedMarker) {
-    //         // Make sure marker exists on current zone, i.e. Cty001
-    //         // Will not work if duplicate marker names exist on multiple zones, i.e. LockerStorage1 exists in both Cty001 and Cty002. Leaving off at Cty001 and visitng Cty002 the next time would open Cty002's marker.
-    //         if (zone.markers.some(marker => marker.id === cachedMarker)) {
-    //             $page.url.searchParams.set("marker", cachedMarker)
-    //         }
-    //         // Remove so that it's not confusing why the marker is open next time, i.e. opening a marker on Cty001, viewing Cty002 but not opening a marker, then next visit starting at Cty001 and seeing the marker open.
-    //         else {
-    //             localStorage.clear("map-marker")
-    //         }
-    //     }
-
-    //     const cachedZone = localStorage.getItem("map-zone")
-    //     if (cachedZone) {
-    //         $page.url.searchParams.set("zone", cachedZone)
-    //     } else {
-    //         localStorage.setItem("map-zone", $page.url.searchParams.get("zone") || "Cty001")
-    //     }
-
-    //     goto(`?${$page.url.searchParams.toString()}`, {
-    //         noScroll: true,
-    //         replaceState: true,
-    //         keepFocus: true,
-    //     });
-    // })
+    let allMarkers = {};
 
     function handlePopupOpen(markerId) {
         $mapState.currentMarkerId = markerId;
@@ -91,9 +65,7 @@
             keepFocus: true,
         });
     }
-
-    let allMarkers = {};
-
+    
     // if zone changes, then currentMarkerId gets reset to null to avoid opening markers of the same ID on different zones
     $: {
         let zoneFromUrl = $page.url.searchParams.get("zone");
@@ -104,12 +76,12 @@
         }
     }
 
-    const mapIdFromUrl = $page.url.searchParams.get("zone");
-    const mapIdFromStore = $mapState.currentMapId;
-    if (mapIdFromStore && !mapIdFromUrl) {
-        $page.url.searchParams.set("zone", mapIdFromStore);
-        goToUpdatedUrl()
-    }
+    // const mapIdFromUrl = $page.url.searchParams.get("zone");
+    // const mapIdFromStore = $mapState.currentMapId;
+    // if (mapIdFromStore && !mapIdFromUrl) {
+    //     $page.url.searchParams.set("zone", mapIdFromStore);
+    //     goToUpdatedUrl()
+    // }
 
     onMount(() => {
         const markerIdFromUrl = $page.url.searchParams.get("marker");
@@ -128,15 +100,6 @@
         ) {
             allMarkers[markerIdFromStore].getMarker().openPopup();
         }
-
-        // const mapIdFromStore = $mapState.currentMapId;
-        // if (mapIdFromStore && !mapIdFromUrl) {
-        //     $page.url.searchParams.set("zone", mapIdFromStore);
-
-        // }
-        // else if (mapIdFromUrl) {
-        //     $mapState.currentMapId = mapIdFromUrl;
-        // }
     });
 </script>
 
