@@ -35,3 +35,8 @@ export const markersVisibility = writable({
     "Sub Quest": false,
     "T Quest": false
 })
+
+export const mapState = writable({
+    currentMarkerId: null,
+    currentMapId: "Cty001"
+})

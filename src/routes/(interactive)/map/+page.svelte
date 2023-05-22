@@ -11,19 +11,27 @@
         Marker,
         Icon,
         Popup,
-        Tooltip
+        Tooltip,
     } from "svelte-leafletjs?client";
     // import LeafletMap from "$lib/components/leaflet/LeafletMap.svelte";
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import MapControls from "$lib/components/leaflet/MapControls.svelte";
-    import { userLocale, markersVisibility } from "$lib/stores";
+    import { userLocale, markersVisibility, mapState } from "$lib/stores";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
 
     let leafletMap;
-    export let data;
-    $: zone = data.zone;
+    // export let data;
+    // $: zone = data.zone;
+
+    const loadMap = async () => {
+        const mapId = $page.url.searchParams.get("zone") ?? "Cty001";
+        const zone = await import(
+            `../../../lib/components/leaflet/maps/${mapId}.json`
+        );
+        return zone
+    };
 
     const bounds = [
         [0, 0],
@@ -44,8 +52,6 @@
         attribution: "© Bandai Namco Online Inc. © Bandai Namco Studios Inc.",
     };
 
-    
-    
     // onMount(() => {
     //     const cachedMarker = localStorage.getItem("map-marker")
     //     if (cachedMarker) {
@@ -74,20 +80,19 @@
     //     });
     // })
 
-    function handlePopupOpen(e) {
-        console.log(leafletMap.getMap())
-        $page.url.searchParams.set("marker", "hi")
-        // localStorage.setItem("map-marker", )
-        goto(`?${$page.url.searchParams.toString()}`, {
-            noScroll: true,
-            replaceState: true,
-            keepFocus: true,
-        });
+    function handlePopupOpen(markerId) {
+        $mapState.currentMarkerId = markerId;
+        $page.url.searchParams.set("marker", $mapState.currentMarkerId);
+        goToUpdatedUrl();
     }
 
     function handlePopupClose() {
-        $page.url.searchParams.delete("marker")
-        // localStorage.clear("map-marker")
+        $mapState.currentMarkerId = null;
+        $page.url.searchParams.delete("marker");
+        goToUpdatedUrl();
+    }
+
+    function goToUpdatedUrl() {
         goto(`?${$page.url.searchParams.toString()}`, {
             noScroll: true,
             replaceState: true,
@@ -95,12 +100,34 @@
         });
     }
 
-    let popupz;
-    // $: console.log(popupz?.getPopup())
-    // $: console.log(leafletMap?.getMap()?.openPopup(L.Popup(popupz)));
+    let allMarkers = {};
 
-    
-    // $: leafletMap?.getMap()?.openPopup(popupz);
+    $: $mapState.currentMapId = $page.url.searchParams.get("zone");
+
+    onMount(() => {
+        const markerIdFromUrl = $page.url.searchParams.get("marker");
+        const markerIdFromStore = $mapState.currentMarkerId;
+
+        if (
+            markerIdFromUrl &&
+            zone.markers.some((marker) => marker.id === markerIdFromUrl)
+        ) {
+            allMarkers[markerIdFromUrl].getMarker().openPopup();
+        } else if (
+            markerIdFromStore &&
+            zone.markers.some((marker) => marker.id === markerIdFromStore)
+        ) {
+            allMarkers[markerIdFromStore].getMarker().openPopup();
+        }
+
+        const mapIdFromUrl = $page.url.searchParams.get("zone");
+        const mapIdFromStore = $mapState.currentMapId;
+        if (mapIdFromStore) {
+            $page.url.searchParams.set("zone", mapIdFromStore);
+        } else if (mapIdFromUrl) {
+            $mapState.currentMapId = mapIdFromUrl;
+        }
+    });
 </script>
 
 <MetaTags
@@ -108,7 +135,7 @@
     description={`Interactive map for BLUE PROTOCOL. Find enemies, locations, quests, treasure chests, gathering spots, and more!`}
 />
 
-<MapControls markers={zone.markers} />
+<!-- <MapControls markers={zone.markers} /> -->
 
 {#if !browser}
     <h1 class="visually-hidden">World Map</h1>
@@ -116,22 +143,21 @@
 
 <!-- <LeafletMap /> -->
 
-{#if browser}
+
+    
+    {#await loadMap() then zone}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
-    <h1>{zone.name[$userLocale]}</h1>
-    <LeafletMap
-        bind:this={leafletMap}
-        options={mapOptions}
-        events={["popupopen", "popupclose"]}
-        on:popupopen={handlePopupOpen}
-        on:popupclose={handlePopupClose}
-    >
+    <h1>
+        {zone.name[$userLocale]}
+        {$mapState.currentMarkerId}
+        {$mapState.currentMapId}
+    </h1>
+    <LeafletMap bind:this={leafletMap} options={mapOptions}>
         <ImageOverlay
             imageUrl={zone.imgSrc}
             {bounds}
             options={imageOverlayOptions}
         />
-
         {#each zone.markers as marker}
             {#if $markersVisibility[marker.name.en_US]}
                 <Marker
@@ -139,6 +165,10 @@
                         -marker.coords[1] / 70 + 586.5,
                         marker.coords[0] / 70 + 1210.5,
                     ]}
+                    events={["popupopen", "popupclose"]}
+                    on:popupopen={() => handlePopupOpen(marker.id)}
+                    on:popupclose={() => handlePopupClose(marker.id)}
+                    bind:this={allMarkers[marker.id]}
                 >
                     {#if marker.iconUrl}
                         <Icon
@@ -151,8 +181,9 @@
                         />
                     {/if}
 
-                    <Popup bind:this={popupz} >
-                        <small style="color: var(--text2)">{marker.id}</small
+                    <Popup>
+                        <small style="color: var(--text2)"
+                            >{marker.id}</small
                         ><br />
                         <strong>{marker.name[$userLocale]}</strong><br />
                         <!-- {marker.description} -->
@@ -164,7 +195,8 @@
             {/if}
         {/each}
     </LeafletMap>
-{/if}
+    {/await}
+
 
 <style lang="scss">
     h1 {
