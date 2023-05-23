@@ -14,5 +14,5 @@ export const fetchMarkdownPosts = async () => {
         })
     )
 
-    return allPosts
+    return allPosts 
 }
