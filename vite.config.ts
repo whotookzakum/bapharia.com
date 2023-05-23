@@ -5,6 +5,6 @@ import { isoImport } from 'vite-plugin-iso-import'
 
 const config: UserConfig = {
 	plugins: [isoImport(),  sveltekit()]
-};
+}; 
 
 export default config;
