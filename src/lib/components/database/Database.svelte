@@ -19,7 +19,8 @@
 
 	const entries = graphql(`
 		query DatabaseEntries($searchTerm: String) @load {
-			entries(searchTerm: $searchTerm, first: 6) @paginate {
+			entries(searchTerm: $searchTerm, first: 6)
+				@paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
 					endCursor
@@ -60,7 +61,9 @@
 		}
 	`);
 
-	// $: console.log($entries.data)
+	// $: console.log($entries.data?.entries.pageInfo)
+	console.log("Entries: ")
+	$: console.log($entries.data?.entries);
 
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
@@ -131,17 +134,27 @@
 								type="button"
 								on:click={() => updateUrl(entry.node.id)}
 							>
-								<EntrySummary {userSearchInput} data={entry.node} />
+								<EntrySummary
+									{userSearchInput}
+									data={entry.node}
+								/>
 							</button>
 						</li>
 					{/each}
 				</ul>
 			</div>
-			{#if $entries.data.entries.pageInfo.hasNextPage}
-				<!-- <button on:click={entries.data.entries.loadNextPage}>
-					load more
-				</button> -->
-			{/if}
+			<div class="page-controls">
+				<button
+					disabled={!$entries.pageInfo.hasPreviousPage}
+					on:click={async () => await entries.loadPreviousPage({ first: 3 })}
+					>prev</button
+				>
+				<button
+					disabled={!$entries.pageInfo.hasNextPage}
+					on:click={async () => await entries.loadNextPage()}
+					>next</button
+				>
+			</div>
 		{/if}
 	</form>
 	<DatabaseDetails entryId={userSelectedEntryId || "121000000"} />
