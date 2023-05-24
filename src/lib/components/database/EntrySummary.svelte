@@ -163,8 +163,7 @@
 
         h3 {
             margin: 0;
-            font-size: var(--step-0);
-            max-inline-size: unset;
+            font-size: var(--step-2);
         }
 
         i {

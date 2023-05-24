@@ -8,7 +8,7 @@
 	import SearchFilters from "./SearchFilters.svelte";
 	import debounce from "lodash/debounce";
 
-	let userSearchInput = $page.url.searchParams.get("search");
+	let userSearchInput = $page.url.searchParams.get("search") || "";
 	$: userSelectedEntryId = $page.url.searchParams.get("result");
 
 	export let _DatabaseEntriesVariables = () => {
