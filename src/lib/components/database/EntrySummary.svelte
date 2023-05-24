@@ -1,7 +1,9 @@
 <script>
     import { userLocale } from "$lib/stores";
+    import { checkStringIncludes, hiraganaToKatakana, katakanaToHiragana } from "$lib/utils/string_utils";
     export let data;
     export let moreDetails = false;
+    export let userSearchInput = "";
 
     let categoryText;
     let backgroundStyle = ""
@@ -76,6 +78,14 @@
             };
         }
     }
+
+    function highlightMatchedTerm(entryName) {
+        const startIndex = katakanaToHiragana(entryName).toLowerCase().indexOf(katakanaToHiragana(userSearchInput).toLowerCase())
+        const beforeMatch = entryName.slice(0, startIndex)
+        const match = entryName.slice(startIndex, startIndex + userSearchInput.length)
+        const afterMatch = entryName.slice(startIndex + userSearchInput.length)
+        return `${beforeMatch}<mark>${match}</mark>${afterMatch}`
+    }
 </script>
 
 <div class="entry-summary flex" class:more-details={moreDetails}>
@@ -109,7 +119,7 @@
             </div>
         {:else}
             <div class="skip-std">
-                {data.name[$userLocale]}
+                {@html highlightMatchedTerm(data.name[$userLocale])}
             </div>
             <div>
                 <span class={`${data.__typename} box pill`}

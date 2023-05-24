@@ -131,7 +131,7 @@
 								type="button"
 								on:click={() => updateUrl(entry.node.id)}
 							>
-								<EntrySummary data={entry.node} />
+								<EntrySummary {userSearchInput} data={entry.node} />
 							</button>
 						</li>
 					{/each}
