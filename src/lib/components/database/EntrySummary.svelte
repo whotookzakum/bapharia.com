@@ -79,6 +79,7 @@
         }
     }
 
+    // https://bitsofco.de/a-one-line-solution-to-highlighting-search-matches/
     function highlightMatchedTerm(entryName) {
         if ($userLocale !== "ja_JP") {
             return entryName.replace(new RegExp(userSearchInput, "gi"), (match) => `<mark>${match}</mark>`);

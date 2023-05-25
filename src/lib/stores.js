@@ -1,5 +1,7 @@
 import { writable, readable, derived } from "svelte/store";
 import cloneDeep from "lodash/cloneDeep"
+import { browser } from "$app/environment";
+import { page } from "$app/stores";
 
 export const currentImagineId = writable(1)
 export const platformId = writable(1)
@@ -42,18 +44,10 @@ export const mapState = writable({
     currentMapId: "Cty001"
 })
 
-export const iStore = readable({
-    minLevel: 1,
-    maxLevel: 100,
-    minAR: 1,
-    maxAR: 30,
-});
 
 
-// export const nStore = derived(
-//     iStore, 
-//     ($iStore) => $iStore
-// );
+
+// Database stores
 
 export const initialFilters = {
     minLevel: 1,

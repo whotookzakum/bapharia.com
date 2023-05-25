@@ -74,16 +74,10 @@
 		};
 	}, 500);
 
-	const updateUrl = (resultId) => {
+	const updateSearchParam = () => {
 		userSearchInput
 			? $page.url.searchParams.set("search", userSearchInput)
 			: $page.url.searchParams.delete("search");
-
-		if (resultId) userSelectedEntryId = resultId;
-
-		userSelectedEntryId
-			? $page.url.searchParams.set("result", userSelectedEntryId)
-			: $page.url.searchParams.delete("result");
 
 		// Results are pushed to history, but searches are not.
 		// To add searches, create a separate function debouncing goto().
@@ -91,15 +85,23 @@
 		// However, as a consequence, the address bar won't update immediately.
 		goto(`?${$page.url.searchParams.toString()}`, {
 			noScroll: true,
-			replaceState: !resultId,
+			replaceState: true,
 			keepFocus: true,
 		});
-	};
 
-	const handleSearch = () => {
-		updateUrl();
 		updateResults();
 	};
+
+	const updateResultParam = (id) => {
+		userSelectedEntryId = id
+		$page.url.searchParams.set("result", userSelectedEntryId)
+
+		goto(`?${$page.url.searchParams.toString()}`, {
+			noScroll: true,
+			replaceState: false,
+			keepFocus: true,
+		});
+	}
 </script>
 
 <div class="db-wrapper">
@@ -113,7 +115,7 @@
 					type="search"
 					placeholder={placeholderText[$userLocale]}
 					bind:value={userSearchInput}
-					on:input={handleSearch}
+					on:input={updateSearchParam}
 				/>
 				<SearchFilters />
 			</div>
@@ -128,7 +130,7 @@
 						<li>
 							<button
 								type="button"
-								on:click={() => updateUrl(entry.node.id)}
+								on:click={() => updateResultParam(entry.node.id)}
 							>
 								<EntrySummary
 									{userSearchInput}

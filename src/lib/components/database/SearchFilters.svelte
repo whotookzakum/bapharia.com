@@ -16,6 +16,19 @@
         updateUrl();
     }
 
+    if ($page.url.searchParams.get("minLevel")) {
+        $nStore.minLevel = $page.url.searchParams.get("minLevel")
+    }
+    if ($page.url.searchParams.get("maxLevel")) {
+        $nStore.maxLevel = $page.url.searchParams.get("maxLevel")
+    }
+    if ($page.url.searchParams.get("minAR")) {
+        $nStore.minAR = $page.url.searchParams.get("minAR")
+    }
+    if ($page.url.searchParams.get("maxAR")) {
+        $nStore.maxAR = $page.url.searchParams.get("maxAR")
+    }
+    
     function updateUrl() {
         const filterParams = [
             "minLevel",
