@@ -25,7 +25,3 @@ export function checkStringIncludes(str1, str2) {
     const Str2 = hiraganaToKatakana(str2).toLowerCase()
     return Str1.includes(Str2)
 }
-
-
-// Regex string matching to highlight search term (non-Japanese)
-// https://bitsofco.de/a-one-line-solution-to-highlighting-search-matches/

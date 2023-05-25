@@ -1,6 +1,6 @@
 <script>
     import { userLocale } from "$lib/stores";
-    import { checkStringIncludes, hiraganaToKatakana, katakanaToHiragana } from "$lib/utils/string_utils";
+    import { katakanaToHiragana } from "$lib/utils/string_utils";
     export let data;
     export let moreDetails = false;
     export let userSearchInput = "";
@@ -80,6 +80,10 @@
     }
 
     function highlightMatchedTerm(entryName) {
+        if ($userLocale !== "ja_JP") {
+            return entryName.replace(new RegExp(userSearchInput, "gi"), (match) => `<mark>${match}</mark>`);
+        }
+
         const startIndex = katakanaToHiragana(entryName).toLowerCase().indexOf(katakanaToHiragana(userSearchInput).toLowerCase())
         const beforeMatch = entryName.slice(0, startIndex)
         const match = entryName.slice(startIndex, startIndex + userSearchInput.length)
