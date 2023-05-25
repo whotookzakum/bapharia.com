@@ -61,10 +61,6 @@
 		}
 	`);
 
-	// $: console.log($entries.data?.entries.pageInfo)
-	console.log("Entries: ")
-	$: console.log($entries.data?.entries);
-
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
 		en_US: "Start typing item name or id",

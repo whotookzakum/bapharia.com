@@ -2,111 +2,48 @@
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
     import InputNumber from "../InputNumber.svelte";
+    import { goto } from "$app/navigation";
+    import { page } from "$app/stores";
+    import { browser } from "$app/environment";
+    import isEqual from "lodash/isEqual";
+    import cloneDeep from "lodash/cloneDeep";
+    import { nStore, initialFilters, filterCategoryTypes } from "$lib/stores";
 
-    let detailsOpen = false;
+    let detailsOpen = true;
 
-    const filters = {
-        level: {
-            min: 1,
-            max: 100,
-        },
-        adventurer_rank: {
-            min: 1,
-            max: 30, // arbitrary
-        },
-        categories: [
-            {
-                typename: "Item",
-                text: {
-                    ja_JP: "アイテム",
-                    en_US: "Items",
-                },
-                checked: true,
-            },
-            {
-                typename: "Weapon",
-                text: {
-                    ja_JP: "武器",
-                    en_US: "Weapons",
-                },
-                checked: true,
-            },
-            {
-                typename: "Imagine",
-                text: {
-                    ja_JP: "イマジン",
-                    en_US: "Echoes",
-                },
-                checked: true,
-            },
-            {
-                typename: "Enemy",
-                text: {
-                    ja_JP: "エネミー",
-                    en_US: "Enemies",
-                },
-                checked: true,
-            },
-            {
-                typename: "Skill",
-                text: {
-                    ja_JP: "スキル",
-                    en_US: "Skills",
-                },
-                checked: true,
-            },
-            {
-                typename: "Token",
-                text: {
-                    ja_JP: "トークン",
-                    en_US: "Tokens",
-                },
-                checked: true,
-            },
-            {
-                typename: "GameMap",
-                text: {
-                    ja_JP: "マップ",
-                    en_US: "Maps",
-                },
-                checked: true,
-            },
-            {
-                typename: "LiquidMemory",
-                text: {
-                    ja_JP: "リキッドメモリ",
-                    en_US: "Liquid Memories",
-                },
-                checked: true,
-            },
-            {
-                typename: "Costume",
-                text: {
-                    ja_JP: "コスチューム",
-                    en_US: "Costumes",
-                },
-                checked: true,
-            },
-            {
-                typename: "Gesture",
-                text: {
-                    ja_JP: "ジェスチャー",
-                    en_US: "Gestures",
-                },
-                checked: true,
-            },
-            {
-                typename: "StampSet",
-                text: {
-                    ja_JP: "スタンプセット",
-                    en_US: "Stamp Sets",
-                },
-                checked: true,
-            },
-        ],
-    };
+    $: if (browser) {
+        $nStore;
+        updateUrl();
+    }
+
+    function updateUrl() {
+        const filterParams = [
+            "minLevel",
+            "maxLevel",
+            "minAR",
+            "maxAR",
+            "categories",
+        ];
+
+        for (let filter of filterParams) {
+            if (isEqual($nStore[filter], initialFilters[filter])) {
+                $page.url.searchParams.delete(filter);
+            } else {
+                filter === "categories"
+                    ? $page.url.searchParams.set(filter, $filterCategoryTypes)
+                    : $page.url.searchParams.set(filter, $nStore[filter]);
+            }
+        }
+
+        goto(`?${$page.url.searchParams.toString()}`, {
+            noScroll: true,
+            replaceState: false,
+            keepFocus: true,
+        });
+    }
 </script>
 
+<p>{$filterCategoryTypes}</p>
 <details class="box" bind:open={detailsOpen}>
     <summary class="details-expander">
         <span>Filters</span>
@@ -118,10 +55,13 @@
         />
     </summary>
     <div class="inner-content">
+        <button on:click={() => ($nStore = cloneDeep(initialFilters))}
+            >Reset all</button
+        >
         <section>
             <div class="skip-std">Categories</div>
             <div class="categories">
-                {#each filters.categories as category}
+                {#each $nStore.categories as category}
                     <label>
                         <input
                             type="checkbox"
@@ -152,8 +92,8 @@
                     description="Min Level"
                     shortName="LV."
                     id="level-min-input"
-                    bind:value={filters.level.min}
-                    max={filters.level.max}
+                    bind:value={$nStore.minLevel}
+                    max={$nStore.maxLevel}
                     min="1"
                 />
                 <div class="tilde" aria-hidden="true">~</div>
@@ -168,9 +108,9 @@
                     description="Max Level"
                     shortName="LV."
                     id="level-max-input"
-                    bind:value={filters.level.max}
+                    bind:value={$nStore.maxLevel}
                     max="100"
-                    min={filters.level.min}
+                    min={$nStore.minLevel}
                 />
             </div>
         </section>
@@ -191,8 +131,8 @@
                     description="Min Adventurer Rank"
                     shortName="AR"
                     id="ar-min-input"
-                    bind:value={filters.adventurer_rank.min}
-                    max={filters.adventurer_rank.max}
+                    bind:value={$nStore.minAR}
+                    max={$nStore.maxAR}
                     min="1"
                 />
                 <div class="tilde" aria-hidden="true">~</div>
@@ -207,9 +147,9 @@
                     description="Max Adventurer Rank"
                     shortName="AR"
                     id="ar-max-input"
-                    bind:value={filters.adventurer_rank.max}
+                    bind:value={$nStore.maxAR}
                     max="30"
-                    min={filters.adventurer_rank.min}
+                    min={$nStore.minAR}
                 />
             </div>
         </section>
@@ -302,6 +242,10 @@
         flex-wrap: wrap;
         gap: 0 0.5rem;
         // width: 50%;
+
+        label {
+            user-select: none;
+        }
     }
 
     .min-max-inputs {
