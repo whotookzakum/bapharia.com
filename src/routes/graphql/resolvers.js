@@ -28,6 +28,14 @@ const resolvers = {
                         || checkStringIncludes(entry.name.en_US, args.searchTerm)
                     )
             }
+            if (args.categories) {
+                let cats = JSON.parse(args.categories)
+                console.log(cats)
+                filteredEntries =
+                    filteredEntries?.filter(entry =>
+                        cats?.includes(entry?.filterGroup)
+                    )
+            }
 
             const { connectionFromArray } = await import('./connections.mjs')
 

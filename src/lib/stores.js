@@ -56,7 +56,7 @@ export const initialFilters = {
     maxAR: 30,
     categories: [
         {
-            typename: "Item",
+            typename: "items",
             text: {
                 ja_JP: "アイテム",
                 en_US: "Item",
@@ -64,7 +64,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Weapon",
+            typename: "weapons",
             text: {
                 ja_JP: "武器",
                 en_US: "Weapon",
@@ -72,7 +72,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Imagine",
+            typename: "imagine",
             text: {
                 ja_JP: "イマジン",
                 en_US: "Echo",
@@ -80,7 +80,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Enemy",
+            typename: "enemies",
             text: {
                 ja_JP: "エネミー",
                 en_US: "Enemy",
@@ -88,7 +88,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Skill",
+            typename: "skills",
             text: {
                 ja_JP: "スキル",
                 en_US: "Skill",
@@ -96,7 +96,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Token",
+            typename: "tokens",
             text: {
                 ja_JP: "トークン",
                 en_US: "Token",
@@ -104,7 +104,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "GameMap",
+            typename: "maps",
             text: {
                 ja_JP: "マップ",
                 en_US: "Map",
@@ -112,7 +112,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "LiquidMemory",
+            typename: "liquidMemories",
             text: {
                 ja_JP: "リキッドメモリ",
                 en_US: "Liquid Memory",
@@ -120,7 +120,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Costume",
+            typename: "costumes",
             text: {
                 ja_JP: "コスチューム",
                 en_US: "Costume",
@@ -128,7 +128,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "Gesture",
+            typename: "gestures",
             text: {
                 ja_JP: "ジェスチャー",
                 en_US: "Gesture",
@@ -136,7 +136,7 @@ export const initialFilters = {
             checked: true,
         },
         {
-            typename: "StampSet",
+            typename: "stampSets",
             text: {
                 ja_JP: "スタンプセット",
                 en_US: "Stamp Set",

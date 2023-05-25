@@ -1,17 +1,17 @@
 import { createSchema } from 'graphql-yoga'
 import resolvers from './resolvers.js';
-// import * as fs from 'fs';
-// import * as path from 'path';
-// import { fileURLToPath } from 'url';
-// import { dirname } from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export const typeDefs = `scalar Map
 
 type Query {
-	entries(searchTerm: String, first: Int, after: String): DBConnection!
+	entries(searchTerm: String, categories: String, first: Int, after: String): DBConnection!
 	entry(id: String!): DBEntry
 }
 
@@ -348,7 +348,7 @@ type GameMap implements DBEntry {
 `
 
 export const schema = createSchema({
-	// typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf-8'),
-	typeDefs,
+	typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf-8'),
+	// typeDefs,
 	resolvers
 })

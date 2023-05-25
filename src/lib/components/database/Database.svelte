@@ -7,6 +7,7 @@
 	import EntrySummary from "./EntrySummary.svelte";
 	import SearchFilters from "./SearchFilters.svelte";
 	import debounce from "lodash/debounce";
+	import { filterCategoryTypes } from "$lib/stores";
 
 	let userSearchInput = $page.url.searchParams.get("search") || "";
 	$: userSelectedEntryId = $page.url.searchParams.get("result");
@@ -14,13 +15,18 @@
 	export let _DatabaseEntriesVariables = () => {
 		return {
 			searchTerm: userSearchInput,
+			categories: JSON.stringify($filterCategoryTypes)
 		};
 	};
 
+	$: {
+		$filterCategoryTypes;
+		updateResults()
+	}
+
 	const entries = graphql(`
-		query DatabaseEntries($searchTerm: String) @load {
-			entries(searchTerm: $searchTerm, first: 6)
-				@paginate(mode: SinglePage) {
+		query DatabaseEntries($searchTerm: String, $categories: String) @load {
+			entries(searchTerm: $searchTerm, categories: $categories, first: 6) @paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
 					endCursor
@@ -66,7 +72,16 @@
 		en_US: "Start typing item name or id",
 	};
 
-	const updateResults = debounce(() => {
+	const updateResults = () => {
+		_DatabaseEntriesVariables = () => {
+			return {
+				searchTerm: userSearchInput,
+				categories: JSON.stringify($filterCategoryTypes)
+			};
+		};
+	}
+
+	const updateResultsDebounced = debounce(() => {
 		_DatabaseEntriesVariables = () => {
 			return {
 				searchTerm: userSearchInput,
@@ -89,7 +104,7 @@
 			keepFocus: true,
 		});
 
-		updateResults();
+		updateResultsDebounced();
 	};
 
 	const updateResultParam = (id) => {

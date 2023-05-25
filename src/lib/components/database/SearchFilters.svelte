@@ -9,7 +9,7 @@
     import cloneDeep from "lodash/cloneDeep";
     import { nStore, initialFilters, filterCategoryTypes } from "$lib/stores";
 
-    let detailsOpen = true;
+    let detailsOpen = false;
 
     $: if (browser) {
         $nStore;
@@ -56,7 +56,7 @@
     }
 </script>
 
-<p>{$filterCategoryTypes}</p>
+<!-- <p>{$filterCategoryTypes}</p> -->
 <details class="box" bind:open={detailsOpen}>
     <summary class="details-expander">
         <span>Filters</span>
