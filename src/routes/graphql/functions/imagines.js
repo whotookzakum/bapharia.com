@@ -86,7 +86,7 @@ const imagines = imagineData.map(imagine => {
         abilities,
         recipe,
         category: getCategory("imagine", imagine.imagine_type),
-        filterGroup: "imagine"
+        entryTypes: ["Imagine"]
     }
 })
 

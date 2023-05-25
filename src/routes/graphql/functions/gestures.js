@@ -11,7 +11,7 @@ const gestures = gesturesData.map(gesture => {
         name,
         thumb,
         category: { ja_JP: "ジェスチャー", en_US: "Emote" },
-        filterGroup: "gestures"
+        entryTypes: ["Gesture"]
     }
 })
 

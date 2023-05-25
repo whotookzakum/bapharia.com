@@ -91,6 +91,10 @@
         const afterMatch = entryName.slice(startIndex + userSearchInput.length)
         return `${beforeMatch}<mark>${match}</mark>${afterMatch}`
     }
+
+    function highlightMatchedId(entryId) {
+        return entryId.replace(new RegExp(userSearchInput, "gi"), (match) => `<mark>${match}</mark>`);
+    }
 </script>
 
 <div class="entry-summary flex" class:more-details={moreDetails}>
@@ -130,7 +134,7 @@
                 <span class={`${data.__typename} box pill`}
                     >{categoryText[$userLocale]}</span
                 >
-                <span class="entry-id box pill">ID: {data.id}</span>
+                <span class="entry-id box pill">ID: {@html highlightMatchedId(data.id)}</span>
             </div>
         {/if}
     </div>

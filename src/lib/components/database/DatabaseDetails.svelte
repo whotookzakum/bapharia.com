@@ -15,25 +15,25 @@
     import MetaTags from "../MetaTags.svelte";
     import { userLocale } from "$lib/stores";
 
-	export let entryId;
+	export let longId;
 
 	export let _DatabaseEntryVariables = () => {
 		return {
-			id: entryId,
+			longId,
 		};
 	};
 
 	$: {
 		_DatabaseEntryVariables = () => {
 			return {
-				id: entryId,
+				longId,
 			};
 		};
 	}
 
 	const entry = graphql(`
-		query DatabaseEntry($id: String!) @load {
-			entry(id: $id) {
+		query DatabaseEntry($longId: String!) @load {
+			entry(longId: $longId) {
 				id
 				name {
 					ja_JP

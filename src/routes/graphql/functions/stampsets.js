@@ -9,7 +9,7 @@ const stampSets = stampsData.map(stampSet => {
         name,
         thumb: getThumbnail("map"),
         category: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
-        filterGroup: "stampSets"
+        entryTypes: ["StampSet"]
     }
 })
 

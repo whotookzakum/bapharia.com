@@ -20,7 +20,7 @@ const maps = mapsData.map(map => {
         },
         thumb: getThumbnail("map"),
         category: getCategory("map", map.map_id),
-        filterGroup: "maps"
+        entryTypes: ["GameMap"]
     }
 })
 

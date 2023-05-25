@@ -143,7 +143,7 @@ const enemies = enemiesData.map(enemy => {
         found_in,
         thumb: getThumbnail("enemy"),
         category: getCategory("enemy", enemy.is_boss),
-        filterGroup: "enemies"
+        entryTypes: ["Enemy"]
     }
 })
 

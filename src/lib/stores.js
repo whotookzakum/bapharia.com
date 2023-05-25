@@ -56,92 +56,92 @@ export const initialFilters = {
     maxAR: 30,
     categories: [
         {
-            typename: "items",
+            typename: "Item",
             text: {
                 ja_JP: "アイテム",
                 en_US: "Item",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "weapons",
+            typename: "Weapon",
             text: {
                 ja_JP: "武器",
                 en_US: "Weapon",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "imagine",
+            typename: "Imagine",
             text: {
                 ja_JP: "イマジン",
                 en_US: "Echo",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "enemies",
+            typename: "Enemy",
             text: {
                 ja_JP: "エネミー",
                 en_US: "Enemy",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "skills",
+            typename: "Skill",
             text: {
                 ja_JP: "スキル",
                 en_US: "Skill",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "tokens",
+            typename: "Token",
             text: {
                 ja_JP: "トークン",
                 en_US: "Token",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "maps",
+            typename: "GameMap",
             text: {
                 ja_JP: "マップ",
                 en_US: "Map",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "liquidMemories",
+            typename: "LiquidMemory",
             text: {
                 ja_JP: "リキッドメモリ",
                 en_US: "Liquid Memory",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "costumes",
+            typename: "Costume",
             text: {
                 ja_JP: "コスチューム",
                 en_US: "Costume",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "gestures",
+            typename: "Gesture",
             text: {
                 ja_JP: "ジェスチャー",
                 en_US: "Gesture",
             },
-            checked: true,
+            checked: false,
         },
         {
-            typename: "stampSets",
+            typename: "StampSet",
             text: {
                 ja_JP: "スタンプセット",
                 en_US: "Stamp Set",
             },
-            checked: true,
+            checked: false,
         },
     ]
 }

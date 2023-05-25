@@ -24,7 +24,7 @@ const items = itemsData.map(item => {
         effectDesc,
         thumb,
         category,
-        filterGroup: "items"
+        entryTypes: ["Item"]
     }
 })
 

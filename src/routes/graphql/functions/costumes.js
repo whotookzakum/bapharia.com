@@ -31,7 +31,7 @@ const costumes = costumesData.map(costume => {
         desc,
         thumb,
         category: { ja_JP: "コスチューム", en_US: "Costume" },
-        filterGroup: "costumes"
+        entryTypes: ["Costume"]
     }
 })
 

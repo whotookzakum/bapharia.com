@@ -16,7 +16,7 @@ const tokens = tokensData.map(token => {
         desc,
         thumb,
         category: { ja_JP: "トークン", en_US: "Token" },
-        filterGroup: "tokens"
+        entryTypes: ["Token"]
     }
 })
 

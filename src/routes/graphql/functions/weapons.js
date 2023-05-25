@@ -127,7 +127,7 @@ const weapons = weaponsData.map(weapon => {
         abilities,
         treasureSources,
         category: getCategory("weapon", weapon.is_for_weapon_stickers),
-        filterGroup: "weapons"
+        entryTypes: ["Weapon"]
     }
 })
 

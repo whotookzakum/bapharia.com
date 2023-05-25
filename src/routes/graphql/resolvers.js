@@ -28,12 +28,12 @@ const resolvers = {
                         || checkStringIncludes(entry.name.en_US, args.searchTerm)
                     )
             }
-            if (args.categories) {
-                let cats = JSON.parse(args.categories)
-                console.log(cats)
+
+            let categories = JSON.parse(args.categories)
+            if (categories.length > 0) {
                 filteredEntries =
                     filteredEntries?.filter(entry =>
-                        cats?.includes(entry?.filterGroup)
+                        categories?.includes(entry?.entryTypes[0])
                     )
             }
 
@@ -44,58 +44,14 @@ const resolvers = {
 
             return connection
         },
-        entry(_, { id }) {
-            return entries.find(item => item.id === id)
+        entry(_, { longId }) {
+            return entries.find(entry => entry.entryTypes[0] + entry.id === longId)
         }
     },
     DBEntry: {
         // https://the-guild.dev/graphql/tools/docs/resolvers#unions-and-interfaces
         __resolveType(obj, context, info) {
-            if (obj.filterGroup === "items") {
-                return 'Item'
-            }
-
-            if (obj.filterGroup === "enemies") {
-                return 'Enemy'
-            }
-
-            if (obj.filterGroup === "costumes") {
-                return 'Costume'
-            }
-
-            if (obj.filterGroup === "gestures") {
-                return 'Gesture'
-            }
-
-            if (obj.filterGroup === "imagine") {
-                return 'Imagine'
-            }
-
-            if (obj.filterGroup === "liquidMemories") {
-                return 'LiquidMemory'
-            }
-
-            if (obj.filterGroup === "stampSets") {
-                return 'StampSet'
-            }
-
-            if (obj.filterGroup === "tokens") {
-                return 'Token'
-            }
-
-            if (obj.filterGroup === "weapons") {
-                return 'Weapon'
-            }
-
-            if (obj.filterGroup === "skills") {
-                return 'Skill'
-            }
-
-            if (obj.filterGroup === "maps") {
-                return 'GameMap'
-            }
-
-            return null
+            return obj.entryTypes[0] || null
         }
     }
 }

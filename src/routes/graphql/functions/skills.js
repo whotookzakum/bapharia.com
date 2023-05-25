@@ -152,7 +152,7 @@ const skills = skillsData.reduce((acc, curr) => {
         skillBackgroundImg,
         elementImg,
         category: getCategory("skill", curr.skill_type),
-        filterGroup: "skills"
+        entryTypes: ["Skill"]
     });
 
     return acc;

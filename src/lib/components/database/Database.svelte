@@ -107,8 +107,8 @@
 		updateResultsDebounced();
 	};
 
-	const updateResultParam = (id) => {
-		userSelectedEntryId = id
+	const updateResultParam = (node) => {
+		userSelectedEntryId = node.__typename + node.id
 		$page.url.searchParams.set("result", userSelectedEntryId)
 
 		goto(`?${$page.url.searchParams.toString()}`, {
@@ -145,7 +145,7 @@
 						<li>
 							<button
 								type="button"
-								on:click={() => updateResultParam(entry.node.id)}
+								on:click={() => updateResultParam(entry.node)}
 							>
 								<EntrySummary
 									{userSearchInput}
@@ -170,7 +170,7 @@
 			</div>
 		{/if}
 	</form>
-	<DatabaseDetails entryId={userSelectedEntryId || "121000000"} />
+	<DatabaseDetails longId={userSelectedEntryId || "Item121000000"} />
 </div>
 
 <style lang="scss">
