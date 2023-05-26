@@ -8,6 +8,7 @@
 	import SearchFilters from "./SearchFilters.svelte";
 	import debounce from "lodash/debounce";
 	import { filterCategoryTypes } from "$lib/stores";
+	import Icon from "@iconify/svelte";
 
 	let userSearchInput = $page.url.searchParams.get("search") || "";
 	$: userSelectedEntryId = $page.url.searchParams.get("result");
@@ -15,18 +16,19 @@
 	export let _DatabaseEntriesVariables = () => {
 		return {
 			searchTerm: userSearchInput,
-			categories: JSON.stringify($filterCategoryTypes)
+			categories: JSON.stringify($filterCategoryTypes),
 		};
 	};
 
 	$: {
 		$filterCategoryTypes;
-		updateResults()
+		updateResults();
 	}
 
 	const entries = graphql(`
 		query DatabaseEntries($searchTerm: String, $categories: String) @load {
-			entries(searchTerm: $searchTerm, categories: $categories, first: 6) @paginate(mode: SinglePage) {
+			entries(searchTerm: $searchTerm, categories: $categories, first: 6)
+				@paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
 					endCursor
@@ -76,10 +78,10 @@
 		_DatabaseEntriesVariables = () => {
 			return {
 				searchTerm: userSearchInput,
-				categories: JSON.stringify($filterCategoryTypes)
+				categories: JSON.stringify($filterCategoryTypes),
 			};
 		};
-	}
+	};
 
 	const updateResultsDebounced = debounce(() => {
 		_DatabaseEntriesVariables = () => {
@@ -108,15 +110,34 @@
 	};
 
 	const updateResultParam = (node) => {
-		userSelectedEntryId = node.__typename + node.id
-		$page.url.searchParams.set("result", userSelectedEntryId)
+		userSelectedEntryId = node.__typename + node.id;
+		$page.url.searchParams.set("result", userSelectedEntryId);
 
 		goto(`?${$page.url.searchParams.toString()}`, {
 			noScroll: true,
 			replaceState: false,
 			keepFocus: true,
 		});
-	}
+	};
+
+	const loadPreviousPage = async () => {
+		await entries.loadPreviousPage();
+		pageNumber--;
+	};
+
+	const loadNextPage = async () => {
+		await entries.loadNextPage();
+		pageNumber++;
+	};
+
+	let pageNumber = 1;
+	let resultsPerPage = 6;
+
+	$: totalPages = Math.ceil(
+		$entries?.data?.entries.totalResults / resultsPerPage
+	);
+
+	$: if (pageNumber > totalPages && totalPages > 0) pageNumber = maxPages;
 </script>
 
 <div class="db-wrapper">
@@ -133,6 +154,24 @@
 					on:input={updateSearchParam}
 				/>
 				<SearchFilters />
+			</div>
+			<button>Filters</button>
+			<div class="page-controls flex g-25">
+				<button
+					class="flex"
+					disabled={!$entries.pageInfo.hasPreviousPage}
+					on:click={loadPreviousPage}>
+					<Icon icon={"mdi:chevron-left"} width="18" height="18" />
+				</button>
+				<button
+					class="flex"
+					disabled={!$entries.pageInfo.hasNextPage}
+					on:click={loadNextPage}
+				>
+					<Icon icon={"mdi:chevron-right"} width="18" height="18" />
+				</button>
+				<span>page {pageNumber} of {totalPages}</span>
+				<span />
 			</div>
 		</div>
 		{#if !$entries.fetching}
@@ -155,18 +194,6 @@
 						</li>
 					{/each}
 				</ul>
-			</div>
-			<div class="page-controls">
-				<button
-					disabled={!$entries.pageInfo.hasPreviousPage}
-					on:click={async () => await entries.loadPreviousPage({ first: 3 })}
-					>prev</button
-				>
-				<button
-					disabled={!$entries.pageInfo.hasNextPage}
-					on:click={async () => await entries.loadNextPage()}
-					>next</button
-				>
 			</div>
 		{/if}
 	</form>

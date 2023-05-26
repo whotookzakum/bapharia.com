@@ -81,15 +81,23 @@
 
     // https://bitsofco.de/a-one-line-solution-to-highlighting-search-matches/
     function highlightMatchedTerm(entryName) {
+
+        // Every language other than Japanese
         if ($userLocale !== "ja_JP") {
             return entryName.replace(new RegExp(userSearchInput, "gi"), (match) => `<mark>${match}</mark>`);
         }
-
-        const startIndex = katakanaToHiragana(entryName).toLowerCase().indexOf(katakanaToHiragana(userSearchInput).toLowerCase())
-        const beforeMatch = entryName.slice(0, startIndex)
-        const match = entryName.slice(startIndex, startIndex + userSearchInput.length)
-        const afterMatch = entryName.slice(startIndex + userSearchInput.length)
-        return `${beforeMatch}<mark>${match}</mark>${afterMatch}`
+        // User locale and search term are both JP, otherwise it messes up names like Jake's Letter
+        else if (userSearchInput.match(/[\u3041-\u30f6]/g)) {
+            const startIndex = katakanaToHiragana(entryName).toLowerCase().indexOf(katakanaToHiragana(userSearchInput).toLowerCase())
+            const beforeMatch = entryName.slice(0, startIndex)
+            const match = entryName.slice(startIndex, startIndex + userSearchInput.length)
+            const afterMatch = entryName.slice(startIndex + userSearchInput.length)
+            return `${beforeMatch}<mark>${match}</mark>${afterMatch}`
+        }
+        // User locale is JP but search term is English
+        else {
+            return entryName
+        }
     }
 
     function highlightMatchedId(entryId) {
