@@ -33,6 +33,10 @@
                 en_US: "Heavy Smasher"
             }
         }
+        return {
+            ja_JP: "-",
+            en_US: "-"
+        }
     }
 </script>
 
