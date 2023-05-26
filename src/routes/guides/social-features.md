@@ -35,23 +35,7 @@ The basic chat feature of the game. You can send stamps in chat, use gestures, c
 The shortcut ring is similar to communication wheels in overwatch and battle royales. It allows for quick communication without entering Talk Mode, and can be used to communicate with players in dungeons entered with a random matchmade party. You can assign fixed messages, emotes, consumables, and stamps to the 8 slots and even use them with shortcut keys without opening the ring. You can have up to 3 separate shortcut rings.
 
 ### Teams
-Teams are akin to guilds in other online games. To *create* a team you must progress a bit in the game, however there is no level restriction for receiving invites to a team. You can only be a member of one team at a time.
-
-Teams have ranks (levels) that can be raised by filling the EXP meter through regular actions such as gathering resources and defeating enemies. 
-
-| Team Rank | Max members  |
-|-----------|--------------|
-| 1         | 20           |
-| 2         | 25           |
-| 3         | 30           |
-| 4         | 35           |
-| 5         | 40           |
-| 6         | 45           |
-| 7         | 50           |
-
-There is a team chat channel where you can talk with other members of your team. At the time of release, there will be no content that is exclusive to being in a team, however this is being considered for future updates. 
-
-If team leaders do not log in for a long time, privileges will be passed to other members. There are some cooldowns on things like guild disbandment, expulsions, and leaving the guild (details unknown).
+Teams are akin to guilds in other online games. Read more about them in the [teams guide](/guides/teams).
 
 ### Zone Population Limits
 The Japanese service will have all players on the same server. Zones are regions that can be traversed without facing loading screens. Each zone has maximum population limits before placing players in a new channel. 

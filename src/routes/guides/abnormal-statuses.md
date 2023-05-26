@@ -9,7 +9,7 @@ thumbImg: "/guides/abnormal-statuses/thumb.webp"
 ---
 
 <script>
-    import AbnormalStatuses from "./AbnormalStatuses.svelte"
+    import AbnormalStatuses from "./components/AbnormalStatuses.svelte"
 </script>
 
 ## Buffs

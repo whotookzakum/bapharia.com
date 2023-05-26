@@ -10,10 +10,8 @@ thumbImg: "/guides/microtransactions/thumb.webp"
 
 <script>
     import StickyNote from "$lib/components/StickyNote.svelte";
-    import RoseOrbPacks from "./RoseOrbPacks.svelte";
-    import RoseOrbPacksOptions from "./RoseOrbPacksOptions.svelte";
-    import PlatformOptions from "./PlatformOptions.svelte";
-    import CurrencyOptions from "./CurrencyOptions.svelte";
+    import RoseOrbPacks from "./components/RoseOrbPacks.svelte";
+    import RoseOrbPacksOptions from "./components/RoseOrbPacksOptions.svelte";
 </script>
 
 <StickyNote type="warning">

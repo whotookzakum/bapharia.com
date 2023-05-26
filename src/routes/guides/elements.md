@@ -10,7 +10,7 @@ thumbImg: "/guides/elements/thumb.webp"
 
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
-    import ElementsTable from './ElementsTable.svelte';
+    import ElementsTable from './components/ElementsTable.svelte';
 </script>
 
 ## The Six Elements

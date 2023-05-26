@@ -2,9 +2,6 @@
     import ALL_PACKS from "./apiext_shop_realmoney_item.json";
     import _ from "lodash";
     import { platformId, currency } from "$lib/stores";
-    import Icon from "@iconify/svelte";
-    import CurrencyOptions from "./CurrencyOptions.svelte";
-    import PlatformOptions from "./PlatformOptions.svelte";
 
     export let releaseSales = false;
 
