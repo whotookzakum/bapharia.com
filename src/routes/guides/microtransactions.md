@@ -17,12 +17,12 @@ thumbImg: "/guides/microtransactions/thumb.webp"
 <StickyNote type="warning">
     The following guide follows the Japanese version of BLUE PROTOCOL published by Bandai Namco, and contents may change.
 </StickyNote>
-<StickyNote type="warning">
-    This guide is not yet complete.
-</StickyNote>
+
+BLUE PROTOCOL's monetization scheme is intended to not provide any "pay-to-win" advantage, but rather players can pay for convenience and cosmetics. Related aspects include Rose Orbs, Gacha, Season Passes, and BP Points.
 
 ## Rose Orbs
-Rose orbs are the paid currency in BLUE PROTOCOL. They expire 5 months after you purchase them, on the last day of the month.
+Rose orbs are the paid currency in BLUE PROTOCOL. 
+<!-- They expire 5 months after you purchase them, on the last day of the month.
 
 <StickyNote type="note">
     There are payment limits based on age.<br />
@@ -39,11 +39,16 @@ The packs in the Japanese version are as follows:
 ### Release Sales
 These deals will be available when the game releases. They can be purchased one time during the sale period.
 
-<RoseOrbPacks releaseSales />
+<RoseOrbPacks releaseSales /> -->
 
-<!-- ## Gacha -->
-<!-- ## Season Pass -->
-<!-- ## BP Points -->
+## Gacha
+Coming soon!
+
+## Season Pass
+Coming soon!
+
+## BP Points
+Coming soon!
 
 ## How to buy Rose Orbs in BP Japan
 Coming soon!
