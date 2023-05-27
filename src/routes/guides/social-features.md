@@ -1,7 +1,7 @@
 ---
 title: 'Social Features'
 author: "Zakum"
-date: '2022-12-18'
+date: '2023-5-26'
 category: 'Game Systems'
 caption: 'Nice-to-have features that are not directly part of the main gameplay loop.'
 bannerImg: "/guides/social-features/banner.webp"
