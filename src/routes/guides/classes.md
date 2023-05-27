@@ -2,7 +2,7 @@
 title: 'Classes'
 author: 'Zakum'
 date: '2023-5-26'
-category: 'Game Mechanics'
+category: 'Game Systems'
 caption: 'Overview of the classes and their unique mechanics.'
 bannerImg: "/guides/classes/banner.webp"
 thumbImg: "/guides/classes/thumb.webp"

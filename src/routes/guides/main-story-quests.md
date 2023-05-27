@@ -8,7 +8,13 @@ bannerImg: "/guides/mainstory/banner.webp"
 thumbImg: "/guides/mainstory/thumb.webp"
 ---
 
-Note that all dungeons are considerably easier in a party--the more members, the better.
+<script>
+    import StickyNote from '$lib/components/StickyNote.svelte';
+</script>
+
+<StickyNote type="note">
+    Dungeons are considerably easier in a party--the more members, the better.
+</StickyNote>
 
 ## Chapter 1
 ### In Search of Memories

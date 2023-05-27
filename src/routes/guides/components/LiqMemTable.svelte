@@ -5,63 +5,63 @@
             alt: "Orange Liquid Memory 1",
             effect: "Gathering speed up",
             refill: "Complete missions",
-            href: "/?result=10&search=採取時間短縮#db"
+            href: "/db?result=LiquidMemory10&search=採取時間短縮"
         },
         {
             color: "orange",
             alt: "Orange Liquid Memory 2",
             effect: "Increased EXP from enemies",
             refill: "Gather",
-            href: "/?result=22&search=エネミー経験値増加#db"
+            href: "/db?result=LiquidMemory22&search=エネミー経験値増加"
         },
         {
             color: "orange",
             alt: "Orange Liquid Memory 3",
             effect: "Increased enemy drop rate",
             refill: "Gather",
-            href: "/?result=12&search=エネミーからのドロップ率増加#db"
+            href: "/db?result=LiquidMemory12&search=エネミーからのドロップ率増加"
         },
         {
             color: "orange",
             alt: "Orange Liquid Memory 4",
             effect: "Greater harvest when gathering",
             refill: "Defeat enemies",
-            href: "/?result=20&search=採取個数増加#db"
+            href: "/db?result=LiquidMemory20&search=採取個数増加"
         },
         {
             color: "blue",
             alt: "Blue Liquid Memory 1",
             effect: "More GC when completing missions",
             refill: "Participate in Rush Battle",
-            href: "/?result=17&search=ミッション報酬のGC増加#db"
+            href: "/db?result=LiquidMemory17&search=ミッション報酬のGC増加"
         },
         {
             color: "purple",
             alt: "Purple Liquid Memory 1",
             effect: "Increased Alliance EXP",
             refill: "Complete story quests",
-            href: "/?result=18&search=チーム経験値増加#db"
+            href: "/db?result=LiquidMemory18&search=チーム経験値増加"
         },
         {
             color: "green",
             alt: "Green Liquid Memory 1",
             effect: "Cheaper prices from NPC shops",
             refill: "Complete story quests",
-            href: "/?result=15&search=商業施設の費用割引#db"
+            href: "/db?result=LiquidMemory15&search=商業施設の費用割引"
         },
         {
             color: "green",
             alt: "Green Liquid Memory 2",
             effect: "Reduced luno cost when crafting weapons",
             refill: "Defeat enemies",
-            href: "/?result=21&search=武器クラフトルーノ割引#db"
+            href: "/db?result=LiquidMemory21&search=武器クラフトルーノ割引"
         },
         {
             color: "green",
             alt: "Green Liquid Memory 3",
             effect: "Increased profits when selling",
             refill: "Drink Liquid Memories",
-            href: "/?result=19&search=アイテム売却額増加#db"
+            href: "/db?result=LiquidMemory19&search=アイテム売却額増加"
         },
     ];
 </script>

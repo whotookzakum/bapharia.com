@@ -27,7 +27,7 @@ Imagine are the embodiment of spiritual elements, such as powerful emotions or t
 Battle Imagine are equipment that provide base stats, a passive **Ability** (more stats), and an **active skill** to be used in combat. They can be crafted at the [Imagine Research Institute](/map) after unlocking their recipes.
 
 ### Abilities
-Battle Imagine come with an Ability that is randomly selected from their possible abilities. Each Ability provides one or more passive stat boosts, such as flat-value stats (Resilience +7, Dexterity +7), or percentage stats ([Critical Power +12%](/?search=B-ゴブリン&result=130000000#db), [Damage Up: Ranged Attacks +5%](/?search=B-カガチヤンマ&result=130001900#db)). They come in grades G1, G2, G3.
+Battle Imagine come with an Ability that is randomly selected from their possible abilities. Each Ability provides one or more passive stat boosts, such as flat-value stats (Resilience +7, Dexterity +7), or percentage stats ([Critical Power +12%](/db?search=B-ゴブリン&result=130000000), [Damage Up: Ranged Attacks +5%](/db?search=B-カガチヤンマ&result=130001900)). They come in grades G1, G2, G3.
 
 ### Skills
 Each Battle Imagine has one **attack**, **heal**, or **support** active skill. Skill cooldowns are independent of each other.
@@ -39,7 +39,7 @@ Each Battle Imagine has one **attack**, **heal**, or **support** active skill. S
 ### Recipes
 The first way to unlock a recipe is by obtaining an **Idea** (one of the crafting materials) from the Named Enemies in the overworld. Check the [map](/map) for their locations. 
 
-Another way to get a Battle Imagine's Idea is through treasure chests. Look up the Idea in the [database](/#db) for more information.
+Another way to get a Battle Imagine's Idea is through treasure chests. Look up the Idea in the [database](/db) for more information.
 
 ### Crafting
 After learning the recipe, view the required materials at the Imagine Research Institute and hover over the information icons to see how to get them. Note that Battle Imagine have varying Adventurer Rank requirements to craft.
@@ -69,7 +69,7 @@ Enhance Imagine recipes are acquired through completing their respective Adventu
     If you know the name of the Enhance Imagine you want to craft, check the quest rewards before accepting. Otherwise, complete the quest and check the Adventure Board's final reward—the recipe's name—to see which Imagine it is.
 </StickyNote>
 
-Another way of unlocking recipes is through Treasure Chests. Look up the Imagine in the [database](/#db) for more information.
+Another way of unlocking recipes is through Treasure Chests. Look up the Imagine in the [database](/db) for more information.
 
 
 
