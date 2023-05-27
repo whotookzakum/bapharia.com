@@ -4,8 +4,8 @@ author: 'Zakum'
 date: '2023-5-26'
 category: 'Game Systems'
 caption: 'All about Teams (Guilds) in BLUE PROTOCOL.'
-bannerImg: "/guides/faq/banner.webp"
-thumbImg: "/guides/faq/thumb.webp"
+bannerImg: "/guides/teams/banner.webp"
+thumbImg: "/guides/teams/thumb.webp"
 ---
 
 <script>

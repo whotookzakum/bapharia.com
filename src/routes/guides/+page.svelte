@@ -1,13 +1,14 @@
 <script>
+	import PageFooter from "$lib/components/PageFooter.svelte";
 	import { userLocale } from "$lib/stores";
 	import { browser } from "$app/environment";
 	import Card from "$lib/components/Card.svelte";
-    import MetaTags from "$lib/components/MetaTags.svelte";
+	import MetaTags from "$lib/components/MetaTags.svelte";
 	export let data;
 
-	const guides = data.guides
+	const guides = data.guides;
 
-    // const filtersText = {
+	// const filtersText = {
 	// 	"Game Systems": {
 	// 		ja_JP: "システム",
 	// 		en_US: "Game Systems",
@@ -42,10 +43,15 @@
 	// $: guides = data.filter((guide) => filters[guide.meta.category]);
 </script>
 
-<MetaTags title={`Guides — Bapharia`} description={`Guides for BLUE PROTOCOL. Learn about game mechanics, find strategy guides, and check reference sheets!`} />
+<MetaTags
+	title={`Guides — Bapharia`}
+	description={`Guides for BLUE PROTOCOL. Learn about game mechanics, find strategy guides, and check reference sheets!`}
+/>
 
-<h1>Guides</h1>
-<!-- <span class="component-label">Filters</span>
+<div class="contents">
+	<main id="#main" tabindex="-1">
+		<h1>Guides</h1>
+		<!-- <span class="component-label">Filters</span>
 <div id="guide-filters" class="flex">
 	{#each Object.keys(filters) as filter}
 		<label class="box hover">
@@ -54,21 +60,35 @@
 		</label>
 	{/each}
 </div> -->
-<ul class="card-grid" role="list">
-	{#each guides as guide}
-		<li>
-			<Card
-				title={guide.meta.title}
-				href={guide.path}
-				category={guide.meta.category}
-				caption={guide.meta.caption}
-				bgSrc={guide.meta.thumbImg}
-			/>
-		</li>
-	{/each}
-</ul>
+		<ul class="card-grid" role="list">
+			{#each guides as guide}
+				<li>
+					<Card
+						title={guide.meta.title}
+						href={guide.path}
+						category={guide.meta.category}
+						caption={guide.meta.caption}
+						bgSrc={guide.meta.thumbImg}
+					/>
+				</li>
+			{/each}
+		</ul>
+	</main>
+	<PageFooter />
+</div>
+
+
 
 <style lang="scss">
+	.contents {
+		max-width: 1400px;
+		display: grid;
+		width: 100%;
+		gap: var(--space-xl);
+		padding: 0 1rem;
+		margin: 0 auto;
+	}
+
 	ul.card-grid {
 		display: grid;
 		justify-content: center;

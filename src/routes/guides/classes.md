@@ -4,8 +4,8 @@ author: 'Zakum'
 date: '2023-5-26'
 category: 'Game Mechanics'
 caption: 'Overview of the classes and their unique mechanics.'
-bannerImg: "/guides/faq/banner.webp"
-thumbImg: "/guides/faq/thumb.webp"
+bannerImg: "/guides/classes/banner.webp"
+thumbImg: "/guides/classes/thumb.webp"
 ---
 
 BLUE PROTOCOL will launch with 5 classes, with more in development. Each class has a unique mechanic that influences their gameplay. 
