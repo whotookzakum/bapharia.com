@@ -67,3 +67,15 @@ If performed from a higher elevation than the enemy, a debuff will be applied to
 
 ### Party Chain
 The party chain is a combo count of all party members' hits. As it accumulates, your party gains a slight damage increase. The higher the chain count, the less time you have to successfully perform another attack before the chain ends. The party chain will reset to 0 if no successful attacks are detected before the timer ends.
+
+
+## Character states
+### Defeated
+When your HP reaches 0, your character will be downed and can be resurrected by other players interacting with you. Rescue time is decreased as more players interact with a downed player.
+
+In dungeons, you will automatically revive after some time if not rescued by others. Dungeons may have limited revives shared between all party members--these will not be consumed if the downed player is rescued by party members.
+
+In fields, you can remain downed and wait for someone to rescue you, or can choose to respawn after a short timer. If you choose to respawn, you will have the Weak debuff, decreasing your Max HP and movement speed.
+
+### Health Regen
+Health will automatically regenerate in fields when out of combat, and will regenerate faster when sitting. Being near a campfire greatly increases health regen, and stacks with sitting.

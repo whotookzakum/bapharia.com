@@ -14,7 +14,7 @@ thumbImg: "/guides/weapons/thumb.webp"
 </script>
 
 <Video 
-    title="Imagine System" 
+    title="Weapons and Plugs" 
     id="zcSPxPQwuTo"
     bleed
 />
