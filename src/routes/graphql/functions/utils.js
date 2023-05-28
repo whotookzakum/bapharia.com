@@ -214,16 +214,6 @@ export function getCategory(entryType, category) {
 
 export function getThumbnail(entryType, category, id, class_type) {
 
-    if (entryType === "map") {
-        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
-        return `/UI/Icon/QuestJournal/UI_QuestJournal_Adventure_L.png`
-    }
-
-    if (entryType === "enemy") {
-        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
-        return `/UI/Icon/Unidentified/UI_Icon_Unidentified_0.png`
-    }
-
     if (entryType === "liquidMemory") {
         switch (id) {
             case 12: // increased enemy drop rate
@@ -242,29 +232,8 @@ export function getThumbnail(entryType, category, id, class_type) {
         }
     }
 
-    if (entryType === "stamp") {
-        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
-    }
-
     if (entryType === "item") {
         return itemIcons[id]
-        // switch (category) {
-        //     case 0: return `/UI/Icon/Item/Consumption/UI_Icon_${id}.png`
-        //     case 2: return `/UI/Icon/Item/Material/UI_Icon_Fusion_1.png`
-        //     case 4: return `/UI/Icon/Item/EnemyMaterial/UI_Icon_Idea.png`
-        //     case 6: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png`
-        //     case 7: return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Random.png`
-        //     case 1:
-        //     // return `/UI/Icon/Item/Material/UI_Icon_${id}.png`
-        //     case 3:
-        //     // ``
-        //     case 5:
-        //     // return `/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichSet_${id}.png`
-        //     // return `/UI/Icon/Item/Consumption/UI_Icon_Itembox_Set.png`
-        //     // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Gesture.png`
-        //     // return `/UI/Icon/Item/Consumption/UI_Icon_UI_Icon_gashabox_Stamp.png`
-        //     default: return `/UI/Icon/Common/UI_Icon_Empty.png`
-        // }
     }
 
     if (entryType === "skill") {
@@ -312,4 +281,7 @@ export function getThumbnail(entryType, category, id, class_type) {
         }
         return `/UI/Icon/Token/UI_Icon_${id}.png`
     }
+
+    // Stamps, Maps, Enemies
+    return `/UI/Icon/Class/UI_IconClass_Nodata.png`
 }

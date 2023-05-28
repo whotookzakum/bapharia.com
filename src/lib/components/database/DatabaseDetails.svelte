@@ -12,8 +12,8 @@
 	import Skill from "./templates/Skill.svelte";
 	import Map from "./templates/Map.svelte";
 	import Enemy from "./templates/Enemy.svelte";
-    import MetaTags from "../MetaTags.svelte";
-    import { userLocale } from "$lib/stores";
+	import MetaTags from "../MetaTags.svelte";
+	import { userLocale } from "$lib/stores";
 
 	export let longId;
 
@@ -279,10 +279,26 @@
 		}
 	`);
 	let detailsCollapsed = true;
+
+	const templates = {
+		Item: Item,
+		Imagine: Imagine,
+		Weapon: Weapon,
+		Costume: Costume,
+		Token: Token,
+		StampSet: StampSet,
+		LiquidMemory: LiquidMemory,
+		Skill: Skill,
+		GameMap: Map,
+		Enemy: Enemy,
+	};
 </script>
 
 {#if !$entry.fetching}
-	<MetaTags title={`${$entry.data.entry.name[$userLocale]} — Bapharia`} description={`All known data about ${$entry.data.entry.name[$userLocale]} in BLUE PROTOCOL.`} />
+	<MetaTags
+		title={`${$entry.data.entry.name[$userLocale]} — Bapharia`}
+		description={`All known data about ${$entry.data.entry.name[$userLocale]} in BLUE PROTOCOL.`}
+	/>
 {/if}
 
 <div class="details-pane">
@@ -294,37 +310,10 @@
 					<EntrySummary data={$entry.data.entry} moreDetails />
 				</header>
 				<div class="entry-details" class:collapsed={detailsCollapsed}>
-					{#if $entry.data.entry.__typename === "Item"}
-						<Item data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "Imagine"}
-						<Imagine data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "Weapon"}
-						<Weapon data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "Costume"}
-						<Costume data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "Token"}
-						<Token data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "StampSet"}
-						<StampSet data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "LiquidMemory"}
-						<LiquidMemory data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "Skill"}
-						<Skill data={$entry.data.entry} />
-					{/if}
-					<!-- Gestures have no data -->
-					{#if $entry.data.entry.__typename === "GameMap"}
-						<Map data={$entry.data.entry} />
-					{/if}
-					{#if $entry.data.entry.__typename === "Enemy"}
-						<Enemy data={$entry.data.entry} />
-					{/if}
+					<svelte:component
+						this={templates[$entry.data.entry.__typename]}
+						data={$entry.data.entry}
+					/>
 				</div>
 			{/if}
 		</article>

@@ -143,6 +143,14 @@ export const initialFilters = {
             },
             checked: false,
         },
+        {
+            typename: "AvatarPart",
+            text: {
+                ja_JP: "アバター",
+                en_US: "Avatar Parts",
+            },
+            checked: false,
+        },
     ]
 }
 

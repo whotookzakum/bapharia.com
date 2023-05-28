@@ -1,20 +1,6 @@
 
-import { stampSets, maps, items, enemies, skills, costumes, gestures, tokens, liquidMemories, imagines, weapons } from "./functions";
+import entries from "./functions";
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
-
-const entries = [
-    ...items,
-    ...enemies,
-    ...costumes,
-    ...gestures,
-    ...imagines,
-    ...liquidMemories,
-    ...stampSets,
-    ...tokens,
-    ...weapons,
-    ...skills,
-    ...maps
-]
 
 const resolvers = {
     Query: {
