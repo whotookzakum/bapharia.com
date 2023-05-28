@@ -1,80 +1,53 @@
 <script>
     import { userLocale } from "$lib/stores";
+    import { katakanaToHiragana } from "$lib/utils/string_utils";
+    import categoryTextLocales from "./categoryText.json";
     export let data;
     export let moreDetails = false;
+    export let userSearchInput = "";
 
-    let categoryText;
-    let backgroundStyle = ""
+    // data.category is more specific, i.e. "Consumable" instead of "Item"
+    let categoryText = categoryTextLocales[data.__typename];
+    let backgroundStyle =
+        data.skill_type <= 6
+            ? `background-image: url(${data.skillBackgroundImg})`
+            : "";
 
-    $: {
-        categoryText = data.__typename;
-        if (data.__typename === "Enemy") {
-            categoryText = {
-                ja_JP: "エネミー",
-                en_US: "Enemy",
-            };
+    // https://bitsofco.de/a-one-line-solution-to-highlighting-search-matches/
+    function highlightMatchedTerm(entryName) {
+        // Every language other than Japanese
+        if ($userLocale !== "ja_JP") {
+            return entryName.replace(
+                new RegExp(userSearchInput, "gi"),
+                (match) => `<mark>${match}</mark>`
+            );
         }
-        if (data.__typename === "Item") {
-            categoryText = {
-                ja_JP: "アイテム",
-                en_US: "Item",
-            };
+        // User locale and search term are both JP, otherwise it messes up names like Jake's Letter
+        else if (userSearchInput.match(/[\u3041-\u30f6]/g)) {
+            const startIndex = katakanaToHiragana(entryName)
+                .toLowerCase()
+                .indexOf(katakanaToHiragana(userSearchInput).toLowerCase());
+            const beforeMatch = entryName.slice(0, startIndex);
+            const match = entryName.slice(
+                startIndex,
+                startIndex + userSearchInput.length
+            );
+            const afterMatch = entryName.slice(
+                startIndex + userSearchInput.length
+            );
+            return `${beforeMatch}<mark>${match}</mark>${afterMatch}`;
         }
-        if (data.__typename === "Weapon") {
-            categoryText = {
-                ja_JP: "武器",
-                en_US: "Weapon",
-            };
+        // User locale is JP but search term is English
+        else {
+            return entryName;
         }
-        if (data.__typename === "Skill") {
-            if (data.skill_type <= 6) backgroundStyle = `background-image: url(${data.skillBackgroundImg})`
-            categoryText = {
-                ja_JP: "スキル",
-                en_US: "Skill",
-            };
-        }
-        if (data.__typename === "Gesture") {
-            categoryText = {
-                ja_JP: "ジェスチャー",
-                en_US: "Emote",
-            };
-        }
-        if (data.__typename === "StampSet") {
-            categoryText = {
-                ja_JP: "スタンプセット",
-                en_US: "Stamp Set",
-            };
-        }
-        if (data.__typename === "LiquidMemory") {
-            categoryText = {
-                ja_JP: "リキッドメモリ",
-                en_US: "Liquid Memory",
-            };
-        }
-        if (data.__typename === "Imagine") {
-            categoryText = {
-                ja_JP: "イマジン",
-                en_US: "Echo",
-            };
-        }
-        if (data.__typename === "Token") {
-            categoryText = {
-                ja_JP: "トークン",
-                en_US: "Token",
-            };
-        }
-        if (data.__typename === "GameMap") {
-            categoryText = {
-                ja_JP: "マップ",
-                en_US: "Map",
-            };
-        }
-        if (data.__typename === "Costume") {
-            categoryText = {
-                ja_JP: "コスチューム",
-                en_US: "Costume",
-            };
-        }
+    }
+
+    function highlightMatchedId(entryId) {
+        return entryId.replace(
+            new RegExp(userSearchInput, "gi"),
+            (match) => `<mark>${match}</mark>`
+        );
     }
 </script>
 
@@ -109,13 +82,15 @@
             </div>
         {:else}
             <div class="skip-std">
-                {data.name[$userLocale]}
+                {@html highlightMatchedTerm(data.name[$userLocale])}
             </div>
             <div>
                 <span class={`${data.__typename} box pill`}
                     >{categoryText[$userLocale]}</span
                 >
-                <span class="entry-id box pill">ID: {data.id}</span>
+                <span class="entry-id box pill"
+                    >ID: {@html highlightMatchedId(data.id)}</span
+                >
             </div>
         {/if}
     </div>
@@ -124,12 +99,7 @@
             <img src={data.classImg} alt="" width="32" height="32" />
         {/if} -->
         {#if data.elementImg && !data.elementImg.includes("Attribute_Empty")}
-            <img
-                src={data.elementImg}
-                alt=""
-                width="32"
-                height="32"
-            />
+            <img src={data.elementImg} alt="" width="32" height="32" />
         {/if}
     </div>
 </div>
@@ -153,8 +123,7 @@
 
         h3 {
             margin: 0;
-            font-size: var(--step-0);
-            max-inline-size: unset;
+            font-size: var(--step-2);
         }
 
         i {

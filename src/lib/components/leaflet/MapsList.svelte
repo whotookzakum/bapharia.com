@@ -5,7 +5,8 @@
         cities: mapsData.filter((map) => map.map_id.includes("Cty")),
         fields: mapsData.filter(
             (map) =>
-                map.map_id.includes("Fld") && map.map_id.split("_").length < 2
+                map.map_id.includes("Fld") 
+                // && map.map_id.split("_").length < 2
                 && (map.map_id.includes("Fld001") || map.map_id.includes("Fld002"))
         ),
         // dungeons: mapsData.filter(

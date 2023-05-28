@@ -90,11 +90,11 @@ article.guide {
         margin: 0;
     }
 
-    p {
-        font-size: var(--step-0);
-        line-height: 1.4;
-        color: var(--accent);
-    }
+    // p {
+    //     font-size: var(--step-0);
+    //     line-height: 1.4;
+    //     color: var(--accent);
+    // }
 }
 
 .toc {
@@ -151,18 +151,21 @@ article.guide {
     }
 }
 
-.scroll-tracker {
-    content: "";
-    position: fixed;
-    inset: 0;
-    height: 4px;
-    z-index: 5;
-    background: var(--accent);
-    transform-origin: left;
-    animation: trackScroll 1s linear forwards;
-    animation-timeline: scroll-tracker-timeline;
-    box-shadow: 0 1px 2px var(--surface-shadow);
+@supports (scroll-timeline: name) {
+    .scroll-tracker {
+        position: fixed;
+        inset: 0;
+        height: 4px;
+        z-index: 5000;
+        background: var(--accent);
+        transform-origin: left;
+        animation: trackScroll 1s linear forwards;
+        animation-timeline: scroll-tracker-timeline;
+        box-shadow: 0 1px 2px var(--surface-shadow);
+    }
 }
+
+
 
 @keyframes trackScroll {
     from {

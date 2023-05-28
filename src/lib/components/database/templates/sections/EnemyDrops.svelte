@@ -7,7 +7,7 @@
 {#each locations as location}
     {#if location.id}
         <div class="skip-std">
-            <a href={`?result=${location.id}#db`}
+            <a href={`/db?result=${location.id}`}
                 >{location.name[$userLocale]}</a
             >
         </div>
@@ -33,7 +33,7 @@
                                                 {#each drop.rarity_1_rewards as reward}
                                                     <li>
                                                         <a
-                                                            href={`?result=${reward.reward_master_id}#db`}
+                                                            href={`/db?result=${reward.reward_master_id}`}
                                                             >{reward.name[
                                                                 $userLocale
                                                             ]}</a
@@ -52,7 +52,7 @@
                                                 {#each drop.rarity_3_rewards as reward}
                                                     <li>
                                                         <a
-                                                            href={`?result=${reward.reward_master_id}#db`}
+                                                            href={`/db?result=${reward.reward_master_id}`}
                                                             >{reward.name[
                                                                 $userLocale
                                                             ]}</a
@@ -65,7 +65,7 @@
                                     {/if}
                                 </ul>
                             {:else}
-                                <a href={`?result=${drop.item_index}#db`}
+                                <a href={`/db?result=${drop.item_index}`}
                                     >{drop.name[$userLocale]}</a
                                 >
                             {/if}

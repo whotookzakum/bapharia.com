@@ -9,7 +9,7 @@ thumbImg: "/guides/faq/thumb.webp"
 ---
 
 <script>
-    import FAQ from './faq.svelte';
+    import FAQ from './components/faq.svelte';
 </script>
 
 ## About the game

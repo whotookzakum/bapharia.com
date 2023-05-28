@@ -53,7 +53,7 @@
 		border: none;
 		color: var(--text1);
 		line-height: 1.4;
-		font-size: var(--step-1);
+		font-size: var(--step-2);
 		margin: 0;
 		font-weight: 500;
 		letter-spacing: unset;
@@ -87,6 +87,7 @@
 		p {
 			margin-bottom: 0;
 			margin-top: var(--space-2xs);
+			font-size: var(--step-0);
 		}
 
 		.category {

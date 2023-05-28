@@ -1,7 +1,8 @@
 <script>
-	export let title;
-	export let id;
-	export let bleed;
+	export let title = "";
+	export let id = "";
+	export let bleed = false;
+	export let style = null;
 </script>
 
 <iframe
@@ -10,6 +11,7 @@
 	title="Video showcasing {title}"
 	src="https://www.youtube.com/embed/{id}"
 	allow="fullscreen"
+	{style}
 />
 
 <style>

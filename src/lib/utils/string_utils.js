@@ -9,6 +9,16 @@ export function hiraganaToKatakana(str) {
     // .replace("-", " ")
 }
 
+export function katakanaToHiragana(str) {
+    return str.toString()
+    .replace(/[\u30a1-\u30f6]/g, function (match) {
+        var chr = match.charCodeAt(0) - 0x60;
+        return String.fromCharCode(chr);
+    })
+    .replace("・", "")
+    // .replace("-", " ")
+}
+
 export function checkStringIncludes(str1, str2) {
     // Might need toLocaleLowerCase when localizing
     const Str1 =  hiraganaToKatakana(str1).toLowerCase()

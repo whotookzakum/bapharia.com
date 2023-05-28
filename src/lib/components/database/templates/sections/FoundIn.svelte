@@ -6,7 +6,7 @@
 <h4>Found In</h4>
 <ul class="border-left" role="list">
     {#each locations as location}
-        <li><a href={`?result=${location.id}#db`}>{location.name[$userLocale]}</a></li>
+        <li><a href={`/db?result=${location.id}`}>{location.name[$userLocale]}</a></li>
     {/each}
 </ul>
 

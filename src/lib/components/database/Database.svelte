@@ -7,19 +7,28 @@
 	import EntrySummary from "./EntrySummary.svelte";
 	import SearchFilters from "./SearchFilters.svelte";
 	import debounce from "lodash/debounce";
+	import { filterCategoryTypes } from "$lib/stores";
+	import Icon from "@iconify/svelte";
 
-	let userSearchInput = $page.url.searchParams.get("search");
+	let userSearchInput = $page.url.searchParams.get("search") || "";
 	$: userSelectedEntryId = $page.url.searchParams.get("result");
 
 	export let _DatabaseEntriesVariables = () => {
 		return {
 			searchTerm: userSearchInput,
+			categories: JSON.stringify($filterCategoryTypes),
 		};
 	};
 
+	$: {
+		$filterCategoryTypes;
+		updateResults();
+	}
+
 	const entries = graphql(`
-		query DatabaseEntries($searchTerm: String) @load {
-			entries(searchTerm: $searchTerm, first: 6) @paginate {
+		query DatabaseEntries($searchTerm: String, $categories: String) @load {
+			entries(searchTerm: $searchTerm, categories: $categories, first: 6)
+				@paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
 					endCursor
@@ -60,14 +69,21 @@
 		}
 	`);
 
-	// $: console.log($entries.data)
-
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
 		en_US: "Start typing item name or id",
 	};
 
-	const updateResults = debounce(() => {
+	const updateResults = () => {
+		_DatabaseEntriesVariables = () => {
+			return {
+				searchTerm: userSearchInput,
+				categories: JSON.stringify($filterCategoryTypes),
+			};
+		};
+	};
+
+	const updateResultsDebounced = debounce(() => {
 		_DatabaseEntriesVariables = () => {
 			return {
 				searchTerm: userSearchInput,
@@ -75,16 +91,10 @@
 		};
 	}, 500);
 
-	const updateUrl = (resultId) => {
+	const updateSearchParam = () => {
 		userSearchInput
 			? $page.url.searchParams.set("search", userSearchInput)
 			: $page.url.searchParams.delete("search");
-
-		if (resultId) userSelectedEntryId = resultId;
-
-		userSelectedEntryId
-			? $page.url.searchParams.set("result", userSelectedEntryId)
-			: $page.url.searchParams.delete("result");
 
 		// Results are pushed to history, but searches are not.
 		// To add searches, create a separate function debouncing goto().
@@ -92,15 +102,42 @@
 		// However, as a consequence, the address bar won't update immediately.
 		goto(`?${$page.url.searchParams.toString()}`, {
 			noScroll: true,
-			replaceState: !resultId,
+			replaceState: true,
+			keepFocus: true,
+		});
+
+		updateResultsDebounced();
+	};
+
+	const updateResultParam = (node) => {
+		userSelectedEntryId = node.__typename + node.id;
+		$page.url.searchParams.set("result", userSelectedEntryId);
+
+		goto(`?${$page.url.searchParams.toString()}`, {
+			noScroll: true,
+			replaceState: false,
 			keepFocus: true,
 		});
 	};
 
-	const handleSearch = () => {
-		updateUrl();
-		updateResults();
+	const loadPreviousPage = async () => {
+		await entries.loadPreviousPage();
+		pageNumber--;
 	};
+
+	const loadNextPage = async () => {
+		await entries.loadNextPage();
+		pageNumber++;
+	};
+
+	let pageNumber = 1;
+	let resultsPerPage = 6;
+
+	$: totalPages = Math.ceil(
+		$entries?.data?.entries.totalResults / resultsPerPage
+	);
+
+	$: if (pageNumber > totalPages && totalPages > 0) pageNumber = maxPages;
 </script>
 
 <div class="db-wrapper">
@@ -114,9 +151,27 @@
 					type="search"
 					placeholder={placeholderText[$userLocale]}
 					bind:value={userSearchInput}
-					on:input={handleSearch}
+					on:input={updateSearchParam}
 				/>
 				<SearchFilters />
+			</div>
+			<button>Filters</button>
+			<div class="page-controls flex g-25">
+				<button
+					class="flex"
+					disabled={!$entries.pageInfo.hasPreviousPage}
+					on:click={loadPreviousPage}>
+					<Icon icon={"mdi:chevron-left"} width="18" height="18" />
+				</button>
+				<button
+					class="flex"
+					disabled={!$entries.pageInfo.hasNextPage}
+					on:click={loadNextPage}
+				>
+					<Icon icon={"mdi:chevron-right"} width="18" height="18" />
+				</button>
+				<span>page {pageNumber} of {totalPages}</span>
+				<span />
 			</div>
 		</div>
 		{#if !$entries.fetching}
@@ -129,22 +184,20 @@
 						<li>
 							<button
 								type="button"
-								on:click={() => updateUrl(entry.node.id)}
+								on:click={() => updateResultParam(entry.node)}
 							>
-								<EntrySummary data={entry.node} />
+								<EntrySummary
+									{userSearchInput}
+									data={entry.node}
+								/>
 							</button>
 						</li>
 					{/each}
 				</ul>
 			</div>
-			{#if $entries.data.entries.pageInfo.hasNextPage}
-				<!-- <button on:click={entries.data.entries.loadNextPage}>
-					load more
-				</button> -->
-			{/if}
 		{/if}
 	</form>
-	<DatabaseDetails entryId={userSelectedEntryId || "121000000"} />
+	<DatabaseDetails longId={userSelectedEntryId || "Item121000000"} />
 </div>
 
 <style lang="scss">

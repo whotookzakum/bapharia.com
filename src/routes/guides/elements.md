@@ -1,7 +1,7 @@
 ---
 title: 'Elements'
 author: 'Zakum'
-date: '2023-5-15'
+date: '2023-5-26'
 category: 'Game Systems'
 caption: 'Explanation of the elemental system and a list of elemental effects.'
 bannerImg: "/guides/elements/banner.jpg"
@@ -10,7 +10,7 @@ thumbImg: "/guides/elements/thumb.webp"
 
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
-    import ElementsTable from './ElementsTable.svelte';
+    import ElementsTable from './components/ElementsTable.svelte';
 </script>
 
 ## The Six Elements
@@ -20,8 +20,10 @@ Players can use 6 elements in BLUE PROTOCOL: Fire, Ice, Thunder, Earth, Light, a
 Attacking with elements will fill the Elemental Charge gauge underneath an enemy's health bar. Filling it past the level 1, 2, or 3 threshold will apply an **Elemental Effect** on the enemy. The gauge will be depleted over time.
 
 <StickyNote type="note">
-    Elemental charge is accumulated regardless of the element you are currently using, so all players can contribute towards the gauge. The element that has the most charge when reaching level 1 will be applied.
+    Elemental charge is accumulated regardless of the element you are currently using, so all players can contribute towards the gauge.
 </StickyNote>
+
+The active element that shows on the gauge is determined by which element has contributed the most charge. The active element can <a href="https://www.youtube.com/live/K6euuPFx5wg?feature=share&t=7704" target="_blank" rel="noreferrer noopener nofollow">change between levels</a>, though the active debuff will remain until replaced.
 
 It's currently unknown whether a weapon's Elemental Power stat influences how fast elemental charge is built, or if its simply for damage against enemies with elemental weaknesses.
 

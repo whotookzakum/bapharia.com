@@ -13,7 +13,7 @@ thumbImg: "/guides/liqmem/thumb.webp"
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
     import Video from '$lib/components/Video.svelte';
-    import LiqMemTable from "./LiqMemTable.svelte";
+    import LiqMemTable from "./components/LiqMemTable.svelte";
 </script>
 
 <Video 
@@ -78,7 +78,7 @@ Below are some liquid memory effects that weren't available in the closed beta o
 
 
 #### Treasure Chest in Hollowed Tempest
-Open the treasure chest found in the Northeast area of [Erstgreen Sands: Hollowed Tempest](/?search=Fld004_N&result=Fld004_N#db).
+Open the treasure chest found in the Northeast area of [Erstgreen Sands: Hollowed Tempest](/db?search=Fld004_N&result=GameMapFld004_N).
 ![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106782174608379924/image.png)
 
 <hr>
@@ -100,11 +100,11 @@ Open the treasure chest found in the Northeast area of [Erstgreen Sands: Hollowe
 3. Complete Pillar of Divinity (Additional Survey) to obtain the Engram Collector and give it to Hanna. Report back to Patti to complete.
 
 #### Treasure Chest in Olvid Plains
-Open the treasure chest found on the Southwest peninsula of [Erstgreen Sands: Olvid Plains](/?search=Fld004_W&result=Fld004_W#db).
+Open the treasure chest found on the Southwest peninsula of [Erstgreen Sands: Olvid Plains](/db?search=Fld004_W&result=GameMapFld004_W).
 ![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106782059294371921/image.png)
 
 #### Treasure Chest in Borwam Ruins
-Open the treasure chest found in the middle room on the 2nd floor of [Free Exploration: Borwam Ruins](/?search=pat0802&result=pat0802#db), accessible via [Erstgreen Sands: Shimmering Valley](/?result=Fld004_E&search=Fld004_E#db).
+Open the treasure chest found in the middle room on the 2nd floor of [Free Exploration: Borwam Ruins](/db?search=pat0802&result=GameMappat0802), accessible via [Erstgreen Sands: Shimmering Valley](/db?result=GameMapFld004_E&search=Fld004_E).
 ![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106809526147096576/image.png)
 
 <hr>
@@ -148,7 +148,7 @@ Open the treasure chest found in the middle room on the 2nd floor of [Free Explo
 3. Gather 5 Sunshine Shells in Fier Highwaters (can only be obtained during daytime) and report back to Louise to complete. <!-- ルイーゼ, 廻る舵輪亭, 空間転送ポータル, 満月石, ニッコウガイ -->
 
 #### Treasure Chest in Melisos River Basin
-Open the treasure chest found in the Northwest part of [Montegnor Valley: Melisos River Basin](/?search=Fld003_E&result=Fld003_E#db).
+Open the treasure chest found in the Northwest part of [Montegnor Valley: Melisos River Basin](/db?search=Fld003_E&result=GameMapFld003_E).
 ![Chest Location](https://cdn.discordapp.com/attachments/1066964551444201473/1097469547176546304/image.png)
 
 <hr>
@@ -213,7 +213,7 @@ Open the treasure chest found in the Northwest part of [Montegnor Valley: Meliso
 </StickyNote>
 
 1. Accept the quest *Waiting for the Goat to Go* (不気味な香りの交換条件) from Godot/Old Man in Asterleeds, found near the Shrine.
-2. Defeat the named enemy [Ghastly Goat](/?result=E004_00_01_01001) in Quellmount's Foot and report back to Godot.
+2. Defeat the named enemy [Ghastly Goat](/?result=EnemyE004_00_01_01001) in Quellmount's Foot and report back to Godot.
 
 #### Treasure Chest in West Bernhart Peninsula
 
@@ -237,7 +237,7 @@ Open the treasure chest found in the Northwest part of [Montegnor Valley: Meliso
 2. Gather 10 Mothergreen in Godswatch Rise.
 
 #### Treasure Chest in Breathless Wasteland
-Open the treasure chest found in the central part of [Erstgreen Sands: Breathless Wasteland](/?search=Fld004_S&result=Fld004_S#db).
+Open the treasure chest found in the central part of [Erstgreen Sands: Breathless Wasteland](/db?search=Fld004_S&result=GameMapFld004_S).
 ![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106781515670630480/image.png)
 
 <hr>
@@ -260,7 +260,7 @@ Open the treasure chest found in the central part of [Erstgreen Sands: Breathles
 3. Complete the dungeon Raycrisstal Mine: Resurvey.
 
 #### Treasure Chest in Torchlight Thickets
-Open the treasure chest found in the Southwest room in [Free Exploration: Torchlight Thickets](/?search=pat0802&result=pat0802#db), accessible via [Bahamar Highlands: Fier Highwaters](/?result=Fld002_W&search=Fld002_W#db).
+Open the treasure chest found in the Southwest room in [Free Exploration: Torchlight Thickets](/db?search=pat0802&result=GameMappat0802), accessible via [Bahamar Highlands: Fier Highwaters](/db?result=GameMapFld002_W&search=Fld002_W).
 ![Chest Location](https://cdn.discordapp.com/attachments/985823713066881034/1106799305156739103/image.png)
 
 #### Rewarded in Adventure Board

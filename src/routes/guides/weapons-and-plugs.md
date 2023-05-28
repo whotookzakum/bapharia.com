@@ -14,7 +14,7 @@ thumbImg: "/guides/weapons/thumb.webp"
 </script>
 
 <Video 
-    title="Imagine System" 
+    title="Weapons and Plugs" 
     id="zcSPxPQwuTo"
     bleed
 />
@@ -28,7 +28,7 @@ Switching weapon types while in town will automatically change your class (once 
 Weapons provide **50 &times; (Item Level)** Battle Score, and they will level sync if their max item level is higher than your current class level.
 
 ## Crafting
-Weapons can be crafted at the Crafting Machine found in town. Their recipes can be acquired through quests and Adventure Boards.
+Weapons can be crafted at the Crafting Machine found in town. Their recipes can be acquired through quests and [Adventure Boards](/guides/adventure-boards).
 
 <StickyNote type="tip">
     Weapon Adventure Boards often contain items that help you craft the weapon faster, so be sure to check all their rewards!
@@ -47,7 +47,7 @@ Weapons can also be obtained through treasure chests that drop from dungeon mini
 
 That specific miniboss has a **5%** chance to drop a treasure chest which will guarantee that one of the Dragon Nail weapons, **selected randomly**, are added to the rewards list. You still have to clear the entire dungeon to get the item. 
 
-Specific drop rate information can be found on the [database](/#db).
+Specific drop rate information can be found on the [database](/db).
 
 ## Weapon RNG
 There are 3 randomly determined aspects regarding weapons.
