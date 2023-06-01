@@ -1,5 +1,6 @@
 <script>
     export let data;
+    console.log(data)
 </script>
 
 <h4>Sockets</h4>
@@ -16,22 +17,22 @@
     <tbody>
         <tr>
             <td>1</td>
-            <td>0%</td>
+            <td>{data.bonus_ability_rate1}%</td>
             <td>{data.base_ability_rate1}%</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>15%</td>
+            <td>{data.bonus_ability_rate2}%</td>
             <td>{data.base_ability_rate2}%</td>
         </tr>
         <tr>
             <td>3</td>
-            <td>50%</td>
+            <td>{data.bonus_ability_rate3}%</td>
             <td>{data.base_ability_rate3}%</td>
         </tr>
         <tr>
             <td>4</td>
-            <td>35%</td>
+            <td>{data.bonus_ability_rate4}%</td>
             <td>{data.base_ability_rate4}%</td>
         </tr>
     </tbody>

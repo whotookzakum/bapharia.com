@@ -151,6 +151,10 @@
 						base_ability_rate2
 						base_ability_rate3
 						base_ability_rate4
+						bonus_ability_rate1
+						bonus_ability_rate2
+						bonus_ability_rate3
+						bonus_ability_rate4
 						bonus_rate
 						great_success_tokens
 						materials {
