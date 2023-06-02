@@ -5,7 +5,6 @@
     import Icon from "@iconify/svelte";
 
     export let markers;
-    let listView = true;
     let viewType = "list-view";
 
     // Get all categories unique to this map
