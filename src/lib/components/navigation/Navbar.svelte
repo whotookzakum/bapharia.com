@@ -260,8 +260,8 @@
 		height: var(--icon-size);
 		width: var(--icon-size);
 		background-color: var(--text1);
-		mask: url("/images/guide.svg") no-repeat center / contain;
-		-webkit-mask: url("/images/guide.svg") no-repeat center / contain;
+		mask: url("/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png") no-repeat center / contain;
+		-webkit-mask: url("/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png") no-repeat center / contain;
 	}
 
 	.active {

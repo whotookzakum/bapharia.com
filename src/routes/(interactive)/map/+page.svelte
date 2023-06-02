@@ -163,7 +163,6 @@
                             }}
                         />
                     {/if}
-
                     <Popup>
                         <small style="color: var(--text2)">{marker.id}</small
                         ><br />
