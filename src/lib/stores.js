@@ -44,6 +44,13 @@ export const mapState = writable({
     currentMapId: "Cty001"
 })
 
+export const mapSearchQuery = writable("")
+export const mapListShowZones = writable(false)
+export const mapControls = writable({
+    showMapList: false,
+    showMarkers: false,
+    showHotkeys: false
+})
 
 
 

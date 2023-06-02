@@ -1,4 +1,6 @@
-<h2>Hotkeys</h2>
+<header>
+    <h2>Hotkeys</h2>
+</header>
 <dl>
     <dt>Move</dt>
     <dd>

@@ -1,51 +1,41 @@
 <script>
-    import { userLocale } from "$lib/stores";
+    import { userLocale, mapSearchQuery, mapControls } from "$lib/stores";
     import Icon from "@iconify/svelte";
     import MarkersList from "./MarkersList.svelte";
     import HotkeysHint from "./HotkeysHint.svelte";
     import MapsList from "./MapsList.svelte";
 
     export let markers;
-
-    let searchQuery = "";
     let searchElement;
-    let mapList;
-    let showMapList = true;
-    let showMarkers = true;
-    let showHotkeys = false;
-
-    $: if (mapList) {
-        if (showMapList) {
-            mapList.showModal();
-        } else {
-            mapList.close();
-        }
-    }
-
     let keys = {};
 
     function handleKeydown(e) {
         keys[e.key] = true;
         if (keys.Control && keys.k) {
             e.preventDefault();
-            searchElement.focus();
+            openSearch()
         }
         if (keys.Control && keys["'"]) {
             e.preventDefault();
-            showMarkers = !showMarkers;
+            $mapControls.showMarkers = !$mapControls.showMarkers;
         }
         if (keys.Control && keys[";"]) {
             e.preventDefault();
-            showMapList = !showMapList;
+            $mapControls.showMapList = !$mapControls.showMapList;
         }
         if (keys.Control && keys["/"]) {
             e.preventDefault();
-            showHotkeys = !showHotkeys;
+            $mapControls.showHotkeys = !$mapControls.showHotkeys;
         }
     }
 
     function handleKeyup(e) {
         keys[e.key] = false;
+    }
+
+    function openSearch() {
+        searchElement.focus();
+        $mapControls.showMapList = true
     }
 </script>
 
@@ -59,7 +49,8 @@
                 type="text"
                 placeholder="Search for a map"
                 aria-label="Search for a map"
-                bind:value={searchQuery}
+                on:click={openSearch}
+                bind:value={$mapSearchQuery}
                 bind:this={searchElement}
             />
         </li>
@@ -68,7 +59,7 @@
                 type="checkbox"
                 id="toggle-map-list"
                 class="visually-hidden"
-                bind:checked={showMapList}
+                bind:checked={$mapControls.showMapList}
             />
             <label class="flex box" for="toggle-map-list">
                 <span class="visually-hidden">Markers</span>
@@ -81,7 +72,7 @@
                 id="toggle-marker-list"
                 class="visually-hidden"
                 value="hey"
-                bind:checked={showMarkers}
+                bind:checked={$mapControls.showMarkers}
             />
             <label class="flex box" for="toggle-marker-list">
                 <span class="visually-hidden">Markers</span>
@@ -93,7 +84,7 @@
                 type="checkbox"
                 id="toggle-hotkeys-hint"
                 class="visually-hidden"
-                bind:checked={showHotkeys}
+                bind:checked={$mapControls.showHotkeys}
             />
             <label class="flex box" for="toggle-hotkeys-hint">
                 <span class="visually-hidden">Markers</span>
@@ -102,29 +93,18 @@
             </label>
         </li>
     </menu>
-
-    <!-- <ul class="search-results box" role="list">
-            {#each maps as map}
-                <li>
-                    <a class="flex g-50" href={map.href}
-                        ><Icon icon={map.icon} /> {map.name[$userLocale]}</a
-                    >
-                    {searchQuery}
-                </li>
-            {/each}
-        </ul> -->
-    {#if showMapList}
-        <div class="box">
+    {#if $mapControls.showMapList}
+        <div class="box panel">
             <MapsList />
         </div>
     {/if}
-    {#if showMarkers}
-        <div class="box">
+    {#if $mapControls.showMarkers}
+        <div class="box panel">
             <MarkersList {markers} />
         </div>
     {/if}
-    {#if showHotkeys}
-        <div class="box">
+    {#if $mapControls.showHotkeys}
+        <div class="box panel">
             <HotkeysHint />
         </div>
     {/if}
@@ -182,6 +162,10 @@
         padding: 0;
         flex-wrap: wrap;
         align-items: center;
+    }
+
+    .panel {
+        padding-top: 0;
     }
 
     label {

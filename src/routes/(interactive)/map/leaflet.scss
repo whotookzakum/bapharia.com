@@ -140,3 +140,48 @@ $margin-offset: calc(($icon-size - $icon-size-clipped) / 2);
         color: var(--accent);
     }
 }
+
+.map-controls .category-header {
+    margin-block: var(--step-4) var(--space-3xs);
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &:first-of-type {
+        margin-block: var(--space-3xs);
+    }
+
+    span {
+        text-transform: capitalize;
+        font-size: var(--step-1);
+    }
+
+    button {
+        font-size: var(--step--1);
+        padding: 0.25rem;
+        border-radius: 3px;
+    }
+}
+
+.map-controls {
+    header {
+        padding-block: 1rem 0.5rem;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: inherit;
+
+        h2 {
+            font-size: var(--step-1);
+            margin: 0;
+        }
+    }
+
+    .maps-list, .markers-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        max-inline-size: unset;
+    }
+}
