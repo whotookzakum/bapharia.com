@@ -11,7 +11,7 @@
     let searchElement;
     let mapList;
     let showMapList = true;
-    let showMarkers = false;
+    let showMarkers = true;
     let showHotkeys = false;
 
     $: if (mapList) {
@@ -140,6 +140,7 @@
         gap: 1rem;
         height: calc(100% - 2rem);
         pointer-events: none;
+        max-width: 450px;
 
         & > div {
             overflow-y: scroll;
@@ -155,10 +156,8 @@
         max-height: 44px;
     }
 
-    :global(.map-controls h2) {
-        font-size: var(--step-0);
-        margin-block: -0rem 0.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    :global(.map-controls header) {
+        border-bottom: 1px solid var(--surface3);
     }
 
     .search:not(:focus-visible) + .search-results {
