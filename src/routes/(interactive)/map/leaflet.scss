@@ -106,21 +106,27 @@ $margin-offset: calc(($icon-size - $icon-size-clipped) / 2);
     color: white !important;
 }
 
-// .map-zone-label {
-//     background: unset !important;
-//     font-family: "Skip Std";
-//     color: #f2e0c1 !important;
-//     border-color: transparent !important;
-//     font-size: 1rem !important;
-//     // text-shadow: 0 0px 3px var(--surface-shadow);
-//     box-shadow: unset !important;
-//     margin: 0 !important;
+.map-zone-label {
+    background: unset !important;
+    color: #f2e0c1 !important;
+    border-color: transparent !important;
+    text-shadow: 
+        1px 0 2px rgba(0, 0, 0, 0.8), 
+        0 1px 2px rgba(0, 0, 0, 0.8), 
+        -1px 0 2px rgba(0, 0, 0, 0.8), 
+        0 -1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: unset !important;
+    margin: 0 !important;
 
-//     &::before {
-//         content: unset !important;
-//         border: unset !important;
-//     }
-// }
+    &::before {
+        content: unset !important;
+        border: unset !important;
+    }
+
+    &.mini {
+        font-size: var(--step-0);
+    }
+}
 
 .leaflet-control-attribution {
     background: none !important;

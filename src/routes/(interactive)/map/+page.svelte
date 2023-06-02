@@ -175,6 +175,24 @@
                 </Marker>
             {/if}
         {/each}
+        {#if zone.labels}
+            {#each zone.labels as label}
+                <Marker latLng={label.coords} opacity={0} zIndexOffset={-100}>
+                    <Tooltip
+                        options={{
+                            direction: "bottom",
+                            permanent: true,
+                            className: `map-zone-label skip-std ${
+                                label.isMini ? "mini" : ""
+                            }`,
+                            opacity: 1,
+                        }}
+                    >
+                        {label.name[$userLocale]}
+                    </Tooltip>
+                </Marker>
+            {/each}
+        {/if}
     </LeafletMap>
 {/if}
 
