@@ -260,90 +260,50 @@ export const GET = async () => {
         const id = point.Outer
 
         // Exclude unused points
-        if (
-            id.includes("ChallengeBox") ||
-            id.includes("ArenaReception") ||
-            id.includes("SitTarget") ||
-            id.includes("ReplicatedDungeonWall") ||
-            id.includes("Spline") ||
-            id.includes("Utillity") ||
-            id.includes("TargetPoint") ||
-            id.includes("IP_") ||
-            id.includes("DungeonActivator") ||
-            id.includes("FieldTravel") ||
-            id.includes("WaterFlow") ||
-            id.includes("Temple") ||
+        const unused = [
+            id.includes("ChallengeBox"),
+            id.includes("ArenaReception"),
+            id.includes("SitTarget"),
+            id.includes("ReplicatedDungeonWall"),
+            id.includes("Spline"),
+            id.includes("Utillity"),
+            id.includes("TargetPoint"),
+            id.includes("IP_"),
+            id.includes("DungeonActivator"),
+            id.includes("FieldTravel"),
+            id.includes("WaterFlow"),
+            id.includes("Temple"),
             point.Name.includes("FishingPointLocation") // in some weird spot
-        ) {
-            return
-        }
+        ]
 
+        // Duplicates that don't need to be marked
+        const duplicates = [
+            // Storages
+            id.includes("LockerTarget") && !/LockerTarget\d+_1\b/.test(id),
+            // Memory stand at Asterleeds Beach
+            id.includes("LiquidMemory_02"),
+            // Leaderboards
+            id.includes("RankingBoard") && !/RankingBoard\d+-1(?=_\w+$)/.test(id),
+            // Guild NPC
+            id.includes("Guild_02"),
+            // Peddlers
+            id.includes("Peddler") && !/Peddler_\d+_[a-zA-Z]\w*_/.test(id),
+            // Crafting Machine
+            id.includes("CraftMachine") && id !== "BP_TestCraftMachine2",
+            // Fishing Spots
+            id.includes("Fishing") && id !== "BP_Fishing16",
+            // Quests that aren't the initial starting quest
+            (id.includes("CQ") || id.includes("MQ") || id.includes("SQ") || id.includes("EQ")) && !id.includes("start"),
+            // Murrie?
+            id.includes("EST101_020_020") || id.includes("Npc_AdventurerRank_RankUpBattle_2"),
+            // Inn keeper NPC
+            id.includes("Npc_Coin_Owner_8"),
+            // Chef NPC spawn points
+            id.includes("FreeBuffNpcSpawn")
+        ]
 
-        // duplicates that dont need to be marked
-        // Peddler, Crafting Machine, Guild
-
-        // Exclude duplicate Storages
-        if (id.includes("LockerTarget") && !/LockerTarget\d+_1\b/.test(id)) {
-            return
-        }
-
-        // Exclude duplicate Memory Stand at Asterleeds Beach
-        if (id.includes("LiquidMemory_02")) {
-            return
-        }
-
-        // Exclude duplicate Ranking Boards
-        if (id.includes("RankingBoard") && !/RankingBoard\d+-1(?=_\w+$)/.test(id)) {
-            return
-        }
-
-        // Exclude duplicate Guild
-        if (id.includes("Guild_02")) {
-            return
-        }
-
-        if (id.includes("Peddler") && !/Peddler_\d+_[a-zA-Z]\w*_/.test(id)) {
-            return
-        }
-
-        if (id.includes("CraftMachine") && id !== "BP_TestCraftMachine2") {
-            return
-        }
-
-        if (id.includes("Fishing") && id !== "BP_Fishing16") {
-            return
-        }
-
-        // Exclude quests that are not the initial starting quest
-        if (id.includes("CQ") && !/^CQ\d+_\d+_start(?:_\w+)*$/.test(id)) {
-            return
-        }
-
-        if (id.includes("MQ") && !/^MQ\d+_\d+_start(?:_\w+)*$/.test(id)) {
-            return
-        }
-
-        if (id.includes("EST101_020_020") || id.includes("Npc_AdventurerRank_RankUpBattle_2")) {
-            return
-        }
-
-        if (id.includes("SQ") && !/^SQ\d+_\d+_start(?:_\w+)*$/.test(id)) {
-            return
-        }
-
-        if (id.includes("Npc_Coin_Owner_8")) {
-            return
-        }
-
-        if (id.includes("EQ") && !/^EQ\d+_\d+_start(?:_\w+)*$/.test(id)) {
-            return
-        }
-
-        if (id.includes("FreeBuffNpcSpawn")) {
-            return
-        }
-
-        // Quests can be refactored to includes CQ MQ SQ EQ TQ and !includes "start"
+        const exclusions = unused.concat(duplicates)
+        if (exclusions.some(val => val === true)) return
 
         const name = getName(id)
         const iconUrl = iconUrls[name.ja_JP]
