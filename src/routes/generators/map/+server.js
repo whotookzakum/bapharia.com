@@ -153,6 +153,12 @@ function getName(id) {
     // Past cty01
 
     if (id.includes("Mineral")) {
+        if (id.includes("Fix")) {
+            return {
+                ja_JP: "鉱石（固定）",
+                en_US: "Mineral (Fixed)"
+            }
+        }
         return {
             ja_JP: "鉱石",
             en_US: "Mineral"
@@ -160,6 +166,12 @@ function getName(id) {
     }
 
     if (id.includes("Plant")) {
+        if (id.includes("Fix")) {
+            return {
+                ja_JP: "植物（固定）",
+                en_US: "Plant (Fixed)"
+            }
+        }
         return {
             ja_JP: "植物",
             en_US: "Plant"
@@ -167,6 +179,12 @@ function getName(id) {
     }
 
     if (id.includes("Aquatic")) {
+        if (id.includes("Fix")) {
+            return {
+                ja_JP: "水棲（固定）",
+                en_US: "Aquatic (Fixed)"
+            }
+        }
         return {
             ja_JP: "水棲",
             en_US: "Aquatic"
@@ -241,7 +259,7 @@ function getCategory(id) {
 }
 
 export const GET = async () => {
-    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld002/*.json`)
+    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld001t/*.json`)
     const iterableDataFiles = Object.values(allDataFiles)
 
     const allData = await Promise.all(
