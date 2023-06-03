@@ -34,9 +34,14 @@ export const markersVisibility = writable({
     "Class Master": true,
     "Class Quest": false,
     "E Quest": false,
-    "Main Quest": false,
+    "Main Quest": true,
     "Sub Quest": false,
-    "T Quest": false
+    "T Quest": false,
+    "Training Dummy": true,
+    "Chef": true,
+    "Raid Entrance": true,
+    "Camp": true,
+    "Dungeon Entrance": true,
 })
 
 export const mapState = writable({

@@ -164,13 +164,10 @@
                         />
                     {/if}
                     <Popup>
-                        <small style="color: var(--text2)">{marker.id}</small
-                        ><br />
+                        <small style="color: var(--text2)">{marker.id}</small><br />
                         <strong>{marker.name[$userLocale]}</strong><br />
                         <!-- {marker.description} -->
-                        <small style="color: var(--text2)"
-                            >{marker.coords}</small
-                        >
+                        <small style="color: var(--text2)">{marker.coords}</small>
                     </Popup>
                 </Marker>
             {/if}

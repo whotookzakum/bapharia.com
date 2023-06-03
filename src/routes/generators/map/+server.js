@@ -38,7 +38,7 @@ function getName(id) {
             en_US: "Dyeworker"
         }
     }
-    if (id.includes("Esthe")) {
+    if (id.includes("Esthe") || id.includes("BeautySalon")) {
         return {
             ja_JP: "エステサロン",
             en_US: "Beauty Salon"
@@ -56,13 +56,13 @@ function getName(id) {
             en_US: "Echoforge"
         }
     }
-    if (id.includes("Itemsshop")) {
+    if (id.includes("Itemsshop") || id.includes("GeneralStore")) {
         return {
             ja_JP: "道具屋",
             en_US: "Item Shop"
         }
     }
-    if (id.includes("Peddler") || id.includes("ExchangeShop")) {
+    if (id.includes("Peddler") || id.includes("ExchangeShop") || id.includes("Peddller")) {
         return {
             ja_JP: "Peddler", // GC交換所
             en_US: "Peddler" // GC Shop
@@ -70,7 +70,7 @@ function getName(id) {
     }
     if (id.includes("Receptionist")) {
         return {
-            ja_JP: "Quest Receptionist",
+            ja_JP: "クエスト受付嬢",
             en_US: "Quest Receptionist"
         }
     }
@@ -193,7 +193,7 @@ function getName(id) {
 
     if (id.includes("FreeBuff")) {
         return {
-            ja_JP: "Chef",
+            ja_JP: "放浪の美食屋",
             en_US: "Chef"
         }
     }
@@ -202,6 +202,41 @@ function getName(id) {
         return {
             ja_JP: "ナッポ",
             en_US: "Nappo"
+        }
+    }
+
+    if (id.includes("TreasureBox")) {
+        return {
+            ja_JP: "宝箱",
+            en_US: "Treasure Chest"
+        }
+    }
+
+    if (id.includes("CampFire")) {
+        return {
+            ja_JP: "キャンプ",
+            en_US: "Camp"
+        }
+    }
+
+    if (id.includes("TrainingArea")) {
+        return {
+            ja_JP: "カカシ",
+            en_US: "Training Dummy"
+        }
+    }
+
+    if (id.includes("RaidGate")) {
+        return {
+            ja_JP: "レイド入り口",
+            en_US: "Raid Entrance"
+        }
+    }
+
+    if (id.includes("DungeonEntrance")) {
+        return {
+            ja_JP: "ダンジョン入り口",
+            en_US: "Dungeon Entrance"
         }
     }
 
@@ -224,6 +259,7 @@ function getCategory(id) {
         id.includes("ImagineShop") ||
         id.includes("Itemsshop") ||
         id.includes("Peddler") ||
+        id.includes("Peddller") ||
         id.includes("ExchangeShop") ||
         id.includes("Receptionist") ||
         id.includes("TacticalAbility") ||
@@ -234,7 +270,14 @@ function getCategory(id) {
         id.includes("Murrie") ||
         id.includes("SynthesisShop") ||
         id.includes("FreeBuff") ||
-        id.includes("Nappo")
+        id.includes("Nappo") || 
+        id.includes("TreasureBox") ||
+        id.includes("CampFire") || 
+        id.includes("TrainingArea") || 
+        id.includes("RaidGate") || 
+        id.includes("DungeonEntrance") ||
+        id.includes("BeautySalon") || 
+        id.includes("GeneralStore")
     ) {
         return "general"
     }
@@ -247,19 +290,13 @@ function getCategory(id) {
     ) {
         return "quest"
     }
-    else if (id.includes("Mineral")) {
-        return "mineral"
-    }
-    else if (id.includes("Plant")) {
-        return "plant"
-    }
-    else if (id.includes("Aquatic")) {
-        return "aquatic"
+    else if (id.includes("Mineral") || id.includes("Plant") || id.includes("Aquatic")) {
+        return "resource"
     }
 }
 
 export const GET = async () => {
-    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld001t/*.json`)
+    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/cty02/*.json`)
     const iterableDataFiles = Object.values(allDataFiles)
 
     const allData = await Promise.all(
@@ -277,8 +314,8 @@ export const GET = async () => {
     const allMarkers = allSceneComponents.map(point => {
         const id = point.Outer
 
-        // Exclude unused points
-        const unused = [
+        // Exclude unused points and duplicates that don't need to be marked
+        const exclusions = [
             id.includes("ChallengeBox"),
             id.includes("ArenaReception"),
             id.includes("SitTarget"),
@@ -291,11 +328,13 @@ export const GET = async () => {
             id.includes("FieldTravel"),
             id.includes("WaterFlow"),
             id.includes("Temple"),
-            point.Name.includes("FishingPointLocation") // in some weird spot
-        ]
-
-        // Duplicates that don't need to be marked
-        const duplicates = [
+            point.Name.includes("FishingPointLocation"), // in some weird spot
+            id.includes("TutorialHelp"),
+            id.includes("Box_Collision"),
+            id.includes("Bajamar_OP"),
+            id.includes("MinimapCaptureVolume"),
+            id.includes("Enter_Oasis"),
+            id.includes("BP_ENV"),
             // Storages
             id.includes("LockerTarget") && !/LockerTarget\d+_1\b/.test(id),
             // Memory stand at Asterleeds Beach
@@ -306,6 +345,7 @@ export const GET = async () => {
             id.includes("Guild_02"),
             // Peddlers
             id.includes("Peddler") && !/Peddler_\d+_[a-zA-Z]\w*_/.test(id),
+            id.includes("Peddller") && !/Peddller_\d+_[a-zA-Z]\w*_/.test(id),
             // Crafting Machine
             id.includes("CraftMachine") && id !== "BP_TestCraftMachine2",
             // Fishing Spots
@@ -320,7 +360,6 @@ export const GET = async () => {
             id.includes("FreeBuffNpcSpawn")
         ]
 
-        const exclusions = unused.concat(duplicates)
         if (exclusions.some(val => val === true)) return
 
         const name = getName(id)
@@ -331,6 +370,7 @@ export const GET = async () => {
             point.Properties.RelativeLocation.Z,
         ]
         const category = getCategory(id)
+        const description = getDescription(id)
 
         return {
             // ...point,
@@ -339,10 +379,18 @@ export const GET = async () => {
             name,
             iconUrl,
             coords,
+            description
             // TreasureBoxId: point.Properties.TreasureBoxId, // not scene component
             // TreasureBoxTag: point.Properties.TreasureBoxTag // not scene component
         }
-    }).filter(point => point) // use .reduce instead?
+    }).filter(point => point) // Get rid of null values
+    // use .reduce instead?
 
     return json(allMarkers)
+}
+
+function getDescription(id) {
+    if (id.includes("WarpPoint")) {
+        return "" // get name from WarpPointName
+    }
 }

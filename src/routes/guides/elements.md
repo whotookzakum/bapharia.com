@@ -53,7 +53,7 @@ Additionally, a **Burst Finish Gauge** will appear with a level 1 indicator next
 </figure>
 
 ### Burst Finish
-After Burst Bonus Time ends, a **Burst Finish** will occur, dealing massive damage determined by the level that was reached during the Burst Finish Gauge. Some elements will also apply buffs or debuffs after a Burst Finish.
+After Burst Bonus Time ends, a **Burst Finish** will occur, dealing massive damage determined by the level that was reached on the Burst Finish Gauge. Some elements will also apply buffs or debuffs after a Burst Finish.
 
 ## Elemental Weakness
 Attacking with the element that an enemy is weak against will allow you to do increased damage, indicated by an icon next to your damage numbers. The icon has 3 versions, denoting how effective the damage increase is.
