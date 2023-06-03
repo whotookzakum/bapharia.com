@@ -240,6 +240,19 @@ function getName(id) {
         }
     }
 
+    if (id.includes("ES_")) {
+        return {
+            ja_JP: "エネミー",
+            en_US: "Enemy"
+        }
+    }
+    if (id.includes("NQ_")) {
+        return {
+            ja_JP: "ネームドエネミー",
+            en_US: "Elite Monster"
+        }
+    }
+
 
     return {
         ja_JP: "-",
@@ -293,10 +306,13 @@ function getCategory(id) {
     else if (id.includes("Mineral") || id.includes("Plant") || id.includes("Aquatic")) {
         return "resource"
     }
+    else if (id.includes("NQ_") || id.includes("ES_")) {
+        return "enemy"
+    }
 }
 
 export const GET = async () => {
-    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/cty02/*.json`)
+    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld001/*.json`)
     const iterableDataFiles = Object.values(allDataFiles)
 
     const allData = await Promise.all(
@@ -309,7 +325,7 @@ export const GET = async () => {
     const allSceneComponents =
         allData
             .flat()
-            .filter(point => point.Type === "SceneComponent" && point.Properties?.hasOwnProperty("RelativeLocation"))
+            .filter(point => (point.Type === "SceneComponent" || point.Type === "BrushComponent") && point.Properties?.hasOwnProperty("RelativeLocation"))
 
     const allMarkers = allSceneComponents.map(point => {
         const id = point.Outer
@@ -335,6 +351,9 @@ export const GET = async () => {
             id.includes("MinimapCaptureVolume"),
             id.includes("Enter_Oasis"),
             id.includes("BP_ENV"),
+            id.includes("TC_"),
+            id.includes("BlockingVolume"),
+            id.includes("SBAutoCreated"),
             // Storages
             id.includes("LockerTarget") && !/LockerTarget\d+_1\b/.test(id),
             // Memory stand at Asterleeds Beach

@@ -153,10 +153,21 @@ export function getCategory(entryType, category) {
 
     if (entryType === "enemy") {
         switch (category) {
+            // Quest instance boss?
             case 1:
                 return {
                     ja_JP: "ボスエネミー",
                     en_US: "Boss Enemy"
+                }
+            case 2:
+                return {
+                    ja_JP: "ネームドエネミー",
+                    en_US: "Elite Monster"
+                }
+            case 3:
+                return {
+                    ja_JP: "ダンジョンボス",
+                    en_US: "Dungeon Boss"
                 }
             default:
                 return {
