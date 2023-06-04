@@ -121,6 +121,11 @@
                     (-coords[1] / 37 - 700) / 2,
                     (coords[0] / 37 + 2680) / 2,
                 ];
+            case "Fld003":
+                return [
+                    (-coords[1] / 55.6 + 1098) / 2, // 55.4 ~ 55.6
+                    (coords[0] / 55.6 + 1986) / 2,
+                ];
         }
     }
 </script>
@@ -164,10 +169,13 @@
                         />
                     {/if}
                     <Popup>
-                        <small style="color: var(--text2)">{marker.id}</small><br />
+                        <small style="color: var(--text2)">{marker.id}</small
+                        ><br />
                         <strong>{marker.name[$userLocale]}</strong><br />
                         <!-- {marker.description} -->
-                        <small style="color: var(--text2)">{marker.coords}</small>
+                        <small style="color: var(--text2)"
+                            >{marker.coords}</small
+                        >
                     </Popup>
                 </Marker>
             {/if}

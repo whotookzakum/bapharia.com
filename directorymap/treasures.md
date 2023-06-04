@@ -31,4 +31,4 @@ Treasures include overworld and dungeon treasure chests, and gathering nodes
 - 30: warehouse ability
 - 33: lottery (RNG)
 
-`se` = spawn environment?
+`se` = spawn environment? (grass/stone/water)

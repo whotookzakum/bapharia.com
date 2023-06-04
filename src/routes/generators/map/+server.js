@@ -312,7 +312,7 @@ function getCategory(id) {
 }
 
 export const GET = async () => {
-    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld001/*.json`)
+    const allDataFiles = import.meta.glob(`../../graphql/bp_client/japan/maps/fld003/*.json`)
     const iterableDataFiles = Object.values(allDataFiles)
 
     const allData = await Promise.all(
