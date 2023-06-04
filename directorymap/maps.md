@@ -6,7 +6,7 @@
 - Shop NPC, Storage, Leaderboard, Memory Stand locations: `/Content/Maps/*/*/sublevel/*_SHP.umap`
 - Warp Point, Fishing locations: `/Content/Maps/*/*/sublevel/*_SC.umap` *SceneComponent interactable triggers*
 - Enemy locations: `/Content/Maps/*/*/sublevel/*_EN.umap`
-- Quest locations: `/Content/Maps/*/*/sublevel/*_QST_*.umap` *Class/Exploration?/Main/Sub/T? quests*
+- Quest locations: `/Content/Maps/*/*/sublevel/*_QST_*.umap`
 > Misc NPC spawn points and movement paths: `/Content/Maps/*/*/sublevel/*_MOB.umap`
 > Route guide: `/Content/Maps/*/*/sublevel/*_RG.umap`
 > Environment?: `/Content/Maps/*/*/sublevel/*_EF.umap`
@@ -21,7 +21,8 @@
 ### Naming conventions
 - 100100 (Asterleeds): `[MapType(10)][MapNumber(01)][Blank/MapVariant?(00)]`
 
-#### Categories
+### Variables
+`id`
 - 10****: cty
 - 20****: fld
 - 30****: dng, pub

@@ -13,3 +13,10 @@
 
 ### Naming conventions
 - E005_00_01_01001 (Pink Boarlet): `ENEMY[EnemyRace]_[MajorVariant]_[MinorVariant]_[EnemyInstanceId]`
+
+### Variables
+`is_boss`
+- 0: normal enemy
+- 1: story?
+- 2: named enemy
+- 3: dungeon boss
