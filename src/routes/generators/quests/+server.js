@@ -19,9 +19,9 @@ export const GET = async () => {
         const steps = getSteps(quest.quest_condition_steps, ns)
 
         return {
-            ...quest,
+            // ...quest,
             name,
-            desc,
+            // desc,
             prereqs,
             steps
         }
@@ -97,15 +97,12 @@ function getPrereqs(prereqs, preconditions) {
 function getSteps(steps, ns) {
     if (!steps) return []
     return steps.map(step => {
-
-
         const conditions = step.condition_items.map(condition => {
             let desc = getText(ns, condition.descriptionId[0].descriptionId)
-            let test;
 
-            if (condition.descriptionId.length > 1) {
-                desc = condition.descriptionId.map(desc => getText(ns, desc.descriptionId))
-            }
+            // if (condition.descriptionId.length > 1) {
+            //     desc = condition.descriptionId.map(desc => getText(ns, desc.descriptionId))
+            // }
 
             // Interpolate strings
             if (condition.type === 2) {
@@ -120,17 +117,18 @@ function getSteps(steps, ns) {
                 desc = desc.replace("{item_id}", itemName).replace("{progress}", ` x${condition.amount}`)
             }
 
+            return desc // for now there is only 1 description per condition
+
             return {
-                ...condition,
+                // ...condition,
                 // npcId: condition.npcId,
                 // placeId: condition.placeId,
                 // locationId: condition.locationId,
                 // dungeonId: condition.dungeonId,
-                test,
                 desc
             }
-
         })
+
         return {
             conditions
         }
