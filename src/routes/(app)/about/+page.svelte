@@ -46,6 +46,10 @@
             name: "JP Wiki",
             link: "https://blueprotocol.swiki.jp/",
         },
+        {
+            name: "Panke",
+            link: "https://pankeynote.com/category/game/blue-protocol"
+        }
     ];
 
     let playAnimation = true;
