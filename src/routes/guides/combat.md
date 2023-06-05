@@ -11,6 +11,7 @@ thumbImg: "/guides/combat/thumb.jpg"
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
     import StatsTable from './components/StatsTable.svelte';
+    import LevelDifferenceTable from './components/LevelDifferenceTable.svelte';
 </script>
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action. Let's take a look at each one.
@@ -24,7 +25,7 @@ Battle Score is the rating of a player's equipment. While it doesn't directly co
 
 If an item's max level exceeds your class level, it will be level synced down, having its stats (including level) reduced.
 
-Battle Score, along with Class Level, can be one of the requirements to entering certain dungeons and raids.
+Battle Score can be one of the requirements to entering [Missions](/guides/missions).
 
 ## 🧮 Stats
 Stat effects vary between classes. On your battle build screen, the three attack stats are **Attack, Crit Rate, and Crit Damage**. The three defense stats are **Defense, Recovery (HP regen), and (6) Elemental Resistances**. Under that, we have **HP and Stamina**.
@@ -38,6 +39,15 @@ Additionally, there are 5 base stats--**Strength, Vitality, Dexterity, Intellige
 <StickyNote type="note">
     It's unknown whether the base stats are supposed to increase your attack and defense stats on the battle build page, or if they are factored into the damage formula afterwards (and thus won't affect those numbers).
 </StickyNote>
+
+## 😱 Level Difference 
+If the level difference between a player and an enemy is too great, the player will deal reduced damage and receive reduced EXP. For enemies that are 8 or more levels higher than you, your attacks will do 0 damage. 
+
+<LevelDifferenceTable />
+
+Like equipment, dungeons can also level sync down if your level is too low. However, dungeon level sync has a limit and won't go lower than minimum level for that dungeon.
+
+Like equipment, dungeons also have a **level sync** system. If a player is too low level, enemy level (and stats) will be reduced. If a player is too high level, the player's level (and stats) will be reduced. There are minimum restrictions on enemy level sync--for example, in Pillar of Divinity (Survey), enemies will not sync lower than level 12.
 
 ## ⚔️ PvP
 **There is no player versus player system in BLUE PROTOCOL.** PvP refers to Party vs Party--player party vs enemy AI party. Similar to players, enemies will cooperate and try to take down you and your allies.

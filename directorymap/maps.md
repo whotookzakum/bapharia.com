@@ -31,3 +31,6 @@
 - 50****: ??
 - 70****: rai, twr
 - 80****: arn
+
+## Server
+- `maps.json`

@@ -1,7 +1,7 @@
 ---
 title: 'Missions'
 author: 'Zakum'
-date: '2023-5-26'
+date: '2023-6-5'
 category: 'Game Systems'
 caption: 'Missions are an umbrella term for dungeons, raids, and various other dungeon-like content.'
 bannerImg: "/guides/missions/banner.webp"
@@ -13,15 +13,21 @@ thumbImg: "/guides/missions/thumb.webp"
     import StickyNote from '$lib/components/StickyNote.svelte';
 </script>
 
-All missions can be entered solo or with a party (up to 6 players) with exception to Raids, which are up to 30 players.
+All missions can be entered solo or with a party (up to 6 players) with exception to Raids, which match you with up to 30 players.
 
 After clearing a mission, the results screen will show your clear rewards and bonus rewards that can be claimed by using the Rewards Plus tickets. 
 <StickyNote type="caution">
     Be careful as bonus rewards are set to be claimed by default, so you have to manually select the other box if you wish to not use your tickets.
 </StickyNote>
 
+Missions typically have a **time limit** and a maximum **number of revives** that is shared between all players. A revive count is used when a player is knocked down and does not get rescued before the rescue timer ends. Missions provide **2 revives per player**.
+
+<StickyNote type="tip">
+    Rescue downed players by interacting with them to conserve your revives! 
+</StickyNote>
+
 ## Dungeons
-Dungeons are instances where up to 6 players can attempt to clear the dungeon boss before the timer runs out. They are not to be confused with Free Exploration dungeons, which are overworld instances of some dungeons--up to 30 players per channel can freely enter and leave.
+Dungeons are instances where up to 6 players can attempt to clear the dungeon boss before the timer runs out. They are not to be confused with **Free Exploration dungeons**, which are overworld instances of some dungeons--up to 30 players per channel can freely enter and leave.
 
 <Video 
     title="Dragon Claw Valley from the Closed Beta Test" 
@@ -29,11 +35,11 @@ Dungeons are instances where up to 6 players can attempt to clear the dungeon bo
     bleed
 />
 
-Battle Areas are special areas in dungeons where some enemies need to be defeated before proceeding, to prevent players from rushing straight to the boss.  Dungeon minibosses also have a very low chance to drop a chest that can contain a weapon.
+Battle Areas are special areas in dungeons where some enemies need to be defeated before proceeding, to prevent players from rushing straight to the boss.  Dungeon minibosses also have a very low chance to drop a [chest that can contain a weapon](/guides/weapons-and-plugs#weapon-drops).
 
-Players are provided with potions and buff consumables that can only be used in that dungeon and are deleted after exiting. Dungeons chests contain extra potions.
+Players are provided with potions and buff consumables that can only be used in that dungeon and are deleted after exiting. Chests placed throughout Dungeons can contain extra potions.
 
-After clearing the Survey difficulty of a dungeon in the main story quest, the Additional Survey difficulty can be accessed through the Missions page on the Command Menu.
+After clearing the Survey difficulty of a dungeon in the main story quest, the Additional Survey difficulty can be accessed through the Missions page on the Command Menu (and subsequently the Advanced Survey).
 
 ## Raids
 Raids consist of a single boss fight with up to 30 players. Party leaders and solo players can queue for raid matchmaking at the raid's entrance. The revives are shared between all players in the raid.
