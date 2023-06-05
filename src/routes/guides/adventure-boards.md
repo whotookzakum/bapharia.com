@@ -1,7 +1,7 @@
 ---
 title: 'Adventure Boards'
 author: 'Zakum'
-date: '2023-5-26'
+date: '2023-6-5'
 category: 'Game Systems'
 caption: 'A guide to Adventure Boards, a progression mechanic that provides equipment and Adventurer Ranks.'
 bannerImg: "/guides/adventure-boards/board.webp"
@@ -12,9 +12,18 @@ thumbImg: "/guides/adventure-boards/thumb.webp"
     import StickyNote from '$lib/components/StickyNote.svelte';
 </script>
 
-An Adventure Board is a collection of tasks that correlate with the board's theme. They can reward **weapon recipes** and **Enhance Imagine recipes**, and some are a prerequisite to **increasing your Adventurer Rank**. 
+An Adventure Board is a collection of tasks that correlate with the board's theme. They are very important in progressing through the game.
 
-Thus completing Adventure Boards is key to unlocking more Main Story Quests, acquiring new equipment, and progressing through the game. For data on specific Adventure Boards and their tasks, check the [database](/db).
+Adventurer Rank boards are a prerequisite to **increasing your Adventurer Rank**, which **raises your max level cap** and unlocks more Main Story and Side Quests. 
+
+Additionally, Weapon boards provide **weapon recipes**, and Enhance Imagine boards provide **Enhance Imagine recipes**.
+
+<figure>
+    <img src="/guides/adventure-boards/boards-list.webp" alt="">
+    <figcaption>Example of a menu with various adventure board types.</figcaption>
+</figure>
+
+For data on specific Adventure Boards and their tasks, check the [database](/db).
 
 ## Obtaining Boards
 Adventure Boards can be obtained by completing quests--mainly Key Character Quests, indicated by a quest icon with horns. After unlocking a board, you can accept it from your Command Menu > Quests > Adventure Boards.
