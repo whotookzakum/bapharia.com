@@ -36,7 +36,7 @@
 
     let leafletMap;
     export let data;
-    $: zone = data.zone.default;
+    $: zone = data.mapData;
 
     const bounds = [
         [0, 0],
