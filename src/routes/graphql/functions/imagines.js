@@ -7,9 +7,11 @@ import imagineRecipesData from "../bp_server/japan/imagine/recepi.json";
 import itemsData from "../bp_server/japan/items.json";
 import { getText } from "./utils";
 
-// TO DO:
-// Skill name and skill type (client)
-// Drops from treasure chests
+// TODO Skill name and skill type (client)
+// TODO Treasure chests that contain imagine
+// TODO Season passes that contain imagine
+// TODO 3d models
+// "attainable from chest, pass, shop, etc"
 
 const imagines = imagineData.map(imagine => {
     const name = getText("master_imagine_text", imagine.imagine_name)

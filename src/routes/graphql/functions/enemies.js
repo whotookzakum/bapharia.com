@@ -8,10 +8,10 @@ import { getText } from "./utils";
 import adventureBoardsData from "../bp_server/japan/master_adventure_board.json"
 import liquidMemoriesData from "../bp_server/japan/liquid_memory.json";
 
-// TO DO:
-// Treasure chest drops
-// Spawn locations (client)
-// Stats (if possible); elemental weakness etc
+// TODO Treasure chest drops
+// TODO Spawn locations (client)
+// TODO Stats (if possible) elemental weakness etc
+// TODO 3d models
 
 const getTreasureRewardName = (ns, id) => {
     switch (ns) {

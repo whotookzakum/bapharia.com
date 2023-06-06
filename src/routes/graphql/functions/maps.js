@@ -1,13 +1,9 @@
 import mapsData from "../bp_client/japan/maps.json";
 
 // TO DO:
-// Mob locations
-// Treasure chests
-// Nappo count
-// Available resources
-// NPCs
-// Supplies for dungeons (supply.json)
-// Quests
+// TODO link Kita's video for map BGM
+// TODO notable markers (# of nappos, npcs, enemies, resources, quests, treasure chests)
+// TODO dungeon supplies (supply.json)
 
 const maps = mapsData.map(map => {
     return {

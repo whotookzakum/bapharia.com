@@ -2,11 +2,10 @@ import itemsData from "../bp_server/japan/items.json";
 import { getText } from "./utils";
 import itemIcons from "../bp_client/japan/itemicons.json"
 
-// TO DO:
-// Drops from (w/ drop rate)
-// Gathered in (w/ drop rate)
-// Available in (dungeon/map)
-// Used in [recipe]
+// TODO drops from ...
+// TODO found in (map) ...
+// TODO available in (map/dungeon)
+// TODO used in (recipe)
 
 const items = itemsData.map(item => {
     const name = getText("item_text", item.name)

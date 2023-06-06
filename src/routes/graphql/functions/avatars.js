@@ -1,6 +1,8 @@
 import avatarsData from "../bp_server/japan/aestheParts.json";
 import avatarIcons from "../bp_client/japan/avataricons.json"
 
+// TODO 3d models
+
 const avatars = avatarsData.reduce((acc, avatar) => {
     if (avatar.icon_id === "default") return acc
     // Filter out default clothing options

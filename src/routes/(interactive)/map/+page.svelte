@@ -21,6 +21,19 @@
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
 
+    // TODO dungeons & their floors
+    // TODO tiled map images
+    // TODO treasure chest data
+    // TODO gathering drops and rates
+    // TODO enemy stats and drops
+    // TODO links to DB
+    // TODO fixed-drop resources
+    // TODO resource respawn time
+    // TODO enemy respawn time (client)
+    // TODO map toggles show number of markers
+    // TODO linkable params: zone, marker, center
+    // TODO cache preferences: open panes, active markers, current map
+
     let leafletMap;
     export let data;
     $: zone = data.zone.default;

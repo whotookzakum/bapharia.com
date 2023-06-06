@@ -1,12 +1,11 @@
 import skillsData from "../bp_server/japan/skill_data.json";
 import { getText } from "./utils";
 
-// TO DO:
-// Skill vidoes
-// Buffs and debuffs applied by a skill
-// Cooldown
-// Is class-shared ability?
-// Check if skill background colors are on client
+// TODO skill videos
+// TODO buffs and debuffs applied
+// TODO cooldown
+// TODO is class-shared ability ?
+// TODO check if skill types (A, B, D) are on client
 
 function getClassThumbnail(classId) {
     // Class 6 = Blast Archer

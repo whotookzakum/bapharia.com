@@ -6,6 +6,9 @@
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	export let data;
 
+	// TODO favorites, filters, sort A-Z/last updated
+	// TODO "Read More" at bottom of guide
+
 	const guides = data.guides;
 
 	// const filtersText = {

@@ -1,5 +1,11 @@
 <script>
     import { page } from "$app/stores";
+
+    // TODO Linkable params
+    // TODO Cached preferences w/ store
+    // TODO weapon, skills, b. imagine, e. imagine, shared/class abilities, class
+
+
     const links = [
         {
             name: {

@@ -11,6 +11,8 @@ import enemiesData from "../bp_server/japan/enemyparams.json";
 import { getText } from "./utils";
 import { getMapName } from "./maps";
 
+// TODO 3d models
+
 function findObjectByItemId(objectsArray, innerObject, itemId, keyToFind) {
     for (let i = 0; i < objectsArray.length; i++) {
         const innerObjArray = objectsArray[i][innerObject];

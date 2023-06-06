@@ -8,6 +8,10 @@ bannerImg: "/guides/classes/banner.webp"
 thumbImg: "/guides/classes/thumb.webp"
 ---
 
+<script>
+    // TODO Class shared abilities
+</script>
+
 BLUE PROTOCOL will launch with 5 classes, with more in development. Each class has a unique mechanic that influences their gameplay. 
 
 ## Aegis Fighter

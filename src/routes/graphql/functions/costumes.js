@@ -1,6 +1,9 @@
 import costumesData from "../bp_server/japan/costume.json";
 import { getText } from "./utils";
 
+// TODO BPP buy/sell price
+// TODO 3d models
+
 function getPartsPath(name) {
     if (name.includes("hat")) return "Hat"
     if (name.includes("bdl")) return "Lower"

@@ -11,6 +11,7 @@ thumbImg: "/guides/social-features/thumb.webp"
 <script>
     import Video from '$lib/components/Video.svelte';
     import StickyNote from '$lib/components/StickyNote.svelte';
+    // TODO 今すぐパーティ 1:17:55 on dev stream
 </script>
 
 ## Life Skills
