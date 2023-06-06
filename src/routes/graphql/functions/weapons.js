@@ -8,7 +8,7 @@ import weaponPerks from "../bp_server/japan/weaponperks.json";
 import perksData from "../bp_server/japan/perks.json";
 import treasuresData from "../bp_server/japan/treasures.json";
 import enemiesData from "../bp_server/japan/enemyparams.json";
-import { getText, getCategory } from "./utils";
+import { getText } from "./utils";
 import { getMapName } from "./maps";
 
 function findObjectByItemId(objectsArray, innerObject, itemId, keyToFind) {
@@ -126,9 +126,24 @@ const weapons = weaponsData.map(weapon => {
         recipe,
         abilities,
         treasureSources,
-        category: getCategory("weapon", weapon.is_for_weapon_stickers),
+        category: getCategory(weapon.is_for_weapon_stickers),
         entryTypes: ["Weapon"]
     }
 })
+
+function getCategory(category) {
+    switch (category) {
+        case 0:
+            return {
+                ja_JP: "武器",
+                en_US: "Weapon"
+            }
+        case 1:
+            return {
+                ja_JP: "武器スキン",
+                en_US: "Weapon Skin"
+            }
+    }
+}
 
 export default weapons;

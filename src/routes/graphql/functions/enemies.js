@@ -4,7 +4,7 @@ import enemiesData from "../bp_server/japan/enemyparams.json";
 import imagineData from "../bp_server/japan/imagine.json";
 import _ from "lodash";
 import { getMapData } from "./maps"
-import { getText, getThumbnail, getCategory } from "./utils";
+import { getText } from "./utils";
 import adventureBoardsData from "../bp_server/japan/master_adventure_board.json"
 import liquidMemoriesData from "../bp_server/japan/liquid_memory.json";
 
@@ -141,10 +141,40 @@ const enemies = enemiesData.map(enemy => {
         id: enemy.enemy_id,
         name,
         found_in,
-        thumb: getThumbnail("enemy"),
-        category: getCategory("enemy", enemy.is_boss),
+        thumb: getThumbnail(),
+        category: getCategory(enemy.is_boss),
         entryTypes: ["Enemy"]
     }
 })
+
+function getThumbnail() {
+    return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+}
+
+function getCategory(category) {
+    switch (category) {
+        // Quest instance boss?
+        case 1:
+            return {
+                ja_JP: "ボスエネミー",
+                en_US: "Boss Enemy"
+            }
+        case 2:
+            return {
+                ja_JP: "ネームドエネミー",
+                en_US: "Elite Monster"
+            }
+        case 3:
+            return {
+                ja_JP: "ダンジョンボス",
+                en_US: "Dungeon Boss"
+            }
+        default:
+            return {
+                ja_JP: "エネミー",
+                en_US: "Enemy"
+            }
+    }
+}
 
 export default enemies;

@@ -1,5 +1,5 @@
 import skillsData from "../bp_server/japan/skill_data.json";
-import { getText, getThumbnail, getCategory } from "./utils";
+import { getText } from "./utils";
 
 // TO DO:
 // Skill vidoes
@@ -136,7 +136,7 @@ const skills = skillsData.reduce((acc, curr) => {
     // If skill does not have a condition_skill_id_1, add it to the result array
     const name = getText("master_skill_data_text", curr.skill_name)
     const desc = getText("master_skill_data_text", curr.skill_desc_array[curr.skill_desc_array.length - 1].desc)
-    const thumb = getThumbnail("skill", curr.skill_type, curr.skill_id, curr.class_type)
+    const thumb = getThumbnail(curr.skill_type, curr.skill_id, curr.class_type)
     const classImg = getClassThumbnail(curr.class_type)
     const skillBackgroundImg = getSkillTypeImg(curr)
     const elementImg = getElementImg(curr)
@@ -151,7 +151,7 @@ const skills = skillsData.reduce((acc, curr) => {
         abilities: [],
         skillBackgroundImg,
         elementImg,
-        category: getCategory("skill", curr.skill_type),
+        category: getCategory(curr.skill_type),
         entryTypes: ["Skill"]
     });
 
@@ -164,5 +164,94 @@ skills.forEach(skill => {
         skill.abilities.sort((a, b) => a.ability_type - b.ability_type)
     }
 })
+
+function getThumbnail(skillType, id, classType) {
+    // Dummy Action
+    if (id === 102) return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+    switch (skillType) {
+        case 0: // && skill.is_default_skill
+            return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Main.png`
+        case 1: // && skill.is_default_skill
+            return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Sub.png`
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            return `/UI/Icon/PlayerSkill/Class${classType}/UI_PlayerSkill_${id}.png`
+        case 6:
+            return `/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png`
+        case 8:
+            return `/UI/Icon/PlayerAbility/Class/Class${classType}/UI_PlayerAbilityC_${id}.png`
+        case 9:
+            return `/UI/Icon/PlayerAbility/Base/Class${classType}/UI_PlayerAbilityB_${id}.png`
+        case 7: // Dodge
+        case 10: // Aerial attack
+        case 11: // ???
+        case 12: // Springboard jump
+        case 13: // Ukemi 
+        default:
+            return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+    }
+
+}
+
+function getCategory(skillType) {
+    switch (skillType) {
+        case 0: // LMB
+        case 1: // RMB
+            return {
+                ja_JP: "ベースアクション",
+                en_US: "Basic Attack"
+            }
+        case 2: // Tac skill attack
+        case 3: // Tac skill attack
+        case 4: // Tac skill attack
+        case 5:  // Tac skill buff
+            return {
+                ja_JP: "タクティカルスキル",
+                en_US: "Tactical Skill",
+            }
+        case 6:
+            return {
+                ja_JP: "ULTスキル",
+                en_US: "Ultimate Attack",
+            }
+        case 7:
+            return {
+                ja_JP: "回避",
+                en_US: "Dodge",
+            }
+        case 8:
+            return {
+                ja_JP: "クラスアビリティ",
+                en_US: "Class Ability",
+            }
+        case 9:
+            return {
+                ja_JP: "ベースアビリティ",
+                en_US: "Base Ability", // All classes
+            }
+        case 10:
+            return {
+                ja_JP: "エリアル攻撃",
+                en_US: "Aerial Attack",
+            }
+        case 11:
+            return {
+                ja_JP: "？？？",
+                en_US: "???",
+            }
+        case 12:
+            return {
+                ja_JP: "踏み台ジャンプ",
+                en_US: "Springboard Jump",
+            }
+        case 13:
+            return {
+                ja_JP: "受け身",
+                en_US: "受け身",
+            }
+    }
+}
 
 export default skills

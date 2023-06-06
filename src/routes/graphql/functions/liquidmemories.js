@@ -1,6 +1,6 @@
 import liquidMemoriesData from "../bp_server/japan/liquid_memory.json";
 import accumulationLotteriesData from "../bp_server/japan/liquid_memory_accumulate_lottery_table.json";
-import { getText, getThumbnail } from "./utils";
+import { getText } from "./utils";
 
 const liquidMemories = liquidMemoriesData.map(memory => {
     const name = getText("master_liquid_memory_text", memory.efficacy_name)
@@ -55,11 +55,29 @@ const liquidMemories = liquidMemoriesData.map(memory => {
         ...memory,
         id: `${memory.id}`,
         name,
-        thumb: getThumbnail("liquidMemory", "", memory.id),
+        thumb: getThumbnail(memory.id),
         accumulate_condition_parameters: accumulate,
         category: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
         entryTypes: ["LiquidMemory"]
     }
 })
+
+function getThumbnail(id) {
+    switch (id) {
+        case 12: // increased enemy drop rate
+        case 22: // increased enemy exp
+        case 10: // faster gathering speed
+        case 20: // greater harvest when gathering
+            return `/images/liquidMemory/orange.png`
+        case 18: // increased alliance exp
+            return `/images/liquidMemory/purple.png`
+        case 17: // more GC from missions
+            return `/images/liquidMemory/blue.png`
+        case 21: // reduce luno cost when crafting weapons
+        case 19: // increased profits when selling
+        case 15: // cheaper prices from npc shops
+            return `/images/liquidMemory/green.png`
+    }
+}
 
 export default liquidMemories;

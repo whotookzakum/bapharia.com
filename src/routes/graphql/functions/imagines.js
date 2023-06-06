@@ -5,7 +5,7 @@ import weaponPerks from "../bp_server/japan/weaponperks.json";
 import perksData from "../bp_server/japan/perks.json";
 import imagineRecipesData from "../bp_server/japan/imagine/recepi.json";
 import itemsData from "../bp_server/japan/items.json";
-import { getText, getCategory } from "./utils";
+import { getText } from "./utils";
 
 // TO DO:
 // Skill name and skill type (client)
@@ -85,9 +85,24 @@ const imagines = imagineData.map(imagine => {
         params,
         abilities,
         recipe,
-        category: getCategory("imagine", imagine.imagine_type),
+        category: getCategory(imagine.imagine_type),
         entryTypes: ["Imagine"]
     }
 })
+
+function getCategory(imagineType) {
+    switch (imagineType) {
+        case 0:
+            return {
+                ja_JP: "エンハンスイマジン",
+                en_US: "Augment Echo"
+            }
+        case 1:
+            return {
+                ja_JP: "バトルイマジン",
+                en_US: "Combat Echo"
+            }
+    }
+}
 
 export default imagines;

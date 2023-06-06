@@ -1,5 +1,4 @@
 import mapsData from "../bp_client/japan/maps.json";
-import { getThumbnail, getCategory } from "./utils";
 
 // TO DO:
 // Mob locations
@@ -18,8 +17,8 @@ const maps = mapsData.map(map => {
             ja_JP: map.name,
             en_US: map.name_en || map.name_jp_cbt || map.name_translated
         },
-        thumb: getThumbnail("map"),
-        category: getCategory("map", map.map_id),
+        thumb: getThumbnail(),
+        category: getCategory(map.map_id),
         entryTypes: ["GameMap"]
     }
 })
@@ -54,5 +53,53 @@ export function getMapName(id) {
     return {
         ja_JP: mapData?.name || "-",
         en_US: mapData?.name_en || mapData?.name_jp_cbt || mapData?.name_translated || "-"
+    }
+}
+
+function getThumbnail() {
+    return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+}
+
+function getCategory(id) {
+    if (id.includes("dng") || id.includes("Dng")) {
+        return {
+            ja_JP: "ダンジョン",
+            en_US: "Dungeon"
+        }
+    }
+    if (id.includes("fld") || id.includes("Fld")) {
+        return {
+            ja_JP: "フィールド",
+            en_US: "Field"
+        }
+    }
+    if (id.includes("cty") || id.includes("Cty")) {
+        return {
+            ja_JP: "街",
+            en_US: "City"
+        }
+    }
+    if (id.includes("arn") || id.includes("Arn")) {
+        return {
+            ja_JP: "闘技場",
+            en_US: "Arena"
+        }
+    }
+    if (id.includes("twr") || id.includes("Twr")) {
+        return {
+            ja_JP: "塔",
+            en_US: "Tower"
+        }
+    }
+    if (id.includes("rai") || id.includes("Rai")) {
+        return {
+            ja_JP: "レイド",
+            en_US: "Raid"
+        }
+    }
+    // "pat" is still unknown
+    return {
+        ja_JP: "マップ",
+        en_US: "Map"
     }
 }

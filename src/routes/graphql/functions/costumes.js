@@ -1,5 +1,5 @@
 import costumesData from "../bp_server/japan/costume.json";
-import { getText, getThumbnail } from "./utils";
+import { getText } from "./utils";
 
 function getPartsPath(name) {
     if (name.includes("hat")) return "Hat"
@@ -22,7 +22,7 @@ const costumes = costumesData.map(costume => {
     const name = getText("costume_text", costume.name)
     const desc = getText("costume_text", costume.desc)
     const pathToThumb = getPartsPath(costume.costume_parts_name)
-    const thumb = getThumbnail("costume", pathToThumb, costume.icon_name)
+    const thumb = getThumbnail(pathToThumb, costume.icon_name)
 
     return {
         ...costume,
@@ -34,5 +34,9 @@ const costumes = costumesData.map(costume => {
         entryTypes: ["Costume"]
     }
 })
+
+function getThumbnail(dir, id) {
+    return `/UI/Icon/Costume/${dir}/${id}.png`
+}
 
 export default costumes
