@@ -2,11 +2,11 @@
 	import LocaleSelector from "./LocaleSelector.svelte";
 	import ThemeToggle from "./ThemeToggle.svelte";
 	import { page } from "$app/stores";
-	import { fetchMarkdownPosts } from "$lib/utils";
 	import Icon from "@iconify/svelte";
 	import TimeInJapan from "./TimeInJapan.svelte";
 	import links from "./links.json";
 	import randomMessages from "./randomMessages.json";
+	import { userLocale } from "$lib/stores";
 
 	let detailsOpen = false;
 	let isExpanded = true;
@@ -74,52 +74,17 @@
 					<a
 						href={link.href}
 						class="link link-with-icon"
-						class:active={$page.url.pathname === link.href}
+						class:active={$page.url.pathname.includes(link.href)}
 					>
 						<span
 							class="icon"
 							style:mask-image="url({link.imgSrc})"
 							style="-webkit-mask-image: url({link.imgSrc})"
 						/>
-						<span class="show-when-expanded">{link.name}</span>
+						<span class="show-when-expanded">{link.name[$userLocale]}</span>
 					</a>
 				{/each}
 			</div>
-			<hr />
-			<details bind:open={detailsOpen}>
-				<summary
-					class="link link-with-icon"
-					style="grid-template-columns: auto 1fr auto"
-				>
-					<span
-						class="icon"
-						style:mask-image="url('/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png')"
-						style="-webkit-mask-image: url('/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png')"
-					/>
-					<span class="show-when-expanded">Guides</span>
-					{#if isExpanded}
-						<Icon
-							icon={detailsOpen
-								? "mdi:chevron-up"
-								: "mdi:chevron-down"}
-							width="20"
-							height="20"
-							style="margin-left: auto;"
-						/>
-					{/if}
-				</summary>
-				<div class="guides-list show-when-expanded">
-					{#await fetchMarkdownPosts() then guides}
-						{#each guides as guide}
-							<a
-								class="link"
-								class:active={$page.url.pathname === guide.path}
-								href={guide.path}>{guide.meta.title}</a
-							>
-						{/each}
-					{/await}
-				</div>
-			</details>
 			<hr />
 			<div class="nav-extras">
 				<LocaleSelector isCollapsed={!isExpanded} />
@@ -273,18 +238,6 @@
 		.icon {
 			background-color: var(--accent) !important;
 		}
-	}
-
-	// GUIDES =====================================================
-
-	details {
-		font-size: inherit;
-	}
-
-	.guides-list {
-		max-height: 300px !important; // 300px ideal
-		overflow-y: auto !important;
-		// margin-top: 0;
 	}
 
 	// EXTRAS ======================================================
