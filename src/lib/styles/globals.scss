@@ -330,9 +330,14 @@ input[type="number"] {
 @media (max-width: 850px) {
     .layout {
         grid-template-columns: unset;
+        --nav-height: 70px;
     }
 
     .contents {
-        padding-top: 70px !important;
+        padding-top: var(--nav-height) !important;
+    }
+
+    .desktop-only {
+        display: none;
     }
 }

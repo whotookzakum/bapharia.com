@@ -13,7 +13,18 @@
 .leaflet-control-container .leaflet-top.leaflet-left {
     position: absolute;
     left: auto;
-    right: 10px;
+    top: 1rem;
+    right: 1rem;
+
+    .leaflet-control {
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 850px) {
+    .leaflet-control-container .leaflet-top.leaflet-left {
+        display: none;
+    }
 }
 
 .leaflet-bar {
@@ -129,22 +140,7 @@ $margin-offset: calc(($icon-size - $icon-size-clipped) / 2);
 }
 
 .leaflet-control-attribution {
-    background: none !important;
-    color: darkgray;
-    font-weight: 500;
-    margin: 0.25rem !important;
-    // font-size: 11px;
-
-    a {
-        border: none;
-        color: inherit;
-    }
-
-    a:hover,
-    a:focus-visible {
-        text-decoration: none;
-        color: var(--accent);
-    }
+    display: none;
 }
 
 .map-controls .category-header {

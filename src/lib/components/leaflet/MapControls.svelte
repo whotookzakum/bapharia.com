@@ -43,7 +43,7 @@
 
 <div class="map-controls grid">
     <menu class="flex g-50" role="list">
-        <li>
+        <li class="search-wrapper">
             <input
                 class="search box"
                 type="text"
@@ -79,7 +79,7 @@
                 <Icon icon="mdi:map-marker-radius" width="24" height="24" />
             </label>
         </li>
-        <li>
+        <li class="desktop-only">
             <input
                 type="checkbox"
                 id="toggle-hotkeys-hint"
@@ -104,7 +104,7 @@
         </div>
     {/if}
     {#if $mapControls.showHotkeys}
-        <div class="box panel">
+        <div class="box panel desktop-only">
             <HotkeysHint />
         </div>
     {/if}
@@ -112,11 +112,10 @@
 
 <style lang="scss">
     .map-controls {
+        margin: 1rem;
         position: absolute;
         align-content: flex-start;
         z-index: 1001;
-        left: 1rem;
-        top: 1rem;
         gap: 1rem;
         height: calc(100% - 2rem);
         pointer-events: none;
@@ -136,32 +135,26 @@
         max-height: 44px;
     }
 
+    @media (max-width: 850px) {
+        .search {
+            width: 100%;
+        }
+    }
+
     :global(.map-controls header) {
         border-bottom: 1px solid var(--surface3);
-    }
-
-    .search:not(:focus-visible) + .search-results {
-        // display: none;
-    }
-
-    .search-results {
-        max-inline-size: none;
-        list-style-type: none;
-        gap: 0;
-        margin: 0;
-
-        a {
-            align-items: center;
-            border: none;
-        }
     }
 
     menu {
         list-style: none;
         margin: 0;
         padding: 0;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
         align-items: center;
+
+        & > * {
+            flex-shrink: 1;
+        }
     }
 
     .panel {

@@ -123,7 +123,7 @@
 	.navbar-wrapper {
 		position: sticky;
 		height: 100vh;
-		z-index: 1000;
+		z-index: 1002;
 		background: var(--surface1);
 		top: 0;
 		padding: 0.5rem 0;

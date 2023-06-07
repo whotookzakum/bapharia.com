@@ -154,7 +154,16 @@
 
 {#if browser}
     <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
-    <h1>{zone.name[$userLocale]}</h1>
+    <div class="bottom-left">
+        <h1>{zone.name[$userLocale]}</h1>
+        <div class="attribution">
+            <a
+                href="https://leafletjs.com"
+                title="A JavaScript library for interactive maps">Leaflet</a
+            > <span aria-hidden="true">|</span> © Bandai Namco Online Inc. © Bandai
+            Namco Studios Inc.
+        </div>
+    </div>
     <MapControls markers={zone.markers} />
     <LeafletMap bind:this={leafletMap} options={mapOptions}>
         <ImageOverlay
@@ -215,14 +224,36 @@
 {/if}
 
 <style lang="scss">
-    h1 {
+    .bottom-left {
         position: absolute;
         z-index: 1000;
-        margin: 0;
-        bottom: 1rem;
-        left: 1rem;
-        line-height: 1;
+        margin: 1rem;
+        bottom: 0;
+        left: 0;
+    }
+
+    h1 {
+        line-height: 1.5;
         font-size: var(--step-5);
         color: white;
+    }
+
+    .attribution {
+        background: none !important;
+        color: darkgray;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 1.5;
+
+        a {
+            border: none;
+            color: inherit;
+        }
+
+        a:hover,
+        a:focus-visible {
+            text-decoration: none;
+            color: var(--accent);
+        }
     }
 </style>
