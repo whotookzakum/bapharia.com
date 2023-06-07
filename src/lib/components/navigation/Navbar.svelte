@@ -10,6 +10,7 @@
 
 	let detailsOpen = false;
 	let isExpanded = true;
+	let isMobileExpanded = false;
 
 	let randomMessage =
 		randomMessages[Math.floor(Math.random() * randomMessages.length)];
@@ -23,22 +24,47 @@
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
 <!-- https://web.dev/building-a-color-scheme -->
 <div class="navbar-wrapper flex">
-	<a href="#main" class="link show-when-focus-visible" style:font-size="var(--step--1)">
+	<a
+		href="#main"
+		class="link show-when-focus-visible"
+		style:font-size="var(--step--1)"
+	>
 		Skip to main content and focus
 	</a>
-	<nav class="navbar flex" class:expanded={isExpanded} class:collapsed={!isExpanded}>
-		<div class="nav-header">
-			<!-- <input type="checkbox" bind:checked={isExpanded} name="" id="" /> -->
+	<nav
+		class="navbar flex"
+		class:expanded={isExpanded}
+		class:collapsed={!isExpanded}
+		class:mobile-expanded={isMobileExpanded}
+	>
+		<div class="nav-header flex">
+			<a href="/" class="link link-home link-with-icon">
+				<img class="logo" src="/images/logo.png" alt="Logo" />
+				<span class="link-text show-when-expanded" role="text">
+					<span>Bapharia</span>
+					<span class="hidden-text" aria-hidden="true"
+						>{randomMessage}</span
+					>
+				</span>
+			</a>
+			<div class="mobile-controls flex g-25">
+				<LocaleSelector isCollapsed={true} />
+				<label class="mobile-drawer-label" for="drawerToggle">
+					<input
+						type="checkbox"
+						bind:checked={isMobileExpanded}
+						id="drawerToggle"
+						class="visually-hidden"
+					/>
+					<Icon
+						icon={isMobileExpanded ? "ph:x-bold" : "entypo:menu"}
+						width="32"
+						height="32"
+					/>
+				</label>
+			</div>
 		</div>
-		<a href="/" class="link link-home link-with-icon">
-			<img class="logo" src="/images/logo.png" alt="Logo" />
-			<span class="link-text show-when-expanded" role="text">
-				<span>Bapharia</span>
-				<span class="hidden-text" aria-hidden="true"
-					>{randomMessage}</span
-				>
-			</span>
-		</a>
+
 		<div class="nav-body">
 			<hr />
 			<TimeInJapan {isExpanded} />
@@ -166,6 +192,32 @@
 		width: 1px;
 	}
 
+	// HEADER ======================================================
+
+	.nav-header {
+		align-items: center;
+		justify-content: space-between;
+
+		img.logo {
+			max-width: var(--icon-size);
+			filter: brightness(0.95)
+				drop-shadow(0 2px 1px var(--surface-shadow));
+		}
+
+		.link-text {
+			display: grid;
+			grid-template-rows: auto 0fr;
+		}
+
+		.hidden-text {
+			font-size: var(--step--2);
+			color: var(--accent);
+			overflow: hidden;
+			opacity: 0;
+			transition-delay: 0.05s;
+		}
+	}
+
 	// LINKS =====================================================
 
 	.collapsed .link {
@@ -199,44 +251,10 @@
 		}
 	}
 
+	// Currently using .show-when-expanded, but might be possible to show the icon column and hide the text column
 	.link-with-icon {
 		display: grid;
 		grid-template-columns: auto 1fr;
-	}
-
-	.link-home {
-		* {
-			transition: all 0.2s ease;
-		}
-
-		.link-text {
-			display: grid;
-			grid-template-rows: auto 0fr;
-		}
-
-		.hidden-text {
-			font-size: var(--step--2);
-			color: var(--accent);
-			overflow: hidden;
-			opacity: 0;
-			transition-delay: 0.05s;
-		}
-
-		img.logo {
-			max-width: var(--icon-size);
-			filter: brightness(0.95)
-				drop-shadow(0 2px 1px var(--surface-shadow));
-		}
-
-		&:hover {
-			.link-text {
-				grid-template-rows: auto 1fr;
-			}
-
-			.hidden-text {
-				opacity: 1;
-			}
-		}
 	}
 
 	.icon {
@@ -257,7 +275,7 @@
 		}
 	}
 
-	// GUIDES ===================================================== 
+	// GUIDES =====================================================
 
 	details {
 		font-size: inherit;
@@ -286,7 +304,7 @@
 	}
 
 	// FOOTER ====================================================
-	
+
 	.nav-footer {
 		display: flex;
 		align-items: flex-end;
@@ -342,6 +360,68 @@
 			border-radius: 5px;
 			background-color: var(--surface2);
 			outline: 2px solid var(--accent);
+		}
+	}
+
+	// MOBILE ======================================
+
+	.mobile-drawer-label {
+		margin-right: 1rem;
+	}
+
+	@media (max-width: 850px) {
+		.navbar-wrapper {
+			height: unset !important;
+		}
+
+		.navbar {
+			display: grid !important;
+			--nav-width: 100% !important;
+		}
+
+		// .collapsed .show-when-expanded {
+		// 	all: unset !important;
+		// }
+
+		.navbar:not(.mobile-expanded) {
+			.nav-body,
+			.nav-footer {
+				display: none !important;
+			}
+		}
+
+		.link-home {
+			.hidden-text {
+				display: none;
+			}
+
+			&:hover::after {
+				background: none;
+			}
+		}
+	}
+
+	@media (min-width: 850px) {
+		.mobile-controls {
+			display: none;
+		}
+
+		.link-home {
+			width: 100%;
+
+			* {
+				transition: all 0.2s ease;
+			}
+
+			&:hover {
+				.link-text {
+					grid-template-rows: auto 1fr;
+				}
+
+				.hidden-text {
+					opacity: 1;
+				}
+			}
 		}
 	}
 </style>
