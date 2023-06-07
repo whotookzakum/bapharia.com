@@ -22,7 +22,11 @@
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
 <!-- https://web.dev/building-a-color-scheme -->
-<div class="navbar-wrapper flex">
+<div
+	class="navbar-wrapper flex"
+	class:expanded={isExpanded}
+	class:collapsed={!isExpanded}
+>
 	<a
 		href="#main"
 		class="link show-when-focus-visible"
@@ -30,12 +34,7 @@
 	>
 		Skip to main content and focus
 	</a>
-	<nav
-		class="navbar flex"
-		class:expanded={isExpanded}
-		class:collapsed={!isExpanded}
-		class:mobile-expanded={isMobileExpanded}
-	>
+	<nav class="navbar flex" class:mobile-expanded={isMobileExpanded}>
 		<div class="nav-header flex">
 			<a href="/" class="link link-home link-with-icon">
 				<img class="logo" src="/images/logo.png" alt="Logo" />
@@ -74,13 +73,16 @@
 						href={link.href}
 						class="link link-with-icon"
 						class:active={$page.url.pathname.includes(link.href)}
+						on:click={() => (isMobileExpanded = !isMobileExpanded)}
 					>
 						<span
 							class="icon"
 							style:mask-image="url({link.imgSrc})"
 							style="-webkit-mask-image: url({link.imgSrc})"
 						/>
-						<span class="show-when-expanded">{link.name[$userLocale]}</span>
+						<span class="show-when-expanded"
+							>{link.name[$userLocale]}</span
+						>
 					</a>
 				{/each}
 			</div>
@@ -323,7 +325,9 @@
 
 	@media (max-width: 850px) {
 		.navbar-wrapper {
+			width: 100%;
 			height: unset !important;
+			position: fixed;
 		}
 
 		.navbar {

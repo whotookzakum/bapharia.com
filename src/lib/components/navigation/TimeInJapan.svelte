@@ -38,7 +38,7 @@
 		vertical-align: middle;
 	}
 
-	:global(.navbar:not(.expanded) .jst-time) {
+	:global(.navbar-wrapper:not(.expanded) .jst-time) {
 		margin: 0 auto;
 		text-align: center;
 	}
