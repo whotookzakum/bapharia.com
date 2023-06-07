@@ -5,8 +5,8 @@
 	import { fetchMarkdownPosts } from "$lib/utils";
 	import Icon from "@iconify/svelte";
 	import TimeInJapan from "./TimeInJapan.svelte";
-	import links from "./links.json"
-	import randomMessages from "./randomMessages.json"
+	import links from "./links.json";
+	import randomMessages from "./randomMessages.json";
 
 	let detailsOpen = false;
 	let isExpanded = true;
@@ -15,114 +15,118 @@
 		randomMessages[Math.floor(Math.random() * randomMessages.length)];
 	$: if ($page.url.pathname !== "/") {
 		randomMessage =
-			randomMessages[
-				Math.floor(Math.random() * randomMessages.length)
-			];
+			randomMessages[Math.floor(Math.random() * randomMessages.length)];
 	}
 	// TO DO: tiny says use aria-expanded instead of visually-hidden?
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
 <!-- https://web.dev/building-a-color-scheme -->
-
-<nav class="navbar flex" class:expanded={isExpanded}>
+<div>
 	<a href="#main" class="visually-hidden show-when-focus-visible"
-		>Skip to main content</a
+		>Focus main content</a
 	>
-	<a href="/" class="home-button flex link" style="align-items: center">
-		<img class="logo" src="/images/logo.png" alt="Logo" />
-		<span class="text-wrapper" role="text">
-			<span class="visually-hidden show-when-expanded">Bapharia</span>
-			<span
-				class="hidden-text visually-hidden show-when-expanded"
-				aria-hidden="true">{randomMessage}</span
-			>
-		</span>
-	</a>
-	<div class="nav-body">
-		<hr />
-		<TimeInJapan {isExpanded} />
-		<hr />
-		<div class="links">
-			{#each links as link}
-				<a
-					href={link.href}
-					class="link"
-					class:active={$page.url.pathname === link.href}
+	<nav class="navbar flex" class:expanded={isExpanded}>
+		<div class="nav-header">
+			<!-- <input type="checkbox" bind:checked={isExpanded} name="" id="" /> -->
+		</div>
+		<a href="/" class="home-button flex link" style="align-items: center">
+			<img class="logo" src="/images/logo.png" alt="Logo" />
+			<span class="text-wrapper" role="text">
+				<span class="visually-hidden show-when-expanded">Bapharia</span>
+				<span
+					class="hidden-text visually-hidden show-when-expanded"
+					aria-hidden="true">{randomMessage}</span
 				>
-					<span
-						class="icon"
-						style={`mask: url(${link.imgSrc}) no-repeat center / contain;
-						-webkit-mask: url(${link.imgSrc}) no-repeat center / contain;`}
-					/>
-					<span class="visually-hidden show-when-expanded"
-						>{link.name}</span
-					>
-				</a>
-			{/each}
-		</div>
-		<hr />
-		<details bind:open={detailsOpen}>
-			<summary>
-				<span class="visually-hidden show-when-expanded">Guides</span>
-				{#if isExpanded}
-					<Icon
-						icon={detailsOpen
-							? "mdi:chevron-up"
-							: "mdi:chevron-down"}
-						width="20"
-						height="20"
-						style="margin-left: auto;"
-					/>
-				{/if}
-			</summary>
-			<div class="guides-list visually-hidden show-when-expanded">
-				{#await fetchMarkdownPosts() then guides}
-					{#each guides as guide}
-						<a
-							class="link"
-							class:active={$page.url.pathname === guide.path}
-							href={guide.path}>{guide.meta.title}</a
-						>
-					{/each}
-				{/await}
-			</div>
-		</details>
-		<hr />
-		<div class="nav-extras flex g-50">
-			<span
-				class="visually-hidden show-when-expanded show-when-focus-within"
-			>
-				<LocaleSelector />
 			</span>
-			<ThemeToggle />
+		</a>
+		<div class="nav-body">
+			<hr />
+			<TimeInJapan {isExpanded} />
+			<hr />
+			<div class="links">
+				{#each links as link}
+					<a
+						href={link.href}
+						class="link"
+						class:active={$page.url.pathname === link.href}
+					>
+						<span
+							class="icon"
+							style={`mask: url(${link.imgSrc}) no-repeat center / contain;
+						-webkit-mask: url(${link.imgSrc}) no-repeat center / contain;`}
+						/>
+						<span class="visually-hidden show-when-expanded"
+							>{link.name}</span
+						>
+					</a>
+				{/each}
+			</div>
+			<hr />
+			<details bind:open={detailsOpen}>
+				<summary>
+					<span class="visually-hidden show-when-expanded"
+						>Guides</span
+					>
+					{#if isExpanded}
+						<Icon
+							icon={detailsOpen
+								? "mdi:chevron-up"
+								: "mdi:chevron-down"}
+							width="20"
+							height="20"
+							style="margin-left: auto;"
+						/>
+					{/if}
+				</summary>
+				<div class="guides-list visually-hidden show-when-expanded">
+					{#await fetchMarkdownPosts() then guides}
+						{#each guides as guide}
+							<a
+								class="link"
+								class:active={$page.url.pathname === guide.path}
+								href={guide.path}>{guide.meta.title}</a
+							>
+						{/each}
+					{/await}
+				</div>
+			</details>
+			<hr />
+			<div class="nav-extras flex g-50">
+				<span
+					class="visually-hidden show-when-expanded show-when-focus-within"
+				>
+					<LocaleSelector />
+				</span>
+				<ThemeToggle />
+			</div>
 		</div>
-	</div>
-	<div class="nav-footer">
-		<a
-			class="site-version"
-			href="/changelog"
-			class:active={$page.url.pathname === "/changelog"}
-			>{isExpanded ? "Version 0.9.2" : "v0.9.2"}</a
-		>
-		<label class="flex" aria-hidden="true">
-			<Icon
-				icon={isExpanded
-					? "ri:expand-left-line"
-					: "ri:expand-right-line"}
-				width="38"
-				height="38"
-				style="margin-left: auto;"
-			/>
-			<span class="visually-hidden">Expand/Collapse Sidebar</span>
-			<input
-				class="visually-hidden"
-				type="checkbox"
-				bind:checked={isExpanded}
-			/>
-		</label>
-	</div>
-</nav>
+		<div class="nav-footer">
+			<a
+				class="site-version"
+				href="/changelog"
+				class:active={$page.url.pathname === "/changelog"}
+				>{isExpanded ? "Version 0.9.2" : "v0.9.2"}</a
+			>
+			<label class="nav-expander flex" aria-hidden="true">
+				<Icon
+					icon={isExpanded
+						? "ri:expand-left-line"
+						: "ri:expand-right-line"}
+					width="38"
+					height="38"
+					style="margin-left: auto;"
+				/>
+				<span class="visually-hidden">Expand/Collapse Sidebar</span>
+				<input
+					class="visually-hidden"
+					type="checkbox"
+					bind:checked={isExpanded}
+				/>
+			</label>
+		</div>
+	</nav>
+</div>
 
 <style lang="scss">
 	.navbar {
@@ -166,6 +170,16 @@
 	.expanded .show-when-expanded,
 	.show-when-focus-within:focus-within {
 		position: unset;
+	}
+
+	a[href="#main"]:focus-visible {
+		padding: 0.5rem 1rem !important;
+		background: var(--surface2) !important;
+		position: unset;
+		display: block;
+		height: 150px !important;
+		border: none !important;
+		overflow: unset;
 	}
 
 	a.home-button {
@@ -234,6 +248,7 @@
 		gap: 1rem;
 		position: relative;
 		padding: 0.5rem 1rem;
+		max-inline-size: none;
 	}
 
 	.link {
@@ -260,8 +275,10 @@
 		height: var(--icon-size);
 		width: var(--icon-size);
 		background-color: var(--text1);
-		mask: url("/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png") no-repeat center / contain;
-		-webkit-mask: url("/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png") no-repeat center / contain;
+		mask: url("/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png")
+			no-repeat center / contain;
+		-webkit-mask: url("/UI/CommandMenu/CommandMenuIcon1/UI_CommandMenuIcon1Library.png")
+			no-repeat center / contain;
 	}
 
 	.active {
