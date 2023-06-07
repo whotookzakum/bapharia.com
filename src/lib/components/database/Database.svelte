@@ -27,7 +27,7 @@
 
 	const entries = graphql(`
 		query DatabaseEntries($searchTerm: String, $categories: String) @load {
-			entries(searchTerm: $searchTerm, categories: $categories, first: 6)
+			entries(searchTerm: $searchTerm, categories: $categories, first: 6, last: 6)
 				@paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
