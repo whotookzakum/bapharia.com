@@ -8,7 +8,6 @@
 	import randomMessages from "./randomMessages.json";
 	import { userLocale } from "$lib/stores";
 
-	let detailsOpen = false;
 	let isExpanded = true;
 	let isMobileExpanded = false;
 
