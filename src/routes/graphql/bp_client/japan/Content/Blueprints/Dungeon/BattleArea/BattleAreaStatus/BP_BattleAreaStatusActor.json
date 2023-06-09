@@ -1,0 +1,340 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_BattleAreaStatusActor",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_BattleArea",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BattleAreaBase_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BP_BattleAreaBase.61"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "RegisterBattleArea",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "BattleArea",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BattleAreaBase_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BP_BattleAreaBase.61"
+        }
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "PostSpawn",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "PostBattleStart",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "PostErase",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "CheckSpawnStatus",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Spawn",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 384,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetEnemyCountsInArea_Enemy_Num",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 205651968
+  },
+  {
+    "Type": "Function",
+    "Name": "CheckEraseStatus",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Erase",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 384,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetEnemyCountsInArea_Enemy_Num",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 205651968
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_BattleAreaStatusActor_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.11"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:ExecuteUbergraph_BP_BattleAreaStatusActor'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Actor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:CheckEraseStatus'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.6"
+      },
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:CheckSpawnStatus'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.5"
+      },
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:PostErase'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.4"
+      },
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:PostBattleStart'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.3"
+      },
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:PostSpawn'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.2"
+      },
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:RegisterBattleArea'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.1"
+      },
+      {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:ExecuteUbergraph_BP_BattleAreaStatusActor'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BattleArea",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 67589,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BattleAreaBase_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BP_BattleAreaBase.61"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_BattleAreaStatusActor": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:ExecuteUbergraph_BP_BattleAreaStatusActor'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.0"
+      },
+      "RegisterBattleArea": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:RegisterBattleArea'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.1"
+      },
+      "PostSpawn": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:PostSpawn'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.2"
+      },
+      "PostBattleStart": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:PostBattleStart'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.3"
+      },
+      "PostErase": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:PostErase'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.4"
+      },
+      "CheckSpawnStatus": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:CheckSpawnStatus'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.5"
+      },
+      "CheckEraseStatus": {
+        "ObjectName": "Function'BP_BattleAreaStatusActor_C:CheckEraseStatus'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.6"
+      }
+    },
+    "ClassFlags": 8652820,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "Interfaces": [
+      {
+        "Class": {
+          "ObjectName": "BlueprintGeneratedClass'BP_BattleAreaStatusIF_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusIF.6"
+        },
+        "PointerOffset": 0,
+        "bImplementedByK2": true
+      }
+    ],
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_BattleAreaStatusActor_C'Default__BP_BattleAreaStatusActor_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.8"
+    }
+  },
+  {
+    "Type": "BP_BattleAreaStatusActor_C",
+    "Name": "Default__BP_BattleAreaStatusActor_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.BP_BattleAreaStatusActor_C'",
+    "Properties": {
+      "UberGraphFrame": {}
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_BattleAreaStatusActor_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.9"
+      },
+      "VariableGuid": "E2CBFB70-4F402640-0DC018AC-F253E6AA",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_BattleAreaStatusActor_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_BattleAreaStatusActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.10"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_BattleAreaStatusActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.10"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_BattleAreaStatusActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/BattleAreaStatus/BP_BattleAreaStatusActor.10"
+      }
+    }
+  }
+]

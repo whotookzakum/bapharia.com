@@ -1,0 +1,408 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DebugMapsMenu",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBDebugParameter'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "時間経過あり": {
+        "ParameterName": "時間経過あり",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_TimeHasPassed",
+        "ToolTipTextId": "TOOLTIP_TimeHasPassed",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "true"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "時間経過処理を行う",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "時間表示": {
+        "ParameterName": "時間表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_TimeDisp",
+        "ToolTipTextId": "TOOLTIP_TimeDisp",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ゲーム内の時間を表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "サーバー時間無視": {
+        "ParameterName": "サーバー時間無視（見た目）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_IgnoreServerTime",
+        "ToolTipTextId": "TOOLTIP_IgnoreServerTime",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "サーバーの時間を無視して見た目を確認する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "時間指定": {
+        "ParameterName": "見た目時間指定",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_TimeDesignation",
+        "ToolTipTextId": "TOOLTIP_TimeDesignation",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "見た目の時間を指定する（クライアントのみ上書き）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "Hour": {
+        "ParameterName": "時（Hour）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_Hour",
+        "ToolTipTextId": "TOOLTIP_Hour",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "12"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "時間指定（時）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "Minute": {
+        "ParameterName": "分（Minute）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_Minute",
+        "ToolTipTextId": "TOOLTIP_Minute",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "時間指定（分）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ゲーム時間指定": {
+        "ParameterName": "ゲーム時間指定",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_GameTimeDesignation",
+        "ToolTipTextId": "TOOLTIP_GameTimeDesignation",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ゲーム時間を指定する（クライアントのみ上書き）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "Hour_GameTime": {
+        "ParameterName": "時（Hour）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_Hour_GameTime",
+        "ToolTipTextId": "TOOLTIP_Hour_GameTime",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "12"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "時間指定（時）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "Minute_GameTime": {
+        "ParameterName": "分（Minute）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_Minute_GameTime",
+        "ToolTipTextId": "TOOLTIP_Minute_GameTime",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "時間指定（分）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "NoAdjustment": {
+        "ParameterName": "時間経過に補正を加えない",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_NoAdjustment",
+        "ToolTipTextId": "TOOLTIP_NoAdjustment",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "true"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "時間経過に補正を加えない",
+        "Enable": false,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "MinutesPerDay": {
+        "ParameterName": "1日の長さ",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_MinutesPerDay",
+        "ToolTipTextId": "TOOLTIP_MinutesPerDay",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "50"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ゲーム内の1日を実時間の何分とするか",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "DiedCountDown": {
+        "ParameterName": "死亡時カウントダウン",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_DiedCountDown",
+        "ToolTipTextId": "TOOLTIP_DiedCountDown",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "true"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "フィールド死亡時カウントダウン",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "DungeonIntroOmit": {
+        "ParameterName": "ダンジョンIntro省略",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_DungeonIntroOmit",
+        "ToolTipTextId": "TOOLTIP_DungeonIntroOmit",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ダンジョンイントロデモを省略する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "LoginDelay": {
+        "ParameterName": "遅延ログイン",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_DelayLogin",
+        "ToolTipTextId": "TOOLTIP_DelayLogin",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "2人目プレイヤーのログイン遅延時間",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowPrintServerString": {
+        "ParameterName": "ShowPrintServerString",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_ShowPrintServerString",
+        "ToolTipTextId": "TOOLTIP_ShowPrintServerString",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "PrintServerStringを表示するかフラグ",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "RouteGuide": {
+        "ParameterName": "ルートガイド目的地",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_RouteGuide",
+        "ToolTipTextId": "TOOLTIP_RouteGuide",
+        "Type": "SB_DEBUG_MENU_ROUTEGUIDE",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ルートガイド目的地選択",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "Fishing": {
+        "ParameterName": "釣りデバッグ",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugFishingMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugFishingMenuText.0"
+        },
+        "TitleTextId": "TITLE_FishingMenu",
+        "ToolTipTextId": "TOOLTIP_FishingMenu",
+        "Type": "SB_DEBUG_MENU_FISHING",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "釣りメニュー",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "FoliageDebug": {
+        "ParameterName": "FoliageDebug",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_FoliageDebugMenu",
+        "ToolTipTextId": "TOOLTIP_FoliageDebugMenu",
+        "Type": "SB_DEBUG_MENU_FOLIAGE",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "フォリッジデバッグ",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "DxGateInfinityHP": {
+        "ParameterName": "Dx城門HP無限",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMapsMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMapsMenuText.0"
+        },
+        "TitleTextId": "TITLE_DxBattleGateInfinityHP",
+        "ToolTipTextId": "TOOLTIP_DxBattleGateInfinityHP",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      }
+    }
+  }
+]

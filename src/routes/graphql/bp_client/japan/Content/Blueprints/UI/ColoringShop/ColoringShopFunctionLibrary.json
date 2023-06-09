@@ -1,0 +1,1885 @@
+[
+  {
+    "Type": "Function",
+    "Name": "GetRequiredDyeAndToningAgentAmount",
+    "Outer": "ColoringShopFunctionLibrary_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "InProtectorCategory",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "__WorldContext",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "OutDyeAmount",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 384
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "OutToningAgentAmount",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 384
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "LocalRowNames",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 5,
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "LocalRowNames",
+          "Flags": 1,
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "LocalProtectorCategory",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "LocalPartsIconType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_True_if_break_was_hit_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetDataTableRowNames_OutRowNames",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217728,
+        "Inner": {
+          "Type": "NameProperty",
+          "Name": "CallFunc_GetDataTableRowNames_OutRowNames",
+          "Flags": 1,
+          "ElementSize": 12
+        }
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 12
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetDataTableRowFromName_OutRow",
+        "Flags": 1,
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBRequiredColoringItemForCostumeInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetDataTableRowFromName_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 482484224
+  },
+  {
+    "Type": "Function",
+    "Name": "GetCostumeCompositeWearInfoByMainPartsIconType",
+    "Outer": "ColoringShopFunctionLibrary_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "InCostumeCompositeWearInfos",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134218132,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "InCostumeCompositeWearInfos",
+          "Flags": 1,
+          "ElementSize": 32,
+          "Struct": {
+            "ObjectName": "UserDefinedStruct'ST_ColoringShop_CompositeWearNecessaryDyeInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ST_ColoringShop_CompositeWearNecessaryDyeInfo.0"
+          }
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "InMainPartsIconType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "__WorldContext",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "OutIsExist",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 384,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "OutCostumeCompositeWearInfo",
+        "Flags": 1,
+        "ElementSize": 32,
+        "PropertyFlags": 384,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'ST_ColoringShop_CompositeWearNecessaryDyeInfo'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ST_ColoringShop_CompositeWearNecessaryDyeInfo.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "LocalMainPartsIconType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "LocalCostumeCompositeWearInfos",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 5,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "LocalCostumeCompositeWearInfos",
+          "Flags": 1,
+          "ElementSize": 32,
+          "Struct": {
+            "ObjectName": "UserDefinedStruct'ST_ColoringShop_CompositeWearNecessaryDyeInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ST_ColoringShop_CompositeWearNecessaryDyeInfo.0"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_True_if_break_was_hit_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'ST_ColoringShop_CompositeWearNecessaryDyeInfo'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ST_ColoringShop_CompositeWearNecessaryDyeInfo.0"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 482484224
+  },
+  {
+    "Type": "Function",
+    "Name": "CreateCompositeWearNecessaryDyeInfoByCostumeItemId",
+    "Outer": "ColoringShopFunctionLibrary_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "InCostumeItemId",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "__WorldContext",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "OutIsValid",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 384,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "OutInfo",
+        "Flags": 1,
+        "ElementSize": 32,
+        "PropertyFlags": 384,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'ST_ColoringShop_CompositeWearNecessaryDyeInfo'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ST_ColoringShop_CompositeWearNecessaryDyeInfo.0"
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "LocalOccupiedProtectorCategory",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "LocalProtectorCategory",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "LocalPartsLocation",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum'ECharaPartsLocation'",
+          "ObjectPath": "/Script/CharaParts"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "LocalOcuppiedPartsIconType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "LocalCompositeWearOccupiedPartsIconTypes",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 5,
+        "Inner": {
+          "Type": "ByteProperty",
+          "Name": "LocalCompositeWearOccupiedPartsIconTypes",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "LocalCompositeWearNecessaryToningAgentAmountTotal",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "LocalCompositeWearNecessaryDyeAmountTotal",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "LocalCompositeWearMainPartsIconType",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "LocalCompositeWearOccupiedPartsLocations",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 5,
+        "Inner": {
+          "Type": "EnumProperty",
+          "Name": "LocalCompositeWearOccupiedPartsLocations",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ECharaPartsLocation'",
+            "ObjectPath": "/Script/CharaParts"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": 1,
+            "ElementSize": 1,
+            "Enum": null
+          }
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsCompositeWearByCostumeId_bIsValid",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsCompositeWearByCostumeId_IsCompositeWear",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_IsCompositeWearByCostumeId_OccupiedPartsLocations",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217728,
+        "Inner": {
+          "Type": "EnumProperty",
+          "Name": "CallFunc_IsCompositeWearByCostumeId_OccupiedPartsLocations",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ECharaPartsLocation'",
+            "ObjectPath": "/Script/CharaParts"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": 1,
+            "ElementSize": 1,
+            "Enum": null
+          }
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_IsCompositeWearByCostumeId_MasterCostume",
+        "Flags": 1,
+        "ElementSize": 136,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBMasterCostume'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_2",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_3",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_4",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_5",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_6",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_7",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_8",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_9",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_10",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_11",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_12",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_13",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_14",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_15",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_16",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_17",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_18",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_19",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_20",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_21",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_22",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_4",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_MakeLiteralByte_ReturnValue_4",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": null
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_23",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ECharaPartsLocation'",
+          "ObjectPath": "/Script/CharaParts"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_24",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_25",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_26",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_27",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_28",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_29",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_30",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_31",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_32",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_33",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_34",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_35",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_36",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_37",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_38",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_39",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_40",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_41",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_42",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_43",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_44",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_45",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_46",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_47",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_48",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "Temp_byte_Variable_49",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_50",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetRequiredDyeAndToningAgentAmount_OutDyeAmount",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetRequiredDyeAndToningAgentAmount_OutToningAgentAmount",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetRequiredDyeAndToningAgentAmount_OutDyeAmount_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetRequiredDyeAndToningAgentAmount_OutToningAgentAmount_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_51",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 2,
+        "Enum": {
+          "ObjectName": "UserDefinedEnum'E_ColoringShop_PartsIconTypes'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/E_ColoringShop_PartsIconTypes.0"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_ST_ColoringShop_CompositeWearNecessaryDyeInfo",
+        "Flags": 1,
+        "ElementSize": 32,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'ST_ColoringShop_CompositeWearNecessaryDyeInfo'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ST_ColoringShop_CompositeWearNecessaryDyeInfo.0"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Add_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ECharaPartsLocation'",
+          "ObjectPath": "/Script/CharaParts"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_4",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_52",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_53",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_54",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_55",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_56",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_57",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_58",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ECharaPartsLocation'",
+          "ObjectPath": "/Script/CharaParts"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Select_Default_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EProtectorCategory'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 214048768
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "ColoringShopFunctionLibrary_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'BlueprintFunctionLibrary'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'ColoringShopFunctionLibrary_C:CreateCompositeWearNecessaryDyeInfoByCostumeItemId'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.2"
+      },
+      {
+        "ObjectName": "Function'ColoringShopFunctionLibrary_C:GetCostumeCompositeWearInfoByMainPartsIconType'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.1"
+      },
+      {
+        "ObjectName": "Function'ColoringShopFunctionLibrary_C:GetRequiredDyeAndToningAgentAmount'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.0"
+      }
+    ],
+    "FuncMap": {
+      "GetRequiredDyeAndToningAgentAmount": {
+        "ObjectName": "Function'ColoringShopFunctionLibrary_C:GetRequiredDyeAndToningAgentAmount'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.0"
+      },
+      "GetCostumeCompositeWearInfoByMainPartsIconType": {
+        "ObjectName": "Function'ColoringShopFunctionLibrary_C:GetCostumeCompositeWearInfoByMainPartsIconType'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.1"
+      },
+      "CreateCompositeWearNecessaryDyeInfoByCostumeItemId": {
+        "ObjectName": "Function'ColoringShopFunctionLibrary_C:CreateCompositeWearNecessaryDyeInfoByCostumeItemId'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.2"
+      }
+    },
+    "ClassFlags": 262160,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "ColoringShopFunctionLibrary_C'Default__ColoringShopFunctionLibrary_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.4"
+    }
+  },
+  {
+    "Type": "ColoringShopFunctionLibrary_C",
+    "Name": "Default__ColoringShopFunctionLibrary_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/ColoringShop/ColoringShopFunctionLibrary.ColoringShopFunctionLibrary_C'"
+  }
+]

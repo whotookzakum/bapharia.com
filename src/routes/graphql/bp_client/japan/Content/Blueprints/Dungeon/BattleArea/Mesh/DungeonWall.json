@@ -1,0 +1,220 @@
+[
+  {
+    "Type": "BodySetup",
+    "Name": "BodySetup_0",
+    "Outer": "DungeonWall",
+    "Class": "UScriptClass'BodySetup'",
+    "Properties": {
+      "AggGeom": {
+        "ConvexElems": [
+          {
+            "VertexData": [
+              {
+                "X": 200.10007,
+                "Y": -0.6124988,
+                "Z": -100.0625
+              },
+              {
+                "X": 200.1,
+                "Y": -0.6124988,
+                "Z": 100.125
+              },
+              {
+                "X": 200.1,
+                "Y": 0.625,
+                "Z": 100.125
+              },
+              {
+                "X": 200.10007,
+                "Y": 0.625,
+                "Z": -100.100006
+              },
+              {
+                "X": -200.10007,
+                "Y": 0.625,
+                "Z": -100.0625
+              },
+              {
+                "X": -200.1,
+                "Y": 0.625,
+                "Z": 100.125
+              },
+              {
+                "X": -200.1,
+                "Y": -0.6125012,
+                "Z": 100.125
+              },
+              {
+                "X": -200.10007,
+                "Y": -0.6125012,
+                "Z": -100.100006
+              }
+            ],
+            "IndexData": [],
+            "ElemBox": {
+              "Min": {
+                "X": -200.10007,
+                "Y": -0.6125012,
+                "Z": -100.100006
+              },
+              "Max": {
+                "X": 200.10007,
+                "Y": 0.625,
+                "Z": 100.125
+              },
+              "IsValid": 1
+            },
+            "Transform": {
+              "Rotation": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0,
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
+              },
+              "Translation": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Scale3D": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              }
+            },
+            "RestOffset": 0.0,
+            "Name": "None",
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
+          }
+        ]
+      },
+      "DefaultInstance": {
+        "ObjectType": "ECC_WorldStatic",
+        "CollisionProfileName": "BlockAll",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "EngineTraceChannel1",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBDamage",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBPlayerPawn",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBEnemyPawn",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBCharacterBody",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBTrigger",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBPhotoModeCamera",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBWater",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBAk",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      }
+    },
+    "BodySetupGuid": "E30A5C2F437EFE03F55BB598F34D98C3",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+        "ElementCount": 963,
+        "SizeOnDisk": 963,
+        "OffsetInFile": "0x6C92"
+      }
+    }
+  },
+  {
+    "Type": "NavCollision",
+    "Name": "NavCollision_0",
+    "Outer": "DungeonWall",
+    "Class": "UScriptClass'NavCollision'",
+    "CookedFormatData": {
+      "NavCollision_X": {
+        "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+        "ElementCount": 481,
+        "SizeOnDisk": 481,
+        "OffsetInFile": "0x709D"
+      }
+    }
+  },
+  {
+    "Type": "StaticMesh",
+    "Name": "DungeonWall",
+    "Class": "UScriptClass'StaticMesh'",
+    "Properties": {
+      "StaticMaterials": [
+        {
+          "MaterialInterface": {
+            "ObjectName": "Material'WorldGridMaterial'",
+            "ObjectPath": "Engine/Content/EngineMaterials/WorldGridMaterial.0"
+          },
+          "MaterialSlotName": "WorldGridMaterial",
+          "ImportedMaterialSlotName": "WorldGridMaterial",
+          "UVChannelData": {
+            "bInitialized": true,
+            "bOverrideDensities": false,
+            "LocalUVDensities": 100.0033,
+            "LocalUVDensities": 433.73294,
+            "LocalUVDensities": 0.0,
+            "LocalUVDensities": 0.0
+          }
+        }
+      ],
+      "LightmapUVDensity": 100.0033,
+      "ExtendedBounds": {
+        "BoxExtent": {
+          "X": 200.0,
+          "Y": 0.5,
+          "Z": 100.0
+        },
+        "SphereRadius": 223.60736
+      }
+    },
+    "BodySetup": {
+      "ObjectName": "BodySetup'DungeonWall:BodySetup_0'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/Mesh/DungeonWall.0"
+    },
+    "NavCollision": {
+      "ObjectName": "NavCollision'DungeonWall:NavCollision_0'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/Mesh/DungeonWall.1"
+    },
+    "LightingGuid": "B38DEF24-4CF0B4E7-1F2CE9A1-0E762D28",
+    "RenderData": null
+  }
+]

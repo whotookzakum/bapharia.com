@@ -1,0 +1,533 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DebugPlayerBattleMenu",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBDebugParameter'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "バトル用コリジョン表示": {
+        "ParameterName": "バトル用コリジョン表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_ShowBattleCollision",
+        "ToolTipTextId": "TOOLTIP_ShowBattleCollision",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "バトル用コリジョンの表示延長時間": {
+        "ParameterName": "バトル用コリジョンの表示延長時間",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_ShowBattleCollisionExtensionTime",
+        "ToolTipTextId": "TOOLTIP_ShowBattleCollisionExtensionTime",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ターゲッティング対象表示": {
+        "ParameterName": "ターゲッティング対象表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_ShowTarget",
+        "ToolTipTextId": "TOOLTIP_ShowTarget",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "無敵": {
+        "ParameterName": "無敵",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_Invincible",
+        "ToolTipTextId": "TOOLTIP_Invincible",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "無敵（リアクションもしない）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "バトル無敵レベル": {
+        "ParameterName": "バトル無敵レベル",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_BattleInvincibleLevel",
+        "ToolTipTextId": "TOOLTIP_BattleInvincibleLevel",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ゲーム状態扱いの無敵レベル（「無敵」項目とは個別の処理）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "HP無限": {
+        "ParameterName": "HP無限",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_InfiniteHP",
+        "ToolTipTextId": "TOOLTIP_InfiniteHP",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "HPが減らない（リアクションはする）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "スキル使い放題": {
+        "ParameterName": "スキル使い放題",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_InfiniteSkill",
+        "ToolTipTextId": "TOOLTIP_InfiniteSkill",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "スキルの発動時・発動後のリキャスト処理なし",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "OverrideSkillLevel": {
+        "ParameterName": "スキルレベル上書き",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_SkillLevelOverwrite",
+        "ToolTipTextId": "TOOLTIP_SkillLevelOverwrite",
+        "Type": "SB_DEBUG_MENU_INT32",
+        "InitialValue": [
+          "0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "6桁の整数を入力する。例えば122333という設定値だった場合 Main:Lv1 Sub:Lv2 Skill1:Lv2 Skill2:Lv3 Skill3:Lv3 Skill4:Lv3 というレベル分布になる",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "イマジン使い放題": {
+        "ParameterName": "イマジン使い放題",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_InfiniteImagine",
+        "ToolTipTextId": "TOOLTIP_InfiniteImagine",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "イマジンアーツの待ち時間が高速回復",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "一撃死": {
+        "ParameterName": "一撃死",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_OneShotDeath",
+        "ToolTipTextId": "TOOLTIP_OneShotDeath",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "自分が攻撃を受けたとき一撃死します",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "強制クリティカル": {
+        "ParameterName": "強制クリティカル",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_ForcedCritical",
+        "ToolTipTextId": "TOOLTIP_ForcedCritical",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "自身の攻撃がクリティカルになります",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "クリティカル無効": {
+        "ParameterName": "クリティカル無効",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_InvalidCritical",
+        "ToolTipTextId": "TOOLTIP_InvalidCritical",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "自身の攻撃がクリティカルになりません（強制クリティカルより上位）",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ダメージ倍率変更": {
+        "ParameterName": "ダメージ倍率変更",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_DamageMultiplier",
+        "ToolTipTextId": "TOOLTIP_DamageMultiplier",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "1.0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "最終ダメージ倍率を変更する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "属性ダメージ倍率変更": {
+        "ParameterName": "属性ダメージ倍率変更",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_AttributeDamageMultiplier",
+        "ToolTipTextId": "TOOLTIP_AttributeDamageMultiplier",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "1.0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "属性ダメージに倍率を掛ける",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "味方攻撃可能": {
+        "ParameterName": "味方攻撃可能",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_AllyAttackable",
+        "ToolTipTextId": "TOOLTIP_AllyAttackable",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "PlayerClassInfo": {
+        "ParameterName": "プレイヤークラス固有情報表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_PlayerClassInfo",
+        "ToolTipTextId": "TOOLTIP_PlayerClassInfo",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "敵から発見されているリスト表示": {
+        "ParameterName": "敵から発見されているリスト表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_EnemyDiscoveryList",
+        "ToolTipTextId": "TOOLTIP_EnemyDiscoveryList",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "敵が自分を発見したリストを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "敵から発見されているライン表示": {
+        "ParameterName": "敵から発見されているライン表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_EnemyDiscoveryLine",
+        "ToolTipTextId": "TOOLTIP_EnemyDiscoveryLine",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "敵が自分を発見したラインを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "同一バトルエリアにいる対象にライン表示": {
+        "ParameterName": "同一バトルエリアにいる対象にライン表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_SameBattleAreaLine",
+        "ToolTipTextId": "TOOLTIP_SameBattleAreaLine",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "オートターゲット無効": {
+        "ParameterName": "オートターゲット無効",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_AutoTargetDisabled",
+        "ToolTipTextId": "TOOLTIP_AutoTargetDisabled",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "オートターゲットを無効にする(チェックがない場合は各クラスの設定に基づく)",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "弱点ヒット時にデバッグ表示": {
+        "ParameterName": "弱点ヒット時にデバッグ表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_DispWeaknessHit",
+        "ToolTipTextId": "TOOLTIP_DispWeaknessHit",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "攻撃が弱点ヒットした際にデバッグ情報を表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "戦闘効果の送信": {
+        "ParameterName": "戦闘効果（状態異常やバフ）の送信",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_CombatEffectTransmission",
+        "ToolTipTextId": "TOOLTIP_CombatEffectTransmission",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugSendBattleEffectiveMenu.DebugSendBattleEffectiveMenu_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "操作プレイヤーに送信する戦闘効果",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "プロジェクタイル発射": {
+        "ParameterName": "プロジェクタイル発射",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_ProjectileLaunch",
+        "ToolTipTextId": "TOOLTIP_ProjectileLaunch",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugLaunchProjectileMenu.DebugLaunchProjectileMenu_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイル発射テスト",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "背面攻撃によるよろけ強化を無効化": {
+        "ParameterName": "背面攻撃によるよろけ強化を無効化",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerBattleMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerBattleMenuText.0"
+        },
+        "TitleTextId": "TITLE_DisableBackHitStun",
+        "ToolTipTextId": "TOOLTIP_DisableBackHitStun",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ダミーAttackIDダメージ有効": {
+        "ParameterName": "ダミーAttackIDダメージ有効",
+        "TextTableAsset": null,
+        "TitleTextId": "None",
+        "ToolTipTextId": "None",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      }
+    }
+  }
+]

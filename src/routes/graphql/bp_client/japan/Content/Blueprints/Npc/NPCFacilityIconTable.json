@@ -1,0 +1,1027 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "NPCFacilityIconTable",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "UserDefinedStruct'NPCFacilityIconData'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Npc/NPCFacilityIconData.0"
+      }
+    },
+    "Rows": {
+      "WeaponShop": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::WeaponShop",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_07'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_07.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "ItemShop": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::ItemShop",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_09'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_09.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "DungeonGuide": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::DungeonGuide",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_14'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_14.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "WarpPoint": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::WarpPoint",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_12'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_12.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "LocalWarpPoint": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::LocalWarpPoint",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": null,
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "ExchangeShop": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::ExchangeShop",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_92'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_92.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "QuestGuide": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::QuestGuide",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_34'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_34.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Craft": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::Craft",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_19'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_19.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step7"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step8"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step9"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step10"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step11"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Done",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "SyntheShop": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::SyntheShop",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_67'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_67.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_040",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "ImagineLabo": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::ImagineLabo",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_71'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_71.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step10"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Proceeding",
+                    "bSetProgress": true,
+                    "QuestStep": "step11"
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Done",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            },
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Aesthe": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::Aesthetician",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_90'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_90.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "DyeingShop": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::DyeingShop",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_91'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_91.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "SQ101_121",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "ChallengeBox": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::ChallengeBox",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": null,
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "SQ101_124",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "Warehouse": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::Warehouse",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_40'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_40.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "Guild": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::Guild",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_93'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_93.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "SQ101_132",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "MemoryStand": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::MemoryStand",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_72'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_72.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "SQ101_127",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "CoinBower": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::CoinBower",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": null,
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "EventPeddller": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::EventPeddler",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_92'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_92.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "RankingBoard": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::RankingBoard",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_104'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_104.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "AdventurerRank": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::AdventurerRank",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_103'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_103.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "MQ101_030",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "BuffNpc": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::BuffNPC",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_95'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_95.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      },
+      "AbilityMasteryShop": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::AbilityMasteryShop",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_65'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_65.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Disable",
+          "ConditionSettings": [
+            {
+              "Status": "EFacilityIconStatus::Enable",
+              "ConditionItems": [
+                {
+                  "ConditionType": "ESBFieldStatusConditionType::QuestStatus",
+                  "QuestStatus": {
+                    "QuestId": "SQ101_145",
+                    "QuestStatus": "EQuestStatus::QuestStatus_Close",
+                    "bSetProgress": false,
+                    "QuestStep": ""
+                  },
+                  "ScenarioFlag": {
+                    "FlagHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "bFlagValue": false
+                  },
+                  "ResearchTeam": {
+                    "Id": ""
+                  },
+                  "EventTerm": {
+                    "Id": "None"
+                  },
+                  "ChallengeQuest": {
+                    "QuestId": "None",
+                    "Setting": "ESBFieldStatusChallengeQuestSettingType::StartConditionPop"
+                  },
+                  "QuestConditionItem": {
+                    "QuestId": "None",
+                    "ConditionItemId": 0,
+                    "bIsCompleted": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "FishingSpot": {
+        "FacilityType_9_877CA17B46F9F4D1E747E1AD3078C172": "ESBFacilityType::FishingSpot",
+        "IconTexture_5_9E3BC24346B532D989EC97BC2B15CA90": {
+          "ObjectName": "Texture2D'UI_Map_110'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_110.0"
+        },
+        "StatusSetting_21_7E4C525E4F4AAB856EB4CABC7C747FED": {
+          "DefaultStatus": "EFacilityIconStatus::Enable",
+          "ConditionSettings": []
+        }
+      }
+    }
+  }
+]

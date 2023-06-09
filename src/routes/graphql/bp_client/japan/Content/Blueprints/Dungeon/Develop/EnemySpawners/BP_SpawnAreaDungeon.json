@@ -1,0 +1,151 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SpawnAreaDungeon_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_SpawnAreaDungeon_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.7"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SBSpawnAreaDungeon'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": 8652820,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SpawnAreaDungeon_C'Default__BP_SpawnAreaDungeon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.1"
+    }
+  },
+  {
+    "Type": "BP_SpawnAreaDungeon_C",
+    "Name": "Default__BP_SpawnAreaDungeon_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.BP_SpawnAreaDungeon_C'",
+    "Properties": {
+      "FindSpawnPointQuery": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'PT_NE_SelectPointInSpawnArea'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/PerceptionTree/PT_NE_SelectPointInSpawnArea.0"
+        }
+      },
+      "BlackboardComponent": {
+        "ObjectName": "AIFwBlackboardComponent'Default__BP_SpawnAreaDungeon_C:BlackboardComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.2"
+      },
+      "SpawnSourceComponent": {
+        "ObjectName": "SBSpawnSourceComponent'Default__BP_SpawnAreaDungeon_C:SpawnSourceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.3"
+      },
+      "bGenerateSpawnPoint": true,
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_SpawnAreaDungeon_C:SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.5"
+      }
+    }
+  },
+  {
+    "Type": "AIFwBlackboardComponent",
+    "Name": "BlackboardComponent",
+    "Outer": "Default__BP_SpawnAreaDungeon_C",
+    "Class": "UScriptClass'AIFwBlackboardComponent'"
+  },
+  {
+    "Type": "SBSpawnSourceComponent",
+    "Name": "SpawnSourceComponent",
+    "Outer": "Default__BP_SpawnAreaDungeon_C",
+    "Class": "UScriptClass'SBSpawnSourceComponent'",
+    "Properties": {
+      "SpawnTree": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_SA_SpawnEnemySet'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_SA_SpawnEnemySet.0"
+        },
+        "Arguments": [
+          {
+            "Name": "EnemySetId",
+            "Type": "EAIFwBTParamType::String",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "",
+            "BlackboardKey": ""
+          },
+          {
+            "Name": "EnemyId",
+            "Type": "EAIFwBTParamType::String",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "",
+            "BlackboardKey": ""
+          },
+          {
+            "Name": "Level",
+            "Type": "EAIFwBTParamType::Int",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "",
+            "BlackboardKey": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_SpawnAreaDungeon_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "Default__BP_SpawnAreaDungeon_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_SpawnAreaDungeon_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.4"
+      },
+      "VariableGuid": "5666FC07-4022C293-FFF248BC-8839D4FE",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_SpawnAreaDungeon_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_SpawnAreaDungeon_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_SpawnAreaDungeon.6"
+      }
+    }
+  }
+]
