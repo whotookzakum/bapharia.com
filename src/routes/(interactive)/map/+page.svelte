@@ -1,7 +1,6 @@
 <script>
     // https://github.com/ngyewch/svelte-leaflet/issues/3#issuecomment-1170333938
     import { page } from "$app/stores";
-
     import "leaflet/dist/leaflet.css";
     import "./leaflet.scss";
     import L from "leaflet?client";
@@ -20,6 +19,7 @@
     import { userLocale, markersVisibility, mapState } from "$lib/stores";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
+    import CopyToClipboardButton from "$lib/components/CopyToClipboardButton.svelte";
 
     // TODO dungeons & their floors
     // TODO tiled map images
@@ -141,6 +141,8 @@
                 ];
         }
     }
+
+    
 </script>
 
 <MetaTags
@@ -198,6 +200,7 @@
                         <small style="color: var(--text2)"
                             >{marker.coords}</small
                         >
+                        <CopyToClipboardButton />
                     </Popup>
                 </Marker>
             {/if}

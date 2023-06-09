@@ -3,12 +3,13 @@ import questsData from "../../graphql/bp_server/japan/quests.json"
 import enemiesData from "../../graphql/bp_server/japan/enemyparams.json"
 import itemsData from "../../graphql/bp_server/japan/items.json"
 import en_US from "../../graphql//bp_server/global/texts/en_US.json";
+import { getText } from '../../graphql/functions/utils';
 
-function getText(ns, id) {
-    const namespaceObj = en_US.find(namespace => namespace.name === ns) || {}
-    const textObj = namespaceObj.texts.find(obj => obj.id == id) || {}
-    return textObj.text || "-"
-}
+// function getText(ns, id) {
+//     const namespaceObj = en_US.find(namespace => namespace.name === ns) || {}
+//     const textObj = namespaceObj.texts.find(obj => obj.id == id) || {}
+//     return textObj.text || "-"
+// }
 
 export const GET = async () => {
     const allQuests = questsData.map(quest => {
@@ -108,13 +109,13 @@ function getSteps(steps, ns) {
             if (condition.type === 2) {
                 const enemyData = enemiesData.find(enemy => enemy.enemy_id === condition.enemyId)
                 const enemyName = getText("enemyparam_text", enemyData.name_id)
-                desc = desc.replace("{enemyId}", enemyName).replace("{progress}", ` x${condition.amount}`)
+                desc = desc.en_US.replace("{enemyId}", enemyName).replace("{progress}", ` x${condition.amount}`)
             }
 
             if (condition.type === 3) {
                 const itemData = itemsData.find(item => item.id === condition.item_id)
                 const itemName = getText("item_text", itemData?.name)
-                desc = desc.replace("{item_id}", itemName).replace("{progress}", ` x${condition.amount}`)
+                desc = desc.en_US.replace("{item_id}", itemName).replace("{progress}", ` x${condition.amount}`)
             }
 
             return desc // for now there is only 1 description per condition
