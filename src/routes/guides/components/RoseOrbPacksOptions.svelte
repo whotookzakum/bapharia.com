@@ -6,14 +6,14 @@
             id: 1,
             name: "PC",
         },
-        {
-            id: 2,
-            name: "PlayStation",
-        },
-        {
-            id: 3,
-            name: "Xbox",
-        },
+        // {
+        //     id: 2,
+        //     name: "PlayStation",
+        // },
+        // {
+        //     id: 3,
+        //     name: "Xbox",
+        // },
     ];
 
     export const CURRENCIES = [
@@ -28,14 +28,14 @@
             name: "United States Dollar",
             code: "USD",
             symbol: "$",
-            rate: 0.0074,
+            rate: 0.0072,
             decimals: 2,
         },
         {
             name: "Euro",
             code: "EUR",
             symbol: "€",
-            rate: 0.007,
+            rate: 0.0067,
             decimals: 2,
         },
     ];

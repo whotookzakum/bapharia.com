@@ -24,11 +24,15 @@ Treasures include overworld and dungeon treasure chests, and gathering nodes
 - 11: imagine recipe
 - 14: achievement
 - 15: liquid memory
+- 17: BPP ?
+- 18: free currency (prob rose orbs) ?
 - 19: token
 - 20: crafting recipe
+- 24: Season Reward Special ?
 - 27: crafting recipe set
 - 28: adventure board
 - 30: warehouse ability
+- 32: imagine beta ?
 - 33: lottery (RNG)
 
 `se` = spawn environment? (grass/stone/water)
