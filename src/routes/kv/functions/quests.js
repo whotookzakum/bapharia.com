@@ -1,35 +1,32 @@
-import { json } from '@sveltejs/kit'
-import questsData from "../../graphql/bp_server/japan/quests.json"
-import enemiesData from "../../graphql/bp_server/japan/enemyparams.json"
-import itemsData from "../../graphql/bp_server/japan/items.json"
-import en_US from "../../graphql/bp_server/global/texts/en_US.json";
-import { getText } from '../kv/functions/utils';
+// TODO Steps (npc involved, quest text, requirements)
 
-// function getText(ns, id) {
-//     const namespaceObj = en_US.find(namespace => namespace.name === ns) || {}
-//     const textObj = namespaceObj.texts.find(obj => obj.id == id) || {}
-//     return textObj.text || "-"
-// }
+// quest_unlock_data quest_conditions 
+// type 1 = subquest??
+// quest_status 1 = cleared
 
-export const GET = async () => {
-    const allQuests = questsData.map(quest => {
-        const ns = `${quest.source_file}_text`
-        const name = getText(ns, quest.name)
-        const desc = getText(ns, quest.desc)
-        const prereqs = getPrereqs(quest.quest_unlock_data.quest_conditions, quest.quest_preconditions)
-        const steps = getSteps(quest.quest_condition_steps, ns)
+// quest_preconditions
+// type 2 = class level requirement
 
-        return {
-            // ...quest,
-            name,
-            // desc,
-            prereqs,
-            steps
-        }
-    })
+import questsData from "$bp_server/japan/quests.json"
+import enemiesData from "$bp_server/japan/enemyparams.json"
+import itemsData from "$bp_server/japan/items.json"
+import { getText } from './utils';
 
-    return json(allQuests)
-}
+const quests = questsData.map(quest => {
+    const ns = `${quest.source_file}_text`
+    const name = getText(ns, quest.name)
+    const desc = getText(ns, quest.desc)
+    const prereqs = getPrereqs(quest.quest_unlock_data.quest_conditions, quest.quest_preconditions)
+    const steps = getSteps(quest.quest_condition_steps, ns)
+
+    return {
+        // ...quest,
+        name,
+        // desc,
+        prereqs,
+        steps
+    }
+})
 
 function getPrereqs(prereqs, preconditions) {
     let myPrereqs = []
@@ -106,16 +103,32 @@ function getSteps(steps, ns) {
             // }
 
             // Interpolate strings
-            if (condition.type === 2) {
+            // 2: defeat enemy
+            // 3: get item
+            // 13: get enemy drop
+            // 14: gather item
+            if (condition.type === 2 || condition.type === 13) {
                 const enemyData = enemiesData.find(enemy => enemy.enemy_id === condition.enemyId)
                 const enemyName = getText("enemyparam_text", enemyData.name_id)
-                desc = desc.en_US.replace("{enemyId}", enemyName).replace("{progress}", ` x${condition.amount}`)
+
+                Object.keys(desc).forEach(lang => {
+                    desc[lang] = desc[lang].replace("{enemyId}", enemyName[lang])
+                })
             }
 
             if (condition.type === 3) {
                 const itemData = itemsData.find(item => item.id === condition.item_id)
                 const itemName = getText("item_text", itemData?.name)
-                desc = desc.en_US.replace("{item_id}", itemName).replace("{progress}", ` x${condition.amount}`)
+
+                Object.keys(desc).forEach(lang => {
+                    desc[lang] = desc[lang].replace("{item_id}", itemName[lang])
+                })
+            }
+
+            if (condition.type === 2 || condition.type === 3 || condition.type === 13 || condition.type === 14) {
+                Object.keys(desc).forEach(lang => {
+                    desc[lang] = desc[lang].replace("{progress}", ` x${condition.amount}`)
+                })
             }
 
             return desc // for now there is only 1 description per condition
@@ -135,3 +148,5 @@ function getSteps(steps, ns) {
         }
     })
 }
+
+export default quests
