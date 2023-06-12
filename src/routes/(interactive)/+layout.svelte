@@ -1,4 +1,4 @@
-<main id="#main" tabindex="-1">
+<main id="main" tabindex="-1">
     <slot />
 </main>
 

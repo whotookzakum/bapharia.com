@@ -101,7 +101,7 @@
 </script>
 
 <main>
-    <nav class="command-menu grid">
+    <!-- <nav class="command-menu grid">
         <ul>
             {#each links as link}
                 {#if link.isRegnusStore}
@@ -152,7 +152,7 @@
                 {/if}
             {/each}
         </ul>
-    </nav>
+    </nav> -->
     <div class="battle-build">
         <img src="/UI/MyCharaMenu/UI_MyCharaMenuBattleCordeSetHeadingBg.png" alt="">
         <div class="loadout">
