@@ -9,4 +9,4 @@
 <MetaTags title={`Database — Bapharia`} description={`Database for BLUE PROTOCOL. Look up items, weapons, echoes, skills, enemies, maps, liquid memories, and more!`} />
 
 <h1>Database</h1>
-<Database />
+<!-- <Database /> -->
