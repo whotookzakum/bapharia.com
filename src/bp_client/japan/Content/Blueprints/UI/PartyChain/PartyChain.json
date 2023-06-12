@@ -1,0 +1,3594 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_PartyChain",
+    "Outer": "PartyChain_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'UMGSequencePlayer'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetDynamicMaterial_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "OnPlayBonusEffect",
+    "Outer": "PartyChain_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBPartyChainWidget:OnPlayBonusEffect'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "SetEditMode",
+    "Outer": "PartyChain_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "PartyChain_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": 134350856
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "PartyChain_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'PartyChain_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.100"
+      },
+      "bClassRequiresNativeTick": true,
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'PartyChain_C:BuffAnimation_INST'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.95"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'PartyChain_C:ExecuteUbergraph_PartyChain'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SBPartyChainWidget'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'PartyChain_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.3"
+      },
+      {
+        "ObjectName": "Function'PartyChain_C:SetEditMode'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.2"
+      },
+      {
+        "ObjectName": "Function'PartyChain_C:OnPlayBonusEffect'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.1"
+      },
+      {
+        "ObjectName": "Function'PartyChain_C:ExecuteUbergraph_PartyChain'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BuffAnimation",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 2147491860,
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ChainActiveGrp",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'CanvasPanel'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ChainCooldownGrp",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'CanvasPanel'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ChainOutofRangeGrp",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'CanvasPanel'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ComboText",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'TextBlock'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_CooldownTimeText",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'TextBlock'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_CooldownTimeText_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'TextBlock'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_DamegeRateText",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'TextBlock'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_WidgetSwitcher",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetSwitcher'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CircleGauge",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CircleGaugeBg",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CooldownBgImage",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CooldownGauge",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Cur",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Gauge",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'CanvasPanel'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image_2",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LineImage3",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LineImage3_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "OutofRangeBgImage",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_PlayerCharacter",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 67589,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerCharacter'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_ComboGaugeMat",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 65541,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "BP_CooldownGaugeMat",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 65541,
+        "PropertyClass": {
+          "ObjectName": "Class'MaterialInstanceDynamic'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "BP_BonusStatusSettingList",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "BP_BonusStatusSettingList",
+          "Flags": 1,
+          "ElementSize": 32,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBPartyChainBonusStatusSetting'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "BP_BonusIndex",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "BP_ComboCount",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "BP_IsComboCountUp",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 65541,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_PartyChain": {
+        "ObjectName": "Function'PartyChain_C:ExecuteUbergraph_PartyChain'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.0"
+      },
+      "OnPlayBonusEffect": {
+        "ObjectName": "Function'PartyChain_C:OnPlayBonusEffect'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.1"
+      },
+      "SetEditMode": {
+        "ObjectName": "Function'PartyChain_C:SetEditMode'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.2"
+      },
+      "Construct": {
+        "ObjectName": "Function'PartyChain_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.3"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PartyChain_C'Default__PartyChain_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.5"
+    }
+  },
+  {
+    "Type": "PartyChain_C",
+    "Name": "Default__PartyChain_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.PartyChain_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "ForegroundColor": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        }
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "ActiveGaugeCanvas",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.ActiveGaugeCanvas.CanvasPanelSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.15"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.ActiveGaugeCanvas.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.14"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.ActiveGaugeCanvas.CanvasPanelSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.16"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.46"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "BP_ChainActiveGrp",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.17"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.21"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.20"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.22"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.19"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_10'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.18"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.23"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'PartyChain_C:WidgetTree.BP_WidgetSwitcher.WidgetSwitcherSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.97"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "BP_ChainCooldownGrp",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.24"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.27"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_8'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.28"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.29"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.25"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.26"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'PartyChain_C:WidgetTree.BP_WidgetSwitcher.WidgetSwitcherSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.98"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "BP_ChainOutofRangeGrp",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp.CanvasPanelSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.30"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp.CanvasPanelSlot_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.32"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp.CanvasPanelSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.31"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'PartyChain_C:WidgetTree.BP_WidgetSwitcher.WidgetSwitcherSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.99"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.34"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.33"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CurSize",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.CurSize.CanvasPanelSlot_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.35"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.Gauge.CanvasPanelSlot_7'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.37"
+      },
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "Gauge",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.Gauge.CanvasPanelSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.36"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.Gauge.CanvasPanelSlot_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.37"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_6'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.23"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "TextAnimationCanvas",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.TextAnimationCanvas.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.38"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.45"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "ActiveGaugeCanvas",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.ActiveGaugeCanvas'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.6"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.CircleGauge'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.54"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_2",
+    "Outer": "ActiveGaugeCanvas",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.ActiveGaugeCanvas'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.6"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.CircleGaugeBg'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.55"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_3",
+    "Outer": "ActiveGaugeCanvas",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 8.0,
+          "Top": 12.0,
+          "Right": 20.0,
+          "Bottom": 14.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.ActiveGaugeCanvas'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.6"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.BP_CooldownTimeText_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.86"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 20.0,
+          "Right": 290.0,
+          "Bottom": 80.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.ActiveBgImage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.52"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_10",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 160.0,
+          "Top": 10.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'PartyChain_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.92"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_2",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 144.0,
+          "Right": 209.0,
+          "Bottom": 37.0
+        },
+        "Alignment": {
+          "X": 1.0,
+          "Y": 0.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.40"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_3",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 195.0,
+          "Top": 46.0,
+          "Right": 72.0
+        },
+        "Alignment": {
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.LineEffectBase'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.64"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_4",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 200.0,
+          "Top": 46.0,
+          "Right": 72.0
+        },
+        "Alignment": {
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.LineImage3_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.67"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_5",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 195.0,
+          "Top": 46.0,
+          "Right": 72.0
+        },
+        "Alignment": {
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.LineEffect'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.63"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_6",
+    "Outer": "BP_ChainActiveGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Top": 79.94217,
+          "Right": 308.0,
+          "Bottom": 10.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.Gauge'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.12"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_2",
+    "Outer": "BP_ChainCooldownGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 20.0,
+          "Right": 290.0,
+          "Bottom": 80.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.CooldownBgImage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.56"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_4",
+    "Outer": "BP_ChainCooldownGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 114.0,
+          "Top": 10.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.39"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_6",
+    "Outer": "BP_ChainCooldownGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 72.0,
+          "Top": 44.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.LineImage3_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.66"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
+    "Outer": "BP_ChainCooldownGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 50.0,
+          "Top": 16.0,
+          "Right": 36.0,
+          "Bottom": 36.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.CooldownGaugeBg'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.58"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_8",
+    "Outer": "BP_ChainCooldownGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 50.0,
+          "Top": 16.0,
+          "Right": 36.0,
+          "Bottom": 36.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.CooldownGauge'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.57"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_9",
+    "Outer": "BP_ChainCooldownGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 58.0,
+          "Top": 27.0,
+          "Right": 20.0,
+          "Bottom": 20.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.BP_CooldownTimeText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.85"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_2",
+    "Outer": "BP_ChainOutofRangeGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 20.0,
+          "Right": 290.0,
+          "Bottom": 80.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.9"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.OutofRangeBgImage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.68"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_3",
+    "Outer": "BP_ChainOutofRangeGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 92.0,
+          "Top": 16.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.9"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.Image'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.60"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_4",
+    "Outer": "BP_ChainOutofRangeGrp",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 56.0,
+          "Top": 60.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.9"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.LineImage3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.65"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 340.0,
+          "Bottom": 110.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.10"
+      },
+      "Content": {
+        "ObjectName": "WidgetSwitcher'PartyChain_C:WidgetTree.BP_WidgetSwitcher'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.96"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_2",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 340.0,
+          "Bottom": 110.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.10"
+      },
+      "Content": {
+        "ObjectName": "Spacer'PartyChain_C:WidgetTree.ForEditMode'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.83"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
+    "Outer": "CurSize",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 308.0,
+          "Bottom": 10.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.CurSize'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.11"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.Cur'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.59"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_5",
+    "Outer": "Gauge",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 308.0,
+          "Bottom": 10.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.Gauge'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.12"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.Bg'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.53"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
+    "Outer": "Gauge",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 308.0,
+          "Bottom": 10.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.Gauge'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.12"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.CurSize'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.11"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "TextAnimationCanvas",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.TextAnimationCanvas'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.13"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.BP_ComboText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.84"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.43"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.44"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_4'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.25"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.46"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.45"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.19"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_1.HorizontalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.47"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_1.HorizontalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.48"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'PartyChain_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.94"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_87",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_87.HorizontalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.49"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_87.HorizontalBoxSlot_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.50"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_87.HorizontalBoxSlot_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.51"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'PartyChain_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.93"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.39"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.TextBlock_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.91"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 5.0,
+        "Right": 8.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.39"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.Image_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.62"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Top": -3.0
+      },
+      "Size": {
+        "SizeRule": "ESlateSizeRule::Fill"
+      },
+      "HorizontalAlignment": "HAlign_Right",
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.40"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.TextAnimationCanvas'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.13"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Top": -3.0,
+        "Right": 3.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.40"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.ActiveGaugeCanvas'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.6"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_1",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "VerticalAlignment": "VAlign_Bottom",
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.41"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.TextBlock'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.88"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox_1",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 5.0,
+        "Right": 8.0
+      },
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.41"
+      },
+      "Content": {
+        "ObjectName": "Image'PartyChain_C:WidgetTree.Image_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.61"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_87",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.42"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.TextBlock_117'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.90"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_6",
+    "Outer": "HorizontalBox_87",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 4.0
+      },
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.42"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.BP_DamegeRateText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.87"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_9",
+    "Outer": "HorizontalBox_87",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 2.0
+      },
+      "Parent": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.42"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'PartyChain_C:WidgetTree.TextBlock_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.89"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "ActiveBgImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 290.0,
+          "Y": 40.0
+        },
+        "Margin": {
+          "Top": 0.45,
+          "Bottom": 0.45
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Bg'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Bg.0"
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "ColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.215861,
+        "A": 1.0,
+        "Hex": "FF000080"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.17"
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Bg",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 166.0,
+          "Y": 8.0
+        },
+        "Margin": {
+          "Left": 0.05,
+          "Right": 0.05
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "ColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.Gauge.CanvasPanelSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.36"
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "CircleGauge",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Material'M_UI_PartyChainGauge'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/M_UI_PartyChainGauge.0"
+        }
+      },
+      "ColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.215861,
+        "A": 1.0,
+        "Hex": "FF000080"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.ActiveGaugeCanvas.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.14"
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "CircleGaugeBg",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_GaugeBg'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_GaugeBg.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.ActiveGaugeCanvas.CanvasPanelSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.15"
+      },
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "CooldownBgImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 290.0,
+          "Y": 40.0
+        },
+        "Margin": {
+          "Top": 0.45,
+          "Bottom": 0.45
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Bg'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Bg.0"
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "ColorAndOpacity": {
+        "R": 1.0,
+        "G": 0.059511,
+        "B": 0.008568,
+        "A": 1.0,
+        "Hex": "FFFF4517"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.24"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "CooldownGauge",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Material'M_UI_PartyChainGauge'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/M_UI_PartyChainGauge.0"
+        }
+      },
+      "ColorAndOpacity": {
+        "R": 1.0,
+        "G": 0.059511,
+        "B": 0.008568,
+        "A": 1.0,
+        "Hex": "FFFF4517"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_8'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.28"
+      },
+      "RenderTransform": {
+        "Angle": -90.0
+      },
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "CooldownGaugeBg",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 36.0,
+          "Y": 36.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_GaugeBg'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_GaugeBg.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_7'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.27"
+      },
+      "RenderTransform": {
+        "Angle": -90.0
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::HitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Cur",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 166.0,
+          "Y": 8.0
+        },
+        "Margin": {
+          "Left": 0.05,
+          "Right": 0.05
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.CurSize.CanvasPanelSlot_7'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.35"
+      },
+      "RenderTransformPivot": {
+        "X": 0.0,
+        "Y": 0.5
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 140.0,
+          "Y": 40.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Img2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Img2.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp.CanvasPanelSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.31"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 40.0,
+          "Y": 16.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Img1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Img1.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_1.HorizontalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.48"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_2",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 40.0,
+          "Y": 16.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Img1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Img1.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.44"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "LineEffect",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 92.0,
+          "Y": 36.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Material'MI_UI_PartyChain_LineEffect'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/MI_UI_PartyChain_LineEffect.0"
+        }
+      },
+      "ColorAndOpacity": {
+        "R": 1.0,
+        "G": 1.0,
+        "B": 1.0,
+        "A": 0.0,
+        "Hex": "FFFFFF"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.22"
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "LineEffectBase",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 92.0,
+          "Y": 36.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_LineEffect'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_LineEffect.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.20"
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "LineImage3",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 200.0,
+          "Y": 4.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Line'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Line.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp.CanvasPanelSlot_4'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.32"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "LineImage3_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 200.0,
+          "Y": 4.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Line'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Line.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_6'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.26"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "LineImage3_2",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 200.0,
+          "Y": 4.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Line'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Line.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_4'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.21"
+      },
+      "bIsVariable": false,
+      "Visibility": "ESlateVisibility::SelfHitTestInvisible"
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "OutofRangeBgImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 290.0,
+          "Y": 40.0
+        },
+        "Margin": {
+          "Top": 0.45,
+          "Bottom": 0.45
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_PartyChain_Bg'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/PartyChain/UI_PartyChain_Bg.0"
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "ColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp.CanvasPanelSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.30"
+      }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "BuffAnimation",
+    "Outer": "BuffAnimation_INST",
+    "Class": "UScriptClass'MovieScene'",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "3648C93F-438D9334-89E45B90-38DAD5BF",
+          "Name": "BP_ComboText",
+          "PossessedObjectClass": {
+            "ObjectName": "Class'TextBlock'",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        },
+        {
+          "Tags": [],
+          "Guid": "DFEA308C-41164A48-8A3B63A0-86548EF9",
+          "Name": "LineEffect",
+          "PossessedObjectClass": {
+            "ObjectName": "Class'Image'",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "3648C93F-438D9334-89E45B90-38DAD5BF",
+          "BindingName": "BP_ComboText",
+          "Tracks": [
+            {
+              "ObjectName": "MovieScene2DTransformTrack'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.72"
+            }
+          ]
+        },
+        {
+          "ObjectGuid": "DFEA308C-41164A48-8A3B63A0-86548EF9",
+          "BindingName": "LineEffect",
+          "Tracks": [
+            {
+              "ObjectName": "MovieScene2DTransformTrack'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_1'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.73"
+            },
+            {
+              "ObjectName": "MovieSceneColorTrack'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieSceneColorTrack_1'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.81"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 100000
+            }
+          }
+        }
+      },
+      "TickResolution": {
+        "Numerator": 120000
+      },
+      "DisplayRate": {
+        "Numerator": 60
+      },
+      "Signature": "20D1E24E-4356A41B-9B2384A9-520D5216"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_0",
+    "Class": "UScriptClass'MovieScene2DTransformSection'",
+    "Properties": {
+      "TransformMask": {
+        "Mask": 24
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 4000
+          },
+          {
+            "Value": 26000
+          },
+          {
+            "Value": 68000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": -3.5642493E-05,
+              "LeaveTangent": 1.5481779E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 2,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.2499999,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": -1.2539761E-05,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 2,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 4000
+          },
+          {
+            "Value": 26000
+          },
+          {
+            "Value": 68000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.95,
+            "Tangent": {
+              "ArriveTangent": -3.5642493E-05,
+              "LeaveTangent": 1.5481779E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 2,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.2499999,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": -1.2539761E-05,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 2,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.74"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.75"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 100000
+            }
+          }
+        }
+      },
+      "Signature": "BD72C436-4CA85AD5-F26C5481-DD40D200"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_1",
+    "Class": "UScriptClass'MovieScene2DTransformSection'",
+    "Properties": {
+      "TransformMask": {
+        "Mask": 24
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 14000
+          },
+          {
+            "Value": 30000
+          },
+          {
+            "Value": 94000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.5,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.2,
+            "Tangent": {
+              "ArriveTangent": 8.333333E-05,
+              "LeaveTangent": 8.333333E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 3.0,
+            "Tangent": {
+              "ArriveTangent": 6.0000002E-05,
+              "LeaveTangent": 6.0000002E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 6.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 14000
+          },
+          {
+            "Value": 32000
+          },
+          {
+            "Value": 94000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 2.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 3.5,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": -3.875E-05,
+              "LeaveTangent": -3.875E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.4,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseInFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.76"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0.EaseOutFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.77"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 100000
+            }
+          }
+        }
+      },
+      "Signature": "53E0BB22-4A4C3A00-8075C6AA-C69ACC6B"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_0",
+    "Outer": "BuffAnimation",
+    "Class": "UScriptClass'MovieScene2DTransformTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderTransform",
+        "PropertyPath": "RenderTransform",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.70"
+        }
+      ],
+      "EvaluationFieldGuid": "D6D78925-447A8C83-B33493B4-378683F5",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieScene2DTransformSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.70"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 100000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "D6D78925-447A8C83-B33493B4-378683F5"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_1",
+    "Outer": "BuffAnimation",
+    "Class": "UScriptClass'MovieScene2DTransformTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderTransform",
+        "PropertyPath": "RenderTransform",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.71"
+        }
+      ],
+      "EvaluationFieldGuid": "B9280FE1-4965FE12-16C458A8-137F7386",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieScene2DTransformSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.71"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 100000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "B9280FE1-4965FE12-16C458A8-137F7386"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneColorSection",
+    "Name": "MovieSceneColorSection_0",
+    "Outer": "MovieSceneColorTrack_1",
+    "Class": "UScriptClass'MovieSceneColorSection'",
+    "Properties": {
+      "RedCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "GreenCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "BlueCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "AlphaCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 18000
+          },
+          {
+            "Value": 46000
+          },
+          {
+            "Value": 94000
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.7,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.4,
+            "Tangent": {
+              "ArriveTangent": -1.6866827E-05,
+              "LeaveTangent": -1.6866827E-05,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 1,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 120000,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieSceneColorTrack_1.MovieSceneColorSection_0.EaseInFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.78"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieSceneColorTrack_1.MovieSceneColorSection_0.EaseOutFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.79"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 100000
+            }
+          }
+        }
+      },
+      "Signature": "13B46771-42D4261B-4B9F039F-0EAA1149"
+    }
+  },
+  {
+    "Type": "MovieSceneColorTrack",
+    "Name": "MovieSceneColorTrack_1",
+    "Outer": "BuffAnimation",
+    "Class": "UScriptClass'MovieSceneColorTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "ColorAndOpacity",
+        "PropertyPath": "ColorAndOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneColorSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieSceneColorTrack_1.MovieSceneColorSection_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.80"
+        }
+      ],
+      "EvaluationFieldGuid": "0A27CBB1-49061A38-46BDAAB1-5328B958",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneColorSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieSceneColorTrack_1.MovieSceneColorSection_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.80"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 100000
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "0A27CBB1-49061A38-46BDAAB1-5328B958"
+    }
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "BuffAnimation_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
+    "Properties": {
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 3,
+                  "Capacity": 3
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 1,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 2,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 0,
+                      "Value": {
+                        "Value": 100000
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieScene2DTransformSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.70"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          },
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieScene2DTransformSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieScene2DTransformTrack_1.MovieScene2DTransformSection_0'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.71"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 1
+          },
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneColorSection'PartyChain_C:BuffAnimation_INST.BuffAnimation.MovieSceneColorTrack_1.MovieSceneColorSection_0'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.80"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 2
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "3648C93F-438D9334-89E45B90-38DAD5BF"
+          },
+          {
+            "ObjectBindingID": "DFEA308C-41164A48-8A3B63A0-86548EF9"
+          },
+          {
+            "ObjectBindingID": "DFEA308C-41164A48-8A3B63A0-86548EF9"
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 100000
+          },
+          "SubFrame": 0.0
+        }
+      ],
+      "CompiledSignature": "8767DC8E-4641D4BC-144B0C9D-EE34362F",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": {
+        "bEntityComponentField": true
+      },
+      "AllocatedMask": {
+        "bEntityComponentField": true
+      }
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "ForEditMode",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Spacer'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.34"
+      }
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "BP_ComboText",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "A9266AEE4F7A135BDAD61E9BDE0E9ADB",
+        "SourceString": "00",
+        "LocalizedString": "00"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 52
+      },
+      "ShadowColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Justification": "ETextJustify::Right",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.TextAnimationCanvas.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.38"
+      },
+      "RenderTransform": {
+        "Shear": {
+          "X": -15.0,
+          "Y": 0.0
+        }
+      },
+      "RenderTransformPivot": {
+        "X": 0.6,
+        "Y": 0.7
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "BP_CooldownTimeText",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "F4A09ABC4F34D258823D33BDA4A40D07",
+        "SourceString": "3",
+        "LocalizedString": "3"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 0.059511,
+          "B": 0.008568,
+          "A": 1.0,
+          "Hex": "FFFF4517"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 10
+      },
+      "Justification": "ETextJustify::Center",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainCooldownGrp.CanvasPanelSlot_9'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.29"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "BP_CooldownTimeText_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "636794B54BFA04F0BBBC2CBDE7791489",
+        "SourceString": "0.9",
+        "LocalizedString": "0.9"
+      },
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.0,
+          "G": 0.0,
+          "B": 0.215861,
+          "A": 1.0,
+          "Hex": "FF000080"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 9
+      },
+      "Justification": "ETextJustify::Center",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.ActiveGaugeCanvas.CanvasPanelSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.16"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "BP_DamegeRateText",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "9D79DF944CDCD3D01D6A279710668C53",
+        "SourceString": "100",
+        "LocalizedString": "100"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 13
+      },
+      "ShadowColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_87.HorizontalBoxSlot_6'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.50"
+      },
+      "RenderTransform": {
+        "Shear": {
+          "X": -15.0,
+          "Y": 0.0
+        }
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "TextBlock",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "8F3D261A413A1F44D497EB827C838A6A",
+        "SourceString": "CHAIN",
+        "LocalizedString": "CHAIN"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 23
+      },
+      "ShadowColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_1.HorizontalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.47"
+      },
+      "RenderTransform": {
+        "Shear": {
+          "X": -15.0,
+          "Y": 0.0
+        }
+      }
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "TextBlock_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "878CA5AC4718029D2B0B1CA92AB092A0",
+        "SourceString": "%",
+        "LocalizedString": "%"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 13
+      },
+      "ShadowColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_87.HorizontalBoxSlot_9'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.51"
+      },
+      "RenderTransform": {
+        "Shear": {
+          "X": -15.0,
+          "Y": 0.0
+        }
+      }
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "TextBlock_117",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "91B139114D740CDDA28F9AA83CEBEDF9",
+        "SourceString": "Damage",
+        "LocalizedString": "Damage"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 13
+      },
+      "ShadowColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox_87.HorizontalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.49"
+      },
+      "RenderTransform": {
+        "Shear": {
+          "X": -15.0,
+          "Y": 0.0
+        }
+      }
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "TextBlock_2",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "8F3D261A413A1F44D497EB827C838A6A",
+        "SourceString": "CHAIN",
+        "LocalizedString": "CHAIN"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 23
+      },
+      "ShadowColorAndOpacity": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'PartyChain_C:WidgetTree.HorizontalBox.HorizontalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.43"
+      },
+      "RenderTransform": {
+        "Shear": {
+          "X": -15.0,
+          "Y": 0.0
+        }
+      }
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'PartyChain_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.94"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'PartyChain_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.93"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.BP_ChainActiveGrp.CanvasPanelSlot_10'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.18"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 2.0,
+        "Top": 2.0
+      },
+      "Parent": {
+        "ObjectName": "VerticalBox'PartyChain_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.92"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.42"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'PartyChain_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.92"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'PartyChain_C:WidgetTree.HorizontalBox_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.41"
+      }
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "BuffAnimation_INST",
+    "Outer": "PartyChain_C",
+    "Class": "UScriptClass'WidgetAnimation'",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene'PartyChain_C:BuffAnimation_INST.BuffAnimation'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.69"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "BP_ComboText",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "3648C93F-438D9334-89E45B90-38DAD5BF",
+          "bIsRootWidget": false
+        },
+        {
+          "WidgetName": "LineEffect",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "DFEA308C-41164A48-8A3B63A0-86548EF9",
+          "bIsRootWidget": false
+        }
+      ],
+      "DisplayLabel": "BuffAnimation",
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData'PartyChain_C:BuffAnimation_INST.CompiledData'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.82"
+      },
+      "Signature": "8767DC8E-4641D4BC-144B0C9D-EE34362F"
+    }
+  },
+  {
+    "Type": "WidgetSwitcher",
+    "Name": "BP_WidgetSwitcher",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'WidgetSwitcher'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "WidgetSwitcherSlot'PartyChain_C:WidgetTree.BP_WidgetSwitcher.WidgetSwitcherSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.97"
+        },
+        {
+          "ObjectName": "WidgetSwitcherSlot'PartyChain_C:WidgetTree.BP_WidgetSwitcher.WidgetSwitcherSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.98"
+        },
+        {
+          "ObjectName": "WidgetSwitcherSlot'PartyChain_C:WidgetTree.BP_WidgetSwitcher.WidgetSwitcherSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.99"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'PartyChain_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.33"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_2",
+    "Outer": "BP_WidgetSwitcher",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'PartyChain_C:WidgetTree.BP_WidgetSwitcher'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.96"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainActiveGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.7"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_3",
+    "Outer": "BP_WidgetSwitcher",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'PartyChain_C:WidgetTree.BP_WidgetSwitcher'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.96"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainCooldownGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.8"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_5",
+    "Outer": "BP_WidgetSwitcher",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'PartyChain_C:WidgetTree.BP_WidgetSwitcher'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.96"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.BP_ChainOutofRangeGrp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.9"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "PartyChain_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'PartyChain_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/PartyChain/PartyChain.10"
+      }
+    }
+  }
+]

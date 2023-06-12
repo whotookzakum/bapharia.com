@@ -1,0 +1,1007 @@
+[
+  {
+    "Type": "Function",
+    "Name": "SetProgress",
+    "Outer": "QuestDetail_ProgressItem_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "InQuestIndex",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bInCompleted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bQuestCompleted",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "DoneTextIndex",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "QuestStatus",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bAutoReport",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "QuestIndex",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CurStep",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "ProgressItemList",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 5,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "ProgressItemList",
+          "Flags": 1,
+          "ElementSize": 48,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBQuestProgressItemUIInfo'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Create_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.1"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Create_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.1"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBQuestProgressItemUIInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_FindQuestMasterData_QuestMasterData",
+        "Flags": 1,
+        "ElementSize": 312,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_FindQuestMasterData_Exist",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_AddChildToVerticalBox_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBoxSlot'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetReportableStatusText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetQuestDoneText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 2
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "K2Node_Select_Default_1",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 2
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_FindAcceptedQuestData_AcceptedQuestInfo",
+        "Flags": 1,
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "ScriptStruct'AcceptedQuestInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_FindAcceptedQuestData_Exist",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_2",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetQuestProgressUIInfo_OutProgressItemList",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217728,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "CallFunc_GetQuestProgressUIInfo_OutProgressItemList",
+          "Flags": 1,
+          "ElementSize": 48,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBQuestProgressItemUIInfo'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetQuestProgressUIInfo_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_AddChildToVerticalBox_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBoxSlot'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FunctionFlags": 209846272
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "QuestDetail_ProgressItem_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'QuestDetail_ProgressItem_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.22"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'QuestDetail_ProgressItem_C:SetProgress'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Label_Title",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'SBRuntimeTextBlock'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ProgressList",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBox'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "QuestDetail_ProgressListItem",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.1"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "QuestDetail_ProgressListItem_0",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.1"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "QuestDetail_ProgressListItem_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.1"
+        }
+      }
+    ],
+    "FuncMap": {
+      "SetProgress": {
+        "ObjectName": "Function'QuestDetail_ProgressItem_C:SetProgress'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.0"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "QuestDetail_ProgressItem_C'Default__QuestDetail_ProgressItem_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.2"
+    }
+  },
+  {
+    "Type": "QuestDetail_ProgressItem_C",
+    "Name": "Default__QuestDetail_ProgressItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.QuestDetail_ProgressItem_C'",
+    "Properties": {
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.5"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.9"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.7"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.6"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.8"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_4'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.5"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_4",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 310.0,
+          "Right": 620.0,
+          "Bottom": 108.0
+        },
+        "Alignment": {
+          "X": 0.5,
+          "Y": 0.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.3"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.4"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_1",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 24.0,
+          "Right": 80.0,
+          "Bottom": 28.0
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.0,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 0.0,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.4"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'QuestDetail_ProgressItem_C:WidgetTree.Label_Title'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.17"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CanvasPanel_1",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 120.0,
+          "Top": 8.0,
+          "Right": 4.0,
+          "Bottom": 8.0
+        },
+        "Anchors": {
+          "Maximum": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.4"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_ProgressItem_C:WidgetTree.Image_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.11"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_5",
+    "Outer": "CanvasPanel_1",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 130.0,
+          "Right": 458.0,
+          "Bottom": 108.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.4"
+      },
+      "Content": {
+        "ObjectName": "Overlay'QuestDetail_ProgressItem_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.12"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
+    "Outer": "CanvasPanel_1",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 620.0,
+          "Bottom": 2.0
+        },
+        "Anchors": {
+          "Maximum": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.4"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_ProgressItem_C:WidgetTree.Bg1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.10"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Bg1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "ColorAndOpacity": {
+        "R": 0.033105,
+        "G": 0.033105,
+        "B": 0.033105,
+        "A": 1.0,
+        "Hex": "FF333333"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_7'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.9"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 4.0,
+          "Y": 28.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_CmnLineV1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Common/UI_CmnLineV1.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.7"
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'QuestDetail_ProgressItem_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.13"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.8"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Top": 9.0,
+        "Bottom": 9.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "VerticalAlignment": "VAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'QuestDetail_ProgressItem_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.12"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'QuestDetail_ProgressItem_C:WidgetTree.ProgressList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.18"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_ProgressListItem_C",
+    "Name": "QuestDetail_ProgressListItem",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_ProgressListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.QuestDetail_ProgressListItem_C'",
+    "Properties": {
+      "ForegroundColor": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        },
+        "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ProgressItem_C:WidgetTree.ProgressList.VerticalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.19"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_ProgressListItem_C",
+    "Name": "QuestDetail_ProgressListItem_0",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_ProgressListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.QuestDetail_ProgressListItem_C'",
+    "Properties": {
+      "ForegroundColor": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        },
+        "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ProgressItem_C:WidgetTree.ProgressList.VerticalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.20"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_ProgressListItem_C",
+    "Name": "QuestDetail_ProgressListItem_1",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_ProgressListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressListItem.QuestDetail_ProgressListItem_C'",
+    "Properties": {
+      "ForegroundColor": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        },
+        "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ProgressItem_C:WidgetTree.ProgressList.VerticalBoxSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.21"
+      }
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "Label_Title",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'QuestDetail_Accepted'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/QuestDetail_Accepted.0"
+      },
+      "TextId": 16,
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "bEnableWidthFitting": true,
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 12
+      },
+      "Justification": "ETextJustify::Center",
+      "Margin": {
+        "Top": 2.0
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.6"
+      },
+      "bIsVariable": true,
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "ProgressList",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ProgressItem_C:WidgetTree.ProgressList.VerticalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.19"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ProgressItem_C:WidgetTree.ProgressList.VerticalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.20"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ProgressItem_C:WidgetTree.ProgressList.VerticalBoxSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.21"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'QuestDetail_ProgressItem_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.13"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "ProgressList",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ProgressItem_C:WidgetTree.ProgressList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.18"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_ProgressListItem_C'QuestDetail_ProgressItem_C:WidgetTree.QuestDetail_ProgressListItem'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.14"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_1",
+    "Outer": "ProgressList",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ProgressItem_C:WidgetTree.ProgressList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.18"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_ProgressListItem_C'QuestDetail_ProgressItem_C:WidgetTree.QuestDetail_ProgressListItem_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.15"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "ProgressList",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ProgressItem_C:WidgetTree.ProgressList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.18"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_ProgressListItem_C'QuestDetail_ProgressItem_C:WidgetTree.QuestDetail_ProgressListItem_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.16"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "QuestDetail_ProgressItem_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'QuestDetail_ProgressItem_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ProgressItem.3"
+      }
+    }
+  }
+]

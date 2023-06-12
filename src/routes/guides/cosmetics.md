@@ -43,7 +43,7 @@ Options include hairstyle (can be filtered by category) and color. There is an o
 
 There is a two-tone color feature, allowing gradients and color patterns by mixing the main color and secondary color. There is a setting to make eyebrows match the main or secondary color. 
 
-There is also a an option to add highlights in various patterns, for a total of up to 3 hair colors. The colors can be adjusted in lightness.
+There is also an option to add highlights in various patterns, for a total of up to 3 hair colors. The colors can be adjusted in lightness.
 
 
 ### Skin & head

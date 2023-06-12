@@ -1,0 +1,1671 @@
+[
+  {
+    "Type": "Function",
+    "Name": "SetQuest",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "QuestIndex",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bTmpDone",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "TmpQuestStatus",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "TmpQuestMasterData",
+        "Flags": 1,
+        "ElementSize": 312,
+        "PropertyFlags": 5,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "TmpQuestIndex",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerController_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'PlayerController'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBCheat_Manager",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCheatManager'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsQuestListDebug_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetNetworkDataCache_IsValid",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNetworkDataCache_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBNetworkDataCache'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 96,
+        "Struct": {
+          "ObjectName": "ScriptStruct'AcceptedQuestInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_FormatArgumentData",
+        "Flags": 1,
+        "ElementSize": 64,
+        "Struct": {
+          "ObjectName": "ScriptStruct'FormatArgumentData'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetQuestProgressUIInfo_OutProgressItemList",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217728,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "CallFunc_GetQuestProgressUIInfo_OutProgressItemList",
+          "Flags": 1,
+          "ElementSize": 48,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBQuestProgressItemUIInfo'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetQuestProgressUIInfo_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetReportableText_Text",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 2,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_FindQuestMasterData_QuestMasterData",
+        "Flags": 1,
+        "ElementSize": 312,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_FindQuestMasterData_Exist",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_GetQuestName_QuestName",
+        "Flags": 1,
+        "ElementSize": 24
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_NameToText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 24
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_TextToString_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_FormatArgumentData_1",
+        "Flags": 1,
+        "ElementSize": 64,
+        "Struct": {
+          "ObjectName": "ScriptStruct'FormatArgumentData'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217728,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": 1,
+          "ElementSize": 64,
+          "Struct": {
+            "ObjectName": "ScriptStruct'FormatArgumentData'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Format_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 24
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetQuestStatus_QuestStatus",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 209846272
+  },
+  {
+    "Type": "Function",
+    "Name": "SetInterruptQuest",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StrProperty",
+        "Name": "QuestName",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "EndTime",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "ScriptStruct'DateTime'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "ProgressInfo",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBInterruptQuestProgressInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "InterruptQuestProgressInfo",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 5,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "InterruptQuestProgressInfo",
+          "Flags": 1,
+          "ElementSize": 40,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBInterruptQuestProgressItem'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      }
+    ],
+    "FunctionFlags": 209846272
+  },
+  {
+    "Type": "Function",
+    "Name": "SetVisibleTimer",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "Visible",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "SetEndTime",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "EndTime",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "ScriptStruct'DateTime'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "SetHiddenList",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetProgressListItem_AsStep_List_Item_Quest_Progress_List_Item",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetChildrenCount_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_LessEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "SetupListQuestProgress",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "ProgressInfoList",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134218132,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "ProgressInfoList",
+          "Flags": 1,
+          "ElementSize": 48,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBQuestProgressItemUIInfo'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ListItem",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524293,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 48,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBQuestProgressItemUIInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetProgressListItem_AsStep_List_Item_Quest_Progress_List_Item",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      }
+    ],
+    "FunctionFlags": 214171648
+  },
+  {
+    "Type": "Function",
+    "Name": "SetupListQuestReportable",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StrProperty",
+        "Name": "Condition",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ListItem",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524293,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetProgressListItem_AsStep_List_Item_Quest_Progress_List_Item",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "Setup List Quest Next",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "QuestIndex",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 150
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetQuestCloseText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 2
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetMainQuestIntervalText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 2
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "SetupListInterruptQuestProgress",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "InterruptQuestProgressInfo",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134218132,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "InterruptQuestProgressInfo",
+          "Flags": 1,
+          "ElementSize": 40,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBInterruptQuestProgressItem'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ListItem",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524293,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 40,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBInterruptQuestProgressItem'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetProgressListItem_AsStep_List_Item_Quest_Progress_List_Item",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      }
+    ],
+    "FunctionFlags": 214171648
+  },
+  {
+    "Type": "Function",
+    "Name": "GetProgressListItem",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "Index",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AsStep List Item Quest Progress List Item",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524672,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetChildAt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class'Widget'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsStep_List_Item_Quest_Progress_List_Item",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_ProgressListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.8"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 474218496
+  },
+  {
+    "Type": "Function",
+    "Name": "GetQuestName",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "QuestMaster",
+        "Flags": 1,
+        "ElementSize": 312,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "QuestName",
+        "Flags": 1,
+        "ElementSize": 24,
+        "PropertyFlags": 384
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetQuestNameByTextId_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 24
+      }
+    ],
+    "FunctionFlags": 482476032
+  },
+  {
+    "Type": "Function",
+    "Name": "GetReportableText",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "InQuestMasterData",
+        "Flags": 1,
+        "ElementSize": 312,
+        "PropertyFlags": 134218132,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "Text",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 384
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetQuestDoneText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 2
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetReportableStatusText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      }
+    ],
+    "FunctionFlags": 474087424
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "StepListItem_Quest_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'StepListItem_Quest_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.31"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:GetReportableText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.11"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:GetQuestName'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.10"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:GetProgressListItem'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.9"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetupListInterruptQuestProgress'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.8"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:Setup List Quest Next'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.7"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetupListQuestReportable'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.6"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetupListQuestProgress'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.5"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetHiddenList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.4"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetEndTime'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.3"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetVisibleTimer'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.2"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetInterruptQuest'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.1"
+      },
+      {
+        "ObjectName": "Function'StepListItem_Quest_C:SetQuest'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "List",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBox'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "StepListItem_Title",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Title_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Title.12"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Timer",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'StepListItem_Quest_Timer_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_Timer.6"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "DefaultOutlineColor",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "DoneOutlineColor",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "ListIndex",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      }
+    ],
+    "FuncMap": {
+      "SetQuest": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetQuest'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.0"
+      },
+      "SetInterruptQuest": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetInterruptQuest'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.1"
+      },
+      "SetVisibleTimer": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetVisibleTimer'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.2"
+      },
+      "SetEndTime": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetEndTime'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.3"
+      },
+      "SetHiddenList": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetHiddenList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.4"
+      },
+      "SetupListQuestProgress": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetupListQuestProgress'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.5"
+      },
+      "SetupListQuestReportable": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetupListQuestReportable'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.6"
+      },
+      "Setup List Quest Next": {
+        "ObjectName": "Function'StepListItem_Quest_C:Setup List Quest Next'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.7"
+      },
+      "SetupListInterruptQuestProgress": {
+        "ObjectName": "Function'StepListItem_Quest_C:SetupListInterruptQuestProgress'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.8"
+      },
+      "GetProgressListItem": {
+        "ObjectName": "Function'StepListItem_Quest_C:GetProgressListItem'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.9"
+      },
+      "GetQuestName": {
+        "ObjectName": "Function'StepListItem_Quest_C:GetQuestName'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.10"
+      },
+      "GetReportableText": {
+        "ObjectName": "Function'StepListItem_Quest_C:GetReportableText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.11"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "StepListItem_Quest_C'Default__StepListItem_Quest_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.13"
+    }
+  },
+  {
+    "Type": "StepListItem_Quest_C",
+    "Name": "Default__StepListItem_Quest_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.StepListItem_Quest_C'",
+    "Properties": {
+      "DefaultOutlineColor": {
+        "R": 0.0,
+        "G": 0.0,
+        "B": 0.0,
+        "A": 1.0,
+        "Hex": "FF000000"
+      },
+      "DoneOutlineColor": {
+        "R": 0.1,
+        "G": 1.0,
+        "B": 0.2,
+        "A": 1.0,
+        "Hex": "FF59FF7C"
+      },
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'StepListItem_Quest_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.15"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_5",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 421.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'StepListItem_Quest_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.14"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.24"
+      }
+    }
+  },
+  {
+    "Type": "SizeBox",
+    "Name": "SizeBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SizeBox'",
+    "Properties": {
+      "WidthOverride": 400.0,
+      "HeightOverride": 36.0,
+      "bOverride_WidthOverride": true,
+      "bOverride_HeightOverride": true,
+      "Slots": [
+        {
+          "ObjectName": "SizeBoxSlot'StepListItem_Quest_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.17"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.29"
+      }
+    }
+  },
+  {
+    "Type": "SizeBoxSlot",
+    "Name": "SizeBoxSlot_0",
+    "Outer": "SizeBox_0",
+    "Class": "UScriptClass'SizeBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "SizeBox'StepListItem_Quest_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.16"
+      },
+      "Content": {
+        "ObjectName": "StepListItem_Title_C'StepListItem_Quest_C:WidgetTree.StepListItem_Title'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.22"
+      }
+    }
+  },
+  {
+    "Type": "StepListItem_Quest_ProgressListItem_C",
+    "Name": "StepListItem_Quest_ProgressListItem",
+    "Outer": "WidgetTree",
+    "Template": "Default__StepListItem_Quest_ProgressListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.StepListItem_Quest_ProgressListItem_C'",
+    "Properties": {
+      "LineCount": 2,
+      "Text": {
+        "Namespace": "",
+        "Key": "F8D794764A436D78785EBCA9E6B31E37",
+        "SourceString": "あいうえおかきくけこたちつてとなあいうえおかきくけこたちつてとな",
+        "LocalizedString": "あいうえおかきくけこたちつてとなあいうえおかきくけこたちつてとな"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.List.VerticalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.25"
+      },
+      "bIsVariable": false,
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "StepListItem_Quest_ProgressListItem_C",
+    "Name": "StepListItem_Quest_ProgressListItem_0",
+    "Outer": "WidgetTree",
+    "Template": "Default__StepListItem_Quest_ProgressListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.StepListItem_Quest_ProgressListItem_C'",
+    "Properties": {
+      "LineCount": 2,
+      "Text": {
+        "Namespace": "",
+        "Key": "C76E154B4331D5F8E6FF76916A06DE55",
+        "SourceString": "あいうえおかきくけこたちつてとなあいうえおかきくけこたちつてとな",
+        "LocalizedString": "あいうえおかきくけこたちつてとなあいうえおかきくけこたちつてとな"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.List.VerticalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.26"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "StepListItem_Quest_ProgressListItem_C",
+    "Name": "StepListItem_Quest_ProgressListItem_C_0",
+    "Outer": "WidgetTree",
+    "Template": "Default__StepListItem_Quest_ProgressListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_ProgressListItem.StepListItem_Quest_ProgressListItem_C'",
+    "Properties": {
+      "LineCount": 2,
+      "Text": {
+        "Namespace": "",
+        "Key": "443331FF4612393C99941CB10BB6BB06",
+        "SourceString": "あいうえおかきくけこたちつてとなあいうえおかきくけこたちつてとな",
+        "LocalizedString": "あいうえおかきくけこたちつてとなあいうえおかきくけこたちつてとな"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.List.VerticalBoxSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.27"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "StepListItem_Quest_Timer_C",
+    "Name": "Timer",
+    "Outer": "WidgetTree",
+    "Template": "Default__StepListItem_Quest_Timer_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest_Timer.StepListItem_Quest_Timer_C'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.30"
+      },
+      "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "StepListItem_Title_C",
+    "Name": "StepListItem_Title",
+    "Outer": "WidgetTree",
+    "Template": "Default__StepListItem_Title_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Title.StepListItem_Title_C'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "SizeBoxSlot'StepListItem_Quest_C:WidgetTree.SizeBox_0.SizeBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.17"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "List",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.List.VerticalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.25"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.List.VerticalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.26"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.List.VerticalBoxSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.27"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.28"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.29"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.30"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'StepListItem_Quest_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.28"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'StepListItem_Quest_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.15"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "List",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Bottom": 1.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.List'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.23"
+      },
+      "Content": {
+        "ObjectName": "StepListItem_Quest_ProgressListItem_C'StepListItem_Quest_C:WidgetTree.StepListItem_Quest_ProgressListItem'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.18"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_1",
+    "Outer": "List",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Bottom": 1.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.List'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.23"
+      },
+      "Content": {
+        "ObjectName": "StepListItem_Quest_ProgressListItem_C'StepListItem_Quest_C:WidgetTree.StepListItem_Quest_ProgressListItem_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.19"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "List",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Bottom": 1.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.List'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.23"
+      },
+      "Content": {
+        "ObjectName": "StepListItem_Quest_ProgressListItem_C'StepListItem_Quest_C:WidgetTree.StepListItem_Quest_ProgressListItem_C_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.20"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_1",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 18.0
+      },
+      "Parent": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.24"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.List'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.23"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 10.0,
+        "Bottom": 2.0
+      },
+      "Parent": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.24"
+      },
+      "Content": {
+        "ObjectName": "SizeBox'StepListItem_Quest_C:WidgetTree.SizeBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.16"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_5",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 18.0
+      },
+      "HorizontalAlignment": "HAlign_Left",
+      "VerticalAlignment": "VAlign_Top",
+      "Parent": {
+        "ObjectName": "VerticalBox'StepListItem_Quest_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.24"
+      },
+      "Content": {
+        "ObjectName": "StepListItem_Quest_Timer_C'StepListItem_Quest_C:WidgetTree.Timer'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.21"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "StepListItem_Quest_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'StepListItem_Quest_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/StepList/SubWidget/StepListItem_Quest.14"
+      }
+    }
+  }
+]

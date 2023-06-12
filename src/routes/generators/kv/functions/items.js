@@ -1,18 +1,31 @@
 import itemsData from "$bp_server/japan/items.json";
 import { getText } from "./utils";
-import itemIcons from "$bp_client/japan/itemicons.json"
+import iconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_ItemIconDB.json"
 
 // TODO drops from ...
 // TODO found in (map) ...
 // TODO available in (map/dungeon)
 // TODO used in (recipe)
 
+const icons = {}
+
+Object.entries(iconData[0].Rows).forEach(([id, data]) => {
+    // const imgData = Object.values(data)[0].AssetPathName.replace("/Game", "").split(".")[0]
+    let imgData;
+    let i = 0;
+    while ((imgData === "None" || !imgData) && i < Object.values(data).length) {
+        imgData = Object.values(data)[i].AssetPathName.replace("/Game", "").split(".")[0]
+        i++;
+    }
+    icons[id] = `${imgData}.png`
+})
+
 const items = itemsData.map(item => {
     const name = getText("item_text", item.name)
     const desc = getText("item_text", item.desc)
     const sourceDesc = getText("item_text", item.obtaining_route_detail_id)
     const effectDesc = getText("item_text", item.item_effect_desc_text)
-    const thumb = itemIcons[item.id]
+    const thumb = getThumbnail(item.id)
     const category = getCategory(item.category)
 
     return {
@@ -27,6 +40,10 @@ const items = itemsData.map(item => {
         entryTypes: ["Item"]
     }
 })
+
+function getThumbnail(id) {
+    return icons[id]
+}
 
 function getCategory(category) {
     switch (category) {

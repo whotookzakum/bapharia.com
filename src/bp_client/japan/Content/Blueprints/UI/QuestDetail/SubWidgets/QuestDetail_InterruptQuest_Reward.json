@@ -1,0 +1,960 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_QuestDetail_InterruptQuest_Reward",
+    "Outer": "QuestDetail_InterruptQuest_Reward_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "QuestDetail_InterruptQuest_Reward_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": 134350856
+  },
+  {
+    "Type": "Function",
+    "Name": "SetQuestInfo",
+    "Outer": "QuestDetail_InterruptQuest_Reward_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "QuestMasterData",
+        "Flags": 1,
+        "ElementSize": 312,
+        "PropertyFlags": 134218132,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      }
+    ],
+    "FunctionFlags": 205651968
+  },
+  {
+    "Type": "Function",
+    "Name": "SetReward",
+    "Outer": "QuestDetail_InterruptQuest_Reward_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "OutRewardList",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524436,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.3"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Rewards",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134218132,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "Rewards",
+          "Flags": 1,
+          "ElementSize": 28,
+          "Struct": {
+            "ObjectName": "ScriptStruct'RewardInfo'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Rank",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum'EQuestContributionRank'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 28,
+        "Struct": {
+          "ObjectName": "ScriptStruct'RewardInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": 214040576
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "QuestDetail_InterruptQuest_Reward_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'QuestDetail_InterruptQuest_Reward_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.29"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:ExecuteUbergraph_QuestDetail_InterruptQuest_Reward'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:SetReward'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.3"
+      },
+      {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:SetQuestInfo'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.2"
+      },
+      {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.1"
+      },
+      {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:ExecuteUbergraph_QuestDetail_InterruptQuest_Reward'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image_0",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Label_RewardType",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'SBRuntimeTextBlock'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Label_Title",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'SBRuntimeTextBlock'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RewardList_Bronze",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.3"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RewardList_Gold",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.3"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RewardList_Silver",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.3"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TextBg",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_QuestDetail_InterruptQuest_Reward": {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:ExecuteUbergraph_QuestDetail_InterruptQuest_Reward'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.0"
+      },
+      "Construct": {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.1"
+      },
+      "SetQuestInfo": {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:SetQuestInfo'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.2"
+      },
+      "SetReward": {
+        "ObjectName": "Function'QuestDetail_InterruptQuest_Reward_C:SetReward'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.3"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "QuestDetail_InterruptQuest_Reward_C'Default__QuestDetail_InterruptQuest_Reward_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.5"
+    }
+  },
+  {
+    "Type": "QuestDetail_InterruptQuest_Reward_C",
+    "Name": "Default__QuestDetail_InterruptQuest_Reward_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.QuestDetail_InterruptQuest_Reward_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.11"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.12"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.8"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.13"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_10'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.9"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_12'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.10"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.14"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.15"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_10'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.9"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 120.0,
+          "Top": 8.0,
+          "Right": 4.0,
+          "Bottom": 8.0
+        },
+        "Anchors": {
+          "Maximum": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_InterruptQuest_Reward_C:WidgetTree.Image_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.21"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_10",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 146.0,
+          "Right": 92.0,
+          "Bottom": 16.0
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.0,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 0.0,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.7"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_12",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": -37.926342
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.5,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 0.5,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      },
+      "Content": {
+        "ObjectName": "HorizontalBox'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.16"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_4",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 505.0,
+          "Bottom": 76.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      },
+      "Content": {
+        "ObjectName": "Spacer'QuestDetail_InterruptQuest_Reward_C:WidgetTree.Spacer_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.28"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_5",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 620.0,
+          "Bottom": 0.0
+        },
+        "Anchors": {
+          "Maximum": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_InterruptQuest_Reward_C:WidgetTree.Image_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.20"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_7",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 24.0,
+          "Right": 80.0,
+          "Bottom": 28.0
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.0,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 0.0,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'QuestDetail_InterruptQuest_Reward_C:WidgetTree.Label_Title'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.27"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_1",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 92.0,
+          "Bottom": 16.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.7"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_InterruptQuest_Reward_C:WidgetTree.TextBg'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.22"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CanvasPanel_1",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 84.0,
+          "Bottom": 16.0
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.5,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 0.5,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.7"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'QuestDetail_InterruptQuest_Reward_C:WidgetTree.Label_RewardType'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.26"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBox",
+    "Name": "HorizontalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'HorizontalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "HorizontalBoxSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.17"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.18"
+        },
+        {
+          "ObjectName": "HorizontalBoxSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.19"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_12'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.10"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_0",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "HorizontalBox'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.16"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_InterruptQuest_Reward_RewardListItem_C'QuestDetail_InterruptQuest_Reward_C:WidgetTree.RewardList_Bronze'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.23"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_1",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 4.0
+      },
+      "Parent": {
+        "ObjectName": "HorizontalBox'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.16"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_InterruptQuest_Reward_RewardListItem_C'QuestDetail_InterruptQuest_Reward_C:WidgetTree.RewardList_Silver'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.25"
+      }
+    }
+  },
+  {
+    "Type": "HorizontalBoxSlot",
+    "Name": "HorizontalBoxSlot_2",
+    "Outer": "HorizontalBox_0",
+    "Class": "UScriptClass'HorizontalBoxSlot'",
+    "Properties": {
+      "Padding": {
+        "Left": 4.0
+      },
+      "Parent": {
+        "ObjectName": "HorizontalBox'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.16"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_InterruptQuest_Reward_RewardListItem_C'QuestDetail_InterruptQuest_Reward_C:WidgetTree.RewardList_Gold'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.24"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "Margin": {
+          "Top": 0.2,
+          "Bottom": 0.1
+        },
+        "DrawAs": "ESlateBrushDrawType::Box"
+      },
+      "ColorAndOpacity": {
+        "R": 0.033105,
+        "G": 0.033105,
+        "B": 0.033105,
+        "A": 1.0,
+        "Hex": "FF333333"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_5'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.12"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 4.0,
+          "Y": 28.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_CmnLineV1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Common/UI_CmnLineV1.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.8"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "TextBg",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 92.0,
+          "Y": 16.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_QuestDetailTextBg02'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/QuestDetail/UI_QuestDetailTextBg02.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.14"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_InterruptQuest_Reward_RewardListItem_C",
+    "Name": "RewardList_Bronze",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_InterruptQuest_Reward_RewardListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.17"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_InterruptQuest_Reward_RewardListItem_C",
+    "Name": "RewardList_Gold",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_InterruptQuest_Reward_RewardListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+    "Properties": {
+      "Rank": "EQuestContributionRank::Gold",
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.19"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_InterruptQuest_Reward_RewardListItem_C",
+    "Name": "RewardList_Silver",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_InterruptQuest_Reward_RewardListItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward_RewardListItem.QuestDetail_InterruptQuest_Reward_RewardListItem_C'",
+    "Properties": {
+      "Rank": "EQuestContributionRank::Silver",
+      "Slot": {
+        "ObjectName": "HorizontalBoxSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.HorizontalBox_0.HorizontalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.18"
+      }
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "Label_RewardType",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'QuestDetail_Accepted'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/QuestDetail_Accepted.0"
+      },
+      "TextId": 19,
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "bEnableWidthFitting": true,
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 0.013702,
+          "G": 0.013702,
+          "B": 0.013702,
+          "A": 1.0,
+          "Hex": "FF1F1F1F"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 8
+      },
+      "Justification": "ETextJustify::Center",
+      "Margin": {
+        "Left": 4.0,
+        "Right": 4.0
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_1.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.15"
+      },
+      "bIsVariable": true,
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "Label_Title",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'QuestDetail_Accepted'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/QuestDetail_Accepted.0"
+      },
+      "TextId": 14,
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "bEnableWidthFitting": true,
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 12
+      },
+      "Justification": "ETextJustify::Center",
+      "Margin": {
+        "Top": 2.0
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_7'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.13"
+      },
+      "bIsVariable": true,
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "Spacer",
+    "Name": "Spacer_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Spacer'",
+    "Properties": {
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_4'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.11"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "QuestDetail_InterruptQuest_Reward_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'QuestDetail_InterruptQuest_Reward_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_InterruptQuest_Reward.6"
+      }
+    }
+  }
+]

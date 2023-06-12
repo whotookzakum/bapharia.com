@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit'
-import iconData from "../../graphql/bp_client/japan/Content/Blueprints/UI/Icon/DT_MakeupIconDB.json"
+import iconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_MakeupIconDB.json"
 
 export const GET = async () => {
     const icons = {}
