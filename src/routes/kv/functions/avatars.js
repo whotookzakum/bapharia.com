@@ -1,5 +1,4 @@
 import avatarsData from "$bp_server/japan/aestheParts.json";
-import avatarIcons from "$bp_client/japan/avataricons.json"
 import makeupIconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_MakeupIconDB.json"
 import chaPartsIconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_ChaPartsIconDB.json"
 

@@ -1,5 +1,5 @@
 
-import entries from "../generators/kv/functions";
+import entries from "../kv/functions";
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 const resolvers = {
