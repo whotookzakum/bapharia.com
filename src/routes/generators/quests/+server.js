@@ -2,7 +2,7 @@ import { json } from '@sveltejs/kit'
 import questsData from "../../graphql/bp_server/japan/quests.json"
 import enemiesData from "../../graphql/bp_server/japan/enemyparams.json"
 import itemsData from "../../graphql/bp_server/japan/items.json"
-import en_US from "../../graphql//bp_server/global/texts/en_US.json";
+import en_US from "../../graphql/bp_server/global/texts/en_US.json";
 import { getText } from '../../graphql/functions/utils';
 
 // function getText(ns, id) {

@@ -1,4 +1,4 @@
-import en_US from "../bp_server/global/texts/en_US.json";
+import en_US from "../bp_server/english_deepl.json";
 import ja_JP from "../bp_server/japan/texts/ja_JP.json";
 
 

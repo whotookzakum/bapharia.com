@@ -70,13 +70,6 @@
 {/each}
 
 <style lang="scss">
-    small {
-        font-size: var(--step--2);
-        color: var(--text2);
-        margin-block: 0 0.5rem;
-        display: block;
-    }
-
     li {
         position: relative;
         gap: 0.25rem;

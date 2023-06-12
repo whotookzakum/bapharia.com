@@ -155,7 +155,7 @@
 				/>
 				<SearchFilters />
 			</div>
-			<button>Filters</button>
+			<!-- <button>Filters</button> -->
 			<div class="page-controls flex g-25">
 				<button
 					class="flex"

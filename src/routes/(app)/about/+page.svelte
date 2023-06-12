@@ -49,9 +49,14 @@
         {
             name: "Panke",
             link: "https://pankeynote.com/category/game/blue-protocol"
+        },
+        {
+            name: "Protocol.blue",
+            link: "https://protocol.blue/nt_enemies"
         }
     ];
 
+    // TODO responsive about page
     let playAnimation = true;
 </script>
 
