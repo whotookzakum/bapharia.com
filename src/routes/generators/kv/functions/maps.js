@@ -1,4 +1,4 @@
-import mapsData from "../bp_client/japan/maps.json";
+import mapsData from "$bp_client/japan/maps.json";
 
 // TO DO:
 // TODO link Kita's video for map BGM

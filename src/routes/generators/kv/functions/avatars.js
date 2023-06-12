@@ -1,5 +1,5 @@
-import avatarsData from "../bp_server/japan/aestheParts.json";
-import avatarIcons from "../bp_client/japan/avataricons.json"
+import avatarsData from "$bp_server/japan/aestheParts.json";
+import avatarIcons from "$bp_client/japan/avataricons.json"
 
 // TODO 3d models
 

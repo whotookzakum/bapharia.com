@@ -1,5 +1,5 @@
-import liquidMemoriesData from "../bp_server/japan/liquid_memory.json";
-import accumulationLotteriesData from "../bp_server/japan/liquid_memory_accumulate_lottery_table.json";
+import liquidMemoriesData from "$bp_server/japan/liquid_memory.json";
+import accumulationLotteriesData from "$bp_server/japan/liquid_memory_accumulate_lottery_table.json";
 import { getText } from "./utils";
 
 const liquidMemories = liquidMemoriesData.map(memory => {

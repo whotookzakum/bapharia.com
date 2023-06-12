@@ -1,4 +1,4 @@
-import stampsData from "../bp_server/japan/stamps.json";
+import stampsData from "$bp_server/japan/stamps.json";
 import { getText } from "./utils.js";
 
 const stampSets = stampsData.map(stampSet => {

@@ -1,4 +1,4 @@
-import costumesData from "../bp_server/japan/costume.json";
+import costumesData from "$bp_server/japan/costume.json";
 import { getText } from "./utils";
 
 // TODO BPP buy/sell price

@@ -296,8 +296,6 @@
 		GameMap: Map,
 		Enemy: Enemy,
 	};
-
-	$: console.log($entry)
 </script>
 
 <!-- {#if !$entry.fetching}

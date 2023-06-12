@@ -1,4 +1,4 @@
-import tokensData from "../bp_server/japan/token.json";
+import tokensData from "$bp_server/japan/token.json";
 import { getText } from "./utils";
 
 // TO DO:

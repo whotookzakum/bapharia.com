@@ -29,7 +29,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$houdini: path.resolve('.', '$houdini')
+			$houdini: path.resolve('.', '$houdini'),
+			$bp_client: path.resolve('.', 'src/bp_client'),
+			$bp_server: path.resolve('.', 'src/bp_server'),
 		}
 	}
 };

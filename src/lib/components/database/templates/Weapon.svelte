@@ -9,7 +9,8 @@
         Model,
         Sockets,
         Element,
-        Class
+        Class,
+        LargeImage
     } from "./sections";
     export let data;
 </script>
@@ -45,7 +46,8 @@
     <TreasureSources sources={data.treasureSources} />
 {/if}
 <Description text={data.desc} />
-<Model modelSrc="/fst.glb" posterImg={data.thumb.replace("Weapon", "WeaponL")} />
+<!-- <Model modelSrc="/fst.glb" posterImg={data.thumb.replace("Weapon", "WeaponL")} /> -->
+<LargeImage noHeader imgSrc={data.thumb.replace("Weapon", "WeaponL")} />
 
 <style lang="scss">
     .grid {

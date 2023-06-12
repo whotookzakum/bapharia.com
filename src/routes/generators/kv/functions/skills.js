@@ -1,4 +1,4 @@
-import skillsData from "../bp_server/japan/skill_data.json";
+import skillsData from "$bp_server/japan/skill_data.json";
 import { getText } from "./utils";
 
 // TODO skill videos

@@ -1,6 +1,6 @@
-import itemsData from "../bp_server/japan/items.json";
+import itemsData from "$bp_server/japan/items.json";
 import { getText } from "./utils";
-import itemIcons from "../bp_client/japan/itemicons.json"
+import itemIcons from "$bp_client/japan/itemicons.json"
 
 // TODO drops from ...
 // TODO found in (map) ...

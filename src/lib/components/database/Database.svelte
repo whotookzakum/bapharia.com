@@ -73,8 +73,6 @@
 		}
 	`);
 
-	$: console.log($entries.data);
-
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
 		en_US: "Start typing item name or id",

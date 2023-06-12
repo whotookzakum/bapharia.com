@@ -1,10 +1,10 @@
-import imagineData from "../bp_server/japan/imagine.json";
-import imagineParams from "../bp_server/japan/imagine/param_level.json";
-import imaginePerks from "../bp_server/japan/imagine/perk_pick.json";
-import weaponPerks from "../bp_server/japan/weaponperks.json";
-import perksData from "../bp_server/japan/perks.json";
-import imagineRecipesData from "../bp_server/japan/imagine/recepi.json";
-import itemsData from "../bp_server/japan/items.json";
+import imagineData from "$bp_server/japan/imagine.json";
+import imagineParams from "$bp_server/japan/imagine/param_level.json";
+import imaginePerks from "$bp_server/japan/imagine/perk_pick.json";
+import weaponPerks from "$bp_server/japan/weaponperks.json";
+import perksData from "$bp_server/japan/perks.json";
+import imagineRecipesData from "$bp_server/japan/imagine/recepi.json";
+import itemsData from "$bp_server/japan/items.json";
 import { getText } from "./utils";
 
 // TODO Skill name and skill type (client)
