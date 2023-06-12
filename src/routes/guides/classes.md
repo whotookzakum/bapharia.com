@@ -1,7 +1,7 @@
 ---
 title: 'Classes'
 author: 'Zakum'
-date: '2023-5-26'
+date: '2023-6-11'
 category: 'Game Systems'
 caption: 'Overview of the classes and their unique mechanics.'
 bannerImg: "/guides/classes/banner.webp"

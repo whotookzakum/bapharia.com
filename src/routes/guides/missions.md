@@ -1,7 +1,7 @@
 ---
 title: 'Missions'
 author: 'Zakum'
-date: '2023-6-5'
+date: '2023-6-11'
 category: 'Game Systems'
 caption: 'Missions are an umbrella term for dungeons, raids, and various other dungeon-like content.'
 bannerImg: "/guides/missions/banner.webp"
@@ -46,11 +46,26 @@ Raids consist of a single boss fight with up to 30 players. Party leaders and so
 
 Raids can have various mechanics and provide various ways for players to contribute. For example, the Demidragon raid has Engram Cannons that can freeze the boss and deal significant damage. After being fired, they go on cooldown.
 
+### Raid Entry Times
+Raids open at fixed periods to facilitate higher activity and easier matchmaking. All times are in JST.
+
+| Weekdays      | Weekends      |
+|---------------|---------------|
+| 14:00 ~ 15:00 | 8:00 ~ 9:00   | 
+| 18:00 ~ 19:00 | 12:00 ~ 13:00 |
+| 22:00 ~ 23:00 | 16:00 ~ 17:00 |
+|               | 20:00 ~ 21:00 |
+|               | 1:00 ~ 2:00   |
+
+The standard Void's Island raid, where you fight the Demidragon, will always be available. A higher difficulty raid of will also be available, and its boss will be alternated with monthly updates, such as Ice Demidragon in June, then Fire Demidragon in July. 
+
 <Video 
     title="Raid from the Closed Beta Test" 
     id="hffWt-K1yZE"
     bleed
 />
+
+### Raid Rewards
 
 Rewards are distributed to all players if the raid is cleared within the time limit. In addition to the clear rewards, extra rewards can be earned in various categories:
 - Overall rank reward
@@ -65,8 +80,10 @@ Rewards are distributed to all players if the raid is cleared within the time li
 
 <img src="https://cdn.discordapp.com/attachments/598568347826651146/1092264626386907207/image.png" alt="Example of the Raid Results rankings">
 
-## Time Attack
-Not much is currently known about Time Attack dungeons. In the CBT, players could challenge Dragon Claw Valley solo or in a party, with a leaderboard for each class and for parties. The dungeon had some buff beacons that would provide movement speed and attack buffs.
+## Time Attack & Score Attack
+These two dungeon types have leaderboards (found in cities) where players can compete. They are solo dungeons, and the rankings are separated by class.
+
+The available dungeon will alternate every two weeks. For example, week 1 will be Time Attack on Map A, week 3 will be Score Attack on Map B, week 5 will be Time Attack on Map C, and so on. 
 
 <figure class="full-bleed">
     <Video 
@@ -78,10 +95,19 @@ Not much is currently known about Time Attack dungeons. In the CBT, players coul
     <figcaption>The only available Time Attack dungeon in the Closed Beta Test.</figcaption>
 </figure>
 
-Time Attack records will be recorded on the leaderboards found in cities. 
+In Time Attack, players will race to complete the dungeon as fast as possible. In Score Attack, players must attempt to get the highest score possible by dealing great amounts of damage and upkeeping a combo multiplier by attacking enemies and breaking objects, while picking up time limit-extending orbs.
 
-## Score Attack
-Not much is currently known about Score Attack dungeons. It is supposedly a mode where players try to get as high a score as possible within a time limit. It's possible that it's similar to the Arena from CBT, where waves of enemies had to be cleared within the time limit. Score Attack records will be recorded on the leaderboards found in cities.
+### Time/Score Attack Rewards
+There are one-time rewards for clearing these dungeons with a bronze/silver/gold rank. There are also rewards for the top ranked players: 
+
+| Rank | Title                          | Crown                        | Currency                      |
+|------|--------------------------------|------------------------------|-------------------------------|
+| 1    | King of the [class weapon]     | Grand Crown,<br>Mellow Crown | Battle Maiden Coin - Red x900 |
+| 2    | Selected by the [class weapon] | Mellow Crown                 | Battle Maiden Coin - Red x600 |
+| 3    | Selected by the [class weapon] | Mellow Crown                 | Battle Maiden Coin - Red x300 |
+| 4~50 | Selected by the [class weapon] | Mellow Crown                 |                               |
+
+These rewards will last for 4 weeks, when the next Time Attack/Score Attack champions are crowned.
 
 ## Rush Battle
 Rush Battle is held in the Asterliese Arena, where players fight continuous waves of enemies. Clear all the waves to complete the mission.
