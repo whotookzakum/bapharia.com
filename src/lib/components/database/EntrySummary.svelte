@@ -7,10 +7,10 @@
     export let userSearchInput = "";
 
     // data.category is more specific, i.e. "Consumable" instead of "Item"
-    let categoryText = categoryTextLocales[data.__typename];
+    let categoryText = categoryTextLocales[data?.__typename];
     let backgroundStyle =
-        data.skill_type <= 6
-            ? `background-image: url(${data.skillBackgroundImg})`
+        data?.skill_type <= 6
+            ? `background-image: url(${data?.skillBackgroundImg})`
             : "";
 
     // https://bitsofco.de/a-one-line-solution-to-highlighting-search-matches/
@@ -51,6 +51,7 @@
     }
 </script>
 
+{#if data}
 <div class="entry-summary flex" class:more-details={moreDetails}>
     <img
         src={data.thumb}
@@ -103,6 +104,7 @@
         {/if}
     </div>
 </div>
+{/if}
 
 <style lang="scss">
     .entry-summary {

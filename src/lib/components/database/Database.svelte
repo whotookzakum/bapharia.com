@@ -27,8 +27,12 @@
 
 	const entries = graphql(`
 		query DatabaseEntries($searchTerm: String, $categories: String) @load {
-			entries(searchTerm: $searchTerm, categories: $categories, first: 6, last: 6)
-				@paginate(mode: SinglePage) {
+			entries(
+				searchTerm: $searchTerm
+				categories: $categories
+				first: 6
+				last: 6
+			) @paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
 					endCursor
@@ -68,6 +72,8 @@
 			}
 		}
 	`);
+
+	$: console.log($entries.data);
 
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
@@ -155,12 +161,12 @@
 				/>
 				<SearchFilters />
 			</div>
-			<!-- <button>Filters</button> -->
 			<div class="page-controls flex g-25">
 				<button
 					class="flex"
 					disabled={!$entries.pageInfo.hasPreviousPage}
-					on:click={loadPreviousPage}>
+					on:click={loadPreviousPage}
+				>
 					<Icon icon={"mdi:chevron-left"} width="18" height="18" />
 				</button>
 				<button

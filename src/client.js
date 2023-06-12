@@ -1,5 +1,5 @@
 import { HoudiniClient } from '$houdini';
 
 export default new HoudiniClient({
-    url: '/graphql'
+    url: 'https:/api.bapharia.com'
 })
