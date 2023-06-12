@@ -89,7 +89,7 @@
             </div>
         </section>
 
-        <section>
+        <!-- <section>
             <div class="skip-std">Level</div>
             <div class="min-max-inputs">
                 <label
@@ -173,7 +173,7 @@
 
         <section>
             <div class="skip-std">Element</div>
-        </section>
+        </section> -->
     </div>
 </details>
 
