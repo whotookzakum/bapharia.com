@@ -55,7 +55,7 @@
             {#each queriedMaps.filter((map) => map.category === category) as map}
                 <li>
                     <MapLink
-                        href="/map?zone={map.map_id.split('_')[0]}"
+                        href="/map/{map.map_id.split('_')[0]}"
                         name={map.name}
                         icon="/images/MapImage/UI_{map.mapImages[0].split(
                             'UI_'

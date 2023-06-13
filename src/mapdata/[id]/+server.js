@@ -5,7 +5,7 @@ import mapMetadata from "./mapMetadata.json"
 import { json } from '@sveltejs/kit'
 
 export const GET = async ({ params }) => {
-    const allMapFiles = import.meta.glob(`../../../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json`)
+    const allMapFiles = import.meta.glob(`../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json`)
     const mapFiles = getMapFiles(allMapFiles, params.id)
     const mapData = await getMapData(mapFiles)
     const mapComponents = getMapComponents(mapData)
