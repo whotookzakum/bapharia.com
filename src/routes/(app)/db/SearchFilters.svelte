@@ -1,7 +1,7 @@
 <script>
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
-    import InputNumber from "../InputNumber.svelte";
+    import InputNumber from "$lib/components/InputNumber.svelte";
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
     import { browser } from "$app/environment";

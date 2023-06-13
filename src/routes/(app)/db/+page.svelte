@@ -1,6 +1,6 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import Database from "$lib/components/database/Database.svelte";
+    import Database from "./Database.svelte";
 
     // TODO save and cache preferences: filters
     // TODO favorite items

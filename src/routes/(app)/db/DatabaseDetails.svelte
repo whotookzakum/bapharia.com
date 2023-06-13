@@ -12,7 +12,7 @@
 	import Skill from "./templates/Skill.svelte";
 	import Map from "./templates/Map.svelte";
 	import Enemy from "./templates/Enemy.svelte";
-	import MetaTags from "../MetaTags.svelte";
+	import MetaTags from "$lib/components/MetaTags.svelte";
 	import { userLocale } from "$lib/stores";
 
 	export let longId;

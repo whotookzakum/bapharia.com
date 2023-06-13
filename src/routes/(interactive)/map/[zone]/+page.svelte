@@ -12,10 +12,10 @@
         Popup,
         Tooltip,
     } from "svelte-leafletjs?client";
-    // import LeafletMap from "$lib/components/leaflet/LeafletMap.svelte";
+    // import LeafletMap from "../LeafletMap.svelte";
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import MapControls from "$lib/components/leaflet/MapControls.svelte";
+    import MapControls from "../MapControls.svelte";
     import { userLocale, markersVisibility, mapState } from "$lib/stores";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
