@@ -36,15 +36,7 @@
 
     let leafletMap;
     export let data;
-    let zone;
     $: zone = data.mapData;
-
-    let test;
-    $: console.log(test?.default)
-
-    onMount(async () => {
-        test = await import('./cty01.json')
-    })
 
     const bounds = [
         [0, 0],
