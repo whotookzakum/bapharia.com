@@ -1,14 +1,92 @@
 <script>
-    import ALL_PACKS from "./apiext_shop_realmoney_item.json";
     import _ from "lodash";
     import { platformId, currency } from "$lib/stores";
 
     export let releaseSales = false;
 
+    // shop_realmoney_item.json
+    const ALL_PACKS = [
+        {
+            platform: 1,
+            price: 100,
+            amount_paid: 10,
+            amount_free: 0,
+        },
+        {
+            platform: 1,
+            price: 300,
+            amount_paid: 30,
+            amount_free: 0,
+        },
+        {
+            platform: 1,
+            price: 500,
+            amount_paid: 50,
+            amount_free: 0,
+        },
+        {
+            platform: 1,
+            price: 1000,
+            amount_paid: 100,
+            amount_free: 0,
+        },
+        {
+            platform: 1,
+            price: 2000,
+            amount_paid: 220,
+            amount_free: 10,
+        },
+        {
+            platform: 1,
+            price: 3000,
+            amount_paid: 330,
+            amount_free: 30,
+        },
+        {
+            platform: 1,
+            price: 4000,
+            amount_paid: 460,
+            amount_free: 60,
+        },
+        {
+            platform: 1,
+            price: 5000,
+            amount_paid: 610,
+            amount_free: 90,
+        },
+        {
+            platform: 1,
+            price: 10000,
+            amount_paid: 1350,
+            amount_free: 200,
+        },
+        {
+            platform: 1,
+            price: 3000,
+            amount_paid: 495,
+            amount_free: 45,
+            limit_count: 1
+        },
+        {
+            platform: 1,
+            price: 5000,
+            amount_paid: 915,
+            amount_free: 100,
+            limit_count: 1
+        },
+        {
+            platform: 1,
+            price: 10000,
+            amount_paid: 2025,
+            amount_free: 200,
+            limit_count: 1
+        },
+    ];
+
     $: PACKS = ALL_PACKS.filter(
         (pack) =>
             pack.platform === $platformId &&
-            (releaseSales ? pack.end_date : !pack.end_date)
+            (releaseSales ? pack.limit_count : !pack.limit_count)
     );
 
     $: getPrice = (pack) => {
@@ -44,12 +122,12 @@
                 <small>Stock: {pack.limit_count}</small>
                 <br />
             {/if}
-            {#if pack.end_date}
+            <!-- {#if pack.end_date}
                 <small>
                     Sale end date:
                     {new Date(pack.end_date).toLocaleDateString()}
                 </small>
-            {/if}
+            {/if} -->
         </div>
     {/each}
 </div>

@@ -1,0 +1,133 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DT_EventTrigger_FlavorText",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBEventTrigger'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "FP_Cty01_Test_MQ101_020_Proceeding": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ101_020",
+            "Value2": "Proceeding"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_Cty01_Test_MQ101_020_Close": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ101_020",
+            "Value2": "Close"
+          },
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ101_025",
+            "Value2": "NotReceived"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_Cty01_MQ103_030_Proceeding_step1": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ103_030",
+            "Value2": "Proceeding"
+          },
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStep",
+            "Value1": "MQ103_030",
+            "Value2": "step1"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_Cty01_MQ103_030_Proceeding_step2": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ103_030",
+            "Value2": "Proceeding"
+          },
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStep",
+            "Value1": "MQ103_030",
+            "Value2": "step2"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_Cty01_MQ103_030_Done": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ103_030",
+            "Value2": "Done"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_Cty01_MQ104_070_Locked": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "MQ103_030",
+            "Value2": "Close"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_CQ105_004_step0_Npc_02": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "CQ105_004",
+            "Value2": "Proceeding"
+          },
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStep",
+            "Value1": "CQ105_004",
+            "Value2": "step0"
+          },
+          {
+            "Type": "ESBEventTriggerConditionType::ScenarioFlag",
+            "Value1": "CQ105_004_step0_Flag_02",
+            "Value2": "true"
+          }
+        ],
+        "CloseConditions": []
+      },
+      "FP_CQ105_004_step0_Npc_02_step1": {
+        "ScriptAsset": null,
+        "Conditions": [
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStatus",
+            "Value1": "CQ105_004",
+            "Value2": "Proceeding"
+          },
+          {
+            "Type": "ESBEventTriggerConditionType::QuestStep",
+            "Value1": "CQ105_004",
+            "Value2": "step1"
+          }
+        ],
+        "CloseConditions": []
+      }
+    }
+  }
+]

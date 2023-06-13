@@ -2,139 +2,139 @@
 	import LocaleSelector from "./LocaleSelector.svelte";
 	import ThemeToggle from "./ThemeToggle.svelte";
 	import { page } from "$app/stores";
-	import { fetchMarkdownPosts } from "$lib/utils";
 	import Icon from "@iconify/svelte";
 	import TimeInJapan from "./TimeInJapan.svelte";
-	import links from "./links.json"
-	import randomMessages from "./randomMessages.json"
+	import links from "./links.json";
+	import randomMessages from "./randomMessages.json";
+	import { userLocale } from "$lib/stores";
 
-	let detailsOpen = false;
 	let isExpanded = true;
+	let isMobileExpanded = false;
 
 	let randomMessage =
 		randomMessages[Math.floor(Math.random() * randomMessages.length)];
 	$: if ($page.url.pathname !== "/") {
 		randomMessage =
-			randomMessages[
-				Math.floor(Math.random() * randomMessages.length)
-			];
+			randomMessages[Math.floor(Math.random() * randomMessages.length)];
 	}
 	// TO DO: tiny says use aria-expanded instead of visually-hidden?
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
 <!-- https://web.dev/building-a-color-scheme -->
-
-<nav class="navbar flex" class:expanded={isExpanded}>
-	<a href="#main" class="visually-hidden show-when-focus-visible"
-		>Skip to main content</a
+<div
+	class="navbar-wrapper flex"
+	class:expanded={isExpanded}
+	class:collapsed={!isExpanded}
+>
+	<a
+		href="#main"
+		class="link show-when-focus-visible"
+		style:font-size="var(--step--1)"
 	>
-	<a href="/" class="home-button flex link" style="align-items: center">
-		<img class="logo" src="/images/logo.png" alt="Logo" />
-		<span class="text-wrapper" role="text">
-			<span class="visually-hidden show-when-expanded">Bapharia</span>
-			<span
-				class="hidden-text visually-hidden show-when-expanded"
-				aria-hidden="true">{randomMessage}</span
-			>
-		</span>
+		Skip to main content and focus
 	</a>
-	<div class="nav-body">
-		<hr />
-		<TimeInJapan {isExpanded} />
-		<hr />
-		<div class="links">
-			{#each links as link}
-				<a
-					href={link.href}
-					class="link"
-					class:active={$page.url.pathname === link.href}
-				>
-					<span
-						class="icon"
-						style={`mask: url(${link.imgSrc}) no-repeat center / contain;
-						-webkit-mask: url(${link.imgSrc}) no-repeat center / contain;`}
-					/>
-					<span class="visually-hidden show-when-expanded"
-						>{link.name}</span
+	<nav class="navbar flex" class:mobile-expanded={isMobileExpanded}>
+		<div class="nav-header flex">
+			<a href="/" class="link link-home link-with-icon">
+				<img class="logo" src="/images/logo.png" alt="Logo" />
+				<span class="link-text show-when-expanded" role="text">
+					<span>Bapharia</span>
+					<span class="hidden-text" aria-hidden="true"
+						>{randomMessage}</span
 					>
-				</a>
-			{/each}
-		</div>
-		<hr />
-		<details bind:open={detailsOpen}>
-			<summary>
-				<span class="visually-hidden show-when-expanded">Guides</span>
-				{#if isExpanded}
-					<Icon
-						icon={detailsOpen
-							? "mdi:chevron-up"
-							: "mdi:chevron-down"}
-						width="20"
-						height="20"
-						style="margin-left: auto;"
+				</span>
+			</a>
+			<div class="mobile-controls flex g-25">
+				<LocaleSelector isCollapsed={true} />
+				<label class="mobile-drawer-label" for="drawerToggle">
+					<input
+						type="checkbox"
+						bind:checked={isMobileExpanded}
+						id="drawerToggle"
+						class="visually-hidden"
 					/>
-				{/if}
-			</summary>
-			<div class="guides-list visually-hidden show-when-expanded">
-				{#await fetchMarkdownPosts() then guides}
-					{#each guides as guide}
-						<a
-							class="link"
-							class:active={$page.url.pathname === guide.path}
-							href={guide.path}>{guide.meta.title}</a
-						>
-					{/each}
-				{/await}
+					<Icon
+						icon={isMobileExpanded ? "ph:x-bold" : "entypo:menu"}
+						width="32"
+						height="32"
+					/>
+				</label>
 			</div>
-		</details>
-		<hr />
-		<div class="nav-extras flex g-50">
-			<span
-				class="visually-hidden show-when-expanded show-when-focus-within"
-			>
-				<LocaleSelector />
-			</span>
-			<ThemeToggle />
 		</div>
-	</div>
-	<div class="nav-footer">
-		<a
-			class="site-version"
-			href="/changelog"
-			class:active={$page.url.pathname === "/changelog"}
-			>{isExpanded ? "Version 0.9.2" : "v0.9.2"}</a
-		>
-		<label class="flex" aria-hidden="true">
-			<Icon
-				icon={isExpanded
-					? "ri:expand-left-line"
-					: "ri:expand-right-line"}
-				width="38"
-				height="38"
-				style="margin-left: auto;"
-			/>
-			<span class="visually-hidden">Expand/Collapse Sidebar</span>
-			<input
-				class="visually-hidden"
-				type="checkbox"
-				bind:checked={isExpanded}
-			/>
-		</label>
-	</div>
-</nav>
+
+		<div class="nav-body">
+			<hr />
+			<TimeInJapan {isExpanded} />
+			<hr />
+			<div class="links">
+				{#each links as link}
+					<a
+						href={link.href}
+						class="link link-with-icon"
+						class:active={$page.url.pathname.includes(link.href)}
+						on:click={() => (isMobileExpanded = !isMobileExpanded)}
+					>
+						<span
+							class="icon"
+							style:mask-image="url({link.imgSrc})"
+							style="-webkit-mask-image: url({link.imgSrc})"
+						/>
+						<span class="show-when-expanded"
+							>{link.name[$userLocale]}</span
+						>
+					</a>
+				{/each}
+			</div>
+			<hr />
+			<div class="nav-extras">
+				<LocaleSelector isCollapsed={!isExpanded} />
+				<ThemeToggle />
+			</div>
+		</div>
+		<div class="nav-footer">
+			<a
+				class="site-version"
+				href="/changelog"
+				class:active={$page.url.pathname === "/changelog"}
+				>{isExpanded ? "Version 0.9.2" : "v0.9.2"}</a
+			>
+			<label class="nav-expander flex" aria-hidden="true">
+				<Icon
+					icon={isExpanded
+						? "ri:expand-left-line"
+						: "ri:expand-right-line"}
+					width="38"
+					height="38"
+					style="margin-left: auto;"
+				/>
+				<span class="visually-hidden">Expand/Collapse Sidebar</span>
+				<input
+					class="visually-hidden"
+					type="checkbox"
+					bind:checked={isExpanded}
+				/>
+			</label>
+		</div>
+	</nav>
+</div>
 
 <style lang="scss">
-	.navbar {
+	.navbar-wrapper {
 		position: sticky;
 		height: 100vh;
-		z-index: 1000;
+		z-index: 1002;
 		background: var(--surface1);
 		top: 0;
-		flex-direction: column;
 		padding: 0.5rem 0;
-		width: var(--nav-width);
 		overflow-y: auto;
+		flex-direction: column;
+	}
+
+	.navbar {
+		height: 100%;
+		flex-direction: column;
+		width: var(--nav-width);
 		--icon-size: 38px;
 	}
 
@@ -147,35 +147,30 @@
 		--nav-width: 250px;
 	}
 
+	.collapsed .show-when-expanded,
 	.show-when-focus-visible:not(:focus-visible) {
-		height: 0;
-		padding: 0;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
 	}
 
-	.expanded .show-when-expanded,
-	.show-when-focus-within:focus-within,
-	.show-when-focus-visible:focus-visible {
-		clip: unset;
-		clip-path: unset;
-		height: unset;
-		overflow: unset;
-		white-space: unset;
-		width: unset;
-	}
+	// HEADER ======================================================
 
-	.expanded .show-when-expanded,
-	.show-when-focus-within:focus-within {
-		position: unset;
-	}
+	.nav-header {
+		align-items: center;
+		justify-content: space-between;
 
-	a.home-button {
-		gap: 0;
-
-		* {
-			transition: all 0.2s ease;
+		img.logo {
+			max-width: var(--icon-size);
+			filter: brightness(0.95)
+				drop-shadow(0 2px 1px var(--surface-shadow));
 		}
 
-		.text-wrapper {
+		.link-text {
 			display: grid;
 			grid-template-rows: auto 0fr;
 		}
@@ -187,81 +182,55 @@
 			opacity: 0;
 			transition-delay: 0.05s;
 		}
-
-		img.logo {
-			max-width: var(--icon-size);
-			filter: brightness(0.95)
-				drop-shadow(0 2px 1px var(--surface-shadow));
-		}
 	}
 
-	a.home-button:hover {
-		.text-wrapper {
-			grid-template-rows: auto 1fr;
-		}
+	// LINKS =====================================================
 
-		.hidden-text {
-			opacity: 1;
-		}
-
-		img.logo {
-			// transform: translateY(-4px);
-			filter: brightness(0.95)
-				drop-shadow(0 6px 1px var(--surface-shadow));
-		}
-	}
-
-	.link.active,
-	.link:focus-visible,
-	.link:hover,
-	summary:hover,
-	summary:focus-visible {
-		&::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-			background: var(--surface2);
-			z-index: -1;
-		}
-	}
-
-	.link,
-	.expanded .home-button,
-	summary {
-		border: none;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		position: relative;
-		padding: 0.5rem 1rem;
+	.collapsed .link {
+		gap: 0;
 	}
 
 	.link {
+		align-items: center;
+		border: none;
+		position: relative;
+		padding: 0.5rem 1rem;
+		max-inline-size: none;
+		display: block;
+		gap: 1rem;
+
 		&:hover,
 		&:focus-visible {
 			color: unset;
 		}
+
+		&.active,
+		&:focus-visible,
+		&:hover {
+			&::after {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: var(--surface2);
+				z-index: -1;
+			}
+		}
 	}
 
-	details {
-		font-size: var(--step-0);
+	// Currently using .show-when-expanded, but might be possible to show the icon column and hide the text column
+	.link-with-icon {
+		display: grid;
+		grid-template-columns: auto 1fr;
 	}
 
-	.guides-list {
-		max-height: 300px !important; // 300px ideal
-		overflow-y: auto !important;
-		// margin-top: 0;
-	}
-
-	.icon,
-	summary::before {
+	.icon {
 		content: "";
 		display: inline-block;
 		height: var(--icon-size);
 		width: var(--icon-size);
 		background-color: var(--text1);
-		mask: url("/images/guide.svg") no-repeat center / contain;
-		-webkit-mask: url("/images/guide.svg") no-repeat center / contain;
+		mask: no-repeat center / contain;
+		-webkit-mask: no-repeat center / contain;
 	}
 
 	.active {
@@ -272,30 +241,37 @@
 		}
 	}
 
+	// EXTRAS ======================================================
+
 	.nav-extras {
+		display: flex;
+		gap: 0.5rem;
 		align-items: center;
 		padding: 0 12px;
 		flex-wrap: wrap;
 	}
 
-	.navbar:not(.expanded) .nav-extras {
-		margin: 0 auto;
+	.collapsed .nav-extras {
+		display: grid;
+		justify-content: center;
+		gap: 0.25rem;
 	}
+
+	// FOOTER ====================================================
 
 	.nav-footer {
-		margin-top: auto;
-		padding: 0rem 12px 4px 12px;
-		width: 100%;
-		justify-content: space-between;
-		gap: 1rem;
-		display: grid;
-		justify-items: center;
-	}
-
-	.expanded .nav-footer {
 		display: flex;
 		align-items: flex-end;
 		justify-content: space-between;
+		gap: 1rem;
+		margin-top: auto;
+		padding: 0rem 12px 4px 12px;
+		width: 100%;
+	}
+
+	.collapsed .nav-footer {
+		display: grid;
+		justify-items: center;
 	}
 
 	.site-version {
@@ -338,6 +314,70 @@
 			border-radius: 5px;
 			background-color: var(--surface2);
 			outline: 2px solid var(--accent);
+		}
+	}
+
+	// MOBILE ======================================
+
+	.mobile-drawer-label {
+		margin-right: 1rem;
+	}
+
+	@media (max-width: 850px) {
+		.navbar-wrapper {
+			width: 100%;
+			height: unset !important;
+			position: fixed;
+		}
+
+		.navbar {
+			display: grid !important;
+			--nav-width: 100% !important;
+		}
+
+		// .collapsed .show-when-expanded {
+		// 	all: unset !important;
+		// }
+
+		.navbar:not(.mobile-expanded) {
+			.nav-body,
+			.nav-footer {
+				display: none !important;
+			}
+		}
+
+		.link-home {
+			.hidden-text {
+				display: none;
+			}
+
+			&:hover::after {
+				background: none;
+			}
+		}
+	}
+
+	@media (min-width: 850px) {
+		.mobile-controls {
+			display: none;
+		}
+
+		.link-home {
+			width: 100%;
+
+			* {
+				transition: all 0.2s ease;
+			}
+
+			&:hover {
+				.link-text {
+					grid-template-rows: auto 1fr;
+				}
+
+				.hidden-text {
+					opacity: 1;
+				}
+			}
 		}
 	}
 </style>

@@ -1,0 +1,818 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_CommonBattleHudComponent",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsEnable_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EEndPlayReason'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'ActorComponent:ReceiveEndPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum'EEndPlayReason'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'ActorComponent:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'ActorComponent:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": 134350848
+  },
+  {
+    "Type": "Function",
+    "Name": "AttackHit",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsCritical",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "SetRayHit",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bRayHit",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "SetupHud",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Create_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'UI_Reticle_ChargeLevel_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/UI_Reticle_ChargeLevel.8"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "DestroyHud",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "OnTick",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsMapLevelInfoInitialized_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsEnable_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "UpdateHud",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "TmpCurrChargeLevel",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "TmpCurrChargeRatio",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "IsCharge",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "IsLockOn",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBPlayer_Character",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerCharacter'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBPlayer_Character_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerCharacter'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetPlayerTargetingComponent_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerTargetingComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsUnsheathe_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsTargetLockOn_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_GetCurrentSkillChargeRatio_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetCurrentSkillChargeLevel_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_SelectInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetCurrentSkillChargeLevelMax_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "ShowHud",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bShow",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": 1,
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": 201588736
+  },
+  {
+    "Type": "Function",
+    "Name": "IsEnable",
+    "Outer": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 1408,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CanBattleCurrentMapLevel_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBPlayer_Character",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerCharacter'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsLocallyControlled_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 1548222464
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "CommonBattleHudComponent_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ExecuteUbergraph_CommonBattleHudComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'ActorComponent'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:IsEnable'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.11"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ShowHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.10"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:UpdateHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.9"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:OnTick'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.8"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:DestroyHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.7"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:SetupHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.6"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:SetRayHit'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.5"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:AttackHit'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.4"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.3"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ReceiveTick'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.2"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ReceiveEndPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.1"
+      },
+      {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ExecuteUbergraph_CommonBattleHudComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ChargeLevel",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 589829,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'UI_Reticle_ChargeLevel_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/UI_Reticle_ChargeLevel.8"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bSetup",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 65541,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_CommonBattleHudComponent": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ExecuteUbergraph_CommonBattleHudComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.0"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ReceiveEndPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.1"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ReceiveTick'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.2"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.3"
+      },
+      "AttackHit": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:AttackHit'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.4"
+      },
+      "SetRayHit": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:SetRayHit'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.5"
+      },
+      "SetupHud": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:SetupHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.6"
+      },
+      "DestroyHud": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:DestroyHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.7"
+      },
+      "OnTick": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:OnTick'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.8"
+      },
+      "UpdateHud": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:UpdateHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.9"
+      },
+      "ShowHud": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:ShowHud'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.10"
+      },
+      "IsEnable": {
+        "ObjectName": "Function'CommonBattleHudComponent_C:IsEnable'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.11"
+      }
+    },
+    "ClassFlags": 10749972,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "CommonBattleHudComponent_C'Default__CommonBattleHudComponent_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.13"
+    }
+  },
+  {
+    "Type": "CommonBattleHudComponent_C",
+    "Name": "Default__CommonBattleHudComponent_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/Common/CommonBattleHudComponent.CommonBattleHudComponent_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "PrimaryComponentTick": {
+        "bCanEverTick": true
+      }
+    }
+  }
+]

@@ -1,0 +1,190 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PJ_BSK_WindSlash_C",
+    "Super": "BP_PJ_TemplateFallAlongGround_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_PJ_BSK_WindSlash_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.11"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PJ_TemplateFallAlongGround_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.4"
+    },
+    "ClassFlags": 8652820,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PJ_BSK_WindSlash_C'Default__BP_PJ_BSK_WindSlash_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.1"
+    }
+  },
+  {
+    "Type": "BP_PJ_BSK_WindSlash_C",
+    "Name": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "Default__BP_PJ_TemplateFallAlongGround_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.BP_PJ_BSK_WindSlash_C'",
+    "Properties": {
+      "MoveComp": {
+        "ObjectName": "SBParabolaMovementComponent'Default__BP_PJ_BSK_WindSlash_C:MoveComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.2"
+      },
+      "GroundCollisionComp": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_BSK_WindSlash_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.7"
+      },
+      "CollisionComp": {
+        "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_BSK_WindSlash_C:CollisionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.4"
+      },
+      "AttackParamComp": {
+        "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_BSK_WindSlash_C:AttackParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.3"
+      },
+      "EffectComp": {
+        "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_BSK_WindSlash_C:EffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.6"
+      },
+      "ParamComp": {
+        "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_BSK_WindSlash_C:ParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.8"
+      },
+      "DestroyCondComp": {
+        "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_BSK_WindSlash_C:DestroyCondComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.5"
+      },
+      "RootComponent": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_BSK_WindSlash_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.7"
+      },
+      "OnEndPlay": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_PJ_BSK_WindSlash_C'Default__BP_PJ_BSK_WindSlash_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.1"
+            },
+            "FunctionName": "OnProjectileEndPlay"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBParabolaMovementComponent",
+    "Name": "MoveComp",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "MoveComp",
+    "Class": "UScriptClass'SBParabolaMovementComponent'"
+  },
+  {
+    "Type": "SBProjectileAttackParamComponent",
+    "Name": "AttackParamComp",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "AttackParamComp",
+    "Class": "UScriptClass'SBProjectileAttackParamComponent'"
+  },
+  {
+    "Type": "SBProjectileCollisionComponent",
+    "Name": "CollisionComp",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "CollisionComp",
+    "Class": "UScriptClass'SBProjectileCollisionComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_BSK_WindSlash_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.7"
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileDestroyConditionComponent",
+    "Name": "DestroyCondComp",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "DestroyCondComp",
+    "Class": "UScriptClass'SBProjectileDestroyConditionComponent'"
+  },
+  {
+    "Type": "SBProjectileEffectComponent",
+    "Name": "EffectComp",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "EffectComp",
+    "Class": "UScriptClass'SBProjectileEffectComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_BSK_WindSlash_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.7"
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileGroundCollisionComponent",
+    "Name": "GroundCollisionComp(ProjRoot)",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "GroundCollisionComp(ProjRoot)",
+    "Class": "UScriptClass'SBProjectileGroundCollisionComponent'",
+    "Properties": {
+      "OnComponentHit": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_BSK_WindSlash_C:GroundCollisionComp(ProjRoot)'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.7"
+            },
+            "FunctionName": "OnGroundComponentHit"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileParamComponent",
+    "Name": "ParamComp",
+    "Outer": "Default__BP_PJ_BSK_WindSlash_C",
+    "Template": "ParamComp",
+    "Class": "UScriptClass'SBProjectileParamComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_PJ_BSK_WindSlash_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_PJ_BSK_WindSlash_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.9"
+      },
+      "VariableGuid": "168FB9E9-4984C729-CCDEFBA3-BAC1E1A4",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_PJ_BSK_WindSlash_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_PJ_BSK_WindSlash_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BP_PJ_BSK_WindSlash.10"
+      }
+    }
+  }
+]

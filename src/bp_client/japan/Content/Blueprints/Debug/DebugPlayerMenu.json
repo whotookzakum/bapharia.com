@@ -1,0 +1,649 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DebugPlayerMenu",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBDebugParameter'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "速度スケール": {
+        "ParameterName": "移動速度へのスケール値",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_MovingSpeedScale",
+        "ToolTipTextId": "TOOLTIP_MovingSpeedScale",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "1.0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "経験値倍率": {
+        "ParameterName": "経験値倍率",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_ExpValueMultiplier",
+        "ToolTipTextId": "TOOLTIP_ExpValueMultiplier",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "1.0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "獲得経験値にかける倍率",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "スタミナ無限": {
+        "ParameterName": "スタミナ無限",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_InfiniteStamina",
+        "ToolTipTextId": "TOOLTIP_InfiniteStamina",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "エングラム無限": {
+        "ParameterName": "エングラム無限",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_InfiniteEngram",
+        "ToolTipTextId": "TOOLTIP_InfiniteEngram",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "エングラムが減らない",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "デフォルトスキル全装備": {
+        "ParameterName": "デフォルトスキル全装備",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_AllDefaultSkills",
+        "ToolTipTextId": "TOOLTIP_AllDefaultSkills",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "エディタのスタンドアロンモードでプレイイン時にデフォルトスキルをすべて装備します",
+        "Enable": true,
+        "bEditorOnly": true,
+        "bReadOnly": false
+      },
+      "他プレイヤーまでのラインを引く": {
+        "ParameterName": "他プレイヤーまでのラインを引く",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_LineToPlayer",
+        "ToolTipTextId": "TOOLTIP_LineToPlayer",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "他プレイヤーまでのラインを引く",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "カメラの中心にいるオブジェクトまでの距離表示": {
+        "ParameterName": "カメラの中心にいるオブジェクトまでの距離表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_CameraDistance",
+        "ToolTipTextId": "TOOLTIP_CameraDistance",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "カメラの中心にいるオブジェクトまでの距離表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "フェイシャル": {
+        "ParameterName": "フェイシャルの上書き",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_FacialOverwrite",
+        "ToolTipTextId": "TOOLTIP_FacialOverwrite",
+        "Type": "SB_DEBUG_MENU_COMBO_BOX",
+        "InitialValue": [
+          "しない",
+          "笑う",
+          "怒る",
+          "悲しむ",
+          "喜ぶ",
+          "呆れる",
+          "悩む",
+          "疑う",
+          "からかい",
+          "耐える",
+          "張り切る",
+          "痛がる",
+          "困る",
+          "焦る",
+          "驚く",
+          "嫌がる",
+          "照れる",
+          "恐れる",
+          "真剣",
+          "微笑",
+          "企む",
+          "攻撃",
+          "やられ",
+          "死亡",
+          "必殺技",
+          "キャラクリ(笑う)",
+          "キャラクリ(怒る)",
+          "キャラクリ(悲しむ)",
+          "キャラクリ(立ちポーズ1)",
+          "キャラクリ(立ちポーズ2)",
+          "キャラクリ(立ちポーズ3)",
+          "キャラクリ(立ちポーズ4)",
+          "キャラクリ(立ちポーズ5)"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "上書きするフェイシャルの選択",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "鯖の骨表示": {
+        "ParameterName": "鯖の骨表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_ServerBoneDisplay",
+        "ToolTipTextId": "TOOLTIP_ServerBoneDisplay",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "鯖のステート変更出力": {
+        "ParameterName": "鯖のステート変更出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_ServerStateOutput",
+        "ToolTipTextId": "TOOLTIP_ServerStateOutput",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "鯖のステータス値変更出力": {
+        "ParameterName": "鯖のステータス値変更出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_ServerStatusValueOutput",
+        "ToolTipTextId": "TOOLTIP_ServerStatusValueOutput",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "レプリケート移動情報表示": {
+        "ParameterName": "レプリケート移動情報表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_ReplicateInformation",
+        "ToolTipTextId": "TOOLTIP_ReplicateInformation",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "プレイヤー同期距離変更": {
+        "ParameterName": "プレイヤー同期距離変更",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_PlayerSyncDistance",
+        "ToolTipTextId": "TOOLTIP_PlayerSyncDistance",
+        "Type": "SB_DEBUG_MENU_CONSOLE_COMMAND",
+        "InitialValue": [
+          "Net.RepGraph.SetClassCullDistance SBPlayerCharacter",
+          "6000"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "周囲のプレイヤーの同期開始距離を変更します(初期値:6000cm)",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "操作プレイヤー非表示": {
+        "ParameterName": "操作プレイヤーを非表示にする",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_HideLocallyPlayer",
+        "ToolTipTextId": "TOOLTIP_HideLocallyPlayer",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "操作プレイヤー以外非表示": {
+        "ParameterName": "操作プレイヤー以外を非表示にする",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_HideNonLocallyPlayer",
+        "ToolTipTextId": "TOOLTIP_HideNonLocallyPlayer",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "KeyInputInfo": {
+        "ParameterName": "キー入力情報表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_KeyInputInfo",
+        "ToolTipTextId": "TOOLTIP_KeyInputInfo",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "JointGestureInfo": {
+        "ParameterName": "共同ジェスチャー情報表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_JointGestureInfo",
+        "ToolTipTextId": "TOOLTIP_JointGestureInfo",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowRetCode": {
+        "ParameterName": "RetCode表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_ShowRetCode",
+        "ToolTipTextId": "TOOLTIP_ShowRetCode",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "モーション確認UI": {
+        "ParameterName": "モーション確認UI",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_MotionCheckUI",
+        "ToolTipTextId": "TOOLTIP_MotionCheckUI",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugCharaCreate.DebugCharaCreate_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "モーション確認用のUIを表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "衣装確認UI": {
+        "ParameterName": "衣装確認UI",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_CostumeCheckUI",
+        "ToolTipTextId": "TOOLTIP_CostumeCheckUI",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugCostumeMenu.DebugCostumeMenu_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "モーション確認用のUIを表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "武器位置調整UI": {
+        "ParameterName": "武器位置調整UI",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_WeaponPositionUI",
+        "ToolTipTextId": "TOOLTIP_WeaponPositionUI",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugWeaponAttach.DebugWeaponAttach_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "武器位置調整用のUIを表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "泳ぎメッシュ調整UI": {
+        "ParameterName": "泳ぎメッシュ調整UI",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_SwimMeshUI",
+        "ToolTipTextId": "TOOLTIP_SwimMeshUI",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugSwimMeshOffset.DebugSwimMeshOffset_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "背面攻撃されるとスタンになる",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "プレイヤー移動": {
+        "ParameterName": "プレイヤー移動（リスポーン地点ワープ）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_SetPlayerLocation",
+        "ToolTipTextId": "TOOLTIP_SetPlayerLocation",
+        "Type": "SB_DEBUG_MENU_LIST",
+        "InitialValue": [
+          "SetPlayerLocation"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "リスポーンポイントを指定してプレイヤーを移動させる",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "エイムカーソルまでの距離表示": {
+        "ParameterName": "エイムカーソルまでの距離を表示する",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_AimCursorDistance",
+        "ToolTipTextId": "TOOLTIP_AimCursorDistance",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "エイムカーソルまでの距離表示レイ長さ": {
+        "ParameterName": "エイムカーソルまでの距離表示レイ長さ",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_AimCursorDistanceRayLength",
+        "ToolTipTextId": "TOOLTIP_AimCursorDistanceRayLength",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "5000.0"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ジャンプ上限表示": {
+        "ParameterName": "ジャンプ上限表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_DrawHeight",
+        "ToolTipTextId": "TOOLTIP_DrawHeight",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ジャンプ上限表示秒数": {
+        "ParameterName": "ジャンプ上限表示秒数",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_DrawHeightTime",
+        "ToolTipTextId": "TOOLTIP_DrawHeightTime",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "1"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ステートマシン遷移のログ出力": {
+        "ParameterName": "ステートマシン遷移のログ出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_StateMachineLog",
+        "ToolTipTextId": "TOOLTIP_StateMachineLog",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "SendCommandのログ出力": {
+        "ParameterName": "SendCommandのログ出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugPlayerMenuText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugPlayerMenuText.0"
+        },
+        "TitleTextId": "TITLE_SendCommandLog",
+        "ToolTipTextId": "TOOLTIP_SendCommandLog",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      }
+    }
+  }
+]

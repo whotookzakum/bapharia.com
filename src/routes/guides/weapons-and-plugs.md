@@ -86,7 +86,7 @@ Socket Expansion tickets can be used to open more sockets on a weapon with less 
 #### Ability Plugs
 Ability Plugs are items you can use to strengthen a weapon by attaching them to empty weapon sockets. They can  provide stat bonuses and strengthen specific skills. Some Plugs provide passive stat boosts, such as ATK/DEF/STR etc., and some provide skill-enhancing effects. They currently come in grades of G1/G2/G3.
 
-Speak to the Weapon Reconstructor NPC to attach Plugs by using Union Paste. Plugs can be obtained as dungeon rewards, through Adventure Boards, and from events. Union Paste is acquired from quests and dungeons.
+Speak to the [Weapon Reconstructor](/map?marker=Npc_SynthesisShop_01) to attach Plugs by using Union Paste. Plugs can be obtained as dungeon rewards, through Adventure Boards, and from events. Union Paste is acquired from quests and dungeons.
 
 A plug will randomly be assigned a **1~5★** value when attached, indicating the strength of its effect. Tuning Tickets allow you to keep all your plugs inserted but reroll how many stars they have. There are also Ability Value Preservation Tickets, which lock the stars on an ability of your choice so that it doesn't get rerolled. The number of tickets needed will vary based on the weapon.
 
@@ -101,7 +101,7 @@ A plug will randomly be assigned a **1~5★** value when attached, indicating th
 Plugs can be removed using Plug Removal Tickets, though if you wish to keep the plug, you will need Plug Retrieval Tickets. The number of tickets needed will vary based on the weapon. 
 
 <StickyNote type="tip">
-    The odds of crafting a weapon with a 4 sockets and only 5★ plugs are 0.000875%, or approximately 1 in 114,285 (without using any boosts). I recommend getting at least two 5★ plugs (5.23%) on your weapon *before* using tickets to reroll/lock plugs.
+    The odds of crafting a weapon with a 4 sockets and only 5★ plugs are 0.000875%, or approximately 1 in 114,285 (without using any boosts). I recommend getting at least two 5★ plugs (5.23%) on your weapon before using Ability Value Preservation Tickets.
 </StickyNote>
 
 Plugs do not increase your Battle Score.

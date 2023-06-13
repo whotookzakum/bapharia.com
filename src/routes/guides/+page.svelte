@@ -6,6 +6,9 @@
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	export let data;
 
+	// TODO favorites, filters, sort A-Z/last updated
+	// TODO "Read More" at bottom of guide
+
 	const guides = data.guides;
 
 	// const filtersText = {
@@ -49,7 +52,7 @@
 />
 
 <div class="contents">
-	<main id="#main" tabindex="-1">
+	<main id="main" tabindex="-1">
 		<h1>Guides</h1>
 		<!-- <span class="component-label">Filters</span>
 <div id="guide-filters" class="flex">

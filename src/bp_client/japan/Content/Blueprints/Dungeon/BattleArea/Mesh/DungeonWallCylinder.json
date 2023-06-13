@@ -1,0 +1,102 @@
+[
+  {
+    "Type": "BodySetup",
+    "Name": "BodySetup_0",
+    "Outer": "DungeonWallCylinder",
+    "Class": "UScriptClass'BodySetup'",
+    "Properties": {
+      "DefaultInstance": {
+        "ObjectType": "ECC_Destructible",
+        "CollisionProfileName": "Destructible",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBPlayerPawn",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBPhotoModeCamera",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "CollisionTraceFlag": "CTF_UseComplexAsSimple"
+    },
+    "BodySetupGuid": "068022C4460B2C680BD4AF8E928CDFAF",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+        "ElementCount": 14499,
+        "SizeOnDisk": 14499,
+        "OffsetInFile": "0x2D9D0"
+      }
+    }
+  },
+  {
+    "Type": "NavCollision",
+    "Name": "NavCollision_0",
+    "Outer": "DungeonWallCylinder",
+    "Class": "UScriptClass'NavCollision'",
+    "CookedFormatData": {
+      "NavCollision_X": {
+        "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+        "ElementCount": 21045,
+        "SizeOnDisk": 21045,
+        "OffsetInFile": "0x312BB"
+      }
+    }
+  },
+  {
+    "Type": "StaticMesh",
+    "Name": "DungeonWallCylinder",
+    "Class": "UScriptClass'StaticMesh'",
+    "Properties": {
+      "StaticMaterials": [
+        {
+          "MaterialInterface": {
+            "ObjectName": "Material'WorldGridMaterial'",
+            "ObjectPath": "Engine/Content/EngineMaterials/WorldGridMaterial.0"
+          },
+          "MaterialSlotName": "MaterialSlot",
+          "ImportedMaterialSlotName": "WorldGridMaterial",
+          "UVChannelData": {
+            "bInitialized": true,
+            "bOverrideDensities": false,
+            "LocalUVDensities": 100.03602,
+            "LocalUVDensities": 1130.5231,
+            "LocalUVDensities": 0.0,
+            "LocalUVDensities": 0.0
+          }
+        }
+      ],
+      "LightmapUVDensity": 100.03602,
+      "ExtendedBounds": {
+        "BoxExtent": {
+          "X": 210.00002,
+          "Y": 210.00002,
+          "Z": 100.0
+        },
+        "SphereRadius": 233.51189
+      }
+    },
+    "BodySetup": {
+      "ObjectName": "BodySetup'DungeonWallCylinder:BodySetup_0'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/Mesh/DungeonWallCylinder.0"
+    },
+    "NavCollision": {
+      "ObjectName": "NavCollision'DungeonWallCylinder:NavCollision_0'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/BattleArea/Mesh/DungeonWallCylinder.1"
+    },
+    "LightingGuid": "386AC852-4F46F3BF-2229C4AC-79150217",
+    "RenderData": null
+  }
+]

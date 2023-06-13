@@ -1,0 +1,3673 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_QuadArm",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134217730,
+        "Inner": {
+          "Type": "IntProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": 1,
+          "ElementSize": 4
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsMaterialEmissiveColorChanged_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "K2Node_Event_ActionName",
+        "Flags": 1,
+        "ElementSize": 16
+      }
+    ],
+    "FunctionFlags": 8421377
+  },
+  {
+    "Type": "Function",
+    "Name": "DestroyGuard",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "SpawnGuard",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "EV_InitCheck",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201326592
+  },
+  {
+    "Type": "Function",
+    "Name": "RecvExecCustomAction",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBEnemyCharacter:RecvExecCustomAction'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StrProperty",
+        "Name": "ActionName",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_QuadArm_C",
+    "Super": "ReceiveBeginPlay",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'BP_EnemyCharacter_C:ReceiveBeginPlay'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/BP_EnemyCharacter.5"
+    },
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "BndEvt__BattleConditionComp_K2Node_ComponentBoundEvent_1_ModeChangeSignature__DelegateSignature",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 134217728
+  },
+  {
+    "Type": "Function",
+    "Name": "GetHitCollision",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBShieldGuardInterface:GetHitCollision'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "HitActor",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 148,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "HitComp",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524436,
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 525696,
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 205654016
+  },
+  {
+    "Type": "Function",
+    "Name": "GetLockOnCameraID",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBLockOnTargetInterface:GetLockOnCameraID'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ChildProperties": [
+      {
+        "Type": "NameProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 1408
+      },
+      {
+        "Type": "NameProperty",
+        "Name": "Lock on CameraID",
+        "Flags": 1,
+        "ElementSize": 12,
+        "PropertyFlags": 5
+      }
+    ],
+    "FunctionFlags": 1279395840
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_QuadArm_C",
+    "Super": "BP_EnemyCharacter_MachineBase_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "DynamicBindingObjects": [
+        {
+          "ObjectName": "ComponentDelegateBinding'BP_QuadArm_C:ComponentDelegateBinding_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.26"
+        }
+      ],
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_QuadArm_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.115"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_QuadArm_C:InheritableComponentHandler'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.27"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_QuadArm_C:ExecuteUbergraph_BP_QuadArm'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_EnemyCharacter_MachineBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/BP_EnemyCharacter_MachineBase.0"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_QuadArm_C:GetLockOnCameraID'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.8"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:GetHitCollision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.7"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:BndEvt__BattleConditionComp_K2Node_ComponentBoundEvent_1_ModeChangeSignature__DelegateSignature'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.6"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.5"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:RecvExecCustomAction'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.4"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:EV_InitCheck'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.3"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:SpawnGuard'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.2"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:DestroyGuard'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.1"
+      },
+      {
+        "ObjectName": "Function'BP_QuadArm_C:ExecuteUbergraph_BP_QuadArm'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_DBody",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'CapsuleComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_D_RBArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_U_RBArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_D_RFArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_U_RFArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_D_LBArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_U_LBArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_D_LFArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_U_LFArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBCollisionGroup_RBArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCollisionGroupComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBCollisionGroup_RFArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCollisionGroupComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBCollisionGroup_LBArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCollisionGroupComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBCollisionGroup_LFArm",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCollisionGroupComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBEnemyChangeEmissiveColor",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCharacterChangeEmissiveColorComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBEnemyChant",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBEnemyChantComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBTargetable",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBTargetableComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBCharaBodyCapsule",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCharaBodyCapsuleComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_Rshoulder",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionSphereComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_Lshoulder",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionSphereComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_UBody",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionSphereComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ASDamage_Head",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'ASCollisionCapsuleComponent'",
+          "ObjectPath": "/Script/ActionSystem"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBCollisionGroup_Weak",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SBCollisionGroupComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSec",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ShieldRestore_Time",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ShieldRestore_Counter",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ShieldRecovery_Counter",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ShieldRecovery_Interval",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "ShieldRecovery_Value",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Enable_ShieldRestore",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "FirstShieldSpawnDelay",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "ShieldSpawn_Counter",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 5
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Enable_Shield",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 5,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_QuadArm": {
+        "ObjectName": "Function'BP_QuadArm_C:ExecuteUbergraph_BP_QuadArm'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.0"
+      },
+      "DestroyGuard": {
+        "ObjectName": "Function'BP_QuadArm_C:DestroyGuard'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.1"
+      },
+      "SpawnGuard": {
+        "ObjectName": "Function'BP_QuadArm_C:SpawnGuard'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.2"
+      },
+      "EV_InitCheck": {
+        "ObjectName": "Function'BP_QuadArm_C:EV_InitCheck'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.3"
+      },
+      "RecvExecCustomAction": {
+        "ObjectName": "Function'BP_QuadArm_C:RecvExecCustomAction'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.4"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_QuadArm_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.5"
+      },
+      "BndEvt__BattleConditionComp_K2Node_ComponentBoundEvent_1_ModeChangeSignature__DelegateSignature": {
+        "ObjectName": "Function'BP_QuadArm_C:BndEvt__BattleConditionComp_K2Node_ComponentBoundEvent_1_ModeChangeSignature__DelegateSignature'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.6"
+      },
+      "GetHitCollision": {
+        "ObjectName": "Function'BP_QuadArm_C:GetHitCollision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.7"
+      },
+      "GetLockOnCameraID": {
+        "ObjectName": "Function'BP_QuadArm_C:GetLockOnCameraID'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.8"
+      }
+    },
+    "ClassFlags": 8652820,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_QuadArm_C'Default__BP_QuadArm_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.10"
+    }
+  },
+  {
+    "Type": "BP_QuadArm_C",
+    "Name": "Default__BP_QuadArm_C",
+    "Template": "Default__BP_EnemyCharacter_MachineBase_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.BP_QuadArm_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "ShieldRestore_Time": 30.0,
+      "ShieldRecovery_Interval": 1.0,
+      "Enable_ShieldRestore": true,
+      "FirstShieldSpawnDelay": 15.0,
+      "Enable_Shield": true,
+      "DeathEffectComp": {
+        "ObjectName": "SBEnemyDeathEffectComponent'Default__BP_QuadArm_C:EnemyDeathEffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.63"
+      },
+      "TideComp": {
+        "ObjectName": "SBEnemyTideComponent'Default__BP_QuadArm_C:EnemyTideComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.77"
+      },
+      "ExitEffectComp": {
+        "ObjectName": "SBEnemyExitEffectComponent'Default__BP_QuadArm_C:EnemyExitEffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.66"
+      },
+      "EnemyId": "E003_00_00_00000",
+      "BadZoneAvoidanceComp": {
+        "ObjectName": "SBEnemyBadZoneAvoidanceComponent'Default__BP_QuadArm_C:EnemyBadZoneAvoidanceComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.54"
+      },
+      "PhaseComp": {
+        "ObjectName": "SBEnemyPhaseComponent'Default__BP_QuadArm_C:EnemyPhaseComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.69"
+      },
+      "ModifierComp": {
+        "ObjectName": "SBEnemyModifierComponent'Default__BP_QuadArm_C:EnemyModifierComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.67"
+      },
+      "ActionParamComp": {
+        "ObjectName": "SBEnemyActionParamComponent'Default__BP_QuadArm_C:EnemyActionParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.53"
+      },
+      "BattleConditionComp": {
+        "ObjectName": "SBEnemyBattleConditionComponent'Default__BP_QuadArm_C:EnemyBattleConditionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.55"
+      },
+      "BlendSpaceInputComp": {
+        "ObjectName": "SBEnemyBlendSpaceInputComponent'Default__BP_QuadArm_C:EnemyBlendSpaceInputComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.56"
+      },
+      "PartsManagerComp": {
+        "ObjectName": "SBEnemyPartsManagerComponent'Default__BP_QuadArm_C:EnemyPartsBreakComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.68"
+      },
+      "TargetingComp": {
+        "ObjectName": "SBEnemyTargetingComponent'Default__BP_QuadArm_C:EnemyTargetingComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.76"
+      },
+      "AdjustRootMotionComp": {
+        "ObjectName": "SBAdjustRootMotionComponent'Default__BP_QuadArm_C:AdjustRootMotionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.29"
+      },
+      "StanceComp": {
+        "ObjectName": "SBEnemyStanceComponent'Default__BP_QuadArm_C:StanceComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.73"
+      },
+      "SummonComponent": {
+        "ObjectName": "SBEnemySummonComponent'Default__BP_QuadArm_C:SummonComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.75"
+      },
+      "MarkerManagerComp": {
+        "ObjectName": "SBEnemyChantMarkerManagerComponent'Default__BP_QuadArm_C:MarkerManagerComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.59"
+      },
+      "SenseChangerComp": {
+        "ObjectName": "SBEnemySenseChangerComponent'Default__BP_QuadArm_C:SenseChangerComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.71"
+      },
+      "EnemyDropComp": {
+        "ObjectName": "SBEnemyDropComponent'Default__BP_QuadArm_C:EnemyDropComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.64"
+      },
+      "DelegateHitAuthComp": {
+        "ObjectName": "SBDelegateHitAuthComponent'Default__BP_QuadArm_C:DelegateHitAuthComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.50"
+      },
+      "AnimationSamplingComp": {
+        "ObjectName": "SBCharacterAnimationSamplingComponent'Default__BP_QuadArm_C:EnemyAnimationSamplingComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.37"
+      },
+      "StateInitializerComponent": {
+        "ObjectName": "SBStateInitializerComponent'Default__BP_QuadArm_C:StateInitializerComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.88"
+      },
+      "CollisionHitComp": {
+        "ObjectName": "SBEnemyCollisionHitComponent'Default__BP_QuadArm_C:EnemyCollisionHitComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.61"
+      },
+      "ChanceTimeDownComp": {
+        "ObjectName": "SBCharacterChanceTimeDownComponent'Default__BP_QuadArm_C:ChanceTimeDownComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.38"
+      },
+      "EnemyDxBattleComp": {
+        "ObjectName": "SBEnemyDxBattleComponent'Default__BP_QuadArm_C:EnemyDxBattleComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.65"
+      },
+      "AbilitySystemComp": {
+        "ObjectName": "SBEnemyAbilitySystemComponent'Default__BP_QuadArm_C:AbilitySystemComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.52"
+      },
+      "ConditionalVoiceComp": {
+        "ObjectName": "SBEnemyConditionalVoiceComponent'Default__BP_QuadArm_C:ConditionalVoiceComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.62"
+      },
+      "ExecDelegateWithConditionComp": {
+        "ObjectName": "SBExecDelegateWithConditionComponent'Default__BP_QuadArm_C:ExecDelegateWithConditionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.78"
+      },
+      "BuddyRevivalComp": {
+        "ObjectName": "SBEnemyBuddyRevivalComponent'Default__BP_QuadArm_C:BuddyRevivalComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.57"
+      },
+      "StateMachineReplayComp": {
+        "ObjectName": "SBEnemyStateMachineReplayComponent'Default__BP_QuadArm_C:StateMachineReplayComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.74"
+      },
+      "SpawnEffectSocketName": "Rot_J",
+      "SpawnEffectScale": {
+        "X": 1.12,
+        "Y": 1.12,
+        "Z": 1.12
+      },
+      "StateMachine": {
+        "AssetPathName": "/Game/Animations/Enemy/Common/SM_EnemyCommon_Main.SM_EnemyCommon_Main",
+        "SubPathString": ""
+      },
+      "AnimationSet": {
+        "AssetPathName": "/Game/Animations/Enemy/E003/AST_E003_FFF.AST_E003_FFF",
+        "SubPathString": ""
+      },
+      "DefaultDodgeLevel": "ESBPerceiveLevel::Level2",
+      "FaceComp": {
+        "ObjectName": "SBCharaPartsFaceComponent'Default__BP_QuadArm_C:FaceSlot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.40"
+      },
+      "CharaCreateComponent": {
+        "ObjectName": "SBCharaCreateComponent'Default__BP_QuadArm_C:CharaCreate'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.36"
+      },
+      "Weight": 2000.0,
+      "CollisionGroupInfo": [
+        {
+          "GroupName": "None",
+          "DamageScale": 1.0,
+          "HitPointRate": 0.0,
+          "NextHitPointRate": [],
+          "PartsDamageEffects": [],
+          "Weakness": false,
+          "PartsResistElementList": [],
+          "ResistElementDamage": false,
+          "GroupNameToShareDamage": []
+        },
+        {
+          "GroupName": "Weak",
+          "DamageScale": 1.0,
+          "HitPointRate": 0.0,
+          "NextHitPointRate": [],
+          "PartsDamageEffects": [],
+          "Weakness": true,
+          "PartsResistElementList": [],
+          "ResistElementDamage": false,
+          "GroupNameToShareDamage": []
+        },
+        {
+          "GroupName": "LFArm",
+          "DamageScale": 1.0,
+          "HitPointRate": 0.0,
+          "NextHitPointRate": [],
+          "PartsDamageEffects": [],
+          "Weakness": false,
+          "PartsResistElementList": [],
+          "ResistElementDamage": false,
+          "GroupNameToShareDamage": []
+        },
+        {
+          "GroupName": "LBArm",
+          "DamageScale": 1.0,
+          "HitPointRate": 0.0,
+          "NextHitPointRate": [],
+          "PartsDamageEffects": [],
+          "Weakness": false,
+          "PartsResistElementList": [],
+          "ResistElementDamage": false,
+          "GroupNameToShareDamage": []
+        },
+        {
+          "GroupName": "RFArm",
+          "DamageScale": 1.0,
+          "HitPointRate": 0.0,
+          "NextHitPointRate": [],
+          "PartsDamageEffects": [],
+          "Weakness": false,
+          "PartsResistElementList": [],
+          "ResistElementDamage": false,
+          "GroupNameToShareDamage": []
+        },
+        {
+          "GroupName": "RBArm",
+          "DamageScale": 1.0,
+          "HitPointRate": 0.0,
+          "NextHitPointRate": [],
+          "PartsDamageEffects": [],
+          "Weakness": false,
+          "PartsResistElementList": [],
+          "ResistElementDamage": false,
+          "GroupNameToShareDamage": []
+        }
+      ],
+      "ResistAbsorbValue": 200.0,
+      "PartsDamageAnimParamter": {
+        "ObjectName": "SBPartsDamageAnimParamter'Default__BP_QuadArm_C:PartsDamageAnimParamter'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.84"
+      },
+      "m_DamageReactionPattern": {
+        "RowName": "Heavy"
+      },
+      "ElementStatusEffectSpawnNumScale": 0.9,
+      "ElementStatusEffectSizeScale": 0.55,
+      "WeaponAttachPoint": "Body_J",
+      "SpawnComp": {
+        "ObjectName": "SBProjectileSpawnComponent'Default__BP_QuadArm_C:ProjectileSpawnComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.87"
+      },
+      "BattleStatusComp": {
+        "ObjectName": "SBBattleStatusComponent'Default__BP_QuadArm_C:BattleStatusComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.32"
+      },
+      "ProjectileShareHitComp": {
+        "ObjectName": "SBProjectileShareHitComponent'Default__BP_QuadArm_C:ProjectileShareHitComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.86"
+      },
+      "SendNetDataComp": {
+        "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_QuadArm_C:ProjectileSendNetDataComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.85"
+      },
+      "AnimationControlComp": {
+        "ObjectName": "SBAnimationControlComponent'Default__BP_QuadArm_C:AnimationControlComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.31"
+      },
+      "DemoParameterComp": {
+        "ObjectName": "SBDemoParameterComponent'Default__BP_QuadArm_C:DemoParameterComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.51"
+      },
+      "FactionComponent": {
+        "ObjectName": "AIFwFactionComponent'Default__BP_QuadArm_C:FactionComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.11"
+      },
+      "FactionInfluenceComponent": {
+        "ObjectName": "SBFactionInfluenceSourceComponent'Default__BP_QuadArm_C:FactionInfluenceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.80"
+      },
+      "AISharedInfoComponent": {
+        "ObjectName": "SBAISharedInfoComponent'Default__BP_QuadArm_C:AISharedInfoComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.30"
+      },
+      "MovePredictComponent": {
+        "ObjectName": "SBMovementPredictComponent'Default__BP_QuadArm_C:MovementPredictComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.82"
+      },
+      "ActorVisibilityComponent": {
+        "ObjectName": "SBActorVisibilityComponent'Default__BP_QuadArm_C:ActorVisibilityComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.28"
+      },
+      "CollisionGroup": {
+        "ObjectName": "SBCollisionGroupComponent'Default__BP_QuadArm_C:CollisionGroup'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.48"
+      },
+      "DamageCollision": {
+        "ObjectName": "ASCollisionSphereComponent'Default__BP_QuadArm_C:DamageCollision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.24"
+      },
+      "Mesh": {
+        "ObjectName": "SBEnemySkeletalMeshComponent'Default__BP_QuadArm_C:CharacterMesh0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.72"
+      },
+      "CharacterMovement": {
+        "ObjectName": "SBEnemyCharacterMovementComponent'Default__BP_QuadArm_C:CharMoveComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.60"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "SBEnemySceneComponent'Default__BP_QuadArm_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.70"
+      },
+      "AIControllerClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_AIQuadArm_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/AI/Enemy/E003_00/BP_AIQuadArm.0"
+      },
+      "RootComponent": {
+        "ObjectName": "SBEnemySceneComponent'Default__BP_QuadArm_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.70"
+      }
+    }
+  },
+  {
+    "Type": "AIFwFactionComponent",
+    "Name": "FactionComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "FactionComponent",
+    "Class": "UScriptClass'AIFwFactionComponent'"
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_D_LBArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 50.0,
+      "CapsuleRadius": 12.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 40.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_D_LFArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 50.0,
+      "CapsuleRadius": 12.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 40.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_D_RBArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 50.0,
+      "CapsuleRadius": 12.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 40.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_D_RFArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 50.0,
+      "CapsuleRadius": 12.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 40.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_Head_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 54.0,
+      "CapsuleRadius": 20.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -30.0,
+        "Y": -10.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 0.0,
+        "Roll": -20.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_U_LBArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 40.0,
+      "CapsuleRadius": 15.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 20.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_U_LFArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 40.0,
+      "CapsuleRadius": 15.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 20.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_U_RBArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 40.0,
+      "CapsuleRadius": 15.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 20.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionCapsuleComponent",
+    "Name": "ASDamage_U_RFArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 40.0,
+      "CapsuleRadius": 15.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionEnabled": "ECollisionEnabled::QueryOnly",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 20.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "RelativeRotation": {
+        "Pitch": 90.0,
+        "Yaw": 1.0245281E-05,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionSphereComponent",
+    "Name": "ASDamage_Lshoulder_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionSphereComponent'",
+    "Properties": {
+      "SphereRadius": 60.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 30.000862,
+        "Y": 0.011462212,
+        "Z": -0.05867666
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionSphereComponent",
+    "Name": "ASDamage_Rshoulder_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionSphereComponent'",
+    "Properties": {
+      "SphereRadius": 60.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 30.000998,
+        "Y": -0.0009469986,
+        "Z": -0.010012746
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 2.5212998E-06,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionSphereComponent",
+    "Name": "ASDamage_UBody_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ASCollisionSphereComponent'",
+    "Properties": {
+      "SphereRadius": 80.0,
+      "bGenerateOverlapEvents": true,
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -4.94427,
+        "Y": 25.000011,
+        "Z": 0.0015306473
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 3.4150935E-06,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionSphereComponent",
+    "Name": "DamageCollision",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "DamageCollision",
+    "Class": "UScriptClass'ASCollisionSphereComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBCollisionGroupComponent'Default__BP_QuadArm_C:CollisionGroup'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.48"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 80.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "ASDamage_DBody_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 80.0,
+      "CapsuleRadius": 60.0,
+      "AreaClass": {
+        "ObjectName": "Class'NavArea_Obstacle'",
+        "ObjectPath": "/Script/NavigationSystem"
+      },
+      "BodyInstance": {
+        "ObjectType": "ECC_GameTraceChannel2",
+        "CollisionProfileName": "SBDamage",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Pawn",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBAttack",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectile",
+              "Response": "ECR_Overlap"
+            },
+            {
+              "Channel": "SBProjectileAttackDamage",
+              "Response": "ECR_Overlap"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 25.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ComponentDelegateBinding",
+    "Name": "ComponentDelegateBinding_0",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'ComponentDelegateBinding'",
+    "Properties": {
+      "ComponentDelegateBindings": [
+        {
+          "ComponentPropertyName": "BattleConditionComp",
+          "DelegatePropertyName": "ToBattleMode",
+          "FunctionNameToBind": "BndEvt__BattleConditionComp_K2Node_ComponentBoundEvent_1_ModeChangeSignature__DelegateSignature"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SBNamePlateComponent2D'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SBNamePlateComponent2D'BP_QuadArm_C:NamePlate_GEN_VARIABLE'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.83"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_EnemyCharacter_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/BP_EnemyCharacter.22"
+            },
+            "SCSVariableName": "NamePlate",
+            "AssociatedGuid": "3AD35B06-411E914E-8622249C-D6FC4554"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        },
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SBFootprintComponent'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SBFootprintComponent'BP_QuadArm_C:SBFootprint_GEN_VARIABLE'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.81"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_EnemyCharacter_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/BP_EnemyCharacter.22"
+            },
+            "SCSVariableName": "SBFootprint",
+            "AssociatedGuid": "372D1563-4B1107AF-71ACBB9D-615B9B9C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SBActorVisibilityComponent",
+    "Name": "ActorVisibilityComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ActorVisibilityComponent",
+    "Class": "UScriptClass'SBActorVisibilityComponent'"
+  },
+  {
+    "Type": "SBAdjustRootMotionComponent",
+    "Name": "AdjustRootMotionComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "AdjustRootMotionComp",
+    "Class": "UScriptClass'SBAdjustRootMotionComponent'"
+  },
+  {
+    "Type": "SBAISharedInfoComponent",
+    "Name": "AISharedInfoComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "AISharedInfoComponent",
+    "Class": "UScriptClass'SBAISharedInfoComponent'"
+  },
+  {
+    "Type": "SBAnimationControlComponent",
+    "Name": "AnimationControlComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "AnimationControlComp",
+    "Class": "UScriptClass'SBAnimationControlComponent'"
+  },
+  {
+    "Type": "SBBattleStatusComponent",
+    "Name": "BattleStatusComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "BattleStatusComp",
+    "Class": "UScriptClass'SBBattleStatusComponent'",
+    "Properties": {
+      "OnClientSendEffectiveBattleStatusParamDelegete": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_QuadArm_C'Default__BP_QuadArm_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.10"
+            },
+            "FunctionName": "OnClientSendEffectiveBattleStatusParam"
+          }
+        ]
+      },
+      "OnClientSendImportantBattleEffectiveDelegete": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_QuadArm_C'Default__BP_QuadArm_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.10"
+            },
+            "FunctionName": "OnClientSendImportantBattleEffective"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBBoneScaleCacheData",
+    "Name": "BoneScaleChacheData",
+    "Outer": "CharaCreate",
+    "Template": "BoneScaleChacheData",
+    "Class": "UScriptClass'SBBoneScaleCacheData'"
+  },
+  {
+    "Type": "SBCharaBodyCapsuleComponent",
+    "Name": "SBCharaBodyCapsule_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCharaBodyCapsuleComponent'",
+    "Properties": {
+      "CapsuleHalfHeight": 150.0,
+      "CapsuleRadius": 100.0,
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -10.0
+      }
+    }
+  },
+  {
+    "Type": "SBCharaBodyCapsuleGroupComponent",
+    "Name": "CharaBodyCapsuleGroupComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "CharaBodyCapsuleGroupComp",
+    "Class": "UScriptClass'SBCharaBodyCapsuleGroupComponent'"
+  },
+  {
+    "Type": "SBCharaCreateComponent",
+    "Name": "CharaCreate",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "CharaCreate",
+    "Class": "UScriptClass'SBCharaCreateComponent'",
+    "Properties": {
+      "DefaultCharaCreateData": {
+        "ObjectName": "SBCharaCreateData'CCD_Enemy_E003_00'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/CreateData/Enemy/CCD_Enemy_E003_00.0"
+      }
+    }
+  },
+  {
+    "Type": "SBCharacterAnimationSamplingComponent",
+    "Name": "EnemyAnimationSamplingComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyAnimationSamplingComp",
+    "Class": "UScriptClass'SBCharacterAnimationSamplingComponent'",
+    "Properties": {
+      "AnimationSamplingAsset": {
+        "ObjectName": "SBCharacterAnimationSamplingAsset'ASA_QuadArm'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/AnimationSampleData/ASA_QuadArm.0"
+      }
+    }
+  },
+  {
+    "Type": "SBCharacterChanceTimeDownComponent",
+    "Name": "ChanceTimeDownComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ChanceTimeDownComponent",
+    "Class": "UScriptClass'SBCharacterChanceTimeDownComponent'",
+    "Properties": {
+      "bUseElementalBurstChanceTimeDown": true
+    }
+  },
+  {
+    "Type": "SBCharacterChangeEmissiveColorComponent",
+    "Name": "SBEnemyChangeEmissiveColor_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCharacterChangeEmissiveColorComponent'",
+    "Properties": {
+      "EmissiveColorList": [
+        {
+          "R": 0.0,
+          "G": 0.1,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FF0059FF"
+        },
+        {
+          "R": 1.0,
+          "G": 0.1,
+          "B": 0.0,
+          "A": 1.0,
+          "Hex": "FFFF5900"
+        },
+        {
+          "R": 0.1,
+          "G": 0.0,
+          "B": 0.1,
+          "A": 1.0,
+          "Hex": "FF590059"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SBCharaPartsFaceComponent",
+    "Name": "FaceSlot",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "FaceSlot",
+    "Class": "UScriptClass'SBCharaPartsFaceComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBEnemySkeletalMeshComponent'Default__BP_QuadArm_C:CharacterMesh0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.72"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "CharacterMesh0",
+    "Template": "CharaPartsMaterial",
+    "Class": "UScriptClass'SBCharaPartsMaterial'"
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "FaceSlot",
+    "Template": "CharaPartsMaterial",
+    "Class": "UScriptClass'SBCharaPartsMaterial'"
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "SBCollisionGroup_LBArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "GroupId": 3
+    }
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "SBCollisionGroup_LFArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "GroupId": 2
+    }
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "SBCollisionGroup_RBArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "GroupId": 5
+    }
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "SBCollisionGroup_RFArm_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "GroupId": 4
+    }
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "SBCollisionGroup_Weak_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "GroupId": 1
+    }
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "CollisionGroup",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "CollisionGroup",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBEnemySceneComponent'Default__BP_QuadArm_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.70"
+      }
+    }
+  },
+  {
+    "Type": "SBDebugFunctionComponent",
+    "Name": "DebugFunctionComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "DebugFunctionComponent",
+    "Class": "UScriptClass'SBDebugFunctionComponent'"
+  },
+  {
+    "Type": "SBDelegateHitAuthComponent",
+    "Name": "DelegateHitAuthComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "DelegateHitAuthComp",
+    "Class": "UScriptClass'SBDelegateHitAuthComponent'"
+  },
+  {
+    "Type": "SBDemoParameterComponent",
+    "Name": "DemoParameterComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "DemoParameterComp",
+    "Class": "UScriptClass'SBDemoParameterComponent'"
+  },
+  {
+    "Type": "SBEnemyAbilitySystemComponent",
+    "Name": "AbilitySystemComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "AbilitySystemComp",
+    "Class": "UScriptClass'SBEnemyAbilitySystemComponent'",
+    "Properties": {
+      "ReplicatedPredictionKeyMap": {
+        "PredictionKeys": [
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 1,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 2,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 3,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 4,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 5,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 6,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 7,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 8,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 9,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 10,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 11,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 12,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 13,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 14,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 15,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 16,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 17,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 18,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 19,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 20,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 21,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 22,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 23,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 24,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 25,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 26,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 27,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 28,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 29,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 30,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 31,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          },
+          {
+            "PredictionKey": {
+              "PredictiveConnection": null,
+              "Current": 0,
+              "Base": 0,
+              "bIsStale": false,
+              "bIsServerInitiated": false
+            },
+            "ReplicationID": 32,
+            "ReplicationKey": 0,
+            "MostRecentArrayReplicationKey": -1
+          }
+        ],
+        "ArrayReplicationKey": 32
+      }
+    }
+  },
+  {
+    "Type": "SBEnemyActionParamComponent",
+    "Name": "EnemyActionParamComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyActionParamComp",
+    "Class": "UScriptClass'SBEnemyActionParamComponent'",
+    "Properties": {
+      "ActionTableNormalMode": {
+        "ObjectName": "DataTable'DT_QuadArmActionTable_Normal'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/DT_QuadArmActionTable_Normal.0"
+      },
+      "ActionTableBattleMode": {
+        "ObjectName": "DataTable'DT_QuadArmActionTable_Battle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/DT_QuadArmActionTable_Battle.0"
+      },
+      "ActionTableExtra": {
+        "ObjectName": "DataTable'DT_QuadArmExtraActionTable'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/DT_QuadArmExtraActionTable.0"
+      }
+    }
+  },
+  {
+    "Type": "SBEnemyBadZoneAvoidanceComponent",
+    "Name": "EnemyBadZoneAvoidanceComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyBadZoneAvoidanceComp",
+    "Class": "UScriptClass'SBEnemyBadZoneAvoidanceComponent'"
+  },
+  {
+    "Type": "SBEnemyBattleConditionComponent",
+    "Name": "EnemyBattleConditionComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyBattleConditionComp",
+    "Class": "UScriptClass'SBEnemyBattleConditionComponent'"
+  },
+  {
+    "Type": "SBEnemyBlendSpaceInputComponent",
+    "Name": "EnemyBlendSpaceInputComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyBlendSpaceInputComp",
+    "Class": "UScriptClass'SBEnemyBlendSpaceInputComponent'"
+  },
+  {
+    "Type": "SBEnemyBuddyRevivalComponent",
+    "Name": "BuddyRevivalComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "BuddyRevivalComp",
+    "Class": "UScriptClass'SBEnemyBuddyRevivalComponent'"
+  },
+  {
+    "Type": "SBEnemyChantComponent",
+    "Name": "SBEnemyChant_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBEnemyChantComponent'"
+  },
+  {
+    "Type": "SBEnemyChantMarkerManagerComponent",
+    "Name": "MarkerManagerComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "MarkerManagerComponent",
+    "Class": "UScriptClass'SBEnemyChantMarkerManagerComponent'"
+  },
+  {
+    "Type": "SBEnemyCharacterMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "CharMoveComp",
+    "Class": "UScriptClass'SBEnemyCharacterMovementComponent'",
+    "Properties": {
+      "MinGroundSpeed": 350.0,
+      "MaxRunSpeed": 550.0,
+      "MaxDashSpeed": 600.0
+    }
+  },
+  {
+    "Type": "SBEnemyCollisionHitComponent",
+    "Name": "EnemyCollisionHitComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyCollisionHitComponent",
+    "Class": "UScriptClass'SBEnemyCollisionHitComponent'"
+  },
+  {
+    "Type": "SBEnemyConditionalVoiceComponent",
+    "Name": "ConditionalVoiceComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ConditionalVoiceComp",
+    "Class": "UScriptClass'SBEnemyConditionalVoiceComponent'"
+  },
+  {
+    "Type": "SBEnemyDeathEffectComponent",
+    "Name": "EnemyDeathEffectComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyDeathEffectComp",
+    "Class": "UScriptClass'SBEnemyDeathEffectComponent'"
+  },
+  {
+    "Type": "SBEnemyDropComponent",
+    "Name": "EnemyDropComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyDropComp",
+    "Class": "UScriptClass'SBEnemyDropComponent'"
+  },
+  {
+    "Type": "SBEnemyDxBattleComponent",
+    "Name": "EnemyDxBattleComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyDxBattleComp",
+    "Class": "UScriptClass'SBEnemyDxBattleComponent'"
+  },
+  {
+    "Type": "SBEnemyExitEffectComponent",
+    "Name": "EnemyExitEffectComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyExitEffectComp",
+    "Class": "UScriptClass'SBEnemyExitEffectComponent'"
+  },
+  {
+    "Type": "SBEnemyModifierComponent",
+    "Name": "EnemyModifierComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyModifierComp",
+    "Class": "UScriptClass'SBEnemyModifierComponent'"
+  },
+  {
+    "Type": "SBEnemyPartsManagerComponent",
+    "Name": "EnemyPartsBreakComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyPartsBreakComp",
+    "Class": "UScriptClass'SBEnemyPartsManagerComponent'"
+  },
+  {
+    "Type": "SBEnemyPhaseComponent",
+    "Name": "EnemyPhaseComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyPhaseComp",
+    "Class": "UScriptClass'SBEnemyPhaseComponent'"
+  },
+  {
+    "Type": "SBEnemySceneComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "CollisionCylinder",
+    "Class": "UScriptClass'SBEnemySceneComponent'",
+    "Properties": {
+      "CapsuleRadius": 70.0
+    }
+  },
+  {
+    "Type": "SBEnemySenseChangerComponent",
+    "Name": "SenseChangerComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "SenseChangerComponent",
+    "Class": "UScriptClass'SBEnemySenseChangerComponent'"
+  },
+  {
+    "Type": "SBEnemySkeletalMeshComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "CharacterMesh0",
+    "Class": "UScriptClass'SBEnemySkeletalMeshComponent'",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'AB_QuadArm_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Animations/Enemy/E003/AB_QuadArm.4"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_CH_E003_00'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/Enemy/E003_00/Model/SK_CH_E003_00.0"
+      },
+      "AttachParent": {
+        "ObjectName": "SBEnemySceneComponent'Default__BP_QuadArm_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.70"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -155.0
+      }
+    }
+  },
+  {
+    "Type": "SBEnemyStanceComponent",
+    "Name": "StanceComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "StanceComp",
+    "Class": "UScriptClass'SBEnemyStanceComponent'"
+  },
+  {
+    "Type": "SBEnemyStateMachineReplayComponent",
+    "Name": "StateMachineReplayComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "StateMachineReplayComp",
+    "Class": "UScriptClass'SBEnemyStateMachineReplayComponent'"
+  },
+  {
+    "Type": "SBEnemySummonComponent",
+    "Name": "SummonComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "SummonComponent",
+    "Class": "UScriptClass'SBEnemySummonComponent'"
+  },
+  {
+    "Type": "SBEnemyTargetingComponent",
+    "Name": "EnemyTargetingComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyTargetingComp",
+    "Class": "UScriptClass'SBEnemyTargetingComponent'"
+  },
+  {
+    "Type": "SBEnemyTideComponent",
+    "Name": "EnemyTideComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "EnemyTideComp",
+    "Class": "UScriptClass'SBEnemyTideComponent'"
+  },
+  {
+    "Type": "SBExecDelegateWithConditionComponent",
+    "Name": "ExecDelegateWithConditionComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ExecDelegateWithConditionComp",
+    "Class": "UScriptClass'SBExecDelegateWithConditionComponent'"
+  },
+  {
+    "Type": "SBFacialAnimationDataHolder",
+    "Name": "FacialAnimationDataHolder",
+    "Outer": "CharaCreate",
+    "Template": "FacialAnimationDataHolder",
+    "Class": "UScriptClass'SBFacialAnimationDataHolder'"
+  },
+  {
+    "Type": "SBFactionInfluenceSourceComponent",
+    "Name": "FactionInfluenceComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "FactionInfluenceComponent",
+    "Class": "UScriptClass'SBFactionInfluenceSourceComponent'"
+  },
+  {
+    "Type": "SBFootprintComponent",
+    "Name": "SBFootprint_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Template": "SBFootprint_GEN_VARIABLE",
+    "Class": "UScriptClass'SBFootprintComponent'",
+    "Properties": {
+      "m_DecalSize": 0.0,
+      "SurfaceFootprintSettingList": {
+        "m_FPWalkStart": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "m_FPWalk": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "m_FPRun": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "m_FPDash": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "m_FPJump": {
+          "AssetPathName": "/Game/Effect/Blueprint/Footprint/Enemy/E003/BP_FP_E003_00_Jump.BP_FP_E003_00_Jump_C",
+          "SubPathString": ""
+        },
+        "m_FPLandingS": {
+          "AssetPathName": "/Game/Effect/Blueprint/Footprint/Enemy/E003/BP_FP_E003_00_Landing_S.BP_FP_E003_00_Landing_S_C",
+          "SubPathString": ""
+        },
+        "m_FPLandingM": {
+          "AssetPathName": "/Game/Effect/Blueprint/Footprint/Enemy/E003/BP_FP_E003_00_Landing_M.BP_FP_E003_00_Landing_M_C",
+          "SubPathString": ""
+        },
+        "m_FPDown": {
+          "AssetPathName": "/Game/Effect/Blueprint/Footprint/Enemy/E003/BP_FP_E003_00_Down_S.BP_FP_E003_00_Down_S_C",
+          "SubPathString": ""
+        },
+        "m_FPDownM": {
+          "AssetPathName": "/Game/Effect/Blueprint/Footprint/Enemy/E003/BP_FP_E003_00_Down_M.BP_FP_E003_00_Down_M_C",
+          "SubPathString": ""
+        },
+        "m_FPHeavyAttack": {
+          "AssetPathName": "/Game/Effect/Blueprint/Footprint/Enemy/E003/BP_FP_E003_00_HeavyAttack.BP_FP_E003_00_HeavyAttack_C",
+          "SubPathString": ""
+        },
+        "m_FPStep": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        }
+      }
+    }
+  },
+  {
+    "Type": "SBMovementPredictComponent",
+    "Name": "MovementPredictComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "MovementPredictComponent",
+    "Class": "UScriptClass'SBMovementPredictComponent'"
+  },
+  {
+    "Type": "SBNamePlateComponent2D",
+    "Name": "NamePlate_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Template": "NamePlate_GEN_VARIABLE",
+    "Class": "UScriptClass'SBNamePlateComponent2D'",
+    "Properties": {
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SBPartsDamageAnimParamter",
+    "Name": "PartsDamageAnimParamter",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "PartsDamageAnimParamter",
+    "Class": "UScriptClass'SBPartsDamageAnimParamter'"
+  },
+  {
+    "Type": "SBProjectileSendNetDataComponent",
+    "Name": "ProjectileSendNetDataComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ProjectileSendNetDataComp",
+    "Class": "UScriptClass'SBProjectileSendNetDataComponent'"
+  },
+  {
+    "Type": "SBProjectileShareHitComponent",
+    "Name": "ProjectileShareHitComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ProjectileShareHitComp",
+    "Class": "UScriptClass'SBProjectileShareHitComponent'"
+  },
+  {
+    "Type": "SBProjectileSpawnComponent",
+    "Name": "ProjectileSpawnComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "ProjectileSpawnComp",
+    "Class": "UScriptClass'SBProjectileSpawnComponent'",
+    "Properties": {
+      "ProjectileBuildResource": [
+        {
+          "ConfigInfo": {
+            "ObjectName": "DataTable'E003_Common_Config'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E003_00_QuadArm/E003_Common_Config.0"
+          },
+          "EffectInfo": {
+            "ObjectName": "DataTable'E003_Common_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E003_00_QuadArm/E003_Common_Effect.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SBStateInitializerComponent",
+    "Name": "StateInitializerComp",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "StateInitializerComp",
+    "Class": "UScriptClass'SBStateInitializerComponent'"
+  },
+  {
+    "Type": "SBTargetableComponent",
+    "Name": "SBTargetable_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SBTargetableComponent'"
+  },
+  {
+    "Type": "SBWeaponVisibilityComponent",
+    "Name": "WeaponVisibilityComponent",
+    "Outer": "Default__BP_QuadArm_C",
+    "Template": "WeaponVisibilityComponent",
+    "Class": "UScriptClass'SBWeaponVisibilityComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_QuadArm_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.91"
+      },
+      "VariableGuid": "03D9B64A-4486F8C6-D8B150AB-54033321",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCollisionGroupComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCollisionGroupComponent'BP_QuadArm_C:SBCollisionGroup_Weak_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.47"
+      },
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.102"
+        }
+      ],
+      "VariableGuid": "0D0F9CBB-4B42B0C5-C95F84BF-D57413BA",
+      "InternalVariableName": "SBCollisionGroup_Weak"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_12",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCharacterChangeEmissiveColorComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCharacterChangeEmissiveColorComponent'BP_QuadArm_C:SBEnemyChangeEmissiveColor_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.39"
+      },
+      "VariableGuid": "13311923-47E11345-D7FCD48A-955570A8",
+      "InternalVariableName": "SBEnemyChangeEmissiveColor"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_13",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCollisionGroupComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCollisionGroupComponent'BP_QuadArm_C:SBCollisionGroup_LFArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.44"
+      },
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.100"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.99"
+        }
+      ],
+      "VariableGuid": "B84E892A-457F55A1-4DDF599D-8FDE88EE",
+      "InternalVariableName": "SBCollisionGroup_LFArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_14",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCollisionGroupComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCollisionGroupComponent'BP_QuadArm_C:SBCollisionGroup_LBArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.43"
+      },
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.103"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.101"
+        }
+      ],
+      "VariableGuid": "E4E2E787-4E9E7FF5-AD0CB3BB-46B38521",
+      "InternalVariableName": "SBCollisionGroup_LBArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_15",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCollisionGroupComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCollisionGroupComponent'BP_QuadArm_C:SBCollisionGroup_RFArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.46"
+      },
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.105"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.104"
+        }
+      ],
+      "VariableGuid": "159ABF3B-4896CB4B-4F6E2482-5C037142",
+      "InternalVariableName": "SBCollisionGroup_RFArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_16",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCollisionGroupComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCollisionGroupComponent'BP_QuadArm_C:SBCollisionGroup_RBArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.45"
+      },
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "ChildNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.107"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.106"
+        }
+      ],
+      "VariableGuid": "0F961203-40CB20B5-EC9DE48E-AEF43511",
+      "InternalVariableName": "SBCollisionGroup_RBArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_17",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_D_LFArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.13"
+      },
+      "AttachToName": "LF_ForeArm_J",
+      "VariableGuid": "825C5846-468BB465-34F74F8E-B7F46287",
+      "InternalVariableName": "ASDamage_D_LFArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_18",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_U_LFArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.18"
+      },
+      "AttachToName": "LF_Arm_J",
+      "VariableGuid": "3EE7899F-4394EE1D-9DE9EAB9-CAB4A256",
+      "InternalVariableName": "ASDamage_U_LFArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_19",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_D_LBArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.12"
+      },
+      "AttachToName": "LB_ForeArm_J",
+      "VariableGuid": "8F12CAA4-43558CC4-CD5A1FBE-47D163BA",
+      "InternalVariableName": "ASDamage_D_LBArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_Head_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.16"
+      },
+      "AttachToName": "Head_J",
+      "VariableGuid": "2822BD40-448725F5-E9FE3D82-E6A2A41D",
+      "InternalVariableName": "ASDamage_Head"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_20",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_U_LBArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.17"
+      },
+      "AttachToName": "LB_Arm_J",
+      "VariableGuid": "D772FAC1-4111FF4C-A81E5192-6EBD66EE",
+      "InternalVariableName": "ASDamage_U_LBArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_21",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_D_RFArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.15"
+      },
+      "AttachToName": "RF_ForeArm_J",
+      "VariableGuid": "9D41F94B-48B45AEE-E31A6B8E-C7134D69",
+      "InternalVariableName": "ASDamage_D_RFArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_22",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_U_RFArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.20"
+      },
+      "AttachToName": "RF_Arm_J",
+      "VariableGuid": "792443F5-4D57E67D-94A957AA-8A5AE88B",
+      "InternalVariableName": "ASDamage_U_RFArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_23",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_D_RBArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.14"
+      },
+      "AttachToName": "RB_ForeArm_J",
+      "VariableGuid": "51241F60-40DAE148-A45D37A2-E9EF0F2E",
+      "InternalVariableName": "ASDamage_D_RBArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_24",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionCapsuleComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionCapsuleComponent'BP_QuadArm_C:ASDamage_U_RBArm_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.19"
+      },
+      "AttachToName": "RB_Arm_J",
+      "VariableGuid": "6F323D67-41879D35-DEB338A8-812DA463",
+      "InternalVariableName": "ASDamage_U_RBArm"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_25",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'CapsuleComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "CapsuleComponent'BP_QuadArm_C:ASDamage_DBody_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.25"
+      },
+      "AttachToName": "Rot_J",
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "2A7C7241-42EDAB7D-48DDDA8B-65A7879C",
+      "InternalVariableName": "ASDamage_DBody"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_3",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBTargetableComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBTargetableComponent'BP_QuadArm_C:SBTargetable_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.89"
+      },
+      "AttachToName": "Body_J",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "7FD95E53-4DAD1A3A-E29A56AD-EAA17915",
+      "InternalVariableName": "SBTargetable"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_5",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionSphereComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionSphereComponent'BP_QuadArm_C:ASDamage_UBody_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.23"
+      },
+      "AttachToName": "Spine04_J",
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "6FA884B2-410160AC-B493C5A0-8E07AACB",
+      "InternalVariableName": "ASDamage_UBody"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_6",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionSphereComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionSphereComponent'BP_QuadArm_C:ASDamage_Lshoulder_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.21"
+      },
+      "AttachToName": "L_Clavicle_J",
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "11AEE966-4AAC83A8-4FF6269F-8B9CE5C4",
+      "InternalVariableName": "ASDamage_Lshoulder"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_7",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'ASCollisionSphereComponent'",
+        "ObjectPath": "/Script/ActionSystem"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "ASCollisionSphereComponent'BP_QuadArm_C:ASDamage_Rshoulder_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.22"
+      },
+      "AttachToName": "R_Clavicle_J",
+      "ParentComponentOrVariableName": "CollisionGroup",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "FB7BB708-46A8F838-3A9400A0-97160155",
+      "InternalVariableName": "ASDamage_Rshoulder"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_8",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBCharaBodyCapsuleComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBCharaBodyCapsuleComponent'BP_QuadArm_C:SBCharaBodyCapsule_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.34"
+      },
+      "AttachToName": "Rot_J",
+      "ParentComponentOrVariableName": "CharacterMesh0",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "20521809-4902F737-4F0DD99F-E05AA46D",
+      "InternalVariableName": "SBCharaBodyCapsule"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_9",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBEnemyChantComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBEnemyChantComponent'BP_QuadArm_C:SBEnemyChant_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.58"
+      },
+      "VariableGuid": "16DF214E-45AAFE15-B4A6CC88-E455465E",
+      "InternalVariableName": "SBEnemyChant"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_QuadArm_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.93"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.110"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.111"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.112"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.113"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.109"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.114"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.94"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.95"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.96"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.97"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.98"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.108"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.93"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.102"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.110"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.111"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.112"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_8'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.113"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.109"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.114"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_12'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.94"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_13'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.95"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_14'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.96"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_15'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.97"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_16'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.98"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_18'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.100"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_17'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.99"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_20'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.103"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_19'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.101"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_22'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.105"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_21'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.104"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_24'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.107"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_23'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.106"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_25'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.108"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_QuadArm_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/E003_00_QuadArm/BP_QuadArm.92"
+      }
+    }
+  }
+]

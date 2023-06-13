@@ -1,0 +1,895 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_QuestDetail_ReceiveCondition",
+    "Outer": "QuestDetail_ReceiveCondition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "QuestDetail_ReceiveCondition_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": 134350856
+  },
+  {
+    "Type": "Function",
+    "Name": "SetCondition",
+    "Outer": "QuestDetail_ReceiveCondition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ArrayProperty",
+        "Name": "InConditions",
+        "Flags": 1,
+        "ElementSize": 16,
+        "PropertyFlags": 134218132,
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "InConditions",
+          "Flags": 1,
+          "ElementSize": 24,
+          "Struct": {
+            "ObjectName": "ScriptStruct'SBQuestPreconditionUIInfo'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": 1,
+        "ElementSize": 24,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBQuestPreconditionUIInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 24
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Create_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ReceiveConditionItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveConditionItem.1"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_AddChildToVerticalBox_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 524288,
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBoxSlot'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FunctionFlags": 214040576
+  },
+  {
+    "Type": "Function",
+    "Name": "SelectCautionText",
+    "Outer": "QuestDetail_ReceiveCondition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsProceeding",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 2
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_1",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 2
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 2
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "QuestDetail_ReceiveCondition_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'QuestDetail_ReceiveCondition_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.29"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:ExecuteUbergraph_QuestDetail_ReceiveCondition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:SelectCautionText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.3"
+      },
+      {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:SetCondition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.2"
+      },
+      {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.1"
+      },
+      {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:ExecuteUbergraph_QuestDetail_ReceiveCondition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CautionText",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'SBRuntimeTextBlock'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CautionTxtMessage",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'CanvasPanel'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "ConditionList",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'VerticalBox'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "QuestDetail_ReceiveConditionItem",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ReceiveConditionItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveConditionItem.1"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "QuestDetail_ReceiveConditionItem_0",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "WidgetBlueprintGeneratedClass'QuestDetail_ReceiveConditionItem_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveConditionItem.1"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_QuestDetail_ReceiveCondition": {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:ExecuteUbergraph_QuestDetail_ReceiveCondition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.0"
+      },
+      "Construct": {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.1"
+      },
+      "SetCondition": {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:SetCondition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.2"
+      },
+      "SelectCautionText": {
+        "ObjectName": "Function'QuestDetail_ReceiveCondition_C:SelectCautionText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.3"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "QuestDetail_ReceiveCondition_C'Default__QuestDetail_ReceiveCondition_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.5"
+    }
+  },
+  {
+    "Type": "QuestDetail_ReceiveCondition_C",
+    "Name": "Default__QuestDetail_ReceiveCondition_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.QuestDetail_ReceiveCondition_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.9"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.11"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.10"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.8"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CautionTxtMessage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.12"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.13"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.28"
+      },
+      "bIsVariable": true,
+      "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 140.0,
+          "Right": 462.0,
+          "Bottom": 84.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.6"
+      },
+      "Content": {
+        "ObjectName": "Overlay'QuestDetail_ReceiveCondition_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.17"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 620.0,
+          "Bottom": 0.0
+        },
+        "Anchors": {
+          "Maximum": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.6"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_ReceiveCondition_C:WidgetTree.Bg1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.14"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_3",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 120.0,
+          "Top": 8.0,
+          "Right": 4.0,
+          "Bottom": 8.0
+        },
+        "Anchors": {
+          "Maximum": {
+            "X": 0.0,
+            "Y": 1.0
+          }
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.6"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_ReceiveCondition_C:WidgetTree.Line'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.16"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_6",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 24.0,
+          "Right": 80.0,
+          "Bottom": 28.0
+        },
+        "Anchors": {
+          "Minimum": {
+            "X": 0.0,
+            "Y": 0.5
+          },
+          "Maximum": {
+            "X": 0.0,
+            "Y": 0.5
+          }
+        },
+        "Alignment": {
+          "X": 0.0,
+          "Y": 0.5
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.6"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'QuestDetail_ReceiveCondition_C:WidgetTree.Label_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.22"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CautionTxtMessage",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 8.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.7"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestDetail_ReceiveCondition_C:WidgetTree.Image_88'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.15"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CautionTxtMessage",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 37.0,
+          "Right": 354.0,
+          "Bottom": 22.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.7"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'QuestDetail_ReceiveCondition_C:WidgetTree.CautionText'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.21"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Bg1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "ColorAndOpacity": {
+        "R": 0.033105,
+        "G": 0.033105,
+        "B": 0.033105,
+        "A": 1.0,
+        "Hex": "FF333333"
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.9"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_88",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 21.0,
+          "Y": 20.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_QuestDetailIcon2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/QuestDetail/UI_QuestDetailIcon2.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.12"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Line",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 4.0,
+          "Y": 28.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_CmnLineV1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Common/UI_CmnLineV1.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.10"
+      },
+      "bIsVariable": false
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'QuestDetail_ReceiveCondition_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.18"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.8"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Padding": {
+        "Top": 8.0,
+        "Bottom": 8.0
+      },
+      "HorizontalAlignment": "HAlign_Fill",
+      "Parent": {
+        "ObjectName": "Overlay'QuestDetail_ReceiveCondition_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.17"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.24"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_ReceiveConditionItem_C",
+    "Name": "QuestDetail_ReceiveConditionItem",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_ReceiveConditionItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveConditionItem.QuestDetail_ReceiveConditionItem_C'",
+    "Properties": {
+      "ForegroundColor": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        },
+        "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList.VerticalBoxSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.25"
+      }
+    }
+  },
+  {
+    "Type": "QuestDetail_ReceiveConditionItem_C",
+    "Name": "QuestDetail_ReceiveConditionItem_0",
+    "Outer": "WidgetTree",
+    "Template": "Default__QuestDetail_ReceiveConditionItem_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveConditionItem.QuestDetail_ReceiveConditionItem_C'",
+    "Properties": {
+      "ForegroundColor": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 1.0,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFFFFFFF"
+        },
+        "ColorUseRule": "ESlateColorStylingMode::UseColor_Specified"
+      },
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList.VerticalBoxSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.26"
+      }
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "CautionText",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'QuestDetail_Accepted'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/QuestDetail_Accepted.0"
+      },
+      "TextId": 30,
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "bEnableWidthFitting": true,
+      "ColorAndOpacity": {
+        "SpecifiedColor": {
+          "R": 1.0,
+          "G": 0.152926,
+          "B": 0.0,
+          "A": 1.0,
+          "Hex": "FFFF6D00"
+        }
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 11
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.13"
+      },
+      "bIsVariable": true,
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "Label_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'QuestDetail_Accepted'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/QuestDetail_Accepted.0"
+      },
+      "TextId": 15,
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "bEnableWidthFitting": true,
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 12
+      },
+      "Justification": "ETextJustify::Center",
+      "Margin": {
+        "Top": 2.0
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_6'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.11"
+      },
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "ConditionList",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList.VerticalBoxSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.25"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList.VerticalBoxSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.26"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.27"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "VerticalBox",
+    "Name": "VerticalBox_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'VerticalBox'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.27"
+        },
+        {
+          "ObjectName": "VerticalBoxSlot'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0.VerticalBoxSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.28"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "OverlaySlot'QuestDetail_ReceiveCondition_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.18"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_1",
+    "Outer": "ConditionList",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.23"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_ReceiveConditionItem_C'QuestDetail_ReceiveCondition_C:WidgetTree.QuestDetail_ReceiveConditionItem'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.19"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_3",
+    "Outer": "ConditionList",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.23"
+      },
+      "Content": {
+        "ObjectName": "QuestDetail_ReceiveConditionItem_C'QuestDetail_ReceiveCondition_C:WidgetTree.QuestDetail_ReceiveConditionItem_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.20"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_0",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.24"
+      },
+      "Content": {
+        "ObjectName": "VerticalBox'QuestDetail_ReceiveCondition_C:WidgetTree.ConditionList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.23"
+      }
+    }
+  },
+  {
+    "Type": "VerticalBoxSlot",
+    "Name": "VerticalBoxSlot_2",
+    "Outer": "VerticalBox_0",
+    "Class": "UScriptClass'VerticalBoxSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "VerticalBox'QuestDetail_ReceiveCondition_C:WidgetTree.VerticalBox_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.24"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CautionTxtMessage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.7"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "QuestDetail_ReceiveCondition_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'QuestDetail_ReceiveCondition_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/QuestDetail/SubWidgets/QuestDetail_ReceiveCondition.6"
+      }
+    }
+  }
+]

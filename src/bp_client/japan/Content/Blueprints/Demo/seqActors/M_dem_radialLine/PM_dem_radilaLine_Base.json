@@ -1,0 +1,517 @@
+[
+  {
+    "Type": "Material",
+    "Name": "PM_dem_radilaLine_Base",
+    "Class": "UScriptClass'Material'",
+    "Properties": {
+      "EmissiveColor": {
+        "Expression": null,
+        "OutputIndex": 0,
+        "InputName": "None",
+        "Mask": 0,
+        "MaskR": 0,
+        "MaskG": 0,
+        "MaskB": 0,
+        "MaskA": 0,
+        "ExpressionName": "MaterialExpressionLinearInterpolate_4",
+        "UseConstant": false,
+        "Constant": {
+          "B": 0,
+          "G": 0,
+          "R": 0,
+          "A": 0,
+          "Hex": "000000"
+        }
+      },
+      "MaterialDomain": "MD_PostProcess",
+      "bCanMaskedBeAssumedOpaque": true,
+      "BlendableLocation": "BL_BeforeTonemapping",
+      "StateId": "5903670C-4FF988A0-A6FB6381-BDDE2BAE",
+      "CachedExpressionData": {
+        "Parameters": {
+          "RuntimeEntries": {
+            "NameHashes": [
+              4531069452260090880,
+              10197229356397267420,
+              15699805010637485864
+            ],
+            "ParameterInfos": [
+              {
+                "Name": "04c.screenMaskRot(degree)",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "posY",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "posX",
+                "Association": "GlobalParameter",
+                "Index": -1
+              }
+            ],
+            "ExpressionGuids": [
+              "82AFDEB7-4FB7BF1D-D92B7D8A-73D8DB6B",
+              "9F3D4FF1-473CD8BF-5CD2BB96-E6E162F1",
+              "4B65FB2E-4A920C06-87E48F98-F87AFCB5"
+            ]
+          },
+          "RuntimeEntries": {
+            "NameHashes": [
+              16302441770421648068
+            ],
+            "ParameterInfos": [
+              {
+                "Name": "02c.gradientTangent",
+                "Association": "GlobalParameter",
+                "Index": -1
+              }
+            ],
+            "ExpressionGuids": [
+              "9135D6E0-41E172AE-1EB7DF84-3606D2C5"
+            ]
+          },
+          "RuntimeEntries": {
+            "NameHashes": [
+              7103679715982226779,
+              13696323735736518005
+            ],
+            "ParameterInfos": [
+              {
+                "Name": "04b.screenMask",
+                "Association": "GlobalParameter",
+                "Index": -1
+              },
+              {
+                "Name": "01b.tex",
+                "Association": "GlobalParameter",
+                "Index": -1
+              }
+            ],
+            "ExpressionGuids": [
+              "F06082A0-4D1D2856-A98C75B3-0CCA25C8",
+              "E26E2F26-483DB98D-B882AF86-95C22830"
+            ]
+          },
+          "ScalarValues": [
+            0.0,
+            0.5,
+            0.5
+          ],
+          "VectorValues": [
+            {
+              "R": 1.0,
+              "G": 1.0,
+              "B": 1.0,
+              "A": 1.0,
+              "Hex": "FFFFFFFF"
+            }
+          ],
+          "TextureValues": [
+            {
+              "ObjectName": "Texture2D'uv_color'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Effect/Material/Texture/DEM/uv_color.0"
+            },
+            {
+              "ObjectName": "Texture2D'T_EF_ao_radialTEST00'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Demo/seqActors/M_dem_radialLine/T_EF_ao_radialTEST00.0"
+            }
+          ]
+        },
+        "ReferencedTextures": [
+          {
+            "ObjectName": "Texture2D'CASC_Cross'",
+            "ObjectPath": "/Engine/EditorMaterials/Cascade/CASC_Cross"
+          },
+          {
+            "ObjectName": "Texture2D'CASC_None'",
+            "ObjectPath": "/Engine/EditorMaterials/Cascade/CASC_None"
+          },
+          {
+            "ObjectName": "Texture2D'T_EF_ao_radialTEST00'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Demo/seqActors/M_dem_radialLine/T_EF_ao_radialTEST00.0"
+          },
+          null,
+          {
+            "ObjectName": "Texture2D'DefaultDiffuse'",
+            "ObjectPath": "Engine/Content/EngineMaterials/DefaultDiffuse.0"
+          },
+          {
+            "ObjectName": "Texture2D'DebugNumberStrip'",
+            "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/DebugNumberStrip.0"
+          },
+          {
+            "ObjectName": "Texture2D'DebugNumberPeriod'",
+            "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ExampleContent/Textures/DebugNumberPeriod.0"
+          },
+          {
+            "ObjectName": "Texture2D'uv_color'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Material/Texture/DEM/uv_color.0"
+          }
+        ],
+        "FunctionInfos": [
+          {
+            "StateId": "42FB52C9-4B6E464D-2D6CB2B5-E6A65899",
+            "Function": {
+              "ObjectName": "MaterialFunction'ExponentialDensity'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.0"
+            }
+          },
+          {
+            "StateId": "42FB52C9-4B6E464D-2D6CB2B5-E6A65899",
+            "Function": {
+              "ObjectName": "MaterialFunction'ExponentialDensity'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.0"
+            }
+          },
+          {
+            "StateId": "235C8133-44D704CA-0297108A-59B9F710",
+            "Function": {
+              "ObjectName": "MaterialFunction'RadialGradientExponential'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.0"
+            }
+          },
+          {
+            "StateId": "E35EF558-460895B8-04ACB384-145CA938",
+            "Function": {
+              "ObjectName": "MaterialFunction'MF_PSBlend_Screen'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Common/MaterialFunction/PhotoshopBlendModes/MF_PSBlend_Screen.0"
+            }
+          },
+          {
+            "StateId": "5E28F255-4817E6E7-2D027C9A-2F7126C6",
+            "Function": {
+              "ObjectName": "MaterialFunction'VectorToRadialValue'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "127A25CC-4BE0E6F9-0A2D99BF-43C74E15",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat4Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.0"
+            }
+          },
+          {
+            "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
+            "Function": {
+              "ObjectName": "MaterialFunction'LinearGradient'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "9CA24D41-4C162B26-E46777B6-3BFC4B9C",
+            "Function": {
+              "ObjectName": "MaterialFunction'SmoothCurve'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Gradients/SmoothCurve.0"
+            }
+          },
+          {
+            "StateId": "B7C71B91-4E2BB667-772D6CBE-2AB55665",
+            "Function": {
+              "ObjectName": "MaterialFunction'LinearGradient'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/LinearGradient.0"
+            }
+          },
+          {
+            "StateId": "9CA24D41-4C162B26-E46777B6-3BFC4B9C",
+            "Function": {
+              "ObjectName": "MaterialFunction'SmoothCurve'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Gradients/SmoothCurve.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "6AC58F61-4B10218D-8CB7E698-24C69788",
+            "Function": {
+              "ObjectName": "MaterialFunction'MF_EF_PolarCoordinates'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Effect/Material/Material_Fanction/MF_EF_PolarCoordinates.0"
+            }
+          },
+          {
+            "StateId": "A9CC16D5-4B375243-36F3CF86-3EF27E55",
+            "Function": {
+              "ObjectName": "MaterialFunction'TextureCropping'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping.0"
+            }
+          },
+          {
+            "StateId": "E47E7D6B-466F913C-C1497584-EDB1DBD6",
+            "Function": {
+              "ObjectName": "MaterialFunction'ComputeMipLevel'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel.0"
+            }
+          },
+          {
+            "StateId": "2DA7361E-4ADEEDBC-9E251392-08DB9B40",
+            "Function": {
+              "ObjectName": "MaterialFunction'DebugScalarValues'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues.0"
+            }
+          },
+          {
+            "StateId": "9C4DA68C-402831FF-D4AA2491-B7AD037B",
+            "Function": {
+              "ObjectName": "MaterialFunction'MF_EF_random0-1'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Effect/Material/Material_Fanction/MF_EF_random0-1.0"
+            }
+          },
+          {
+            "StateId": "A9CC16D5-4B375243-36F3CF86-3EF27E55",
+            "Function": {
+              "ObjectName": "MaterialFunction'TextureCropping'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/TextureCropping.0"
+            }
+          },
+          {
+            "StateId": "E47E7D6B-466F913C-C1497584-EDB1DBD6",
+            "Function": {
+              "ObjectName": "MaterialFunction'ComputeMipLevel'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ComputeMipLevel.0"
+            }
+          },
+          {
+            "StateId": "2DA7361E-4ADEEDBC-9E251392-08DB9B40",
+            "Function": {
+              "ObjectName": "MaterialFunction'DebugScalarValues'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/DebugScalarValues.0"
+            }
+          },
+          {
+            "StateId": "9C4DA68C-402831FF-D4AA2491-B7AD037B",
+            "Function": {
+              "ObjectName": "MaterialFunction'MF_EF_random0-1'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Effect/Material/Material_Fanction/MF_EF_random0-1.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScaleUVsByCenter'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "391DDAD7-4E9DCC58-FD37D7B7-2AF07FC2",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScreenResolution'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ScreenResolution.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScaleUVsByCenter'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "391DDAD7-4E9DCC58-FD37D7B7-2AF07FC2",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScreenResolution'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ScreenResolution.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "8530673E-4E3F2FF5-ED3C5090-177441DA",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScreenAlignedUVs'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/ScreenAlignedUVs.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScaleUVsByCenter'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "391DDAD7-4E9DCC58-FD37D7B7-2AF07FC2",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScreenResolution'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ScreenResolution.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "B2F4A5A7-4EDE33D8-E70A4A83-A28D1503",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScaleUVsByCenter'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions01/Texturing/ScaleUVsByCenter.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "391DDAD7-4E9DCC58-FD37D7B7-2AF07FC2",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScreenResolution'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/ScreenResolution.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "8530673E-4E3F2FF5-ED3C5090-177441DA",
+            "Function": {
+              "ObjectName": "MaterialFunction'ScreenAlignedUVs'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Texturing/ScreenAlignedUVs.0"
+            }
+          },
+          {
+            "StateId": "2C1DDB6E-406BC9FC-1D4141A1-7C82122A",
+            "Function": {
+              "ObjectName": "MaterialFunction'BreakOutFloat2Components'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.0"
+            }
+          },
+          {
+            "StateId": "917EB268-40C7E267-26D08999-CBF02920",
+            "Function": {
+              "ObjectName": "MaterialFunction'TransformToClipSpace'",
+              "ObjectPath": "Engine/Content/Functions/Engine_MaterialFunctions02/TransformToClipSpace.0"
+            }
+          }
+        ],
+        "ParameterCollectionInfos": [
+          {
+            "StateId": "B9223033-45A4F325-11895D99-37FCD469",
+            "ParameterCollection": {
+              "ObjectName": "MaterialParameterCollection'MPC_PP_radialLine'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Demo/seqActors/MPC_PP_radialLine.0"
+            }
+          },
+          {
+            "StateId": "8A052A69-44909D28-1C466081-54665F42",
+            "ParameterCollection": {
+              "ObjectName": "MaterialParameterCollection'MPC_PP_posForBP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Demo/seqActors/resource/MPC_PP_posForBP.0"
+            }
+          }
+        ],
+        "QualityLevelsUsed": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    }
+  }
+]

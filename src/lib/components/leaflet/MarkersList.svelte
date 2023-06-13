@@ -1,119 +1,84 @@
 <script>
     import _ from "lodash";
     import { userLocale, markersVisibility } from "$lib/stores";
+    import MarkerToggle from "./MarkerToggle.svelte";
+    import MapControlsViews from "./MapControlsViews.svelte";
 
     export let markers;
-    let selectedTab = "general";
+    let viewType = "list-view";
 
     // Get all categories unique to this map
-    $: uniqueCategories = _.uniqBy(markers, (m) => m.category)
-        .map((m) => m.category)
-        .sort((a, b) => {
-            if (a > b) return 1;
-            if (b < a) return -1;
+    $: markerCategories = _.uniqBy(markers, (m) => m.category).map(
+        (m) => m.category
+    );
+
+    function toggleCategory(category, value) {
+        markers
+            .filter((m) => m.category === category)
+            .forEach((m) => ($markersVisibility[m.name.en_US] = value));
+    }
+
+    function getMarkers(category) {
+        const uniqueMarkers = _.uniqBy(markers, (m) => m.name.en_US);
+
+        const sortedMarkers = uniqueMarkers.sort((a, b) => {
+            if (a.name.en_US > b.name.en_US) return 1;
+            if (b.name.en_US < a.name.en_US) return -1;
             return 0;
         });
 
-    // Get all markers that fall under the selected category
-    $: markersInSelectedCategory = markers.filter(
-        (marker) => marker.category === selectedTab
-    );
-
-    // Return only 1 of each unique marker
-    $: markerToggles = _.uniqBy(
-        markersInSelectedCategory,
-        (m) => m.name.en_US
-    ).sort((a, b) => {
-        if (a.name.en_US > b.name.en_US) return 1;
-        if (b.name.en_US < a.name.en_US) return -1;
-        return 0;
-    });
-
-    function toggleAllMarkers(value) {
-        markerToggles.forEach(
-            (marker) => ($markersVisibility[marker.name.en_US] = value)
-        );
+        return sortedMarkers.filter((m) => m.category === category);
     }
 </script>
 
-<h2>Markers</h2>
+<header class="flex">
+    <h2>Markers</h2>
+    <MapControlsViews id="markers" bind:viewType />
+</header>
 
-<div class="tab-selector flex">
-    {#each uniqueCategories as category}
-        <input
-            type="radio"
-            class="visually-hidden style-next-label"
-            id="toggle-{category}"
-            value={category}
-            bind:group={selectedTab}
-        />
-        <label for="toggle-{category}">{category}</label>
-    {/each}
-</div>
-
-<button on:click={() => toggleAllMarkers(true)}>Show all</button>
-<button on:click={() => toggleAllMarkers(false)}>Hide all</button>
-
-<ul class="markers-list grid g-50">
-    {#each markerToggles as marker, index}
-        <li class="grid">
-            <input
-                type="checkbox"
-                class="style-next-label visually-hidden"
-                id="marker-{index}"
-                bind:checked={$markersVisibility[marker.name.en_US]}
-            />
-            <label class="selection-box" for="marker-{index}">
-                <img
-                    class="marker-icon"
-                    src={marker.iconUrl}
-                    alt=""
-                    width="64"
-                    height="64"
-                />
-                <span>{marker.name[$userLocale]}</span>
-            </label>
-        </li>
-    {/each}
-</ul>
+{#each markerCategories as category}
+    <div class="category-header flex g-50">
+        <span>{category}</span>
+        <div class="buttons-wrapper">
+            <button
+                class="transparent-button"
+                on:click={() => toggleCategory(category, true)}>Show all</button
+            >
+            <button
+                class="transparent-button"
+                on:click={() => toggleCategory(category, false)}
+                >Hide all</button
+            >
+        </div>
+    </div>
+    <ul class="markers-list grid g-50 {viewType}">
+        {#each getMarkers(category) as marker}
+            <li>
+                <MarkerToggle name={marker.name} icon={marker.iconUrl} />
+            </li>
+        {/each}
+    </ul>
+{/each}
 
 <style lang="scss">
-    ul.markers-list {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+    .grid-view {
         grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-        max-inline-size: unset;
-    }
 
-    label.selection-box span {
-        line-height: 1.4;
-        width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .style-next-label:not(:checked) + label {
-        filter: brightness(1.2) contrast(0.5);
-    }
-
-    :global([color-scheme*="dark"] .style-next-label:not(:checked) + label) {
-        filter: brightness(0.6) !important;
-    }
-
-    input:not(:checked) + label,
-    input:disabled + label {
-        img {
-            filter: brightness(1) grayscale(1);
+        li {
+            display: grid;
+            --label-padding: 0.5rem;
+            --label-text-align: center;
         }
     }
 
-    .tab-selector label {
-        background: var(--surface2);
-        padding: 0.5rem;
-    }
+    .list-view {
+        grid-template-columns: 1fr 1fr !important;
 
-    input[type="radio"]:checked + label {
-        color: var(--accent);
+        li {
+            display: flex;
+            --label-padding: 0.125rem 0.25rem;
+            --label-text-align: left;
+            gap: 0.25rem;
+        }
     }
 </style>

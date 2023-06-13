@@ -1,0 +1,579 @@
+[
+  {
+    "Type": "Function",
+    "Name": "TimeLimit_Text",
+    "Outer": "ArenaBattleRuleDisplay1_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "TextProperty",
+        "Name": "ReturnValue",
+        "Flags": 1,
+        "ElementSize": 24,
+        "PropertyFlags": 1408
+      }
+    ],
+    "FunctionFlags": 474087424
+  },
+  {
+    "Type": "Function",
+    "Name": "SetWaveBattle",
+    "Outer": "ArenaBattleRuleDisplay1_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "AllDedCount",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "AllEnemyCount",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CurrentWaveCount",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "TotalWaveCount",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_IntToString_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_IntInt_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_IntToString_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_IntToString_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Concat_StrStr_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Concat_StrStr_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 24
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Conv_IntToString_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Concat_StrStr_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Concat_StrStr_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 24
+      }
+    ],
+    "FunctionFlags": 209846272
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "ArenaBattleRuleDisplay1_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'ArenaBattleRuleDisplay1_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.17"
+      },
+      "bClassRequiresNativeTick": true
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SBUserWidget'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'ArenaBattleRuleDisplay1_C:SetWaveBattle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.1"
+      },
+      {
+        "ObjectName": "Function'ArenaBattleRuleDisplay1_C:TimeLimit_Text'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "EnemyCount_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'TextBlock'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RuleSwitch",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetSwitcher'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WaveCount_1",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 562952101429260,
+        "PropertyClass": {
+          "ObjectName": "Class'TextBlock'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FuncMap": {
+      "TimeLimit_Text": {
+        "ObjectName": "Function'ArenaBattleRuleDisplay1_C:TimeLimit_Text'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.0"
+      },
+      "SetWaveBattle": {
+        "ObjectName": "Function'ArenaBattleRuleDisplay1_C:SetWaveBattle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.1"
+      }
+    },
+    "ClassFlags": 10754064,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "ArenaBattleRuleDisplay1_C'Default__ArenaBattleRuleDisplay1_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.3"
+    }
+  },
+  {
+    "Type": "ArenaBattleRuleDisplay1_C",
+    "Name": "Default__ArenaBattleRuleDisplay1_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.ArenaBattleRuleDisplay1_C'",
+    "Properties": {
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.6"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_142",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_8'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.9"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.10"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_10'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.7"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_11'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.8"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'ArenaBattleRuleDisplay1_C:WidgetTree.RuleSwitch.WidgetSwitcherSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.16"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "CanvasPanel_0",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.4"
+      },
+      "Content": {
+        "ObjectName": "WidgetSwitcher'ArenaBattleRuleDisplay1_C:WidgetTree.RuleSwitch'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.15"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_10",
+    "Outer": "CanvasPanel_142",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 377.0
+        },
+        "Alignment": {
+          "X": 1.0,
+          "Y": 0.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.5"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'ArenaBattleRuleDisplay1_C:WidgetTree.WaveCount_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.14"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_11",
+    "Outer": "CanvasPanel_142",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 377.0,
+          "Top": 41.0
+        },
+        "Alignment": {
+          "X": 1.0,
+          "Y": 0.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.5"
+      },
+      "Content": {
+        "ObjectName": "TextBlock'ArenaBattleRuleDisplay1_C:WidgetTree.EnemyCount_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.13"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_8",
+    "Outer": "CanvasPanel_142",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 219.0
+        },
+        "Alignment": {
+          "X": 1.0,
+          "Y": 0.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.5"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'ArenaBattleRuleDisplay1_C:WidgetTree.SBRuntimeTextBlock_173'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.12"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_9",
+    "Outer": "CanvasPanel_142",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 219.0,
+          "Top": 41.0
+        },
+        "Alignment": {
+          "X": 1.0,
+          "Y": 0.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.5"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'ArenaBattleRuleDisplay1_C:WidgetTree.SBRuntimeTextBlock'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.11"
+      }
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "SBRuntimeTextBlock",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'Arena'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/Arena.0"
+      },
+      "TextId": 6,
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "bEnableWidthFitting": true,
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 30
+      },
+      "Justification": "ETextJustify::Right",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_9'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.10"
+      },
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "SBRuntimeTextBlock_173",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'Arena'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/Arena.0"
+      },
+      "TextId": 5,
+      "Text": {
+        "Namespace": "",
+        "Key": "F38A5ED34A45B6767929A0901F9966DD",
+        "SourceString": "WAVE :",
+        "LocalizedString": "WAVE :"
+      },
+      "bEnableWidthFitting": true,
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 30
+      },
+      "Justification": "ETextJustify::Right",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_8'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.9"
+      },
+      "Clipping": "EWidgetClipping::ClipToBounds"
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "EnemyCount_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "EC3734AE4E634D51D46BB59A168D7924",
+        "SourceString": "100/100",
+        "LocalizedString": "100/100"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 30
+      },
+      "Justification": "ETextJustify::Right",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_11'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.8"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "TextBlock",
+    "Name": "WaveCount_1",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'TextBlock'",
+    "Properties": {
+      "Text": {
+        "Namespace": "",
+        "Key": "B494C85C42A33DF0FA2AF59B30B9FAE0",
+        "SourceString": "00/00",
+        "LocalizedString": "00/00"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'CenturyGothicPro-Bold'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/CenturyGothicPro-Bold.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 30
+      },
+      "Justification": "ETextJustify::Right",
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142.CanvasPanelSlot_10'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.7"
+      },
+      "bIsVariable": true
+    }
+  },
+  {
+    "Type": "WidgetSwitcher",
+    "Name": "RuleSwitch",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'WidgetSwitcher'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "WidgetSwitcherSlot'ArenaBattleRuleDisplay1_C:WidgetTree.RuleSwitch.WidgetSwitcherSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.16"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.6"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_3",
+    "Outer": "RuleSwitch",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'ArenaBattleRuleDisplay1_C:WidgetTree.RuleSwitch'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.15"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_142'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.5"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "ArenaBattleRuleDisplay1_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'ArenaBattleRuleDisplay1_C:WidgetTree.CanvasPanel_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Arena/ArenaBattleRuleDisplay1.4"
+      }
+    }
+  }
+]

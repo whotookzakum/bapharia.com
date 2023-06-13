@@ -45,7 +45,8 @@
 <Abilities abilities={data.abilities} itemType={data.__typename} />
 {#if isBattleImagine}
     <!-- use BattleL image as poster -->
-    <Model modelSrc="/BigMommyDragonTities.glb" posterImg={data.thumb.replace("Battle", "BattleL")} />
+    <!-- <Model modelSrc="/BigMommyDragonTities.glb" posterImg={data.thumb.replace("Battle", "BattleL")} /> -->
+    <LargeImage noHeader imgSrc={data.thumb.replace("Battle", "BattleL")} />
 {/if}
 {#if isEnhanceImagine}
     <h4>Graphic and Scene</h4>

@@ -1,0 +1,1054 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_GashaFogControlActor",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetActorOfClass_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'ExponentialHeightFog'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "K2Node_Event_EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EEndPlayReason'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetActorOfClass_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DynamicSky_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/BP_DynamicSky.32"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetOwner_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Gasha_Demo",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_GashaDemo_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaDemo.28"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_ENV_Cmn_Lootboxroom_002",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_ENV_cmn_lootboxroom002_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/CommonAssets/cmn_lootboxroom/cmn_lootboxroom002/BP/BP_ENV_cmn_lootboxroom002.1"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 32769
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveEndPlay",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveEndPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ByteProperty",
+        "Name": "EndPlayReason",
+        "Flags": 1,
+        "ElementSize": 1,
+        "PropertyFlags": 148,
+        "Enum": {
+          "ObjectName": "Enum'EEndPlayReason'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": 134744064
+  },
+  {
+    "Type": "Function",
+    "Name": "ApplyFogParam",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "InFogHeight",
+        "Flags": 1,
+        "ElementSize": 4,
+        "PropertyFlags": 148
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "InFogControlParam",
+        "Flags": 1,
+        "ElementSize": 64,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'FogControlParam'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/FogControlParam.0"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "InVolumetricFogControlParam",
+        "Flags": 1,
+        "ElementSize": 40,
+        "PropertyFlags": 148,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'VolumetricFogControlParam'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/VolumetricFogControlParam.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "LocalFogActor",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyFlags": 2053,
+        "PropertyClass": {
+          "ObjectName": "Class'ExponentialHeightFog'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_ColorToLinearColor_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LinearColorLerp_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_ColorToLinearColor_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LinearColorLerp_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Conv_LinearColorToColor_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Color'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_BoolBool_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LinearColorLerp_ReturnValue_2",
+        "Flags": 1,
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_4",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_5",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_6",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_7",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_8",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_9",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_LinearColorLerp_ReturnValue_3",
+        "Flags": 1,
+        "ElementSize": 16,
+        "Struct": {
+          "ObjectName": "ScriptStruct'LinearColor'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_10",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Temp_float_Variable",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Subtract_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_FClamp_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Multiply_FloatFloat_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Temp_float_Variable_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_FClamp_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GreaterEqual_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Default_1",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Temp_float_Variable_2",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable_2",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "Temp_float_Variable_3",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Default_2",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_11",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetActorLocation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakVector_X",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakVector_Y",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakVector_Z",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_MakeVector_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable_3",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_SetActorLocation_SweepHitResult",
+        "Flags": 1,
+        "ElementSize": 144,
+        "PropertyFlags": 549755813888,
+        "Struct": {
+          "ObjectName": "ScriptStruct'HitResult'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_K2_SetActorLocation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Select_Default_3",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_SelectFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Lerp_ReturnValue_12",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_FloatFloat_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_BoolBool_ReturnValue_1",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": 209846272
+  },
+  {
+    "Type": "Function",
+    "Name": "Override Fog Param",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsBP_Fog_Control_Volume",
+        "Flags": 1,
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_FogControlVolume_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/BP_FogControlVolume.12"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_Add_FloatFloat_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "ResetFogParam",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": 201457664
+  },
+  {
+    "Type": "Function",
+    "Name": "BackupFogParam",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_K2_GetComponentLocation_ReturnValue",
+        "Flags": 1,
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakVector_X",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakVector_Y",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_BreakVector_Z",
+        "Flags": 1,
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_VolumetricFogControlParam",
+        "Flags": 1,
+        "ElementSize": 40,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'VolumetricFogControlParam'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/VolumetricFogControlParam.0"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_FogControlParam",
+        "Flags": 1,
+        "ElementSize": 64,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'FogControlParam'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/FogControlParam.0"
+        }
+      }
+    ],
+    "FunctionFlags": 209846272
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_GashaFogControlActor_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.11"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ExecuteUbergraph_BP_GashaFogControlActor'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'Actor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:BackupFogParam'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.6"
+      },
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ResetFogParam'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.5"
+      },
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:Override Fog Param'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.4"
+      },
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ApplyFogParam'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.3"
+      },
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.2"
+      },
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ReceiveEndPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.1"
+      },
+      {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ExecuteUbergraph_BP_GashaFogControlActor'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": 2097153,
+        "ElementSize": 16,
+        "PropertyFlags": 2105344,
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DefaultSceneRoot",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 17180393476,
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "FogActor",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 67589,
+        "PropertyClass": {
+          "ObjectName": "Class'ExponentialHeightFog'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "PrevFogControlParam",
+        "Flags": 2097153,
+        "ElementSize": 64,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'FogControlParam'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/FogControlParam.0"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "PrevVolumetricFogControlParam",
+        "Flags": 2097153,
+        "ElementSize": 40,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'VolumetricFogControlParam'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/FogControl/VolumetricFogControlParam.0"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "PrevFogActorLocation",
+        "Flags": 2097153,
+        "ElementSize": 12,
+        "PropertyFlags": 65541,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "bOverrideFogParam",
+        "Flags": 2097153,
+        "ElementSize": 1,
+        "PropertyFlags": 65541,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "DynamicSky",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 67589,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DynamicSky_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/BP/SkySphere/BP_DynamicSky.32"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "RoomActor",
+        "Flags": 2097153,
+        "ElementSize": 8,
+        "PropertyFlags": 67589,
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_ENV_cmn_lootboxroom002_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/CommonAssets/cmn_lootboxroom/cmn_lootboxroom002/BP/BP_ENV_cmn_lootboxroom002.1"
+        }
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "FogHeightDefalut",
+        "Flags": 2097153,
+        "ElementSize": 4,
+        "PropertyFlags": 65541
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_GashaFogControlActor": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ExecuteUbergraph_BP_GashaFogControlActor'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.0"
+      },
+      "ReceiveEndPlay": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ReceiveEndPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.1"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.2"
+      },
+      "ApplyFogParam": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ApplyFogParam'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.3"
+      },
+      "Override Fog Param": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:Override Fog Param'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.4"
+      },
+      "ResetFogParam": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:ResetFogParam'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.5"
+      },
+      "BackupFogParam": {
+        "ObjectName": "Function'BP_GashaFogControlActor_C:BackupFogParam'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.6"
+      }
+    },
+    "ClassFlags": 8652820,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_GashaFogControlActor_C'Default__BP_GashaFogControlActor_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.8"
+    }
+  },
+  {
+    "Type": "BP_GashaFogControlActor_C",
+    "Name": "Default__BP_GashaFogControlActor_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.BP_GashaFogControlActor_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "PrevFogControlParam": {
+        "FogDensity_27_5B35B58B4D75EE32A28138BA3A2D159B": 0.02,
+        "FogInscatteringColor_28_A541EFEC47094B3D08035BB844585D2D": {
+          "R": 0.447,
+          "G": 0.638,
+          "B": 1.0,
+          "A": 1.0,
+          "Hex": "FFB3D1FF"
+        },
+        "FogHeightFalloff_29_3B6DA9EA4C9BD9524E1A09BC53E6CE02": 0.2,
+        "FogMaxOpacity_30_E25B28A242B10086159782ADF3089EEA": 1.0,
+        "SecondFogDensity_52_9A5A993544B7333CCEC9D8B63ABE05D8": 0.0,
+        "SecondFogHeightFalloff_53_D6D3AEDD4B6C53CA5C759ABF497BE734": 0.0,
+        "StartDistance_31_CD78D34B485370DF3BFF64B18850B8C5": 0.0,
+        "DirectionalInscatteringExponent_36_4F74AE4C4289635A502D1CBF81094790": 4.0,
+        "DirectionalInscatteringStartDistance_37_BD2FF9D94C3F11B8D90C9E9379C2EB77": 10000.0,
+        "DirectionalInscatteringColor_39_D062AF974148A5E012E3F6B111E70F17": {
+          "R": 0.25,
+          "G": 0.25,
+          "B": 0.125,
+          "A": 1.0,
+          "Hex": "FF898963"
+        }
+      },
+      "PrevVolumetricFogControlParam": {
+        "VolumetricFog_6_BD8FEDE34BCAD8CFC3A4F8B53A4159BE": false,
+        "ScatteringDistribution_14_5597BCED4275CBCF6E2950B411EAB3A1": 0.2,
+        "Albedo_18_5BA92540490DC7CA665648B97231C27F": {
+          "B": 255,
+          "G": 255,
+          "R": 255,
+          "A": 255,
+          "Hex": "FFFFFFFF"
+        },
+        "Emissive_31_707B974E4AB5483E8F184EB5BFA3A9B2": {
+          "R": 0.0,
+          "G": 0.0,
+          "B": 0.0,
+          "A": 0.0,
+          "Hex": "000000"
+        },
+        "ExtinctionScale_20_BCF98A5847246BED7D4148AD624BB715": 1.0,
+        "ViewDistance_32_A17F347B4D327B9ED5BE78A4EE84BF61": 6000.0,
+        "StaticLightingScatteringIntensity_26_55125CB8493DCB3F4DDA30AC7D2D6EC6": 1.0
+      },
+      "PrevFogActorLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_GashaFogControlActor_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.9"
+      },
+      "VariableGuid": "6D0578BC-48BA0D51-1D6976B3-E3989FC3",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_GashaFogControlActor_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GashaFogControlActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.10"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_GashaFogControlActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.10"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_GashaFogControlActor_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Gasha/Demo/BP_GashaFogControlActor.10"
+      }
+    }
+  }
+]

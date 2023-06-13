@@ -151,6 +151,10 @@
 						base_ability_rate2
 						base_ability_rate3
 						base_ability_rate4
+						bonus_ability_rate1
+						bonus_ability_rate2
+						bonus_ability_rate3
+						bonus_ability_rate4
 						bonus_rate
 						great_success_tokens
 						materials {
@@ -294,18 +298,18 @@
 	};
 </script>
 
-{#if !$entry.fetching}
+<!-- {#if !$entry.fetching}
 	<MetaTags
 		title={`${$entry.data.entry.name[$userLocale]} — Bapharia`}
 		description={`All known data about ${$entry.data.entry.name[$userLocale]} in BLUE PROTOCOL.`}
 	/>
-{/if}
+{/if} -->
 
 <div class="details-pane">
 	<span class="component-label">Details</span>
 	<div class="box">
 		<article>
-			{#if !$entry.fetching}
+			{#if !$entry.fetching && $entry.data.entry}
 				<header>
 					<EntrySummary data={$entry.data.entry} moreDetails />
 				</header>

@@ -1,0 +1,572 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "DebugMenuProjectile",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBDebugParameter'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "ShowLocator": {
+        "ParameterName": "ラベル表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowLocator",
+        "ToolTipTextId": "TOOLTIP_ShowLocator",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイルの中心にロケーターを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowProjectileTrail": {
+        "ParameterName": "移動軌跡表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowProjectileTrail",
+        "ToolTipTextId": "TOOLTIP_ShowProjectileTrail",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイルの移動軌跡を表示するデバッグ設定",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowArrow": {
+        "ParameterName": "プロジェクタイルの向きを表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowArrow",
+        "ToolTipTextId": "TOOLTIP_ShowArrow",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイルの向きを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowInitialDirection": {
+        "ParameterName": "射出時の向きを表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowInitialDirection",
+        "ToolTipTextId": "TOOLTIP_ShowInitialDirection",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイルを発射するときの向きを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowTargetSphere": {
+        "ParameterName": "ターゲット表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowTargetSphere",
+        "ToolTipTextId": "TOOLTIP_ShowTargetSphere",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ターゲットしている敵に球体を表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowViewDirection": {
+        "ParameterName": "画面中心方向を表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowViewDirection",
+        "ToolTipTextId": "TOOLTIP_ShowViewDirection",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "画面中心方向に発射するときの始点やベクトルのデバッグ表示",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowHitPos": {
+        "ParameterName": "ヒット位置をデバッグ表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowHitPos",
+        "ToolTipTextId": "TOOLTIP_ShowHitPos",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ヒット位置をデバッグ表示する。攻撃コリジョン処理でのヒット位置は青、地形コリジョン処理でのヒット位置は緑",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowLocatorDetail": {
+        "ParameterName": "詳細情報を画面表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowLocatorDetail",
+        "ToolTipTextId": "TOOLTIP_ShowLocatorDetail",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ロケーター表示時に詳細情報を表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "--LOG--------------": {
+        "ParameterName": "----------LOG--------------",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_LOG",
+        "ToolTipTextId": "TOOLTIP_LOG",
+        "Type": "SB_DEBUG_MENU_TEXT",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "OutputDetailLog": {
+        "ParameterName": "プロジェクタイル詳細ログ（基本）を出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_OutputDetailLog",
+        "ToolTipTextId": "TOOLTIP_OutputDetailLog",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "死亡理由などの詳細な実行ログを出力します",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "OutputDetailLogSpawnInfo": {
+        "ParameterName": "プロジェクタイル詳細ログ（生成時情報）を出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_OutputDetailLogSpawnInfo",
+        "ToolTipTextId": "TOOLTIP_OutputDetailLogSpawnInfo",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "死亡理由などの詳細な実行ログを出力します",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "OutputDetailLogDamage": {
+        "ParameterName": "プロジェクタイル詳細ログ（ダメージ）を出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_OutputDetailLogDamage",
+        "ToolTipTextId": "TOOLTIP_OutputDetailLogDamage",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "死亡理由などの詳細な実行ログを出力します",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "OutputDetailLogSound": {
+        "ParameterName": "プロジェクタイル詳細ログ（サウンド）を出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_OutputDetailLogSound",
+        "ToolTipTextId": "TOOLTIP_OutputDetailLogSound",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "死亡理由などの詳細な実行ログを出力します",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ScreenDispSpawndProjectile": {
+        "ParameterName": "生成ログをスクリーンに出力",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ScreenDispSpawndProjectile",
+        "ToolTipTextId": "TOOLTIP_ScreenDispSpawndProjectile",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "生成したプロジェクタイルのログを画面上へと表示します",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "EnableProjectileActorLabel": {
+        "ParameterName": "ActorLabelを設定する（※ローカルサーバーで有効にすると停止発生）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_EnableProjectileActorLabel",
+        "ToolTipTextId": "TOOLTIP_EnableProjectileActorLabel",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "true"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "--DISP--------------": {
+        "ParameterName": "----------DISP--------------",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_DISP",
+        "ToolTipTextId": "TOOLTIP_DISP",
+        "Type": "SB_DEBUG_MENU_TEXT",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowProjectileTrailSecond": {
+        "ParameterName": "移動軌跡を残す秒数",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowProjectileTrailSecond",
+        "ToolTipTextId": "TOOLTIP_ShowProjectileTrailSecond",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "3"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ShowProjectileTrailの移動軌跡を表示する時間(秒)",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "TargetSphreSize": {
+        "ParameterName": "ターゲット対象表示球のサイズ",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_TargetSphreSize",
+        "ToolTipTextId": "TOOLTIP_TargetSphreSize",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "60"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "ShowTargetSphereでターゲットに表示する球のサイズ",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "--SYSTEM--------------": {
+        "ParameterName": "----------SYSTEM-------------",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_SYSTEM",
+        "ToolTipTextId": "TOOLTIP_SYSTEM",
+        "Type": "SB_DEBUG_MENU_TEXT",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "MovementTimeScale": {
+        "ParameterName": "タイムスケール",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_MovementTimeScale",
+        "ToolTipTextId": "TOOLTIP_MovementTimeScale",
+        "Type": "SB_DEBUG_MENU_FLOAT",
+        "InitialValue": [
+          "1"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "Movementを中心にDeltaTimeへと倍率をかけます。1.0で本来の挙動となります",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "PartyShotAllCharacter": {
+        "ParameterName": "PartyShotを全てのキャラを対象にする",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_PartyShotAllCharacter",
+        "ToolTipTextId": "TOOLTIP_PartyShotAllCharacter",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "PartyShotを全てのキャラを対象にする",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowAttackCollisionBounds": {
+        "ParameterName": "攻撃コリジョンのバウンドボックスを表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowAttackCollisionBounds",
+        "ToolTipTextId": "TOOLTIP_ShowAttackCollisionBounds",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイルに設定されている攻撃コリジョンのBoundsを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ShowPredictCollision": {
+        "ParameterName": "AIへの攻撃予告領域を表示",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ShowPredictCollision",
+        "ToolTipTextId": "TOOLTIP_ShowPredictCollision",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "発射時にヒットしそうなエネミーのAIへとヒット予告を通知するコリジョンを表示する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ForceProjectilePenetrateObstacle": {
+        "ParameterName": "とにかく手前の障害物を貫通",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ForceProjectilePenetrateObstacle",
+        "ToolTipTextId": "TOOLTIP_ForceProjectilePenetrateObstacle",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "手前のオブジェクトを貫通する",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "EnableProjectileEffectDebugLoad": {
+        "ParameterName": "プロジェクタイルエフェクトのデバッグロード（OnlyEditor）",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_EnableProjectileEffectDebugLoad",
+        "ToolTipTextId": "TOOLTIP_EnableProjectileEffectDebugLoad",
+        "Type": "SB_DEBUG_MENU_CHECK_BOX",
+        "InitialValue": [
+          "false"
+        ],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイルエフェクトがロードされてなかった場合にその場でロードする",
+        "Enable": true,
+        "bEditorOnly": true,
+        "bReadOnly": false
+      },
+      "--ETC--------------": {
+        "ParameterName": "----------ETC--------------",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ETC",
+        "ToolTipTextId": "TOOLTIP_ETC",
+        "Type": "SB_DEBUG_MENU_TEXT",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "ToolTip": "",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      },
+      "ProjectileLauncher": {
+        "ParameterName": "プロジェクタイル発射テストメニューを開く",
+        "TextTableAsset": {
+          "ObjectName": "SBTextTableAsset'DebugMenuProjectileText'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Text/Debug/DebugMenuProjectileText.0"
+        },
+        "TitleTextId": "TITLE_ProjectileLauncher",
+        "ToolTipTextId": "TOOLTIP_ProjectileLauncher",
+        "Type": "SB_DEBUG_MENU_BUTTON",
+        "InitialValue": [],
+        "WidgetClass": {
+          "AssetPathName": "/Game/Blueprints/Debug/UI/SubMenu/PlayerMenu/DebugLaunchProjectileMenu.DebugLaunchProjectileMenu_C",
+          "SubPathString": ""
+        },
+        "ToolTip": "プロジェクタイル発射メニューを開きます",
+        "Enable": true,
+        "bEditorOnly": false,
+        "bReadOnly": false
+      }
+    }
+  }
+]

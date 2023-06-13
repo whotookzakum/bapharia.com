@@ -2,6 +2,8 @@
 	import MetaTags from "$lib/components/MetaTags.svelte";
     import StickyNote from "$lib/components/StickyNote.svelte";
 	import Partners from "./Partners.svelte";
+
+	// TODO Release date countdown
 </script>
 
 <MetaTags

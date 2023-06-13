@@ -9,7 +9,7 @@
 <MetaTags title={`${data.meta.title} — Bapharia`} description={data.meta.caption} />
 
 <div class="contents">
-    <main id="#main" tabindex="-1">
+    <main id="main" tabindex="-1">
         <article class="guide">
             <img class="bg-img" src={data.meta.bannerImg} alt="" loading="lazy" />
             <header class="guide-header g-50">

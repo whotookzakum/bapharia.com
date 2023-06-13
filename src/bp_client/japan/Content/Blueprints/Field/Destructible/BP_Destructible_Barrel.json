@@ -1,0 +1,180 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Destructible_Barrel_C",
+    "Super": "BP_Destructible_Base_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Destructible_Barrel_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.7"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_Destructible_Barrel_C:InheritableComponentHandler'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Destructible_Base_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Base.31"
+    },
+    "ClassFlags": 8652820,
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Destructible_Barrel_C'Default__BP_Destructible_Barrel_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.1"
+    }
+  },
+  {
+    "Type": "BP_Destructible_Barrel_C",
+    "Name": "Default__BP_Destructible_Barrel_C",
+    "Template": "Default__BP_Destructible_Base_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.BP_Destructible_Barrel_C'",
+    "Properties": {
+      "StaticMeshComponent": {
+        "ObjectName": "StaticMeshComponent'Default__BP_Destructible_Barrel_C:StaticMeshComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.9"
+      },
+      "HindranceComponent": {
+        "ObjectName": "SphereComponent'Default__BP_Destructible_Barrel_C:SphereComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.8"
+      },
+      "CollisionGroupComponent": {
+        "ObjectName": "SBCollisionGroupComponent'Default__BP_Destructible_Barrel_C:CollisionGroupComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.4"
+      },
+      "DamageAudio": {
+        "ObjectName": "AkAudioEvent'Play_GMK_Barrel_HIT'",
+        "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Gimmick/Play_GMK_Barrel_HIT.1"
+      },
+      "DestructAudio": {
+        "ObjectName": "AkAudioEvent'Play_GMK_Barrel_Crash'",
+        "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Gimmick/Play_GMK_Barrel_Crash.1"
+      },
+      "DestructibleComponent": {
+        "ObjectName": "DestructibleComponent'Default__BP_Destructible_Barrel_C:DestructibleComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.2"
+      },
+      "RootComponent": {
+        "ObjectName": "DestructibleComponent'Default__BP_Destructible_Barrel_C:DestructibleComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.2"
+      }
+    }
+  },
+  {
+    "Type": "DestructibleComponent",
+    "Name": "DestructibleComponent0",
+    "Outer": "Default__BP_Destructible_Barrel_C",
+    "Template": "DestructibleComponent0",
+    "Class": "UScriptClass'DestructibleComponent'",
+    "Properties": {
+      "FractureEffects": [
+        {
+          "ParticleSystem": null,
+          "Sound": null
+        }
+      ],
+      "SkeletalMesh": {
+        "ObjectName": "DestructibleMesh'SM_ENV_cmn_basecamp_barrel_b_DM'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/SM_ENV_cmn_basecamp_barrel_b_DM.0"
+      },
+      "OverrideMaterials": [
+        null,
+        {
+          "ObjectName": "MaterialInstanceConstant'MI_ENV_basecamp_barrel_b'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/CommonAssets/cmn_basecamp/Shader/Material_Instance/MI_ENV_basecamp_barrel_b.0"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_Destructible_Barrel_C",
+    "Class": "UScriptClass'InheritableComponentHandler'"
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "CollisionGroupComponent",
+    "Outer": "Default__BP_Destructible_Barrel_C",
+    "Template": "CollisionGroupComponent",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "DestructibleComponent'Default__BP_Destructible_Barrel_C:DestructibleComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.2"
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Destructible_Barrel_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Destructible_Barrel_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.5"
+      },
+      "VariableGuid": "43704B6A-42783809-55215589-7CA8C85F",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Destructible_Barrel_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Destructible_Barrel_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.6"
+      }
+    }
+  },
+  {
+    "Type": "SphereComponent",
+    "Name": "SphereComponent0",
+    "Outer": "Default__BP_Destructible_Barrel_C",
+    "Template": "SphereComponent0",
+    "Class": "UScriptClass'SphereComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "DestructibleComponent'Default__BP_Destructible_Barrel_C:DestructibleComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.2"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMeshComponent0",
+    "Outer": "Default__BP_Destructible_Barrel_C",
+    "Template": "StaticMeshComponent0",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_ENV_cmn_basecamp_barrel_a'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Environment/Common/CommonAssets/cmn_basecamp/Mesh/SM_ENV_cmn_basecamp_barrel_a.2"
+      },
+      "AttachParent": {
+        "ObjectName": "SBCollisionGroupComponent'Default__BP_Destructible_Barrel_C:CollisionGroupComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Destructible/BP_Destructible_Barrel.4"
+      }
+    }
+  }
+]

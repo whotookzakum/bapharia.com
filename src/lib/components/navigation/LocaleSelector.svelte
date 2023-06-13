@@ -2,48 +2,25 @@
 	import { userLocale } from "$lib/stores";
 	import { browser } from "$app/environment";
 
-	let selectedLocale, cachedLocale, browserLocale;
-
-	if (browser) { 
-		// Get locale from cache
-		selectedLocale = localStorage.getItem("user-locale")
-		// console.log("locale: " + selectedLocale)
-	}
-
-	$: if (browser) {
-		// Set new locale when changed
-		localStorage.setItem("user-locale", selectedLocale);
-		userLocale.set(selectedLocale);
-		// console.log("locale updated: " + selectedLocale)
-	}
+	export let isCollapsed = false;
 
 	let locales = [
 		{
 			name: "English",
 			code: "en_US",
+			shortName: "EN"
 		},
 		{
 			name: "日本語",
 			code: "ja_JP",
+			shortName: "JA"
 		},
 	];
 </script>
 
-<svelte:head>
-	<script>
-		// Check if any locale is cached, else cache the browser locale
-		cachedLocale = localStorage.getItem("user-locale")
-		if (!cachedLocale) {
-			browserLocale = navigator.language.includes("ja") ? "ja_JP" : "en_US"
-			localStorage.setItem("user-locale", browserLocale)
-			// console.log("no cached locale.. caching browser locale: " + browserLocale)
-		}
-	</script>
-</svelte:head>
-
-<select id="locale-selector" bind:value={selectedLocale}>
+<select id="locale-selector" bind:value={$userLocale} class:hide-marker={isCollapsed}>
 	{#each locales as locale}
-		<option value={locale.code}>{locale.name}</option>
+		<option value={locale.code}>{isCollapsed ? locale.shortName : locale.name}</option>
 	{/each}
 </select>
 
@@ -53,8 +30,7 @@
 		padding: 0.5rem;
 		height: 44px;
 		min-width: 44px;
-		// appearance: none;
-
+		// font-size: var(--step--1);
 		background: none;
 		border: none;
 		border-radius: 5px;
@@ -63,5 +39,10 @@
 		&:hover, &:focus-visible {
 			background: var(--surface2);
 		}
+	}
+
+	.hide-marker {
+		appearance: none;
+		text-align: center;
 	}
 </style>
