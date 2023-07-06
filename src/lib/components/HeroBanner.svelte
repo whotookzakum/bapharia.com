@@ -4,13 +4,12 @@
 
 <header
     class="hero-banner full-bleed centered-section"
-    class:backdrop={bannerUrl}
-    
+    style="background-image: url({bannerUrl})"
 >
-    {#if bannerUrl}
-        <img class="bg-img" src={bannerUrl} alt="" loading="lazy" />
-    {/if}
     <slot />
+    {#if bannerUrl}
+        <div class="backdrop" />
+    {/if}
 </header>
 
 <style lang="scss">
@@ -19,23 +18,13 @@
         background-size: cover;
         padding: 20vh 1rem;
         position: relative;
+        z-index: 1;
     }
 
-    .backdrop::after {
-        content: "";
+    .backdrop {
         position: absolute;
         inset: 0;
-        background: black;
+        background: rgba(0, 0, 0, 0.8);
         z-index: -1;
-        opacity: 0.8;
-    }
-
-    .bg-img {
-        position: absolute;
-        inset: 0;
-        z-index: -2;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
 </style>
