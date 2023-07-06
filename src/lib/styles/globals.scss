@@ -403,7 +403,7 @@ input[type="number"] {
 
 .layout {
     display: grid;
-    grid-template-columns: 1fr min(1400px, calc(100% - 2rem)) 1fr;
+    grid-template-columns: 1fr min(var(--content-width), calc(100% - 2rem)) 1fr;
 
     & > * {
         grid-column: 2;
@@ -418,7 +418,7 @@ input[type="number"] {
         width: 100%;
         
         .unbleed {
-            max-width: 1400px;
+            max-width: var(--content-width);
             margin: auto;
         }
     }

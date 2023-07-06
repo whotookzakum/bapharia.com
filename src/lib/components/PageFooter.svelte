@@ -13,8 +13,6 @@
 		padding-block: var(--space-m);
 		font-size: var(--step--1);
 		color: var(--text2);
-		max-width: 1400px;
-		// margin: auto;
-		text-align: left;
+		text-align: center;
 	}
 </style>

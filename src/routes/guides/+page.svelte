@@ -84,7 +84,7 @@
 
 <style lang="scss">
 	.contents {
-		max-width: 1400px;
+		max-width: var(--content-width);
 		display: grid;
 		width: 100%;
 		gap: var(--space-xl);

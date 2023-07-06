@@ -26,7 +26,7 @@ import MetaTags from "$lib/components/MetaTags.svelte";
 	<div class="unbleed">
 		<h2 style="margin-bottom: 1rem">Featured</h2>
 		<small
-			>The lastest uploads between our partners are featured here.</small
+			>The lastest uploads from our partners are featured here.</small
 		>
 		<ol class="unstyled-list featured-videos-grid grid">
 			<li>
@@ -117,6 +117,7 @@ import MetaTags from "$lib/components/MetaTags.svelte";
 		width: 100%;
 		background: var(--surface1);
 		border-top: 1px solid var(--surface2);
+		padding-inline: var(--space-xs);
 
 		h2 {
 			margin: 0;
@@ -124,9 +125,18 @@ import MetaTags from "$lib/components/MetaTags.svelte";
 		}
 	}
 
+	:global(#featured .video) {
+		margin: 0;
+	}
+
 	.featured-videos-grid {
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+		gap: var(--space-xs);
+		margin-top: var(--space-xs);
+
+		li {
+			max-inline-size: none;
+		}
 	}
 
 	.partners {

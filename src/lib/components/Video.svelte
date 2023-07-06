@@ -3,7 +3,7 @@
 	export let id = "";
 	export let bleed = false;
 	export let style = null;
-	export let radius = "0"
+	export let radius = "1rem"
 </script>
 
 <iframe
