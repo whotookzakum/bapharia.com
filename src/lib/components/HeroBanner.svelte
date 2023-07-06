@@ -19,7 +19,6 @@
         padding: 20vh 1rem;
         position: relative;
         z-index: 1;
-        padding-top: calc(20vh + 62px);
     }
 
     .backdrop {
