@@ -23,7 +23,7 @@
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
 <!-- https://web.dev/building-a-color-scheme -->
 
-<div class="navbar-wrapper">
+<div class="navbar-wrapper layout">
 	<a
 		href="#main"
 		class="link show-when-focus-visible"
@@ -52,26 +52,23 @@
 		</div> -->
 		<a
 			href="/"
-			class="link logo-wrapper styled-link"
+			class="link styled-link"
 			class:active={$page.url.pathname === "/"}
 			style:padding="0.5rem"
-			
 		>
-			<!-- <span class="logo icon" /> -->
 			<img
-				class="logo grid"
+				class="transition-pushable flex"
 				src="/images/logo.png"
 				alt="Home"
 				width="38"
 				height="38"
-				style:place-items="center"
 			/>
 		</a>
-		<input type="search" placeholder="Search" name="" id=""/>
+		<input type="search" placeholder="Search" name="" id="" />
 		{#each links as link}
 			<a
 				href={link.href}
-				class="link styled-link hover-link"
+				class="link styled-link hover-link rounded"
 				class:active={$page.url.pathname.includes(link.href)}
 			>
 				{link.name[$userLocale]}
@@ -93,36 +90,22 @@
 	$surface2: #ab1572;
 	.navbar-wrapper {
 		position: sticky;
-		width: 100%;
 		z-index: 1002;
-		background: rgb(35 39 47/0.9);
+		// background: rgb(35 39 47/0.9);
 		backdrop-filter: blur(50px);
 		top: 0;
-		padding: 0 1rem;
 	}
 
 	.navbar {
-		--icon-size: 38px;
-		max-width: 1400px;
 		width: 100%;
 		margin: auto;
 		align-items: center;
 		height: 62px;
 	}
 
-	.show-when-focus-visible:not(:focus-visible) {
-		clip: rect(0 0 0 0);
-		clip-path: inset(50%);
-		height: 1px;
-		overflow: hidden;
-		position: absolute;
-		white-space: nowrap;
-		width: 1px;
-	}
-
 	input {
 		border: none;
-		background: rgba(120,131,155,.2);
+		background: rgba(120, 131, 155, 0.2);
 		padding: 0.5rem 1rem;
 		border-radius: 3rem;
 		flex: 1;
@@ -133,36 +116,20 @@
 		}
 	}
 
-	// HEADER ======================================================
-
 	// LINKS =====================================================
 
 	.link {
 		border: none;
 		padding: 0.75rem;
-		border-radius: 3rem;
-		// background: green;
 	}
 
-	.hover-link {
-		&:hover {
-			background: rgba(246,247,249,.05);
-		}
-	}
-
-	.icon {
-		content: "";
-		display: inline-block;
-		height: var(--icon-size);
-		width: var(--icon-size);
-		mask: no-repeat center / contain;
-		-webkit-mask: no-repeat center / contain;
+	.hover-link:hover {
+		background: rgba(246, 247, 249, 0.05);
 	}
 
 	.active {
 		color: var(--accent) !important;
 	}
-
 
 	// EXTRAS ======================================================
 
@@ -171,71 +138,5 @@
 		gap: 0.5rem;
 		align-items: center;
 		margin-left: auto;
-	}
-
-	// FOOTER ====================================================
-
-	// MOBILE ======================================
-
-	.mobile-drawer-label {
-		margin-right: 1rem;
-	}
-
-	@media (max-width: 850px) {
-		.navbar-wrapper {
-			width: 100%;
-			height: unset !important;
-			position: fixed;
-		}
-
-		.navbar {
-			display: grid !important;
-			--nav-width: 100% !important;
-		}
-
-		// .collapsed .show-when-expanded {
-		// 	all: unset !important;
-		// }
-
-		.navbar:not(.mobile-expanded) {
-			.nav-body,
-			.nav-footer {
-				display: none !important;
-			}
-		}
-
-		.link-home {
-			.hidden-text {
-				display: none;
-			}
-
-			&:hover::after {
-				background: none;
-			}
-		}
-	}
-
-	@media (min-width: 850px) {
-		.mobile-controls {
-			display: none;
-		}
-
-		.link-home {
-			width: 100%;
-
-			* {
-				transition: all 0.2s ease;
-			}
-
-			&:hover {
-				.link-text {
-					grid-template-rows: auto 1fr;
-				}
-
-				.hidden-text {
-					opacity: 1;
-				}
-			}
-		}
 	}
 </style>

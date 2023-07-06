@@ -319,3 +319,115 @@ input[type="number"] {
         color: var(--accent);
     }
 }
+
+.rounded {
+    border-radius: 3rem;
+}
+
+.show-when-focus-visible:not(:focus-visible) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.transition-pushable {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--text1);
+    font-weight: 500;
+    font-size: var(--step-1);
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    border-radius: 3rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    transition: background-color 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+        background: hsl(210, 68%, 45%);
+    }
+}
+
+.btn-fadein {
+    position: relative;
+    // border: 1px solid rgba(39, 52, 78, 0.9);
+    background: rgba(39, 52, 78, 0.4);
+    overflow: hidden;   
+    transition: background-color 0.35s ease;
+
+    &:hover, &:focus-visible {
+        background: rgba(39, 52, 78, 0.4);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(-138deg, rgb(58, 164, 193), #6315ac, #ab1572);
+        opacity: 0;
+        transform: scaleX(1);
+        transform-origin: 0%;
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    &:where(:hover, :focus-visible)::after {
+        opacity: 1;
+        transform: scaleX(1.5);
+    }
+}
+
+.unstyled-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-inline-size: none;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr min(1400px, calc(100% - 2rem)) 1fr;
+
+    & > * {
+        grid-column: 2;
+    }
+
+    .full-bleed, .bg-bleed {
+        grid-column: 1/-1;
+        padding: 0 1rem;
+    }
+
+    .bg-bleed {
+        width: 100%;
+        
+        .unbleed {
+            max-width: 1400px;
+            margin: auto;
+        }
+    }
+}
+
+.centered-section {
+    text-align: center;
+
+    p {
+        margin-inline: auto;
+    }
+}

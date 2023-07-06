@@ -1,20 +1,3 @@
-.bg-img {
-    position: fixed;
-    top: 0;
-    left: var(--nav-width);
-    z-index: -1;
-    margin: 0;
-    width: calc(100% - var(--nav-width) - var(--toc-width));
-    height: var(--header-height);
-    object-fit: cover;
-    user-select: none;
-}
-
-@media (max-width: 850px) {
-    .bg-img {
-        top: var(--nav-height);
-    }
-}
 
 article.guide {
     --header-height: max(20vw, 40vh);
@@ -31,19 +14,11 @@ article.guide {
         position: absolute;
     }
 
-    // Header backdrop
-    &::before {
-        background: rgba(17, 17, 17, 0.8);
-        inset: 0;
-        z-index: 1;
-        height: var(--header-height);
-    }
-
     // Body backdrop
     &::after {
-        inset: var(--header-height) 0 0 0;
+        inset: 0;
         z-index: -1;
-        background: var(--bg);
+        // background: var(--bg);
     }
 
     &>* {
