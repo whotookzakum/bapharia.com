@@ -89,7 +89,8 @@
 	$surface1: #6315ac;
 	$surface2: #ab1572;
 	.navbar-wrapper {
-		position: sticky;
+		position: fixed;
+		width: 100%;
 		z-index: 1002;
 		// background: rgb(35 39 47/0.9);
 		backdrop-filter: blur(50px);
