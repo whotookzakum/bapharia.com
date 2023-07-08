@@ -1,19 +1,17 @@
 <script>
-    import { fetchMarkdownPosts } from "$lib/utils";
     import { page } from "$app/stores";
+    export let guides = [];
 </script>
 
 <nav class="guides-list grid">
     <a href="/guides" class="btn btn-fadein">Back to Guides</a>
-    {#await fetchMarkdownPosts() then guides}
-        {#each guides as guide}
-            <a
-                class="link styled-link"
-                class:active={$page.url.pathname === guide.path}
-                href={guide.path}>{guide.meta.title}</a
-            >
-        {/each}
-    {/await}
+    {#each guides as guide}
+        <a
+            class="link styled-link"
+            class:active={$page.url.pathname === guide.path}
+            href={guide.path}>{guide.meta.title}</a
+        >
+    {/each}
 </nav>
 
 <style lang="scss">
@@ -31,7 +29,6 @@
 
     @media (max-width: 900px) {
         .guides-list {
-            // display: none;
             grid-column: 2;
             grid-row: 2;
             position: initial;

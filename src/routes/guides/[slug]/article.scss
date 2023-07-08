@@ -1,25 +1,6 @@
-// .layout-right {
-//     --toc-width: 250px; // 40ch
-//     --text-width: 850px; // 60 ch
-//     grid-template-columns: 1fr auto 1fr var(--toc-width);
-//     // padding-top: 3.5rem;
-
-
-// }
-
-// nav.guides-list,
-// nav.toc {
-//     top: 62px;
-// }
-
-
-.guide {
-
-
-    .active {
-        background: var(--surface1);
-        color: var(--link) !important;
-    }
+.guide .active {
+    background: var(--surface1);
+    color: var(--link) !important;
 }
 
 .guides-list a:not(.btn),
@@ -54,159 +35,6 @@
 :where(h2, h3, h4) {
     scroll-margin-top: 1rem;
 }
-
-
-// .toc {
-//     border-radius: 1rem;
-//     background: var(--surface1);
-//     width: 100%;
-//     max-height: calc(100vh - 62px);
-//     margin-left: auto;
-//     position: initial;
-//     overflow-y: auto;
-
-//     ol {
-//         gap: 0;
-//         list-style-type: none;
-//         padding: 0;
-//         margin: 0;
-//         max-inline-size: none;
-//     }
-
-//     &>ol {
-//         padding-left: 0;
-//     }
-
-//     li {
-//         width: 100%;
-//         line-height: unset;
-//     }
-
-//     a {
-//         display: block;
-//         width: 100%;
-//     }
-
-//     a:not(:where(:hover, :focus-visible)) {
-//         text-decoration: none;
-//     }
-
-//     a:not(.btn) {
-//         padding: 0.75rem 2rem 0.75rem 1rem;
-
-//     }
-
-//     ol ol a {
-//         padding-left: 2.5rem !important;
-//     }
-
-//     &::before {
-
-//     }
-// }
-
-// // HYPERLINKS ===================================================
-
-// :where(h2, h3, h4, h5, h6) {
-
-//     &:hover a {
-//         opacity: 1;
-//     }
-
-//     a {
-//         opacity: 0;
-//         text-decoration: none;
-//         margin-left: 0.25em;
-//         font-size: 1.4rem;
-
-//         &::after {
-//             content: "\1f517";
-//         }
-//     }
-// }
-
-// // RESPONSIVE ===========================================
-
-// @media (min-width: 1200px) {
-//     .toc {
-//         position: sticky;
-//         grid-column: 4 !important;
-//         grid-row: 1/16;
-//         background: none;
-//     }
-
-//     .toc+* {
-//         margin-top: 3.5rem !important;
-//     }
-// }
-
-// @media (max-width: 1199px) {
-//     .layout-right {
-//         grid-template-columns: 1fr auto 1fr;
-//     }
-// }
-
-// @media (max-width: 800px) {
-//     .layout-right, .layout-left {
-//         p {
-//             font-size: var(--step--0);
-//         }
-//     }
-
-//     .layout-right {
-//         gap: 0;
-//     }
-
-//     .layout-left {
-//         grid-template-columns: 1fr auto 1fr;
-//     }
-
-//     nav.guides-list {
-//         position: initial;
-//         max-width: none;
-//         text-align: left;
-//         justify-content: start;
-
-//         .link {
-//             display: none;
-//         }
-
-//         .btn.btn-fadein {
-//             margin: 1rem 0 0 0;
-//             grid-column: 2;
-//         }
-//     }
-
-//     .guides-list, main {
-//         grid-column: 2;
-//     }
-// }
-
-
-// // SCROLL TRACKER ==========================================
-// @supports (scroll-timeline: name) {
-//     .scroll-tracker {
-//         position: fixed;
-//         inset: 0;
-//         height: 4px;
-//         z-index: 5000;
-//         background: var(--accent);
-//         transform-origin: left;
-//         animation: trackScroll 1s linear forwards;
-//         animation-timeline: scroll-tracker-timeline;
-//         box-shadow: 0 1px 2px var(--surface-shadow);
-//     }
-// }
-
-// @keyframes trackScroll {
-//     from {
-//         transform: scaleX(0);
-//     }
-
-//     to {
-//         transform: scaleX(1);
-//     }
-// }
 
 .guide .hero-banner {
     grid-column: 1/-1;
@@ -264,7 +92,6 @@
         width: 100%;
     }
 
-    // p>img,
     figure * {
         width: 100%;
         border-radius: 1rem;
@@ -272,6 +99,10 @@
 
     p {
         line-height: 2;
+    }
+
+    p:first-child {
+        padding-top: 2.5rem;
     }
 }
 
