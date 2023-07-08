@@ -36,11 +36,12 @@
     />
     <article class="grid">
         <svelte:component this={data.content} />
+        {#await fetchMarkdownPosts() then guides}
+            <ReadMore {guides} />
+        {/await}
     </article>
-    {#await fetchMarkdownPosts() then guides}
-        <ReadMore {guides} />
-    {/await}
 </main>
+<PageFooter />
 
 <style lang="scss">
     .layout {
