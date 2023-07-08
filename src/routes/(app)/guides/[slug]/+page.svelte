@@ -1,11 +1,10 @@
 <script>
     import { fetchMarkdownPosts } from "$lib/utils";
-    import PageFooter from "$lib/components/PageFooter.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import HeroBanner from "$lib/components/HeroBanner.svelte";
-    import GuidesList from "./GuidesList.svelte";
-    import Toc from "svelte-toc";
     import ReadMore from "./ReadMore.svelte";
+    import PagesList from "$lib/components/layout/PagesList.svelte";
+    import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
     export let data;
     $: formattedDate = new Date(data.meta.date).toLocaleDateString();
 </script>
@@ -24,16 +23,10 @@
 </HeroBanner>
 
 {#await fetchMarkdownPosts() then guides}
-    <GuidesList {guides} />
+    <PagesList links={guides} />
 {/await}
 
-<Toc
-    --toc-padding="1rem 0 0 0"
-    --toc-title-padding="0.5rem"
-    --toc-title-margin="1rem 0 0.5rem 0"
-    --toc-max-height="calc(100vh - 62px - 1rem)"
-    --toc-font-size="1rem"
-/>
+<TableOfContents />
 
 <article class="grid">
     <svelte:component this={data.content} />
