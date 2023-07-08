@@ -1,9 +1,8 @@
 <script>
 	import HeroBanner from "$lib/components/HeroBanner.svelte";
-import MetaTags from "$lib/components/MetaTags.svelte";
+	import MetaTags from "$lib/components/MetaTags.svelte";
 	import Video from "$lib/components/Video.svelte";
 	import partners from "./partners.json";
-	import references from "./references.json";
 </script>
 
 <MetaTags

@@ -30,7 +30,7 @@
 >
 	Skip to main content and focus
 </a>
-<nav class="navbar flex g-50" class:mobile-expanded={isMobileExpanded}>
+<nav class="navbar flex g-50">
 	<!-- <div class="nav-header">
 			<div class="mobile-controls flex g-25">
 				<LocaleSelector isCollapsed={true} />
