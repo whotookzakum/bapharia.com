@@ -4,6 +4,7 @@
 	import { browser } from "$app/environment";
 	import Card from "$lib/components/Card.svelte";
 	import MetaTags from "$lib/components/MetaTags.svelte";
+	import { fetchMarkdownPosts } from "$lib/utils/index.js";
 	export let data;
 
 	// TODO favorites, filters, sort A-Z/last updated
@@ -64,23 +65,22 @@
 	{/each}
 </div> -->
 		<ul class="card-grid" role="list">
-			{#each guides as guide}
-				<li>
-					<Card
-						title={guide.meta.title}
-						href={guide.path}
-						category={guide.meta.category}
-						caption={guide.meta.caption}
-						bgSrc={guide.meta.thumbImg}
-					/>
-				</li>
-			{/each}
+			
+				{#each guides as guide}
+					<li>
+						<Card
+							title={guide.meta.title}
+							href={guide.path}
+							category={guide.meta.category}
+							caption={guide.meta.caption}
+							bgSrc={guide.meta.thumbImg}
+						/>
+					</li>
+				{/each}
+			
 		</ul>
 	</main>
-	<PageFooter />
 </div>
-
-
 
 <style lang="scss">
 	.contents {

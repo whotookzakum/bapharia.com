@@ -309,7 +309,6 @@
     ];
 </script>
 
-
 <div class="layout guide">
     <HeroBanner bannerUrl="/guides/classes/banner.webp">
         <img
@@ -320,13 +319,16 @@
         />
         <h1>Aegis Fighter</h1>
         <p>
-            A close-range class that fights on the front line, utilizing offensive
-            and defensive skills. Aegis Fighters wield a one-handed sword and shield
-            and are mainly a tank class. Their skills excel in crowd-control and
-            enemy aggro management. They have various Light-elemental skills.
+            A close-range class that fights on the front line, utilizing
+            offensive and defensive skills. Aegis Fighters wield a one-handed
+            sword and shield and are mainly a tank class. Their skills excel in
+            crowd-control and enemy aggro management. They have various
+            Light-elemental skills.
         </p>
     </HeroBanner>
-    <div></div>
+    <div>
+        Left stuff
+    </div>
     <Toc
         --toc-padding="1rem 0 0 0"
         --toc-title-padding="0.5rem"
@@ -342,34 +344,35 @@
                 bleed
                 style="margin: 0"
             />
-            <!-- <figcaption>Demonstration of some Aegis Fighter attacks and animation-cancel combos</figcaption> -->
+            <figcaption>Demonstration of some Aegis Fighter attacks and animation-cancel combos</figcaption>
         </figure>
-    
-        <div id="class-mechanic" class="box">
-            <span class="component-label">Class Mechanic</span>
-            <h2>Shield Gauge</h2>
-            <p>
-                Aegis Fighters can hold down the subaction button to enter a guard
-                stance. Successful blocks of enemy attacks will consume Shield
-                Gauge. Once the gauge is depleted, shield-related skills will be
-                temporarily unavailable. Press the normal attack button after
-                blocking to perform a powerful counterattack.
-            </p>
-        </div>
-    
-        <div id="class-mechanic2" class="box">
-            <span class="component-label">Class Mechanic</span>
-            <h2>Weak Point Targeting</h2>
-            <p>
-                Blast Archers deal increased damage when hitting an enemy's weak point. These points vary between enemies, such as the head or back. You may be able to hit weak spots with auto aim on some enemies, but this is unlikely to be the case for most enemies so players will have to switch between auto and manual aim for maximum efficiency.
-            </p>
-        </div>
-    
-        <div id="skills" class="box">
-            <span class="component-label">Aegis Fighter</span>
+
+        <h2>Shield Gauge</h2>
+        <p>
+            Aegis Fighters can hold down the subaction button to enter a guard
+            stance. Successful blocks of enemy attacks will consume Shield
+            Gauge. Once the gauge is depleted, shield-related skills will be
+            temporarily unavailable. Press the normal attack button after
+            blocking to perform a powerful counterattack.
+        </p>
+
+        <h2>Weak Point Targeting</h2>
+        <p>
+            Blast Archers deal increased damage when hitting an enemy's weak
+            point. These points vary between enemies, such as the head or back.
+            You may be able to hit weak spots with auto aim on some enemies, but
+            this is unlikely to be the case for most enemies so players will
+            have to switch between auto and manual aim for maximum efficiency.
+        </p>
+
+        <div id="skills">
             <h2>Skills</h2>
             <label>
-                <input type="radio" value="tactical" bind:group={selectedSkills} />
+                <input
+                    type="radio"
+                    value="tactical"
+                    bind:group={selectedSkills}
+                />
                 Tactical Skills
             </label>
             <label>
@@ -396,7 +399,7 @@
                 />
                 Base Abilities
             </label>
-    
+
             <ul class="skills-grid unstyled-list grid" role="list">
                 {#each skills as skill}
                     <Skill {skill} />
@@ -406,12 +409,8 @@
     </article>
 </div>
 
-<div class="class-page-wrapper grid">
-    
-</div>
-
 <div class="meta">
-    <h2 id="meta" style:text-align="center">Aegis Fighter Metagame</h2>
+    <h2 id="meta" style:text-align="center">Meta</h2>
 </div>
 
 <style lang="scss">
@@ -452,17 +451,8 @@
         }
     }
 
-    figure {
-        grid-area: left1;
-        margin: 0;
-    }
-
-    figcaption {
-        text-align: center;
-    }
-
     .skills-grid {
-        grid-template-columns: 1fr 1fr 1fr ;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
     }
 </style>

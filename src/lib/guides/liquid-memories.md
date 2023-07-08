@@ -13,7 +13,7 @@ thumbImg: "/guides/liqmem/thumb.webp"
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
     import Video from '$lib/components/Video.svelte';
-    import LiqMemTable from "./components/LiqMemTable.svelte";
+    import LiqMemTable from "$lib/components/guides/LiqMemTable.svelte";
 </script>
 
 <Video 

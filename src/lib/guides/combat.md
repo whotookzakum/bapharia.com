@@ -10,8 +10,8 @@ thumbImg: "/guides/combat/thumb.jpg"
 
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
-    import StatsTable from './components/StatsTable.svelte';
-    import LevelDifferenceTable from './components/LevelDifferenceTable.svelte';
+    import StatsTable from '$lib/components/guides/StatsTable.svelte';
+    import LevelDifferenceTable from '$lib/components/guides/LevelDifferenceTable.svelte';
 </script>
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action. Let's take a look at each one.
