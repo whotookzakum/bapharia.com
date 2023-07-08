@@ -19,10 +19,10 @@ const config = {
 					rehypeAutolinkHeadings,
 					{ behavior: 'append' }
 				],
-				[
-					rehypeToc,
-					{}
-				]
+				// [
+				// 	rehypeToc,
+				// 	{}
+				// ]
 			]
 		})
 	],

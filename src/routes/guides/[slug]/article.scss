@@ -1,70 +1,20 @@
-.layout-right, .layout-left {
-    gap: var(--space-xs);
-}
+// .layout-right {
+//     --toc-width: 250px; // 40ch
+//     --text-width: 850px; // 60 ch
+//     grid-template-columns: 1fr auto 1fr var(--toc-width);
+//     // padding-top: 3.5rem;
 
-.layout-left {
-    grid-template-columns: 250px 1fr;
-    align-items: start;
-}
 
-.layout-right {
-    --toc-width: 40ch;
-    --text-width: 60ch;
-    grid-template-columns: min(var(--text-width), calc(100% - 2rem)) 1fr var(--toc-width);
-    padding-top: 3.5rem;
+// }
 
-    &>* {
-        grid-column: 1;
-    }
+// nav.guides-list,
+// nav.toc {
+//     top: 62px;
+// }
 
-    .full-bleed,
-    table,
-    &>video,
-    &>img:not(.bg-img),
-    figure,
-    figure img,
-    .toc,
-    p img {
-        grid-column: 1 / 3;
-        margin: 1rem 0;
-        border-radius: 1rem;
-    }
 
-    figure video {
-        width: 100%;
-        border-radius: 1rem;
-    }
+.guide {
 
-    &>img:not(.bg-img),
-    figure img {
-        filter: brightness(0.7);
-        transition: filter 0.4s ease;
-
-        &:hover {
-            filter: brightness(1);
-        }
-    }
-
-    p,
-    aside {
-        max-inline-size: unset;
-        line-height: 2;
-    }
-}
-
-nav.guides-list,
-nav.toc {
-    font-size: var(--step-0);
-    top: 62px;
-
-    a:not(.btn) {
-        color: var(--text2);
-
-        &:hover {
-            background: rgba(246, 247, 249, 0.05);
-            color: var(--text1);
-        }
-    }
 
     .active {
         background: var(--surface1);
@@ -72,137 +22,289 @@ nav.toc {
     }
 }
 
-nav.guides-list {
-    position: sticky;
-    max-width: 250px;
+.guides-list a:not(.btn),
+.toc li {
+    color: var(--text2);
 
-    a:not(.btn) {
-        padding: 0.75rem 1rem 0.75rem 2rem;
-        border-top-right-radius: 3rem;
-        border-bottom-right-radius: 3rem;
+    &:hover {
+        background: rgba(246, 247, 249, 0.05);
+        color: var(--text1);
     }
 }
 
+.guides-list a:not(.btn) {
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+}
+
+.toc li {
+    padding: 0.75rem 2rem 0.75rem 1rem;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+    line-height: normal;
+    max-inline-size: none;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+:where(h2, h3, h4) {
+    scroll-margin-top: 1rem;
+}
+
+
+// .toc {
+//     border-radius: 1rem;
+//     background: var(--surface1);
+//     width: 100%;
+//     max-height: calc(100vh - 62px);
+//     margin-left: auto;
+//     position: initial;
+//     overflow-y: auto;
+
+//     ol {
+//         gap: 0;
+//         list-style-type: none;
+//         padding: 0;
+//         margin: 0;
+//         max-inline-size: none;
+//     }
+
+//     &>ol {
+//         padding-left: 0;
+//     }
+
+//     li {
+//         width: 100%;
+//         line-height: unset;
+//     }
+
+//     a {
+//         display: block;
+//         width: 100%;
+//     }
+
+//     a:not(:where(:hover, :focus-visible)) {
+//         text-decoration: none;
+//     }
+
+//     a:not(.btn) {
+//         padding: 0.75rem 2rem 0.75rem 1rem;
+
+//     }
+
+//     ol ol a {
+//         padding-left: 2.5rem !important;
+//     }
+
+//     &::before {
+
+//     }
+// }
+
+// // HYPERLINKS ===================================================
+
+// :where(h2, h3, h4, h5, h6) {
+
+//     &:hover a {
+//         opacity: 1;
+//     }
+
+//     a {
+//         opacity: 0;
+//         text-decoration: none;
+//         margin-left: 0.25em;
+//         font-size: 1.4rem;
+
+//         &::after {
+//             content: "\1f517";
+//         }
+//     }
+// }
+
+// // RESPONSIVE ===========================================
+
+// @media (min-width: 1200px) {
+//     .toc {
+//         position: sticky;
+//         grid-column: 4 !important;
+//         grid-row: 1/16;
+//         background: none;
+//     }
+
+//     .toc+* {
+//         margin-top: 3.5rem !important;
+//     }
+// }
+
+// @media (max-width: 1199px) {
+//     .layout-right {
+//         grid-template-columns: 1fr auto 1fr;
+//     }
+// }
+
+// @media (max-width: 800px) {
+//     .layout-right, .layout-left {
+//         p {
+//             font-size: var(--step--0);
+//         }
+//     }
+
+//     .layout-right {
+//         gap: 0;
+//     }
+
+//     .layout-left {
+//         grid-template-columns: 1fr auto 1fr;
+//     }
+
+//     nav.guides-list {
+//         position: initial;
+//         max-width: none;
+//         text-align: left;
+//         justify-content: start;
+
+//         .link {
+//             display: none;
+//         }
+
+//         .btn.btn-fadein {
+//             margin: 1rem 0 0 0;
+//             grid-column: 2;
+//         }
+//     }
+
+//     .guides-list, main {
+//         grid-column: 2;
+//     }
+// }
+
+
+// // SCROLL TRACKER ==========================================
+// @supports (scroll-timeline: name) {
+//     .scroll-tracker {
+//         position: fixed;
+//         inset: 0;
+//         height: 4px;
+//         z-index: 5000;
+//         background: var(--accent);
+//         transform-origin: left;
+//         animation: trackScroll 1s linear forwards;
+//         animation-timeline: scroll-tracker-timeline;
+//         box-shadow: 0 1px 2px var(--surface-shadow);
+//     }
+// }
+
+// @keyframes trackScroll {
+//     from {
+//         transform: scaleX(0);
+//     }
+
+//     to {
+//         transform: scaleX(1);
+//     }
+// }
+
+.guide .hero-banner {
+    grid-column: 1/-1;
+}
 
 .toc {
-    border-radius: 1rem;
-    background: var(--surface1);
-    width: 100%;
-    margin-left: auto;
-    grid-row: 1/16;
-    position: initial;
+    grid-column: 3;
+    top: 62px !important;
 
-    ol {
-        gap: 0;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        max-inline-size: none;
-    }
-
-    &>ol {
-        padding-left: 0;
-    }
-
-    li {
-        width: 100%;
-        line-height: unset;
-    }
-
-    a {
-        display: block;
-        width: 100%;
-    }
-
-    a:not(:where(:hover, :focus-visible)) {
-        text-decoration: none;
-    }
-
-    a:not(.btn) {
-        padding: 0.75rem 2rem 0.75rem 1rem;
-        border-top-left-radius: 3rem;
-        border-bottom-left-radius: 3rem;
-    }
-
-    ol ol a {
-        padding-left: 2.5rem !important;
-    }
-
-    &::before {
-        content: "In this article";
-        display: block;
-        padding: 1rem 1rem;
-        margin-bottom: 0.5rem;
+    h2 {
+        font: inherit;
+        color: var(--text2);
         font-weight: bold;
         border-bottom: 1px solid var(--surface2);
     }
-}
 
-// HYPERLINKS ===================================================
-
-:where(h2, h3, h4, h5, h6) {
-
-    &:hover a {
-        opacity: 1;
-    }
-
-    a {
-        opacity: 0;
-        text-decoration: none;
-        margin-left: 0.25em;
-        font-size: 1.4rem;
-
-        &::after {
-            content: "\1f517";
-        }
+    ol {
+        gap: 0;
+        max-inline-size: none;
     }
 }
 
-// RESPONSIVE ===========================================
-
-@media (min-width: 1300px) {
-    
-
-    .layout-right {
-        // grid-template-columns: min(55ch, calc(100% - 2rem)) 250px;
-    }
-
+@media (max-width: 1200px) {
     .toc {
-        position: sticky;
-        grid-column: 3 !important;
-        top: 62px;
-        background: none;
+        display: none;
     }
 }
 
-@media (max-width: 1299px) {
-    .layout-right {
-        --toc-width: 0px;
+.guide article {
+    --text-width: 38rem; // roughly 55ch
+    --bleed-width: 56.25rem; // 900px
+    grid-template-columns: 1fr min(calc(100% - 4rem), var(--bleed-width)) 1fr;
+
+    &>*,
+    figure *,
+    .full-bleed,
+    p img {
+        grid-column: 2;
+        max-width: 100%;
+    }
+
+    p,
+    ol,
+    ul,
+    aside {
+        max-inline-size: var(--text-width);
+    }
+
+    table,
+    &>video,
+    &>img,
+    p>img {
+        margin: 1rem auto;
+        border-radius: 1rem;
+        width: 100%;
+    }
+
+    // p>img,
+    figure * {
+        width: 100%;
+        border-radius: 1rem;
+    }
+
+    p {
+        line-height: 2;
     }
 }
 
+@media (max-width: 900px) {
+    .guide article {
+        grid-template-columns: 1fr min(calc(100% - 2rem), var(--text-width)) 1fr;
 
-// SCROLL TRACKER ==========================================
-@supports (scroll-timeline: name) {
-    .scroll-tracker {
-        position: fixed;
-        inset: 0;
-        height: 4px;
-        z-index: 5000;
-        background: var(--accent);
-        transform-origin: left;
-        animation: trackScroll 1s linear forwards;
-        animation-timeline: scroll-tracker-timeline;
-        box-shadow: 0 1px 2px var(--surface-shadow);
-    }
-}
+        p,
+        ol,
+        ul,
+        aside {
+            font-size: var(--step-0);
+        }
 
-@keyframes trackScroll {
-    from {
-        transform: scaleX(0);
-    }
+        .full-bleed,
+        table,
+        &>video,
+        &>img,
+        p>img,
+        figure {
+            grid-column: 1/-1 !important;
+            width: calc(100% - 2rem);
+            margin: 1rem auto;
+        }
 
-    to {
-        transform: scaleX(1);
+        figure .video,
+        p>img {
+            width: 100%;
+        }
+
+        figcaption,
+        caption {
+            text-align: center;
+        }
     }
 }

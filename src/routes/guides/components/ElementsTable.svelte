@@ -79,7 +79,7 @@
     {#each elements as element}
         <div class={`element box grid ${element.name}`}>
             <div class="flex g-50" style="align-items: center">
-                <img src={element.images[0]} alt="" width="48" height="48" />
+                <img src={element.images[0]} alt="" width="36" height="36" />
                 <h3>{element.name}</h3>
             </div>
             <div class="row">
@@ -125,10 +125,9 @@
     }
 
     .elements-grid {
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        flex-wrap: wrap;
         gap: 1rem;
-        width: min(100%, 1200px) !important;
-        padding: 1rem;
     }
 
     .element {
@@ -147,10 +146,9 @@
         gap: 0.5rem;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
 
         img {
-            width: 36px;
+            width: 32px;
             height: auto;
             aspect-ratio: 65/75;
         }
@@ -164,7 +162,7 @@
 
     .description {
         // font-weight: 600;
-        font-size: 18px;
+        // font-size: 18px;
         margin: 0;
     }
 

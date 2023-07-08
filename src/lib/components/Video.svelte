@@ -20,7 +20,6 @@
 	.video {
 		width: 100%;
 		border: none;
-		padding: 0;
 		aspect-ratio: 16/9;
 		margin-top: var(--space-xs);
 	}

@@ -58,7 +58,7 @@ After Burst Bonus Time ends, a **Burst Finish** will occur, dealing massive dama
 ## Elemental Weakness
 Attacking with the element that an enemy is weak against will allow you to do increased damage, indicated by an icon next to your damage numbers. The icon has 3 versions, denoting how effective the damage increase is.
 
-<div class="flex" style="justify-content: center">
+<div class="flex">
     <img src="/UI/DamageUI/UI_DamageUIWeakness1.png" alt="Weakness 1" width="48" height="84" />
     <img src="/UI/DamageUI/UI_DamageUIWeakness2.png" alt="Weakness 2" width="48" height="84" /> 
     <img src="/UI/DamageUI/UI_DamageUIWeakness3.png" alt="Weakness 3" width="48" height="84" /> 

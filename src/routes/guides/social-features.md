@@ -98,7 +98,8 @@ Photo mode grants you a variety of controls for taking screenshots in the game. 
     />
     <figcaption>Basic demonstration of Photo Mode and setting Adventurer Card pictures.</figcaption>
 </figure>
- 
+
+
 You can also time-stop the location of players related to you (friends, party members, team members), so even if they leave the area they will appear to have not moved on your screen while you're still in photo mode!
 
 ### Camps

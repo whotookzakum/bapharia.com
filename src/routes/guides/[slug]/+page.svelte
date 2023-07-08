@@ -3,8 +3,8 @@
     import PageFooter from "$lib/components/PageFooter.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import HeroBanner from "$lib/components/HeroBanner.svelte";
-    import { fetchMarkdownPosts } from "$lib/utils";
-    import { page } from "$app/stores";
+    import GuidesList from "./GuidesList.svelte";
+    import Toc from "svelte-toc";
     export let data;
     $: formattedDate = new Date(data.meta.date).toLocaleDateString();
 </script>
@@ -14,37 +14,68 @@
     description={data.meta.caption}
 />
 
-<HeroBanner bannerUrl={data.meta.bannerImg}>
-    <h1>{data.meta.title}</h1>
-    <p style:color="var(--text2)" style:margin-top="0">{data.meta.caption}</p>
-    <b>By {data.meta.author} • Last Updated {formattedDate}</b>
-</HeroBanner>
-
-<div class="layout-left grid">
-    <nav class="guides-list grid">
-        <a href="/guides" class="btn btn-fadein">Back to Guides</a>
-        {#await fetchMarkdownPosts() then guides}
-            {#each guides as guide}
-                <a
-                    class="link styled-link"
-                    class:active={$page.url.pathname === guide.path}
-                    href={guide.path}>{guide.meta.title}</a
-                >
-            {/each}
-        {/await}
-    </nav>
-    
-    <main id="main" tabindex="-1">
-        <article class="layout-right grid">
-            <svelte:component this={data.content} />
-            <div class="scroll-tracker" />
-        </article>
-    </main>
-</div>
+<main id="main" tabindex="-1" class="layout guide">
+    <HeroBanner bannerUrl={data.meta.bannerImg}>
+        <h1>{data.meta.title}</h1>
+        <p style:color="var(--text2)" style:margin-top="0">{data.meta.caption}</p>
+        <b>By {data.meta.author} • Last Updated {formattedDate}</b>
+    </HeroBanner>
+    <GuidesList />
+    <Toc 
+        --toc-padding="1rem 0 0 0"
+        --toc-title-padding="0.5rem" 
+        --toc-title-margin="1rem 0 0.5rem 0"
+        --toc-max-height="calc(100vh - 62px - 1rem)"
+        --toc-font-size="1rem"    
+    >
+        <!-- <a href={"#" + heading.id} let:idx let:heading slot="toc-item">
+        {idx + 1}. {heading.innerText}
+      </a> -->
+    </Toc>
+    <article class="grid">
+        <svelte:component this={data.content} />
+    </article>
+</main>
 
 <style lang="scss">
-    .btn {
-        font-size: inherit;
-        margin: 1rem;
+    .layout {
+        --toc-width: 350px;
+        --guides-list-width: 250px;
+
+        grid-template-columns: var(--guides-list-width) 1fr var(--toc-width);
+        // column-gap: 1rem;
+        align-items: start;
     }
+
+    @media (max-width: 1400px) {
+        .layout {
+            --toc-width: 250px;
+            --guides-list-width: 250px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .layout {
+            --toc-width: 0;
+        }
+    }
+
+    article {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    @media (max-width: 900px) {
+        .layout {
+            --guides-list-width: 0;
+            grid-template-columns: 1fr min(calc(100% - 2rem), 38rem) 1fr;
+        }
+
+        article {
+            grid-row: 3;
+            grid-column: 1/-1;
+        }
+    }
+
+    
 </style>
