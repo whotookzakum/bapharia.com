@@ -13,7 +13,7 @@ import { getMapName } from "./maps";
 
 // TODO 3d models
 
-function findObjectByItemId(objectsArray, innerObject, itemId, keyToFind) {
+export function findObjectByItemId(objectsArray, innerObject, itemId, keyToFind) {
     for (let i = 0; i < objectsArray.length; i++) {
         const innerObjArray = objectsArray[i][innerObject];
         for (let j = 0; j < innerObjArray.length; j++) {

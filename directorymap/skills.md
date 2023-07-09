@@ -4,6 +4,12 @@
 - Skill ID to Type mapping: 
 - Skill ID to Element mapping:
 
+`/Content/Blueprints/Player/PassiveSkill/Blaster`
+`/Content/Blueprints/Player/PassiveSkill/Common`
+`/Content/Blueprints/Player/Skill/Blaster`
+`/Content/Blueprints/Magic/P006_Blaster`
+`/Content/Blueprints/Manager/AttackMasterDataModifier`
+
 ### Variables
 `Type`
 The mapping for these to each skill might exist on the client
@@ -31,6 +37,10 @@ The mapping for these to each skill might exist on the client
 
 ## Server
 - Skill data: `/skill_data.json`
+
+`/master_attack_modifier_data.json` ??
+`/attack_data.json`
+`/attack_override_data.json`
 
 ### Variables
 `class_type`

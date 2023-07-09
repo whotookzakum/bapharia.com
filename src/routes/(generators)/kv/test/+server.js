@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit'
-import adventureboards from '../functions/adventureboards'
+import dungeondrops from '../functions/dungeondrops'
 
 export const GET = async () => {
-    return json(adventureboards)
+    return json(dungeondrops)
 }
