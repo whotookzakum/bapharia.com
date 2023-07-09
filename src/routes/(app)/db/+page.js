@@ -1,8 +1,3 @@
-import { userSearch } from "$lib/stores";
-import { get } from "svelte/store";
-import debounce from "lodash/debounce";
-import { load_DBSearchQuery } from '$houdini'
-
 // Runs every goto() with invalidateAll
 // TODO implement 500ms debounce
 
@@ -21,9 +16,7 @@ import { load_DBSearchQuery } from '$houdini'
 // }, 500);
 
 export const _DBSearchQueryVariables = ({ url }) => {
-    let searchTerm = get(userSearch)
-    // searchTerm = url.searchParams.get("search")
-    // searchTerm = searchTerm
+    let searchTerm = url.searchParams.get("search")
     return {
         searchTerm
         // maxResults: 10,
