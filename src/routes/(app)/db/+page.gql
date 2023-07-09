@@ -1,0 +1,45 @@
+query DBSearchQuery($searchTerm: String, $categories: String) @load {
+    entries(
+        searchTerm: $searchTerm
+        categories: $categories
+        first: 10
+        last: 10
+    ) @paginate(mode: SinglePage) {
+        totalResults
+        pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+        }
+        edges {
+            node {
+                __typename
+                id
+                name {
+                    ja_JP
+                    en_US
+                }
+                thumb
+                category {
+                    ja_JP
+                    en_US
+                }
+                ... on Weapon {
+                    classImg
+                    elementImg
+                    attribute
+                }
+                ... on Skill {
+                    elementImg
+                    skillBackgroundImg
+                    skill_type
+                }
+                ... on Imagine {
+                    elementImg
+                }
+            }
+            cursor
+        }
+    }
+}

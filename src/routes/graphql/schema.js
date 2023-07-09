@@ -1,7 +1,17 @@
-scalar Map
+import { createSchema } from 'graphql-yoga'
+import resolvers from './resolvers.js';
+import * as fs from 'fs';
+import * as path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export const typeDefs = `scalar Map
 
 type Query {
-	entries(searchTerm: String, categories: String, first: Int, last: Int, before: String, after: String): DBConnection!
+	entries(searchTerm: String, categories: String, numberOfResults: Int, first: Int, last: Int, before: String, after: String): DBConnection!
 	entry(longId: String!): DBEntry
 }
 
@@ -342,4 +352,10 @@ type AvatarPart implements DBEntry {
 	desc: Text
 	thumb: String
 	category: Text
-}
+}`
+
+export const schema = createSchema({
+	typeDefs: fs.readFileSync(path.join(__dirname, 'schema.graphql'), 'utf-8'),
+	// typeDefs,
+	resolvers
+})

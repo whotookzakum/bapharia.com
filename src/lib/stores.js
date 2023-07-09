@@ -167,6 +167,9 @@ export const initialFilters = {
     ]
 }
 
+export const userSearch = writable("")
+
+
 export const nStore = writable(cloneDeep(initialFilters))
 export const filterCategoryTypes = derived(
     nStore,
@@ -178,3 +181,5 @@ export const filterCategoryTypes = derived(
         return acc;
     }, [])
 )
+
+export const resultsPerPage = writable(10)

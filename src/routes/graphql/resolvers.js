@@ -1,5 +1,5 @@
 
-import entries from "../kv/functions";
+import entries from "../(generators)/kv/functions";
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 const resolvers = {
@@ -15,13 +15,13 @@ const resolvers = {
                     )
             }
 
-            let categories = JSON.parse(args.categories)
-            if (categories.length > 0) {
-                filteredEntries =
-                    filteredEntries?.filter(entry =>
-                        categories?.includes(entry?.entryTypes[0])
-                    )
-            }
+            // let categories = JSON.parse(args.categories)
+            // if (categories.length > 0) {
+            //     filteredEntries =
+            //         filteredEntries?.filter(entry =>
+            //             categories?.includes(entry?.entryTypes[0])
+            //         )
+            // }
 
             const { connectionFromArray } = await import('./connections.mjs')
 

@@ -8,7 +8,8 @@
 	import SearchFilters from "./SearchFilters.svelte";
 	import debounce from "lodash/debounce";
 	import { filterCategoryTypes } from "$lib/stores";
-	import Icon from "@iconify/svelte";
+	import PageControls from "./PageControls.svelte";
+    import { resultsPerPage } from "$lib/stores";
 
 	let userSearchInput = $page.url.searchParams.get("search") || "";
 	$: userSelectedEntryId = $page.url.searchParams.get("result");
@@ -16,12 +17,16 @@
 	export let _DatabaseEntriesVariables = () => {
 		return {
 			searchTerm: userSearchInput,
+			totalResults: 10,
 			categories: JSON.stringify($filterCategoryTypes),
 		};
 	};
 
+	let num = 10
+
 	$: {
 		$filterCategoryTypes;
+		// num;
 		updateResults();
 	}
 
@@ -30,8 +35,8 @@
 			entries(
 				searchTerm: $searchTerm
 				categories: $categories
-				first: 6
-				last: 6
+				first: 3
+				last: 3
 			) @paginate(mode: SinglePage) {
 				totalResults
 				pageInfo {
@@ -75,13 +80,14 @@
 
 	const placeholderText = {
 		ja_JP: "アイテム名かIDで検索",
-		en_US: "Start typing item name or id",
+		en_US: "Search by item name or id",
 	};
 
 	const updateResults = () => {
 		_DatabaseEntriesVariables = () => {
 			return {
 				searchTerm: userSearchInput,
+				totalResults: 10,
 				categories: JSON.stringify($filterCategoryTypes),
 			};
 		};
@@ -124,124 +130,78 @@
 		});
 	};
 
-	const loadPreviousPage = async () => {
-		await entries.loadPreviousPage();
-		pageNumber--;
-	};
-
 	const loadNextPage = async () => {
 		await entries.loadNextPage();
-		pageNumber++;
 	};
 
-	let pageNumber = 1;
-	let resultsPerPage = 6;
+	const loadPreviousPage = async () => {
+		await entries.loadPreviousPage();
+	};
 
-	$: totalPages = Math.ceil(
-		$entries?.data?.entries.totalResults / resultsPerPage
-	);
-
-	$: if (pageNumber > totalPages && totalPages > 0) pageNumber = maxPages;
+	// $: console.log($entries)
 </script>
 
-<div class="db-wrapper">
-	<form id="search" class="search-pane">
-		<div>
-			<label for="search-box" class="component-label">Search</label>
-			<div class="box search-and-filters">
-				<input
-					class="box"
-					id="search-box"
-					type="search"
-					placeholder={placeholderText[$userLocale]}
-					bind:value={userSearchInput}
-					on:input={updateSearchParam}
-				/>
-				<SearchFilters />
-			</div>
-			<div class="page-controls flex g-25">
-				<button
-					class="flex"
-					disabled={!$entries.pageInfo.hasPreviousPage}
-					on:click={loadPreviousPage}
-				>
-					<Icon icon={"mdi:chevron-left"} width="18" height="18" />
-				</button>
-				<button
-					class="flex"
-					disabled={!$entries.pageInfo.hasNextPage}
-					on:click={loadNextPage}
-				>
-					<Icon icon={"mdi:chevron-right"} width="18" height="18" />
-				</button>
-				<span>page {pageNumber} of {totalPages}</span>
-				<span />
-			</div>
-		</div>
+<form id="search" class="grid" style:gap="1rem">
+	<!-- <SearchFilters /> -->
+
+	<div class="flex g-50">
+		<input
+			class="box"
+			id="search-box"
+			type="search"
+			placeholder={placeholderText[$userLocale]}
+			bind:value={userSearchInput}
+			on:input={updateSearchParam}
+		/>
+		<div class="box">Category</div>
+		<div class="box">Level</div>
+		<div class="box">Adventurer Rank</div>
+		<div class="box">Class</div>
+		<div class="box">Element</div>
+	</div>
+
+	<!-- <div class="flex">
+		<img src="/UI/Icon/Class/UI_IconClass_12.png" alt="" width="48" height="48" />
+		<img src="/UI/Icon/Class/UI_IconClass_06.png" alt="" width="48" height="48" />
+		<img src="/UI/Icon/Class/UI_IconClass_19.png" alt="" width="48" height="48" />
+		<img src="/UI/Icon/Class/UI_IconClass_11.png" alt="" width="48" height="48" />
+		<img src="/UI/Icon/Class/UI_IconClass_07.png" alt="" width="48" height="48" />
+	</div> -->
+
+	<div class="box">
+		<PageControls
+			hasPreviousPage={!$entries?.pageInfo?.hasPreviousPage}
+			hasNextPage={!$entries?.pageInfo?.hasNextPage}
+			totalResults={$entries?.data?.entries.totalResults}
+			on:clickPreviousPage={loadPreviousPage}
+			on:clickNextPage={loadNextPage}
+		/>
 		{#if !$entries.fetching}
-			<div>
-				<span class="component-label"
-					>Results ({$entries.data.entries.totalResults})</span
-				>
-				<ul id="search-results" class="box" role="list">
-					{#each $entries.data.entries.edges as entry}
-						<li>
-							<button
-								type="button"
-								on:click={() => updateResultParam(entry.node)}
-							>
-								<EntrySummary
-									{userSearchInput}
-									data={entry.node}
-								/>
-							</button>
-						</li>
-					{/each}
-				</ul>
-			</div>
+			<ul id="search-results" role="list">
+				{#each $entries.data.entries.edges as entry}
+					<li>
+						<button
+							type="button"
+							on:click={() => updateResultParam(entry.node)}
+						>
+							<EntrySummary {userSearchInput} data={entry.node} />
+						</button>
+					</li>
+				{/each}
+			</ul>
 		{/if}
-	</form>
-	<DatabaseDetails longId={userSelectedEntryId || "Item121000000"} />
-</div>
+	</div>
+</form>
+
+<!-- <DatabaseDetails longId={userSelectedEntryId || "Item121000000"} /> -->
 
 <style lang="scss">
-	.db-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 2rem;
-	}
-
-	.search-and-filters.box {
-		padding: 0;
-		border: none;
-		overflow: visible;
-
-		input.box {
-			box-shadow: none;
-			border-bottom: unset;
-		}
-
-		input.box:not(:focus-visible) {
-			border-bottom-left-radius: unset;
-			border-bottom-right-radius: unset;
-		}
-	}
-
-	@media (max-width: 800px) {
-		.db-wrapper {
-			grid-template-columns: 1fr;
-		}
-	}
-
-	.search-pane {
-		display: grid;
-		gap: 2rem;
-		align-content: flex-start;
-	}
-
 	#search-box {
 		min-width: 30ch;
-		width: 100%;
+	}
+
+	.box {
+		border: none;
 	}
 
 	ul#search-results {
