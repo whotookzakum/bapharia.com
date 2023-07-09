@@ -2,7 +2,6 @@
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
     import { userLocale, userSearch } from "$lib/stores";
-    import debounce from "lodash/debounce";
 
     const placeholderText = {
         ja_JP: "アイテム名かIDで検索",
@@ -11,8 +10,7 @@
 
     $userSearch = $page.url.searchParams.get("search") || ""
 
-
-    const updateSearchParam = () => {
+    const updateUrl = () => {
         $userSearch
             ? $page.url.searchParams.set("search", $userSearch)
             : $page.url.searchParams.delete("search");
@@ -25,18 +23,9 @@
             noScroll: true,
             replaceState: true,
             keepFocus: true,
+            invalidateAll: true
         });
-
-        updateResultsDebounced();
     };
-
-    const updateResultsDebounced = debounce(() => {
-        // _DBSearchQueryVariables = () => {
-        //     return {
-        //         searchTerm: userSearchInput,
-        //     };
-        // };
-    }, 500);
 </script>
 
 <input
@@ -45,7 +34,7 @@
     type="search"
     placeholder={placeholderText[$userLocale]}
     bind:value={$userSearch}
-    on:input={updateSearchParam}
+    on:input={updateUrl}
 />
 
 <style lang="scss">

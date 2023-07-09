@@ -4,9 +4,8 @@
     import { page } from "$app/stores";
     import EntrySummary from "./EntrySummary.svelte";
     import SearchFilters from "./SearchFilters.svelte";
-    import { filterCategoryTypes } from "$lib/stores";
+    import { filterCategoryTypes, userSearch, resultsPerPage } from "$lib/stores";
     import PageControls from "./PageControls.svelte";
-    import { resultsPerPage } from "$lib/stores";
     import Search from "./Search.svelte";
 
     export let data;
@@ -16,30 +15,23 @@
     // TODO save and cache preferences: filters
     // TODO favorite items
 
-    let userSearchInput = $page.url.searchParams.get("search") || "";
+    
 
-    export let _DBSearchQueryVariables = () => {
-        return {
-            searchTerm: userSearchInput,
-            maxResults: 10,
-            categories: JSON.stringify($filterCategoryTypes),
-        };
-    };
+    // $: {
+    //     $filterCategoryTypes;
+    //     $userSearch;
+    //     updateResults();
+    // }
 
-    $: {
-        $filterCategoryTypes;
-        updateResults();
-    }
-
-    const updateResults = () => {
-        _DBSearchQueryVariables = () => {
-            return {
-                searchTerm: userSearchInput,
-                maxResults: 10,
-                categories: JSON.stringify($filterCategoryTypes),
-            };
-        };
-    };
+    // const updateResults = () => {
+    //     _DBSearchQueryVariables = () => {
+    //         return {
+    //             searchTerm: $userSearch,
+    //             maxResults: 10,
+    //             categories: JSON.stringify($filterCategoryTypes),
+    //         };
+    //     };
+    // };
 
     
 
@@ -75,7 +67,7 @@
                             type="button"
                             
                         >
-                            <EntrySummary {userSearchInput} data={entry.node} />
+                            <EntrySummary data={entry.node} />
                         </button>
                     </li>
                 {/each}
