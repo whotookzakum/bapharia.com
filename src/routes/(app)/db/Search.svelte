@@ -39,6 +39,6 @@
 
 <style lang="scss">
     #search-box {
-        min-width: 30ch;
+        width: 100%;
     }
 </style>

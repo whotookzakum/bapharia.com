@@ -1,40 +1,16 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
-
-    import { page } from "$app/stores";
     import EntrySummary from "./EntrySummary.svelte";
     import SearchFilters from "./SearchFilters.svelte";
-    import { filterCategoryTypes, userSearch, resultsPerPage } from "$lib/stores";
     import PageControls from "./PageControls.svelte";
     import Search from "./Search.svelte";
 
     export let data;
 
-    $: ({DBSearchQuery} = data)
+    $: ({ DBSearchQuery } = data);
 
     // TODO save and cache preferences: filters
     // TODO favorite items
-
-    
-
-    // $: {
-    //     $filterCategoryTypes;
-    //     $userSearch;
-    //     updateResults();
-    // }
-
-    // const updateResults = () => {
-    //     _DBSearchQueryVariables = () => {
-    //         return {
-    //             searchTerm: $userSearch,
-    //             maxResults: 10,
-    //             categories: JSON.stringify($filterCategoryTypes),
-    //         };
-    //     };
-    // };
-
-    
-
 </script>
 
 <MetaTags
@@ -45,28 +21,29 @@
 <h1>Database</h1>
 
 <form id="search" class="grid" style:gap="1rem">
-
-    <div class="flex g-50">
+    
+    <div class="search">
         <Search />
-        <!-- <SearchFilters /> -->
     </div>
 
-    <div class="box">
+    <div class="filters">
+        <SearchFilters />
+    </div>
+
+    <div class="results box">
         <PageControls
             hasPreviousPage={!$DBSearchQuery?.pageInfo?.hasPreviousPage}
             hasNextPage={!$DBSearchQuery?.pageInfo?.hasNextPage}
             totalResults={$DBSearchQuery?.data?.entries.totalResults}
-            on:clickPreviousPage={async () => await DBSearchQuery.loadPreviousPage()}
+            on:clickPreviousPage={async () =>
+                await DBSearchQuery.loadPreviousPage()}
             on:clickNextPage={async () => await DBSearchQuery.loadNextPage()}
         />
-        {#if !$DBSearchQuery.fetching}
+        {#if $DBSearchQuery.data}
             <ul id="search-results" role="list">
                 {#each $DBSearchQuery.data.entries.edges as entry}
                     <li>
-                        <button
-                            type="button"
-                            
-                        >
+                        <button type="button">
                             <EntrySummary data={entry.node} />
                         </button>
                     </li>
@@ -77,6 +54,31 @@
 </form>
 
 <style lang="scss">
+    form#search {
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 30ch 1fr 1fr;
+        grid-template-areas:
+            'filters search search'
+            'filters results results';
+
+        // grid-template-columns: 1fr 1fr 30ch;
+        // grid-template-areas:
+        //     'search search filters'
+        //     'results results filters';
+    }
+
+    .search {
+        grid-area: search;
+    }
+
+    .filters {
+        grid-area: filters;
+    }
+
+    .results {
+        grid-area: results;
+    }
+
     ul#search-results {
         list-style-type: none;
         padding: 0;

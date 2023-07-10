@@ -8,6 +8,7 @@
     import isEqual from "lodash/isEqual";
     import cloneDeep from "lodash/cloneDeep";
     import { nStore, initialFilters, filterCategoryTypes } from "$lib/stores";
+    import filters from "./filters.json";
 
     let detailsOpen = false;
 
@@ -58,48 +59,79 @@
 
 <!-- <p>{$filterCategoryTypes}</p> -->
 
-
-
-
-<div class="box">Category</div>
-        <div class="box">Level</div>
-        <div class="box">Adventurer Rank</div>
-        <div class="box">Class</div>
-        <div class="box">Element</div>
-
-		<img src="/UI/Icon/Class/UI_IconClass_12.png" alt="" width="48" height="48" />
-		<img src="/UI/Icon/Class/UI_IconClass_06.png" alt="" width="48" height="48" />
-		<img src="/UI/Icon/Class/UI_IconClass_19.png" alt="" width="48" height="48" />
-		<img src="/UI/Icon/Class/UI_IconClass_11.png" alt="" width="48" height="48" />
-		<img src="/UI/Icon/Class/UI_IconClass_07.png" alt="" width="48" height="48" />
-
-
-
-
-<div class="box">
-    <button on:click={() => ($nStore = cloneDeep(initialFilters))}
-        >Reset all</button
-    >
-    <section>
-        <div class="skip-std">Categories</div>
-        <div class="categories">
-            {#each $nStore.categories as category}
-                <label>
+<div class="grid" style:gap="1rem">
+    <div class="box">
+        <h3>Categories</h3>
+        <div class="grid" style:row-gap="1rem">
+            {#each filters.categories as category}
+                <div class="category grid g-50">
                     <input
-                        type="checkbox"
                         class="visually-hidden"
-                        bind:checked={category.checked}
+                        type="checkbox"
+                        id="category-{category.name.en_US}-switch"
+                        checked
                     />
-                    <span class={`pill box ${category.typename}`}
-                        >{category.text[$userLocale]}</span
-                    >
-                </label>
+                    <label
+                        for="category-{category.name.en_US}-switch"
+                        class="switch"
+                    />
+
+                    {#if category.subcategories.length > 0}
+                        <input
+                            class="expander visually-hidden"
+                            type="checkbox"
+                            id="category-{category.name.en_US}-expander"
+                        />
+                        <label
+                            for="category-{category.name.en_US}-expander"
+                            class="details-expander flex"
+                        >
+                            {category.name[$userLocale]}
+
+                            <span class="chevron-down grid">
+                                <Icon
+                                    icon={"mdi:chevron-down"}
+                                    width="18"
+                                    height="18"
+                                    class="chevron-down"
+                                    style="margin-bottom: -2px"
+                                />
+                            </span>
+                        </label>
+                    {:else}
+                        <span>{category.name[$userLocale]}</span>
+                    {/if}
+
+                    {#if category.subcategories.length > 0}
+                        <ul class="subcategories unstyled-list" role="list">
+                            {#each category.subcategories as subcategory}
+                                <li class="flex g-50">
+                                    <input
+                                        class="visually-hidden"
+                                        type="checkbox"
+                                        id="subcategory-{category.name
+                                            .en_US}-{subcategory.name.en_US}"
+                                        checked
+                                    />
+                                    <label
+                                        for="subcategory-{category.name
+                                            .en_US}-{subcategory.name.en_US}"
+                                        class="flex g-50"
+                                    >
+                                        <span class="switch" />
+                                        {subcategory.name[$userLocale]}
+                                    </label>
+                                </li>
+                            {/each}
+                        </ul>
+                    {/if}
+                </div>
             {/each}
         </div>
-    </section>
+    </div>
 
-    <section>
-        <div class="skip-std">Level</div>
+    <div class="box">
+        <h3>Level</h3>
         <div class="min-max-inputs">
             <label
                 class="component-label"
@@ -135,10 +167,10 @@
                 min={$nStore.minLevel}
             />
         </div>
-    </section>
+    </div>
 
-    <section>
-        <div class="skip-std">Adventurer Rank</div>
+    <div class="box">
+        <h3>Adventurer Rank</h3>
         <div class="min-max-inputs">
             <label
                 class="component-label"
@@ -174,51 +206,161 @@
                 min={$nStore.minAR}
             />
         </div>
-    </section>
+    </div>
 
-    <section>
-        <div class="skip-std">Class</div>
-    </section>
+    <div class="box">
+        <h3>Class</h3>
+        <div class="flex g-50">
+            <ul class="unstyled-list" role="list">
+                {#each filters.classes as gameClass}
+                    <li class="flex g-50">
+                        <input
+                            class="visually-hidden"
+                            type="checkbox"
+                            id="subcategory-{gameClass.name.en_US}"
+                            checked
+                        />
+                        <label
+                            for="subcategory-{gameClass.name.en_US}"
+                            class="flex g-50"
+                        >
+                            <span class="switch" />
+                            <img
+                                src="/UI/Icon/Class/UI_IconClass_{gameClass.id <
+                                10
+                                    ? '0' + gameClass.id
+                                    : gameClass.id}.png"
+                                alt=""
+                                width="32"
+                                height="32"
+                            />
+                            {gameClass.name[$userLocale]}
+                        </label>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    </div>
 
-    <section>
-        <div class="skip-std">Element</div>
-    </section>
+    <div class="box">
+        <h3>Element</h3>
+    </div>
 </div>
 
 <style lang="scss">
-    input[type="checkbox"]:not(:checked) + .pill {
-        background: var(--bg);
-        border-color: var(--surface1);
-        color: var(--text2);
-    }
-    input[type="checkbox"]:focus-visible + .pill {
-        outline: 2px solid var(--accent);
+    h3 {
+        margin: 0 0 1rem 0;
+        line-height: 1;
+        font-size: var(--step-1);
     }
 
-    @supports not selector(:has(*)) {
-        .details-expander:focus-within {
-            border-radius: 5px;
-            outline: 2px solid var(--accent);
-            background: var(--surface3);
-            color: var(--accent);
+    .flex {
+        align-items: center;
+    }
+
+    .category {
+        grid-template-columns: auto 1fr;
+        align-items: center;
+    }
+
+    .expander:checked ~ ul.subcategories {
+        display: grid !important;
+    }
+
+    .expander:checked + label .chevron-down {
+        transform: rotate(-180deg);
+    }
+
+    .details-expander {
+        align-items: center;
+        width: 100%;
+
+        .chevron-down {
+            display: grid;
+            margin: -1rem 0 -1rem auto;
+            width: 1.75rem;
+            place-content: center;
+            font-style: normal;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            transition: transform 0.15s ease;
         }
     }
 
-    .categories {
+    label {
+        &:hover,
+        &:focus-visible {
+            color: var(--text2);
+
+            .chevron-down {
+                background: var(--surface2);
+                color: var(--accent);
+            }
+
+            .switch {
+                filter: brightness(0.95);
+
+                &::after {
+                    filter: brightness(0.8);
+                }
+            }
+        }
+    }
+
+    .switch {
         display: flex;
-        flex-wrap: wrap;
-        gap: 0 0.5rem;
-        // width: 50%;
+        width: 2em;
+        aspect-ratio: 2/1;
+        background: var(--surface3);
+        position: relative;
+        border-radius: 3rem;
 
-        label {
-            user-select: none;
+        &:hover,
+        &:focus-visible {
+            filter: brightness(0.95);
+
+            &::after {
+                filter: brightness(0.8);
+            }
         }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            border-radius: 50%;
+            background: gray;
+            transform: translateX(100%);
+            transition: color 0.15s ease, transform 0.15s ease;
+        }
+    }
+
+    input:checked ~ .switch::after,
+    input:checked ~ label .switch::after {
+        transform: translateX(0%);
+        background: var(--accent);
+    }
+
+    ul {
+        gap: 0;
+    }
+
+    ul.subcategories {
+        grid-column: 1/3;
+        display: none;
+        border-top: 1px solid var(--surface3);
+        padding-top: 0.25rem;
+        
+        font-size: var(--step--1);
+    }
+
+    .category:not(:last-of-type) ul.subcategories {
+        margin-bottom: 0.5rem;
     }
 
     .min-max-inputs {
         display: grid;
-        max-width: 300px;
-
         grid-template-columns: 1fr auto 1fr;
         grid-template-areas:
             "tl x tr"

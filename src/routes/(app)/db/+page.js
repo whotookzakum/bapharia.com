@@ -1,6 +1,9 @@
 // Runs every goto() with invalidateAll
 // TODO implement 500ms debounce
 
+import { userSearch } from "$lib/stores";
+import { get } from "svelte/store";
+
 // export const load = async (event) => {
 //     return {
 //         ...(await load_DBSearchQuery({ event })),
@@ -16,12 +19,9 @@
 // }, 500);
 
 export const _DBSearchQueryVariables = ({ url }) => {
-    let searchTerm = url.searchParams.get("search")
     return {
-        searchTerm
+        searchTerm: url.searchParams.get("search") || null
         // maxResults: 10,
         // categories: JSON.stringify($filterCategoryTypes),
     }
 };
-
-
