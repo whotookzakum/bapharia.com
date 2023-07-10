@@ -73,8 +73,11 @@
                     />
                     <label
                         for="category-{category.name.en_US}-switch"
-                        class="switch"
-                    />
+                        class="category-label flex g-50"
+                    >
+                        <span class="switch" />
+                        {category.name[$userLocale]}
+                    </label>
 
                     {#if category.subcategories.length > 0}
                         <input
@@ -84,25 +87,19 @@
                         />
                         <label
                             for="category-{category.name.en_US}-expander"
-                            class="details-expander flex"
+                            class="expand-btn grid"
                         >
-                            {category.name[$userLocale]}
-
-                            <span class="chevron-down grid">
-                                <Icon
-                                    icon={"mdi:chevron-down"}
-                                    width="18"
-                                    height="18"
-                                    class="chevron-down"
-                                    style="margin-bottom: -2px"
-                                />
-                            </span>
+                            <span class="visually-hidden"
+                                >Show subcategories</span
+                            >
+                            <Icon
+                                icon={"mdi:chevron-down"}
+                                width="18"
+                                height="18"
+                                class="chevron-down"
+                                style="margin-bottom: -2px"
+                            />
                         </label>
-                    {:else}
-                        <span>{category.name[$userLocale]}</span>
-                    {/if}
-
-                    {#if category.subcategories.length > 0}
                         <ul class="subcategories unstyled-list" role="list">
                             {#each category.subcategories as subcategory}
                                 <li class="flex g-50">
@@ -244,6 +241,34 @@
 
     <div class="box">
         <h3>Element</h3>
+        <div class="flex g-50">
+            <ul class="unstyled-list" role="list">
+                {#each filters.elements as element}
+                    <li class="flex g-50">
+                        <input
+                            class="visually-hidden"
+                            type="checkbox"
+                            id="subcategory-{element.name.en_US}"
+                            checked
+                        />
+                        <label
+                            for="subcategory-{element.name.en_US}"
+                            class="flex g-50"
+                        >
+                            <span class="switch" />
+                            <img
+                                src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_{element.id}.png"
+                                alt=""
+                                width="32"
+                                height="32"
+                            />
+                            {element.name[$userLocale]}
+                        </label>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+        
     </div>
 </div>
 
@@ -259,51 +284,59 @@
     }
 
     .category {
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr 1.75rem;
         align-items: center;
-    }
 
-    .expander:checked ~ ul.subcategories {
-        display: grid !important;
-    }
+        ul.subcategories {
+            grid-column: 1/3;
+            display: none;
+            border-top: 1px solid var(--surface3);
+            padding-top: 0.25rem;
+            font-size: var(--step--1);
+        }
 
-    .expander:checked + label .chevron-down {
-        transform: rotate(-180deg);
-    }
-
-    .details-expander {
-        align-items: center;
-        width: 100%;
-
-        .chevron-down {
-            display: grid;
-            margin: -1rem 0 -1rem auto;
-            width: 1.75rem;
-            place-content: center;
-            font-style: normal;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            transition: transform 0.15s ease;
+        &:not(:last-of-type) ul.subcategories {
+            margin-bottom: 0.5rem;
         }
     }
 
-    label {
+    input.expander:checked {
+        & + .expand-btn {
+            transform: rotate(-180deg);
+        }
+        & ~ ul.subcategories {
+            display: grid !important;
+        }
+    }
+
+    label.expand-btn {
+        align-items: center;
+        width: 100%;
+        display: grid;
+        margin: -1rem 0;
+        width: 1.75rem;
+        place-content: center;
+        font-style: normal;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        transition: transform 0.15s ease;
+
         &:hover,
         &:focus-visible {
-            color: var(--text2);
+            background: var(--surface2);
+            color: var(--accent);
+        }
+    }
 
-            .chevron-down {
-                background: var(--surface2);
-                color: var(--accent);
-            }
+    label:hover {
+        color: var(--text2);
 
-            .switch {
-                filter: brightness(0.95);
+        .switch {
+            filter: brightness(0.95);
+        }
 
-                &::after {
-                    filter: brightness(0.8);
-                }
-            }
+        .switch::after {
+            filter: brightness(0.8);
         }
     }
 
@@ -336,27 +369,13 @@
         }
     }
 
-    input:checked ~ .switch::after,
-    input:checked ~ label .switch::after {
+    input:checked + label .switch::after {
         transform: translateX(0%);
         background: var(--accent);
     }
 
     ul {
         gap: 0;
-    }
-
-    ul.subcategories {
-        grid-column: 1/3;
-        display: none;
-        border-top: 1px solid var(--surface3);
-        padding-top: 0.25rem;
-        
-        font-size: var(--step--1);
-    }
-
-    .category:not(:last-of-type) ul.subcategories {
-        margin-bottom: 0.5rem;
     }
 
     .min-max-inputs {

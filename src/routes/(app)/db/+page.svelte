@@ -55,6 +55,7 @@
 
 <style lang="scss">
     form#search {
+        align-items: start;
         grid-template-rows: auto 1fr;
         grid-template-columns: 30ch 1fr 1fr;
         grid-template-areas:
