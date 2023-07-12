@@ -24,18 +24,14 @@
     <div class="week grid">
         {#each [9,10,11,12,13,14,15] as day, index}
             <input class="visually-hidden" type="radio" name="calendar" id="july-{day}" checked={day === new Date().getDate()} />
-            <label for="july-{day}" class="day" style="grid-column: {index+1}; grid-row: 1">
+            <label for="july-{day}" class="day box hover grid g-25" style="grid-column: {index+1}">
                 <div class="date">{day}</div>
+                <ul class="unstyled-list g-25">
+                    <li class="item time-attack">Time Attack: Dragon Claw Valley</li>
+                    <li class="item">Time Attack: Dragon Claw Valley</li>
+                    <li class="item">Time Attack: Dragon Claw Valley</li>
+                </ul>
             </label>
-            {#if index === 0}
-            <ul class="unstyled-list g-25" style="grid-column: 1/8; grid-template-columns: subgrid">
-                <li class="item time-attack" style="grid-column: 1/8">Time Attack: Dragon Claw Valley</li>
-                <li class="item" style="grid-column: 2/4">Event 1</li>
-                <li class="item" style="grid-column: 6/8">Event 2</li>
-                <li class="item" style="grid-column: 3/4">Livestream #8</li>
-
-            </ul>
-            {/if}
         {/each}
     </div>
 </div>
@@ -52,7 +48,7 @@
     }
 
     .week {
-        grid-template-columns: repeat(7, 1fr);
+        // grid-template-columns: repeat(7, 1fr);
         grid-template-columns: subgrid;
         gap: 1rem;
     }
@@ -75,7 +71,7 @@
         white-space: nowrap;
         font-size: var(--step--1);
         line-height: 1.4;
-        max-inline-size: none;
+
         border-radius: 1rem;
         background: var(--surface3);
         padding: 0.25rem 0.5rem;
