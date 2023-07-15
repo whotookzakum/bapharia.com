@@ -1,7 +1,7 @@
 <script>
     import Icon from "@iconify/svelte";
     import { createEventDispatcher } from 'svelte';
-    import { resultsPerPage } from "$lib/stores";
+    import { resultsPerPage, userSearch } from "$lib/stores";
 
     export let hasPreviousPage = false;
     export let hasNextPage = false;
@@ -15,6 +15,11 @@
     $: currentItemsIndex = {
         min: $resultsPerPage * pageNumber - $resultsPerPage + 1,
         max: $resultsPerPage * pageNumber > totalResults ? totalResults : $resultsPerPage * pageNumber
+    }
+
+    $: {
+        pageNumber = 1
+        $userSearch;
     }
 
     const loadPreviousPage = async () => {

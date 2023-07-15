@@ -1,5 +1,5 @@
 query DBSearchQuery($searchTerm: String, $categories: String) @load {
-    entries(searchTerm: $searchTerm, categories: $categories, first: 10, last: 10) @paginate(mode: SinglePage) {
+    entries(searchTerm: $searchTerm, categories: $categories, first: 10, last: 10) @paginate(mode: SinglePage, name: "My_Friends") {
         totalResults
         pageInfo {
             endCursor

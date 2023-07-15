@@ -10,14 +10,6 @@
             {dungeon.name[$userLocale]}
         </h2>
     </header>
-    {#each dungeon.rewards as reward, index}
-        {#if reward.probability !== 0}
-            <span>{reward.probability / 100}%</span> 
-            {#if index < dungeon.rewards.length - 1}
-                * &nbsp;
-            {/if}
-        {/if}
-    {/each}
 
     <ul class="unstyled-list grid">
         {#each dungeon.rewards as reward}

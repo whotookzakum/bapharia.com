@@ -1,5 +1,5 @@
 import imagineData from "$bp_server/japan/imagine.json";
-import imagineParams from "$bp_server/japan/imagine/param_level.json";
+import imagineParams from "$bp_server/global/imagine/param_level.json";
 import imaginePerks from "$bp_server/japan/imagine/perk_pick.json";
 import weaponPerks from "$bp_server/japan/weaponperks.json";
 import perksData from "$bp_server/japan/perks.json";
@@ -66,15 +66,15 @@ const imagines = imagineData.map(imagine => {
     })
 
     const recipe = imagineRecipesData.find(rec => rec.imagin_id === imagine.id)
-    recipe.materials = recipe.materials.map(mat => {
-        const itemData = itemsData.find(item => item.id === mat.item_id)
-        return {
-            ...mat,
-            id: `${itemData.id}`,
-            name: getText("item_text", itemData.name),
-            sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
-        }
-    })
+    // recipe.materials = recipe.materials.map(mat => {
+    //     const itemData = itemsData.find(item => item.id === mat.item_id)
+    //     return {
+    //         ...mat,
+    //         id: `${itemData.id}`,
+    //         name: getText("item_text", itemData.name),
+    //         sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
+    //     }
+    // })
 
     return {
         ...imagine,

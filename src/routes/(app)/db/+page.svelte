@@ -11,6 +11,10 @@
 
     // TODO save and cache preferences: filters
     // TODO favorite items
+
+    $: console.log(DBSearchQuery)
+    $: console.log($DBSearchQuery)
+
 </script>
 
 <MetaTags
@@ -37,7 +41,7 @@
             totalResults={$DBSearchQuery?.data?.entries.totalResults}
             on:clickPreviousPage={async () =>
                 await DBSearchQuery.loadPreviousPage()}
-            on:clickNextPage={async () => await DBSearchQuery.loadNextPage()}
+            on:clickNextPage={async () => await DBSearchQuery.loadNextPage({ pageSize: 3 })}
         />
         {#if $DBSearchQuery.data}
             <ul id="search-results" role="list">

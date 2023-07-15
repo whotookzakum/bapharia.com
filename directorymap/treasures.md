@@ -32,7 +32,7 @@ Treasures include overworld and dungeon treasure chests, and gathering nodes
 - 27: crafting recipe set
 - 28: adventure board
 - 30: warehouse ability
-- 32: imagine beta ?
+- 32: beta skill
 - 33: lottery (RNG)
 
 `se` = spawn environment? (grass/stone/water)

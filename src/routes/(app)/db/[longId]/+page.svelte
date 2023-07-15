@@ -1,17 +1,17 @@
 <script>
 	import { graphql } from "$houdini";
 	import Icon from "@iconify/svelte";
-	import Item from "./templates/Item.svelte";
-	import Imagine from "./templates/Imagine.svelte";
-	import Weapon from "./templates/Weapon.svelte";
-	import Costume from "./templates/Costume.svelte";
-	import EntrySummary from "./EntrySummary.svelte";
-	import Token from "./templates/Token.svelte";
-	import StampSet from "./templates/StampSet.svelte";
-	import LiquidMemory from "./templates/LiquidMemory.svelte";
-	import Skill from "./templates/Skill.svelte";
-	import Map from "./templates/Map.svelte";
-	import Enemy from "./templates/Enemy.svelte";
+	import Item from "./Item.svelte";
+	import Imagine from "./Imagine.svelte";
+	import Weapon from "./Weapon.svelte";
+	import Costume from "./Costume.svelte";
+	import EntrySummary from "../EntrySummary.svelte";
+	import Token from "./Token.svelte";
+	import StampSet from "./StampSet.svelte";
+	import LiquidMemory from "./LiquidMemory.svelte";
+	import Skill from "./Skill.svelte";
+	import Map from "./Map.svelte";
+	import Enemy from "./Enemy.svelte";
 	import MetaTags from "$lib/components/MetaTags.svelte";
 	import { userLocale } from "$lib/stores";
 
@@ -296,6 +296,8 @@
 		GameMap: Map,
 		Enemy: Enemy,
 	};
+
+	$: console.log($entry.data.entry)
 </script>
 
 <!-- {#if !$entry.fetching}
@@ -313,7 +315,7 @@
 				<header>
 					<EntrySummary data={$entry.data.entry} moreDetails />
 				</header>
-				<div class="entry-details" class:collapsed={detailsCollapsed}>
+				<div class="entry-details">
 					<svelte:component
 						this={templates[$entry.data.entry.__typename]}
 						data={$entry.data.entry}
@@ -321,19 +323,6 @@
 				</div>
 			{/if}
 		</article>
-		<label class="details-expander">
-			<Icon
-				icon={detailsCollapsed ? "mdi:arrow-down" : "mdi:arrow-up"}
-				width="18"
-				height="18"
-				style="margin-top:3px"
-			/>
-			<input
-				type="checkbox"
-				class="visually-hidden"
-				bind:checked={detailsCollapsed}
-			/>
-		</label>
 	</div>
 </div>
 
@@ -356,41 +345,6 @@
 		header {
 			padding-bottom: 1rem;
 			border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-		}
-
-		.collapsed {
-			max-height: 465px;
-			-webkit-mask-image: linear-gradient(black, transparent);
-			mask-image: linear-gradient(black 70%, transparent);
-		}
-
-		.details-expander {
-			background: var(--surface2);
-			border: 1px solid var(--surface3); // or just border-top
-			display: block;
-			text-align: center;
-			border-bottom-left-radius: 5px;
-			border-bottom-right-radius: 5px;
-
-			&:hover {
-				background: var(--surface3);
-				color: var(--accent);
-			}
-
-			&:has(:focus-visible) {
-				border-radius: 5px;
-				background: var(--surface3);
-				color: var(--accent);
-			}
-		}
-
-		@supports not selector(:has(*)) {
-			.details-expander:focus-within {
-				border-radius: 5px;
-				outline: 2px solid var(--accent);
-				background: var(--surface3);
-				color: var(--accent);
-			}
 		}
 	}
 </style>

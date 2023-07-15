@@ -30,7 +30,7 @@
         {#if isBattleImagine}
             <!-- Need name and skillType -->
             <ImagineSkill
-                skillType={"attack"}
+                skillType={""}
                 desc={data.desc}
             />
         {/if}
@@ -41,7 +41,7 @@
         <Price sellPrice={data.price_player_sells} />
     </div>
 </div>
-<Recipe recipe={data.recipe} />
+<!-- <Recipe recipe={data.recipe} /> -->
 <Abilities abilities={data.abilities} itemType={data.__typename} />
 {#if isBattleImagine}
     <!-- use BattleL image as poster -->
