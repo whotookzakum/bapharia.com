@@ -20,7 +20,8 @@ import { get } from "svelte/store";
 
 export const _DBSearchQueryVariables = ({ url }) => {
     return {
-        searchTerm: url.searchParams.get("search") || null
+        searchTerm: url.searchParams.get("search") || null,
+        categories: "Item"
         // maxResults: 10,
         // categories: JSON.stringify($filterCategoryTypes),
     }

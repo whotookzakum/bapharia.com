@@ -1,7 +1,7 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import EntrySummary from "./EntrySummary.svelte";
-    import SearchFilters from "./SearchFilters.svelte";
+    import Filters from "./Filters.svelte";
     import PageControls from "./PageControls.svelte";
     import Search from "./Search.svelte";
 
@@ -12,7 +12,7 @@
     // TODO save and cache preferences: filters
     // TODO favorite items
 
-    $: console.log(DBSearchQuery)
+    // $: console.log(DBSearchQuery)
     $: console.log($DBSearchQuery)
 
 </script>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="filters">
-        <SearchFilters />
+        <Filters />
     </div>
 
     <div class="results box">
@@ -45,10 +45,10 @@
         />
         {#if $DBSearchQuery.data}
             <ul id="search-results" role="list">
-                {#each $DBSearchQuery.data.entries.edges as entry}
+                {#each $DBSearchQuery.data.entries.results as entry}
                     <li>
                         <button type="button">
-                            <EntrySummary data={entry.node} />
+                            <EntrySummary data={entry} />
                         </button>
                     </li>
                 {/each}

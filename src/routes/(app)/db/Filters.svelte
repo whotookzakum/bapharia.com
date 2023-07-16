@@ -69,7 +69,7 @@
                         class="visually-hidden"
                         type="checkbox"
                         id="category-{category.name.en_US}-switch"
-                        checked
+                        bind:checked={category.checked}
                     />
                     <label
                         for="category-{category.name.en_US}-switch"
@@ -108,7 +108,8 @@
                                         type="checkbox"
                                         id="subcategory-{category.name
                                             .en_US}-{subcategory.name.en_US}"
-                                        checked
+                                        bind:checked={subcategory.checked}
+                                        disabled={!category.checked}
                                     />
                                     <label
                                         for="subcategory-{category.name
@@ -268,7 +269,6 @@
                 {/each}
             </ul>
         </div>
-        
     </div>
 </div>
 
@@ -328,15 +328,17 @@
         }
     }
 
-    label:hover {
+    label {
+        width: 100%;
+        user-select: none;
         color: var(--text2);
+    }
+
+    input:not(:disabled) + label:hover {
+        color: var(--text1);
 
         .switch {
-            filter: brightness(0.95);
-        }
-
-        .switch::after {
-            filter: brightness(0.8);
+            filter: brightness(1.1);
         }
     }
 
@@ -347,15 +349,7 @@
         background: var(--surface3);
         position: relative;
         border-radius: 3rem;
-
-        &:hover,
-        &:focus-visible {
-            filter: brightness(0.95);
-
-            &::after {
-                filter: brightness(0.8);
-            }
-        }
+        transition: background-color 0.15s ease;
 
         &::after {
             content: "";
@@ -365,13 +359,21 @@
             border-radius: 50%;
             background: gray;
             transform: translateX(100%);
-            transition: color 0.15s ease, transform 0.15s ease;
+            transition: all 0.15s ease;
         }
     }
 
     input:checked + label .switch::after {
         transform: translateX(0%);
         background: var(--accent);
+    }
+
+    input:disabled + label .switch {
+        background: rgb(37, 37, 37);
+
+        &::after {
+            background: rgb(75, 75, 75);
+        }
     }
 
     ul {

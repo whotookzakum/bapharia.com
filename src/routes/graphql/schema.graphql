@@ -27,9 +27,8 @@ type Costume implements DBEntry {
   thumb: String
 }
 
-type DBConnection {
-  edges: [EntryEdge!]!
-  pageInfo: PageInfo!
+type DBResults {
+  results: [DBEntry]!
   totalResults: Int!
 }
 
@@ -85,11 +84,6 @@ type EnemyLocation {
   drops: [EnemyDrop]!
   id: String
   name: Text
-}
-
-type EntryEdge {
-  cursor: String
-  node: DBEntry
 }
 
 type GameMap implements DBEntry {
@@ -202,15 +196,8 @@ type Material {
   sourceDesc: Text
 }
 
-type PageInfo {
-  endCursor: String
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
-}
-
 type Query {
-  entries(after: String, before: String, categories: String, first: Int, last: Int, searchTerm: String): DBConnection!
+  entries(categories: String, searchTerm: String, limit: Int, offset: Int): DBResults!
   entry(longId: String!): DBEntry
 }
 

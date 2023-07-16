@@ -11,20 +11,24 @@ import imagines from "./imagines.js"
 import weapons from "./weapons.js"
 import avatars from "./avatars.js"
 
-const entries = [
-    ...items,
-    ...enemies,
-    ...costumes,
-    ...gestures,
-    ...imagines,
-    ...liquidMemories,
-    ...stampSets,
-    ...tokens,
-    ...weapons,
-    ...skills,
-    ...maps,
-    ...avatars
-]
+// const entries = [
+//     ...items,
+//     ...enemies,
+//     ...costumes,
+//     ...gestures,
+//     ...imagines,
+//     ...liquidMemories,
+//     ...stampSets,
+//     ...tokens,
+//     ...weapons,
+//     ...skills,
+//     ...maps,
+//     ...avatars
+// ]
+
+const entries = {
+    Item: items
+}
 
 export default entries
 

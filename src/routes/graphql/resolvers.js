@@ -1,37 +1,56 @@
 
 import entries from "../(generators)/kv/functions";
+import items from "../(generators)/kv/functions/items";
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 const resolvers = {
     Query: {
         async entries(_, args) {
-            let filteredEntries = entries;
-            if (args.searchTerm) {
-                filteredEntries =
-                    entries.filter(entry =>
-                        entry.id.includes(args.searchTerm)
-                        || checkStringIncludes(entry.name.ja_JP, args.searchTerm)
-                        || checkStringIncludes(entry.name.en_US, args.searchTerm)
-                    )
+            let results = [];
+
+            let subcategories = {
+                Item: [1, 2]
             }
+
+            if (args.categories === "Item") {
+                let categoryResults = entries.Item.filter(result => subcategories["Item"].includes(result.subcategory_id))
+                results.push(...categoryResults)
+            }
+
+            console.log(results)
+
+            
+
+
+            // if (args.searchTerm) {
+            //     results =
+            //         entries.filter(entry =>
+            //             entry.id.includes(args.searchTerm)
+            //             || checkStringIncludes(entry.name.ja_JP, args.searchTerm)
+            //             || checkStringIncludes(entry.name.en_US, args.searchTerm)
+            //         )
+            // }
 
             // let categories = JSON.parse(args.categories)
             // if (categories.length > 0) {
-            //     filteredEntries =
-            //         filteredEntries?.filter(entry =>
+            //     results =
+            //         results?.filter(entry =>
             //             categories?.includes(entry?.entryTypes[0])
             //         )
             // }
 
-            const { connectionFromArray } = await import('./connections.mjs')
+            // results = results[0]
+            // console.log(results)
+            console.log(args)
 
-            const connection = connectionFromArray(filteredEntries, args)
-            connection.totalResults = filteredEntries.length
 
-            return connection
+            return {
+                results,
+                totalResults: results.length
+            }
         },
         entry(_, { longId }) {
-            return entries.find(entry => entry.entryTypes[0] + entry.id === longId)
+            // return entries.find(entry => entry.entryTypes[0] + entry.id === longId)
         }
     },
     DBEntry: {
