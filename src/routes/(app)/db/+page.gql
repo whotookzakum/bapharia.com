@@ -1,5 +1,5 @@
-query DBSearchQuery($searchTerm: String, $categories: String, $items: String) @load {
-    entries(searchTerm: $searchTerm, categories: $categories, limit: 3, offset: 3, items: $items) @paginate(mode: SinglePage) {
+query DBSearchQuery($offset: Int, $searchTerm: String, $categories: String, $items: String, $weapons: String) @load {
+    entries(searchTerm: $searchTerm, categories: $categories, limit: 10, offset: $offset, items: $items, weapons: $weapons) @paginate(mode: SinglePage) {
         totalResults
         results {
             __typename

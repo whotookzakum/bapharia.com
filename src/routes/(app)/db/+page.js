@@ -27,12 +27,14 @@ export const _DBSearchQueryVariables = async ({ url }) => {
     // })
 
     // console.log('search:', thing)
+    const numberOfResults = url.searchParams.get("show") || 10
+    const offset = url.searchParams.get("page") ? parseInt(url.searchParams.get("page")) * numberOfResults - numberOfResults : 0
 
     return {
+        offset,
         searchTerm: url.searchParams.get("search") || null,
         categories: url.searchParams.get("categories") || null,
         items: url.searchParams.get("items") || null,
-        // maxResults: 10,
-        // categories: JSON.stringify($filterCategoryTypes),
+        weapons: url.searchParams.get("weapons") || null,
     }
 };

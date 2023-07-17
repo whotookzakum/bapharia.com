@@ -21,6 +21,7 @@
         selectedLevels,
         selectedAR,
         selectedItems,
+        selectedWeapons
     } from "./stores";
 
     $: console.log("categories" + "\n" + $selectedCategories);
@@ -33,6 +34,7 @@
         $selectedLevels;
         $selectedAR;
         $selectedItems;
+        $selectedWeapons;
         updateUrl();
     }
 
@@ -69,6 +71,14 @@
             $page.url.searchParams.delete("items");
         } else {
             $page.url.searchParams.set("items", $selectedItems);
+        }
+
+        let weapons_default = getSubcategoryDefaults("weapons");
+
+        if (!$selectedWeapons || $selectedWeapons === weapons_default) {
+            $page.url.searchParams.delete("weapons");
+        } else {
+            $page.url.searchParams.set("weapons", $selectedWeapons);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {

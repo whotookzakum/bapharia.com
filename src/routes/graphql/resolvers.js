@@ -28,18 +28,20 @@ const resolvers = {
                 results.push(...categoryResults)
             }
 
-            // if (!args.categories || args.categories.includes("weapons")) {
-            //     let categoryResults = weapons
-            //         .filter(result => 
-            //             matchesSearchTerm(result.id, result.name)
-            //             && matchesSubcategories("weapons", result.subcategory_id)
-            //         )
-            //     results.push(...categoryResults)
-            // }
+            if (!args.categories || args.categories.includes("weapons")) {
+                let categoryResults = weapons
+                    .filter(result => 
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("weapons", result.is_for_weapon_stickers)
+                    )
+                results.push(...categoryResults)
+            }
 
-            // console.log(results)
+            console.log(args)
 
-
+            const lowerBound = args.offset && args.offset >= 0 ? args.offset : 0
+            const upperBound = lowerBound + args.limit || lowerBound + 10
+            results = results.slice(lowerBound, upperBound)
 
 
             // if (args.searchTerm) {

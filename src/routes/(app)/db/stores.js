@@ -37,9 +37,8 @@ export const selectedAR = derived(
     ($ar) => `${$ar.min} ${$ar.max}`
 )
 
-export const selectedItems = derived(
-    categories,
-    ($categories) => $categories.find(category => category.id === "items")?.subcategories
+function getSubcategoryString(allCategories, name) {
+    return allCategories.find(category => category.id === name)?.subcategories
         .reduce((acc, subcategory) => {
             if (subcategory.checked) {
                 if (acc) return `${acc} ${subcategory.id}`;
@@ -47,4 +46,7 @@ export const selectedItems = derived(
             }
             return acc;
         }, "")
-)
+}
+
+export const selectedItems = derived(categories, ($categories) => getSubcategoryString($categories, "items"))
+export const selectedWeapons = derived(categories, ($categories) => getSubcategoryString($categories, "weapons"))
