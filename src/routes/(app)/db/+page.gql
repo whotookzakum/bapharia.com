@@ -1,6 +1,8 @@
 query DBSearchQuery($limit: Int, $offset: Int, $searchTerm: String, $categories: String, $items: String, $weapons: String) @load {
     entries(searchTerm: $searchTerm, categories: $categories, limit: $limit, offset: $offset, items: $items, weapons: $weapons) @paginate(mode: SinglePage) {
         totalResults
+        hasNextPage
+        hasPreviousPage
         results {
             __typename
             id

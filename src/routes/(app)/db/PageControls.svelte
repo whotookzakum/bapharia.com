@@ -5,15 +5,19 @@
     import { page } from "$app/stores";
     import { browser } from "$app/environment";
 
-    export let hasPreviousPage = true;
-    export let hasNextPage = true;
+    export let hasPreviousPage = false;
+    export let hasNextPage = false;
     export let totalResults = 0;
+
+    $: console.log("prev", hasPreviousPage);
+    $: console.log("next", hasNextPage);
 
     $currentPage = $page.url.searchParams.get("page") || 1;
 
     $: totalPages = Math.ceil(totalResults / $resultsPerPage);
     $: if ($currentPage > totalPages && totalPages > 0)
         $currentPage = totalPages;
+    $: if ($currentPage < 1) $currentPage = 1;
     $: currentItemsIndex = {
         min: $resultsPerPage * $currentPage - $resultsPerPage + 1,
         max:
@@ -28,6 +32,7 @@
         updateUrl();
     }
 
+    // Reset current page to 1 if new search or changed # of shown items
     $: {
         $userSearch;
         $resultsPerPage;
@@ -45,10 +50,8 @@
     function updateUrl() {
         if ($resultsPerPage === 10) {
             $page.url.searchParams.delete("show");
-        }
-        else {
+        } else {
             $page.url.searchParams.set("show", $resultsPerPage);
-
         }
 
         if ($currentPage === 1) {
@@ -68,18 +71,24 @@
 
 <div class="search-result-controls flex g-50">
     <div class="page-buttons flex g-50">
-        <div disabled={$currentPage <= 1} on:click={loadPreviousPage}>
-            <Icon icon={"mdi:chevron-left"} width="18" height="18" />
-        </div>
+        <button
+            disabled={!hasPreviousPage}
+            on:click={loadPreviousPage}
+            type="button"
+        >
+            <Icon icon={"mdi:chevron-left"} width="24" height="24" />
+        </button>
 
-        <div  on:click={loadNextPage}>
-            <Icon icon={"mdi:chevron-right"} width="18" height="18" />
-        </div>
+        <button disabled={!hasNextPage} on:click={loadNextPage} type="button">
+            <Icon icon={"mdi:chevron-right"} width="24" height="24" />
+        </button>
         <span>Page {$currentPage} of {totalPages}</span>
     </div>
 
     <div class="flex g-50">
-        <span>{currentItemsIndex.min}-{currentItemsIndex.max} of {totalResults}</span>
+        <span
+            >{currentItemsIndex.min}-{currentItemsIndex.max} of {totalResults}</span
+        >
         <select
             class="box"
             style="background: var(--bg);"
@@ -111,9 +120,16 @@
         height: 44px;
         display: grid;
         place-content: center;
+        color: var(--accent);
+        transition: all 0.05s ease;
+
+        &:where(:hover, :focus-visible):not(:disabled) {
+            background: var(--surface2);
+        }
 
         &:disabled {
-            background: red;
+            filter: saturate(0) brightness(0.9);
+            color: gray;
         }
     }
 </style>

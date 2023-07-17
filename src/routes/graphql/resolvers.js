@@ -39,9 +39,21 @@ const resolvers = {
 
             const totalResults = results.length
 
-            const lowerBound = args.offset && args.offset >= 0 ? args.offset : 0
-            const upperBound = lowerBound + args.limit || lowerBound + 10
-            results = results.slice(lowerBound, upperBound)
+            const lowerBound = args.offset
+            const upperBound = lowerBound + args.limit
+            const slicedResults = results.slice(lowerBound, upperBound)
+
+            // console.log(lowerBound)
+            // console.log(lowerBound + args.limit)
+
+            const hasNextPage = results.slice(upperBound, upperBound + args.limit).length > 0
+
+            console.log("nextpage", hasNextPage)
+
+            const hasPreviousPage = results.slice(lowerBound - args.limit, lowerBound).length > 0
+
+            console.log("prevpage", hasPreviousPage)
+
 
             // if (args.searchTerm) {
             //     results =
@@ -66,8 +78,10 @@ const resolvers = {
 
 
             return {
-                results,
-                totalResults
+                results: slicedResults,
+                totalResults,
+                hasNextPage,
+                hasPreviousPage
             }
         },
         entry(_, { longId }) {

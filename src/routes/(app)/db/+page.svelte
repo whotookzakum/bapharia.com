@@ -36,7 +36,8 @@
 
     <div class="results box">
         <PageControls
-            
+            hasPreviousPage={$DBSearchQuery?.data?.entries.hasPreviousPage}
+            hasNextPage={$DBSearchQuery?.data?.entries.hasNextPage}
             totalResults={$DBSearchQuery?.data?.entries.totalResults}
         />
         {#if $DBSearchQuery.data}
