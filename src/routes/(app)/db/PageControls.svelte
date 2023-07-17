@@ -9,11 +9,6 @@
     export let hasNextPage = false;
     export let totalResults = 0;
 
-    $: console.log("prev", hasPreviousPage);
-    $: console.log("next", hasNextPage);
-
-    $currentPage = $page.url.searchParams.get("page") || 1;
-
     $: totalPages = Math.ceil(totalResults / $resultsPerPage);
     $: if ($currentPage > totalPages && totalPages > 0)
         $currentPage = totalPages;
@@ -123,9 +118,7 @@
         color: var(--accent);
         transition: all 0.05s ease;
 
-        &:where(:hover, :focus-visible):not(:disabled) {
-            background: var(--surface2);
-        }
+        &:where(:hover, :focus-visible):not(:disabled) { background: var(--surface2); }
 
         &:disabled {
             filter: saturate(0) brightness(0.9);

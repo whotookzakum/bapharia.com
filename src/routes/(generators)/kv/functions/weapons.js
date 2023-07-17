@@ -128,12 +128,12 @@ const weapons = weaponsData.map(weapon => {
         recipe,
         abilities,
         treasureSources,
-        subcategoryName: getCategory(weapon.is_for_weapon_stickers),
+        subcategoryName: getSubcategory(weapon.is_for_weapon_stickers),
         entryTypes: ["Weapon"]
     }
 })
 
-function getCategory(category) {
+function getSubcategory(category) {
     switch (category) {
         case 0:
             return {

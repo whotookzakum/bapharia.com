@@ -22,9 +22,7 @@
         selectedAR,
         selectedItems,
         selectedWeapons,
-
-        currentPage
-
+        selectedImagine,
     } from "./stores";
 
     $: console.log("categories" + "\n" + $selectedCategories);
@@ -38,6 +36,7 @@
         $selectedAR;
         $selectedItems;
         $selectedWeapons;
+        $selectedImagine;
         updateUrl();
     }
 
@@ -82,6 +81,14 @@
             $page.url.searchParams.delete("weapons");
         } else {
             $page.url.searchParams.set("weapons", $selectedWeapons);
+        }
+
+        let imagine_default = getSubcategoryDefaults("imagine");
+
+        if (!$selectedImagine || $selectedImagine === imagine_default) {
+            $page.url.searchParams.delete("imagine");
+        } else {
+            $page.url.searchParams.set("imagine", $selectedImagine);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {

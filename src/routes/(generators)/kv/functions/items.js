@@ -26,7 +26,7 @@ const items = itemsData.map(item => {
     const sourceDesc = getText("item_text", item.obtaining_route_detail_id)
     const effectDesc = getText("item_text", item.item_effect_desc_text)
     const thumb = getThumbnail(item.id)
-    const subcategoryName = getCategory(item.category)
+    const subcategoryName = getSubcategory(item.category)
     
     return {
         ...item,
@@ -45,7 +45,7 @@ function getThumbnail(id) {
     return icons[id]
 }
 
-function getCategory(category) {
+function getSubcategory(category) {
     switch (category) {
         case 0:
             return {

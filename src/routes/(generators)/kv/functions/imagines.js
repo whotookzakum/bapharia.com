@@ -87,22 +87,22 @@ const imagines = imagineData.map(imagine => {
         params,
         abilities,
         recipe,
-        category: getCategory(imagine.imagine_type),
+        subcategoryName: getSubcategory(imagine.imagine_type),
         entryTypes: ["Imagine"]
     }
 })
 
-function getCategory(imagineType) {
+function getSubcategory(imagineType) {
     switch (imagineType) {
         case 0:
             return {
                 ja_JP: "エンハンスイマジン",
-                en_US: "Augment Echo"
+                en_US: "Enhance Imagine"
             }
         case 1:
             return {
                 ja_JP: "バトルイマジン",
-                en_US: "Combat Echo"
+                en_US: "Battle Imagine"
             }
     }
 }

@@ -1,8 +1,9 @@
 
+import { checkStringIncludes } from '$lib/utils/string_utils.js';
 import entries from "../(generators)/kv/functions";
 import items from "../(generators)/kv/functions/items";
 import weapons from "../(generators)/kv/functions/weapons";
-import { checkStringIncludes } from '$lib/utils/string_utils.js';
+import imagines from "../(generators)/kv/functions/imagines";
 
 const resolvers = {
     Query: {
@@ -19,6 +20,7 @@ const resolvers = {
                 return args[key].includes(subcategory_id)
             }
 
+            // Items
             if (!args.categories || args.categories.includes("items")) {
                 let categoryResults = items
                     .filter(result => 
@@ -28,6 +30,7 @@ const resolvers = {
                 results.push(...categoryResults)
             }
 
+            // Weapons
             if (!args.categories || args.categories.includes("weapons")) {
                 let categoryResults = weapons
                     .filter(result => 
@@ -37,49 +40,26 @@ const resolvers = {
                 results.push(...categoryResults)
             }
 
-            const totalResults = results.length
+            // Imagine
+            if (!args.categories || args.categories.includes("imagine")) {
+                let categoryResults = imagines
+                    .filter(result => 
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("imagine", result.imagine_type)
+                    )
+                results.push(...categoryResults)
+            }
 
+            // Page Info
             const lowerBound = args.offset
             const upperBound = lowerBound + args.limit
             const slicedResults = results.slice(lowerBound, upperBound)
-
-            // console.log(lowerBound)
-            // console.log(lowerBound + args.limit)
-
             const hasNextPage = results.slice(upperBound, upperBound + args.limit).length > 0
-
-            console.log("nextpage", hasNextPage)
-
             const hasPreviousPage = results.slice(lowerBound - args.limit, lowerBound).length > 0
-
-            console.log("prevpage", hasPreviousPage)
-
-
-            // if (args.searchTerm) {
-            //     results =
-            //         entries.filter(entry =>
-            //             entry.id.includes(args.searchTerm)
-            //             || checkStringIncludes(entry.name.ja_JP, args.searchTerm)
-            //             || checkStringIncludes(entry.name.en_US, args.searchTerm)
-            //         )
-            // }
-
-            // let categories = JSON.parse(args.categories)
-            // if (categories.length > 0) {
-            //     results =
-            //         results?.filter(entry =>
-            //             categories?.includes(entry?.entryTypes[0])
-            //         )
-            // }
-
-            // results = results[0]
-            // console.log(results)
-            // console.log(args)
-
 
             return {
                 results: slicedResults,
-                totalResults,
+                totalResults: results.length,
                 hasNextPage,
                 hasPreviousPage
             }
