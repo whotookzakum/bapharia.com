@@ -1,6 +1,7 @@
 
 import entries from "../(generators)/kv/functions";
 import items from "../(generators)/kv/functions/items";
+import weapons from "../(generators)/kv/functions/weapons";
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
 
 const resolvers = {
@@ -8,22 +9,37 @@ const resolvers = {
         async entries(_, args) {
             let results = [];
 
-            let subcategories = {
-                Item: [1, 2]
+            function matchesSearchTerm(id, name) {
+                if (!args.searchTerm) return true
+                return id.includes(args.searchTerm) || checkStringIncludes(name.ja_JP, args.searchTerm) || checkStringIncludes(name.en_US, args.searchTerm)
             }
 
-            // if categories > 0
-            // break into an
+            function matchesSubcategories(key, subcategory_id) {
+                if (!args[key]) return true
+                return args[key].includes(subcategory_id)
+            }
 
             if (!args.categories || args.categories.includes("items")) {
                 let categoryResults = items
-                    // .filter(result => subcategories["Item"].includes(result.subcategory_id))
+                    .filter(result => 
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("items", result.category)
+                    )
                 results.push(...categoryResults)
             }
 
+            // if (!args.categories || args.categories.includes("weapons")) {
+            //     let categoryResults = weapons
+            //         .filter(result => 
+            //             matchesSearchTerm(result.id, result.name)
+            //             && matchesSubcategories("weapons", result.subcategory_id)
+            //         )
+            //     results.push(...categoryResults)
+            // }
+
             // console.log(results)
 
-            
+
 
 
             // if (args.searchTerm) {

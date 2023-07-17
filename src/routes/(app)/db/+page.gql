@@ -1,5 +1,5 @@
-query DBSearchQuery($searchTerm: String, $categories: String) @load {
-    entries(searchTerm: $searchTerm, categories: $categories, limit: 3, offset: 3) @paginate(mode: SinglePage) {
+query DBSearchQuery($searchTerm: String, $categories: String, $items: String) @load {
+    entries(searchTerm: $searchTerm, categories: $categories, limit: 3, offset: 3, items: $items) @paginate(mode: SinglePage) {
         totalResults
         results {
             __typename
@@ -9,7 +9,7 @@ query DBSearchQuery($searchTerm: String, $categories: String) @load {
                 en_US
             }
             thumb
-            category {
+            subcategoryName {
                 ja_JP
                 en_US
             }

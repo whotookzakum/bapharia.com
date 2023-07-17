@@ -26,8 +26,7 @@ const items = itemsData.map(item => {
     const sourceDesc = getText("item_text", item.obtaining_route_detail_id)
     const effectDesc = getText("item_text", item.item_effect_desc_text)
     const thumb = getThumbnail(item.id)
-    const subcategory_id = item.category
-    const category = getCategory(item.category)
+    const subcategoryName = getCategory(item.category)
     
     return {
         ...item,
@@ -37,8 +36,7 @@ const items = itemsData.map(item => {
         sourceDesc,
         effectDesc,
         thumb,
-        category,
-        subcategory_id,
+        subcategoryName,
         entryTypes: ["Item"]
     }
 })

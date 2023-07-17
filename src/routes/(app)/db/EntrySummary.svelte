@@ -76,7 +76,7 @@
             </div>
             <div>
                 <span class={`${data.__typename} box pill`}>
-                    {data.category[$userLocale]}
+                    {data.subcategoryName[$userLocale]}
                 </span>
                 <span class="entry-id box pill">
                     ID: {@html highlightMatchedId(data.id)}

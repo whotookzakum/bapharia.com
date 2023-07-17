@@ -44,7 +44,7 @@
 					en_US
 				}
 				thumb
-				category {
+				subcategoryName {
 					ja_JP
 					en_US
 				}

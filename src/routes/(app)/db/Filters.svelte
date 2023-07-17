@@ -20,27 +20,33 @@
         selectedCategories,
         selectedLevels,
         selectedAR,
+        selectedItems,
     } from "./stores";
 
     $: console.log("categories" + "\n" + $selectedCategories);
     $: console.log("level" + "\n" + $selectedLevels);
     $: console.log("AR" + "\n" + $selectedAR);
+    $: console.log("items" + "\n" + $selectedItems);
 
     $: if (browser) {
         $selectedCategories;
         $selectedLevels;
         $selectedAR;
+        $selectedItems;
         updateUrl();
     }
 
     function updateUrl() {
-        if (!$selectedCategories || isEqual($categories, CATEGORIES)) {
+        if (!$selectedCategories || $selectedCategories === categoryDefaults) {
             $page.url.searchParams.delete("categories");
         } else {
             $page.url.searchParams.set("categories", $selectedCategories);
         }
 
-        let isValidLevel = $level.min !== null && $level.max !== null && $level.min <= $level.max
+        let isValidLevel =
+            $level.min !== null &&
+            $level.max !== null &&
+            $level.min <= $level.max;
 
         if (isEqual($level, LEVEL)) {
             $page.url.searchParams.delete("level");
@@ -48,12 +54,21 @@
             $page.url.searchParams.set("level", $selectedLevels);
         }
 
-        let isValidAR = $ar.min !== null && $ar.max !== null && $ar.min <= $ar.max
+        let isValidAR =
+            $ar.min !== null && $ar.max !== null && $ar.min <= $ar.max;
 
         if (isEqual($ar, AR)) {
             $page.url.searchParams.delete("ar");
         } else if (isValidAR) {
             $page.url.searchParams.set("ar", $selectedAR);
+        }
+
+        let items_default = getSubcategoryDefaults("items");
+
+        if (!$selectedItems || $selectedItems === items_default) {
+            $page.url.searchParams.delete("items");
+        } else {
+            $page.url.searchParams.set("items", $selectedItems);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {
@@ -63,6 +78,26 @@
             invalidateAll: true,
         });
     }
+
+    function getSubcategoryDefaults(subcategory) {
+        return CATEGORIES.find(
+            (category) => category.id === subcategory
+        )?.subcategories.reduce((acc, subcategory) => {
+            if (subcategory.checked) {
+                if (acc) return `${acc} ${subcategory.id}`;
+                return `${subcategory.id}`;
+            }
+            return acc;
+        }, "");
+    }
+
+    const categoryDefaults = CATEGORIES.reduce((acc, category) => {
+        if (category.checked) {
+            if (acc) return `${acc} ${category.id}`;
+            return `${category.id}`;
+        }
+        return acc;
+    }, "");
 </script>
 
 <div class="grid" style:gap="1rem">
@@ -107,19 +142,20 @@
                             />
                         </label>
                         <ul class="subcategories unstyled-list" role="list">
-                            {#each category.subcategories as subcategory}
+                            {#each category.subcategories as subcategory, subcat_idx}
                                 <li class="flex g-50">
+                                    <!-- For :disabled styles to work, input can't be inside label -->
                                     <input
                                         class="visually-hidden"
                                         type="checkbox"
-                                        id="subcategory-{category.name
-                                            .en_US}-{subcategory.name.en_US}"
-                                        bind:checked={subcategory.checked}
+                                        id={subcategory.name.en_US}
+                                        bind:checked={category.subcategories[
+                                            subcat_idx
+                                        ].checked}
                                         disabled={!category.checked}
                                     />
                                     <label
-                                        for="subcategory-{category.name
-                                            .en_US}-{subcategory.name.en_US}"
+                                        for={subcategory.name.en_US}
                                         class="flex g-50"
                                     >
                                         <span class="switch" />
@@ -201,8 +237,7 @@
                 bind:value={$ar.min}
                 max={$ar.max}
                 min={$ar.lowerLimit}
-                invalid={$ar.min === null ||
-                    ($ar.max && $ar.min > $ar.max)}
+                invalid={$ar.min === null || ($ar.max && $ar.min > $ar.max)}
             />
             <div class="tilde" aria-hidden="true">~</div>
             <label

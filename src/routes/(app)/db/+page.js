@@ -30,7 +30,8 @@ export const _DBSearchQueryVariables = async ({ url }) => {
 
     return {
         searchTerm: url.searchParams.get("search") || null,
-        categories: url.searchParams.get("categories") || null
+        categories: url.searchParams.get("categories") || null,
+        items: url.searchParams.get("items") || null,
         // maxResults: 10,
         // categories: JSON.stringify($filterCategoryTypes),
     }

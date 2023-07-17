@@ -12,7 +12,7 @@ type Ability {
 }
 
 type AvatarPart implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   id: String!
   name: Text
@@ -20,7 +20,7 @@ type AvatarPart implements DBEntry {
 }
 
 type Costume implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   id: String!
   name: Text
@@ -33,7 +33,7 @@ type DBResults {
 }
 
 interface DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   id: String!
   name: Text
@@ -41,7 +41,7 @@ interface DBEntry {
 }
 
 type Enemy implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   found_in: [EnemyLocation]!
   id: String!
@@ -87,7 +87,7 @@ type EnemyLocation {
 }
 
 type GameMap implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   id: String!
   mapImages: [String]!
@@ -96,7 +96,7 @@ type GameMap implements DBEntry {
 }
 
 type Gesture implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   id: String!
   name: Text
@@ -105,7 +105,7 @@ type Gesture implements DBEntry {
 
 type Imagine implements DBEntry {
   abilities: [Ability]!
-  category: Text
+  subcategoryName: Text
   desc: Text
   elementImg: String
   id: String!
@@ -121,7 +121,7 @@ type Imagine implements DBEntry {
 
 type Item implements DBEntry {
   adventurer_rank: Int
-  category: Text
+  subcategoryName: Text
   desc: Text
   dungeon_only: Boolean
   effectDesc: Text
@@ -178,7 +178,7 @@ type LevelParams {
 type LiquidMemory implements DBEntry {
   accumulate_condition_parameters: [LMChargeCondition]!
   bottle_accumulate_limit: Int
-  category: Text
+  subcategoryName: Text
   desc: Text
   efficacy_parameters: [LMEffect]!
   id: String!
@@ -197,7 +197,7 @@ type Material {
 }
 
 type Query {
-  entries(categories: String, searchTerm: String, limit: Int, offset: Int): DBResults!
+  entries(categories: String, searchTerm: String, limit: Int, offset: Int, items: String): DBResults!
   entry(longId: String!): DBEntry
 }
 
@@ -221,7 +221,7 @@ type Recipe {
 
 type Skill implements DBEntry {
   abilities: [Ability]!
-  category: Text
+  subcategoryName: Text
   classImg: String
   class_type: Int
   desc: Text
@@ -244,7 +244,7 @@ type Stamp {
 }
 
 type StampSet implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   id: String!
   name: Text
@@ -263,7 +263,7 @@ type Text {
 }
 
 type Token implements DBEntry {
-  category: Text
+  subcategoryName: Text
   desc: Text
   effect_value: Int
   id: String!
@@ -298,7 +298,7 @@ type TreasureSource {
 type Weapon implements DBEntry {
   abilities: [Ability]!
   attribute: Int
-  category: Text
+  subcategoryName: Text
   classImg: String
   desc: Text
   elementImg: String

@@ -36,3 +36,15 @@ export const selectedAR = derived(
     ar,
     ($ar) => `${$ar.min} ${$ar.max}`
 )
+
+export const selectedItems = derived(
+    categories,
+    ($categories) => $categories.find(category => category.id === "items")?.subcategories
+        .reduce((acc, subcategory) => {
+            if (subcategory.checked) {
+                if (acc) return `${acc} ${subcategory.id}`;
+                return `${subcategory.id}`;
+            }
+            return acc;
+        }, "")
+)
