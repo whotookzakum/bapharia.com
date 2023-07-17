@@ -12,12 +12,16 @@ const resolvers = {
                 Item: [1, 2]
             }
 
-            if (args.categories === "Item") {
-                let categoryResults = entries.Item.filter(result => subcategories["Item"].includes(result.subcategory_id))
+            // if categories > 0
+            // break into an
+
+            if (!args.categories || args.categories.includes("items")) {
+                let categoryResults = items
+                    // .filter(result => subcategories["Item"].includes(result.subcategory_id))
                 results.push(...categoryResults)
             }
 
-            console.log(results)
+            // console.log(results)
 
             
 
@@ -41,7 +45,7 @@ const resolvers = {
 
             // results = results[0]
             // console.log(results)
-            console.log(args)
+            // console.log(args)
 
 
             return {

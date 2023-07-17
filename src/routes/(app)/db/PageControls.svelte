@@ -1,7 +1,7 @@
 <script>
     import Icon from "@iconify/svelte";
     import { createEventDispatcher } from 'svelte';
-    import { resultsPerPage, userSearch } from "$lib/stores";
+    import { resultsPerPage, userSearch } from "./stores";
 
     export let hasPreviousPage = false;
     export let hasNextPage = false;

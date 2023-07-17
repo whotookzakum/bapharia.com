@@ -6,64 +6,66 @@
     import { page } from "$app/stores";
     import { browser } from "$app/environment";
     import isEqual from "lodash/isEqual";
-    import cloneDeep from "lodash/cloneDeep";
-    import { nStore, initialFilters, filterCategoryTypes } from "$lib/stores";
-    import filters from "./filters.json";
+    import CATEGORIES from "./filters/categories.json";
+    import CLASSES from "./filters/classes.json";
+    import AR from "./filters/adventurer_rank.json";
+    import LEVEL from "./filters/level.json";
+    import ELEMENTS from "./filters/elements.json";
+    import {
+        categories,
+        level,
+        ar,
+        classes,
+        elements,
+        selectedCategories,
+        selectedLevels,
+        selectedAR,
+    } from "./stores";
 
-    let detailsOpen = false;
+    $: console.log("categories" + "\n" + $selectedCategories);
+    $: console.log("level" + "\n" + $selectedLevels);
+    $: console.log("AR" + "\n" + $selectedAR);
 
     $: if (browser) {
-        $nStore;
+        $selectedCategories;
+        $selectedLevels;
+        $selectedAR;
         updateUrl();
     }
 
-    if ($page.url.searchParams.get("minLevel")) {
-        $nStore.minLevel = $page.url.searchParams.get("minLevel");
-    }
-    if ($page.url.searchParams.get("maxLevel")) {
-        $nStore.maxLevel = $page.url.searchParams.get("maxLevel");
-    }
-    if ($page.url.searchParams.get("minAR")) {
-        $nStore.minAR = $page.url.searchParams.get("minAR");
-    }
-    if ($page.url.searchParams.get("maxAR")) {
-        $nStore.maxAR = $page.url.searchParams.get("maxAR");
-    }
-
     function updateUrl() {
-        const filterParams = [
-            "minLevel",
-            "maxLevel",
-            "minAR",
-            "maxAR",
-            "categories",
-        ];
+        if (!$selectedCategories || isEqual($categories, CATEGORIES)) {
+            $page.url.searchParams.delete("categories");
+        } else {
+            $page.url.searchParams.set("categories", $selectedCategories);
+        }
 
-        for (let filter of filterParams) {
-            if (isEqual($nStore[filter], initialFilters[filter])) {
-                $page.url.searchParams.delete(filter);
-            } else {
-                filter === "categories"
-                    ? $page.url.searchParams.set(filter, $filterCategoryTypes)
-                    : $page.url.searchParams.set(filter, $nStore[filter]);
-            }
+        if (isEqual($level, LEVEL)) {
+            $page.url.searchParams.delete("level");
+        } else if ($level.min && $level.max) {
+            $page.url.searchParams.set("level", $selectedLevels);
+        }
+
+        if (isEqual($ar, AR)) {
+            $page.url.searchParams.delete("ar");
+        } else if ($ar.min && $ar.max) {
+            $page.url.searchParams.set("ar", $selectedAR);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {
             noScroll: true,
             replaceState: false,
             keepFocus: true,
+            invalidateAll: true,
         });
     }
 </script>
-
-<!-- <p>{$filterCategoryTypes}</p> -->
 
 <div class="grid" style:gap="1rem">
     <div class="box">
         <h3>Categories</h3>
         <div class="grid" style:row-gap="1rem">
-            {#each filters.categories as category}
+            {#each $categories as category}
                 <div class="category grid g-50">
                     <input
                         class="visually-hidden"
@@ -144,9 +146,9 @@
                 description="Min Level"
                 shortName="LV."
                 id="level-min-input"
-                bind:value={$nStore.minLevel}
-                max={$nStore.maxLevel}
-                min="1"
+                bind:value={$level.min}
+                max={$level.max}
+                min={$level.lowerLimit}
             />
             <div class="tilde" aria-hidden="true">~</div>
             <label
@@ -160,11 +162,29 @@
                 description="Max Level"
                 shortName="LV."
                 id="level-max-input"
-                bind:value={$nStore.maxLevel}
-                max="100"
-                min={$nStore.minLevel}
+                bind:value={$level.max}
+                max={$level.upperLimit}
+                min={$level.min}
             />
         </div>
+
+        {#if $level.min !== null && $level.max !== null}
+            {#if $level.min > $level.max}
+                <p class="invalid-input-warning">Min must be less than Max.</p>
+            {/if}
+            {#if $level.min < $level.lowerLimit}
+                <p class="invalid-input-warning">
+                    Min must be {$level.lowerLimit} or greater.
+                </p>
+            {/if}
+            {#if $level.max > $level.upperLimit}
+                <p class="invalid-input-warning">
+                    Max must be {$level.upperLimit} or lower.
+                </p>
+            {/if}
+        {:else}
+            <p class="invalid-input-warning">Please enter a valid input.</p>
+        {/if}
     </div>
 
     <div class="box">
@@ -183,8 +203,8 @@
                 description="Min Adventurer Rank"
                 shortName="AR"
                 id="ar-min-input"
-                bind:value={$nStore.minAR}
-                max={$nStore.maxAR}
+                bind:value={$ar.min}
+                max={$ar.max}
                 min="1"
             />
             <div class="tilde" aria-hidden="true">~</div>
@@ -199,9 +219,9 @@
                 description="Max Adventurer Rank"
                 shortName="AR"
                 id="ar-max-input"
-                bind:value={$nStore.maxAR}
+                bind:value={$ar.max}
                 max="30"
-                min={$nStore.minAR}
+                min={$ar.min}
             />
         </div>
     </div>
@@ -210,7 +230,7 @@
         <h3>Class</h3>
         <div class="flex g-50">
             <ul class="unstyled-list" role="list">
-                {#each filters.classes as gameClass}
+                {#each $classes as gameClass}
                     <li class="flex g-50">
                         <input
                             class="visually-hidden"
@@ -244,7 +264,7 @@
         <h3>Element</h3>
         <div class="flex g-50">
             <ul class="unstyled-list" role="list">
-                {#each filters.elements as element}
+                {#each $elements as element}
                     <li class="flex g-50">
                         <input
                             class="visually-hidden"
@@ -394,5 +414,12 @@
         grid-area: c;
         justify-self: center;
         font-size: var(--step-2);
+    }
+
+    .invalid-input-warning {
+        margin: 0.75rem 0 0 0;
+        line-height: 1;
+        font-size: var(--step--1);
+        color: crimson;
     }
 </style>

@@ -13,7 +13,7 @@
     // TODO favorite items
 
     // $: console.log(DBSearchQuery)
-    $: console.log($DBSearchQuery)
+    // $: console.log($DBSearchQuery)
 
 </script>
 

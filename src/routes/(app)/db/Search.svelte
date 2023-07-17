@@ -1,7 +1,8 @@
 <script>
     import { page } from "$app/stores";
     import { goto } from "$app/navigation";
-    import { userLocale, userSearch } from "$lib/stores";
+    import { userLocale } from "$lib/stores";
+    import { userSearch } from "./stores"
 
     const placeholderText = {
         ja_JP: "アイテム名かIDで検索",

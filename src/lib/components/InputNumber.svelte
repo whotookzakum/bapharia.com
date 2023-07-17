@@ -10,7 +10,7 @@
     export let disabled = false;
 </script>
 
-<label class="input-level-wrapper" {style} class:disabled>
+<label class="input-level-wrapper" {style} class:disabled class:invalid={!value || value > max || value < min}>
     <span class="visually-hidden">{description}</span>
     <span aria-hidden="true">{shortName}</span>
     <input
@@ -60,6 +60,10 @@
             background: var(--surface2);
             filter: brightness(0.9) saturate(0);
         }
+    }
+
+    .invalid {
+        outline: 2px solid crimson !important;
     }
 
     input.input-level {

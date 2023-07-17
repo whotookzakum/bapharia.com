@@ -1,7 +1,7 @@
 <script>
     import { userLocale } from "$lib/stores";
     import { katakanaToHiragana } from "$lib/utils/string_utils";
-    import { userSearch } from "$lib/stores";
+    import { userSearch } from "./stores";
     export let data;
     export let moreDetails = false;
 
