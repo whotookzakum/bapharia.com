@@ -36,12 +36,8 @@
 
     <div class="results box">
         <PageControls
-            hasPreviousPage={!$DBSearchQuery?.pageInfo?.hasPreviousPage}
-            hasNextPage={!$DBSearchQuery?.pageInfo?.hasNextPage}
+            
             totalResults={$DBSearchQuery?.data?.entries.totalResults}
-            on:clickPreviousPage={async () =>
-                await DBSearchQuery.loadPreviousPage()}
-            on:clickNextPage={async () => await DBSearchQuery.loadNextPage({ pageSize: 3 })}
         />
         {#if $DBSearchQuery.data}
             <ul id="search-results" role="list">

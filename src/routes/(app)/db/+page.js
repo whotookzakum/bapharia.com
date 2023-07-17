@@ -19,18 +19,11 @@ import { get } from "svelte/store";
 // }, 500);
 
 export const _DBSearchQueryVariables = async ({ url }) => {
-    // console.log(get(userSearch))
-
-    // let thing = ""
-    // userSearch.subscribe(value => {
-    //     thing = value
-    // })
-
-    // console.log('search:', thing)
-    const numberOfResults = url.searchParams.get("show") || 10
-    const offset = url.searchParams.get("page") ? parseInt(url.searchParams.get("page")) * numberOfResults - numberOfResults : 0
+    const limit = url.searchParams.get("show") ? parseInt(url.searchParams.get("show")) : 10
+    const offset = url.searchParams.get("page") ? parseInt(url.searchParams.get("page")) * limit - limit : 0
 
     return {
+        limit,
         offset,
         searchTerm: url.searchParams.get("search") || null,
         categories: url.searchParams.get("categories") || null,

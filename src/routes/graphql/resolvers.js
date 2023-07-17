@@ -37,12 +37,11 @@ const resolvers = {
                 results.push(...categoryResults)
             }
 
-            console.log(args)
+            const totalResults = results.length
 
             const lowerBound = args.offset && args.offset >= 0 ? args.offset : 0
             const upperBound = lowerBound + args.limit || lowerBound + 10
             results = results.slice(lowerBound, upperBound)
-
 
             // if (args.searchTerm) {
             //     results =
@@ -68,7 +67,7 @@ const resolvers = {
 
             return {
                 results,
-                totalResults: results.length
+                totalResults
             }
         },
         entry(_, { longId }) {

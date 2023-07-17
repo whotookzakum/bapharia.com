@@ -21,7 +21,10 @@
         selectedLevels,
         selectedAR,
         selectedItems,
-        selectedWeapons
+        selectedWeapons,
+
+        currentPage
+
     } from "./stores";
 
     $: console.log("categories" + "\n" + $selectedCategories);

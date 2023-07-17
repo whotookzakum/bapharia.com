@@ -8,6 +8,7 @@ import ELEMENTS from "./filters/elements.json";
 
 export const userSearch = writable("")
 export const resultsPerPage = writable(10)
+export const currentPage = writable(1)
 
 export const categories = writable(cloneDeep(CATEGORIES));
 export const classes = writable(cloneDeep(CLASSES));
