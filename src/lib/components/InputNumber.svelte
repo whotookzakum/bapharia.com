@@ -8,9 +8,10 @@
     export let description = null;
     export let describedby = null;
     export let disabled = false;
+    export let invalid = false;
 </script>
 
-<label class="input-level-wrapper" {style} class:disabled class:invalid={!value || value > max || value < min}>
+<label class="input-level-wrapper" {style} class:disabled class:invalid>
     <span class="visually-hidden">{description}</span>
     <span aria-hidden="true">{shortName}</span>
     <input

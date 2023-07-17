@@ -40,15 +40,19 @@
             $page.url.searchParams.set("categories", $selectedCategories);
         }
 
+        let isValidLevel = $level.min !== null && $level.max !== null && $level.min <= $level.max
+
         if (isEqual($level, LEVEL)) {
             $page.url.searchParams.delete("level");
-        } else if ($level.min && $level.max) {
+        } else if (isValidLevel) {
             $page.url.searchParams.set("level", $selectedLevels);
         }
 
+        let isValidAR = $ar.min !== null && $ar.max !== null && $ar.min <= $ar.max
+
         if (isEqual($ar, AR)) {
             $page.url.searchParams.delete("ar");
-        } else if ($ar.min && $ar.max) {
+        } else if (isValidAR) {
             $page.url.searchParams.set("ar", $selectedAR);
         }
 
@@ -149,6 +153,8 @@
                 bind:value={$level.min}
                 max={$level.max}
                 min={$level.lowerLimit}
+                invalid={$level.min === null ||
+                    ($level.max && $level.min > $level.max)}
             />
             <div class="tilde" aria-hidden="true">~</div>
             <label
@@ -165,24 +171,13 @@
                 bind:value={$level.max}
                 max={$level.upperLimit}
                 min={$level.min}
+                invalid={$level.max === null || $level.max < $level.min}
             />
         </div>
-
-        {#if $level.min !== null && $level.max !== null}
-            {#if $level.min > $level.max}
-                <p class="invalid-input-warning">Min must be less than Max.</p>
-            {/if}
-            {#if $level.min < $level.lowerLimit}
-                <p class="invalid-input-warning">
-                    Min must be {$level.lowerLimit} or greater.
-                </p>
-            {/if}
-            {#if $level.max > $level.upperLimit}
-                <p class="invalid-input-warning">
-                    Max must be {$level.upperLimit} or lower.
-                </p>
-            {/if}
-        {:else}
+        {#if $level.min !== null && $level.max !== null && $level.min > $level.max}
+            <p class="invalid-input-warning">Min must be less than Max.</p>
+        {/if}
+        {#if $level.min === null || $level.max === null}
             <p class="invalid-input-warning">Please enter a valid input.</p>
         {/if}
     </div>
@@ -205,7 +200,9 @@
                 id="ar-min-input"
                 bind:value={$ar.min}
                 max={$ar.max}
-                min="1"
+                min={$ar.lowerLimit}
+                invalid={$ar.min === null ||
+                    ($ar.max && $ar.min > $ar.max)}
             />
             <div class="tilde" aria-hidden="true">~</div>
             <label
@@ -220,10 +217,17 @@
                 shortName="AR"
                 id="ar-max-input"
                 bind:value={$ar.max}
-                max="30"
+                max={$ar.upperLimit}
                 min={$ar.min}
+                invalid={$ar.max === null || $ar.max < $ar.min}
             />
         </div>
+        {#if $ar.min !== null && $ar.max !== null && $ar.min > $ar.max}
+            <p class="invalid-input-warning">Min must be less than Max.</p>
+        {/if}
+        {#if $ar.min === null || $ar.max === null}
+            <p class="invalid-input-warning">Please enter a valid input.</p>
+        {/if}
     </div>
 
     <div class="box">
