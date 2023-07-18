@@ -33,7 +33,7 @@ const costumes = costumesData.map(costume => {
         name,
         desc,
         thumb,
-        category: { ja_JP: "コスチューム", en_US: "Costume" },
+        subcategoryName: { ja_JP: "コスチューム", en_US: "Costume" },
         entryTypes: ["Costume"]
     }
 })

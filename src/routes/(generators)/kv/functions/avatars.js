@@ -36,7 +36,7 @@ const avatars = avatarsData.reduce((acc, avatar) => {
             en_US: avatar.asset_id || "-"
         },
         thumb,
-        category: { ja_JP: "アバター部位", en_US: "Avatar Part" },
+        subcategoryName: { ja_JP: "アバター部位", en_US: "Avatar Part" },
         entryTypes: ["AvatarPart"]
     })
     return acc

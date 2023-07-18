@@ -10,6 +10,9 @@ import tokens from '../(generators)/kv/functions/tokens';
 import liquidMemories from '../(generators)/kv/functions/liquidmemories';
 import gestures from '../(generators)/kv/functions/gestures';
 import stampSets from '../(generators)/kv/functions/stampsets';
+import maps from '../(generators)/kv/functions/maps';
+import costumes from '../(generators)/kv/functions/costumes';
+import avatars from '../(generators)/kv/functions/avatars';
 
 const resolvers = {
     Query: {
@@ -86,11 +89,31 @@ const resolvers = {
                 results.push(...categoryResults)
             }
 
+            // Maps
+            if (!args.categories || args.categories.includes("maps")) {
+                let categoryResults = maps
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("maps", result.id.slice(0, 3))
+                    )
+                results.push(...categoryResults)
+            }
+
             // Liquid Memories
             if (!args.categories || args.categories.includes("liquidmemories")) {
                 let categoryResults = liquidMemories
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Costumes
+            if (!args.categories || args.categories.includes("costumes")) {
+                let categoryResults = costumes
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("costumes", result.id)
                     )
                 results.push(...categoryResults)
             }
@@ -109,6 +132,16 @@ const resolvers = {
                 let categoryResults = stampSets
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Avatar Parts
+            if (!args.categories || args.categories.includes("avatarparts")) {
+                let categoryResults = avatars
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("avatarparts", result.id)
                     )
                 results.push(...categoryResults)
             }

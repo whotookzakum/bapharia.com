@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit'
-import dungeondrops from '../functions/dungeondrops'
+import maps from '../functions/maps'
 
 export const GET = async () => {
-    return json(dungeondrops)
+    return json(maps)
 }

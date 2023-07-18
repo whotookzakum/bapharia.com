@@ -4,6 +4,7 @@
 - Models: `/Content/Character/Enemy`
 - Spawn locations, respawn time: `/Content/Maps/*/*/sublevel/*_EN.umap`
 - Spawn location ID to Enemy ID mapping, Enemy levels: `/Content/Blueprints/Manager/EnemySet`
+- `DT_EnemyBattleStatusBiasByContentIdDB`
 
 ### Naming conventions
 - NQ_1001_3_001 (Pink Boarlet): `NAMEDQUEST_[EnemyInstanceId]_[Zone]_[NamedEnemyInstanceId]`

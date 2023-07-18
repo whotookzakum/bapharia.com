@@ -25,7 +25,8 @@
         selectedWeapons,
         selectedImagine,
         selectedEnemies,
-        selectedSkills
+        selectedSkills,
+        selectedMaps
     } from "./stores";
 
     // $: console.log("categories" + "\n" + $selectedCategories);
@@ -43,6 +44,7 @@
         $selectedImagine;
         $selectedEnemies;
         $selectedSkills;
+        $selectedMaps;
         updateUrl();
     }
 
@@ -111,6 +113,14 @@
             $page.url.searchParams.delete("skills");
         } else {
             $page.url.searchParams.set("skills", $selectedSkills);
+        }
+
+        let maps_default = getSubcategoryString("", "maps");
+
+        if (!$selectedMaps || !isChecked("maps") || $selectedMaps === maps_default) {
+            $page.url.searchParams.delete("maps");
+        } else {
+            $page.url.searchParams.set("maps", $selectedMaps);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {

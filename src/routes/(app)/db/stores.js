@@ -48,7 +48,7 @@ export function getSubcategoryString(categoriesStore, name) {
                 let idsToAppend = subcategory.id
 
                 // Array of IDs
-                if (idsToAppend.length > 0) {
+                if (Array.isArray(idsToAppend)) {
                     idsToAppend = subcategory.id.reduce((idString, id) => {
                         if (idString) return `${idString} ${id}`
                         return `${id}`
@@ -68,3 +68,4 @@ export const selectedWeapons = derived(categories, ($categories) => getSubcatego
 export const selectedImagine = derived(categories, ($categories) => getSubcategoryString($categories, "imagine"))
 export const selectedEnemies = derived(categories, ($categories) => getSubcategoryString($categories, "enemies"))
 export const selectedSkills = derived(categories, ($categories) => getSubcategoryString($categories, "skills"))
+export const selectedMaps = derived(categories, ($categories) => getSubcategoryString($categories, "maps"))
