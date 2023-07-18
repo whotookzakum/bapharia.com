@@ -10,7 +10,7 @@ const gestures = gesturesData.map(gesture => {
         id: gesture.emote_id,
         name,
         thumb,
-        category: { ja_JP: "ジェスチャー", en_US: "Emote" },
+        subcategoryName: { ja_JP: "ジェスチャー", en_US: "Emote" },
         entryTypes: ["Gesture"]
     }
 })

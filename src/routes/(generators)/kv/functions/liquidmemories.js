@@ -57,7 +57,7 @@ const liquidMemories = liquidMemoriesData.map(memory => {
         name,
         thumb: getThumbnail(memory.id),
         accumulate_condition_parameters: accumulate,
-        category: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
+        subcategoryName: { ja_JP: "リキッドメモリ", en_US: "Liquid Memory" },
         entryTypes: ["LiquidMemory"]
     }
 })

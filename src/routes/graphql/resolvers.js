@@ -7,6 +7,9 @@ import imagines from "../(generators)/kv/functions/imagines";
 import enemies from '../(generators)/kv/functions/enemies';
 import skills from '../(generators)/kv/functions/skills';
 import tokens from '../(generators)/kv/functions/tokens';
+import liquidMemories from '../(generators)/kv/functions/liquidmemories';
+import gestures from '../(generators)/kv/functions/gestures';
+import stampSets from '../(generators)/kv/functions/stampsets';
 
 const resolvers = {
     Query: {
@@ -77,6 +80,33 @@ const resolvers = {
             // Tokens
             if (!args.categories || args.categories.includes("tickets")) {
                 let categoryResults = tokens
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Liquid Memories
+            if (!args.categories || args.categories.includes("liquidmemories")) {
+                let categoryResults = liquidMemories
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Emotes
+            if (!args.categories || args.categories.includes("emotes")) {
+                let categoryResults = gestures
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
+                    )
+                results.push(...categoryResults)
+            }
+
+             // Stamp Sets
+             if (!args.categories || args.categories.includes("stampsets")) {
+                let categoryResults = stampSets
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                     )

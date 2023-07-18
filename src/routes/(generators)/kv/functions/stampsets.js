@@ -8,7 +8,7 @@ const stampSets = stampsData.map(stampSet => {
         id: `${stampSet.category_id}`,
         name,
         thumb: getThumbnail(),
-        category: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
+        subcategoryName: { ja_JP: "スタンプセット", en_US: "Stamp Set" },
         entryTypes: ["StampSet"]
     }
 })
