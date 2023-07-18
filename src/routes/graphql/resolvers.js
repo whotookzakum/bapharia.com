@@ -6,6 +6,7 @@ import weapons from "../(generators)/kv/functions/weapons";
 import imagines from "../(generators)/kv/functions/imagines";
 import enemies from '../(generators)/kv/functions/enemies';
 import skills from '../(generators)/kv/functions/skills';
+import tokens from '../(generators)/kv/functions/tokens';
 
 const resolvers = {
     Query: {
@@ -26,7 +27,7 @@ const resolvers = {
             // Items
             if (!args.categories || args.categories.includes("items")) {
                 let categoryResults = items
-                    .filter(result => 
+                    .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("items", result.category)
                     )
@@ -36,7 +37,7 @@ const resolvers = {
             // Weapons
             if (!args.categories || args.categories.includes("weapons")) {
                 let categoryResults = weapons
-                    .filter(result => 
+                    .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("weapons", result.is_for_weapon_stickers)
                     )
@@ -46,7 +47,7 @@ const resolvers = {
             // Imagine
             if (!args.categories || args.categories.includes("imagine")) {
                 let categoryResults = imagines
-                    .filter(result => 
+                    .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("imagine", result.imagine_type)
                     )
@@ -56,7 +57,7 @@ const resolvers = {
             // Enemies
             if (!args.categories || args.categories.includes("enemies")) {
                 let categoryResults = enemies
-                    .filter(result => 
+                    .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("enemies", result.is_boss)
                     )
@@ -66,9 +67,18 @@ const resolvers = {
             // Skills
             if (!args.categories || args.categories.includes("skills")) {
                 let categoryResults = skills
-                    .filter(result => 
+                    .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("skills", result.skill_type)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Tokens
+            if (!args.categories || args.categories.includes("tickets")) {
+                let categoryResults = tokens
+                    .filter(result =>
+                        matchesSearchTerm(result.id, result.name)
                     )
                 results.push(...categoryResults)
             }

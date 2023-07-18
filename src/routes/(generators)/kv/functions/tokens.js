@@ -15,7 +15,7 @@ const tokens = tokensData.map(token => {
         name,
         desc,
         thumb,
-        category: { ja_JP: "トークン", en_US: "Token" },
+        subcategoryName: { ja_JP: "トークン", en_US: "Ticket" },
         entryTypes: ["Token"]
     }
 })

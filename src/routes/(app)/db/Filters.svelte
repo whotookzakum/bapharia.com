@@ -75,7 +75,7 @@
 
         let items_default = getSubcategoryString("", "items");
 
-        if (!$selectedItems || $selectedItems === items_default) {
+        if (!$selectedItems || !isChecked("items") || $selectedItems === items_default) {
             $page.url.searchParams.delete("items");
         } else {
             $page.url.searchParams.set("items", $selectedItems);
@@ -83,7 +83,7 @@
 
         let weapons_default = getSubcategoryString("", "weapons");
 
-        if (!$selectedWeapons || $selectedWeapons === weapons_default) {
+        if (!$selectedWeapons || !isChecked("weapons") || $selectedWeapons === weapons_default) {
             $page.url.searchParams.delete("weapons");
         } else {
             $page.url.searchParams.set("weapons", $selectedWeapons);
@@ -91,7 +91,7 @@
 
         let imagine_default = getSubcategoryString("", "imagine");
 
-        if (!$selectedImagine || $selectedImagine === imagine_default) {
+        if (!$selectedImagine || !isChecked("imagine") || $selectedImagine === imagine_default) {
             $page.url.searchParams.delete("imagine");
         } else {
             $page.url.searchParams.set("imagine", $selectedImagine);
@@ -99,7 +99,7 @@
 
         let enemies_default = getSubcategoryString("", "enemies");
 
-        if (!$selectedEnemies || $selectedEnemies === enemies_default) {
+        if (!$selectedEnemies || !isChecked("enemies") || $selectedEnemies === enemies_default) {
             $page.url.searchParams.delete("enemies");
         } else {
             $page.url.searchParams.set("enemies", $selectedEnemies);
@@ -107,7 +107,7 @@
 
         let skills_default = getSubcategoryString("", "skills");
 
-        if (!$selectedSkills || $selectedSkills === skills_default) {
+        if (!$selectedSkills || !isChecked("skills") || $selectedSkills === skills_default) {
             $page.url.searchParams.delete("skills");
         } else {
             $page.url.searchParams.set("skills", $selectedSkills);
@@ -119,6 +119,10 @@
             keepFocus: true,
             invalidateAll: true,
         });
+    }
+
+    const isChecked = (name) => {
+        return $categories.find(category => category.id === name).checked
     }
 
     const categoryDefaults = CATEGORIES.reduce((acc, category) => {
