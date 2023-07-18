@@ -38,18 +38,33 @@ export const selectedAR = derived(
     ($ar) => `${$ar.min} ${$ar.max}`
 )
 
-function getSubcategoryString(allCategories, name) {
-    return allCategories.find(category => category.id === name)?.subcategories
+export function getSubcategoryString(categoriesStore, name) {
+    // Takes a store, otherwise defaults to CATEGORIES
+    let categories = CATEGORIES
+    if (typeof categoriesStore === "object") categories = categoriesStore
+    return categories.find(category => category.id === name)?.subcategories
         .reduce((acc, subcategory) => {
             if (subcategory.checked) {
-                if (acc) return `${acc} ${subcategory.id}`;
-                return `${subcategory.id}`;
+                let idsToAppend = subcategory.id
+
+                // Array of IDs
+                if (idsToAppend.length > 0) {
+                    idsToAppend = subcategory.id.reduce((idString, id) => {
+                        if (idString) return `${idString} ${id}`
+                        return `${id}`
+                    }, "")
+                }
+
+                if (acc) return `${acc} ${idsToAppend}`;
+                return `${idsToAppend}`;
             }
             return acc;
         }, "")
 }
 
+
 export const selectedItems = derived(categories, ($categories) => getSubcategoryString($categories, "items"))
 export const selectedWeapons = derived(categories, ($categories) => getSubcategoryString($categories, "weapons"))
 export const selectedImagine = derived(categories, ($categories) => getSubcategoryString($categories, "imagine"))
 export const selectedEnemies = derived(categories, ($categories) => getSubcategoryString($categories, "enemies"))
+export const selectedSkills = derived(categories, ($categories) => getSubcategoryString($categories, "skills"))

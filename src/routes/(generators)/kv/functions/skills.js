@@ -150,7 +150,7 @@ const skills = skillsData.reduce((acc, curr) => {
         abilities: [],
         skillBackgroundImg,
         elementImg,
-        category: getCategory(curr.skill_type),
+        subcategoryName: getSubcategory(curr.skill_type),
         entryTypes: ["Skill"]
     });
 
@@ -194,7 +194,7 @@ function getThumbnail(skillType, id, classType) {
 
 }
 
-function getCategory(skillType) {
+function getSubcategory(skillType) {
     switch (skillType) {
         case 0: // LMB
         case 1: // RMB

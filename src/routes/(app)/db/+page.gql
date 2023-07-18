@@ -1,5 +1,5 @@
-query DBSearchQuery($limit: Int, $offset: Int, $searchTerm: String, $categories: String, $items: String, $weapons: String, $imagine: String, $enemies: String) @load {
-    entries(searchTerm: $searchTerm, categories: $categories, limit: $limit, offset: $offset, items: $items, weapons: $weapons, imagine: $imagine, enemies: $enemies) @paginate(mode: SinglePage) {
+query DBSearchQuery($limit: Int, $offset: Int, $searchTerm: String, $categories: String, $items: String, $weapons: String, $imagine: String, $enemies: String, $skills: String) @load {
+    entries(searchTerm: $searchTerm, categories: $categories, limit: $limit, offset: $offset, items: $items, weapons: $weapons, imagine: $imagine, enemies: $enemies, skills: $skills) @paginate(mode: SinglePage) {
         totalResults
         hasNextPage
         hasPreviousPage

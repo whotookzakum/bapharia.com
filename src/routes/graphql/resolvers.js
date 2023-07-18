@@ -5,6 +5,7 @@ import items from "../(generators)/kv/functions/items";
 import weapons from "../(generators)/kv/functions/weapons";
 import imagines from "../(generators)/kv/functions/imagines";
 import enemies from '../(generators)/kv/functions/enemies';
+import skills from '../(generators)/kv/functions/skills';
 
 const resolvers = {
     Query: {
@@ -18,7 +19,8 @@ const resolvers = {
 
             function matchesSubcategories(key, subcategory_id) {
                 if (!args[key]) return true
-                return args[key].includes(subcategory_id)
+                // Turn into an array so values like "1" are not true if "11" is included
+                return args[key].split(" ").includes(subcategory_id.toString())
             }
 
             // Items
@@ -57,6 +59,16 @@ const resolvers = {
                     .filter(result => 
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("enemies", result.is_boss)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Skills
+            if (!args.categories || args.categories.includes("skills")) {
+                let categoryResults = skills
+                    .filter(result => 
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("skills", result.skill_type)
                     )
                 results.push(...categoryResults)
             }

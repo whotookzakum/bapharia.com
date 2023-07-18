@@ -12,6 +12,7 @@
     import LEVEL from "./filters/level.json";
     import ELEMENTS from "./filters/elements.json";
     import {
+        getSubcategoryString,
         categories,
         level,
         ar,
@@ -23,13 +24,15 @@
         selectedItems,
         selectedWeapons,
         selectedImagine,
-        selectedEnemies
+        selectedEnemies,
+        selectedSkills
     } from "./stores";
 
-    $: console.log("categories" + "\n" + $selectedCategories);
-    $: console.log("level" + "\n" + $selectedLevels);
-    $: console.log("AR" + "\n" + $selectedAR);
-    $: console.log("items" + "\n" + $selectedItems);
+    // $: console.log("categories" + "\n" + $selectedCategories);
+    // $: console.log("level" + "\n" + $selectedLevels);
+    // $: console.log("AR" + "\n" + $selectedAR);
+    // $: console.log("items" + "\n" + $selectedItems);
+    // $: console.log("skills" + "\n" + $selectedSkills);
 
     $: if (browser) {
         $selectedCategories;
@@ -39,6 +42,7 @@
         $selectedWeapons;
         $selectedImagine;
         $selectedEnemies;
+        $selectedSkills;
         updateUrl();
     }
 
@@ -69,7 +73,7 @@
             $page.url.searchParams.set("ar", $selectedAR);
         }
 
-        let items_default = getSubcategoryDefaults("items");
+        let items_default = getSubcategoryString("", "items");
 
         if (!$selectedItems || $selectedItems === items_default) {
             $page.url.searchParams.delete("items");
@@ -77,7 +81,7 @@
             $page.url.searchParams.set("items", $selectedItems);
         }
 
-        let weapons_default = getSubcategoryDefaults("weapons");
+        let weapons_default = getSubcategoryString("", "weapons");
 
         if (!$selectedWeapons || $selectedWeapons === weapons_default) {
             $page.url.searchParams.delete("weapons");
@@ -85,7 +89,7 @@
             $page.url.searchParams.set("weapons", $selectedWeapons);
         }
 
-        let imagine_default = getSubcategoryDefaults("imagine");
+        let imagine_default = getSubcategoryString("", "imagine");
 
         if (!$selectedImagine || $selectedImagine === imagine_default) {
             $page.url.searchParams.delete("imagine");
@@ -93,12 +97,20 @@
             $page.url.searchParams.set("imagine", $selectedImagine);
         }
 
-        let enemies_default = getSubcategoryDefaults("enemies");
+        let enemies_default = getSubcategoryString("", "enemies");
 
         if (!$selectedEnemies || $selectedEnemies === enemies_default) {
             $page.url.searchParams.delete("enemies");
         } else {
             $page.url.searchParams.set("enemies", $selectedEnemies);
+        }
+
+        let skills_default = getSubcategoryString("", "skills");
+
+        if (!$selectedSkills || $selectedSkills === skills_default) {
+            $page.url.searchParams.delete("skills");
+        } else {
+            $page.url.searchParams.set("skills", $selectedSkills);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {
@@ -107,18 +119,6 @@
             keepFocus: true,
             invalidateAll: true,
         });
-    }
-
-    function getSubcategoryDefaults(subcategory) {
-        return CATEGORIES.find(
-            (category) => category.id === subcategory
-        )?.subcategories.reduce((acc, subcategory) => {
-            if (subcategory.checked) {
-                if (acc) return `${acc} ${subcategory.id}`;
-                return `${subcategory.id}`;
-            }
-            return acc;
-        }, "");
     }
 
     const categoryDefaults = CATEGORIES.reduce((acc, category) => {
