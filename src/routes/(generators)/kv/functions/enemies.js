@@ -142,7 +142,7 @@ const enemies = enemiesData.map(enemy => {
         name,
         found_in,
         thumb: getThumbnail(),
-        category: getCategory(enemy.is_boss),
+        subcategoryName: getSubcategory(enemy.is_boss),
         entryTypes: ["Enemy"]
     }
 })
@@ -151,7 +151,7 @@ function getThumbnail() {
     return `/UI/Icon/Class/UI_IconClass_Nodata.png`
 }
 
-function getCategory(category) {
+function getSubcategory(category) {
     switch (category) {
         // Quest instance boss?
         case 1:
@@ -166,7 +166,7 @@ function getCategory(category) {
             }
         case 3:
             return {
-                ja_JP: "ダンジョンボス",
+                ja_JP: "ダンジョンボス",　// Free exploration boss?
                 en_US: "Dungeon Boss"
             }
         default:

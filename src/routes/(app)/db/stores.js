@@ -52,3 +52,4 @@ function getSubcategoryString(allCategories, name) {
 export const selectedItems = derived(categories, ($categories) => getSubcategoryString($categories, "items"))
 export const selectedWeapons = derived(categories, ($categories) => getSubcategoryString($categories, "weapons"))
 export const selectedImagine = derived(categories, ($categories) => getSubcategoryString($categories, "imagine"))
+export const selectedEnemies = derived(categories, ($categories) => getSubcategoryString($categories, "enemies"))

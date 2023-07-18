@@ -23,6 +23,7 @@
         selectedItems,
         selectedWeapons,
         selectedImagine,
+        selectedEnemies
     } from "./stores";
 
     $: console.log("categories" + "\n" + $selectedCategories);
@@ -37,6 +38,7 @@
         $selectedItems;
         $selectedWeapons;
         $selectedImagine;
+        $selectedEnemies;
         updateUrl();
     }
 
@@ -89,6 +91,14 @@
             $page.url.searchParams.delete("imagine");
         } else {
             $page.url.searchParams.set("imagine", $selectedImagine);
+        }
+
+        let enemies_default = getSubcategoryDefaults("enemies");
+
+        if (!$selectedEnemies || $selectedEnemies === enemies_default) {
+            $page.url.searchParams.delete("enemies");
+        } else {
+            $page.url.searchParams.set("enemies", $selectedEnemies);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {

@@ -17,6 +17,7 @@
 > Lighting, fod, etc.: `/Content/Maps/*/*/sublevel/*_SKY.umap`
 > Effects: `/Content/Maps/*/*/sublevel/*_EF.umap`
 > Sounds: `/Content/Maps/*/*/sublevel/*_SD.umap`
+- `DT_ZoneDB`
 
 ### Naming conventions
 - 100100 (Asterleeds): `[MapType(10)][MapNumber(01)][Blank/MapVariant?(00)]`

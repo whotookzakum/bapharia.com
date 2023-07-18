@@ -4,6 +4,7 @@ import entries from "../(generators)/kv/functions";
 import items from "../(generators)/kv/functions/items";
 import weapons from "../(generators)/kv/functions/weapons";
 import imagines from "../(generators)/kv/functions/imagines";
+import enemies from '../(generators)/kv/functions/enemies';
 
 const resolvers = {
     Query: {
@@ -46,6 +47,16 @@ const resolvers = {
                     .filter(result => 
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("imagine", result.imagine_type)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Enemies
+            if (!args.categories || args.categories.includes("enemies")) {
+                let categoryResults = enemies
+                    .filter(result => 
+                        matchesSearchTerm(result.id, result.name)
+                        && matchesSubcategories("enemies", result.is_boss)
                     )
                 results.push(...categoryResults)
             }
