@@ -1,9 +1,10 @@
 // import mapsData from "../../../(interactive)/map/maps.json";
 
 import mapsData from "$bp_client/japan/Content/Blueprints/Manager/DT_ZoneDB.json"
-import mapNamesData from "$bp_client/japan/Content/Text/ZoneName.json"
+import JP_LocationNames from "$bp_client/japan/Content/Text/LocationName.json"
+import JP_ZoneNames from "$bp_client/JP_ZoneNames.json" // Manual file because I included some names from CBT
 import EN_ZoneNames from "$bp_client/EN_ZoneNames.json"
-import JP_ZoneNames from "$bp_client/JP_ZoneNames.json"
+import EN_LocationNames from "$bp_client/EN_LocationNames.json"
 import itemsData from "$bp_server/japan/items.json"
 import lotteryData from "$bp_server/japan/master_reward_lottery_groups.json"
 import dungeonRewardsData from "$bp_server/japan/dungeon_rewards.json";
@@ -16,14 +17,17 @@ import { getText } from "./utils";
 // TODO notable markers (# of nappos, npcs, enemies, resources, quests, treasure chests)
 // TODO dungeon supplies (supply.json)
 
-const maps = Object.values(mapsData[0].Rows).map(mapData => {
+// Use key instead of mapData.Id because some keys don't match their Ids, like pub0801 !== pat0801
+// Can be tested with if (id !== mapData.Id.replace("_Top", "").replace("_TOP", "")) console.log("id", id)
+const maps = Object.entries(mapsData[0].Rows).map(([id, mapData]) => {
     const nameId = mapData.NameTextId
-    const id = mapData.Id.replace("_Top", "").replace("_TOP", "")
     const subcategoryId = id.slice(0, 3)
     const subcategoryName = getSubcategory(subcategoryId)
+
+    // LocationName uses ids like "cty01", ZoneName uses ids like "100100"
     const name = {
-        ja_JP: mapNamesData[0].Properties.TextTable.find(entry => entry.Id.IdNumber === nameId)?.Text || JP_ZoneNames[nameId] || "-",
-        en_US: EN_ZoneNames[nameId] || "-"
+        ja_JP: JP_LocationNames[0].Properties.TextTable.find(entry => entry.Id.IdString === id)?.Text || JP_ZoneNames[nameId] || "-",
+        en_US: EN_LocationNames[id] || EN_ZoneNames[nameId] || "-"
     }
 
     return {
