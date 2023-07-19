@@ -16,6 +16,8 @@ import { getText } from "./utils";
 // TO DO:
 // TODO notable markers (# of nappos, npcs, enemies, resources, quests, treasure chests)
 // TODO dungeon supplies (supply.json)
+// TODO dungeon rewards, dungeon stats (max players, revives) DT_map_dungeon.json
+// TODO dungeon enemy statuses based on dungeon DT_EnemyBattleStatusBiasByContentIdDB
 
 // Use key instead of mapData.Id because some keys don't match their Ids, like pub0801 !== pat0801
 // Can be tested with if (id !== mapData.Id.replace("_Top", "").replace("_TOP", "")) console.log("id", id)
