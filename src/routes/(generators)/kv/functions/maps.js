@@ -6,7 +6,7 @@ import JP_ZoneNames from "$bp_client/JP_ZoneNames.json" // Manual file because I
 import EN_ZoneNames from "$bp_client/EN_ZoneNames.json"
 import EN_LocationNames from "$bp_client/EN_LocationNames.json"
 import itemsData from "$bp_server/japan/items.json"
-import lotteryData from "$bp_server/japan/master_reward_lottery_groups.json"
+import lotteriesData from "$bp_server/japan/master_reward_lottery_groups.json"
 import dungeonRewardsData from "$bp_server/japan/dungeon_rewards.json";
 import rewardsData from "$bp_server/japan/rewards.json"
 import { getText } from "./utils";
@@ -25,6 +25,7 @@ const maps = Object.entries(mapsData[0].Rows).map(([id, mapData]) => {
     const nameId = mapData.NameTextId
     const subcategoryId = id.slice(0, 3)
     const subcategoryName = getSubcategory(subcategoryId)
+    const dungeonRewards = getDungeonRewards(id)
 
     // LocationName uses ids like "cty01", ZoneName uses ids like "100100"
     const name = {
@@ -39,16 +40,17 @@ const maps = Object.entries(mapsData[0].Rows).map(([id, mapData]) => {
         thumb: `/UI/Icon/Class/UI_IconClass_Nodata.png`,
         subcategoryId,
         subcategoryName,
+        dungeonRewards,
         entryTypes: ["GameMap"]
     }
 })
 
 export default maps;
-
+// used in enemies
 export function getMapData(id) {
     return maps.find(map => map.id === id)
 }
-
+// used in weapons
 export function getMapName(id) {
     const mapData = getMapData(id)
     if (mapData) return mapData.name
@@ -122,50 +124,53 @@ function getSubcategory(prefix) {
     }
 }
 
-function getRewards(dungId) {
-    const dungeonRewards =
-        dungeonRewardsData
-            .filter(reward => reward.dungeon_reward_search_name === dungId)
-            .map(reward => {
-                const details = rewardsData.find(metadata => metadata.id === reward.reward_id)
+function getDungeonRewards(mapId) {
+    const dungeonRewards = dungeonRewardsData.filter(reward => reward.dungeon_reward_search_name === mapId)
 
-                const itemData = itemsData.find(item => item.id === details.item_id)
+    if (dungeonRewards.length < 1) return []
 
-                let name = {
-                    en_US: "",
-                    ja_JP: ""
-                }
+    return dungeonRewards.map(dungeonReward => {
+        const rewardDetails = getReward(dungeonReward.reward_id)
+        return {
+            ...dungeonReward,
+            rewardDetails
+        }
+    })
+}
 
-                if (itemData) {
-                    name = getText("item_text", itemData.name)
-                }
+function getReward(id) {
+    const rewardData = rewardsData.find(reward => reward.id === id)
+    
+    if (rewardData.reward_type === 33) {
+        rewardData.lotteryDetails = getLottery(rewardData.item_id)
+    }
+    else {
+        rewardData.name = getItemNameById(rewardData.item_id)
+    }
 
-                const lotteries = lotteryData.filter(lotto => lotto.id === details.item_id)
+    return {
+        ...rewardData
+    }
+}
 
-                if (lotteries) {
-                    const lotteryWithRewards = lotteries[0]?.rewards.map(rewardItem => {
-                        const rewardItemData = itemsData.find(item => item.id === rewardItem.item_id)
+// Only finds first instance
+function getLottery(id) {
+    const lotteryData = lotteriesData.find(lotto => lotto.id === id)
 
-                        return {
-                            ...rewardItem,
-                            name: getText("item_text", rewardItemData.name)
-                        }
-                    })
+    const possibleItems = lotteryData.rewards.map(reward => {
+        return {
+            ...reward,
+            name: getItemNameById(reward.item_id)
+        }
+    })
 
-                    return {
-                        ...reward,
-                        details,
-                        name,
-                        lotteryWithRewards
-                    }
-                }
+    return {
+        ...lotteryData,
+        rewards: possibleItems
+    }
+}
 
-                return {
-                    ...reward,
-                    details,
-                    name,
-                    lotteries
-                }
-            })
-    return dungeonRewards
+function getItemNameById(id) {
+    const item = itemsData.find(item => item.id === id)
+    return getText("item_text", item?.name)
 }
