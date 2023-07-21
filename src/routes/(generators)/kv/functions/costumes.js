@@ -20,7 +20,7 @@ const costumes = costumesData.map(costume => {
         desc,
         thumb,
         costumeType,
-        subcategoryName: getSubcategoryName(costumeType),
+        subcategoryName: getSubcategory(costumeType),
         entryTypes: ["Costume"]
     }
 })
@@ -47,7 +47,7 @@ function getPartsPath(type) {
     }
 }
 
-function getSubcategoryName(type) {
+function getSubcategory(type) {
     switch (type) {
         case "hat":
             return {

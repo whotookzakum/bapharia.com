@@ -199,7 +199,7 @@ type Material {
 }
 
 type Query {
-  entries(categories: String, searchTerm: String, limit: Int, offset: Int, items: String, weapons: String, imagine: String, enemies: String, skills: String, maps: String, costumes: String, avatarparts: String): DBResults!
+  entries(categories: String, searchTerm: String, limit: Int, offset: Int, items: String, weapons: String, imagine: String, enemies: String, skills: String, maps: String, costumes: String, avatarparts: String, quests: String): DBResults!
   entry(longId: String!): DBEntry
 }
 
@@ -313,4 +313,12 @@ type Weapon implements DBEntry {
   thumb: String
   treasureSources: [TreasureSource]
   weapon_max_level: Int
+}
+
+type Quest implements DBEntry {
+  subcategoryName: Text
+  desc: Text
+  id: String!
+  name: Text
+  thumb: String
 }

@@ -36,7 +36,7 @@ const avatars = avatarsData.reduce((acc, avatar) => {
             en_US: avatar.asset_id || "-"
         },
         thumb,
-        subcategoryName: getSubcategoryName(avatar.parts_icon_type),
+        subcategoryName: getSubcategory(avatar.parts_icon_type),
         entryTypes: ["AvatarPart"]
     })
     return acc
@@ -46,7 +46,7 @@ function getThumbnail(id) {
     return icons[id]
 }
 
-function getSubcategoryName(category) {
+function getSubcategory(category) {
     switch (category) {
         case 0:
             return {

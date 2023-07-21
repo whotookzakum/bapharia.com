@@ -28,7 +28,8 @@
         selectedSkills,
         selectedMaps,
         selectedCostumes,
-        selectedAvatarParts
+        selectedAvatarParts,
+        selectedQuests
     } from "./stores";
 
     // $: console.log("categories" + "\n" + $selectedCategories);
@@ -49,6 +50,7 @@
         $selectedMaps;
         $selectedCostumes;
         $selectedAvatarParts;
+        $selectedQuests;
         updateUrl();
     }
 
@@ -141,6 +143,14 @@
             $page.url.searchParams.delete("avatarparts");
         } else {
             $page.url.searchParams.set("avatarparts", $selectedAvatarParts);
+        }
+
+        let quests_default = getSubcategoryString("", "quests");
+
+        if (!$selectedQuests || !isChecked("quests") || $selectedQuests === quests_default) {
+            $page.url.searchParams.delete("quests");
+        } else {
+            $page.url.searchParams.set("quests", $selectedQuests);
         }
 
         goto(`?${$page.url.searchParams.toString()}`, {

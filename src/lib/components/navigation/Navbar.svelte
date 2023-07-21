@@ -75,11 +75,10 @@
 	{/each}
 
 	<div class="extras">
+		<TimeInJapan />
 		<LocaleSelector isCollapsed={!isExpanded} />
 		<ThemeToggle />
 	</div>
-
-	<!-- <TimeInJapan isExpanded={false} /> -->
 </nav>
 
 <style lang="scss">

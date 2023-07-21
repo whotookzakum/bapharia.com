@@ -1,6 +1,6 @@
 <script>
 	import Icon from "@iconify/svelte";
-    export let isExpanded;
+    export let isExpanded = true;
 
     let timeNow = new Date().getTime();
 	$: timeInJST = new Date(timeNow).toLocaleDateString([], {

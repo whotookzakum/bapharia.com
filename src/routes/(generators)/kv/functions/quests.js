@@ -1,152 +1,284 @@
-// TODO Steps (npc involved, quest text, requirements)
-
-// quest_unlock_data quest_conditions 
-// type 1 = subquest??
-// quest_status 1 = cleared
-
-// quest_preconditions
-// type 2 = class level requirement
-
 import questsData from "$bp_server/japan/quests.json"
 import enemiesData from "$bp_server/japan/enemyparams.json"
 import itemsData from "$bp_server/japan/items.json"
 import { getText } from './utils';
 
+// TODO Step NPC names
+// TODO interpolate descriptions such as in SQ103_234
+// TODO done synopsis, close synopsis
+// TODO rewards
+
 const quests = questsData.map(quest => {
     const ns = `${quest.source_file}_text`
     const name = getText(ns, quest.name)
     const desc = getText(ns, quest.desc)
-    const prereqs = getPrereqs(quest.quest_unlock_data.quest_conditions, quest.quest_preconditions)
-    const steps = getSteps(quest.quest_condition_steps, ns)
+    const prefix = quest.long_id.slice(0, 2)
+    const quest_condition_steps = getSteps(quest.quest_condition_steps, ns)
+    const quest_unlock_data = getUnlockData(quest.quest_unlock_data)
+    const quest_preconditions = getPreconditions(quest.quest_preconditions)
+    const subcategoryName = getSubcategory(prefix)
+    const thumb = getThumbnail(prefix)
 
     return {
-        // ...quest,
+        ...quest,
+        id: `${quest.long_id}`,
         name,
-        // desc,
-        prereqs,
-        steps
+        desc,
+        thumb,
+        prefix,
+        quest_unlock_data,
+        quest_preconditions,
+        quest_condition_steps,
+        subcategoryName,
+        entryTypes: ["Quest"]
     }
 })
 
-function getPrereqs(prereqs, preconditions) {
-    let myPrereqs = []
-    let myPreconditions = []
-
-    if (prereqs) {
-        myPrereqs = prereqs.map(prereq => {
-            if (prereq.type === 1) {
-                const questData = questsData.find(q => q.long_id === prereq.quest_id)
-                const name = getText(`${questData.source_file}_text`, questData.name)
-                return `Complete quest ${name}`
-            }
-    
-            if (prereq.type === 2) {
-                const questData = questsData.find(q => q.long_id === prereq.quest_id)
-                const name = getText(`${questData.source_file}_text`, questData.name)
-                return `Complete step ${prereq.quest_step} on quest ${name}`
-            }
-    
-            if (prereq.type === 4) {
-                return `Reach story flag ${prereq.scenario_flag_key} ?`
-            }
-    
-            if (prereq.type === 5) {
-                return `Can be accepted during event ${prereq.event_term_id} ?`
-            }
-    
-            if (prereq.type === 6) {
-                return `Reach Adventurer Rank ${prereq.adventurer_rank}`
-            }
-    
-            return `No prereq data!`
-        })
-    }
-
-    if (preconditions) {
-        myPreconditions = preconditions.map(precondition => {
-            if (precondition.type === 1) {
-                const classes = {
-                    6: "Blast Archer",
-                    7: "Twin Striker",
-                    11: "Spell Caster",
-                    12: "Aegis Fighter",
-                    19: "Heavy Smasher",
-                    20: "Blitz Lancer"
-                }
-
-                return `${classes[precondition.value1]} only`
-            }
-
-            if (precondition.type === 2) {
-                return `Requires class level ${precondition.value1}`
-            }
-    
-            if (precondition.type === 4) {
-                return `Requires Adventurer Rank ${precondition.value1}`
-            }
-    
-            return `No precondition data!`
-        })
-    }
-
-    return myPreconditions.concat(myPrereqs)
-}
-
 function getSteps(steps, ns) {
-    if (!steps) return []
     return steps.map(step => {
-        const conditions = step.condition_items.map(condition => {
-            let desc = getText(ns, condition.descriptionId[0].descriptionId)
-
-            // if (condition.descriptionId.length > 1) {
-            //     desc = condition.descriptionId.map(desc => getText(ns, desc.descriptionId))
-            // }
-
-            // Interpolate strings
-            // 2: defeat enemy
-            // 3: get item
-            // 13: get enemy drop
-            // 14: gather item
-            if (condition.type === 2 || condition.type === 13) {
-                const enemyData = enemiesData.find(enemy => enemy.enemy_id === condition.enemyId)
-                const enemyName = getText("enemyparam_text", enemyData.name_id)
-
-                Object.keys(desc).forEach(lang => {
-                    desc[lang] = desc[lang].replace("{enemyId}", enemyName[lang])
-                })
-            }
-
-            if (condition.type === 3) {
-                const itemData = itemsData.find(item => item.id === condition.item_id)
-                const itemName = getText("item_text", itemData?.name)
-
-                Object.keys(desc).forEach(lang => {
-                    desc[lang] = desc[lang].replace("{item_id}", itemName[lang])
-                })
-            }
-
-            if (condition.type === 2 || condition.type === 3 || condition.type === 13 || condition.type === 14) {
-                Object.keys(desc).forEach(lang => {
-                    desc[lang] = desc[lang].replace("{progress}", ` x${condition.amount}`)
-                })
-            }
-
-            return desc // for now there is only 1 description per condition
-
-            return {
-                // ...condition,
-                // npcId: condition.npcId,
-                // placeId: condition.placeId,
-                // locationId: condition.locationId,
-                // dungeonId: condition.dungeonId,
-                desc
-            }
-        })
-
+        const condition_items = getStepConditions(step, ns)
         return {
-            conditions
+            ...step,
+            condition_items
         }
     })
+}
+
+// For each object in quest_condition_steps.condition_items, do stuff like adding text
+function getStepConditions(step, ns) {
+    return step.condition_items.map(condition => {
+        const descriptionId = getConditionDescriptions(condition, ns, condition.type)
+        const synopsisId = getConditionSynopses(condition, ns)
+        return {
+            ...condition,
+            descriptionId,
+            synopsisId
+        }
+    })
+}
+
+// For each object in condition_items.descriptionId, add text
+function getConditionDescriptions(condition, ns, type) {
+    return condition.descriptionId.map(descriptionObj => {
+        let desc = getText(ns, descriptionObj.descriptionId)
+        desc = interpolateStepConditionText(condition, desc, type)
+        return {
+            ...descriptionObj,
+            desc
+        }
+    })
+}
+
+// For each object in condition_items.synopsisId, add text
+function getConditionSynopses(condition, ns) {
+    return condition.synopsisId?.reduce((acc, synopsisObj) => {
+        // Remove empty synopsis items "synopsisId": [ [] ]
+        if (Array.isArray(synopsisObj)) return acc
+
+        let desc = getText(ns, synopsisObj?.synopsisId)
+
+        acc.push({
+            ...synopsisObj,
+            desc
+        })
+
+        return acc
+    }, [])
+}
+
+// Replace things like {enemyId} with the enemy name
+function interpolateStepConditionText(condition, desc, type) {
+    const interpolatedText = desc
+
+    Object.keys(interpolatedText).forEach(lang => {
+        switch (type) {
+            case 2: // Defeat enemy
+            case 13: // Get enemy drop
+                const enemyData = enemiesData.find(enemy => enemy.enemy_id === condition.enemyId)
+                const enemyName = getText("enemyparam_text", enemyData.name_id)
+                interpolatedText[lang] = interpolatedText[lang].replace("{enemyId}", enemyName[lang])
+                break;
+            case 3: // Get item
+                const itemData = itemsData.find(item => item.id === condition.item_id)
+                const itemName = getText("item_text", itemData?.name)
+                interpolatedText[lang] = interpolatedText[lang].replace("{item_id}", itemName[lang])
+                break;
+            // case 14: // Gather item
+        }
+        interpolatedText[lang] = interpolatedText[lang].replace("{progress}", ` x${condition.amount}`)
+    })
+
+    return interpolatedText;
+}
+
+function getUnlockData(unlockData) {
+    const quest_conditions = unlockData.quest_conditions?.map(condition => {
+        const desc = getUnlockCondition(condition)
+        return {
+            ...condition,
+            desc
+        }
+    })
+    return {
+        ...unlockData,
+        quest_conditions
+    }
+}
+
+function getUnlockCondition(condition) {
+    let quest;
+    let questName;
+
+    if (condition.type === 1 || condition.type === 2) {
+        quest = questsData.find(q => q.long_id === condition.quest_id)
+        questName = getText(`${quest.source_file}_text`, quest.name)
+    }
+
+    switch (condition.type) {
+        case 1:
+            if (condition.quest_status === 1) {
+                return {
+                    ja_JP: `クエスト「${questName.ja_JP}」のStep ${condition.quest_step}を達成`,
+                    en_US: `Complete quest "${questName.en_US}"`
+                }
+            }
+        case 2:
+            return {
+                ja_JP: `クエスト「${questName.ja_JP}」のStep ${condition.quest_step}を達成`,
+                en_US: `Complete Step ${condition.quest_step} of quest "${questName.en_US}"`
+            }
+        case 4:
+            return {
+                ja_JP: `ストーリーフラグ${condition.scenario_flag_key}を達成`,
+                en_US: `Reach story flag ${condition.scenario_flag_key}`
+            }
+        case 5:
+            return {
+                ja_JP: `イベント「${condition.event_term_id}」が期間中`,
+                en_US: `Available during event "${condition.event_term_id}"`
+            }
+        case 6:
+            return {
+                ja_JP: `冒険者ランク${condition.adventurer_rank}以上`,
+                en_US: `Adventurer Rank ${condition.adventurer_rank}+`
+            }
+        default:
+            return {
+                ja_JP: `解放条件なし`,
+                en_US: `No unlock condition`
+            }
+    }
+}
+
+function getPreconditions(preconditions) {
+    return preconditions.map(condition => {
+        const desc = getPreconditionText(condition)
+        return {
+            ...condition,
+            desc
+        }
+    })
+}
+
+function getPreconditionText(condition) {
+    switch (condition.type) {
+        case 1:
+            const classNameObj = getClassName(condition.value1)
+            return {
+                ja_JP: `${classNameObj?.ja_JP}のみ`,
+                en_US: `${classNameObj?.en_US} only`
+            }
+        case 2:
+            return {
+                ja_JP: `クラスレベル${condition.value1}以上`,
+                en_US: `Class level ${condition.value1}+`
+            }
+
+        case 4:
+            return {
+                ja_JP: `冒険者ランク${condition.value1}以上`,
+                en_US: `Adventurer Rank ${condition.value1}+`
+            }
+        default:
+            return {
+                ja_JP: `受注条件なし`,
+                en_US: `No precondition`
+            }
+    }
+}
+
+function getClassName(id) {
+    id = parseInt(id)
+    switch (id) {
+        case 6:
+            return {
+                ja_JP: "ブラストアーチャー",
+                en_US: "Blast Archer"
+            }
+        case 7:
+            return {
+                ja_JP: "ツインストライカー",
+                en_US: "Twin Striker"
+            }
+        case 11:
+            return {
+                ja_JP: "スペルキャスター",
+                en_US: "Spell Caster",
+            }
+        case 12:
+            return {
+                ja_JP: "イージスファイター",
+                en_US: "Aegis Fighter",
+            }
+        case 19:
+            return {
+                ja_JP: "ヘヴィスマッシャー",
+                en_US: "Heavy Smasher",
+            }
+        case 20:
+            return {
+                ja_JP: "ブリッツランサー",
+                en_US: "Blitz Lancer"
+            }
+    }
+}
+
+function getSubcategory(prefix) {
+    switch (prefix) {
+        case "MQ":
+            return {
+                ja_JP: "メインクエスト",
+                en_US: "Main Quest"
+            }
+        case "SQ":
+            return {
+                ja_JP: "サブクエスト",
+                en_US: "Side Quest"
+            }
+        case "CQ":
+            return {
+                ja_JP: "クラスクエスト",
+                en_US: "Class Quest"
+            }
+        default:
+            return {
+                ja_JP: "クエスト",
+                en_US: "Quest"
+            }
+    }
+}
+
+function getThumbnail(prefix) {
+    switch (prefix) {
+        case "MQ":
+            return `/UI/Icon/Quest/UI_IconQuest_MainPop.png`
+        // case "SQ":
+        //     return `/UI/Icon/Quest/UI_IconQuest_PlusSubPop.png`
+        // case "CQ":
+        //     return `/UI/Icon/Quest/UI_IconQuest_KeyChaPop.png`
+        default:
+            return `/UI/Icon/Quest/UI_IconQuest_SubPop.png`
+    }
 }
 
 export default quests

@@ -13,6 +13,7 @@ import stampSets from '../(generators)/kv/functions/stampsets';
 import maps from '../(generators)/kv/functions/maps';
 import costumes from '../(generators)/kv/functions/costumes';
 import avatars from '../(generators)/kv/functions/avatars';
+import quests from '../(generators)/kv/functions/quests';
 
 const resolvers = {
     Query: {
@@ -142,6 +143,16 @@ const resolvers = {
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesSubcategories("avatarparts", result.parts_icon_type)
+                    )
+                results.push(...categoryResults)
+            }
+
+            // Quests
+            if (!args.categories || args.categories.includes("quests")) {
+                let categoryResults = quests
+                    .filter(result => 
+                        matchesSearchTerm(result.long_id, result.name) 
+                        && matchesSubcategories("quests", result.prefix)
                     )
                 results.push(...categoryResults)
             }
