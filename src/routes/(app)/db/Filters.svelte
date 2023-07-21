@@ -29,7 +29,8 @@
         selectedMaps,
         selectedCostumes,
         selectedAvatarParts,
-        selectedQuests
+        selectedQuests,
+        currentPage
     } from "./stores";
 
     // $: console.log("categories" + "\n" + $selectedCategories);
@@ -51,6 +52,7 @@
         $selectedCostumes;
         $selectedAvatarParts;
         $selectedQuests;
+        $currentPage = 1;
         updateUrl();
     }
 
