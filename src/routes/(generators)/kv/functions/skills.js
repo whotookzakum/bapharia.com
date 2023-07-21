@@ -4,8 +4,11 @@ import { getText } from "./utils";
 // TODO skill videos
 // TODO buffs and debuffs applied
 // TODO cooldown
-// TODO is class-shared ability ?
 // TODO check if skill types (A, B, D) are on client
+
+// ability_type 1 = alpha
+// ability_type 2 = beta
+// ability_type 100 = shared ability
 
 function getClassThumbnail(classId) {
     // Class 6 = Blast Archer
@@ -150,7 +153,7 @@ const skills = skillsData.reduce((acc, curr) => {
         abilities: [],
         skillBackgroundImg,
         elementImg,
-        subcategoryName: getSubcategory(curr.skill_type),
+        subcategoryName: getSubcategory(curr.skill_type, curr.ability_type),
         entryTypes: ["Skill"]
     });
 
@@ -194,7 +197,7 @@ function getThumbnail(skillType, id, classType) {
 
 }
 
-function getSubcategory(skillType) {
+function getSubcategory(skillType, abilityType) {
     switch (skillType) {
         case 0: // LMB
         case 1: // RMB
@@ -221,9 +224,16 @@ function getSubcategory(skillType) {
                 en_US: "Dodge",
             }
         case 8:
-            return {
-                ja_JP: "クラスアビリティ",
-                en_US: "Class Ability",
+            if (abilityType === 100) {
+                return {
+                    ja_JP: "クラス共有アビリティ",
+                    en_US: "Class-shared Ability",
+                }
+            } else {
+                return {
+                    ja_JP: "クラス限定アビリティ",
+                    en_US: "Class-specific Ability",
+                }
             }
         case 9:
             return {

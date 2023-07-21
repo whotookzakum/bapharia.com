@@ -74,10 +74,15 @@ const resolvers = {
             // Skills
             if (!args.categories || args.categories.includes("skills")) {
                 let categoryResults = skills
-                    .filter(result =>
-                        matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("skills", result.skill_type)
-                    )
+                    .filter(result => {
+                        if (result.skill_type === 8) {
+                            if (result.ability_type === 100) {
+                                return matchesSearchTerm(result.id, result.name) && matchesSubcategories("skills", 81)
+                            }
+                            return matchesSearchTerm(result.id, result.name) && matchesSubcategories("skills", 80)
+                        }
+                        return matchesSearchTerm(result.id, result.name) && matchesSubcategories("skills", result.skill_type)
+                    })
                 results.push(...categoryResults)
             }
 
