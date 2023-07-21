@@ -141,7 +141,7 @@ const resolvers = {
                 let categoryResults = avatars
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("avatarparts", result.id)
+                        && matchesSubcategories("avatarparts", result.parts_icon_type)
                     )
                 results.push(...categoryResults)
             }

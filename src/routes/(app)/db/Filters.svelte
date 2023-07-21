@@ -26,7 +26,9 @@
         selectedImagine,
         selectedEnemies,
         selectedSkills,
-        selectedMaps
+        selectedMaps,
+        selectedCostumes,
+        selectedAvatarParts
     } from "./stores";
 
     // $: console.log("categories" + "\n" + $selectedCategories);
@@ -45,6 +47,8 @@
         $selectedEnemies;
         $selectedSkills;
         $selectedMaps;
+        $selectedCostumes;
+        $selectedAvatarParts;
         updateUrl();
     }
 
@@ -123,6 +127,22 @@
             $page.url.searchParams.set("maps", $selectedMaps);
         }
 
+        let costumes_default = getSubcategoryString("", "costumes");
+
+        if (!$selectedCostumes || !isChecked("costumes") || $selectedCostumes === costumes_default) {
+            $page.url.searchParams.delete("costumes");
+        } else {
+            $page.url.searchParams.set("costumes", $selectedCostumes);
+        }
+
+        let avatarparts_default = getSubcategoryString("", "avatarparts");
+
+        if (!$selectedAvatarParts || !isChecked("avatarparts") || $selectedAvatarParts === avatarparts_default) {
+            $page.url.searchParams.delete("avatarparts");
+        } else {
+            $page.url.searchParams.set("avatarparts", $selectedAvatarParts);
+        }
+
         goto(`?${$page.url.searchParams.toString()}`, {
             noScroll: true,
             replaceState: false,
@@ -192,14 +212,14 @@
                                     <input
                                         class="visually-hidden"
                                         type="checkbox"
-                                        id={subcategory.name.en_US}
+                                        id="{category.name.en_US}-{subcategory.name.en_US}-switch"
                                         bind:checked={category.subcategories[
                                             subcat_idx
                                         ].checked}
                                         disabled={!category.checked}
                                     />
                                     <label
-                                        for={subcategory.name.en_US}
+                                        for="{category.name.en_US}-{subcategory.name.en_US}-switch"
                                         class="flex g-50"
                                     >
                                         <span class="switch" />

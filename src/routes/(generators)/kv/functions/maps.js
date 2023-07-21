@@ -127,7 +127,7 @@ function getSubcategory(prefix) {
 function getDungeonRewards(mapId) {
     const dungeonRewards = dungeonRewardsData.filter(reward => reward.dungeon_reward_search_name === mapId)
 
-    if (dungeonRewards.length < 1) return []
+    if (dungeonRewards.length < 1) return
 
     return dungeonRewards.map(dungeonReward => {
         const rewardDetails = getReward(dungeonReward.reward_id)

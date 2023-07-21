@@ -69,3 +69,5 @@ export const selectedImagine = derived(categories, ($categories) => getSubcatego
 export const selectedEnemies = derived(categories, ($categories) => getSubcategoryString($categories, "enemies"))
 export const selectedSkills = derived(categories, ($categories) => getSubcategoryString($categories, "skills"))
 export const selectedMaps = derived(categories, ($categories) => getSubcategoryString($categories, "maps"))
+export const selectedCostumes = derived(categories, ($categories) => getSubcategoryString($categories, "costumes"))
+export const selectedAvatarParts = derived(categories, ($categories) => getSubcategoryString($categories, "avatarparts"))

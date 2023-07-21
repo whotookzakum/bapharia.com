@@ -33,5 +33,7 @@ export const _DBSearchQueryVariables = async ({ url }) => {
         enemies: url.searchParams.get("enemies") || null,
         skills: url.searchParams.get("skills") || null,
         maps: url.searchParams.get("maps") || null,
+        costumes: url.searchParams.get("costumes") || null,
+        avatarparts: url.searchParams.get("avatarparts") || null,
     }
 };
