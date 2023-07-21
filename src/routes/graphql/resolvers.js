@@ -113,7 +113,7 @@ const resolvers = {
                 let categoryResults = costumes
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("costumes", result.id)
+                        && matchesSubcategories("costumes", result.costumeType)
                     )
                 results.push(...categoryResults)
             }
