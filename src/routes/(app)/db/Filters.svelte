@@ -30,14 +30,10 @@
         selectedCostumes,
         selectedAvatarParts,
         selectedQuests,
+        selectedClasses,
+        selectedElements,
         currentPage
     } from "./stores";
-
-    // $: console.log("categories" + "\n" + $selectedCategories);
-    // $: console.log("level" + "\n" + $selectedLevels);
-    // $: console.log("AR" + "\n" + $selectedAR);
-    // $: console.log("items" + "\n" + $selectedItems);
-    // $: console.log("skills" + "\n" + $selectedSkills);
 
     $: if (browser) {
         $selectedCategories;
@@ -52,17 +48,21 @@
         $selectedCostumes;
         $selectedAvatarParts;
         $selectedQuests;
+        $selectedClasses;
+        $selectedElements;
         $currentPage = 1;
         updateUrl();
     }
 
     function updateUrl() {
+        // Categories
         if (!$selectedCategories || $selectedCategories === categoryDefaults) {
             $page.url.searchParams.delete("categories");
         } else {
             $page.url.searchParams.set("categories", $selectedCategories);
         }
 
+        // Level
         let isValidLevel =
             $level.min !== null &&
             $level.max !== null &&
@@ -74,6 +74,7 @@
             $page.url.searchParams.set("level", $selectedLevels);
         }
 
+        // AR
         let isValidAR =
             $ar.min !== null && $ar.max !== null && $ar.min <= $ar.max;
 
@@ -83,6 +84,21 @@
             $page.url.searchParams.set("ar", $selectedAR);
         }
 
+        // Classes
+        if (!$selectedClasses || $selectedClasses === classesDefaults) {
+            $page.url.searchParams.delete("classes");
+        } else {
+            $page.url.searchParams.set("classes", $selectedClasses);
+        }
+
+        // Elements
+        if (!$selectedElements || $selectedElements === elementsDefaults) {
+            $page.url.searchParams.delete("elements");
+        } else {
+            $page.url.searchParams.set("elements", $selectedElements);
+        }
+
+        // Subcategories
         let items_default = getSubcategoryString("", "items");
 
         if (!$selectedItems || !isChecked("items") || $selectedItems === items_default) {
@@ -171,6 +187,22 @@
         if (category.checked) {
             if (acc) return `${acc} ${category.id}`;
             return `${category.id}`;
+        }
+        return acc;
+    }, "");
+
+    const classesDefaults = CLASSES.reduce((acc, gameClass) => {
+        if (gameClass.checked) {
+            if (acc) return `${acc} ${gameClass.id}`;
+            return `${gameClass.id}`;
+        }
+        return acc;
+    }, "");
+
+    const elementsDefaults = ELEMENTS.reduce((acc, element) => {
+        if (element.checked) {
+            if (acc) return `${acc} ${element.id}`;
+            return `${element.id}`;
         }
         return acc;
     }, "");
@@ -351,7 +383,7 @@
                             class="visually-hidden"
                             type="checkbox"
                             id="subcategory-{gameClass.name.en_US}"
-                            checked
+                            bind:checked={gameClass.checked}
                         />
                         <label
                             for="subcategory-{gameClass.name.en_US}"
@@ -385,7 +417,7 @@
                             class="visually-hidden"
                             type="checkbox"
                             id="subcategory-{element.name.en_US}"
-                            checked
+                            bind:checked={element.checked}
                         />
                         <label
                             for="subcategory-{element.name.en_US}"
@@ -393,7 +425,7 @@
                         >
                             <span class="switch" />
                             <img
-                                src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_{element.id}.png"
+                                src="/UI/Icon/Attribute/UI_IconAttribute_{element.id > 0 ? element.id : "Empty"}.png"
                                 alt=""
                                 width="32"
                                 height="32"

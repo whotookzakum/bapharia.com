@@ -28,16 +28,6 @@ export const selectedCategories = derived(
         }, "")
 )
 
-export const selectedLevels = derived(
-    level,
-    ($level) => `${$level.min} ${$level.max}`
-)
-
-export const selectedAR = derived(
-    ar,
-    ($ar) => `${$ar.min} ${$ar.max}`
-)
-
 export function getSubcategoryString(categoriesStore, name) {
     // Takes a store, otherwise defaults to CATEGORIES
     let categories = CATEGORIES
@@ -62,7 +52,6 @@ export function getSubcategoryString(categoriesStore, name) {
         }, "")
 }
 
-
 export const selectedItems = derived(categories, ($categories) => getSubcategoryString($categories, "items"))
 export const selectedWeapons = derived(categories, ($categories) => getSubcategoryString($categories, "weapons"))
 export const selectedImagine = derived(categories, ($categories) => getSubcategoryString($categories, "imagine"))
@@ -72,3 +61,37 @@ export const selectedMaps = derived(categories, ($categories) => getSubcategoryS
 export const selectedCostumes = derived(categories, ($categories) => getSubcategoryString($categories, "costumes"))
 export const selectedAvatarParts = derived(categories, ($categories) => getSubcategoryString($categories, "avatarparts"))
 export const selectedQuests = derived(categories, ($categories) => getSubcategoryString($categories, "quests"))
+
+export const selectedLevels = derived(
+    level,
+    ($level) => `${$level.min} ${$level.max}`
+)
+
+export const selectedAR = derived(
+    ar,
+    ($ar) => `${$ar.min} ${$ar.max}`
+)
+
+export const selectedClasses = derived(
+    classes,
+    ($classes) =>
+        $classes.reduce((acc, job) => {
+            if (job.checked) {
+                if (acc) return `${acc} ${job.id}`;
+                return job.id;
+            }
+            return acc;
+        }, "")
+)
+
+export const selectedElements = derived(
+    elements,
+    ($elements) =>
+        $elements.reduce((acc, element) => {
+            if (element.checked) {
+                if (acc) return `${acc} ${element.id}`;
+                return element.id;
+            }
+            return acc;
+        }, "")
+)

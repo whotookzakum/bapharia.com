@@ -25,10 +25,39 @@ const resolvers = {
                 return id.includes(args.searchTerm) || checkStringIncludes(name.ja_JP, args.searchTerm) || checkStringIncludes(name.en_US, args.searchTerm)
             }
 
-            function matchesSubcategories(key, subcategory_id) {
-                if (!args[key]) return true
+            function matchesFilter(filter, id) {
+                if (!args[filter]) return true
                 // Turn into an array so values like "1" are not true if "11" is included
-                return args[key].split(" ").includes(subcategory_id.toString())
+                return args[filter].split(" ").includes(id.toString())
+            }
+
+            function matchesElement(itemType, id) {
+                if (!args.elements) return true
+                
+                if (itemType === "weapon") {
+                    switch (id) {
+                        case 3:
+                            id = 1
+                            break;
+                        case 5:
+                            id = 2
+                            break;
+                        case 4:
+                            id = 3
+                            break;
+                        case 2:
+                            id = 4
+                            break;
+                        case 6:
+                            id = 5
+                            break;
+                        case 7:
+                            id = 6
+                            break;
+                    }
+                }
+
+                return args.elements.split(" ").includes(id.toString())
             }
 
             // Items
@@ -36,7 +65,7 @@ const resolvers = {
                 let categoryResults = items
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("items", result.category)
+                        && matchesFilter("items", result.category)
                     )
                 results.push(...categoryResults)
             }
@@ -46,7 +75,9 @@ const resolvers = {
                 let categoryResults = weapons
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("weapons", result.is_for_weapon_stickers)
+                        && matchesFilter("weapons", result.is_for_weapon_stickers)
+                        && matchesFilter("classes", result.equip_class)
+                        && matchesElement("weapon", result.attribute)
                     )
                 results.push(...categoryResults)
             }
@@ -56,7 +87,7 @@ const resolvers = {
                 let categoryResults = imagines
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("imagine", result.imagine_type)
+                        && matchesFilter("imagine", result.imagine_type)
                     )
                 results.push(...categoryResults)
             }
@@ -66,7 +97,7 @@ const resolvers = {
                 let categoryResults = enemies
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("enemies", result.is_boss)
+                        && matchesFilter("enemies", result.is_boss)
                     )
                 results.push(...categoryResults)
             }
@@ -77,11 +108,11 @@ const resolvers = {
                     .filter(result => {
                         if (result.skill_type === 8) {
                             if (result.ability_type === 100) {
-                                return matchesSearchTerm(result.id, result.name) && matchesSubcategories("skills", 81)
+                                return matchesSearchTerm(result.id, result.name) && matchesFilter("skills", 81)
                             }
-                            return matchesSearchTerm(result.id, result.name) && matchesSubcategories("skills", 80)
+                            return matchesSearchTerm(result.id, result.name) && matchesFilter("skills", 80)
                         }
-                        return matchesSearchTerm(result.id, result.name) && matchesSubcategories("skills", result.skill_type)
+                        return matchesSearchTerm(result.id, result.name) && matchesFilter("skills", result.skill_type)
                     })
                 results.push(...categoryResults)
             }
@@ -100,7 +131,7 @@ const resolvers = {
                 let categoryResults = maps
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("maps", result.id.slice(0, 3))
+                        && matchesFilter("maps", result.id.slice(0, 3))
                     )
                 results.push(...categoryResults)
             }
@@ -119,7 +150,7 @@ const resolvers = {
                 let categoryResults = costumes
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("costumes", result.costumeType)
+                        && matchesFilter("costumes", result.costumeType)
                     )
                 results.push(...categoryResults)
             }
@@ -147,7 +178,7 @@ const resolvers = {
                 let categoryResults = avatars
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
-                        && matchesSubcategories("avatarparts", result.parts_icon_type)
+                        && matchesFilter("avatarparts", result.parts_icon_type)
                     )
                 results.push(...categoryResults)
             }
@@ -157,7 +188,7 @@ const resolvers = {
                 let categoryResults = quests
                     .filter(result => 
                         matchesSearchTerm(result.long_id, result.name) 
-                        && matchesSubcategories("quests", result.prefix)
+                        && matchesFilter("quests", result.prefix)
                     )
                 results.push(...categoryResults)
             }
