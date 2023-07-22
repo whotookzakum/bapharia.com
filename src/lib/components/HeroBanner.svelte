@@ -1,10 +1,12 @@
 <script>
     export let bannerUrl = "";
+    export let style = ""
 </script>
 
 <header
     class="hero-banner full-bleed centered-section"
-    style="background-image: url({bannerUrl})"
+    style:background-image="url({bannerUrl})"
+    {style}
 >
     <slot />
     {#if bannerUrl}

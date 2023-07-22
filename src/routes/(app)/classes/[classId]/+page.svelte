@@ -2,11 +2,13 @@
     import HeroBanner from "$lib/components/HeroBanner.svelte";
     import Video from "$lib/components/Video.svelte";
     import PagesList from "$lib/components/layout/PagesList.svelte";
-    import Skill from "../Skill.svelte";
+    import Skill from "./Skill.svelte";
     let selectedSkills = "tactical";
-    import classes from "../../classes.json";
+    import classes from "../classes.json";
     import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
+    import { page } from "$app/stores";
 
+    export let data;
     const skills = [
         {
             name: "Brutal Blow",
@@ -313,17 +315,36 @@
 
 <HeroBanner bannerUrl="/guides/classes/banner.webp">
     <img
-        src="/UI/Icon/ClassL/UI_IconClassL_12.png"
+        src="/UI/Icon/ClassL/UI_IconClassL_{parseInt($page.params.classId) < 10 ? `0${$page.params.classId}` : $page.params.classId}.png"
         alt=""
         width="128"
         height="128"
     />
-    <h1>Aegis Fighter</h1>
-    <p>
-        A close-range class that fights on the front line, utilizing offensive
-        and defensive skills. Aegis Fighters wield a one-handed sword and shield
-        and are mainly a tank class. Their skills excel in crowd-control and
-        enemy aggro management. They have various Light-elemental skills.
+    <h1>{data.meta.title}</h1>
+    <hr style="background: var(--text2); max-width: 50ch; margin: 1rem auto;">
+
+    <p style="color: var(--text2)">{data.meta.description}</p>
+    <hr style="background: var(--text2); max-width: 50ch; margin: 1rem auto;">
+    <p
+        class="flex"
+        style="justify-content: center; font-size: var(--step-1); font-weight: 600; align-items: center; margin: 0.5rem auto; flex-wrap: wrap"
+    >
+        {data.meta.range}・{data.meta.classType}・
+        {#each JSON.parse(data.meta.elements) as element}
+            <!-- <img
+                src="/images/elements/UI_IconAttribute_{element}.png"
+                alt=""
+                width="32"
+                height="32"
+            /> -->
+            <img
+                src="/UI/Icon/Attribute/UI_IconAttribute_{element}.png"
+                alt=""
+                width="32"
+                height="32"
+                style:margin-right="0.25rem"
+            />
+        {/each}
     </p>
 </HeroBanner>
 
@@ -344,25 +365,7 @@
             combos
         </figcaption>
     </figure>
-
-    <h2>Shield Gauge</h2>
-    <p>
-        Aegis Fighters can hold down the subaction button to enter a guard
-        stance. Successful blocks of enemy attacks will consume Shield Gauge.
-        Once the gauge is depleted, shield-related skills will be temporarily
-        unavailable. Press the normal attack button after blocking to perform a
-        powerful counterattack.
-    </p>
-
-    <h2>Weak Point Targeting</h2>
-    <p>
-        Blast Archers deal increased damage when hitting an enemy's weak point.
-        These points vary between enemies, such as the head or back. You may be
-        able to hit weak spots with auto aim on some enemies, but this is
-        unlikely to be the case for most enemies so players will have to switch
-        between auto and manual aim for maximum efficiency.
-    </p>
-
+    <svelte:component this={data.content} />
     <!-- <div id="skills">
         <h2>Skills</h2>
         <label>
