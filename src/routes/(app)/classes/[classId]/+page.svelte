@@ -1,13 +1,5 @@
 <script>
-    import HeroBanner from "$lib/components/HeroBanner.svelte";
     import Video from "$lib/components/Video.svelte";
-    import PagesList from "$lib/components/layout/PagesList.svelte";
-    import Skill from "./Skill.svelte";
-    let selectedSkills = "tactical";
-    import classes from "../classes.json";
-    import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
-    import { page } from "$app/stores";
-
     export let data;
     const skills = [
         {
@@ -313,45 +305,6 @@
     ];
 </script>
 
-<HeroBanner bannerUrl="/guides/classes/banner.webp">
-    <img
-        src="/UI/Icon/ClassL/UI_IconClassL_{parseInt($page.params.classId) < 10 ? `0${$page.params.classId}` : $page.params.classId}.png"
-        alt=""
-        width="128"
-        height="128"
-    />
-    <h1>{data.meta.title}</h1>
-    <hr style="background: var(--text2); max-width: 50ch; margin: 1rem auto;">
-
-    <p style="color: var(--text2)">{data.meta.description}</p>
-    <hr style="background: var(--text2); max-width: 50ch; margin: 1rem auto;">
-    <p
-        class="flex"
-        style="justify-content: center; font-size: var(--step-1); font-weight: 600; align-items: center; margin: 0.5rem auto; flex-wrap: wrap"
-    >
-        {data.meta.range}・{data.meta.classType}・
-        {#each JSON.parse(data.meta.elements) as element}
-            <!-- <img
-                src="/images/elements/UI_IconAttribute_{element}.png"
-                alt=""
-                width="32"
-                height="32"
-            /> -->
-            <img
-                src="/UI/Icon/Attribute/UI_IconAttribute_{element}.png"
-                alt=""
-                width="32"
-                height="32"
-                style:margin-right="0.25rem"
-            />
-        {/each}
-    </p>
-</HeroBanner>
-
-<PagesList links={classes} />
-
-<TableOfContents />
-
 <article class="grid">
     <figure>
         <Video
@@ -403,8 +356,6 @@
             {/each}
         </ul>
     </div> -->
-
-    <h2 id="meta">Meta</h2>
 </article>
 
 <style lang="scss">
