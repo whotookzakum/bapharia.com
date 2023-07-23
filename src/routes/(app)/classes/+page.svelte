@@ -19,37 +19,32 @@
     </p>
 </HeroBanner>
 
-<div class="grid">
-    <div>
-        <h2 style:margin-bottom="1rem">Select a class</h2>
-        <ClassesList />
+<div class="flex">
+    <ClassesList />
+    <div class="article-wrapper">
+        <article>
+            <svelte:component this={data.content} />
+        </article>
     </div>
-    <article>
-        <svelte:component this={data.content} />
-    </article>
 </div>
 
 <style lang="scss">
-    .grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-top: 1rem;
+    .flex {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+        width: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+
+    .article-wrapper {
+        flex-grow: 1;
+        flex-basis: 35rem;
     }
 
     article {
         margin: auto;
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    @media (max-width: 1200px) {
-        .grid {
-            grid-template-columns: min(55ch, 100%);
-            margin: auto;
-        }
-
-        article {
-            grid-row: 2;
-        }
+        width: fit-content;
     }
 </style>

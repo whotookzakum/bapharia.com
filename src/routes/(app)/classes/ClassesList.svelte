@@ -1,7 +1,7 @@
 <script>
     import classes from "./classes.json";
 </script>
-
+<!--  PUT IN NAV -->
 <ul class="classes-list grid unstyled-list" role="list">
     {#each classes as job}
         <li class="grid box hover">
@@ -15,47 +15,34 @@
 <style lang="scss">
     .classes-list {
         grid-template-columns: repeat(
-            auto-fit,
-            minmax(min(calc(var(--space-2xl-3xl) + 1rem), 100%), 1fr)
+            auto-fill,
+            minmax(180px, 1fr)
         );
-        // grid-template-columns: repeat(4, 1fr);
+        margin: 2rem auto;
         align-content: start;
-        grid-column: 2;
-        // max-width: 600px;
-    }
-
-    @media (max-width: 1200px) {
-        .classes-list {
-            grid-column: 1;
-        }
-    }
-
-    @media (max-width: 600px) {
-        li span {
-            display: none;
-        }
-    }
-
-    li {
-        justify-items: center;
-        position: relative;
-        z-index: 1;
-        line-height: 1.4;
-        text-align: center;
-        flex: 1 1 130px;
-
-        *:not(a) {
-            pointer-events: none;
-        }
+        flex: 1;
+        flex-basis: 40rem; // 40~45rem
 
         img {
-            margin: 0 auto 0.5rem auto;
+            width: 100%;
+            height: auto;
+            margin-bottom: 0.5rem;
             transition: all 0.2s ease;
         }
 
         span {
             color: var(--text2);
-            font-size: var(--step--1);
+        }
+    }
+    li {
+        position: relative;
+        z-index: 1;
+        // text-align: center;
+        line-height: 1.6;
+        align-content: start;
+
+        *:not(a) {
+            pointer-events: none;
         }
 
         &:hover img {
@@ -65,7 +52,7 @@
 
     a {
         color: var(--link);
-        font-size: var(--step-1);
+        font-size: var(--step-2);
         font-weight: 600;
     }
 
@@ -88,6 +75,24 @@
         li:focus-within {
             outline: 2px solid var(--accent);
             background: var(--surface2);
+        }
+    }
+
+    @media (max-width: 424px) {
+        .classes-list {
+            grid-template-columns: 1fr 1fr;
+
+            li {
+                line-height: 1.4;
+            }
+
+            a {
+                font-size: var(--step-0);
+            }
+
+            span {
+                font-size: var(--step--1);
+            }
         }
     }
 </style>
