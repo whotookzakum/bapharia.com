@@ -1,5 +1,8 @@
 <script>
-    import Video from "$lib/components/Video.svelte";
+    import StatsChart from "./StatsChart.svelte";
+    import classesData from "../classes.json";
+    import { page } from "$app/stores";
+    import StatsChartCheckboxes from "./StatsChartCheckboxes.svelte";
     export let data;
     const skills = [
         {
@@ -303,60 +306,59 @@
             },
         },
     ];
+
+    let selectedClasses;
+    let levelSelector = 50;
 </script>
 
-<article class="grid">
-    <figure>
-        <Video
-            title="Aegis Fighter Combos"
-            id="pDUq_9n3faI"
-            bleed
-            style="margin: 0"
-        />
-        <figcaption>
-            Demonstration of some Aegis Fighter attacks and animation-cancel
-            combos
-        </figcaption>
-    </figure>
-    <svelte:component this={data.content} />
-    <!-- <div id="skills">
-        <h2>Skills</h2>
-        <label>
-            <input type="radio" value="tactical" bind:group={selectedSkills} />
-            Tactical Skills
-        </label>
-        <label>
-            <input type="radio" value="ult" bind:group={selectedSkills} />
-            ULT Skills
-        </label>
-        <label>
-            <input type="radio" value="base" bind:group={selectedSkills} />
-            Base Actions
-        </label>
-        <label>
-            <input
-                type="radio"
-                value="classAbilities"
-                bind:group={selectedSkills}
-            />
-            Class Abilities
-        </label>
-        <label>
-            <input
-                type="radio"
-                value="baseAbilities"
-                bind:group={selectedSkills}
-            />
-            Base Abilities
-        </label>
+<input
+    type="range"
+    name=""
+    id=""
+    bind:value={levelSelector}
+    max="100"
+    min="1"
+/>
+<span>Level {levelSelector}</span>
+<span>{selectedClasses}</span>
+<StatsChartCheckboxes currentClassId={parseInt($page.params.classId)} bind:selectedClasses />
+<StatsChart level={levelSelector} classes={selectedClasses} />
 
-        <ul class="skills-grid unstyled-list grid" role="list">
-            {#each skills as skill}
-                <Skill {skill} />
-            {/each}
-        </ul>
-    </div> -->
-</article>
+<svelte:component this={data.content} />
+
+<!-- <div id="skills">
+    <h2>Skills</h2>
+    <label>
+        <input type="radio" value="tactical" bind:group={selectedSkills} />
+        Tactical Skills
+    </label>
+    <label>
+        <input type="radio" value="ult" bind:group={selectedSkills} />
+        ULT Skills
+    </label>
+    <label>
+        <input type="radio" value="base" bind:group={selectedSkills} />
+        Base Actions
+    </label>
+    <label>
+        <input
+            type="radio"
+            value="classAbilities"
+            bind:group={selectedSkills}
+        />
+        Class Abilities
+    </label>
+    <label>
+        <input type="radio" value="baseAbilities" bind:group={selectedSkills} />
+        Base Abilities
+    </label>
+
+    <ul class="skills-grid unstyled-list grid" role="list">
+        {#each skills as skill}
+            <Skill {skill} />
+        {/each}
+    </ul>
+</div> -->
 
 <style lang="scss">
     .skills-grid {

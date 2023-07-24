@@ -1,21 +1,26 @@
 <script>
     import HeroBanner from "$lib/components/HeroBanner.svelte";
-    import Video from "$lib/components/Video.svelte";
     import PagesList from "$lib/components/layout/PagesList.svelte";
-    import Skill from "./Skill.svelte";
-    let selectedSkills = "tactical";
     import classes from "../classes.json";
     import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
     import { page } from "$app/stores";
+    import MetaTags from "$lib/components/MetaTags.svelte";
+    import SubpageNav from "./SubpageNav.svelte";
 
     export let data;
 </script>
 
 {#if data?.meta?.title}
+    <MetaTags
+        title={`${data.meta.title} — Bapharia`}
+        description={`All about the ${data.meta.title} class in BLUE PROTOCOL—unique mechanics, stats, skills, recommended loadouts, and more!`}
+    />
+
     <HeroBanner bannerUrl="/guides/classes/banner.webp">
         <img
-            src="/UI/Icon/ClassXL/UI_IconClassXL_{parseInt($page.params.classId) <
-            10
+            src="/UI/Icon/ClassXL/UI_IconClassXL_{parseInt(
+                $page.params.classId
+            ) < 10
                 ? `0${$page.params.classId}`
                 : $page.params.classId}.png"
             alt=""
@@ -42,11 +47,14 @@
     </HeroBanner>
 {/if}
 
-<PagesList links={classes} />
+<PagesList links={classes} includeUpperRoutes />
 
 <TableOfContents />
 
-<slot />
+<article class="grid">
+    <SubpageNav />
+    <slot />
+</article>
 
 <style lang="scss">
     .class-categories {
