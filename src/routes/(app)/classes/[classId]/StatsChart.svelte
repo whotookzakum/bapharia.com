@@ -10,11 +10,13 @@
         Tooltip,
     } from "chart.js";
 
-    export let classes = []
-    export let level = 50
+    export let classes = [];
+    export let level = 50;
 
-    let chartElement;
+    let chartElement; // reference to canvas element
+    let myChart; // the chart instance
 
+    // Register components to use them
     Chart.register(
         CategoryScale,
         LinearScale,
@@ -23,76 +25,75 @@
         Tooltip
     );
 
-    let myChart;
-
-    $: currentLevelStats = player_statuses.find(
-        (statuses) => statuses.lv === level && statuses.class === classes[0]
-    );
-
-    $: stats = {
-        ATK: currentLevelStats?.ap,
-        DEF: currentLevelStats?.dp,
-        "Crit Rate": currentLevelStats?.cr,
-        "Crit Dmg": currentLevelStats?.cp,
-        STR: currentLevelStats?.str,
-        VIT: currentLevelStats?.vit,
-        DEX: currentLevelStats?.dex,
-        INT: currentLevelStats?.int,
-        MND: currentLevelStats?.mnd,
-        // "Recovery": currentLevelStats.rp,
-        // "HP": currentLevelStats.hp
-        // pcl, icl?
+    const allstats = {
+        ATK: "ap",
+        DEF: "dp",
+        "Crit Rate": "cr",
+        "Crit Dmg": "cp",
+        STR: "str",
+        VIT: "vit",
+        DEX: "dex",
+        INT: "int",
+        MND: "mnd",
+        // HP: "hp",
+        Rec: "rp"
+        // icl and pcl unknown
     };
+
+    $: datasets = classes.map((job) => {
+        const levelData = player_statuses.find(
+            (statuses) => statuses.lv === level && statuses.class === job
+        );
+
+        const data = Object.values(allstats).map((statAbbr) => levelData[statAbbr])
+
+        return {
+            data,
+            backgroundColor: `hsla(${hue(job)}, 60%, 50%, 0.2)`,
+            borderColor: `hsla(${hue(job)}, 60%, 50%, 1)`,
+            hoverBackgroundColor: `hsla(${hue(job)}, 60%, 50%, 0.3)`,
+            borderWidth: 2,
+        };
+    });
+
+    function hue(job) {
+        switch(job) {
+            case "rebellion": return 210;
+            case "blaster": return 120;
+            case "berserker": return 0;
+            case "lancer": return 190;
+            case "magician": return 290;
+            case "smasher": return 25;
+            default: return 210;
+        }
+    }
 
     $: config = {
         type: "bar",
         data: {
-            labels: Object.keys(stats),
-            datasets: [
-                {
-                    data: Object.values(stats),
-                    backgroundColor: ["rgba(51, 128, 204, 0.2)"],
-                    borderColor: ["rgba(51, 128, 204, 1)"],
-                    hoverBackgroundColor: ["rgba(51, 128, 204, 0.3)"],
-                    borderWidth: 2,
-                },
-            ],
+            labels: Object.keys(allstats),
+            datasets,
         },
         options: {
             indexAxis: "y",
-            elements: {
-                bar: {
-                    borderWidth: 2,
-                },
-            },
             responsive: true,
-            plugins: {
-                legend: {
-                    position: "right",
-                },
-                title: {
-                    display: true,
-                    text: "Chart.js Horizontal Bar Chart",
-                },
-            },
             scales: {
                 x: {
                     max: 200,
                     min: 0,
                 },
             },
-            
         },
     };
 
     onMount(async () => {
         myChart = new Chart(chartElement, config);
-        myChart.options.animation = false
+        myChart.options.animation = false;
     });
 
     $: if (myChart) {
-        myChart.data.datasets[0].data = config.data.datasets[0].data
-        myChart.update()
+        myChart.data.datasets = datasets;
+        myChart.update();
     }
 </script>
 
