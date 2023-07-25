@@ -1,8 +1,7 @@
 <script>
-    import StatsChart from "./StatsChart.svelte";
-    import classesData from "../classes.json";
-    import { page } from "$app/stores";
-    import StatsChartCheckboxes from "./StatsChartCheckboxes.svelte";
+    import Stats from './Stats.svelte';
+
+    
     export let data;
     const skills = [
         {
@@ -307,22 +306,11 @@
         },
     ];
 
-    let selectedClasses;
-    let levelSelector = 50;
+    
 </script>
 
-<input
-    type="range"
-    name=""
-    id=""
-    bind:value={levelSelector}
-    max="100"
-    min="1"
-/>
-<span>Level {levelSelector}</span>
-<span>{selectedClasses}</span>
-<StatsChartCheckboxes currentClassId={parseInt($page.params.classId)} bind:selectedClasses />
-<StatsChart level={levelSelector} classes={selectedClasses} />
+
+<Stats />
 
 <svelte:component this={data.content} />
 

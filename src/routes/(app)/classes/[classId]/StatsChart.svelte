@@ -9,6 +9,7 @@
         BarElement,
         Tooltip,
     } from "chart.js";
+    import hue from "./classHues.json"
 
     export let classes = [];
     export let level = 50;
@@ -49,24 +50,12 @@
 
         return {
             data,
-            backgroundColor: `hsla(${hue(job)}, 60%, 50%, 0.2)`,
-            borderColor: `hsla(${hue(job)}, 60%, 50%, 1)`,
-            hoverBackgroundColor: `hsla(${hue(job)}, 60%, 50%, 0.3)`,
+            backgroundColor: `hsla(${hue[job]}, 60%, 50%, 0.2)`,
+            borderColor: `hsla(${hue[job]}, 60%, 50%, 1)`,
+            hoverBackgroundColor: `hsla(${hue[job]}, 60%, 50%, 0.3)`,
             borderWidth: 2,
         };
     });
-
-    function hue(job) {
-        switch(job) {
-            case "rebellion": return 210;
-            case "blaster": return 120;
-            case "berserker": return 0;
-            case "lancer": return 190;
-            case "magician": return 290;
-            case "smasher": return 25;
-            default: return 210;
-        }
-    }
 
     $: config = {
         type: "bar",
@@ -97,16 +86,17 @@
     }
 </script>
 
-<div class="chart-wrapper flex">
+<div class="chart-wrapper grid">
+    <h3 class="toc-exclude" style="margin: 0">Base Stats</h3>
     <canvas bind:this={chartElement} />
 </div>
 
 <style lang="scss">
     .chart-wrapper {
         width: 100%;
-        height: auto;
+        margin-inline: 1rem;
+        height: height;
         max-height: 600px;
         justify-content: center;
-        margin: 1rem 0;
     }
 </style>
