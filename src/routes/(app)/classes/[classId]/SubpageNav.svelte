@@ -47,6 +47,8 @@
         gap: 0;
         background: var(--surface1);
         overflow: hidden;
+        z-index: 10;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 
         a {
             padding: 1rem;

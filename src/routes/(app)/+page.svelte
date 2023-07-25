@@ -24,9 +24,7 @@
 <section id="featured" class="bg-bleed centered-section">
 	<div class="unbleed">
 		<h2 style="margin-bottom: 1rem">Featured</h2>
-		<small
-			>The lastest uploads from our partners are featured here.</small
-		>
+		<small>The lastest uploads from our partners are featured here.</small>
 		<ol class="unstyled-list featured-videos-grid grid">
 			<li>
 				<Video title="" id="SEuQJGsSCWA" bleed radius="0.5rem" />
@@ -54,7 +52,19 @@
 						height="96"
 					/>
 					<div class="hidden">
-						<p>{partner.name}</p>
+						<p>
+							{#if partner.link}
+								<a
+									rel="noopener nofollow noreferrer"
+									target="_blank"
+									href={partner.link}
+								>
+									{partner.name}
+								</a>
+							{:else}
+								{partner.name}
+							{/if}
+						</p>
 						<div class="partner-links flex g-50">
 							{#if partner.twitch}
 								<a
@@ -93,12 +103,11 @@
 </section>
 
 <style lang="scss">
-
 	.hero-tagline {
 		font-size: var(--step-4);
-        max-inline-size: none;
-        margin-top: 0;
-        font-weight: 500;
+		max-inline-size: none;
+		margin-top: 0;
+		font-weight: 500;
 	}
 
 	.header-links {
