@@ -4,18 +4,12 @@
     import classes from "../classes.json";
     import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
     import { page } from "$app/stores";
-    import MetaTags from "$lib/components/MetaTags.svelte";
     import SubpageNav from "./SubpageNav.svelte";
 
     export let data;
 </script>
 
 {#if data?.meta?.title}
-    <MetaTags
-        title={`${data.meta.title} — Bapharia`}
-        description={`All about the ${data.meta.title} class in BLUE PROTOCOL—unique mechanics, stats, skills, recommended loadouts, and more!`}
-    />
-
     <HeroBanner bannerUrl="/guides/classes/banner.webp">
         <img
             src="/UI/Icon/ClassXL/UI_IconClassXL_{parseInt(
@@ -51,7 +45,7 @@
 
 <TableOfContents />
 
-<article class="grid">
+<article id="classPage" class="grid">
     <SubpageNav />
     <slot />
 </article>
@@ -74,5 +68,9 @@
 
     .description {
         color: var(--text2);
+    }
+
+    :global(#classPage :where(h2, h3, h4)) {
+        scroll-margin-top: 6rem !important;
     }
 </style>
