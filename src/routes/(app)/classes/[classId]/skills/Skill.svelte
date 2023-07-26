@@ -18,7 +18,7 @@
             skillBackgroundImg={skill.skillBackgroundImg}
         />
         <div>
-            <h3 class="toc-exclud" style:margin="0">{skill.name[$userLocale]}</h3>
+            <h3 class="toc-exclude" style:margin="0">{skill.name[$userLocale]}</h3>
             <span>{skill.element} • {skill.type}</span>
         </div>
     </header>

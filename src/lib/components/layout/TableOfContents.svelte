@@ -9,4 +9,5 @@
     --toc-max-height="calc(100vh - 62px - 1rem)"
     --toc-font-size="1rem"
     --toc-overflow="auto"
+    activeHeadingScrollOffset={200}
 />
