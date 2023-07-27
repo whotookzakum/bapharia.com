@@ -45,4 +45,14 @@
     dl {
         max-inline-size: none;
     }
+
+    dl {
+        margin-top: 1rem;
+    }
+
+    @media (min-width: 900px) {
+        dl {
+            padding-inline: 1rem;
+        }
+    }
 </style>

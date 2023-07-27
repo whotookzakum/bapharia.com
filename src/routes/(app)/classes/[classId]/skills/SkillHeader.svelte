@@ -34,7 +34,6 @@
 
 <style lang="scss">
     header {
-        margin-bottom: 1rem;
         flex-wrap: wrap;
         gap: 1rem 2rem;
         align-items: center;
