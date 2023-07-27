@@ -98,5 +98,10 @@
         height: height;
         max-height: 600px;
         justify-content: center;
+        min-width: 0;
+
+        canvas {
+            max-width: 100%;
+        }
     }
 </style>

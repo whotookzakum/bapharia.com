@@ -2703,7 +2703,7 @@
     description={`All ${data.meta.title} skills in BLUE PROTOCOL.`}
 />
 
-<p>Skills can be obtained by leveling up a class high enough to unlock the G1 version of the skill. Typically anything with "ability" in the name is a passive skill.</p>
+<p>Skills can be obtained by leveling up a class high enough to unlock the G1 version of the skill. Typically anything with "ability" as the category is a passive skill.</p>
 
 <div id="skills" class="grid">
     <h2 id="base-actions">Base Actions</h2>

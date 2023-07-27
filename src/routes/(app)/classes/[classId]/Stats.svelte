@@ -20,8 +20,6 @@
     <div class="left-col grid">
         <div>
             <span id="stats-level-description" class="component-label">Level</span>
-            <span>{levelSelector}</span>
-            <span>{selectedLevel}</span>
             <InputNumber
                 description="Level"
                 shortName="LV."
