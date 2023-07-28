@@ -57,6 +57,6 @@
     h3 {
         margin: 0;
         line-height: 1.4;
-        font-size: clamp(1rem, calc(0.74rem + 0.80vw), 1.4rem);
+        font-size: clamp(1.2rem, calc(0.74rem + 0.80vw), 1.4rem);
     }
 </style>
