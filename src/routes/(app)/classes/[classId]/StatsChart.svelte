@@ -95,7 +95,6 @@
     .chart-wrapper {
         width: 100%;
         margin-inline: 1rem;
-        height: height;
         max-height: 600px;
         justify-content: center;
         min-width: 0;

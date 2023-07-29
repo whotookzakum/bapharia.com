@@ -22,7 +22,7 @@
             <span id="stats-level-description" class="component-label">Level</span>
             <InputNumber
                 description="Level"
-                shortName="LV."
+                prefix="LV."
                 id="level-input-number"
                 bind:value={levelSelector}
                 max={100}

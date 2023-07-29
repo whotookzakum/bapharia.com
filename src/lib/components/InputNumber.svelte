@@ -4,16 +4,20 @@
     export let id = null;
     export let style = null;
     export let value = null;
-    export let shortName = null;
+    export let prefix = "";
     export let description = null;
     export let describedby = null;
     export let disabled = false;
     export let invalid = false;
+    export let suffix = "";
+    export let textAlign = "left";
 </script>
 
 <label class="input-level-wrapper" {style} class:disabled class:invalid>
     <span class="visually-hidden">{description}</span>
-    <span aria-hidden="true">{shortName}</span>
+    {#if prefix}
+        <span aria-hidden="true" class="prefix">{prefix}</span>
+    {/if}
     <input
         {id}
         class="input-level"
@@ -24,7 +28,11 @@
         {min}
         aria-describedby={describedby}
         {disabled}
+        style:text-align={textAlign}
     />
+    {#if suffix}
+        <span aria-hidden="true" class="suffix">{suffix}</span>
+    {/if}
 </label>
 
 <style lang="scss">
@@ -34,7 +42,7 @@
         gap: 0.25rem;
         background: var(--bg);
         border-radius: 5px;
-        padding-left: 0.8rem;
+        padding-inline: 0.8rem;
         font: inherit;
         font-weight: 600;
         min-height: 44px;
@@ -79,5 +87,10 @@
         &:focus-visible {
             outline: none !important;
         }
+    }
+
+    .prefix, .suffix {
+        white-space: nowrap;
+        // color: var(--text2);
     }
 </style>

@@ -94,7 +94,7 @@
     <div class="level-controls grid g-50">
         <InputNumber
             description="Level"
-            shortName="LV."
+            prefix="LV."
             bind:value={sliderValue}
             max={maxLevel}
             min="1"

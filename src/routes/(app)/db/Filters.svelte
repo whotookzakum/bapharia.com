@@ -292,7 +292,7 @@
             <InputNumber
                 style="grid-area: bl"
                 description="Min Level"
-                shortName="LV."
+                prefix="LV."
                 id="level-min-input"
                 bind:value={$level.min}
                 max={$level.max}
@@ -310,7 +310,7 @@
             <InputNumber
                 style="grid-area: br"
                 description="Max Level"
-                shortName="LV."
+                prefix="LV."
                 id="level-max-input"
                 bind:value={$level.max}
                 max={$level.upperLimit}
@@ -340,7 +340,7 @@
             <InputNumber
                 style="grid-area: bl"
                 description="Min Adventurer Rank"
-                shortName="AR"
+                prefix="AR"
                 id="ar-min-input"
                 bind:value={$ar.min}
                 max={$ar.max}
@@ -357,7 +357,7 @@
             <InputNumber
                 style="grid-area: br"
                 description="Max Adventurer Rank"
-                shortName="AR"
+                prefix="AR"
                 id="ar-max-input"
                 bind:value={$ar.max}
                 max={$ar.upperLimit}
