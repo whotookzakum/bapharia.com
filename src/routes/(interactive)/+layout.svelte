@@ -4,7 +4,6 @@
 
 <style>
     main {
-        height: 100%;
         position: relative;
     }
 

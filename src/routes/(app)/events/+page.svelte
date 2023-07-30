@@ -2,7 +2,6 @@
     import MetaTags from "$lib/components/MetaTags.svelte";
     import "./events.scss";
     import doc from "./events.md";
-    import SeasonPass1Calculator from "./SeasonPass1Calculator.svelte";
     // TODO add calendar for events
 
     // Option 1: show all items for the selected date
@@ -40,8 +39,6 @@
         {/each}
     </div>
 </div>
-
-<SeasonPass1Calculator />
 
 <!-- <svelte:component this={doc} /> -->
 

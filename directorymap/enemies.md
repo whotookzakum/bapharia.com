@@ -6,6 +6,8 @@
 - Spawn location ID to Enemy ID mapping, Enemy levels: `/Content/Blueprints/Manager/EnemySet`
 - `DT_EnemyBattleStatusBiasByContentIdDB`
 Min lv max lv `EnemySet_field`
+- `DT_EnemyDungeonAttributeDB`
+- AttackElement `DT_LibraryEnemyTable`
 
 ### Naming conventions
 - NQ_1001_3_001 (Pink Boarlet): `NAMEDQUEST_[EnemyInstanceId]_[Zone]_[NamedEnemyInstanceId]`

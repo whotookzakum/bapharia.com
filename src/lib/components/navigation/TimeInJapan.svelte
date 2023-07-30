@@ -2,6 +2,8 @@
 	import Icon from "@iconify/svelte";
     export let isExpanded = true;
 
+	// TODO: "Next raids in 3m72s" (w/ push notification reminders), "Next update on"
+
     let timeNow = new Date().getTime();
 	$: timeInJST = new Date(timeNow).toLocaleDateString([], {
 		timeZone: "Asia/Tokyo",
