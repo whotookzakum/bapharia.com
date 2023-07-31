@@ -59,27 +59,32 @@
     }
 </script>
 
-<nav class="grid g-50">
+<nav class="flex g-50">
     {#each mapCategories as category}
         {#if queriedMaps.filter((map) => map.category === category.singular).length > 0}
-            <header>
-                {#if category.singular === "City"}
+            {#each queriedMaps.filter((map) => map.category === category.singular) as map}
+                <a
+                    class="grid styled-link box"
+                    href="/map/{map.map_id.split('_')[0]}"
+                >
                     <img
-                        src="/UI/Map/UI_MapBtnSubIcon_HomeTown.png"
+                        class="link-bg-img"
+                        src="/UI/Map/MapArea/UI_MapArea_{map.map_id.replace(
+                            '00',
+                            '0'
+                        )}.png"
                         alt=""
-                        width="32"
-                        height="32"
+                        width="414"
+                        height="238"
+                        loading="lazy"
                     />
-                {:else}
-                    <img
-                        src="/UI/Map/UI_MapBtnSubIcon_Other.png"
-                        alt=""
-                        width="32"
-                        height="32"
-                    />
-                {/if}
-                <h2>{category.name[$userLocale]}</h2>
-            </header>
+                    <span>{map.name[$userLocale]}</span>
+                </a>
+            {/each}
+        {/if}
+    {/each}
+    {#each mapCategories as category}
+        {#if queriedMaps.filter((map) => map.category === category.singular).length > 0}
             {#each queriedMaps.filter((map) => map.category === category.singular) as map}
                 <a
                     class="grid styled-link box"
@@ -104,6 +109,23 @@
 </nav>
 
 <style lang="scss">
+    nav {
+        position: absolute;
+        z-index: 1002;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 1rem;
+        // flex-wrap: wrap;
+        overflow-x: auto;
+        
+        & > * {
+            flex: 1;
+            flex-basis: 200px;
+        }
+    }
+
     .category-header {
         justify-content: start;
         align-items: center;
@@ -116,6 +138,7 @@
         position: relative;
         z-index: 1;
         min-height: 100px;
+        min-width: 220px;
         font-weight: 700;
         font-size: var(--step-2);
         // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

@@ -36,7 +36,7 @@
 
     let leafletMap;
     export let data;
-    $: zone = data.mapData;
+    $: zone = data;
 
     const bounds = [
         [0, 0],
@@ -167,7 +167,7 @@
         </div>
     </div>
     <MapControls markers={zone.markers} />
-    <LeafletMap bind:this={leafletMap} options={mapOptions}>
+    <LeafletMap  options={mapOptions}>
         <ImageOverlay
             imageUrl={zone.imgSrc}
             {bounds}

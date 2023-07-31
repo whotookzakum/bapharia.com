@@ -4,17 +4,20 @@ import markerCategories from "./markerCategories.json"
 import mapMetadata from "./mapMetadata.json"
 import { json } from '@sveltejs/kit'
 
-export const GET = async ({ params }) => {
+
+export const load = async ({ url, fetch, params }) => {
+    let zoneId = params.zone.replace("Cty0", "cty").toLowerCase()
+    zoneId ??= "cty01"
     const allMapFiles = import.meta.glob('../../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json')
-    const mapFiles = getMapFiles(allMapFiles, params.id)
+    const mapFiles = await getMapFiles(allMapFiles, zoneId)
     const mapData = await getMapData(mapFiles)
-    const mapComponents = getMapComponents(mapData)
-    const markers = getMarkers(mapComponents)
-    const metadata = mapMetadata[params.id]
-    return json({
+    const mapComponents = await getMapComponents(mapData)
+    const markers = await getMarkers(mapComponents)
+    const metadata = mapMetadata[zoneId]
+    return {
         ...metadata,
         markers
-    })
+    }
 }
 
 // Returns relevant map files based on the url, i.e. "cty01"

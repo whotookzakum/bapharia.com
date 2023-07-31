@@ -23,7 +23,7 @@
     label {
         display: inherit;
         border-radius: 5px;
-        background: var(--surface2);
+        background: var(--surface1);
         place-items: center;
         text-align: var(--label-text-align);
         padding: var(--label-padding);
@@ -34,7 +34,7 @@
 
         &:hover,
         &:focus-within {
-            background: var(--surface3);
+            background: var(--surface2);
         }
 
         span {

@@ -51,9 +51,8 @@ export const mapState = writable({
 })
 
 export const mapSearchQuery = writable("")
-export const mapListShowZones = writable(false)
 export const mapControls = writable({
-    showMapList: false,
+    showMapList: true,
     showMarkers: false,
     showHotkeys: false
 })

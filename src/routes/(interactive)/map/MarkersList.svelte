@@ -31,7 +31,7 @@
     }
 </script>
 
-<header class="flex">
+<header style="justify-content: space-between">
     <h2>Markers</h2>
     <MapControlsViews id="markers" bind:viewType />
 </header>
@@ -51,7 +51,7 @@
             >
         </div>
     </div>
-    <ul class="markers-list grid g-50 {viewType}">
+    <ul class="unstyled-list markers-list grid g-50 {viewType}">
         {#each getMarkers(category) as marker}
             <li>
                 <MarkerToggle name={marker.name} icon={marker.iconUrl} />
@@ -62,11 +62,11 @@
 
 <style lang="scss">
     .grid-view {
-        grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
 
         li {
             display: grid;
-            --label-padding: 0.5rem;
+            --label-padding: 0rem;
             --label-text-align: center;
         }
     }
@@ -76,7 +76,7 @@
 
         li {
             display: flex;
-            --label-padding: 0.125rem 0.25rem;
+            --label-padding: 0rem 0.25rem;
             --label-text-align: left;
             gap: 0.25rem;
         }
