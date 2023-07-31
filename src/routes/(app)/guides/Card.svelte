@@ -1,26 +1,18 @@
 <script>
 	import Icon from "@iconify/svelte";
-
-	export let title;
-	export let href;
-	export let category;
-	export let caption;
-	export let bgSrc;
-
+	export let guide = {};
 	let isFavorited = false;
+
+	// TODO: Favoriting guides
 </script>
 
 <div class="card box">
-	<a class="card-title skip-std" {href}>{title}</a>
-	<div class="card-caption" aria-hidden="true">
-		<span class="category">{category}</span>
-		<p>{caption}</p>
+	<a class="card-title skip-std" href={guide.path}>{guide.meta.title}</a>
+	<div class="card-caption">
+		<span class="category">{guide.meta.category}</span>
+		<p>{guide.meta.caption}</p>
 	</div>
-	<div class="card-caption visually-hidden">
-		<span class="category">{category}</span>
-		<p>{caption}</p>
-	</div>
-	<label class="favorite">
+	<!-- <label class="favorite">
 		<input
 			type="checkbox"
 			class="visually-hidden"
@@ -33,8 +25,8 @@
 				height="24"
 			/>
 		</span>
-	</label>
-	<img class="bg-img" src={bgSrc} alt="" loading="lazy" width="640" height="360" />
+	</label> -->
+	<img class="bg-img" src={guide.meta.thumbImg} alt="" loading="lazy" width="640" height="360" />
 </div>
 
 <style lang="scss">
@@ -53,12 +45,13 @@
 		border: none;
 		color: var(--text1);
 		line-height: 1.4;
-		font-size: var(--step-2);
+		font-size: var(--step-3);
 		margin: 0;
-		font-weight: 500;
+		font-weight: 600;
 		letter-spacing: unset;
 		text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 		outline: none !important;
+		text-decoration: none;
 
 		&::after {
 			content: "";

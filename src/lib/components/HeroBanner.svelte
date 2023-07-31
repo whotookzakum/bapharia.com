@@ -27,7 +27,7 @@
         position: absolute;
         inset: 0;
         background: linear-gradient(rgba(0, 0, 0, 0.4), var(--bg) 90%);
-        background: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, var(--backdrop-opacity, 0.8));
         z-index: -1;
     }
 </style>
