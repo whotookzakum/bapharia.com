@@ -78,7 +78,7 @@
         margin: 1rem;
         position: absolute;
         z-index: 1001;
-        width: calc(352px - 2rem);
+        width: calc(var(--sidebar-width) - 2rem);
         height: 44px;
         background: var(--surface1);
         border-radius: 5px;

@@ -88,7 +88,9 @@ const isExcludedPoint = (point) => {
         // Inn keeper NPC
         id.includes("Npc_Coin_Owner_8"),
         // Chef NPC spawn points
-        id.includes("FreeBuffNpcSpawn")
+        id.includes("FreeBuffNpcSpawn"),
+        // NQ_1002_1_002 has an extra marker
+        id.includes("_Gimmick")
     ]
 
     return exclusions.some(val => val === true)

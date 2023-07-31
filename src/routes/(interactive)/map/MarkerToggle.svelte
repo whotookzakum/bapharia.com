@@ -47,13 +47,16 @@
 
     input:not(:checked) + label,
     input:disabled + label {
-        filter: brightness(0.6);
+        filter: brightness(0.7);
+        mix-blend-mode: luminosity; 
+
+        // background: var(--bg);
         img {
             filter: brightness(1) grayscale(1);
         }
     }
 
     :global([color-scheme="light"] .marker-toggle-input:not(:checked) + label) {
-        filter: brightness(1.2) contrast(0.5) !important;
+        // filter: brightness(1.2) contrast(0.5) !important;
     }
 </style>
