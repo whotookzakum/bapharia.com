@@ -1,5 +1,6 @@
 <script>
     import player_statuses from "$bp_server/japan/player_statuses.json";
+    import class_params from "$bp_server/japan/player_statuses_common_params.json";
     import { onMount } from "svelte";
     import {
         Chart,
@@ -11,7 +12,7 @@
     } from "chart.js";
     import hue from "./classHues.json";
     import { allStats } from "./stores";
-    
+
     import StatsChartSettings from "./StatsChartSettings.svelte";
 
     export let classes = [];
@@ -19,6 +20,8 @@
 
     let chartElement; // reference to canvas element
     let myChart; // the chart instance
+
+    let showTrueValue = true;
 
     // Register components to use them
     Chart.register(
@@ -29,7 +32,7 @@
         Tooltip
     );
 
-    $: console.log($allStats)
+    $: console.log($allStats);
 
     $: labels = $allStats.reduce((acc, stat) => {
         if (stat.checked) acc.push(stat.label);
@@ -42,7 +45,10 @@
         );
 
         const data = $allStats.reduce((acc, stat) => {
-            if (stat.checked) acc.push(levelData[stat.abbr]);
+            if (stat.checked) {
+                let value = showTrueValue ? getStatTrueValue(stat, levelData) : levelData[stat.abbr];
+                acc.push(value);
+            }
             return acc;
         }, []);
 
@@ -55,8 +61,49 @@
         };
     });
 
+    function getStatTrueValue(stat, levelData) {
+        if (levelData.class === "lancer") return 0
+        const { ap, dp, cr, cp, str, dex, int, mnd, vit, rp, hp } = levelData;
+        const params = class_params.find(
+            (paramSet) => paramSet.class === levelData.class
+        );
+        const intToAp = params.int_factor_of_ap / 100;
+        const mndToAp = params.mnd_factor_of_ap / 100;
+        const dexToCr = params.dex_factor_of_cr / 100;
+        const mndToCr = params.mnd_factor_of_cr / 100;
+        const intToCp = params.int_factor_of_cp / 100;
+        const strToDef = params.str_factor_of_dp / 100;
+        const vitToDef = params.vit_factor_of_dp / 100;
+        const intToRp = params.int_factor_of_rp / 100;
+        const mndToRp = params.mnd_factor_of_rp / 100;
+        const vitToHp = params.vit_factor_of_hp / 100;
+        const strToAp = params.str_factor_of_ap / 100;
+        const dexToAp = params.dex_factor_of_ap / 100;
+        const strToCp = params.str_factor_of_cp / 100;
+        const dexCrDecay = params.dex_decay_rate_of_cr / 100;
+
+        switch(stat.abbr) {
+            case "ap": 
+                if (levelData.class === "magician") return ap + intToAp * int + mndToAp * mnd
+                return ap + strToAp * str + dexToAp * dex
+            case "cr":
+                return cr + (dexToCr * dex + mndToCr * mnd) ** dexCrDecay
+            case "cp": 
+                if (levelData.class === "magician") return cp + intToCp * int
+                return cp + strToCp * str
+            case "dp":
+                return dp + strToDef * str + vitToDef * vit
+            case "rp":
+                return rp + mndToRp * mnd + intToRp * rp
+            case "hp":
+                return hp + vitToHp * vit
+            default:
+                return levelData[stat.abbr]
+        }
+    }
+
     let selectedIndexAxis = "y";
-    let maxAxisValue = 400;
+    let maxAxisValue = 600;
 
     $: config = {
         type: "bar",
@@ -69,12 +116,10 @@
             responsive: true,
             scales: {
                 x: {
-                    max: maxAxisValue ? maxAxisValue : null,
-                    // min: 0,
+                    max: maxAxisValue ? maxAxisValue : null
                 },
                 y: {
-                    max: maxAxisValue ? maxAxisValue : null,
-                    // min: 0,
+                    max: maxAxisValue ? maxAxisValue : null
                 },
             },
         },
@@ -103,13 +148,9 @@
 </script>
 
 <div class="chart-wrapper grid">
-    <h2>Base Stats</h2>
-    <StatsChartSettings {changeAxis} bind:maxAxisValue bind:selectedIndexAxis />
+    <h2>Stats</h2>
+    <StatsChartSettings {changeAxis} bind:maxAxisValue bind:selectedIndexAxis bind:showTrueValue />
     <canvas bind:this={chartElement} />
-    <small
-        >Base Stats do not include ATK gains from STR/DEX/INT, Crit Rate gains
-        from DEX, etc., so actual values may be higher.</small
-    >
 </div>
 
 <style lang="scss">

@@ -5,6 +5,7 @@
     export let maxAxisValue;
     export let selectedIndexAxis;
     export let changeAxis;
+    export let showTrueValue;
     let checked;
 </script>
 
@@ -33,7 +34,7 @@
                 invalid={maxAxisValue > 4000 || maxAxisValue < 0}
                 describedby="axis-scale-description"
             />
-            <span id="axis-scale-description"
+            <span class="footnote" id="axis-scale-description"
                 >Setting this to 0 will automatically scale the value axis.</span
             >
         </div>
@@ -69,6 +70,13 @@
                 {/each}
             </div>
         </div>
+        <div>
+            <span class="component-label">Dataset</span>
+            <label>
+                <input type="checkbox" name="" id="" bind:checked={showTrueValue}> Show True Values
+            </label>
+            <span class="footnote">True Values include ATK gains from STR/INT, Crit Rate gains from DEX/MND, etc. If disabled, only Base Values will be shown.</span>
+        </div>
     </div>
 </div>
 
@@ -89,7 +97,7 @@
         display: block;
     }
 
-    #axis-scale-description {
+    .footnote {
         display: block;
         font-size: var(--step--1);
         color: var(--accent);
