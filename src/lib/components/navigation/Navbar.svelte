@@ -196,6 +196,7 @@
 
 		.extras {
 			margin: unset;
+			justify-content: space-between;
 		}
 
 		.drawer-label {
@@ -204,6 +205,10 @@
 		
 		#drawerToggle:checked ~ .nav-contents {
 			display: grid;
+		}
+
+		:global(.jst-time) {
+			padding-inline: 0 !important;
 		}
 
 		// :global(header.hero-banner) {
