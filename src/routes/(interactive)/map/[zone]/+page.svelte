@@ -37,6 +37,10 @@
     let leafletMap;
     export let data;
     $: zone = data;
+    
+    data.markers.forEach(marker =>{
+        if (!marker.coords) console.log(marker)
+    })
 
     const bounds = [
         [0, 0],
@@ -139,6 +143,13 @@
                     (-coords[1] / 55.6 + 1098) / 2, // 55.4 ~ 55.6
                     (coords[0] / 55.6 + 1986) / 2,
                 ];
+            case "Fld004":
+                return [
+                    (-coords[1] / 66 + 1980) / 3,
+                    (coords[0] / 66 + 2765) / 3,
+                ];
+            default:
+                return coords
         }
     }
 
@@ -149,6 +160,8 @@
     title={`World Map — Bapharia`}
     description={`Interactive map for BLUE PROTOCOL. Find enemies, locations, quests, treasure chests, gathering spots, and more!`}
 />
+
+<!-- <img src="/overlay.png" alt="" style="position: fixed; z-index: 10000; opacity: 0.8; right: 7px; top: -212px; transform: scale(70%)"> -->
 
 {#if !browser}
     <h1 class="visually-hidden">World Map</h1>

@@ -2,10 +2,8 @@ import markerIcons from "./markerIcons.json"
 import markerNames from "./markerNames.json"
 import markerCategories from "./markerCategories.json"
 import mapMetadata from "./mapMetadata.json"
-import { json } from '@sveltejs/kit'
 
-
-export const load = async ({ url, fetch, params }) => {
+export const load = async ({ params }) => {
     let zoneId = params.zone.replace("Cty0", "cty").toLowerCase()
     zoneId ??= "cty01"
     const allMapFiles = import.meta.glob('../../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json')
@@ -90,7 +88,16 @@ const isExcludedPoint = (point) => {
         // Chef NPC spawn points
         id.includes("FreeBuffNpcSpawn"),
         // NQ_1002_1_002 has an extra marker
-        id.includes("_Gimmick")
+        id.includes("_Gimmick"),
+        // ???
+        id.includes("Volume"),
+        id.includes("SpawnWaveArea"),
+        id.includes("SenseChange"),
+        id.includes("SpawnAreaDungeon"),
+        id.includes("ProcessEnemySpawn"),
+        id.includes("Montetnord_OP"),
+        id.includes("SBNpcSpawnPoint"),
+        id.includes("BattleAreaEnemyCount"),
     ]
 
     return exclusions.some(val => val === true)
@@ -108,7 +115,7 @@ const getMapComponents = (mapData) => {
 const getMarkers = (mapComponents) => {
     return mapComponents.map(point => {
         const id = point.Outer
-        const name = getName(id)
+        const name = getMarkerName(id)
         const iconUrl = markerIcons[name.ja_JP]
         const coords = [
             point.Properties.RelativeLocation.X,
@@ -132,7 +139,7 @@ const getMarkers = (mapComponents) => {
     })
 }
 
-function getName(id) {
+function getMarkerName(id) {
     let result = markerNames.DEFAULT
     Object.keys(markerNames).forEach(key => {
         if (id.includes(key)) result = markerNames[key]
