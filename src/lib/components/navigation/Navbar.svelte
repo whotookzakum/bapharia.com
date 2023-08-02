@@ -30,30 +30,11 @@
 >
 	Skip to main content and focus
 </a>
-<nav class="navbar flex g-50">
-	<!-- <div class="nav-header">
-			<div class="mobile-controls flex g-25">
-				<LocaleSelector isCollapsed={true} />
-				<label class="mobile-drawer-label" for="drawerToggle">
-					<input
-						type="checkbox"
-						bind:checked={isMobileExpanded}
-						id="drawerToggle"
-						class="visually-hidden"
-					/>
-					<Icon
-						icon={isMobileExpanded ? "ph:x-bold" : "entypo:menu"}
-						width="32"
-						height="32"
-					/>
-				</label>
-			</div>
-		</div> -->
+<nav class="navbar flex g-50" class:opaque-bg={isMobileExpanded}>
 	<a
 		href="/"
-		class="link styled-link"
+		class="home-btn grid link styled-link"
 		class:active={$page.url.pathname === "/"}
-		style:padding="0.5rem"
 	>
 		<img
 			class="transition-pushable flex"
@@ -63,21 +44,36 @@
 			height="38"
 		/>
 	</a>
-	<input type="search" placeholder="Search" name="" id="" />
-	{#each links as link}
-		<a
-			href={link.href}
-			class="link styled-link hover-link rounded"
-			class:active={$page.url.pathname.includes(link.href)}
-		>
-			{link.name[$userLocale]}
-		</a>
-	{/each}
-
-	<div class="extras">
-		<TimeInJapan />
-		<LocaleSelector isCollapsed={!isExpanded} />
-		<ThemeToggle />
+	<input
+		type="checkbox"
+		bind:checked={isMobileExpanded}
+		id="drawerToggle"
+		class="visually-hidden"
+	/>
+	<label class="drawer-label" for="drawerToggle">
+		<Icon
+			icon={isMobileExpanded ? "ph:x-bold" : "entypo:menu"}
+			width="32"
+			height="32"
+		/>
+		<span class="visually-hidden">Show/Hide Navigation</span>
+	</label>
+	<div class="nav-contents g-50" style="align-items: center; flex: 1;">
+		<input type="search" placeholder="Search" name="" id="" />
+		{#each links as link}
+			<a
+				href={link.href}
+				class="link styled-link hover-link rounded"
+				class:active={$page.url.pathname.includes(link.href)}
+			>
+				{link.name[$userLocale]}
+			</a>
+		{/each}
+		<div class="extras">
+			<TimeInJapan />
+			<LocaleSelector isCollapsed={!isExpanded} />
+			<ThemeToggle />
+		</div>
 	</div>
 </nav>
 
@@ -94,10 +90,8 @@
 		backdrop-filter: blur(50px);
 		top: 0;
 		padding: 0 1rem;
-		width: 100%;
-		margin: auto;
-		align-items: center;
 		height: 62px;
+		z-index: 9000;
 	}
 
 	input {
@@ -107,10 +101,15 @@
 		border-radius: 3rem;
 		flex: 1;
 		max-width: 300px;
+		min-width: 0;
 
 		&::placeholder {
 			color: inherit;
 		}
+	}
+
+	.opaque-bg {
+		background: var(--surface1);
 	}
 
 	// LINKS =====================================================
@@ -118,6 +117,13 @@
 	.link {
 		border: none;
 		padding: 0.75rem;
+	}
+
+	.home-btn {
+		margin: auto auto auto 0;
+		place-content: center;
+		width: 54px;
+		height: 54px;
 	}
 
 	.hover-link:hover {
@@ -135,5 +141,76 @@
 		gap: 0.5rem;
 		align-items: center;
 		margin-left: auto;
+	}
+
+	.nav-contents {
+		display: flex;
+	}
+
+	#drawerToggle:focus-visible + .drawer-label,
+	.drawer-label:hover { 
+		background: var(--surface1);
+	}
+
+	.drawer-label {
+		display: none;
+		border-radius: 5px;
+		width: 44px;
+		height: 44px;
+		place-items: center;
+	}
+
+	@media (max-width: 1150px) {
+		.navbar {
+			align-items: center;
+			// position: fixed;
+			backdrop-filter: unset;
+		}
+
+		.home-btn {
+			width: 44px;
+			height: 44px;
+		}
+
+		.nav-contents {
+			background: inherit;
+			backdrop-filter: inherit;
+			display: none;
+			position: fixed;
+			top: 62px;
+			left: 0;
+			width: 100%;
+			padding: 0 1rem 1rem 1rem;
+			box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+			border-bottom: 1px solid var(--surface2);
+
+			input {
+				order: 2;
+				max-width: none;
+			}
+
+			a {
+				order: 3;
+			}
+		}
+
+		.extras {
+			margin: unset;
+		}
+
+		.drawer-label {
+			display: grid;
+		}
+		
+		#drawerToggle:checked ~ .nav-contents {
+			display: grid;
+		}
+
+		// :global(header.hero-banner) {
+		// 	min-height: 690px;
+        // 	place-items: center;
+        // 	place-content: center;
+		// 	display: grid;
+		// }
 	}
 </style>
