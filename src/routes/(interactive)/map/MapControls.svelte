@@ -72,7 +72,8 @@
         overflow-y: scroll;
         align-items: start;
         gap: 1rem;
-        padding: calc(44px + 2rem) 1rem 0 1rem;
+        padding: 0 1rem;
+        padding-top: calc(62px + 44px + 2rem);
     }
 
     :global(.sidebar-contents header) {
@@ -119,6 +120,16 @@
             right: 0;
             top: 0;
             transform: scaleX(-100%);
+        }
+    }
+
+    @media (max-width: 1150px) {
+        .map-sidebar-wrapper::before {
+            display: none;
+        }
+
+        :global(.topbar) {
+            top: 62px;
         }
     }
 </style>

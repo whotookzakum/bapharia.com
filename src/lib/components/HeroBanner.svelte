@@ -30,4 +30,19 @@
         background: rgba(0, 0, 0, var(--backdrop-opacity, 0.8));
         z-index: -1;
     }
+
+    @media (max-width: 1150px) {
+        // Full screen on mobile version
+        // header.hero-banner {
+        //     display: grid;
+        //     place-items: center;
+        // 	place-content: center;
+		// 	min-height: 690px;
+		// }
+
+        // Padding version
+        header.hero-banner {
+            padding-top: calc(20vh + 62px);
+        }
+    }
 </style>

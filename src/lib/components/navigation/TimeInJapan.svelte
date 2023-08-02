@@ -44,4 +44,10 @@
 		margin: 0 auto;
 		text-align: center;
 	}
+
+	@media (max-width: 1150px) {
+		.jst-time {
+			padding-inline: 0 !important;
+		}
+	}
 </style>

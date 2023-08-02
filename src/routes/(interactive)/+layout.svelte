@@ -4,14 +4,12 @@
 
 <style>
     main {
-        position: relative;
+        height: calc(100vh - 62px);
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 1150px) {
         main {
-            top: var(--nav-height);
-            height: calc(100vh - var(--nav-height));
-            position: relative;
+            height: 100vh;
         }
     }
 </style>

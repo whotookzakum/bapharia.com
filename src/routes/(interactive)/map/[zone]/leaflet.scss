@@ -1,6 +1,5 @@
 .leaflet-container {
     height: 100%;
-    min-height: calc(100vh - 62px);
     background-color: transparent;
     background-image: url("/images/map/mapbg.png");
     background-repeat: no-repeat;
@@ -20,6 +19,16 @@
 
     .leaflet-control {
         margin: 0 !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    .leaflet-container {
+        // min-height: 100vh;
+    }
+
+    .leaflet-control-container .leaflet-top.leaflet-left {
+        top: calc(62px);
     }
 }
 

@@ -8,7 +8,6 @@
 	import randomMessages from "./randomMessages.json";
 	import { userLocale } from "$lib/stores";
 
-	let isExpanded = true;
 	let isMobileExpanded = false;
 
 	let randomMessage =
@@ -33,8 +32,8 @@
 <nav class="navbar flex g-50" class:opaque-bg={isMobileExpanded}>
 	<a
 		href="/"
-		class="home-btn grid link styled-link"
-		class:active={$page.url.pathname === "/"}
+		class="home-btn link styled-link"
+		on:click={() => isMobileExpanded = false}
 	>
 		<img
 			class="transition-pushable flex"
@@ -65,13 +64,14 @@
 				href={link.href}
 				class="link styled-link hover-link rounded"
 				class:active={$page.url.pathname.includes(link.href)}
+				on:click={() => isMobileExpanded = false}
 			>
 				{link.name[$userLocale]}
 			</a>
 		{/each}
 		<div class="extras">
 			<TimeInJapan />
-			<LocaleSelector isCollapsed={!isExpanded} />
+			<LocaleSelector />
 			<ThemeToggle />
 		</div>
 	</div>
@@ -121,9 +121,7 @@
 
 	.home-btn {
 		margin: auto auto auto 0;
-		place-content: center;
-		width: 54px;
-		height: 54px;
+		padding: 0.5rem;
 	}
 
 	.hover-link:hover {
@@ -162,14 +160,28 @@
 
 	@media (max-width: 1150px) {
 		.navbar {
+			position: fixed;
 			align-items: center;
-			// position: fixed;
 			backdrop-filter: unset;
+			pointer-events: none;
+
+			* {
+				pointer-events: initial;
+			}
 		}
 
 		.home-btn {
-			width: 44px;
-			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.75rem;
+			padding: 0;
+
+			&::after {
+				content: "Bapharia";
+				font-weight: 600;
+				font-size: var(--step-1);
+			}
 		}
 
 		.nav-contents {
@@ -199,23 +211,9 @@
 			justify-content: space-between;
 		}
 
-		.drawer-label {
-			display: grid;
-		}
-		
+		.drawer-label,
 		#drawerToggle:checked ~ .nav-contents {
 			display: grid;
 		}
-
-		:global(.jst-time) {
-			padding-inline: 0 !important;
-		}
-
-		// :global(header.hero-banner) {
-		// 	min-height: 690px;
-        // 	place-items: center;
-        // 	place-content: center;
-		// 	display: grid;
-		// }
 	}
 </style>
