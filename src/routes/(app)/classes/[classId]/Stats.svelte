@@ -55,6 +55,7 @@
 <style lang="scss">
     .stats-wrapper {
         margin: 2rem 0;
+        overflow: unset;
     }
 
     .left-col {

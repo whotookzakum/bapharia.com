@@ -263,4 +263,8 @@ function getSubcategory(skillType, abilityType) {
     }
 }
 
+export const getSkillsForClass = (classId) => {
+    return skills.filter(skill => skill.class_type == classId)
+}
+
 export default skills

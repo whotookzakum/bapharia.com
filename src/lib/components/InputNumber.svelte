@@ -1,6 +1,7 @@
 <script>
     export let min = 1;
     export let max = 1;
+    export let step;
     export let id = null;
     export let style = null;
     export let value = null;
@@ -26,6 +27,7 @@
         bind:value
         {max}
         {min}
+        {step}
         aria-describedby={describedby}
         {disabled}
         style:text-align={textAlign}
