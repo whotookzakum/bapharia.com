@@ -64,8 +64,8 @@
     </ol>
     <h2 id="class-shared-abilities">Class-Shared Abilities</h2>
     <p>
-        Up to two class-shared abilities can be equipped at a time. These skills
-        can be equipped on any class after unlocking them.
+        Up to two class-shared abilities can be equipped at a time. Slots unlock at Level 30 and 45. These skills
+        can be equipped on any other class after unlocking them.
     </p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 8 && skill.ability_type === 100) as skill}

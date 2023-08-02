@@ -151,6 +151,7 @@
     <h2>Stats</h2>
     <StatsChartSettings {changeAxis} bind:maxAxisValue bind:selectedIndexAxis bind:showTrueValue />
     <canvas bind:this={chartElement} />
+    <small>All classes have 100 Stamina, and a maximum Crit Rate of 30%.</small>
 </div>
 
 <style lang="scss">
