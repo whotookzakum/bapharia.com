@@ -1,17 +1,16 @@
 import markerIcons from "./markerIcons.json"
 import markerNames from "./markerNames.json"
 import markerCategories from "./markerCategories.json"
-import mapMetadata from "./mapMetadata.json"
+import mapsData from "../maps.json"
 
 export const load = async ({ params }) => {
-    let zoneId = params.zone.replace("Cty0", "cty").toLowerCase()
-    zoneId ??= "cty01"
+    let zoneId = params.zone || "Cty001"
     const allMapFiles = import.meta.glob('../../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json')
     const mapFiles = await getMapFiles(allMapFiles, zoneId)
     const mapData = await getMapData(mapFiles)
     const mapComponents = await getMapComponents(mapData)
     const markers = await getMarkers(mapComponents)
-    const metadata = mapMetadata[zoneId]
+    const metadata = mapsData.find(map => map.map_id === zoneId)
     return {
         ...metadata,
         markers
@@ -20,6 +19,7 @@ export const load = async ({ params }) => {
 
 // Returns relevant map files based on the url, i.e. "cty01"
 const getMapFiles = (allFiles, id) => {
+    id = id.replace("Cty0", "cty").toLowerCase()
     return Object.entries(allFiles)
         .reduce((acc, [path, data]) => {
             if (path.includes(id)) acc.push(data)

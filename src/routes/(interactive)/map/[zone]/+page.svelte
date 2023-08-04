@@ -37,6 +37,7 @@
     let leafletMap;
     export let data;
     $: zone = data;
+    // console.log(data)
     
     data.markers.forEach(marker =>{
         if (!marker.coords) console.log(marker)
@@ -120,7 +121,7 @@
     });
 
     function convertCoords(coords) {
-        switch (zone.id) {
+        switch (zone.map_id) {
             case "Cty001":
                 return [-coords[1] / 70 + 586.5, coords[0] / 70 + 1210.5];
             case "Cty002":
@@ -162,6 +163,8 @@
 />
 
 <!-- <img src="/overlay.png" alt="" style="position: fixed; z-index: 10000; opacity: 0.8; right: 7px; top: -212px; transform: scale(70%)"> -->
+<!-- <img src="/overlay.png" alt="" style="position: fixed; z-index: 10000; opacity: 0.8; right: -55px; top: -252px; transform: scale(70%)"> -->
+<!-- <img src="/overlay2.png" alt="" style="position: fixed; z-index: 10000; opacity: 0.8; right: -55px; top: -252px; transform: scale(70%)"> -->
 
 {#if !browser}
     <h1 class="visually-hidden">World Map</h1>
@@ -182,7 +185,7 @@
     <MapControls markers={zone.markers} />
     <LeafletMap  options={mapOptions}>
         <ImageOverlay
-            imageUrl={zone.imgSrc}
+            imageUrl={zone.mapImage}
             {bounds}
             options={imageOverlayOptions}
         />

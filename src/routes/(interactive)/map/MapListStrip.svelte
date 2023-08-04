@@ -16,6 +16,101 @@
 
     // TODO: Should the labels be anchor links that just scroll to the section?
 
+    // TODO: Dungeons
+    // {
+    //     "id": 300400,
+    //     "name": {
+    //         "ja_JP": "音無き都",
+    //         "en_US": "Soundless City"
+    //     },
+    //     "map_id": "dng004",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_1F.png",
+    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_2F.png",
+    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_3F.png",
+    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_4F.png"
+    //     ]
+    // },
+    // {
+    //     "id": 300900,
+    //     "name": {
+    //         "ja_JP": "巨竜の爪痕",
+    //         "en_US": "Dragon's Rive"
+    //     },
+    //     "map_id": "dng009",
+    //     "category": "Dungeon",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/dng009/UI_Mapdng009.png"
+    //     ],
+    //     "bgImg": "/images/map/dragon.png"
+    // },
+    // {
+    //     "id": 3080100,
+    //     "name": {
+    //         "ja_JP": "木漏れ日射す林道",
+    //         "en_US": "Sunlit Timberpath"
+    //     },
+    //     "map_id": "pat0801",
+    //     "category": "Dungeon",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/pat0801/UI_Mappat0801.png"
+    //     ],
+    //     "bgImg": "/images/map/sunlit.png"
+    // },
+    // {
+    //     "id": 3080200,
+    //     "name": {
+    //         "ja_JP": "ともし火の森",
+    //         "en_US": "Torchlight Thickets"
+    //     },
+    //     "map_id": "pat0802",
+    //     "category": "Dungeon",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/pat0802/UI_Mappat0802.png"
+    //     ],
+    //     "bgImg": "/images/map/torchlight.png"
+    // },
+    // {
+    //     "id": 3020100,
+    //     "name": {
+    //         "ja_JP": "ボルオム遺跡",
+    //         "en_US": "Ruins of Borwam"
+    //     },
+    //     "map_id": "pat0201",
+    //     "category": "Dungeon",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/pat0201/UI_Mappat0201_F1.png",
+    //         "/UI/Map/MapImage/pat0201/UI_Mappat0201_F2.png"
+    //     ],
+    //     "bgImg": "/images/map/borwam.png"
+    // },
+    // {
+    //     "id": 300700,
+    //     "name": {
+    //         "ja_JP": "枷神の産屋",
+    //         "en_US": "Chained One's Spawnery"
+    //     },
+    //     "map_id": "dng007",
+    //     "category": "Dungeon",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/dng007/UI_Mapdng007.png"
+    //     ],
+    //     "bgImg": "/images/map/spawnery.jpg"
+    // },
+    // {
+    //     "id": 3080300,
+    //     "name": {
+    //         "ja_JP": "雨止まぬ森",
+    //         "en_US": "Everfall Forest"
+    //     },
+    //     "map_id": "pat0803",
+    //     "category": "Dungeon",
+    //     "mapImages": [
+    //         "/UI/Map/MapImage/pat0803/UI_Mappat0803.png"
+    //     ],
+    //     "bgImg": "/images/map/everfall.png"
+    // }
+
     let selectedCategory = "All";
 
     const mapCategories = [
@@ -40,6 +135,14 @@
             name: {
                 en_US: "Fields",
                 ja_JP: "フィールド",
+            },
+            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
+        },
+        {
+            singular: "Free Exploration",
+            name: {
+                en_US: "Exploration",
+                ja_JP: "自由探索",
             },
             iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
         },
@@ -145,7 +248,7 @@
                         >
                             <img
                                 class="link-bg-img"
-                                src={map.bgImg}
+                                src={map.thumbImage}
                                 alt=""
                                 width="414"
                                 height="238"
