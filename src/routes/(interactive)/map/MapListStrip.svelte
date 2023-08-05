@@ -5,6 +5,7 @@
     import mapsData from "./maps.json";
     import uniqBy from "lodash/uniqBy";
     import { page } from "$app/stores";
+    import Icon from "@iconify/svelte";
 
     // TODO: Collapsible accordion with each section stacked stickying?
     // // Cities ⌄
@@ -17,105 +18,16 @@
     // TODO: Should the labels be anchor links that just scroll to the section?
 
     // TODO: Dungeons
-    // {
-    //     "id": 300400,
-    //     "name": {
-    //         "ja_JP": "音無き都",
-    //         "en_US": "Soundless City"
-    //     },
-    //     "map_id": "dng004",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_1F.png",
-    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_2F.png",
-    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_3F.png",
-    //         "/UI/Map/MapImage/dng004/UI_Mapdng004_4F.png"
-    //     ]
-    // },
-    // {
-    //     "id": 300900,
-    //     "name": {
-    //         "ja_JP": "巨竜の爪痕",
-    //         "en_US": "Dragon's Rive"
-    //     },
-    //     "map_id": "dng009",
-    //     "category": "Dungeon",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/dng009/UI_Mapdng009.png"
-    //     ],
-    //     "bgImg": "/images/map/dragon.png"
-    // },
-    // {
-    //     "id": 3080100,
-    //     "name": {
-    //         "ja_JP": "木漏れ日射す林道",
-    //         "en_US": "Sunlit Timberpath"
-    //     },
-    //     "map_id": "pat0801",
-    //     "category": "Dungeon",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/pat0801/UI_Mappat0801.png"
-    //     ],
-    //     "bgImg": "/images/map/sunlit.png"
-    // },
-    // {
-    //     "id": 3080200,
-    //     "name": {
-    //         "ja_JP": "ともし火の森",
-    //         "en_US": "Torchlight Thickets"
-    //     },
-    //     "map_id": "pat0802",
-    //     "category": "Dungeon",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/pat0802/UI_Mappat0802.png"
-    //     ],
-    //     "bgImg": "/images/map/torchlight.png"
-    // },
-    // {
-    //     "id": 3020100,
-    //     "name": {
-    //         "ja_JP": "ボルオム遺跡",
-    //         "en_US": "Ruins of Borwam"
-    //     },
-    //     "map_id": "pat0201",
-    //     "category": "Dungeon",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/pat0201/UI_Mappat0201_F1.png",
-    //         "/UI/Map/MapImage/pat0201/UI_Mappat0201_F2.png"
-    //     ],
-    //     "bgImg": "/images/map/borwam.png"
-    // },
-    // {
-    //     "id": 300700,
-    //     "name": {
-    //         "ja_JP": "枷神の産屋",
-    //         "en_US": "Chained One's Spawnery"
-    //     },
-    //     "map_id": "dng007",
-    //     "category": "Dungeon",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/dng007/UI_Mapdng007.png"
-    //     ],
-    //     "bgImg": "/images/map/spawnery.jpg"
-    // },
-    // {
-    //     "id": 3080300,
-    //     "name": {
-    //         "ja_JP": "雨止まぬ森",
-    //         "en_US": "Everfall Forest"
-    //     },
-    //     "map_id": "pat0803",
-    //     "category": "Dungeon",
-    //     "mapImages": [
-    //         "/UI/Map/MapImage/pat0803/UI_Mappat0803.png"
-    //     ],
-    //     "bgImg": "/images/map/everfall.png"
-    // }
 
     let selectedCategory = "All";
+    let expanded = false;
 
     const mapCategories = [
         {
-            singular: "All",
+            singular: {
+                en_US: "All",
+                ja_JP: "全部",
+            },
             name: {
                 en_US: "All",
                 ja_JP: "全部",
@@ -123,7 +35,10 @@
             iconSrc: "/UI/Map/UI_MapBtnSubIcon_HomeTown.png",
         },
         {
-            singular: "City",
+            singular: {
+                en_US: "City",
+                ja_JP: "街",
+            },
             name: {
                 en_US: "Cities",
                 ja_JP: "街",
@@ -131,7 +46,10 @@
             iconSrc: "/UI/Map/UI_MapBtnSubIcon_HomeTown.png",
         },
         {
-            singular: "Field",
+            singular: {
+                en_US: "Field",
+                ja_JP: "フィールド",
+            },
             name: {
                 en_US: "Fields",
                 ja_JP: "フィールド",
@@ -139,7 +57,10 @@
             iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
         },
         {
-            singular: "Free Exploration",
+            singular: {
+                en_US: "Exploration",
+                ja_JP: "自由探索",
+            },
             name: {
                 en_US: "Exploration",
                 ja_JP: "自由探索",
@@ -147,7 +68,10 @@
             iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
         },
         {
-            singular: "Dungeon",
+            singular: {
+                en_US: "Dungeon",
+                ja_JP: "ダンジョン",
+            },
             name: {
                 en_US: "Dungeons",
                 ja_JP: "ダンジョン",
@@ -204,7 +128,7 @@
                 <input
                     class="visually-hidden"
                     type="radio"
-                    value={category.singular}
+                    value={category.singular.en_US}
                     bind:group={selectedCategory}
                 />
                 <span class="flex box rounded g-25">
@@ -218,48 +142,79 @@
                 </span>
             </label>
         {/each}
+        <label style="margin-left: auto;">
+            <input
+                class="visually-hidden"
+                type="checkbox"
+                bind:checked={expanded}
+            />
+            <span class="flex box rounded g-25" style="padding-left: 1rem">
+                <Icon
+                    icon={expanded
+                        ? "mdi:arrow-down-bold"
+                        : "mdi:arrow-up-bold"}
+                    width="20"
+                    height="20"
+                />
+            </span>
+        </label>
+    </div>
+    <div class="track-wrapper" class:expanded>
         {#if $mapSearchQuery}
-            <div class="search-reminder">
+            <div class="search-reminder" style="padding: 1rem 1rem 0 1rem;">
                 Showing results for "<b>{$mapSearchQuery}</b>"
             </div>
         {/if}
-    </div>
-    <div class="track-wrapper">
         <nav
             class="flex"
             on:wheel={(event) =>
                 (event.currentTarget.scrollLeft += event.deltaY)}
         >
-            {#each categoriesInQuery as category, index}
-                {#each queriedMaps.filter((map) => map.category === category) as map}
-                    <div class="link-wrapper">
-                        {#if $page.params.zone === map.map_id}
-                            <img
-                                class="pin"
-                                src="/UI/Map/UI_MapPin3Normal.png"
-                                alt="You are here"
-                                width="32"
-                                height="44"
-                            />
-                        {/if}
-                        <a
-                            class="grid styled-link box"
-                            href="/map/{map.map_id.split('_')[0]}"
-                        >
-                            <img
-                                class="link-bg-img"
-                                src={map.thumbImage}
-                                alt=""
-                                width="414"
-                                height="238"
-                                loading="lazy"
-                            />
-                            <span>{map.name[$userLocale]}</span>
-                        </a>
-                    </div>
-                {/each}
-                {#if categoriesInQuery.length > 1 && index < categoriesInQuery.length - 1}
-                    <hr aria-hidden="true" />
+            {#each mapCategories as category, index}
+                {#if queriedMaps.filter((map) => map.category === category.singular.en_US).length > 0}
+                    <h3 class="expanded-category-text">
+                        {category.name[$userLocale]}
+                    </h3>
+                    {#each queriedMaps.filter((map) => map.category === category.singular.en_US) as map}
+                        <div class="link-wrapper">
+                            {#if $page.params.zone === map.map_id}
+                                <img
+                                    class="pin"
+                                    src="/UI/Map/UI_MapPin3Normal.png"
+                                    alt="You are here"
+                                    width="32"
+                                    height="44"
+                                />
+                            {/if}
+                            {map.zones}
+                            <a
+                                class="grid styled-link box"
+                                href="/map/{map.map_id.split('_')[0]}"
+                            >
+                                <img
+                                    class="link-bg-img"
+                                    src={map.thumbImage}
+                                    alt=""
+                                    width="414"
+                                    height="238"
+                                    loading="lazy"
+                                />
+                                <span class="map-name"
+                                    >{map.name[$userLocale]
+                                        .replace(": Exploration", "")
+                                        .replace("・自由探索", "")}</span
+                                >
+                                <span
+                                    class="category-pill {category.singular
+                                        .en_US}"
+                                    >{category.singular[$userLocale]}</span
+                                >
+                            </a>
+                        </div>
+                    {/each}
+                    {#if categoriesInQuery.includes(mapCategories[index + 1]?.singular.en_US)}
+                        <hr aria-hidden="true" />
+                    {/if}
                 {/if}
             {/each}
         </nav>
@@ -289,9 +244,9 @@
     }
 
     .category-toggles {
-        width: fit-content;
+        // width: fit-content;
         flex-wrap: wrap;
-        margin-left: 1rem;
+        margin-inline: 1rem;
         font-size: var(--step--1);
         color: var(--text2);
         align-items: center;
@@ -334,15 +289,6 @@
         label:focus-within span {
             outline: 2px solid var(--accent);
         }
-
-        .search-reminder {
-            padding: 0 0.5rem;
-            color: var(--text1);
-        }
-
-        b {
-            font-weight: 700;
-        }
     }
 
     .track-wrapper {
@@ -361,6 +307,43 @@
             z-index: 1;
             width: 44px;
             pointer-events: none;
+        }
+
+        .search-reminder b {
+            font-weight: 700;
+        }
+    }
+
+    .expanded-category-text {
+        display: none;
+        width: 100%;
+        font-weight: normal;
+        font-size: var(--step-1);
+        line-height: 1.4;
+
+        &:first-of-type {
+            margin: 0;
+        }
+    }
+
+    .expanded {
+        height: 80vh;
+
+        nav {
+            overflow: initial;
+            flex-wrap: wrap;
+        }
+
+        hr {
+            display: none;
+        }
+
+        .expanded-category-text {
+            display: block;
+        }
+
+        .decal-right {
+            display: none;
         }
     }
 
@@ -392,10 +375,54 @@
         position: relative;
         z-index: 1;
         min-height: 100px;
-        min-width: 220px;
+        width: 220px;
         font-weight: 700;
         font-size: var(--step-2);
         // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+        .link-bg-img {
+            position: absolute;
+            z-index: -1;
+            object-fit: cover;
+            width: 110%;
+            height: 110%;
+            filter: brightness(0.4);
+            inset: -10px;
+        }
+
+        .category-pill {
+            font-weight: 300;
+            font-size: var(--step--2);
+            width: fit-content;
+            align-self: end;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3rem;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .City {
+            background: rgb(4, 92, 151);
+        }
+
+        .Field {
+            background: rgb(0, 128, 64);
+        }
+
+        .Exploration {
+            background: rgb(87, 0, 128);
+        }
+    }
+
+    a:where(:hover, :focus-visible) {
+        text-decoration: none;
+
+        .link-bg-img {
+            filter: brightness(0.6);
+        }
+
+        .map-name {
+            text-decoration: underline;
+        }
     }
 
     hr {
@@ -404,20 +431,6 @@
         height: 85px;
         background: var(--surface3);
         margin: 0;
-    }
-
-    .link-bg-img {
-        position: absolute;
-        z-index: -1;
-        object-fit: cover;
-        width: 110%;
-        height: 110%;
-        filter: brightness(0.4);
-        inset: -10px;
-    }
-
-    a:where(:hover, :focus-visible) .link-bg-img {
-        filter: brightness(0.6);
     }
 
     .decal-right {
