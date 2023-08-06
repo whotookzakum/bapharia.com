@@ -182,7 +182,7 @@
             Namco Studios Inc.
         </div>
     </div>
-    <!-- <MapControls markers={zone.markers} /> -->
+    <MapControls markers={zone.markers} />
     <LeafletMap  options={mapOptions}>
         <ImageOverlay
             imageUrl={zone.mapImage}

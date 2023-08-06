@@ -32,8 +32,6 @@
         Tooltip
     );
 
-    $: console.log($allStats);
-
     $: labels = $allStats.reduce((acc, stat) => {
         if (stat.checked) acc.push(stat.label);
         return acc;

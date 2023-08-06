@@ -1,19 +1,19 @@
 
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
-import entries from "../(generators)/kv/functions";
-import items from "../(generators)/kv/functions/items";
-import weapons from "../(generators)/kv/functions/weapons";
-import imagines from "../(generators)/kv/functions/imagines";
-import enemies from '../(generators)/kv/functions/enemies';
-import skills from '../(generators)/kv/functions/skills';
-import tokens from '../(generators)/kv/functions/tokens';
-import liquidMemories from '../(generators)/kv/functions/liquidmemories';
-import gestures from '../(generators)/kv/functions/gestures';
-import stampSets from '../(generators)/kv/functions/stampsets';
-import maps from '../(generators)/kv/functions/maps';
-import costumes from '../(generators)/kv/functions/costumes';
-import avatars from '../(generators)/kv/functions/avatars';
-import quests from '../(generators)/kv/functions/quests';
+import entries from "../kv/functions";
+import items from "../kv/functions/items";
+import weapons from "../kv/functions/weapons";
+import imagines from "../kv/functions/imagines";
+import enemies from '../kv/functions/enemies';
+import skills from '../kv/functions/skills';
+import tokens from '../kv/functions/tokens';
+import liquidMemories from '../kv/functions/liquidmemories';
+import gestures from '../kv/functions/gestures';
+import stampSets from '../kv/functions/stampsets';
+import maps from '../kv/functions/maps';
+import costumes from '../kv/functions/costumes';
+import avatars from '../kv/functions/avatars';
+import quests from '../kv/functions/quests';
 
 const resolvers = {
     Query: {
