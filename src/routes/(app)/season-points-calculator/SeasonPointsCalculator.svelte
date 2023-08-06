@@ -305,15 +305,16 @@
     }
 
     // TODO: Points from last season
-    // TODO: Points remaining after maxing
     // TODO: Level bought
 </script>
 
-<!-- {#if selectedSeason === 1}
-    <StickyNote type="note">
-        Season 1 had an event for increased season points.
-    </StickyNote>
-{/if} -->
+{#if selectedSeason === 1}
+    <div style="margin: auto">
+        <StickyNote type="note">
+            Season 1 had an event for increased season points.
+        </StickyNote>
+    </div>
+{/if}
 <div class="calculator-wrapper flex">
     <div class="left-col grid">
         <div class="flex g-50">
