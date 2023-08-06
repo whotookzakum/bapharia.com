@@ -9,7 +9,7 @@ import tokens from "./tokens.js"
 import liquidMemories from "./liquidmemories.js"
 import imagines from "./imagines.js"
 import weapons from "./weapons.js"
-import avatars from "./avatars.js"
+import avatars from "./avatarparts.js"
 
 // const entries = [
 //     ...items,

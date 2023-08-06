@@ -10,7 +10,7 @@ import tokens from "./functions/tokens.js"
 import liquidMemories from "./functions/liquidmemories.js"
 import imagines from "./functions/imagines.js"
 import weapons from "./functions/weapons.js"
-import avatars from "./functions/avatars.js"
+import avatars from "./functions/avatarparts.js"
 
 const data = {
     items,

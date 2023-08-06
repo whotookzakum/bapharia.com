@@ -12,7 +12,7 @@ import gestures from '../kv/functions/gestures';
 import stampSets from '../kv/functions/stampsets';
 import maps from '../kv/functions/maps';
 import costumes from '../kv/functions/costumes';
-import avatars from '../kv/functions/avatars';
+import avatarparts from '../kv/functions/avatarparts';
 import quests from '../kv/functions/quests';
 
 const resolvers = {
@@ -175,7 +175,7 @@ const resolvers = {
 
             // Avatar Parts
             if (!args.categories || args.categories.includes("avatarparts")) {
-                let categoryResults = avatars
+                let categoryResults = avatarparts
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
                         && matchesFilter("avatarparts", result.parts_icon_type)
