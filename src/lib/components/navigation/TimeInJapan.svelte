@@ -2,6 +2,7 @@
 	import Icon from "@iconify/svelte";
     export let isExpanded = true;
 
+	// TODO: Rewrite as webworker
 	// TODO: "Next raids in 3m72s" (w/ push notification reminders), "Next update on"
 
     let timeNow = new Date().getTime();
