@@ -1,6 +1,6 @@
 <script>
     import { userLocale, mapSearchQuery, mapControls } from "$lib/stores";
-    import { checkStringIncludes } from "$lib/utils/string_utils";
+    import { checkStringIncludes, katakanaToHiragana } from "$lib/utils/string_utils";
     import { fly } from "svelte/transition";
     import mapsData from "./maps.json";
     import uniqBy from "lodash/uniqBy";
@@ -20,7 +20,7 @@
     // TODO: Dungeons
 
     let selectedCategory = "All";
-    let expanded = false;
+    let expanded = true;
 
     const mapCategories = [
         {
@@ -115,6 +115,33 @@
         },
         []
     );
+
+    function highlightMatchedTerm(entryName) {
+        // Every language other than Japanese
+        if ($userLocale !== "ja_JP") {
+            return entryName.replace(
+                new RegExp($mapSearchQuery, "gi"),
+                (match) => `<mark>${match}</mark>`
+            );
+        }
+        // User locale and search term are both JP, otherwise it messes up names like Jake's Letter
+        else if ($mapSearchQuery.match(/[\u3041-\u30f6]/g)) {
+            const startIndex = katakanaToHiragana(entryName)
+                .toLowerCase()
+                .indexOf(katakanaToHiragana($mapSearchQuery).toLowerCase());
+            const beforeMatch = entryName.slice(0, startIndex);
+            const match = entryName.slice(
+                startIndex,
+                startIndex + $mapSearchQuery.length
+            );
+            const afterMatch = entryName.slice(startIndex + $mapSearchQuery.length);
+            return `${beforeMatch}<mark>${match}</mark>${afterMatch}`;
+        }
+        // User locale is JP but search term is English
+        else {
+            return entryName;
+        }
+    }
 </script>
 
 <div
@@ -156,6 +183,7 @@
                     width="20"
                     height="20"
                 />
+                <span class="visually-hidden">Expand maps list</span>
             </span>
         </label>
     </div>
@@ -186,7 +214,7 @@
                                     height="44"
                                 />
                             {/if}
-                            {map.zones}
+                            
                             <a
                                 class="grid styled-link box"
                                 href="/map/{map.map_id.split('_')[0]}"
@@ -200,10 +228,15 @@
                                     loading="lazy"
                                 />
                                 <span class="map-name"
-                                    >{map.name[$userLocale]
-                                        .replace(": Exploration", "")
-                                        .replace("・自由探索", "")}</span
+                                    >{@html highlightMatchedTerm(map.name[$userLocale])}</span
                                 >
+                                {#if $mapSearchQuery && map.zones}
+                                    {#each map.zones as zone}
+                                        {#if checkStringIncludes(zone.name.ja_JP, $mapSearchQuery) || checkStringIncludes(zone.name.en_US, $mapSearchQuery)}
+                                            <span>{@html highlightMatchedTerm(zone.name[$userLocale])}</span>
+                                        {/if}
+                                    {/each}
+                                {/if}
                                 <span
                                     class="category-pill {category.singular
                                         .en_US}"
@@ -376,9 +409,12 @@
         z-index: 1;
         min-height: 100px;
         width: 220px;
-        font-weight: 700;
-        font-size: var(--step-2);
         // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+        .map-name {
+            font-weight: 700;
+            font-size: var(--step-2);
+        }
 
         .link-bg-img {
             position: absolute;
@@ -410,6 +446,10 @@
 
         .Exploration {
             background: rgb(87, 0, 128);
+        }
+
+        .Dungeon {
+            background: rgb(128, 105, 0);
         }
     }
 

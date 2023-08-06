@@ -12,6 +12,9 @@
             : "";
 
     // https://bitsofco.de/a-one-line-solution-to-highlighting-search-matches/
+    // TODO: Fix Japanese next that starts with Kanji is not highlighted; probably not inside the Regex match
+    // https://stackoverflow.com/questions/19899554/unicode-range-for-japanese
+    // TODO: Only match first instance, so for example Bahamar wouldn't highlight 3 separate characters
     function highlightMatchedTerm(entryName) {
         if (moreDetails) return entryName;
 

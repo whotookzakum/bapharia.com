@@ -11,7 +11,7 @@
     description="Information on all the playable classes in BLUE PROTOCOL, including their skills, unique mechanics, and meta."
 />
 
-<HeroBanner bannerUrl="/guides/classes/banner.webp">
+<HeroBanner bannerUrl="/images/banner_classes.png" style="--backdrop-opacity: 0.68">
     <h1>Classes</h1>
     <p style:color="var(--text2)" style:margin-top="0">
         Information on all the playable classes in BLUE PROTOCOL, including

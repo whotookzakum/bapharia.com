@@ -10,7 +10,7 @@
 </script>
 
 {#if data?.meta?.title}
-    <HeroBanner bannerUrl="/guides/classes/banner.webp">
+    <HeroBanner bannerUrl={data.meta.bannerUrl} style="--backdrop-opacity: 0.76">
         <img
             src="/UI/Icon/ClassXL/UI_IconClassXL_{parseInt(
                 $page.params.classId
@@ -20,6 +20,7 @@
             alt=""
             width="128"
             height="128"
+            loading="lazy"
         />
         <h1>{data.meta.title}</h1>
         <hr />
