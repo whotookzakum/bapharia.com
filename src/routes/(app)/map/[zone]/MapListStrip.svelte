@@ -20,7 +20,7 @@
     // TODO: Dungeons
 
     let selectedCategory = "All";
-    let expanded = true;
+    let expanded = false;
 
     const mapCategories = [
         {

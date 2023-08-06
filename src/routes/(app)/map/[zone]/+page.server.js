@@ -1,10 +1,10 @@
 import markerIcons from "./markerIcons.json"
 import markerNames from "./markerNames.json"
 import markerCategories from "./markerCategories.json"
-import mapsData from "../maps.json"
+import mapsData from "./maps.json"
 
 export const load = async ({ params }) => {
-    let zoneId = params.zone || "Cty001"
+    let zoneId = params.zone
     const allMapFiles = import.meta.glob('../../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json')
     const mapFiles = await getMapFiles(allMapFiles, zoneId)
     const mapData = await getMapData(mapFiles)

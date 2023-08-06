@@ -17,13 +17,13 @@
 	import { onMount, onDestroy } from "svelte";
 	import icons from "./icons.json";
 	import "leaflet/dist/leaflet.css";
-	import SearchParams from "./SearchParams.svelte";
+	import SearchParams from "./OLD_SearchParams.svelte";
 	// import L from "leaflet";
 	import { page } from "$app/stores";
 	let searchParams;
 
 	// rewrite as dynamic import
-	import MapControls from "./MapControls.svelte";
+	import MapControls from "../../routes/(app)/map/MapControls.svelte";
     import MetaTags from "../MetaTags.svelte";
     import { userLocale } from "$lib/stores";
 

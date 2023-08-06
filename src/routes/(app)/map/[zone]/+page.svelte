@@ -15,7 +15,7 @@
     // import LeafletMap from "../LeafletMap.svelte";
     import { browser } from "$app/environment";
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import MapControls from "../MapControls.svelte";
+    import MapControls from "./MapControls.svelte";
     import { userLocale, markersVisibility, mapState } from "$lib/stores";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
@@ -182,7 +182,7 @@
             Namco Studios Inc.
         </div>
     </div>
-    <MapControls markers={zone.markers} />
+    <!-- <MapControls markers={zone.markers} /> -->
     <LeafletMap  options={mapOptions}>
         <ImageOverlay
             imageUrl={zone.mapImage}
