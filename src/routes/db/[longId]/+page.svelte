@@ -313,7 +313,7 @@
 		<article>
 			{#if !$entry.fetching && $entry.data.entry}
 				<header>
-					<EntrySummary data={$entry.data.entry} moreDetails />
+					<EntrySummary data={$entry.data.entry} />
 				</header>
 				<div class="entry-details">
 					<svelte:component

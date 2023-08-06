@@ -11,7 +11,7 @@
         Element,
         Class,
         LargeImage
-    } from "./sections";
+    } from "../../../components";
     export let data;
 </script>
 

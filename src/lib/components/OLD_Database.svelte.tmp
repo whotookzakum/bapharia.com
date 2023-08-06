@@ -4,11 +4,11 @@
 	import { graphql } from "$houdini";
 	import { userLocale } from "$lib/stores";
 	import DatabaseDetails from "./DatabaseDetails.svelte";
-	import EntrySummary from "./EntrySummary.svelte";
+	import EntrySummary from "../../routes/db/EntrySummary.svelte";
 	import SearchFilters from "./SearchFilters.svelte";
 	import debounce from "lodash/debounce";
 	import { filterCategoryTypes } from "$lib/stores";
-	import PageControls from "./PageControls.svelte";
+	import PageControls from "../../routes/db/PageControls.svelte";
     import { resultsPerPage } from "$lib/stores";
 
 	let userSearchInput = $page.url.searchParams.get("search") || "";

@@ -1,5 +1,5 @@
 <script>
-    import { Stamps } from "./sections";
+    import { Stamps } from "../../../components";
     export let data
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-    import { EnemyStats, EnemyDrops, FoundIn } from "./sections";
+    import { EnemyStats, EnemyDrops, FoundIn } from "../../../components";
     export let data;
 </script>
 

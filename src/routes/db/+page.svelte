@@ -11,10 +11,6 @@
 
     // TODO save and cache preferences: filters
     // TODO favorite items
-
-    // $: console.log(DBSearchQuery)
-    // $: console.log($DBSearchQuery)
-
 </script>
 
 <MetaTags
@@ -44,9 +40,7 @@
             <ul id="search-results" role="list">
                 {#each $DBSearchQuery.data.entries.results as entry}
                     <li>
-                        <button type="button">
-                            <EntrySummary data={entry} />
-                        </button>
+                        <EntrySummary data={entry} />
                     </li>
                 {/each}
             </ul>
@@ -94,24 +88,6 @@
 
             &:not(:last-child) {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            }
-        }
-
-        button {
-            padding: 0.8rem;
-            user-select: auto;
-            width: 100%;
-            background: none;
-            border: none;
-            text-align: left;
-
-            &:hover,
-            &:focus-visible {
-                background: var(--surface2);
-            }
-
-            &:focus-visible {
-                border-radius: 5px;
             }
         }
     }

@@ -1,5 +1,5 @@
 <script>
-    import { LMAccumulation, LMEffects } from "./sections";
+    import { LMAccumulation, LMEffects } from "../../../components";
     export let data;
 </script>
 

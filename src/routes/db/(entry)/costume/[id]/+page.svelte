@@ -1,5 +1,5 @@
 <script>
-    import { Description, LargeImage } from "./sections";
+    import { Description, LargeImage } from "../../../components";
     export let data
 </script>
 

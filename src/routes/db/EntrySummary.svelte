@@ -3,7 +3,6 @@
     import { katakanaToHiragana } from "$lib/utils/string_utils";
     import { userSearch } from "./stores";
     export let data;
-    export let moreDetails = false;
 
     // data.category is more specific, i.e. "Consumable" instead of "Item"
     let backgroundStyle =
@@ -16,8 +15,6 @@
     // https://stackoverflow.com/questions/19899554/unicode-range-for-japanese
     // TODO: Only match first instance, so for example Bahamar wouldn't highlight 3 separate characters
     function highlightMatchedTerm(entryName) {
-        if (moreDetails) return entryName;
-
         // Every language other than Japanese
         if ($userLocale !== "ja_JP") {
             return entryName.replace(
@@ -45,8 +42,6 @@
     }
 
     function highlightMatchedId(entryId) {
-        if (moreDetails) return entryId;
-
         return entryId.replace(
             new RegExp($userSearch, "gi"),
             (match) => `<mark>${match}</mark>`
@@ -61,7 +56,7 @@
 </script>
 
 {#if data}
-    <div class="entry-summary flex" class:more-details={moreDetails}>
+    <div class="entry-summary flex">
         <img
             src={data.thumb}
             class="entry-thumb"
@@ -72,7 +67,7 @@
         />
         <div class="grid g-25">
             <div>
-                {@html highlightMatchedTerm(data.name[$userLocale])}
+                <a class="styled-link" href="/db/{data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">{@html highlightMatchedTerm(data.name[$userLocale])}</a>
                 {#if itemLevel()}
                     <i>(Lv. {itemLevel()})</i>
                 {/if}
@@ -102,9 +97,11 @@
         align-items: center;
         gap: 0.8rem;
         position: relative;
+        z-index: 1;
         max-inline-size: none;
         width: 100%;
         line-height: 1.4;
+        padding: 0.8rem;
 
         i {
             font-style: normal;
@@ -112,6 +109,17 @@
             color: var(--accent);
             font-weight: bold;
         }
+
+        &:hover {
+            background: var(--surface2);
+        }
+    }
+
+    a::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
     }
 
     .entry-thumb {
