@@ -1,16 +1,9 @@
 <script>
     import {
-        Description,
         Recipe,
-        Price,
         Stats,
         Abilities,
         TreasureSources,
-        Model,
-        Sockets,
-        Element,
-        Class,
-        LargeImage,
     } from "../../../components";
     export let data;
 </script>
@@ -19,12 +12,15 @@
     <Recipe recipe={data.recipe} />
     <!-- <Sockets data={data.recipe} /> -->
 {/if}
+
 {#if data.treasureSources.length > 0}
     <TreasureSources sources={data.treasureSources} />
 {/if}
+
 {#if data.abilities.length > 0}
     <Abilities abilities={data.abilities} itemType="Weapon" />
 {/if}
+
 {#if data.stats.length > 0}
     <Stats
         levelParams={data.stats}

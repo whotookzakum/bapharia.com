@@ -1,7 +1,7 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let abilities, itemType;
-    const HEADERS = {
+    const WEAPON_HEADERS = {
         "effect_name": {
             ja_JP: "特効",
             en_US: "Effect"
@@ -19,6 +19,25 @@
             en_US: "Probability"
         },
     }
+
+    const IMAGINE_HEADERS = {
+        "potential_ability": {
+            ja_JP: "付与アビリティ候補",
+            en_US: "Ability Name"
+        },
+        "effect_name": {
+            ja_JP: "効果名",
+            en_US: "Effect"
+        },
+        "effect_value": {
+            ja_JP: "効果値",
+            en_US: "Value"
+        },
+        "probability": {
+            ja_JP: "確率",
+            en_US: "Probability"
+        },
+    }
 </script>
 
 {#if itemType === "Weapon"}
@@ -26,10 +45,10 @@
     <table>
         <thead>
             <tr>
-                <th>{HEADERS.effect_name[$userLocale]}</th>
-                <th>{HEADERS.great_success_value[$userLocale]}</th>
-                <th>{HEADERS.success_value[$userLocale]}</th>
-                <th>{HEADERS.probability[$userLocale]}</th>
+                <th>{WEAPON_HEADERS.effect_name[$userLocale]}</th>
+                <th>{WEAPON_HEADERS.great_success_value[$userLocale]}</th>
+                <th>{WEAPON_HEADERS.success_value[$userLocale]}</th>
+                <th>{WEAPON_HEADERS.probability[$userLocale]}</th>
             </tr>
         </thead>
         <tbody>
@@ -50,14 +69,14 @@
 {/if}
 
 {#if itemType === "Imagine"}
-    <h4>Abilities</h4>
+    <h2>Abilities</h2>
     <table>
         <thead>
             <tr>
-                <th>付与アビリティ候補</th>
-                <th>効果名</th>
-                <th>効果値</th>
-                <th>確率</th>
+                <th>{IMAGINE_HEADERS.potential_ability[$userLocale]}</th>
+                <th>{IMAGINE_HEADERS.effect_name[$userLocale]}</th>
+                <th>{IMAGINE_HEADERS.effect_value[$userLocale]}</th>
+                <th>{IMAGINE_HEADERS.probability[$userLocale]}</th>
             </tr>
         </thead>
         <tbody>

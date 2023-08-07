@@ -5,13 +5,31 @@ import weaponPerks from "$bp_server/japan/weaponperks.json";
 import perksData from "$bp_server/japan/perks.json";
 import imagineRecipesData from "$bp_server/japan/imagine/recepi.json";
 import itemsData from "$bp_server/japan/items.json";
+import imagineSkillNames from "$bp_client/japan/Content/Text/ImagineArtsName.json"
 import { getText } from "./utils";
+import { getItemThumbnail } from "./items";
 
-// TODO Skill name and skill type (client)
 // TODO Treasure chests that contain imagine
 // TODO Season passes that contain imagine
 // TODO 3d models
 // "attainable from chest, pass, shop, etc"
+
+const HEAL_TYPES = [
+    131000900, // Pink uribo
+    140000200, // Nappo β
+    131000200 // Evil Healer
+]
+
+const SUPPORT_TYPES = [
+    140000000, // Chicken
+    131001000, // Raging Beast
+    130002300, // Nappo α
+    140000100, // Cat
+    131000700, // Spooky Goat
+    120000400, // Einrain a
+    133001000, // Bandit Higma
+    120000010 // Feste β
+]
 
 const imagines = imagineData.map(imagine => {
     const name = getText("master_imagine_text", imagine.imagine_name)
@@ -66,15 +84,25 @@ const imagines = imagineData.map(imagine => {
     })
 
     const recipe = imagineRecipesData.find(rec => rec.imagin_id === imagine.id)
-    // recipe.materials = recipe.materials.map(mat => {
-    //     const itemData = itemsData.find(item => item.id === mat.item_id)
-    //     return {
-    //         ...mat,
-    //         id: `${itemData.id}`,
-    //         name: getText("item_text", itemData.name),
-    //         sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
-    //     }
-    // })
+    if (recipe) {
+        recipe.materials = recipe.materials.map(mat => {
+            const itemData = itemsData.find(item => item.id === mat.item_id)
+            return {
+                ...mat,
+                id: `${itemData.id}`,
+                thumb: getItemThumbnail(mat.item_id),
+                name: getText("item_text", itemData.name),
+                sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
+            }
+        })
+    }
+    
+    if (imagine.imagine_type === 1) {
+        imagine.imagineSkill = {
+            type: getImagineSkillType(imagine.id),
+            name: getImagineSkillName(imagine.imagine_arts)
+        }
+    }
 
     return {
         ...imagine,
@@ -104,6 +132,36 @@ function getSubcategory(imagineType) {
                 ja_JP: "バトルイマジン",
                 en_US: "Battle Imagine"
             }
+    }
+}
+
+function getImagineSkillName(skillId) {
+    const skillObj = imagineSkillNames[0].Properties.TextTable.find(table => table.Id.IdString === skillId)
+
+    if (skillObj) {
+        return {
+            ja_JP: skillObj.Text,
+            en_US: skillObj.Text
+        }
+    }
+}
+
+function getImagineSkillType(imagineId) {
+    if (HEAL_TYPES.includes(imagineId)) {
+        return {
+            ja_JP: "回復型",
+            en_US: "Heal",
+        }
+    }
+    else if (SUPPORT_TYPES.includes(imagineId)) {
+        return {
+            ja_JP: "補助型",
+            en_US: "Support",
+        }
+    }
+    return {
+        ja_JP: "攻撃型",
+        en_US: "Attack",
     }
 }
 

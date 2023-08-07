@@ -51,9 +51,8 @@
     </li>
 </ul>
 
-<hr />
-
 {#if recipe.bonus_rate}
+    <hr />
     <div class="flex align-center g-25">
         <div class="grid" style="width: 64px; height: 64px; place-content: center">
             <img
@@ -86,7 +85,6 @@
 
 <style lang="scss">
     ul {
-        margin-bottom: 1rem;
         grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
     }
 
@@ -135,8 +133,7 @@
     }
 
     hr {
-        // margin: 1rem 0;
-        // margin-top: 1.5rem;
+        margin-top: 1rem;
     }
 
     .align-center {

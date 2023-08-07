@@ -6,7 +6,12 @@
 
     $: imgSrc = data.thumb
         ?.replace("Item", "ItemL")
-        .replace("Weapon", "WeaponL");
+        .replace("Weapon", "WeaponL")
+        .replace("Battle", "BattleL")
+        .replace("Picture", "PictureL");
+
+    $: hasValidSalePrice = !data.no_sale_flag && data.price_player_sells
+    $: hasValidBuyPrice = data.price_player_buys && data.price_player_buys !== 99999 && data.price_player_buys !== 1 && data.price_player_buys !== 999999999
 </script>
 
 <h2>Basic Info</h2>
@@ -18,12 +23,34 @@
         height={imgHeight}
         loading="lazy"
     />
-    <div class="text-col grid g-25">
-        {#if data.effectDesc && data.effectDesc.ja_JP !== "-"}
-            <p>{data.effectDesc[$userLocale]}</p>
-            <hr />
+    <div class="text-col grid">
+
+        {#if data.sourceDesc && !["-", "非公開"].includes(data.sourceDesc.ja_JP)}
+            <h3>Source</h3>
+            <p>{data.sourceDesc[$userLocale]}</p>
         {/if}
-        {#if data.price_player_buys && data.price_player_buys !== 99999 && data.price_player_buys !== 1 && data.price_player_buys !== 999999999}
+
+        {#if data.effectDesc && data.effectDesc.ja_JP !== "-"}
+            <h3>Effect</h3>
+            <p>{data.effectDesc[$userLocale]}</p>
+        {/if}
+
+        {#if data.imagine_type === 1}
+            <h3>Skill</h3>
+            <strong>{data.imagineSkill.name[$userLocale]}</strong>
+            <p>{data.desc[$userLocale]}</p>
+        {/if}
+
+        {#if data.imagine_type !== 1}
+            <h3>Description</h3>
+            <blockquote>{data.desc[$userLocale]}</blockquote>
+        {/if}
+
+        {#if hasValidSalePrice || hasValidBuyPrice}
+            <h3>Price</h3>
+        {/if}
+
+        {#if hasValidBuyPrice}
             <p>
                 Buy for {data.price_player_buys.toLocaleString()}
                 <img
@@ -35,7 +62,8 @@
                 />
             </p>
         {/if}
-        {#if !data.no_sale_flag && data.price_player_sells}
+
+        {#if hasValidSalePrice}
             <p>
                 Sells for {data.price_player_sells.toLocaleString()}
                 <img
@@ -46,9 +74,15 @@
                     style="margin: -7px -4px; width: unset;"
                 />
             </p>
-            <hr />
         {/if}
-        <blockquote>{data.desc[$userLocale]}</blockquote>
+
+        <!-- {#if data.item_exp > 0}
+            <p>Item EXP {data.item_exp}</p>
+        {/if} -->
+
+        {#if data.dungeon_only}
+            <p style:color="var(--accent)">Dungeon-only item</p>
+        {/if}
     </div>
 </div>
 
@@ -66,13 +100,25 @@
 
     p {
         margin: 0;
+        font-size: var(--step-0);
+        max-inline-size: none;
+    }
+
+    h3 {
+        font-size: var(--step-1);
+
+        &:first-of-type {
+            margin-top: 0;
+        }
     }
 
     blockquote {
         line-height: 1.75;
-        color: var(--text2);
-        font-size: var(--step-1);
-        font-style: italic;
+        // color: var(--text2);
+        // font-style: italic;
         margin: 0;
+        // background: var(--bg);
+        // padding: 1rem;
+        // border-radius: 9px;
     }
 </style>
