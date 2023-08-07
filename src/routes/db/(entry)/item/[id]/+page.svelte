@@ -7,13 +7,13 @@
         ItemExp,
         AdventurerRank,
         LargeImage,
+        GeneralInfo
     } from "../../../components";
     export let data;
+    console.log(data)
 </script>
 
-{#if data.effectDesc.ja_JP !== "-"}
-    <Effect text={data.effectDesc} />
-{/if}
+
 
 {#if !["-", "非公開"].includes(data.sourceDesc.ja_JP)}
     <Source text={data.sourceDesc} />
@@ -36,5 +36,4 @@
     <ItemExp value={data.item_exp} />
 {/if}
 
-<Description text={data.desc} />
-<LargeImage imgSrc={data.thumb.replace("Item", "ItemL")} />
+

@@ -1,19 +1,14 @@
-<!-- <div class="entry-details box">
-    <slot name="entryDetails" />
-</div> -->
+
+<slot name="entryDetails" />
 
 <div class="db-wrapper">
-    
     <div class="filters">
         <slot name="filters" />
     </div>
-
     <div class="search-and-results grid">
         <slot name="searchBar" />
         <slot name="searchResults" />
     </div>
-
-    
 </div>
 
 <style lang="scss">
@@ -39,6 +34,9 @@
 
     .entry-details {
         flex: 1;
+        // border: 1px solid pink;
+        // max-width: 900px;
+        margin: auto;
     }
 
 </style>

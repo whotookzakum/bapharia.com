@@ -18,6 +18,7 @@
     header.hero-banner {
         background-position: 50% 50%;
         background-size: cover;
+        background-repeat: no-repeat;
         padding: 20vh 1rem;
         position: relative;
         z-index: 1;
