@@ -1,8 +1,9 @@
 <script>
 	export let type;
+	export let style;
 </script>
 
-<aside class="sticky-note box {type}">
+<aside class="sticky-note box {type}" {style}>
 	<header class="box">{type}</header>
 	<slot />
 </aside>

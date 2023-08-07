@@ -1,17 +1,35 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let abilities, itemType;
+    const HEADERS = {
+        "effect_name": {
+            ja_JP: "特効",
+            en_US: "Effect"
+        },
+        "great_success_value": {
+            ja_JP: "大成功時の効果値",
+            en_US: "Value (Great Success)"
+        },
+        "success_value": {
+            ja_JP: "成功時の効果値",
+            en_US: "Value (Success)"
+        },
+        "probability": {
+            ja_JP: "確率",
+            en_US: "Probability"
+        },
+    }
 </script>
 
 {#if itemType === "Weapon"}
-    <h4>Special Effects</h4>
+    <h2>Special Effects</h2>
     <table>
         <thead>
             <tr>
-                <th>特効</th>
-                <th>大成功時の効果値</th>
-                <th>成功時の効果値</th>
-                <th>確率</th>
+                <th>{HEADERS.effect_name[$userLocale]}</th>
+                <th>{HEADERS.great_success_value[$userLocale]}</th>
+                <th>{HEADERS.success_value[$userLocale]}</th>
+                <th>{HEADERS.probability[$userLocale]}</th>
             </tr>
         </thead>
         <tbody>

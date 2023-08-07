@@ -102,54 +102,23 @@ input.visually-hidden[type="radio"]:focus-visible+label {
     font-family: "Skip Std", inherit;
 }
 
-.entry-details {
-    padding-top: 0.5rem;
+.entry-details table {
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1.8;
+    overflow: hidden;
 
-    h4 {
-        font-size: var(--step-0);
-
-        &:first-of-type {
-            // margin: 0;
-        }
+    thead tr {
+        background: var(--surface2);
     }
 
-    h5 {
-        font-size: initial;
+    tr+tr {
+        border-top: 1px solid var(--surface2);
     }
 
-    p,
-    li {
-        max-inline-size: none;
-        margin: 0;
-    }
-
-    table {
-        width: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        border-collapse: collapse;
-        line-height: 1.8;
-        margin: 0.25rem 0;
-        overflow: hidden;
-
-        td:nth-child(3),
-        td:last-child,
-        th:nth-child(3),
-        th:last-child {
-            text-align: right;
-        }
-
-        thead tr {
-            background: var(--surface3);
-        }
-
-        tr+tr {
-            border-top: 1px solid var(--surface3);
-        }
-
-        td,
-        th {
-            padding: 0.5rem 1rem;
-        }
+    td,
+    th {
+        padding:  1rem;
     }
 }
 
@@ -373,10 +342,11 @@ input[type="number"] {
     position: relative;
     // border: 1px solid rgba(39, 52, 78, 0.9);
     background: rgba(39, 52, 78, 0.4);
-    overflow: hidden;   
+    overflow: hidden;
     transition: background-color 0.35s ease;
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
         background: rgba(39, 52, 78, 0.4);
     }
 
@@ -409,17 +379,18 @@ input[type="number"] {
     display: grid;
     grid-template-columns: 1fr min(var(--content-width), calc(100% - 2rem)) 1fr;
 
-    & > * {
+    &>* {
         grid-column: 2;
     }
 
-    .full-bleed, .bg-bleed {
+    .full-bleed,
+    .bg-bleed {
         grid-column: 1/-1;
     }
 
     .bg-bleed {
         width: 100%;
-        
+
         .unbleed {
             max-width: var(--content-width);
             margin: auto;

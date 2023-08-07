@@ -4,8 +4,6 @@
     import { GeneralInfo } from "../components";
 
     export let data;
-    console.log(data);
-
     const CLASS_NAMES = {
         "6": {
             ja_JP: "ブラストアーチャー",
@@ -67,7 +65,7 @@
 
 <MetaTags title="{data.name[$userLocale]} — Bapharia" />
 
-<div class="entry-wrapper grid">
+<div class="entry-details grid">
     <header>
         <h1>{data.name[$userLocale]}</h1>
         <div class="header-extras flex">
@@ -98,17 +96,20 @@
 </div>
 
 <style lang="scss">
-    .entry-wrapper {
+    .entry-details {
         max-width: 900px;
         margin: auto;
-        gap: 1rem;
+    }
+
+    :global(.entry-details h2:not(:first-of-type)) {
+        margin-top: 3rem;
     }
 
     header {
         display: flex; // grid or flex
         column-gap: 1rem;
         align-items: baseline;
-        margin-block: 1rem;
+        margin-top: 1rem;
         justify-content: space-between;
         flex-wrap: wrap;
     }

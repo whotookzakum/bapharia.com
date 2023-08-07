@@ -10,6 +10,7 @@ import treasuresData from "$bp_server/japan/treasures.json";
 import enemiesData from "$bp_server/japan/enemyparams.json";
 import { getText } from "./utils";
 import { getMapName } from "./maps";
+import { getItemThumbnail } from "./items";
 
 // TODO 3d models
 // TODO abilities only obtainable via drop
@@ -67,6 +68,7 @@ const weapons = weaponsData.map(weapon => {
             return {
                 ...mat,
                 id: `${itemData.id}`,
+                thumb: getItemThumbnail(mat.item_id),
                 name: getText("item_text", itemData.name),
                 sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
             }
@@ -107,6 +109,7 @@ const weapons = weaponsData.map(weapon => {
                     {
                         name: getText("enemyparam_text", enemyData.name_id),
                         probability: dropData.drop_rate,
+                        enemy_id: enemyData.enemy_id,
                         location: {
                             id: dropData.content_id,
                             name: getMapName(dropData.content_id)
