@@ -1,5 +1,5 @@
 <script>
-    import { MapImages } from "../../../components";
+    import { MapImages } from "../../index";
     export let data
     console.log(data)
 </script>

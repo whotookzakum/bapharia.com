@@ -4,9 +4,12 @@
         Stats,
         Abilities,
         TreasureSources,
-    } from "../../../components";
+        GeneralInfo
+    } from "../../index";
     export let data;
 </script>
+
+<GeneralInfo {data} />
 
 {#if data.recipe}
     <Recipe recipe={data.recipe} />

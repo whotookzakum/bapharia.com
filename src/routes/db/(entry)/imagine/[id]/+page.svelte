@@ -2,23 +2,16 @@
     import {
         Stats,
         Abilities,
-        Recipe
-    } from "../../../components";
+        Recipe,
+        GeneralInfo
+    } from "../../index";
 
     export let data;
 </script>
 
-<Recipe recipe={data.recipe} />
+<GeneralInfo {data} />
 
-<!-- {#if data.imagine_type === 0}
-    <LargeImage
-        noHeader
-        imgSrc={data.thumb.replace("Picture", "FullImage")}
-        fullWidth
-        width="1920"
-        height="1080"
-    />
-{/if} -->
+<Recipe recipe={data.recipe} />
 
 <Abilities abilities={data.abilities} itemType={data.entryTypes[0]} />
 

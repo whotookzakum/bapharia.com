@@ -1,7 +1,7 @@
 <script>
-    import { Description, LargeImage } from "../../../components";
+    import { GeneralInfo } from "../../index";
     export let data
+
 </script>
 
-<Description text={data.desc} />
-<LargeImage imgSrc={data.thumb.replace("Token", "TokenL")} />
+<GeneralInfo {data} />

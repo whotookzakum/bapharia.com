@@ -1,6 +1,6 @@
 <script>
     import { userLocale } from "$lib/stores";
-    import { Element, Class } from "../../../components";
+    import { Element, Class } from "../../index";
     export let data;
 </script>
 

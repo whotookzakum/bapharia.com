@@ -8,7 +8,9 @@
         ?.replace("Item", "ItemL")
         .replace("Weapon", "WeaponL")
         .replace("Battle", "BattleL")
-        .replace("Picture", "PictureL");
+        .replace("Picture", "PictureL")
+        .replace("Costume", "CostumeL")
+        .replace("Token", "TokenL");
 
     $: hasValidSalePrice = !data.no_sale_flag && data.price_player_sells
     $: hasValidBuyPrice = data.price_player_buys && data.price_player_buys !== 99999 && data.price_player_buys !== 1 && data.price_player_buys !== 999999999
@@ -35,13 +37,18 @@
             <p>{data.effectDesc[$userLocale]}</p>
         {/if}
 
+        {#if data.item_recast_time}
+            <h3>Cooldown</h3>
+            <p>{data.item_recast_time} seconds</p>
+        {/if}
+
         {#if data.imagine_type === 1}
             <h3>Skill</h3>
             <strong>{data.imagineSkill.name[$userLocale]}</strong>
             <p>{data.desc[$userLocale]}</p>
         {/if}
 
-        {#if data.imagine_type !== 1}
+        {#if data.desc && data.imagine_type !== 1}
             <h3>Description</h3>
             <blockquote>{data.desc[$userLocale]}</blockquote>
         {/if}

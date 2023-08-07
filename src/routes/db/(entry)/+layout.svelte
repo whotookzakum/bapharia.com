@@ -2,7 +2,6 @@
     import MetaTags from "$lib/components/MetaTags.svelte";
     import { userLocale } from "$lib/stores.js";
     import Icon from "@iconify/svelte";
-    import { GeneralInfo } from "../components";
 
     export let data;
     const CLASS_NAMES = {
@@ -66,36 +65,36 @@
     const IMAGINE_SLOTS = {
         "1": {
             ja_JP: "三葉",
-            en_US: "Trileaf"
+            en_US: "Trileaf",
         },
         "2": {
             ja_JP: "山岳",
-            en_US: "Summit" // Mountain Chain
+            en_US: "Summit", // Mountain Chain
         },
         "3": {
             ja_JP: "矢尻",
-            en_US: "Arrowhead"
+            en_US: "Arrowhead",
         },
         "4": {
             ja_JP: "風車",
-            en_US: "Windmill"
+            en_US: "Windmill",
         },
         "5": {
             ja_JP: "水瓶",
-            en_US: "Vessel" // Water jug,
-        }
-    }
+            en_US: "Vessel", // Water jug,
+        },
+    };
 
     const IMAGINE_SKILL_TYPE_ICONS = {
         attack: "mdi:sword-cross",
         support: "ri:shield-cross-fill",
-        heal: "mdi:heart"
+        heal: "mdi:heart",
     };
 
     const LEVEL_TEXT = {
         ja_JP: "レベル",
-        en_US: "Level"
-    }
+        en_US: "Level",
+    };
 </script>
 
 <MetaTags title="{data.name[$userLocale]} — Bapharia" />
@@ -104,12 +103,17 @@
     <header>
         <h1>{data.name[$userLocale]}</h1>
         <div class="header-extras flex">
-            <div class="grid g-25">
-                <span style="order: 2">{LEVEL_TEXT[$userLocale]}</span>
-                <span class="level">
-                    {data.item_level || data.weapon_max_level || data.imagine_max_level}
-                </span>
-            </div>
+            {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
+                <div class="grid g-25">
+                    <span style="order: 2">{LEVEL_TEXT[$userLocale]}</span>
+                    <span class="level">
+                        {data.item_level ||
+                            data.weapon_max_level ||
+                            data.imagine_max_level}
+                    </span>
+                </div>
+            {/if}
+
             {#if data.classImg}
                 <hr />
                 <div class="grid g-25">
@@ -121,14 +125,24 @@
                 <hr />
                 <div class="grid g-25">
                     <img src={data.slotImg} alt="" width="46" height="46" />
-                    <span>{IMAGINE_SLOTS[data.slotImg.split("Icon2_").pop().split(".png")[0]][$userLocale]}</span>
+                    <span
+                        >{IMAGINE_SLOTS[
+                            data.slotImg.split("Icon2_").pop().split(".png")[0]
+                        ][$userLocale]}</span
+                    >
                 </div>
             {/if}
             {#if data.imagineSkill}
                 <hr />
                 <div class="grid g-25">
                     <div class={data.imagineSkill.type.en_US}>
-                        <Icon icon={IMAGINE_SKILL_TYPE_ICONS[data.imagineSkill.type.en_US.toLowerCase()]} width="24" height="24" />
+                        <Icon
+                            icon={IMAGINE_SKILL_TYPE_ICONS[
+                                data.imagineSkill.type.en_US.toLowerCase()
+                            ]}
+                            width="24"
+                            height="24"
+                        />
                     </div>
                     <span>{data.imagineSkill.type[$userLocale]}</span>
                 </div>
@@ -144,7 +158,6 @@
     </header>
 
     <article>
-        <GeneralInfo {data} />
         <slot />
     </article>
 </div>
