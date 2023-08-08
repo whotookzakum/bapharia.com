@@ -1,34 +1,28 @@
 <script>
     import { userLocale } from "$lib/stores";
-    import { Element, Class } from "../../index";
+    import Skill from "../../../../classes/[classId]/skills/Skill.svelte";
     export let data;
+
 </script>
 
-<Element imgSrc={data.elementImg} />
-<Class imgSrc={data.classImg} />
-
-<ol>
-    {#each data.desc[$userLocale].split("\n") as skillLevelText, index}
-        <li>
-            {skillLevelText}
-            {#if data.skill_mastery_param[index]?.condition_class_level}
-                (Class level {data.skill_mastery_param[index]
-                    .condition_class_level})
-            {/if}
-            {#if index === 2}
-                <ul>
-                    {#each data.abilities as ability}
-                        <li>
-                            {ability.desc[$userLocale]}
-                            <!-- As long as they don't add α2, α3 then index 0 will work -->
-                            (Class level {ability.skill_mastery_param[0]
-                                .condition_class_level})
-                        </li>
-                    {/each}
-                </ul>
-            {/if}
-        </li>
-    {/each}
-</ol>
+<h2>Skill Description</h2>
+<Skill skill={data} />
 
 <!-- Skill Video -->
+
+<style lang="scss">
+    .skill,
+    dl {
+        max-inline-size: none;
+    }
+
+    dl {
+        margin-top: 1rem;
+    }
+
+    @media (min-width: 900px) {
+        dl {
+            padding-inline: 1rem;
+        }
+    }
+</style>

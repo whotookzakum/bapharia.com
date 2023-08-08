@@ -10,7 +10,7 @@
 	description="The premier knowledge base for BLUE PROTOCOL. Interactive tools, game database, and guides—all in one place!"
 />
 
-<HeroBanner>
+<HeroBanner bannerUrl="/images/b.png" style="--backdrop-opacity: 0.73">
 	<img src="/images/logo.png" alt="" width="96" height="96" />
 	<h1>Bapharia</h1>
 	<p class="hero-tagline">The premier knowledge base for BLUE PROTOCOL.</p>

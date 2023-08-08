@@ -35,7 +35,9 @@
     <p>One basic attack and one class action can be equipped at a time.</p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 0 || skill.skill_type === 1) as skill}
-            <Skill {skill} />
+            <li>
+                <Skill {skill} />
+            </li>
         {/each}
     </ol>
     <h2 id="tactical-skills">Tactical Skills</h2>
@@ -45,38 +47,49 @@
     </p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type >= 2 && skill.skill_type <= 5) as skill}
-            <Skill {skill} />
+            <li>
+                <Skill {skill} />
+            </li>
         {/each}
     </ol>
     <h2 id="ultimate-skills">Ultimate Skills</h2>
     <p>One ultimate skill can be equipped at a time.</p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 6) as skill}
-            <Skill {skill} />
+            <li>
+                <Skill {skill} />
+            </li>
         {/each}
     </ol>
     <h2 id="class-specific-abilities">Class-Specific Abilities</h2>
     <p>Up to two class-specific abilities can be equipped at a time.</p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 8 && skill.ability_type !== 100) as skill}
-            <Skill {skill} />
+            <li>
+                <Skill {skill} />
+            </li>
         {/each}
     </ol>
     <h2 id="class-shared-abilities">Class-Shared Abilities</h2>
     <p>
-        Up to two class-shared abilities can be equipped at a time. Slots unlock at Level 30 and 45. These skills
-        can be equipped on any other class after unlocking them.
+        Up to two class-shared abilities can be equipped at a time. Slots unlock
+        at Level 30 and 45. These skills can be equipped on any other class
+        after unlocking them.
     </p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 8 && skill.ability_type === 100) as skill}
-            <Skill {skill} />
+            <li>
+                <Skill {skill} />
+            </li>
         {/each}
     </ol>
     <h2 id="base-abilities">Base Abilities</h2>
     <p>All Base Abilities are automatically passively applied when unlocked.</p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 9) as skill}
-            <Skill {skill} />
+            <li>
+                <Skill {skill} />
+            </li>
         {/each}
     </ol>
 </div>
@@ -84,5 +97,9 @@
 <style lang="scss">
     ol {
         gap: 5rem;
+    }
+
+    li {
+        max-inline-size: none;
     }
 </style>

@@ -1,11 +1,5 @@
 <script>
-    import {
-        Stats,
-        Abilities,
-        Recipe,
-        GeneralInfo
-    } from "../../index";
-
+    import { Stats, Abilities, Recipe, GeneralInfo } from "../../index";
     export let data;
 </script>
 
@@ -15,8 +9,9 @@
 
 <Abilities abilities={data.abilities} itemType={data.entryTypes[0]} />
 
-<Stats
-    levelParams={data.params}
-    battleScoreMultiplier={data.imagine_type === 1 ? 10 : 6}
-    maxLevel={data.imagine_max_level}
-/>
+<Stats {data} />
+Slope-intercept equation: y = 48.202x - 8.202
+General equation: 4772x - 99y - 812 = 0
+
+Slope-intercept equation: y = 27.232x - 4.232
+General equation: 2696x - 99y - 419 = 0

@@ -37,7 +37,6 @@
     let leafletMap;
     export let data;
     $: zone = data;
-    console.log(data)
     
     data.markers.forEach(marker =>{
         if (!marker.coords) console.log(marker)

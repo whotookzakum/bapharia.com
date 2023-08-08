@@ -2,22 +2,71 @@
     import InputNumber from "$lib/components/InputNumber.svelte";
     import { userLocale } from "$lib/stores";
 
-    export let levelParams;
-    export let maxLevel = 1;
-    export let battleScoreMultiplier = 1;
-    $: sliderValue = maxLevel;
-    let currentLevelStats, battleScore;
-    $: {
-        if (sliderValue > maxLevel) {
-            sliderValue = maxLevel;
+    // TODO: Figure out Enemy EXP curve
+    export let data = {};
+
+    $: maxLevel = data.weapon_max_level || data.imagine_max_level || 100;
+
+    $: selectedLevel = maxLevel;
+    // $: if (selectedLevel > maxLevel) selectedLevel = maxLevel;
+
+    let battleScore, currentLevelStats, levelParams;
+    let type = data.entryTypes[0];
+
+    $: if (selectedLevel > 0 && selectedLevel <= maxLevel) {
+        switch (type) {
+            case "Weapon":
+                levelParams = data.stats;
+                battleScore = selectedLevel * 50;
+                break;
+            case "Imagine":
+                levelParams = data.params;
+                if (data.imagine_type === 0) {
+                    battleScore = selectedLevel * 6;
+                    break;
+                } else if (data.imagine_type === 1) {
+                    battleScore = selectedLevel * 10;
+                    break;
+                }
+            case "Enemy":
+                levelParams = data.level_params;
+                break;
         }
-        if (sliderValue > 0) {
-            currentLevelStats = levelParams.find(
-                (set) => set.level === sliderValue
-            );
-            battleScore = sliderValue * battleScoreMultiplier;
+        currentLevelStats = levelParams?.find(
+            (set) => set.level === selectedLevel
+        );
+
+        if (type === "Enemy") {
+            let {
+                hit_point,
+                hit_point_factor,
+                attack_power,
+                attack_power_factor,
+                defence_power,
+                defence_power_factor,
+            } = levelParams[0];
+            currentLevelStats = {
+                hp:
+                    hit_point + hit_point_factor * (selectedLevel - 1),
+                offensive_power:
+                    attack_power + attack_power_factor * (selectedLevel - 1),
+                defensive_power:
+                    defence_power + defence_power_factor * (selectedLevel - 1),
+            };
         }
     }
+
+    $: isValidInput =
+        selectedLevel <= maxLevel &&
+        selectedLevel >= 1 &&
+        typeof selectedLevel === "number";
+
+    $: isLevelSynced =
+        isValidInput &&
+        type !== "Enemy" &&
+        typeof selectedLevel === "number" &&
+        selectedLevel < maxLevel;
+
     const texts = {
         skill: {
             ja_JP: "スキル効果値",
@@ -45,11 +94,15 @@
         },
         critical_chance: {
             ja_JP: "会心率",
-            en_US: "",
+            en_US: "Critical Rate",
         },
         max_hp: {
             ja_JP: "最大HP",
             en_US: "Max HP",
+        },
+        hp: {
+            ja_JP: "HP",
+            en_US: "HP",
         },
         str: {
             ja_JP: "筋力",
@@ -81,39 +134,40 @@
 <h2>Stats</h2>
 
 <div class="box">
-    <div class="level-section grid g-50" class:not-max={sliderValue !== maxLevel}>
+    <div class="level-section grid g-50" class:not-max={isLevelSynced}>
         <div>
-            <h5 class="level-text">
-                Level {sliderValue !== maxLevel ? "Sync ▼" : ""}
-            </h5>
-            {#if levelParams.length > 1}
-                <p class="level-hint" id="level-sync-description">
-                    Enter a level between <b>1</b> and <b>{maxLevel}</b>
-                </p>
-            {/if}
+            <h3 class="level-text">
+                Level {isLevelSynced ? "Sync ▼" : ""}
+            </h3>
+            <p
+                class="level-hint"
+                id="level-sync-description"
+                class:invalid={!isValidInput}
+            >
+                Enter a level between <b>1</b> and <b>{maxLevel}</b>
+            </p>
         </div>
         <div class="level-controls grid g-50">
             <InputNumber
                 description="Level"
                 prefix="LV."
-                bind:value={sliderValue}
+                bind:value={selectedLevel}
                 max={maxLevel}
                 min="1"
-                disabled={levelParams.length <= 1}
                 describedby="level-sync-description"
+                invalid={!isValidInput}
             />
             <button
                 class="box reset-level"
-                on:click={() => (sliderValue = maxLevel)}
-                disabled={levelParams.length <= 1}
+                on:click={() => (selectedLevel = maxLevel)}
             >
                 Reset
             </button>
         </div>
         <hr />
     </div>
-    
-    <dl class="unstyled-list g-25" class:not-max={sliderValue !== maxLevel}>
+
+    <dl class="unstyled-list g-25" class:not-max={isLevelSynced}>
         {#each ["attribute_value", "skill"] as stat}
             {#if currentLevelStats[stat]}
                 <div class="row">
@@ -122,12 +176,16 @@
                 </div>
             {/if}
         {/each}
-        <div class="row">
-            <dt>{texts.battleScore[$userLocale]}</dt>
-            <dd>{battleScore}</dd>
-        </div>
-        <hr />
-        {#each ["offensive_power", "defensive_power", "critical_power", "critical_chance", "max_hp", "str", "vit", "dex", "mnd", "int", "stamina"] as stat}
+
+        {#if battleScore}
+            <div class="row">
+                <dt>{texts.battleScore[$userLocale]}</dt>
+                <dd>{battleScore}</dd>
+            </div>
+            <hr />
+        {/if}
+
+        {#each ["hp", "offensive_power", "defensive_power", "critical_power", "critical_chance", "max_hp", "str", "vit", "dex", "mnd", "int", "stamina"] as stat}
             {#if currentLevelStats[stat] && currentLevelStats[stat] >= 0}
                 <div class="row">
                     <dt>{texts[stat][$userLocale]}</dt>
@@ -170,11 +228,11 @@
 
     .not-max dd,
     :global(.not-max .input-level-wrapper),
-    .not-max h5 {
+    .not-max .level-text {
         color: #fe5162;
     }
 
-    h5.level-text {
+    .level-text {
         font: inherit;
         margin: 0;
         line-height: 1.4;
@@ -189,6 +247,12 @@
 
         b {
             color: var(--text1);
+            font-weight: 700;
+        }
+
+        &.invalid,
+        &.invalid b {
+            color: crimson !important;
         }
     }
 
@@ -211,12 +275,6 @@
 
         &:active {
             filter: brightness(0.9);
-        }
-
-        &:disabled:hover,
-        &:disabled {
-            background: var(--surface2);
-            filter: brightness(0.9) saturate(0);
         }
     }
 </style>

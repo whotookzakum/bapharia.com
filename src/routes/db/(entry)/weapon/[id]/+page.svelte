@@ -4,7 +4,7 @@
         Stats,
         Abilities,
         TreasureSources,
-        GeneralInfo
+        GeneralInfo,
     } from "../../index";
     export let data;
 </script>
@@ -25,11 +25,7 @@
 {/if}
 
 {#if data.stats.length > 0}
-    <Stats
-        levelParams={data.stats}
-        maxLevel={data.weapon_max_level}
-        battleScoreMultiplier={50}
-    />
+    <Stats {data} />
 {/if}
 
 <!-- <Model modelSrc="/fst.glb" posterImg={data.thumb.replace("Weapon", "WeaponL")} /> -->

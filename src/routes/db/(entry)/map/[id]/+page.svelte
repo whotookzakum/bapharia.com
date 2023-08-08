@@ -1,8 +1,7 @@
 <script>
-    import { MapImages } from "../../index";
+    import { GeneralInfo } from "../../index";
     export let data
-    console.log(data)
+    // TODO: Link to map
 </script>
 
-<!-- <a href={`/map?map=${data.id.split("_")[0]}`}>View on map</a> -->
-<!-- <MapImages images={data.mapImages} /> -->
+<GeneralInfo {data} />

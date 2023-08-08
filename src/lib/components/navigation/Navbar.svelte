@@ -17,6 +17,58 @@
 			randomMessages[Math.floor(Math.random() * randomMessages.length)];
 	}
 	// TO DO: tiny says use aria-expanded instead of visually-hidden?
+
+// 	[
+//     {
+//         "name": {
+//             "ja_JP": "データベース",
+//             "en_US": "Database"
+//         },
+//         "href": "/db"
+//     },
+//     {
+//         "name": {
+//             "ja_JP": "マップ",
+//             "en_US": "Map"
+//         },
+//         "href": "/map"
+//     },
+//     {
+//         "name": {
+//             "ja_JP": "ビルダー",
+//             "en_US": "Builder"
+//         },
+//         "href": "/builder"
+//     },
+//     {
+//         "name": {
+//             "ja_JP": "冒険ボード",
+//             "en_US": "Boards"
+//         },
+//         "href": "/boards"
+//     },
+//     {
+//         "name": {
+//             "ja_JP": "クラス",
+//             "en_US": "Classes"
+//         },
+//         "href": "/classes"
+//     },
+//     {
+//         "name": {
+//             "ja_JP": "ガイド",
+//             "en_US": "Guides"
+//         },
+//         "href": "/guides"
+//     },
+//     {
+//         "name": {
+//             "ja_JP": "イベント",
+//             "en_US": "Events"
+//         },
+//         "href": "/events"
+//     }
+// ]
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->

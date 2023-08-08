@@ -12,7 +12,7 @@
     }
 </script>
 
-<li class="skill grid g-50">
+<div class="skill grid g-50">
     <SkillHeader {skill} />
 
     <dl class="unstyled-list skill-grade-descriptions" style:gap="0">
@@ -38,12 +38,13 @@
             {/if}
         {/each}
     </dl>
-</li>
+</div>
 
 <style lang="scss">
     .skill,
     dl {
         max-inline-size: none;
+        line-height: 1.75;
     }
 
     dl {

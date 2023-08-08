@@ -60,6 +60,10 @@
             ja_JP: "無属性",
             en_US: "No Element",
         },
+        Empty: {
+            ja_JP: "無属性",
+            en_US: "No Element",
+        },
     };
 
     const IMAGINE_SLOTS = {
@@ -118,9 +122,14 @@
                 <hr />
                 <div class="grid g-25">
                     <img src={data.classImg} alt="" width="46" height="46" />
-                    <span>{CLASS_NAMES[data.equip_class][$userLocale]}</span>
+                    <span
+                        >{CLASS_NAMES[data.equip_class || data.class_type][
+                            $userLocale
+                        ]}</span
+                    >
                 </div>
             {/if}
+
             {#if data.slotImg}
                 <hr />
                 <div class="grid g-25">
@@ -132,6 +141,7 @@
                     >
                 </div>
             {/if}
+
             {#if data.imagineSkill}
                 <hr />
                 <div class="grid g-25">
@@ -147,11 +157,26 @@
                     <span>{data.imagineSkill.type[$userLocale]}</span>
                 </div>
             {/if}
+
             {#if data.elementImg}
                 <hr />
                 <div class="grid g-25">
                     <img src={data.elementImg} alt="" width="46" height="46" />
-                    <span>{ELEMENT_NAMES[data.attribute][$userLocale]}</span>
+                    {#if data.attribute}
+                        <span>{ELEMENT_NAMES[data.attribute][$userLocale]}</span
+                        >
+                    {:else}
+                        <span
+                            >{ELEMENT_NAMES[
+                                data.elementImg
+                                    .replace(
+                                        "/UI/Icon/Attribute/UI_IconAttribute_",
+                                        ""
+                                    )
+                                    .replace(".png", "")
+                            ][$userLocale]}</span
+                        >
+                    {/if}
                 </div>
             {/if}
         </div>
