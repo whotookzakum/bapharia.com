@@ -8,6 +8,7 @@ import adventureBoardsData from "$bp_server/japan/master_adventure_board.json"
 import liquidMemoriesData from "$bp_server/japan/liquid_memory.json";
 import groupBy from "lodash/groupBy"
 import { json } from "@sveltejs/kit";
+import { getItemThumbnail } from "./items";
 
 // TODO Treasure chest drops
 // TODO Spawn locations (client)
@@ -60,7 +61,8 @@ const getTreasureChestData = (chestId) => {
                     const name = getTreasureRewardName(reward.reward_type, reward.reward_master_id)
                     return {
                         ...reward,
-                        name
+                        name,
+                        thumb: getItemThumbnail(reward.reward_master_id)
                     }
                 })
     }
@@ -90,6 +92,34 @@ const getTreasureChestData = (chestId) => {
         rarity_3_rate,
         rarity_3_rewards
     }
+}
+
+function getEnemyDropsDetails(drops) {
+    return drops.reduce((acc, drop) => {
+        const itemData = itemsData.find(itm => itm.id === drop.item_index)
+        if (itemData) {
+            acc.push({
+                ...drop,
+                name: getText("item_text", itemData.name),
+                thumb: getItemThumbnail(drop.item_index)
+            })
+        }
+        return acc;
+    }, [])
+}
+
+function getEnemyTreasureChestDetails(drops) {
+    return drops.reduce((acc, drop) => {
+        const treasureData = treasuresData.find(treasure => treasure.id === drop.item_index)
+        if (treasureData) {
+            const chestData = getTreasureChestData(drop.item_index)
+            acc.push({
+                ...drop,
+                ...chestData
+            })
+        }
+        return acc;
+    }, [])
 }
 
 // const enemies = enemiesData.map(enemy => {
@@ -251,10 +281,14 @@ const enemies = enemiesGroupedByNameAndType.map(enemyGroup => {
                     const Members = enemySet.Members
                         .filter(member => member.EnemyId === enemyVariant.enemy_id)
                         .map(member => {
+                            const dropsForCurrentMap = enemyVariant.drop_items.filter(drop => drop.content_id === mapId)
+                            const drop_items = getEnemyDropsDetails(dropsForCurrentMap)
+                            const treasureChests = getEnemyTreasureChestDetails(dropsForCurrentMap)
                             return {
                                 ...member,
                                 ...enemyVariant,
-                                drop_items: enemyVariant.drop_items.filter(drop => drop.content_id === mapId)
+                                drop_items,
+                                treasureChests
                             }
                         })
                     
@@ -282,7 +316,6 @@ const enemies = enemiesGroupedByNameAndType.map(enemyGroup => {
         entryTypes: ["Enemy"]
     }
 })
-
 
 function getMapIdFromHabitatName(name) {
     return name // "ES_dng009_Hard_Area_10"
