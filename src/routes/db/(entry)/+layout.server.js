@@ -6,5 +6,6 @@ export const load = async ({ params, url }) => {
     }
 
     const entries = await import(`../../kv/functions/${fileName}s.js`)
+    
     return entries.default.find(entry => entry.id === params.id)
 }

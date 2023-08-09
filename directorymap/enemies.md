@@ -18,6 +18,7 @@ elite monster respawn times etc `masterchallengequest.json`
 
 ### Naming conventions
 - E005_00_01_01001 (Pink Boarlet): `ENEMY[EnemyRace]_[MajorVariant]_[MinorVariant]_[EnemyInstanceId]`
+Major Variants have different models; Minor Variants have different materials
 
 ### Variables
 `is_boss`

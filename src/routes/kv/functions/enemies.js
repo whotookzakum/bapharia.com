@@ -149,7 +149,6 @@ const getTreasureChestData = (chestId) => {
 // })
 
 
-
 const resolveFileImportPromises = async (files) => {
     const data = await Promise.all(
         files.map(async (resolver) => {
@@ -159,24 +158,22 @@ const resolveFileImportPromises = async (files) => {
     )
     return data.flat()
 }
-const enemies = async () => {
+
+// Return all enemy habitats (spawn points for multiple enemies) from the client's Map files
+async function getAllEnemyHabitats() {
     const allMapFiles = import.meta.glob('../../../bp_client/japan/Content/Maps/**/**/sublevel/*_EN.json')
     const mapsData = await resolveFileImportPromises(Object.values(allMapFiles))
 
-
     const allEnemySetFiles = import.meta.glob('../../../bp_client/japan/Content/Blueprints/Manager/EnemySet/*.json')
     const enemySetsData = await resolveFileImportPromises(Object.values(allEnemySetFiles))
-
     const enemySets = enemySetsData.map(file => file.Properties.EnemySets).flat()
-
-
 
     const allEnemyHabitats =
         mapsData
             .filter(obj => obj.Type === "SBEnemyHabitat")
-            .map(({ Name, Properties }) => {
+            .map((habitat) => {
                 // Get the enemies that spawn at this habitat from Enemy Sets
-                const enemies = Properties.Enemies.map(enemy => {
+                const sets = habitat.Properties.Enemies.map(enemy => {
                     const enemySetData = enemySets.find(set => set.EnemySetId === enemy.EnemySetId)
 
                     return {
@@ -186,60 +183,113 @@ const enemies = async () => {
                 })
 
                 return {
-                    Name,
-                    enemies
+                    ...habitat,
+                    enemySets: sets
                 }
             })
 
     return allEnemyHabitats
-    // console.log(allEnemyHabitats)
 }
 
+const allEnemyHabitats = await getAllEnemyHabitats()
+
+// Flatten enemy habitats into one array of all enemy sets, adding the relevant habitat information to the enemy set
+const allEnemySets = allEnemyHabitats.map(habitat => {
+    const enemySetsWithHabitatData = habitat.enemySets.map(enemySet => {
+        return {
+            habitatName: habitat.Name,
+            habitatDensity: habitat.Properties.Density,
+            habitatRespawnTime: habitat.Properties.RespawnTime,
+            ...enemySet,
+            Members: enemySet.Members || [] // ES_fld001_N_Area_6_aa Members is empty
+        }
+    })
+    return enemySetsWithHabitatData
+}).flat()
+
+// Return all enemy sets that contain the enemy ID
+function getEnemySetsContainingEnemyId(enemyId) {
+    return allEnemySets
+        .filter(enemySet => enemySet.Members
+            .find(member => member.EnemyId === enemyId))
+}
+
+// Enemies are consolidated so that if they have the same name and same type (normal, named enemy, boss..), they will be grouped into one object
+const enemiesGroupedByNameAndType = enemiesData.reduce((acc, enemy) => {
+    let enemyTypeParentObj = acc.find(en => en.name_id === enemy.name_id && en.is_boss === enemy.is_boss)
+
+    if (!enemyTypeParentObj) {
+        acc.push({
+            id: enemy.enemy_id,
+            name_id: enemy.name_id,
+            is_boss: enemy.is_boss,
+            name: getText("enemyparam_text", enemy.name_id),
+            subcategoryName: getSubcategory(enemy.is_boss),
+            enemyVariantIds: [enemy.enemy_id],
+            enemyVariants: [enemy]
+        })
+    }
+    else {
+        enemyTypeParentObj.enemyVariantIds.push(enemy.enemy_id)
+        enemyTypeParentObj.enemyVariants.push(enemy)
+    }
+
+    return acc;
+}, [])
+
+// For each enemy group
+const enemies = enemiesGroupedByNameAndType.map(enemyGroup => {
+    // For each enemy variant in the enemy group
+    const spawnPoints = enemyGroup.enemyVariants.map(enemyVariant => {
+
+        const enemySets =
+            getEnemySetsContainingEnemyId(enemyVariant.enemy_id)
+                .map(enemySet => {
+
+                    const mapId = getMapIdFromHabitatName(enemySet.habitatName)
+
+                    const Members = enemySet.Members
+                        .filter(member => member.EnemyId === enemyVariant.enemy_id)
+                        .map(member => {
+                            return {
+                                ...member,
+                                ...enemyVariant,
+                                drop_items: enemyVariant.drop_items.filter(drop => drop.content_id === mapId)
+                            }
+                        })
+                    
+                    return {
+                        mapId,
+                        ...enemySet,
+                        Members
+                    }
+                })
+
+        return enemySets
+    }).flat()
+
+    const { name, subcategoryName, id, is_boss } = enemyGroup
+    const enemyIds = enemyGroup.enemyVariantIds
+
+    return {
+        id,
+        is_boss,
+        name,
+        subcategoryName,
+        enemyIds,
+        spawnPoints,
+        thumb: getThumbnail(),
+        entryTypes: ["Enemy"]
+    }
+})
 
 
-
-
-// const enemiesGroupedByNameAndType = enemiesData.reduce((acc, enemy) => {
-
-//     // Conditions: same name_id and same is_boss
-//     let enemyTypeParentObj = acc.find(en => en.name_id === enemy.name_id && en.is_boss === enemy.is_boss)
-
-//     if (!enemyTypeParentObj) {
-//         acc.push({
-//             name_id: enemy.name_id,
-//             is_boss: enemy.is_boss,
-//             id: enemy.enemy_id.slice(0, 10),
-//             name: getText("enemyparam_text", enemy.name_id),
-//             subcategoryName: getSubcategory(enemy.is_boss),
-//             enemyVariantIds: [enemy.enemy_id],
-//             enemyVariants: [enemy]
-//         })
-//     }
-//     else {
-//         enemyTypeParentObj.enemyVariantIds.push(enemy.enemy_id)
-//         enemyTypeParentObj.enemyVariants.push(enemy)
-//     }
-
-//     return acc;
-// }, [])
-
-
-
-
-// const enemies = Object.entries(enemiesGroupedByName).map(([name_id, enemyVariants]) => {
-
-//     const enemyVariantIds = enemyVariants.map(enemy => enemy.enemy_id)
-//     const name = getText("enemyparam_text", name_id)
-//     const id = enemyVariantIds[0].slice(0, 10)
-//     return {
-//         id,
-//         name,
-//         enemyVariantIds,
-//         enemyVariants,
-//         thumb: getThumbnail(),
-//         // subcategoryName: getSubcategory(enemy.is_boss),
-//     }
-// })
+function getMapIdFromHabitatName(name) {
+    return name // "ES_dng009_Hard_Area_10"
+        .split("ES_")
+        .pop() // "dng009_Hard_Area_10"
+        .split("_Area")[0] // "dng009_Hard"
+}
 
 function getThumbnail() {
     return `/UI/Icon/Class/UI_IconClass_Nodata.png`
@@ -271,4 +321,4 @@ function getSubcategory(category) {
     }
 }
 
-export default await enemies();
+export default enemies;
