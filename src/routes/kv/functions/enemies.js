@@ -2,11 +2,12 @@ import itemsData from "$bp_server/japan/items.json";
 import treasuresData from "$bp_server/japan/treasures.json";
 import enemiesData from "$bp_server/japan/enemyparams.json";
 import imagineData from "$bp_server/japan/imagine.json";
-import _ from "lodash";
 import { getMapData } from "./maps"
 import { getText } from "./utils";
 import adventureBoardsData from "$bp_server/japan/master_adventure_board.json"
 import liquidMemoriesData from "$bp_server/japan/liquid_memory.json";
+import groupBy from "lodash/groupBy"
+import { json } from "@sveltejs/kit";
 
 // TODO Treasure chest drops
 // TODO Spawn locations (client)
@@ -15,10 +16,10 @@ import liquidMemoriesData from "$bp_server/japan/liquid_memory.json";
 
 const getTreasureRewardName = (ns, id) => {
     switch (ns) {
-        case 3: 
+        case 3:
             const item = itemsData.find(i => i.id === id)
             return getText("item_text", item.name)
-        case 33: 
+        case 33:
             const imagine = imagineData.find(i => i.id === id)
             if (imagine) {
                 return getText("master_imagine_text", imagine.imagine_name)
@@ -28,10 +29,10 @@ const getTreasureRewardName = (ns, id) => {
                 // console.log("Could not find namespace for id " + id)
                 return { ja_JP: "Might be another chest", en_US: "Might be another chest" }
             }
-        case 15: 
+        case 15:
             const liqmem = liquidMemoriesData.find(i => i.id === id)
             return getText("master_liquid_memory_text", liqmem.efficacy_name)
-        case 28: 
+        case 28:
             const board = adventureBoardsData.find(i => i.id === id)
             return getText("master_adventure_boards_text", board.name)
     }
@@ -91,61 +92,154 @@ const getTreasureChestData = (chestId) => {
     }
 }
 
-const enemies = enemiesData.map(enemy => {
-    const name = getText("enemyparam_text", enemy.name_id)
-    let found_in = []
+// const enemies = enemiesData.map(enemy => {
+//     const name = getText("enemyparam_text", enemy.name_id)
+//     let found_in = []
 
-    // Spawn locations are found in client. Some enemies may spawn in a map but not drop anything.
+//     // Spawn locations are found in client. Some enemies may spawn in a map but not drop anything.
 
-    const allDrops =
-        enemy.drop_items
-            .map(drop => {
-                const item = itemsData.find(itm => itm.id === drop.item_index)
-                if (item) {
+//     const allDrops =
+//         enemy.drop_items
+//             .map(drop => {
+//                 const item = itemsData.find(itm => itm.id === drop.item_index)
+//                 if (item) {
+//                     return {
+//                         ...drop,
+//                         name: getText("item_text", item.name),
+//                         is_treasure_chest: false
+//                     }
+//                 }
+
+//                 const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
+//                 if (treasure) {
+//                     const chestData = getTreasureChestData(drop.item_index)
+//                     return {
+//                         ...drop,
+//                         name: { ja_JP: "宝箱", en_US: "Treasure Chest" },
+//                         is_treasure_chest: true,
+//                         ...chestData
+//                     }
+//                 }
+//             })
+
+//     if (allDrops.length > 0) {
+//         const dropsByLocation = groupBy(allDrops, (drop) => drop?.content_id)
+//         if (dropsByLocation) {
+//             found_in =
+//                 Object.entries(dropsByLocation)
+//                     .map(([mapId, drops]) => {
+//                         const mapData = getMapData(mapId)
+//                         return {
+//                             ...mapData,
+//                             drops
+//                         }
+//                     })
+//         }
+//     }
+
+//     return {
+//         ...enemy,
+//         id: enemy.enemy_id,
+//         name,
+//         found_in,
+//         thumb: getThumbnail(),
+//         subcategoryName: getSubcategory(enemy.is_boss),
+//         entryTypes: ["Enemy"]
+//     }
+// })
+
+
+
+const resolveFileImportPromises = async (files) => {
+    const data = await Promise.all(
+        files.map(async (resolver) => {
+            const resolvedData = await resolver()
+            return resolvedData.default
+        })
+    )
+    return data.flat()
+}
+const enemies = async () => {
+    const allMapFiles = import.meta.glob('../../../bp_client/japan/Content/Maps/**/**/sublevel/*_EN.json')
+    const mapsData = await resolveFileImportPromises(Object.values(allMapFiles))
+
+
+    const allEnemySetFiles = import.meta.glob('../../../bp_client/japan/Content/Blueprints/Manager/EnemySet/*.json')
+    const enemySetsData = await resolveFileImportPromises(Object.values(allEnemySetFiles))
+
+    const enemySets = enemySetsData.map(file => file.Properties.EnemySets).flat()
+
+
+
+    const allEnemyHabitats =
+        mapsData
+            .filter(obj => obj.Type === "SBEnemyHabitat")
+            .map(({ Name, Properties }) => {
+                // Get the enemies that spawn at this habitat from Enemy Sets
+                const enemies = Properties.Enemies.map(enemy => {
+                    const enemySetData = enemySets.find(set => set.EnemySetId === enemy.EnemySetId)
+
                     return {
-                        ...drop,
-                        name: getText("item_text", item.name),
-                        is_treasure_chest: false
+                        ...enemy,
+                        ...enemySetData
                     }
-                }
+                })
 
-                const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
-                if (treasure) {
-                    const chestData = getTreasureChestData(drop.item_index)
-                    return {
-                        ...drop,
-                        name: { ja_JP: "宝箱", en_US: "Treasure Chest" },
-                        is_treasure_chest: true,
-                        ...chestData
-                    }
+                return {
+                    Name,
+                    enemies
                 }
             })
 
-    if (allDrops.length > 0) {
-        const dropsByLocation = _.groupBy(allDrops, (drop) => drop?.content_id)
-        if (dropsByLocation) {
-            found_in =
-                Object.entries(dropsByLocation)
-                    .map(([mapId, drops]) => {
-                        const mapData = getMapData(mapId)
-                        return {
-                            ...mapData,
-                            drops
-                        }
-                    })
-        }
-    }
+    return allEnemyHabitats
+    // console.log(allEnemyHabitats)
+}
 
-    return {
-        ...enemy,
-        id: enemy.enemy_id,
-        name,
-        found_in,
-        thumb: getThumbnail(),
-        subcategoryName: getSubcategory(enemy.is_boss),
-        entryTypes: ["Enemy"]
-    }
-})
+
+
+
+
+// const enemiesGroupedByNameAndType = enemiesData.reduce((acc, enemy) => {
+
+//     // Conditions: same name_id and same is_boss
+//     let enemyTypeParentObj = acc.find(en => en.name_id === enemy.name_id && en.is_boss === enemy.is_boss)
+
+//     if (!enemyTypeParentObj) {
+//         acc.push({
+//             name_id: enemy.name_id,
+//             is_boss: enemy.is_boss,
+//             id: enemy.enemy_id.slice(0, 10),
+//             name: getText("enemyparam_text", enemy.name_id),
+//             subcategoryName: getSubcategory(enemy.is_boss),
+//             enemyVariantIds: [enemy.enemy_id],
+//             enemyVariants: [enemy]
+//         })
+//     }
+//     else {
+//         enemyTypeParentObj.enemyVariantIds.push(enemy.enemy_id)
+//         enemyTypeParentObj.enemyVariants.push(enemy)
+//     }
+
+//     return acc;
+// }, [])
+
+
+
+
+// const enemies = Object.entries(enemiesGroupedByName).map(([name_id, enemyVariants]) => {
+
+//     const enemyVariantIds = enemyVariants.map(enemy => enemy.enemy_id)
+//     const name = getText("enemyparam_text", name_id)
+//     const id = enemyVariantIds[0].slice(0, 10)
+//     return {
+//         id,
+//         name,
+//         enemyVariantIds,
+//         enemyVariants,
+//         thumb: getThumbnail(),
+//         // subcategoryName: getSubcategory(enemy.is_boss),
+//     }
+// })
 
 function getThumbnail() {
     return `/UI/Icon/Class/UI_IconClass_Nodata.png`
@@ -177,4 +271,4 @@ function getSubcategory(category) {
     }
 }
 
-export default enemies;
+export default await enemies();
