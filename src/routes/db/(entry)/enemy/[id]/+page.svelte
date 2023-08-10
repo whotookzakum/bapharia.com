@@ -85,7 +85,7 @@
         return `Lv. ${minLevel} ~ ${maxLevel}`;
     }
 
-    // TODO: Should habitats display other enemies as well? i.e. if a Goblin spawn point has Seashell Goblins in it, should the Seashell Goblins be shown as well?
+    // TODO: Should habitats display other enemies as well? i.e. if a Goblin spawn point has Seashell Goblins in it, should the Seashell Goblins be shown as well? Might be useful to know if a Lv 40 mob spawns in the same location as level 20 ones, though I think this is unlikely..
 </script>
 
 <select

@@ -2,7 +2,7 @@
     import { userLocale } from "$lib/stores";
     export let data;
 
-    // TODO: Memory unlock conditions
+    // TODO: Memory unlock conditions (link to the treasure chest on map/quest in db)
 </script>
 
 <h2 id="effects">Effects</h2>

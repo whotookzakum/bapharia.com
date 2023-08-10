@@ -146,6 +146,10 @@
 	.socials {
 		margin-block: 0.5rem;
 		align-items: center;
+
+		a:where(:hover, :focus-visible) {
+			filter: brightness(0.8);
+		}
 	}
 
 	.left-col {
