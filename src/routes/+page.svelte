@@ -231,7 +231,8 @@
 			margin: 0;
 		}
 
-		// .tagline {
+		.tagline {
+			color: var(--accent);
 		// 	font-size: 8rem;
 		// 	// font-size: 5rem;
 		// 	position: absolute;
@@ -249,6 +250,6 @@
 		// 	bottom: 0;
 		// 	right: -4rem;
 		// 	opacity: 0.05;
-		// }
+		}
 	}
 </style>

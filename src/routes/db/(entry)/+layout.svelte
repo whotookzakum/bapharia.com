@@ -99,19 +99,19 @@
         ja_JP: "レベル",
         en_US: "Level",
     };
+
+    // TODO: Back button should take you "BACK" if your previous page was the DB, so your search params will still be applied; if you came from another page, it will take you to /db
 </script>
 
 <MetaTags title="{data.name[$userLocale]} — Bapharia" />
 
 <div class="entry-details grid">
-    <a href="/db" class="btn btn-fadein">Back to Search</a>
+    <a href="/db" class="back-button btn btn-fadein">🡠 Back to Search</a>
     <header>
         <span class="category-name">{data.subcategoryName[$userLocale]}</span>
         <h1>{data.name[$userLocale]}</h1>
         <!-- <hr style="background: var(--surface1)"> -->
         <div class="header-extras flex">
-            
-
             {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
                 <div class="grid g-25">
                     <span style="order: 2">{LEVEL_TEXT[$userLocale]}</span>
@@ -193,6 +193,16 @@
 </div>
 
 <style lang="scss">
+    .back-button {
+        font-size: var(--step-0); 
+        color: var(--text2);
+        // border-radius: 5px;
+
+        &:where(:hover, :focus-visible) {
+            color: var(--text1);
+        }
+    }
+
     .entry-details {
         width: 100%;
         max-width: 900px;
@@ -208,10 +218,6 @@
 
     :global(.entry-details h2:not(:first-of-type)) {
         margin-top: 3rem;
-    }
-
-    a {
-        border-radius: 5px;
     }
 
     header {
