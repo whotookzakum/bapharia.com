@@ -104,7 +104,10 @@
 
 <section id="what-is-bapharia" class="bg-bleed centered-section">
 	<h2>What is Bapharia?</h2>
-	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis ipsum itaque cum nam, sit sapiente dolor expedita alias? Laudantium magnam repellendus nemo sequi, distinctio consequatur adipisci ad dicta sed.</p>
+	<p>Bapharia lends its name from the mysterious religious group in Regnas, which has a shrine at the peak of Asterleeds.</p>
+	<!-- <p>バファリアの名は、アステルリーズの街の端に神殿を構える、謎に包まれた宗教に由来する。</p> -->
+	<p>This site is dedicated to providing BLUE PROTOCOL players with thorough guides and tools to assist them in their journey.</p>
+	<h3 class="tagline">貴公らの旅に幸運があらんことを。</h3>
 </section>
 
 <style lang="scss">
@@ -216,5 +219,36 @@
 				}
 			}
 		}
+	}
+
+	// BAPHARIA EXPLANATION ==================================
+	#what-is-bapharia {
+		position: relative;
+		// overflow: hidden;
+		padding-inline: 1rem;
+
+		h2 {
+			margin: 0;
+		}
+
+		// .tagline {
+		// 	font-size: 8rem;
+		// 	// font-size: 5rem;
+		// 	position: absolute;
+		// 	inset: 0;
+		// 	z-index: 1;
+		// 	line-height: 1.2;
+		// 	margin: 0;
+		// 	opacity: 0.05;
+
+
+
+		// 	font-size: 5rem;
+		// 	position: absolute;
+		// 	inset: unset;
+		// 	bottom: 0;
+		// 	right: -4rem;
+		// 	opacity: 0.05;
+		// }
 	}
 </style>

@@ -2,9 +2,10 @@
 	import { userLocale } from "$lib/stores";
 	import Icon from "@iconify/svelte";
 	import links from "./navigation/links.json";
+	import { page } from "$app/stores";
 </script>
 
-<footer class="page-footer grid g-25">
+<footer class="page-footer grid g-25" class:top-margin={$page.url.pathname !== "/"}>
 	<nav class="footer-contents grid">
 		<div class="left-col grid g-50">
 			<a href="/" class="home-link flex g-50 styled-link">
@@ -106,6 +107,9 @@
 	.page-footer {
 		border-top: 1px solid var(--surface2);
 		background: var(--surface1);
+	}
+
+	.top-margin {
 		margin-top: var(--space-2xl);
 	}
 
