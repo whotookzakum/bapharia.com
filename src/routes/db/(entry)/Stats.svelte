@@ -311,8 +311,10 @@
             {/each}
         {/if}
     </dl>
-    <hr>
-    <small>Negative resistance indicates that the enemy is weak against that category.</small>
+    {#if data.appearance}
+        <hr>
+        <small>Negative resistance indicates that the enemy is weak against that category.</small>
+    {/if}
 </div>
 
 <style lang="scss">
