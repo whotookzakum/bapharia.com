@@ -42,7 +42,8 @@ export const markersVisibility = writable({
     "Raid Entrance": true,
     "Camp": true,
     "Dungeon Entrance": true,
-    "Elite Monster": true
+    "Elite Monster": true,
+    "Enemy": true
 })
 
 export const mapState = writable({

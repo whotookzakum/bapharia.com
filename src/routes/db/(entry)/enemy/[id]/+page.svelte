@@ -5,7 +5,7 @@
     import uniqBy from "lodash/uniqBy";
     import isEqual from "lodash/isEqual";
     import { userLocale } from "$lib/stores";
-    import maps from "../../../../map/[zone]/maps.json"
+    import maps from "../../../../map/[zone]/maps.json";
 
     export let data;
 
@@ -17,13 +17,15 @@
     let selectedMap =
         $page.url.searchParams.get("map") || uniqueMapsContainingEnemy[0];
 
-    $: membersInSelectedMap = data.spawnPoints
-        .reduce((acc, spawnPoint) => {
-            if (spawnPoint.mapId === selectedMap) {
-                acc.push(spawnPoint.Members);
-            }
-            return acc;
-        }, [])
+    $: spawnPointsInSelectedMap = data.spawnPoints.reduce((acc, spawnPoint) => {
+        if (spawnPoint.mapId === selectedMap) {
+            acc.push(spawnPoint);
+        }
+        return acc;
+    }, []);
+
+    $: membersInSelectedMap = spawnPointsInSelectedMap
+        .map((spawnPoint) => spawnPoint.Members)
         .flat();
 
     // If the SpawnPoint's Enemies' Drop Rates are unique, then push the entire Spawn Point
@@ -61,12 +63,29 @@
         });
     }
 
-    const allZones = maps.map(map => map.zones).filter(map => map).flat()
+    const allZones = maps
+        .map((map) => map.zones)
+        .filter((map) => map)
+        .flat();
 
     function getZoneName(mapId) {
-        const zoneData = allZones.find(zone => zone.map_id.toLowerCase() === mapId.toLowerCase())
-        return zoneData.name
+        const zoneData = allZones.find(
+            (zone) => zone.map_id.toLowerCase() === mapId.toLowerCase()
+        );
+        return zoneData.name;
     }
+
+    function getMinMaxLevels(members) {
+        const maxLevel = members
+            .map((member) => member.MaxLv)
+            .reduce((acc, level) => Math.max(acc, level));
+        const minLevel = members
+            .map((member) => member.MinLv)
+            .reduce((acc, level) => Math.min(acc, level));
+        return `Lv. ${minLevel} ~ ${maxLevel}`;
+    }
+
+    // TODO: Should habitats display other enemies as well? i.e. if a Goblin spawn point has Seashell Goblins in it, should the Seashell Goblins be shown as well?
 </script>
 
 <select
@@ -79,13 +98,17 @@
     {/each}
 </select>
 <!-- <hr /> -->
-<p style="font-size: var(--step-0); color: var(--text2)">Enemies are sorted based on map. The same enemy on different maps can have different drops and stats.</p>
-
+<p style="font-size: var(--step-0); color: var(--text2)">
+    Enemies are sorted based on map. The same enemy on different maps can have
+    different drops and stats.
+</p>
 
 {#each uniqueEnemies as member}
     <h2>
         {data.name[$userLocale]}
-        <span style="font-size: var(--step-2)">(Lv. {member.MinLv} ~ {member.MaxLv})</span>
+        <span style="font-size: var(--step-2)"
+            >(Lv. {member.MinLv} ~ {member.MaxLv})</span
+        >
     </h2>
 
     <div class="member-details flex">
@@ -170,7 +193,30 @@
         </div>
     </div>
 
-    <!-- Should be h3 here not h2 -->
+    <h3>Spawn points</h3>
+    <ul class="spawn-points unstyled-list">
+        {#each spawnPointsInSelectedMap as spawnPoint}
+            <li class="grid box">
+                <strong>{getMinMaxLevels(spawnPoint.Members)}</strong>
+                <!-- <p style="color: var(--text2); font-size: var(--step--1);">{spawnPoint.habitatName}</p> -->
+                <p>
+                    Spawn density: {spawnPoint.habitatDensity}
+                </p>
+                <p>
+                    Respawn time: {spawnPoint.habitatRespawnTime}
+                </p>
+                <a
+                    class="styled-link"
+                    style:color="var(--link)"
+                    href="/map/{selectedMap
+                        .replace('fld', 'Fld')
+                        .replace('cty', 'Cty')
+                        .split('_')[0]}?marker={spawnPoint.habitatName}"
+                    >View on map</a
+                >
+            </li>
+        {/each}
+    </ul>
 {/each}
 
 <style lang="scss">
@@ -184,21 +230,12 @@
         }
     }
 
-    .chest-rewards {
-        gap: 1rem;
-        flex-wrap: wrap;
+    .spawn-points {
+        grid-template-columns: repeat(auto-fill, minmax(22ch, 1fr));
+        font-size: var(--step-0);
 
-        & > div {
-            flex: 1;
-            flex-basis: 30ch;
-        }
-    }
-
-    .chest-drops-header {
-        align-items: center;
-        margin-block: 3rem 1rem;
-
-        h4 {
+        p {
+            font-size: inherit;
             margin: 0;
         }
     }
