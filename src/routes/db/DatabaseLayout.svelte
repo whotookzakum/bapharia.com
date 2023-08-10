@@ -31,12 +31,4 @@
         gap: 1rem;
         flex-basis: 70ch;
     }
-
-    .entry-details {
-        flex: 1;
-        // border: 1px solid pink;
-        // max-width: 900px;
-        margin: auto;
-    }
-
 </style>

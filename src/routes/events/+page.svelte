@@ -28,7 +28,7 @@
                 <div class="date">{day}</div>
             </label>
             {#if index === 0}
-            <ul class="unstyled-list g-25" style="grid-column: 1/8; grid-template-columns: subgrid">
+            <ul class="unstyled-list g-25" style="grid-column: 1/8; grid-template-columns: subgrid" role="list">
                 <li class="item time-attack" style="grid-column: 1/8">Time Attack: Dragon Claw Valley</li>
                 <li class="item" style="grid-column: 2/4">Event 1</li>
                 <li class="item" style="grid-column: 6/8">Event 2</li>
@@ -45,10 +45,6 @@
 <style lang="scss">
     .calendar-wrapper {
         background: var(--surface1);
-    }
-
-    .different-month {
-        color: var(--text2);
     }
 
     .week {
@@ -81,11 +77,12 @@
         padding: 0.25rem 0.5rem;
     }
 
-    .event {
-        background: green;
-    }
+    // .event {
+    //     background: green;
+    // }
 
-    .time-attack, .score-attack {
+    // .score-attack,
+    .time-attack {
         background: crimson;
     }
 

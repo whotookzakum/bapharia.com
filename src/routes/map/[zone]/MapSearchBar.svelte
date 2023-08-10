@@ -108,10 +108,6 @@
         }
     }
 
-    .panel {
-        padding-top: 0;
-    }
-
     label {
         place-content: center;
         height: 100%;

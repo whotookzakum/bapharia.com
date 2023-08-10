@@ -8,6 +8,12 @@ import rehypeToc from "@jsdevtools/rehype-toc";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	onwarn: (warning, handler) => {
+		if (warning.code === "a11y-no-redundant-roles") {
+			return
+		}
+		handler(warning)
+	},
 	extensions: ['.svelte', '.md', '.mdx', '.svx'],
 	preprocess: [
 		vitePreprocess(),

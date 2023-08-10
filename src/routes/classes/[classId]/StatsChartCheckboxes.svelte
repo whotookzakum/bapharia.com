@@ -21,7 +21,7 @@
     }, []);
 </script>
 
-<ul class="unstyled-list g-50">
+<ul class="unstyled-list g-50" role="list">
     {#each classes as job}
         <li>
             <input

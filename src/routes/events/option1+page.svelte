@@ -26,7 +26,7 @@
             <input class="visually-hidden" type="radio" name="calendar" id="july-{day}" checked={day === new Date().getDate()} />
             <label for="july-{day}" class="day box hover grid g-25" style="grid-column: {index+1}">
                 <div class="date">{day}</div>
-                <ul class="unstyled-list g-25">
+                <ul class="unstyled-list g-25" role="list">
                     <li class="item time-attack">Time Attack: Dragon Claw Valley</li>
                     <li class="item">Time Attack: Dragon Claw Valley</li>
                     <li class="item">Time Attack: Dragon Claw Valley</li>

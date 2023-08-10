@@ -11,7 +11,7 @@
         </h2>
     </header>
 
-    <ul class="unstyled-list grid">
+    <ul class="unstyled-list grid" role="list">
         {#each dungeon.rewards as reward}
             {#if !reward.reward_id.includes("EXP") && !reward.reward_id.includes("LUNO")}
                 <li class="box" class:huge={reward.lotteryWithRewards?.length > 4}>
@@ -48,10 +48,6 @@
 
     .box {
         border-radius: 5px;
-    }
-
-    header .component-label {
-        font-size: var(--step-2);
     }
 
     ul {

@@ -6,7 +6,7 @@
 </script>
 
 <h2 id="effects">Effects</h2>
-<ol class="unstyled-list">
+<ol class="unstyled-list" role="list">
     {#each data.efficacy_parameters as level}
         <li class="box">
             {#each Array(level.level) as _}

@@ -15,7 +15,7 @@
 <div class="skill grid g-50">
     <SkillHeader {skill} />
 
-    <dl class="unstyled-list skill-grade-descriptions" style:gap="0">
+    <dl class="unstyled-list skill-grade-descriptions" style:gap="0" role="list">
         {#each skill.skill_mastery_param as skillLevel, index}
             <SkillGrade
                 grade={skillLevel.level}

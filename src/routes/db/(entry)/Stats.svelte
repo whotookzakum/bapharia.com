@@ -247,7 +247,7 @@
         <hr />
     </div>
 
-    <dl class="unstyled-list g-25" class:not-max={isLevelSynced}>
+    <dl class="unstyled-list g-25" class:not-max={isLevelSynced} role="list">
         {#each ["attribute_value", "skill"] as stat}
             {#if currentLevelStats[stat]}
                 <div class="row">

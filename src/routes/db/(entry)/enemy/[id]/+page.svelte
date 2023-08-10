@@ -114,7 +114,7 @@
     <div class="member-details flex">
         <div>
             <h3>Drops</h3>
-            <ul class="unstyled-list">
+            <ul class="unstyled-list" role="list">
                 {#each member.drop_items as drop}
                     <Item
                         name={drop.name}
@@ -194,7 +194,7 @@
     </div>
 
     <h3>Spawn points</h3>
-    <ul class="spawn-points unstyled-list">
+    <ul class="spawn-points unstyled-list" role="list">
         {#each spawnPointsInSelectedMap as spawnPoint}
             <li class="grid box">
                 <strong>{getMinMaxLevels(spawnPoint.Members)}</strong>

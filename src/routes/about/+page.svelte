@@ -76,7 +76,7 @@
 	<hr />
 	<div class="grid g-50">
 		<h3 style:font-size="var(--step-1)">Referenced Material</h3>
-		<ul class="unstyled-list flex g-50">
+		<ul class="unstyled-list flex g-50" role="list">
 			{#each references as reference}
 				<li>
 					<a

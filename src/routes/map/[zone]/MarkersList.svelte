@@ -51,7 +51,7 @@
             >
         </div>
     </div>
-    <ul class="unstyled-list markers-list grid g-50 {viewType}">
+    <ul class="unstyled-list markers-list grid g-50 {viewType}" role="list">
         {#each getMarkers(category) as marker}
             <li>
                 <MarkerToggle name={marker.name} icon={marker.iconUrl} />

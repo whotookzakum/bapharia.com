@@ -2,17 +2,11 @@ import itemsData from "$bp_server/japan/items.json";
 import treasuresData from "$bp_server/japan/treasures.json";
 import enemiesData from "$bp_server/japan/enemyparams.json";
 import imagineData from "$bp_server/japan/imagine.json";
-import { getMapData } from "./maps"
 import { getText } from "./utils";
 import adventureBoardsData from "$bp_server/japan/master_adventure_board.json"
 import liquidMemoriesData from "$bp_server/japan/liquid_memory.json";
-import groupBy from "lodash/groupBy"
-import { json } from "@sveltejs/kit";
 import { getItemThumbnail } from "./items";
 
-// TODO Treasure chest drops
-// TODO Spawn locations (client)
-// TODO Stats (if possible) elemental weakness etc
 // TODO 3d models
 
 const getTreasureRewardName = (ns, id) => {
@@ -121,63 +115,6 @@ function getEnemyTreasureChestDetails(drops) {
         return acc;
     }, [])
 }
-
-// const enemies = enemiesData.map(enemy => {
-//     const name = getText("enemyparam_text", enemy.name_id)
-//     let found_in = []
-
-//     // Spawn locations are found in client. Some enemies may spawn in a map but not drop anything.
-
-//     const allDrops =
-//         enemy.drop_items
-//             .map(drop => {
-//                 const item = itemsData.find(itm => itm.id === drop.item_index)
-//                 if (item) {
-//                     return {
-//                         ...drop,
-//                         name: getText("item_text", item.name),
-//                         is_treasure_chest: false
-//                     }
-//                 }
-
-//                 const treasure = treasuresData.find(treasure => treasure.id === drop.item_index)
-//                 if (treasure) {
-//                     const chestData = getTreasureChestData(drop.item_index)
-//                     return {
-//                         ...drop,
-//                         name: { ja_JP: "宝箱", en_US: "Treasure Chest" },
-//                         is_treasure_chest: true,
-//                         ...chestData
-//                     }
-//                 }
-//             })
-
-//     if (allDrops.length > 0) {
-//         const dropsByLocation = groupBy(allDrops, (drop) => drop?.content_id)
-//         if (dropsByLocation) {
-//             found_in =
-//                 Object.entries(dropsByLocation)
-//                     .map(([mapId, drops]) => {
-//                         const mapData = getMapData(mapId)
-//                         return {
-//                             ...mapData,
-//                             drops
-//                         }
-//                     })
-//         }
-//     }
-
-//     return {
-//         ...enemy,
-//         id: enemy.enemy_id,
-//         name,
-//         found_in,
-//         thumb: getThumbnail(),
-//         subcategoryName: getSubcategory(enemy.is_boss),
-//         entryTypes: ["Enemy"]
-//     }
-// })
-
 
 const resolveFileImportPromises = async (files) => {
     const data = await Promise.all(

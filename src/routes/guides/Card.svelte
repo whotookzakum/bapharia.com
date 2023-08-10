@@ -94,35 +94,35 @@
 		}
 	}
 
-	label.favorite {
-		position: absolute;
-		z-index: 1;
-		bottom: 0.5rem;
-		right: 0.5rem;
-		background: none;
-		border: 0;
-		color: rgb(255, 255, 255, 0.4);
-		transition: all 0.1s ease-in-out;
+	// label.favorite {
+	// 	position: absolute;
+	// 	z-index: 1;
+	// 	bottom: 0.5rem;
+	// 	right: 0.5rem;
+	// 	background: none;
+	// 	border: 0;
+	// 	color: rgb(255, 255, 255, 0.4);
+	// 	transition: all 0.1s ease-in-out;
 
-		span {
-			display: flex;
-			filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 1));
-		}
+	// 	span {
+	// 		display: flex;
+	// 		filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 1));
+	// 	}
 
-		&:hover,
-		input:focus-visible + span,
-		input:checked + span {
-			color: #8d1144;
-		}
+	// 	&:hover,
+	// 	input:focus-visible + span,
+	// 	input:checked + span {
+	// 		color: #8d1144;
+	// 	}
 
-		&:active {
-			transform: scale(0.9) !important;
-		}
+	// 	&:active {
+	// 		transform: scale(0.9) !important;
+	// 	}
 
-		input:focus-visible + span {
-			outline: 2px solid var(--accent);
-		}
-	}
+	// 	input:focus-visible + span {
+	// 		outline: 2px solid var(--accent);
+	// 	}
+	// }
 
 	.card:has(:focus-visible) {
 		outline: 2px solid var(--accent);

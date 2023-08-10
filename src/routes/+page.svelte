@@ -25,7 +25,7 @@
 	<div class="unbleed">
 		<h2 style="margin-bottom: 1rem">Featured</h2>
 		<small>The lastest uploads from our partners are featured here.</small>
-		<ol class="unstyled-list featured-videos-grid grid">
+		<ol class="unstyled-list featured-videos-grid grid" role="list">
 			<li>
 				<Video title="" id="SEuQJGsSCWA" bleed radius="0.5rem" />
 			</li>
