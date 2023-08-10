@@ -1,9 +1,10 @@
+// TODO: paragraph font-weight: 300 on dark mode
 .three-column {
     --text-width: 38rem; // roughly 55ch
     --bleed-width: 56.25rem; // 900px
     --toc-width: 350px;
     --guides-list-width: 250px;
-    grid-template-columns: var(--guides-list-width) 1fr var(--toc-width);
+    grid-template-columns: var(--guides-list-width) 1fr var(--toc-width) !important;
     align-items: start;
 
     .hero-banner {
@@ -81,7 +82,7 @@
 @media (max-width: 900px) {
     .three-column {
         --guides-list-width: 0;
-        grid-template-columns: 1fr min(calc(100% - 2rem), 38rem) 1fr;
+        grid-template-columns: 1fr min(calc(100% - 2rem), 38rem) 1fr !important;
 
         article {
             grid-row: 3;
@@ -132,7 +133,7 @@
 }
 
 .pages-list {
-    grid-column: 1;
+    grid-column: 1 !important;
     position: sticky;
     max-width: 250px;
     top: 62px;
@@ -151,7 +152,7 @@
 
 @media (max-width: 900px) {
     .pages-list {
-        grid-column: 2;
+        grid-column: 2 !important;
         grid-row: 2;
         position: initial;
 

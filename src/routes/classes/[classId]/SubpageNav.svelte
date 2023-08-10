@@ -38,14 +38,15 @@
 
 <style lang="scss">
     .subpages-nav {
-        font-size: var(--step-1);
+        font-size: clamp(var(--step--1), 3vw, var(--step-1));
+        // font-size: var(--step-1);
         // padding-top: 1rem;
         margin-top: 1rem;
         position: sticky;
         top: calc(62px + 1rem);
         justify-content: space-between;
         gap: 0;
-        background: var(--surface1);
+        background: var(--surface2);
         overflow: hidden;
         z-index: 10;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
@@ -71,7 +72,7 @@
     }
 
     .slider {
-        background: var(--surface2);
+        background: var(--surface3);
         width: 33.3333%;
         height: 100%;
         position: absolute;

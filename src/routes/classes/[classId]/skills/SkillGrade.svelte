@@ -95,5 +95,9 @@
         dt .hidden {
             opacity: unset;
         }
+
+        dt {
+            display: flex;
+        }
     }
 </style>
