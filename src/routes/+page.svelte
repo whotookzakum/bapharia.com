@@ -102,6 +102,11 @@
 	</div>
 </section>
 
+<section id="what-is-bapharia" class="bg-bleed centered-section">
+	<h2>What is Bapharia?</h2>
+	<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non veritatis ipsum itaque cum nam, sit sapiente dolor expedita alias? Laudantium magnam repellendus nemo sequi, distinctio consequatur adipisci ad dicta sed.</p>
+</section>
+
 <style lang="scss">
 	.hero-tagline {
 		font-size: var(--step-4);
