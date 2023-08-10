@@ -104,9 +104,14 @@
 <MetaTags title="{data.name[$userLocale]} — Bapharia" />
 
 <div class="entry-details grid">
+    <a href="/db" class="btn btn-fadein">Back to Search</a>
     <header>
+        <span class="category-name">{data.subcategoryName[$userLocale]}</span>
         <h1>{data.name[$userLocale]}</h1>
+        <!-- <hr style="background: var(--surface1)"> -->
         <div class="header-extras flex">
+            
+
             {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
                 <div class="grid g-25">
                     <span style="order: 2">{LEVEL_TEXT[$userLocale]}</span>
@@ -192,29 +197,42 @@
         width: 100%;
         max-width: 900px;
         margin: auto;
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 1150px) {
+        .entry-details {
+            margin-top: calc(1rem + 62px);
+        }
     }
 
     :global(.entry-details h2:not(:first-of-type)) {
         margin-top: 3rem;
     }
 
-    header {
-        display: flex; // grid or flex
-        gap: 1rem;
-        align-items: center;
-        margin-top: 1rem;
-        justify-content: space-between;
-        flex-wrap: wrap;
+    a {
+        border-radius: 5px;
     }
 
-    @media (max-width: 1150px) {
-        header {
-            margin-top: calc(1rem + 62px);
-        }
+    header {
+        margin-top: 1.5rem;
+    }
+
+    h1 {
+        margin-bottom: -0.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--surface1);
+        line-height: 1.3;
+    }
+
+    .category-name {
+        font-size: var(--step-2);
+        color: var(--text2);
     }
 
     .header-extras {
         align-items: center;
+        margin-block: 1.75rem 1rem;
 
         .level {
             font-weight: 800;

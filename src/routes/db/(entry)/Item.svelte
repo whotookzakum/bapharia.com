@@ -7,30 +7,39 @@
     export let source = "";
     export let href = "";
     export let isLuno = false;
+    export let chest = "";
 
     if (isLuno) {
         name = {
             ja_JP: "ルーノ",
-            en_US: "Luno"
-        }
-        thumb = "/UI/Icon/Reward/UI_Icon_0.png"
-        href = "/db"
+            en_US: "Luno",
+        };
+        thumb = "/UI/Icon/Reward/UI_Icon_0.png";
+        href = "/db";
     }
 </script>
 
-<li class="flex box">
+<li class="flex box" class:gold={chest}>
     <div class="thumbnail-wrapper">
         <img src={thumb} alt="" width="64" height="64" loading="lazy" />
-        <span class="floaty" class:luno={isLuno}>{number.toLocaleString()}</span>
+        <span class="floaty" class:luno={isLuno}>{number.toLocaleString()}</span
+        >
     </div>
     <div class="grid">
-        <a {href} class="item-name styled-link"
-            >{name[$userLocale]}</a
-        >
+        <a {href} class="item-name styled-link">{name[$userLocale]}</a>
         {#if source}
             <span class="item-source">{source[$userLocale]}</span>
         {/if}
     </div>
+    {#if chest}
+        <img
+            class={chest}
+            src="/images/{chest}.png"
+            alt={chest}
+            width="128"
+            height="128"
+        />
+    {/if}
 </li>
 
 <style lang="scss">
@@ -76,5 +85,31 @@
             bottom: -10px;
             top: unset;
         }
+    }
+
+    .gold {
+        color: goldenrod;
+        // outline: 1px solid goldenrod;
+    }
+
+    .goldchest,
+    .normalchest {
+        position: absolute;
+        opacity: 0.6;
+        filter: drop-shadow(0 2px 2px black);
+        z-index: -1;
+    }
+
+    .normalchest {
+        right: -30px;
+        bottom: -25px;
+    }
+
+    .goldchest {
+        width: 144px;
+        right: -38px;
+        height: auto;
+        bottom: unset;
+        bottom: -35px;
     }
 </style>

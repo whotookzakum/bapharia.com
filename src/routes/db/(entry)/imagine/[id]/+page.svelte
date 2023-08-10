@@ -5,7 +5,9 @@
 
 <GeneralInfo {data} />
 
-<Recipe recipe={data.recipe} />
+{#if data.recipe}
+    <Recipe recipe={data.recipe} />
+{/if}
 
 <Abilities abilities={data.abilities} itemType={data.entryTypes[0]} />
 
