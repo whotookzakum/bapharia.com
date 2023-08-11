@@ -8,43 +8,45 @@
     import maps from "../../../../map/[zone]/maps.json";
 
     export let data;
-    console.log(data.enemyVariants)
-    
-    let uniqueMapsContainingEnemy = 
-        uniqBy(data.enemyVariants, (variant) => variant.mapId)
-        .map(uniqueMap => uniqueMap.mapId)
 
-    // let uniqueMapsContainingEnemy = uniqBy(
-    //     data.spawnPoints,
-    //     (spawnPoint) => spawnPoint.mapId
-    // ).map((spawnPoint) => spawnPoint.mapId);
+    let uniqueMapsContainingEnemy = uniqBy(
+        data.spawnPoints,
+        (spawnPoint) => spawnPoint.mapId
+    ).map((spawnPoint) => spawnPoint.mapId);
 
     let selectedMap =
         $page.url.searchParams.get("map") || uniqueMapsContainingEnemy[0];
 
-    $: enemiesInSelectedMap = data.enemyVariants.filter(variant => variant.mapId === selectedMap)
+    $: spawnPointsInSelectedMap = data.spawnPoints.reduce((acc, spawnPoint) => {
+        if (spawnPoint.mapId === selectedMap) {
+            acc.push(spawnPoint);
+        }
+        return acc;
+    }, []);
 
-    $: console.log(enemiesInSelectedMap)
+    $: membersInSelectedMap = spawnPointsInSelectedMap
+        .map((spawnPoint) => spawnPoint.Members)
+        .flat();
 
     // If the SpawnPoint's Enemies' Drop Rates are unique, then push the entire Spawn Point
-    $: uniqueEnemies = enemiesInSelectedMap.reduce((acc, enemy) => {
+    $: uniqueEnemies = membersInSelectedMap.reduce((acc, member) => {
         if (acc.length < 1) {
-            acc.push(enemy);
+            acc.push(member);
         } else {
-            acc.forEach((includedEnemy) => {
-                // If this enemy's drop_items array is unique, include this enemy
-                if (!isEqual(includedEnemy.drop_items, enemy.drop_items)) {
-                    acc.push(enemy);
+            acc.forEach((includedMember) => {
+                // If the drop_items array is unique, include this member
+                if (!isEqual(includedMember.drop_items, member.drop_items)) {
+                    acc.push(member);
                 }
                 // Get the lowest Min Lv and highest Max Lv between all the spawn points
                 else {
-                    includedEnemy.MaxLv = Math.max(
-                        includedEnemy.MaxLv,
-                        enemy.MaxLv
+                    includedMember.MaxLv = Math.max(
+                        includedMember.MaxLv,
+                        member.MaxLv
                     );
-                    includedEnemy.MinLv = Math.min(
-                        includedEnemy.MinLv,
-                        enemy.MinLv
+                    includedMember.MinLv = Math.min(
+                        includedMember.MinLv,
+                        member.MinLv
                     );
                 }
             });
@@ -70,43 +72,42 @@
         const zoneData = allZones.find(
             (zone) => zone.map_id.toLowerCase() === mapId.toLowerCase()
         );
-        return zoneData?.name || { ja_JP: mapId, en_US: mapId };
+        return zoneData.name;
     }
 
-    // function getMinMaxLevels(members) {
-    //     const maxLevel = members
-    //         .map((member) => member.MaxLv)
-    //         .reduce((acc, level) => Math.max(acc, level));
-    //     const minLevel = members
-    //         .map((member) => member.MinLv)
-    //         .reduce((acc, level) => Math.min(acc, level));
-    //     return `Lv. ${minLevel} ~ ${maxLevel}`;
-    // }
+    function getMinMaxLevels(members) {
+        const maxLevel = members
+            .map((member) => member.MaxLv)
+            .reduce((acc, level) => Math.max(acc, level));
+        const minLevel = members
+            .map((member) => member.MinLv)
+            .reduce((acc, level) => Math.min(acc, level));
+        return `Lv. ${minLevel} ~ ${maxLevel}`;
+    }
 
     // TODO: Should habitats display other enemies as well? i.e. if a Goblin spawn point has Seashell Goblins in it, should the Seashell Goblins be shown as well? Might be useful to know if a Lv 40 mob spawns in the same location as level 20 ones, though I think this is unlikely..
 </script>
-
 
 <select
     class="box hover"
     bind:value={selectedMap}
     on:input={(e) => updateSearchParams(e.target.value)}
 >
-    {#each uniqueMapsContainingEnemy as map}
+    {#each uniqueMapsContainingEnemy as map, index}
         <option value={map}>{getZoneName(map)[$userLocale]}</option>
     {/each}
 </select>
-
+<!-- <hr /> -->
 <p style="font-size: var(--step-0); color: var(--text2)">
     Enemies are sorted based on map. The same enemy on different maps can have
     different drops and stats.
 </p>
 
-{#each uniqueEnemies as enemy}
+{#each uniqueEnemies as member}
     <h2>
         {data.name[$userLocale]}
         <span style="font-size: var(--step-2)"
-            >(Lv. {enemy.MinLv} ~ {enemy.MaxLv})</span
+            >(Lv. {member.MinLv} ~ {member.MaxLv})</span
         >
     </h2>
 
@@ -114,7 +115,7 @@
         <div>
             <h3>Drops</h3>
             <ul class="unstyled-list" role="list">
-                {#each enemy.drop_items as drop}
+                {#each member.drop_items as drop}
                     <Item
                         name={drop.name}
                         thumb={drop.thumb}
@@ -123,7 +124,7 @@
                     />
                 {/each}
 
-                {#each enemy.treasureChests as treasures}
+                {#each member.treasureChests as treasures}
                     {#if treasures.rarity_1_rewards}
                         {#each treasures.rarity_1_rewards as normalTreasure}
                             <Item
@@ -185,7 +186,7 @@
         </div>
         <div>
             <Stats
-                data={{ ...enemy, entryTypes: ["Enemy"] }}
+                data={{ ...member, entryTypes: ["Enemy"] }}
                 style="max-width: unset; flex: 1; flex-basis: 30ch;"
                 h3
             />
@@ -194,28 +195,26 @@
 
     <h3>Spawn points</h3>
     <ul class="spawn-points unstyled-list" role="list">
-        {#each enemiesInSelectedMap as enemy}
-            {#each enemy.habitats as habitat}
-                <li class="grid box">
-                    <!-- <strong>{getMinMaxLevels(spawnPoint.Members)}</strong> -->
-                    <p style="color: var(--text2); font-size: var(--step--1);">{habitat.Name}</p>
-                    <p>
-                        Spawn density: {habitat.Density}
-                    </p>
-                    <p>
-                        Respawn time: {habitat.RespawnTime}
-                    </p>
-                    <a
-                        class="styled-link"
-                        style:color="var(--link)"
-                        href="/map/{selectedMap
-                            .replace('fld', 'Fld')
-                            .replace('cty', 'Cty')
-                            .split('_')[0]}?marker={habitat.Name}"
-                        >View on map</a
-                    >
-                </li>
-            {/each}
+        {#each spawnPointsInSelectedMap as spawnPoint}
+            <li class="grid box">
+                <strong>{getMinMaxLevels(spawnPoint.Members)}</strong>
+                <!-- <p style="color: var(--text2); font-size: var(--step--1);">{spawnPoint.habitatName}</p> -->
+                <p>
+                    Spawn density: {spawnPoint.habitatDensity}
+                </p>
+                <p>
+                    Respawn time: {spawnPoint.habitatRespawnTime}
+                </p>
+                <a
+                    class="styled-link"
+                    style:color="var(--link)"
+                    href="/map/{selectedMap
+                        .replace('fld', 'Fld')
+                        .replace('cty', 'Cty')
+                        .split('_')[0]}?marker={spawnPoint.habitatName}"
+                    >View on map</a
+                >
+            </li>
         {/each}
     </ul>
 {/each}

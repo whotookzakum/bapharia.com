@@ -126,60 +126,87 @@ const resolveFileImportPromises = async (files) => {
     return data.flat()
 }
 
-// Return all enemy habitats (spawn points for multiple enemies) from the client's Map files
+// Return ALL enemy habitats (contains enemy sets, respawn time, density)
 async function getAllEnemyHabitats() {
     const allMapFiles = import.meta.glob('../../../bp_client/japan/Content/Maps/**/**/sublevel/*_EN.json')
     const mapsData = await resolveFileImportPromises(Object.values(allMapFiles))
+    const enemyHabitats = mapsData.filter(obj => obj.Type === "SBEnemyHabitat")
+    return enemyHabitats
 
+
+}
+
+// Return ALL enemy sets (contains enemies, their level,
+async function getAllEnemySets() {
     const allEnemySetFiles = import.meta.glob('../../../bp_client/japan/Content/Blueprints/Manager/EnemySet/*.json')
+    // [EnemySet_arena, EnemySet_common, EnemySet_dungeon, EnemySet_extra, EnemySet_field]
     const enemySetsData = await resolveFileImportPromises(Object.values(allEnemySetFiles))
+    // Only the EnemySets, no file metadata
     const enemySets = enemySetsData.map(file => file.Properties.EnemySets).flat()
-
-    const allEnemyHabitats =
-        mapsData
-            .filter(obj => obj.Type === "SBEnemyHabitat")
-            .map((habitat) => {
-                // Get the enemies that spawn at this habitat from Enemy Sets
-                const sets = habitat.Properties.Enemies.map(enemy => {
-                    const enemySetData = enemySets.find(set => set.EnemySetId === enemy.EnemySetId)
-
-                    return {
-                        ...enemy,
-                        ...enemySetData
-                    }
-                })
-
-                return {
-                    ...habitat,
-                    enemySets: sets
-                }
-            })
-
-    return allEnemyHabitats
+    return enemySets
 }
 
 const allEnemyHabitats = await getAllEnemyHabitats()
+const allEnemySets = await getAllEnemySets()
 
-// Flatten enemy habitats into one array of all enemy sets, adding the relevant habitat information to the enemy set
-const allEnemySets = allEnemyHabitats.map(habitat => {
-    const enemySetsWithHabitatData = habitat.enemySets.map(enemySet => {
+// Put all metadata into enemies array
+const habitatsFlattened = allEnemyHabitats.map(habitat => {
+    return habitat.Properties.Enemies.map(enemySet => {
+        const { Density, RespawnTime } = habitat.Properties
         return {
-            habitatName: habitat.Name,
-            habitatDensity: habitat.Properties.Density,
-            habitatRespawnTime: habitat.Properties.RespawnTime,
+            Name: habitat.Name,
             ...enemySet,
-            Members: enemySet.Members || [] // ES_fld001_N_Area_6_aa Members is empty
+            Density,
+            RespawnTime
         }
     })
-    return enemySetsWithHabitatData
 }).flat()
 
-// Return all enemy sets that contain the enemy ID
-function getEnemySetsContainingEnemyId(enemyId) {
-    return allEnemySets
-        .filter(enemySet => enemySet.Members
-            .find(member => member.EnemyId === enemyId))
+function getHabitatsContainingEnemySetId(enemySetId) {
+    return habitatsFlattened.filter(habitat => habitat.Name === enemySetId)
 }
+
+// Add the EnemySet metadata (EnemySetId, ActorTag) to each of its Members[], and return only Members
+const enemySetsFlattened = allEnemySets.map(enemySet => {
+    const members = enemySet.Members.map(member => {
+        return {
+            EnemySetId: enemySet.EnemySetId,
+            ActorTag: enemySet.ActorTag,
+            ...member
+        }
+    })
+    return members
+}).flat()
+
+
+// Return all enemy sets that contain the enemy ID
+function getEnemySetsContainingEnemyId(enemyId, filterOutOtherEnemies) {
+    // Filter out irrelevant enemies inside the enemySet
+    if (filterOutOtherEnemies) {
+        return enemySetsFlattened.filter(member => member.EnemyId === enemyId)
+    }
+
+    // Return the entire enemy set, in case I want to add "Spawn alongside XYZ enemies" info
+    const enemySetsContainingEnemyId = 
+        allEnemySets
+            .filter(enemySet => enemySet.Members.find(member => member.EnemyId === enemyId))
+    
+    const flattened = enemySetsContainingEnemyId.map(enemySet => {
+        const members = enemySet.Members.map(member => {
+            return {
+                // Indicates that this enemy is not necessarily the one in question; it's a different enemy that spawns in the same enemy set
+                spawnsAlongside: member.EnemyId !== enemyId,
+                EnemySetId: enemySet.EnemySetId,
+                ActorTag: enemySet.ActorTag,
+                ...member
+            }
+        })
+        return members
+    }).flat()
+    
+    return flattened
+}
+
 
 // Enemies are consolidated so that if they have the same name and same type (normal, named enemy, boss..), they will be grouped into one object
 const enemiesGroupedByNameAndType = enemiesData.reduce((acc, enemy) => {
@@ -204,62 +231,55 @@ const enemiesGroupedByNameAndType = enemiesData.reduce((acc, enemy) => {
     return acc;
 }, [])
 
-// For each enemy group
+// Get all relevant data for a specific enemy (params, enemy set metadata, habitat metadata)
+function getEnemyVariantData(enemyVariant) {
+    // Get all possible enemy sets that this enemy belongs to
+    const enemySets = getEnemySetsContainingEnemyId(enemyVariant.enemy_id, true)
+
+    // For each enemy set, append the enemy data from the server
+    const enemySetsAppended = enemySets.map(enemySet => {
+
+        // Get all habitats that this enemyset appears in
+        const habitats = getHabitatsContainingEnemySetId(enemySet.EnemySetId)
+
+        const mapId = enemySet.EnemySetId.replace("area", "Area").split("ES_").pop().split("_Area")[0].split("_Step")[0]
+
+        const drop_items =
+            getEnemyDropsDetails(enemyVariant.drop_items)
+                .filter(drop => drop.content_id === mapId)
+
+        const treasureChests =
+            getEnemyTreasureChestDetails(enemyVariant.drop_items)
+                .filter(drop => drop.content_id === mapId)
+
+        return {
+            mapId,
+            habitats,
+            ...enemySet,
+            ...enemyVariant,
+            drop_items,
+            treasureChests
+        }
+    })
+
+    return enemySetsAppended
+}
+
+// Enemy groups
 const enemies = enemiesGroupedByNameAndType.map(enemyGroup => {
-    // For each enemy variant in the enemy group
-    const spawnPoints = enemyGroup.enemyVariants.map(enemyVariant => {
 
-        const enemySets =
-            getEnemySetsContainingEnemyId(enemyVariant.enemy_id)
-                .map(enemySet => {
-
-                    const mapId = getMapIdFromHabitatName(enemySet.habitatName)
-
-                    const Members = enemySet.Members
-                        .filter(member => member.EnemyId === enemyVariant.enemy_id)
-                        .map(member => {
-                            const dropsForCurrentMap = enemyVariant.drop_items.filter(drop => drop.content_id === mapId)
-                            const drop_items = getEnemyDropsDetails(dropsForCurrentMap)
-                            const treasureChests = getEnemyTreasureChestDetails(dropsForCurrentMap)
-                            return {
-                                ...member,
-                                ...enemyVariant,
-                                drop_items,
-                                treasureChests
-                            }
-                        })
-                    
-                    return {
-                        mapId,
-                        ...enemySet,
-                        Members
-                    }
-                })
-
-        return enemySets
-    }).flat()
-
-    const { name, subcategoryName, id, is_boss } = enemyGroup
-    const enemyIds = enemyGroup.enemyVariantIds
+    const enemyVariants =
+        enemyGroup.enemyVariants
+            .map(enemyVariant => getEnemyVariantData(enemyVariant))
+            .flat()
 
     return {
-        id,
-        is_boss,
-        name,
-        subcategoryName,
-        enemyIds,
-        spawnPoints,
+        ...enemyGroup,
+        enemyVariants,
         thumb: getThumbnail(),
         entryTypes: ["Enemy"]
     }
 })
-
-function getMapIdFromHabitatName(name) {
-    return name // "ES_dng009_Hard_Area_10"
-        .split("ES_")
-        .pop() // "dng009_Hard_Area_10"
-        .split("_Area")[0] // "dng009_Hard"
-}
 
 function getThumbnail() {
     return `/UI/Icon/Class/UI_IconClass_Nodata.png`
@@ -291,4 +311,7 @@ function getSubcategory(category) {
     }
 }
 
+// export default enemiesGroupedByNameAndType;
+// export default allEnemySets;
+// export default allEnemyHabitats;
 export default enemies;
