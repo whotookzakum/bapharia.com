@@ -132,8 +132,6 @@ async function getAllEnemyHabitats() {
     const mapsData = await resolveFileImportPromises(Object.values(allMapFiles))
     const enemyHabitats = mapsData.filter(obj => obj.Type === "SBEnemyHabitat")
     return enemyHabitats
-
-
 }
 
 // Return ALL enemy sets (contains enemies, their level,
@@ -146,6 +144,7 @@ async function getAllEnemySets() {
     return enemySets
 }
 
+// TODO: dungeon enemy spawn points (such as ES_dng009_areaA_2) are SBSpawnSourceComponent
 const allEnemyHabitats = await getAllEnemyHabitats()
 const allEnemySets = await getAllEnemySets()
 
@@ -163,7 +162,7 @@ const habitatsFlattened = allEnemyHabitats.map(habitat => {
 }).flat()
 
 function getHabitatsContainingEnemySetId(enemySetId) {
-    return habitatsFlattened.filter(habitat => habitat.Name === enemySetId)
+    return habitatsFlattened.filter(habitat => habitat.EnemySetId === enemySetId)
 }
 
 // Add the EnemySet metadata (EnemySetId, ActorTag) to each of its Members[], and return only Members

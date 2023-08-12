@@ -8,25 +8,20 @@
     import maps from "../../../../map/[zone]/maps.json";
 
     export let data;
-    console.log(data.enemyVariants)
     
     let uniqueMapsContainingEnemy = 
         uniqBy(data.enemyVariants, (variant) => variant.mapId)
         .map(uniqueMap => uniqueMap.mapId)
-
-    // let uniqueMapsContainingEnemy = uniqBy(
-    //     data.spawnPoints,
-    //     (spawnPoint) => spawnPoint.mapId
-    // ).map((spawnPoint) => spawnPoint.mapId);
+        .sort((a, b) => b.includes("dng"))
+        .sort((a, b) => b.includes("fld"))
 
     let selectedMap =
         $page.url.searchParams.get("map") || uniqueMapsContainingEnemy[0];
 
     $: enemiesInSelectedMap = data.enemyVariants.filter(variant => variant.mapId === selectedMap)
 
-    $: console.log(enemiesInSelectedMap)
-
-    // If the SpawnPoint's Enemies' Drop Rates are unique, then push the entire Spawn Point
+    // Reduce duplicate variants to only show another variant if drop rate is different
+    // TODO: Add some extra logic so that multi-stage mobs don't get grouped (map osd001, arena wave mobs, etc)
     $: uniqueEnemies = enemiesInSelectedMap.reduce((acc, enemy) => {
         if (acc.length < 1) {
             acc.push(enemy);
@@ -73,15 +68,18 @@
         return zoneData?.name || { ja_JP: mapId, en_US: mapId };
     }
 
-    // function getMinMaxLevels(members) {
-    //     const maxLevel = members
-    //         .map((member) => member.MaxLv)
-    //         .reduce((acc, level) => Math.max(acc, level));
-    //     const minLevel = members
-    //         .map((member) => member.MinLv)
-    //         .reduce((acc, level) => Math.min(acc, level));
-    //     return `Lv. ${minLevel} ~ ${maxLevel}`;
-    // }
+    // For a specific habitat (spawn point), return the min and max level of the enemy that appears in the spawn point
+    function getMinMaxLevels(habitatName) {
+        const maxLevel = enemiesInSelectedMap
+            .filter(enemy => enemy.habitats.some(habitat => habitat.Name === habitatName))
+            .map((enemy) => enemy.MaxLv)
+            .reduce((acc, level) => Math.max(acc, level));
+        const minLevel = enemiesInSelectedMap
+            .filter(enemy => enemy.habitats.some(habitat => habitat.Name === habitatName))
+            .map((enemy) => enemy.MinLv)
+            .reduce((acc, level) => Math.min(acc, level));
+        return `Lv. ${minLevel} ~ ${maxLevel}`;
+    }
 
     // TODO: Should habitats display other enemies as well? i.e. if a Goblin spawn point has Seashell Goblins in it, should the Seashell Goblins be shown as well? Might be useful to know if a Lv 40 mob spawns in the same location as level 20 ones, though I think this is unlikely..
 </script>
@@ -197,11 +195,12 @@
         {#each enemiesInSelectedMap as enemy}
             {#each enemy.habitats as habitat}
                 <li class="grid box">
-                    <!-- <strong>{getMinMaxLevels(spawnPoint.Members)}</strong> -->
-                    <p style="color: var(--text2); font-size: var(--step--1);">{habitat.Name}</p>
+                    <strong>{getMinMaxLevels(habitat.Name)}</strong>
+                    <!-- <p style="color: var(--text2); font-size: var(--step--1);">{habitat.Name}</p> -->
                     <p>
-                        Spawn density: {habitat.Density}
+                        Amount: {enemy.EnemyNum}
                     </p>
+                    <!-- <p>Spawn density: {habitat.Density}</p> -->
                     <p>
                         Respawn time: {habitat.RespawnTime}
                     </p>
