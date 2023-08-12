@@ -5,14 +5,14 @@
 	import { page } from "$app/stores";
 </script>
 
-<footer class="page-footer grid g-25" class:top-margin={$page.url.pathname !== "/"}>
-	<nav class="footer-contents grid">
+<footer class="page-footer" class:top-margin={$page.url.pathname !== "/"}>
+	<nav class="footer-contents flex">
 		<div class="left-col grid g-50">
 			<a href="/" class="home-link flex g-50 styled-link">
 				<img src="/images/logo.png" alt="" width="38" height="38" />
 				<span>Bapharia</span>
 			</a>
-			<div class="grid g-50" style="margin-left: calc(38px + 0.5rem);">
+			<div class="grid g-50 indent-left">
 				<a class="styled-link" href="/about">About</a>
 				<a class="styled-link" href="/changelog">Changelog</a>
 				<a class="styled-link" href="/privacy">Privacy</a>
@@ -97,7 +97,7 @@
 				</div>
 			</div>
 		</div>
-		<span style="font-size: var(--step--1);">
+		<span style="font-size: var(--step--1); flex-basis: 100%;">
 			&copy; 2021-2023 Bapharia.com
 		</span>
 	</nav>
@@ -114,15 +114,19 @@
 	}
 
 	.footer-contents {
-		grid-template-columns: 1fr 1fr 1fr;
 		row-gap: 2rem;
-		width: 100%;
 		max-width: 1220px;
 		margin: auto;
 		font-size: var(--step--1);
 		color: var(--text2);
-		padding: var(--space-m) 1rem;
+		padding: var(--space-s-m) var(--space-s-m);
 		align-items: start;
+		flex-wrap: wrap;
+
+		& > * {
+			flex: 1;
+			flex-basis: 30ch;
+		}
 	}
 
 	a {
@@ -136,6 +140,16 @@
 		align-items: center;
 	}
 
+	.indent-left {
+		margin: 0 0 0 calc(38px + 0.5rem);
+	}
+
+	@media (max-width: 650px) {
+		.indent-left {
+			margin: 1rem 0 0 0;
+		}
+	}
+
 	.col-header {
 		margin: 0;
 		font-weight: 800;
@@ -146,6 +160,7 @@
 	.socials {
 		margin-block: 0.5rem;
 		align-items: center;
+		flex-wrap: wrap;
 
 		a:where(:hover, :focus-visible) {
 			filter: brightness(0.8);
