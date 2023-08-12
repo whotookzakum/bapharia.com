@@ -1,7 +1,13 @@
 import questsData from "$bp_server/japan/quests.json"
 import enemiesData from "$bp_server/japan/enemyparams.json"
 import itemsData from "$bp_server/japan/items.json"
+import rewardsData from "$bp_server/japan/rewards.json"
+import weaponsData from "$bp_server/japan/weapons.json";
+import stampsData from "$bp_server/japan/stamps.json";
 import { getText } from './utils';
+import { getWeaponThumbnail } from "./weapons";
+import { getItemThumbnail } from "./items";
+import { getStampSetThumbnail } from "./stampsets";
 
 // TODO Step NPC names
 // TODO interpolate descriptions such as in SQ103_234
@@ -21,6 +27,7 @@ const quests = questsData.map(quest => {
     const thumb = getThumbnail(prefix)
     const doneSynopsis = getText(ns, quest.done_synopsis)
     const doneText = getText(ns, quest.done_text)
+    const quest_rewards = getRewards(quest.quest_rewards)
 
     return {
         ...quest,
@@ -32,6 +39,7 @@ const quests = questsData.map(quest => {
         quest_unlock_data,
         quest_preconditions,
         quest_condition_steps,
+        quest_rewards,
         subcategoryName,
         doneSynopsis,
         doneText,
@@ -269,6 +277,278 @@ function getSubcategory(prefix) {
             return {
                 ja_JP: "クエスト",
                 en_US: "Quest"
+            }
+    }
+}
+
+function getRewards(rewards) {
+    return rewards.map(reward => {
+        const rewardData = rewardsData.find(r => r.id === reward.master_rewards_id)
+        const rewardItemDetails = getRewardItem(rewardData)
+        return {
+            ...rewardData,
+            ...rewardItemDetails
+        }
+    })
+}
+
+function getRewardTypeName(type) {
+    switch (type) {
+        case 0:
+            return {
+                ja_JP: "ルーノ",
+                en_US: "Luno"
+            }
+        case 2:
+            return {
+                ja_JP: "経験値",
+                en_US: "EXP"
+            }
+        case 3:
+            return {
+                ja_JP: "アイテム",
+                en_US: "Item"
+            }
+        case 4:
+            return {
+                ja_JP: "武器",
+                en_US: "Weapon"
+            }
+        case 5:
+            return {
+                ja_JP: "コスチューム",
+                en_US: "Costume"
+            }
+        case 7:
+            return {
+                ja_JP: "マウント",
+                en_US: "Mount"
+            }
+        case 9:
+            return {
+                ja_JP: "ジェスチャー",
+                en_US: "Emote"
+            }
+        case 10:
+            return {
+                ja_JP: "スタンプ",
+                en_US: "Stamp"
+            }
+        case 11:
+            return {
+                ja_JP: "イマジンレシピ",
+                en_US: "Imagine Recipe"
+            }
+        case 14:
+            return {
+                ja_JP: "アチーブメント",
+                en_US: "Achievement"
+            }
+        case 15:
+            return {
+                ja_JP: "リキッドメモリ",
+                en_US: "Liquid Memory"
+            }
+        case 17:
+            return {
+                ja_JP: "BPポイント",
+                en_US: "BP Points"
+            }
+        case 18:
+            return {
+                ja_JP: "無償ローズオーブ",
+                en_US: "Free Rose Orbs"
+            }
+        case 19:
+            return {
+                ja_JP: "トークン",
+                en_US: "Ticket"
+            }
+        case 20:
+            return {
+                ja_JP: "レシピ",
+                en_US: "Crafting Recipe"
+            }
+        case 24:
+            return {
+                ja_JP: "Season Reward Special?", // Season points?
+                en_US: "Season Reward Special?"
+            }
+        case 27:
+            return {
+                ja_JP: "レシピセット",
+                en_US: "Crafting Recipe Set"
+            }
+        case 28:
+            return {
+                ja_JP: "アドベンチャーボード",
+                en_US: "Adventure Board"
+            }
+        case 30:
+            return {
+                ja_JP: "Warehouse Ability?",
+                en_US: "Warehouse Ability?"
+            }
+        case 32:
+            return {
+                ja_JP: "βスキル",
+                en_US: "β Skill"
+            }
+        case 33:
+            return {
+                ja_JP: "RNG",
+                en_US: "RNG"
+            }
+        default:
+            return {
+                ja_JP: "報酬",
+                en_US: "Reward"
+            }
+    }
+}
+
+function getRewardItem(rewardData) {
+    let name, rewardItem;
+
+    switch (rewardData.reward_type) {
+        case 0:
+            return {
+                name: {
+                    ja_JP: "ルーノ",
+                    en_US: "Luno",
+                },
+                thumb: "/UI/Icon/Reward/UI_Icon_0.png",
+                href: `/db`
+            }
+        case 2:
+            return {
+                name: {
+                    ja_JP: "経験値",
+                    en_US: "EXP"
+                },
+                thumb: "/UI/Icon/Reward/UI_Icon_2.png",
+                href: `/db`
+            }
+        case 3:
+            rewardItem = itemsData.find(item => item.id === rewardData.item_id)
+            name = getText("item_text", rewardItem.name)
+            return {
+                ...rewardItem,
+                name,
+                thumb: getItemThumbnail(rewardItem.id),
+                href: `/db/item/${rewardItem.id}`
+            }
+        case 4:
+            rewardItem = weaponsData.find(item => item.id === rewardData.item_id)
+            name = getText("item_text", rewardItem.name)
+            return {
+                ...rewardItem,
+                name,
+                thumb: getWeaponThumbnail(rewardItem.id),
+                href: `/db/weapon/${rewardItem.id}`
+            }
+        case 5:
+            return {
+                ja_JP: "コスチューム",
+                en_US: "Costume"
+            }
+        case 7:
+            return {
+                ja_JP: "マウント",
+                en_US: "Mount"
+            }
+        case 9:
+            return {
+                ja_JP: "ジェスチャー",
+                en_US: "Emote"
+            }
+        case 10:
+            const flattenedStamps = stampsData.map(stampSet => {
+                return {
+                    ...stampSet,
+                    stampsInSet: stampSet.stamp_data.map(stamp => stamp.stamp_id) 
+                }
+            })
+            rewardItem = flattenedStamps.find(item => item.stampsInSet.includes(rewardData.item_id))
+            name = getText("master_stamp_categories_text", rewardItem.category_name_text)
+            return {
+                ...rewardItem,
+                name: {
+                    ja_JP: name.ja_JP + "スタンプ",
+                    en_US: name.en_US + " Stamp",
+                },
+                thumb: getStampSetThumbnail(rewardItem),
+                href: `/db/stampset/${rewardItem.category_id}`
+            }
+        case 11:
+            return {
+                ja_JP: "イマジンレシピ",
+                en_US: "Imagine Recipe"
+            }
+        case 14:
+            return {
+                ja_JP: "アチーブメント",
+                en_US: "Achievement"
+            }
+        case 15:
+            return {
+                ja_JP: "リキッドメモリ",
+                en_US: "Liquid Memory"
+            }
+        case 17:
+            return {
+                ja_JP: "BPポイント",
+                en_US: "BP Points"
+            }
+        case 18:
+            return {
+                ja_JP: "ローズオーブ（無償）?",
+                en_US: "Free Rose Orbs?"
+            }
+        case 19:
+            return {
+                ja_JP: "トークン",
+                en_US: "Ticket"
+            }
+        case 20:
+            return {
+                ja_JP: "レシピ",
+                en_US: "Crafting Recipe"
+            }
+        case 24:
+            return {
+                ja_JP: "Season Reward Special?", // Season points?
+                en_US: "Season Reward Special?"
+            }
+        case 27:
+            return {
+                ja_JP: "レシピセット",
+                en_US: "Crafting Recipe Set"
+            }
+        case 28:
+            return {
+                ja_JP: "アドベンチャーボード",
+                en_US: "Adventure Board"
+            }
+        case 30:
+            return {
+                ja_JP: "Warehouse Ability?",
+                en_US: "Warehouse Ability?"
+            }
+        case 32:
+            return {
+                ja_JP: "βスキル",
+                en_US: "β Skill"
+            }
+        case 33:
+            return {
+                ja_JP: "RNG",
+                en_US: "RNG"
+            }
+        default:
+            return {
+                ja_JP: "報酬",
+                en_US: "Reward"
             }
     }
 }

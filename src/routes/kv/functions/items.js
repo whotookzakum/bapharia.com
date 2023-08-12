@@ -2,7 +2,7 @@ import itemsData from "$bp_server/japan/items.json";
 import { getText } from "./utils";
 import iconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_ItemIconDB.json"
 
-// TODO drops from ...
+// TODO obtained from (drops, quest, board, chest...)
 // TODO found in (map) ...
 // TODO available in (map/dungeon)
 // TODO used in (recipe)

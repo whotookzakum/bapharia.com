@@ -125,7 +125,7 @@ const weapons = weaponsData.map(weapon => {
         id: `${weapon.id}`,
         name,
         desc,
-        thumb: `/UI/Icon/Weapon/UI_Icon_${weapon.id}.png`,
+        thumb: getWeaponThumbnail(weapon.id),
         classImg,
         stats,
         elementImg,
@@ -136,6 +136,10 @@ const weapons = weaponsData.map(weapon => {
         entryTypes: ["Weapon"]
     }
 })
+
+export function getWeaponThumbnail(id) {
+    return `/UI/Icon/Weapon/UI_Icon_${id}.png`
+}
 
 function getSubcategory(category) {
     switch (category) {
