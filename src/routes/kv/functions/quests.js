@@ -5,8 +5,9 @@ import { getText } from './utils';
 
 // TODO Step NPC names
 // TODO interpolate descriptions such as in SQ103_234
-// TODO done synopsis, close synopsis
 // TODO rewards
+// TODO: quest_condition_steps[x].condition_items[y].synopsisId is undefined for class quests
+// TODO: "completing this quest unlocks: ..." ("Main Quest: Dragon's Rive")
 
 const quests = questsData.map(quest => {
     const ns = `${quest.source_file}_text`
@@ -18,6 +19,8 @@ const quests = questsData.map(quest => {
     const quest_preconditions = getPreconditions(quest.quest_preconditions)
     const subcategoryName = getSubcategory(prefix)
     const thumb = getThumbnail(prefix)
+    const doneSynopsis = getText(ns, quest.done_synopsis)
+    const doneText = getText(ns, quest.done_text)
 
     return {
         ...quest,
@@ -30,6 +33,8 @@ const quests = questsData.map(quest => {
         quest_preconditions,
         quest_condition_steps,
         subcategoryName,
+        doneSynopsis,
+        doneText,
         entryTypes: ["Quest"]
     }
 })
@@ -138,7 +143,7 @@ function getUnlockCondition(condition) {
         case 1:
             if (condition.quest_status === 1) {
                 return {
-                    ja_JP: `クエスト「${questName.ja_JP}」のStep ${condition.quest_step}を達成`,
+                    ja_JP: `クエスト「${questName.ja_JP}」を完了`,
                     en_US: `Complete quest "${questName.en_US}"`
                 }
             }
