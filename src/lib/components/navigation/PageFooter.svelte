@@ -1,28 +1,32 @@
 <script>
 	import { userLocale } from "$lib/stores";
 	import Icon from "@iconify/svelte";
-	import links from "./navigation/links.json";
+	import links from "./links.json";
+	import tools from "./tools.json";
 	import { page } from "$app/stores";
 </script>
 
 <footer class="page-footer" class:top-margin={$page.url.pathname !== "/"}>
 	<nav class="footer-contents flex">
-		<div class="left-col grid g-50">
+		<div class="left-col grid g-50" style="flex-basis: 100%;">
 			<a href="/" class="home-link flex g-50 styled-link">
 				<img src="/images/logo.png" alt="" width="38" height="38" />
 				<span>Bapharia</span>
 			</a>
-			<div class="grid g-50 indent-left">
-				<a class="styled-link" href="/about">About</a>
-				<a class="styled-link" href="/changelog">Changelog</a>
-				<a class="styled-link" href="/privacy">Privacy</a>
-			</div>
 		</div>
 		<div class="grid g-50">
 			<p class="col-header">Links</p>
 			{#each links as link}
 				<a class="styled-link" href={link.href}
 					>{link.name[$userLocale]}</a
+				>
+			{/each}
+		</div>
+		<div class="grid g-50">
+			<p class="col-header">Tools</p>
+			{#each tools as tool}
+				<a class="styled-link" href={tool.href}
+					>{tool.name[$userLocale]}</a
 				>
 			{/each}
 		</div>
@@ -97,9 +101,15 @@
 				</div>
 			</div>
 		</div>
-		<span style="font-size: var(--step--1); flex-basis: 100%;">
-			&copy; 2021-2023 Bapharia.com
-		</span>
+		<div class="footer-bottom flex">
+			<span>&copy; 2021-2023 Bapharia.com</span>
+			<hr />
+			<a class="styled-link" href="/about">About</a>
+			<hr />
+			<a class="styled-link" href="/changelog">Changelog</a>
+			<hr />
+			<a class="styled-link" href="/privacy">Privacy</a>
+		</div>
 	</nav>
 </footer>
 
@@ -140,16 +150,6 @@
 		align-items: center;
 	}
 
-	.indent-left {
-		margin: 0 0 0 calc(38px + 0.5rem);
-	}
-
-	@media (max-width: 650px) {
-		.indent-left {
-			margin: 1rem 0 0 0;
-		}
-	}
-
 	.col-header {
 		margin: 0;
 		font-weight: 800;
@@ -169,5 +169,20 @@
 
 	.left-col {
 		align-items: start;
+	}
+
+	.footer-bottom {
+		font-size: var(--step--1); 
+		flex-basis: 100% !important; 
+		gap: 0.5rem 1rem; 
+		flex-wrap: wrap; 
+		align-items: center;
+		color: gray;
+		
+		hr {
+			width: 1px; 
+			height: 1rem; 
+			margin: 0;
+		}
 	}
 </style>

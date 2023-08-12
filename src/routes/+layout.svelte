@@ -3,7 +3,7 @@
     import Navbar from "$lib/components/navigation/Navbar.svelte";
     import { GoogleAnalytics } from "@beyonk/svelte-google-analytics";
     import "./three-column.scss";
-    import PageFooter from "$lib/components/PageFooter.svelte";
+    import PageFooter from "$lib/components/navigation/PageFooter.svelte";
     import { page } from "$app/stores";
 </script>
 
