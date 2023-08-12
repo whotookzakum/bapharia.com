@@ -123,9 +123,9 @@
 		align-items: start;
 		flex-wrap: wrap;
 
-		& > * {
+		& > div {
 			flex: 1;
-			flex-basis: 30ch;
+			flex-basis: 27ch;
 		}
 	}
 
