@@ -33,6 +33,7 @@
     // TODO map toggles show number of markers
     // TODO linkable params: zone, marker, center
     // TODO cache preferences: open panes, active markers, current map
+    // TODO zone highlighting and/or search params for fields (draw border around Andra Basin like google maps)
 
     let leafletMap;
     export let data;
