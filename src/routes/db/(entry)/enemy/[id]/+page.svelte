@@ -1,7 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
     import { page } from "$app/stores";
-    import { EnemyStats, EnemyDrops, FoundIn, Stats, Item } from "../../index";
+    import { Stats, Item } from "../../index";
     import uniqBy from "lodash/uniqBy";
     import isEqual from "lodash/isEqual";
     import { userLocale } from "$lib/stores";
