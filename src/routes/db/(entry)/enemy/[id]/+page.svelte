@@ -15,8 +15,7 @@
         .sort((a, b) => b.includes("dng"))
         .sort((a, b) => b.includes("fld"))
 
-    let selectedMap =
-        $page.url.searchParams.get("map") || uniqueMapsContainingEnemy[0];
+    let selectedMap = uniqueMapsContainingEnemy[0];
 
     $: enemiesInSelectedMap = data.enemyVariants.filter(variant => variant.mapId === selectedMap)
 

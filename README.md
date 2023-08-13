@@ -4,6 +4,7 @@
 `/src/client.js` change graphql api endpoint
 `/src/routes/kv` move kv out of routes
 `/src/routes/graphql` move graphql out of routes
+`/houdini.config.js` change watch schema
 
 ## ITEMS
 - Weapons

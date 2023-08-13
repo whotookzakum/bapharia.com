@@ -207,9 +207,6 @@ const resolvers = {
                 hasPreviousPage
             }
         },
-        entry(_, { longId }) {
-            // return entries.find(entry => entry.entryTypes[0] + entry.id === longId)
-        }
     },
     DBEntry: {
         // https://the-guild.dev/graphql/tools/docs/resolvers#unions-and-interfaces
