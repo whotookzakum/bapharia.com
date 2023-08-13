@@ -5,6 +5,7 @@
 - Lottery rewards: `/master_reward_lottery_groups.json`
 
 ### Variables
+Also check /UI/Icon/Reward for more
 `reward_type`
 - 0: luno
 - 2: exp

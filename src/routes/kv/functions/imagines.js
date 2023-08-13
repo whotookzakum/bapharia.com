@@ -13,6 +13,7 @@ import { getItemThumbnail } from "./items";
 // TODO Season passes that contain imagine
 // TODO 3d models
 // "attainable from chest, pass, shop, etc"
+// TODO Mount imagine
 
 const HEAL_TYPES = [
     131000900, // Pink uribo

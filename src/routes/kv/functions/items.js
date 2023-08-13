@@ -6,6 +6,7 @@ import iconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_ItemIconDB.
 // TODO found in (map) ...
 // TODO available in (map/dungeon)
 // TODO used in (recipe)
+// TODO Item Box contents (item_box.json)
 
 const icons = {}
 

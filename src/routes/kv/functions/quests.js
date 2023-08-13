@@ -2,18 +2,28 @@ import questsData from "$bp_server/japan/quests.json"
 import enemiesData from "$bp_server/japan/enemyparams.json"
 import itemsData from "$bp_server/japan/items.json"
 import rewardsData from "$bp_server/japan/rewards.json"
-import weaponsData from "$bp_server/japan/weapons.json";
-import stampsData from "$bp_server/japan/stamps.json";
+import adventureBoardsData from "$bp_server/japan/master_adventure_board.json"
+import mountsData from "$bp_server/japan/mount.json"
+import achievementsData from "$bp_server/japan/achievements.json";
+import craftingRecipesData from "$bp_server/japan/craft.json";
+import craftingRecipeSetsData from "$bp_server/japan/master_craft_recipe_sets.json";
+import warehouseAbilitiesData from "$bp_server/japan/master_warehouse_storing_abilities.json"
+
 import { getText } from './utils';
-import { getWeaponThumbnail } from "./weapons";
-import { getItemThumbnail } from "./items";
-import { getStampSetThumbnail } from "./stampsets";
+import weapons from "./weapons";
+import items from "./items";
+import stampSets from "./stampsets";
+import tokens from "./tokens";
+import gestures from "./gestures";
+import costumes from "./costumes";
+import liquidMemories from "./liquidmemories";
+import imagines from "./imagines"
 
 // TODO Step NPC names
 // TODO interpolate descriptions such as in SQ103_234
-// TODO rewards
 // TODO: quest_condition_steps[x].condition_items[y].synopsisId is undefined for class quests
 // TODO: "completing this quest unlocks: ..." ("Main Quest: Dragon's Rive")
+// TODO: TQ (Time-limited Quest)
 
 const quests = questsData.map(quest => {
     const ns = `${quest.source_file}_text`
@@ -285,6 +295,26 @@ function getRewards(rewards) {
     return rewards.map(reward => {
         const rewardData = rewardsData.find(r => r.id === reward.master_rewards_id)
         const rewardItemDetails = getRewardItem(rewardData)
+
+        // Debugging rewards
+        // const test_weapon = { reward_type: 4, item_id: 106000100 }
+        // const test_costume = { reward_type: 5, item_id: 101000320 }
+        // const test_mount = { reward_type: 7, item_id: 100000200 }
+        // const test_gesture = { reward_type: 9, item_id: 101000201 }
+        // const test_stampset = { reward_type: 10, item_id: 69 }
+        // const test_imagine = { reward_type: 11, item_id: 115000600 }
+        // const test_achievement = { reward_type: 14, item_id: 48112 }
+        // const test_bpp = { reward_type: 17 }
+        // const test_roseorb = { reward_type: 18 }
+        // const test_token = { reward_type: 19, item_id: 110000300 }
+        // const test_recipe = { reward_type: 20, item_id: 70004 }
+        // const test_seasonpoints = { reward_type: 24 }
+        // const test_recipeset = { reward_type: 27, item_id: 300000 }
+        // const test_warehouseability = { reward_type: 30, item_id: 11002100 }
+        // const test_betaskill = { reward_type: 32 }
+        // const test_rng = { reward_type: 33 }
+        // const rewardItemDetails = getRewardItem(test_rng)
+
         return {
             ...rewardData,
             ...rewardItemDetails
@@ -341,8 +371,8 @@ function getRewardTypeName(type) {
             }
         case 14:
             return {
-                ja_JP: "アチーブメント",
-                en_US: "Achievement"
+                ja_JP: "称号・アチーブメント",
+                en_US: "Title/Achievement"
             }
         case 15:
             return {
@@ -371,8 +401,8 @@ function getRewardTypeName(type) {
             }
         case 24:
             return {
-                ja_JP: "Season Reward Special?", // Season points?
-                en_US: "Season Reward Special?"
+                ja_JP: "シーズンポイント",
+                en_US: "Season Points"
             }
         case 27:
             return {
@@ -386,8 +416,8 @@ function getRewardTypeName(type) {
             }
         case 30:
             return {
-                ja_JP: "Warehouse Ability?",
-                en_US: "Warehouse Ability?"
+                ja_JP: "開拓アビリティ",
+                en_US: "Pioneer Ability"
             }
         case 32:
             return {
@@ -408,148 +438,184 @@ function getRewardTypeName(type) {
 }
 
 function getRewardItem(rewardData) {
-    let name, rewardItem;
+    let name, thumb, href, rewardItem;
 
     switch (rewardData.reward_type) {
         case 0:
-            return {
-                name: {
-                    ja_JP: "ルーノ",
-                    en_US: "Luno",
-                },
-                thumb: "/UI/Icon/Reward/UI_Icon_0.png",
-                href: `/db`
+            name = {
+                ja_JP: "ルーノ",
+                en_US: "Luno",
             }
+            thumb = "/UI/Icon/Reward/UI_Icon_0.png"
+            href = `/db`
+            break;
         case 2:
-            return {
-                name: {
-                    ja_JP: "経験値",
-                    en_US: "EXP"
-                },
-                thumb: "/UI/Icon/Reward/UI_Icon_2.png",
-                href: `/db`
-            }
+            name = {
+                ja_JP: "経験値",
+                en_US: "EXP"
+            },
+            thumb = "/UI/Icon/Reward/UI_Icon_2.png",
+            href = `/db`
+            break;
         case 3:
-            rewardItem = itemsData.find(item => item.id === rewardData.item_id)
-            name = getText("item_text", rewardItem.name)
-            return {
-                ...rewardItem,
-                name,
-                thumb: getItemThumbnail(rewardItem.id),
-                href: `/db/item/${rewardItem.id}`
-            }
+            rewardItem = items.find(item => item.id == rewardData.item_id)
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/item/${rewardItem.id}`
+            break;
         case 4:
-            rewardItem = weaponsData.find(item => item.id === rewardData.item_id)
-            name = getText("item_text", rewardItem.name)
-            return {
-                ...rewardItem,
-                name,
-                thumb: getWeaponThumbnail(rewardItem.id),
-                href: `/db/weapon/${rewardItem.id}`
-            }
+            rewardItem = weapons.find(item => item.id == rewardData.item_id)
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/weapon/${rewardItem.id}`
+            break;
         case 5:
-            return {
-                ja_JP: "コスチューム",
-                en_US: "Costume"
-            }
+            rewardItem = costumes.find(item => item.id == rewardData.item_id)
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/costume/${rewardItem.id}`
+            break;
         case 7:
-            return {
-                ja_JP: "マウント",
-                en_US: "Mount"
-            }
+            rewardItem = mountsData.find(item => item.id === rewardData.item_id)
+            name = getText("master_mount_imagine_text", rewardItem.name)
+            thumb = `/UI/Icon/Imagine/Mount/UI_Icon_${rewardItem.id}.png`
+            href = `/db`
+            break;
         case 9:
-            return {
-                ja_JP: "ジェスチャー",
-                en_US: "Emote"
-            }
+            rewardItem = gestures.find(item => item.emote_id == rewardData.item_id)
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/gesture/${rewardItem.id}`
+            break;
         case 10:
-            const flattenedStamps = stampsData.map(stampSet => {
-                return {
-                    ...stampSet,
-                    stampsInSet: stampSet.stamp_data.map(stamp => stamp.stamp_id) 
-                }
-            })
-            rewardItem = flattenedStamps.find(item => item.stampsInSet.includes(rewardData.item_id))
-            name = getText("master_stamp_categories_text", rewardItem.category_name_text)
-            return {
-                ...rewardItem,
-                name: {
-                    ja_JP: name.ja_JP + "スタンプ",
-                    en_US: name.en_US + " Stamp",
-                },
-                thumb: getStampSetThumbnail(rewardItem),
-                href: `/db/stampset/${rewardItem.category_id}`
-            }
+            rewardItem = stampSets.find(item => item.stamp_data.some(stamp => stamp.stamp_id === rewardData.item_id))
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/stampset/${rewardItem.id}`
+            break;
         case 11:
-            return {
-                ja_JP: "イマジンレシピ",
-                en_US: "Imagine Recipe"
+            rewardItem = imagines.find(item => item.id == rewardData.item_id)
+            name = {
+                ja_JP: rewardItem.name.ja_JP + "レシピ",
+                en_US: rewardItem.name.en_US + " Recipe"
             }
+            thumb = "/UI/Icon/Reward/UI_Icon_11.png"
+            href = `/db/imagine/${rewardItem.id}#recipe`
+            break;
         case 14:
-            return {
-                ja_JP: "アチーブメント",
-                en_US: "Achievement"
-            }
+            rewardItem = achievementsData.find(item => item.id == rewardData.item_id)
+            name = getText("achievements_text", rewardItem.name)
+            thumb = "/UI/Icon/Reward/UI_Icon_14.png"
+            href = `/db`
+            break;
         case 15:
-            return {
-                ja_JP: "リキッドメモリ",
-                en_US: "Liquid Memory"
-            }
+            rewardItem = liquidMemories.find(item => item.id == rewardData.item_id)
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/liquidmemory/${rewardItem.id}`
+            break;
         case 17:
-            return {
+            name = {
                 ja_JP: "BPポイント",
-                en_US: "BP Points"
-            }
+                en_US: "BP Points",
+            },
+            thumb = "/UI/Icon/Reward/UI_Icon_17.png",
+            href = `/db`
+            break;
         case 18:
-            return {
-                ja_JP: "ローズオーブ（無償）?",
-                en_US: "Free Rose Orbs?"
-            }
+            name = {
+                ja_JP: "無償ローズオーブ",
+                en_US: "Free Rose Orbs",
+            },
+            thumb = "/UI/Icon/Reward/UI_Icon_18.png",
+            href = `/db`
+            break;
         case 19:
-            return {
-                ja_JP: "トークン",
-                en_US: "Ticket"
-            }
+            rewardItem = tokens.find(item => item.id == rewardData.item_id)
+            name = rewardItem.name
+            thumb = rewardItem.thumb
+            href = `/db/token/${rewardItem.id}`
+            break;
         case 20:
-            return {
-                ja_JP: "レシピ",
-                en_US: "Crafting Recipe"
+            rewardItem = craftingRecipesData.find(item => item.id === rewardData.item_id)
+            // Consumable recipe
+            if (rewardItem.out_item_type === 1) {
+                let item = items.find(i => i.id == rewardItem.out_item_id)
+                name = {
+                    ja_JP: item.name.ja_JP + "レシピ",
+                    en_US: item.name.en_US + " Recipe",
+                }
+                href = `/db/item/${item.id}#recipe`
             }
+            // Weapon recipe
+            else if (rewardItem.out_item_type === 2) {
+                let weapon = weapons.find(i => i.id == rewardItem.out_item_id)
+                name = {
+                    ja_JP: weapon.name.ja_JP + "レシピ",
+                    en_US: weapon.name.en_US + " Recipe",
+                }
+                href = `/db/weapon/${weapon.id}#recipe`
+            }
+            thumb = "/UI/Icon/Reward/UI_Icon_20.png"
+            break;
         case 24:
-            return {
-                ja_JP: "Season Reward Special?", // Season points?
-                en_US: "Season Reward Special?"
+            name = {
+                ja_JP: "シーズンポイント", 
+                en_US: "Season Points"
             }
+            thumb = "/UI/Icon/Reward/UI_Icon_23.png"
+            href = "/db"
+            break;
         case 27:
-            return {
-                ja_JP: "レシピセット",
-                en_US: "Crafting Recipe Set"
-            }
+            rewardItem = craftingRecipeSetsData.find(item => item.id === rewardData.item_id)
+            // Could add text for all recipes in this set, but the Recipe Set Name seems self explanatory for now
+            name = getText("master_craft_recipe_set_text", rewardItem.name)
+            thumb = "/UI/Icon/Reward/UI_Icon_27.png"
+            href = "/db"
+            break;
         case 28:
-            return {
-                ja_JP: "アドベンチャーボード",
-                en_US: "Adventure Board"
-            }
+            rewardItem = adventureBoardsData.find(item => item.id === rewardData.item_id)
+            name = getText("master_adventure_boards_text", rewardItem.name)
+            thumb = "/UI/Icon/Reward/UI_Icon_28.png"
+            href = `/db`
+            break;
         case 30:
-            return {
-                ja_JP: "Warehouse Ability?",
-                en_US: "Warehouse Ability?"
-            }
+            rewardItem = warehouseAbilitiesData.find(item => item.recipe_id === rewardData.item_id)
+            name = getText("master_warehouse_ability_recipes_text", rewardItem.id)
+            thumb = "/UI/Icon/Reward/UI_Icon_30.png"
+            href = `/db/item/${rewardItem.item_id}`
+            break;
         case 32:
-            return {
+            name = {
                 ja_JP: "βスキル",
                 en_US: "β Skill"
-            }
+            },
+            thumb = "/UI/Icon/Reward/UI_Icon_31.png"
+            href = `/db`
+            break;
         case 33:
-            return {
+            // TODO Get the specific item 
+            name = {
                 ja_JP: "RNG",
                 en_US: "RNG"
             }
+            thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
+            href = "/db"
+            break;
         default:
-            return {
+            name = {
                 ja_JP: "報酬",
                 en_US: "Reward"
             }
+            thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
+            href = "/db"
+            break;
+    }
+
+    return {
+        name,
+        thumb,
+        href
     }
 }
 

@@ -17,7 +17,9 @@
             href={reward.href}
             number={reward.amount}
             source={{ en_US: "type " + reward.reward_type, ja_JP: "type " + reward.reward_type }}
+            
         />
+        <!-- isLuno={reward.reward_type === 0 || reward.reward_type === 2} -->
     {/each}
 </ul>
 

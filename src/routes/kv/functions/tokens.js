@@ -1,13 +1,12 @@
 import tokensData from "$bp_server/japan/token.json";
 import { getText } from "./utils";
 
-// TO DO:
-// Try to figure out meaning of the values
+// TODO: Try to figure out meaning of the values
 
 const tokens = tokensData.map(token => {
     const name = getText("master_token_text", token.name)
     const desc = getText("master_token_text", token.desc)
-    const thumb = getThumbnail(token.id)
+    const thumb = getTokenThumbnail(token.id)
 
     return {
         ...token,
@@ -20,9 +19,12 @@ const tokens = tokensData.map(token => {
     }
 })
 
-function getThumbnail(id) {
-    if (id === 149000100 || id === 120000900) {
-        return `/UI/Icon/Class/UI_IconClass_Nodata.png`
+export function getTokenThumbnail(id) {
+    if (id === 120000900) {
+        return "/UI/Icon/Token/UI_Icon_120000700.png"
+    }
+    else if (id === 149000100) {
+        return "/UI/Icon/Token/UI_Icon_149000000.png"
     }
     return `/UI/Icon/Token/UI_Icon_${id}.png`
 }

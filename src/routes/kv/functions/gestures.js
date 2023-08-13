@@ -3,7 +3,7 @@ import { getText } from "./utils";
 
 const gestures = gesturesData.map(gesture => {
     const name = getText("master_emote_text", gesture.name)
-    const thumb = `/UI/Icon/Emote/UI_Emote_${gesture.emote_id}.png`
+    const thumb = getGestureThumbnail(gesture.emote_id)
 
     return {
         ...gesture,
@@ -14,5 +14,9 @@ const gestures = gesturesData.map(gesture => {
         entryTypes: ["Gesture"]
     }
 })
+
+export function getGestureThumbnail(id) {
+    return `/UI/Icon/Emote/UI_Emote_${id}.png`
+}
 
 export default gestures;

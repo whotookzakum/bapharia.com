@@ -9,9 +9,8 @@ import { getText } from "./utils";
 const costumes = costumesData.map(costume => {
     const name = getText("costume_text", costume.name)
     const desc = getText("costume_text", costume.desc)
-    const costumeType = costume.costume_parts_name.slice(0, 3).includes("acc") ? costume.costume_parts_name.slice(0, 7) : costume.costume_parts_name.slice(0, 3)
-    const pathToThumb = getPartsPath(costumeType)
-    const thumb = getThumbnail(pathToThumb, costume.icon_name)
+    const costumeType = getCostumeType(costume)
+    const thumb = getCostumeThumbnail(costume)
 
     return {
         ...costume,
@@ -25,8 +24,15 @@ const costumes = costumesData.map(costume => {
     }
 })
 
-function getThumbnail(dir, id) {
-    return `/UI/Icon/Costume/${dir}/${id}.png`
+
+export function getCostumeThumbnail(costume) {
+    const costumeType = getCostumeType(costume)
+    const pathToThumb = getPartsPath(costumeType)
+    return `/UI/Icon/Costume/${pathToThumb}/${costume.icon_name}.png`
+}
+
+function getCostumeType(costume) {
+    return costume.costume_parts_name.slice(0, 3).includes("acc") ? costume.costume_parts_name.slice(0, 7) : costume.costume_parts_name.slice(0, 3)
 }
 
 function getPartsPath(type) {

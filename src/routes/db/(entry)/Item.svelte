@@ -17,6 +17,8 @@
         thumb = "/UI/Icon/Reward/UI_Icon_0.png";
         href = "/db";
     }
+
+    // TODO Separate floaty; amount on bottom, probability on top
 </script>
 
 <li class="flex box" class:gold={chest}>

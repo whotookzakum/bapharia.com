@@ -2,6 +2,7 @@
     import { userLocale } from "$lib/stores";
     import Item from "./Item.svelte";
     export let recipe;
+    // TODO: Recipe requires adventurer rank
 </script>
 
 <h2 id="recipe">Recipe</h2>
