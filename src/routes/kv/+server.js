@@ -11,6 +11,7 @@ import liquidMemories from "./functions/liquidmemories.js"
 import imagines from "./functions/imagines.js"
 import weapons from "./functions/weapons.js"
 import avatars from "./functions/avatarparts.js"
+import quests from "./functions/quests.js"
 
 const data = {
     items,
@@ -24,7 +25,8 @@ const data = {
     weapons,
     skills,
     maps,
-    avatars
+    avatars,
+    quests
 }
 
 export const GET = async () => {

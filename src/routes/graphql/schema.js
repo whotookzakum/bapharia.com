@@ -210,7 +210,6 @@ export const typeDefs = `type Ability {
   
   type Query {
 	entries(limit: Int, offset: Int, searchTerm: String, categories: String, classes: String, elements: String, level: String, ar: String, items: String, weapons: String, imagine: String, enemies: String, skills: String, maps: String, costumes: String, avatarparts: String, quests: String): DBResults!
-	entry(longId: String!): DBEntry
   }
   
   type Recipe {

@@ -1,5 +1,6 @@
 ## Deploy checklist
 `127.0.0.1:5173/kv` get the kv data to push to cloudflare
+`/src/routes/graphql/schema.js` get the schema to put in the worker
 `/src/client.js` change graphql api endpoint
 `/src/routes/kv` move kv out of routes
 `/src/routes/graphql` move graphql out of routes
