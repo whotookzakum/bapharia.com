@@ -49,7 +49,7 @@ const quests = questsData.map(quest => {
         quest_unlock_data,
         quest_preconditions,
         quest_condition_steps,
-        quest_rewards,
+        // quest_rewards,
         subcategoryName,
         doneSynopsis,
         doneText,
