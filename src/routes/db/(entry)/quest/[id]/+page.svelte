@@ -5,7 +5,7 @@
     // TODO: Add icon to prerequisites? (AR icon, quest icon, class icon..)
 </script>
 
-<!-- <h2>Rewards</h2>
+<h2>Rewards</h2>
 <ul class="unstyled-list" role="list">
     {#each data.quest_rewards as reward}
         <Item
@@ -20,7 +20,7 @@
             smallTag={reward.reward_type === 0 || reward.reward_type === 2}
         />
     {/each}
-</ul> -->
+</ul>
 
 {#if data.quest_unlock_data.quest_conditions || data.quest_preconditions.length > 0}
     <h2>Prerequisites</h2>
