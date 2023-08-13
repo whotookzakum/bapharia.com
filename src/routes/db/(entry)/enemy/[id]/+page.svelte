@@ -117,10 +117,10 @@
                         name={drop.name}
                         thumb={drop.thumb}
                         href="/db/item/{drop.item_index}"
-                        number="{drop.drop_rate / 100}%"
+                        rate="{drop.drop_rate / 100}%"
                     />
                 {/each}
-
+                <!-- TODO: Named enemy chests often have a chance of dropping 1 or 2 ideas, so put all possible rolls -->
                 {#each enemy.treasureChests as treasures}
                     {#if treasures.rarity_1_rewards}
                         {#each treasures.rarity_1_rewards as normalTreasure}
@@ -128,7 +128,7 @@
                                 name={normalTreasure.name}
                                 thumb={normalTreasure.thumb}
                                 href="/db/item/{normalTreasure.reward_master_id}"
-                                number="{(
+                                rate="{(
                                     (treasures.drop_rate *
                                         treasures.rarity_1_rate *
                                         normalTreasure.rate) /
@@ -148,7 +148,7 @@
                                 name={rareTreasure.name}
                                 thumb={rareTreasure.thumb}
                                 href="/db/imagine/{rareTreasure.reward_master_id}"
-                                number="{(
+                                rate="{(
                                     (treasures.drop_rate *
                                         treasures.rarity_3_rate *
                                         rareTreasure.rate) /

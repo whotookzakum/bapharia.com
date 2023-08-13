@@ -2,30 +2,26 @@
     import { userLocale } from "$lib/stores";
 
     export let thumb = "";
-    export let number = "";
+    export let amount = "";
     export let name = "";
     export let source = "";
     export let href = "";
-    export let isLuno = false;
+    export let smallTag = false;
     export let chest = "";
-
-    if (isLuno) {
-        name = {
-            ja_JP: "ルーノ",
-            en_US: "Luno",
-        };
-        thumb = "/UI/Icon/Reward/UI_Icon_0.png";
-        href = "/db";
-    }
-
-    // TODO Separate floaty; amount on bottom, probability on top
+    export let rate = "";
 </script>
 
 <li class="flex box" class:gold={chest}>
     <div class="thumbnail-wrapper">
         <img src={thumb} alt="" width="64" height="64" loading="lazy" />
-        <span class="floaty" class:luno={isLuno}>{number.toLocaleString()}</span
-        >
+        {#if amount}
+            <span class="floaty" class:small={smallTag}
+                >{amount.toLocaleString()}</span
+            >
+        {/if}
+        {#if rate}
+            <span class="floaty rate">{rate.toLocaleString()}</span>
+        {/if}
     </div>
     <div class="grid">
         <a {href} class="item-name styled-link">{name[$userLocale]}</a>
@@ -74,24 +70,31 @@
     .floaty {
         position: absolute;
         right: -8px;
-        top: -3px;
+        top: -7px;
         background: linear-gradient(335deg, var(--bg), var(--surface1));
+        // background: linear-gradient(335deg, rgba(0, 0, 0, 0.9), rgba(22, 24, 51, 0.9));
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         font-weight: 700;
         padding: 0.05rem 0.3rem;
         border-radius: 5px;
         color: var(--accent);
 
-        &.luno {
-            font-size: 0.8rem;
+        &.rate {
             bottom: -10px;
             top: unset;
+            font-size: var(--step--1);
+            color: goldenrod;
+            color: deeppink;
+        }
+
+        &.small {
+            font-size: 0.8rem;
         }
     }
 
     .gold {
-        color: goldenrod;
-        // outline: 1px solid goldenrod;
+        // color: goldenrod;
+        // outline: 2px solid goldenrod;
     }
 
     .goldchest,

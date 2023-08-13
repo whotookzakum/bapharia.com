@@ -110,11 +110,11 @@
     </div>
     <div class="two">
         <b>Cooldown</b>
-        <div>20s</div>
+        <div>-</div>
     </div>
     <div class="three">
         <b>Buffs & Debuffs</b>
-        <div>Super Armor</div>
+        <div>-</div>
     </div>
 </header>
 

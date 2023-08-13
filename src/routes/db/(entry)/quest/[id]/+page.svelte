@@ -2,24 +2,23 @@
     import { Item } from "../../index";
     import { userLocale } from "$lib/stores.js";
     export let data;
-    // console.log(data);
-
     // TODO: Add icon to prerequisites? (AR icon, quest icon, class icon..)
 </script>
 
 <h2>Rewards</h2>
 <ul class="unstyled-list" role="list">
     {#each data.quest_rewards as reward}
-    <!-- Hide number based on reward type and amount -->
-        <Item 
+        <Item
             name={reward.name}
             thumb={reward.thumb}
             href={reward.href}
-            number={reward.amount}
-            source={{ en_US: "type " + reward.reward_type, ja_JP: "type " + reward.reward_type }}
-            
+            amount={[0, 2, 3, 17, 18, 19, 24].includes(reward.reward_type)
+                ? [0, 2].includes(reward.reward_type)
+                    ? reward.amount
+                    : `x${reward.amount}`
+                : ""}
+            smallTag={reward.reward_type === 0 || reward.reward_type === 2}
         />
-        <!-- isLuno={reward.reward_type === 0 || reward.reward_type === 2} -->
     {/each}
 </ul>
 

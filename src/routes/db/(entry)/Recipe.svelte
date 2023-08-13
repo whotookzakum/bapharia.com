@@ -1,5 +1,4 @@
 <script>
-    import { userLocale } from "$lib/stores";
     import Item from "./Item.svelte";
     export let recipe;
     // TODO: Recipe requires adventurer rank
@@ -8,24 +7,33 @@
 <h2 id="recipe">Recipe</h2>
 <ul class="unstyled-list grid" role="list">
     {#each recipe.materials as material}
-        <Item 
+        <Item
             href="/db/item/{material.id}"
             name={material.name}
-            number="x{material.amount || material.need_num}"
+            amount="x{material.amount || material.need_num}"
             source={material.sourceDesc}
             thumb={material.thumb}
         />
     {/each}
-    <Item 
-        isLuno
-        number={recipe.price || recipe.use_money}
+    <Item
+        name={{
+            ja_JP: "ルーノ",
+            en_US: "Luno",
+        }}
+        thumb="/UI/Icon/Reward/UI_Icon_0.png"
+        href="/db"
+        amount={recipe.price || recipe.use_money}
+        smallTag
     />
 </ul>
 
 {#if recipe.bonus_rate}
     <hr />
     <div class="flex align-center g-25">
-        <div class="grid" style="width: 64px; height: 64px; place-content: center">
+        <div
+            class="grid"
+            style="width: 64px; height: 64px; place-content: center"
+        >
             <img
                 src="/images/crafting.svg"
                 alt="Great success ticket"
@@ -52,7 +60,6 @@
         </p>
     </div>
 {/if}
-
 
 <style lang="scss">
     ul {
