@@ -69,7 +69,7 @@
 						class="kofi"
 					>
 						<Icon
-							icon="simple-icons:ko-fi"
+							icon="simple-icons:kofi"
 							width="36"
 							height="36"
 							color="white"
