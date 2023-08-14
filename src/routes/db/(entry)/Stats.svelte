@@ -204,8 +204,6 @@
             en_US: "Drain Resist"
         },
     };
-
-    $: console.log(data.params);
 </script>
 
 {#if h3}
@@ -249,7 +247,7 @@
         <hr />
     </div>
 
-    <!-- <dl class="unstyled-list g-25" class:not-max={isLevelSynced} role="list">
+    <dl class="unstyled-list g-25" class:not-max={isLevelSynced} role="list">
         {#each ["attribute_value", "skill"] as stat}
             {#if currentLevelStats[stat]}
                 <div class="row">
@@ -312,7 +310,7 @@
                 </div>
             {/each}
         {/if}
-    </dl> -->
+    </dl>
     {#if data.appearance}
         <hr>
         <small>Negative resistance indicates that the enemy is weak against that category.</small>

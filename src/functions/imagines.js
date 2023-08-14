@@ -1,5 +1,5 @@
 import imagineData from "$bp_server/japan/imagine.json";
-import imagineParams from "$bp_server/global/imagine/param_level.json";
+import imagineParams from "$bp_server/japan/imagine/param_level.json";
 import imaginePerks from "$bp_server/japan/imagine/perk_pick.json";
 import weaponPerks from "$bp_server/japan/weaponperks.json";
 import perksData from "$bp_server/japan/perks.json";
