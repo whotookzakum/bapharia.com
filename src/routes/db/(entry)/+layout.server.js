@@ -5,7 +5,7 @@ export const load = async ({ params, url }) => {
         fileName = fileName.replace("y", "ie")
     }
 
-    const entries = await import(`../../../functions/${fileName}s.js`)
+    const entries = await import(`../../../../functions/${fileName}s.js`)
     
     return entries.default.find(entry => entry.id === params.id)
 }
