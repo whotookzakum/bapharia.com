@@ -1,32 +1,13 @@
 <script>
-    import { onMount } from "svelte";
-    import {
-        Chart,
-        CategoryScale,
-        LinearScale,
-        BarController,
-        BarElement,
-        Tooltip,
-        Legend,
-    } from "chart.js";
-    import ChartDataLabels from "chartjs-plugin-datalabels";
+    
+    
+    
     import InputNumber from "$lib/components/InputNumber.svelte";
     import seasons from "./seasons.json";
     import StickyNote from "$lib/components/StickyNote.svelte";
-
-    let chartElement;
-    let myChart;
-
-    Chart.register(
-        CategoryScale,
-        LinearScale,
-        BarController,
-        BarElement,
-        Tooltip,
-        Legend,
-        ChartDataLabels
-    );
-    Chart.defaults.font.size = 18;
+    import SeasonPointsChart from "./SeasonPointsChart.svelte";
+    import ChartDataLabels from "chartjs-plugin-datalabels";
+    
 
     let selectedSeason = 1;
     $: season = seasons.find((season) => season.season === selectedSeason);
@@ -56,8 +37,12 @@
     let daysMissedAfterPurchase = 0;
     let purchaseDay = 1;
 
+    // If days missed is > the limit, set it to the limit
     $: if (daysMissedBeforePurchase >= purchaseDay)
         daysMissedBeforePurchase = purchaseDay - 1;
+
+    $: if (daysMissedAfterPurchase > SEASON_DAYS - purchaseDay + 1)
+        daysMissedAfterPurchase = SEASON_DAYS - purchaseDay + 1
 
     let freeLateStartPenaltyWeekly = 0;
     let freeLateStartPenaltySeasonal = 0;
@@ -294,16 +279,6 @@
         plugins: [ChartDataLabels],
     };
 
-    onMount(async () => {
-        myChart = new Chart(chartElement, config);
-        myChart.options.animation = false;
-    });
-
-    $: if (myChart) {
-        myChart.data.datasets = datasets;
-        myChart.update();
-    }
-
     // TODO: Points from last season
     // TODO: Level bought
 </script>
@@ -443,9 +418,9 @@
 
     <div class="right-col grid box">
         <h2>Maximum Season Points</h2>
-        <canvas bind:this={chartElement} />
+        <SeasonPointsChart {config} {datasets} />
         <hr />
-        <table class="bo">
+        <table>
             <thead>
                 <tr>
                     <th />
@@ -559,10 +534,5 @@
         flex: 1;
         flex-basis: 700px;
         min-width: 0;
-
-        canvas {
-            max-width: 100%;
-            margin-block: 1rem;
-        }
     }
 </style>

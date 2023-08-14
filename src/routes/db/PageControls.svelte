@@ -9,6 +9,8 @@
     export let hasNextPage = false;
     export let totalResults = 0;
 
+    // TODO: Back to search button should restore currentPage
+
     $: totalPages = Math.ceil(totalResults / $resultsPerPage);
     $: if ($currentPage > totalPages && totalPages > 0)
         $currentPage = totalPages;

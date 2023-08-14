@@ -9,7 +9,11 @@
         en_US: "Search by item name or id",
     };
 
-    $userSearch = $page.url.searchParams.get("search") || ""
+    $userSearch = $userSearch || $page.url.searchParams.get("search") || ""
+
+    if ($userSearch) {
+        $page.url.searchParams.set("search", $userSearch)
+    }
 
     const updateUrl = () => {
         $userSearch

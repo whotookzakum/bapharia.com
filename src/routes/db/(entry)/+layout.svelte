@@ -145,7 +145,7 @@
 <MetaTags title="{data.name[$userLocale]} — Bapharia" />
 
 <div class="entry-details grid">
-    <a href="/db" class="back-button btn btn-fadein">🡠 Back to Search</a>
+    <a href="/db" class="back-button btn btn-fadein"><!--🡠--> Back to Search</a>
     <header>
         <span class="category-name">{data.subcategoryName[$userLocale]}</span>
         <h1>{data.name[$userLocale]}</h1>

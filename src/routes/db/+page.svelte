@@ -8,7 +8,6 @@
     export let data;
 
     $: ({ DBSearchQuery } = data);
-
     // TODO save and cache preferences: filters
     // TODO favorite items
 </script>
@@ -41,6 +40,11 @@
                     {/each}
                 </ul>
             {/if}
+            <PageControls
+                hasPreviousPage={$DBSearchQuery?.data?.entries.hasPreviousPage}
+                hasNextPage={$DBSearchQuery?.data?.entries.hasNextPage}
+                totalResults={$DBSearchQuery?.data?.entries.totalResults}
+            />
         </div>
     </div>
 </div>
@@ -69,7 +73,6 @@
     ul#search-results {
         list-style-type: none;
         padding: 0;
-        margin: 0;
         display: block;
         overflow: visible;
         max-inline-size: none;

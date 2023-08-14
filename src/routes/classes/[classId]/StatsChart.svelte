@@ -12,7 +12,6 @@
     } from "chart.js";
     import hue from "./classHues.json";
     import { allStats } from "./stores";
-
     import StatsChartSettings from "./StatsChartSettings.svelte";
 
     export let classes = [];
@@ -22,15 +21,6 @@
     let myChart; // the chart instance
 
     let showTrueValue = true;
-
-    // Register components to use them
-    Chart.register(
-        CategoryScale,
-        LinearScale,
-        BarController,
-        BarElement,
-        Tooltip
-    );
 
     $: labels = $allStats.reduce((acc, stat) => {
         if (stat.checked) acc.push(stat.label);
@@ -123,11 +113,6 @@
         },
     };
 
-    onMount(async () => {
-        myChart = new Chart(chartElement, config);
-        myChart.options.animation = false;
-    });
-
     $: if (myChart) {
         myChart.data.datasets = datasets;
         myChart.data.labels = labels;
@@ -143,6 +128,20 @@
         myChart = new Chart(chartElement, newConfig);
         myChart.options.animation = false;
     }
+
+    onMount(() => {
+        // Register components to use them
+        Chart.register(
+            CategoryScale,
+            LinearScale,
+            BarController,
+            BarElement,
+            Tooltip
+        );
+        Chart.defaults.font.size = 12;
+        myChart = new Chart(chartElement, config);
+        myChart.options.animation = false;
+    });
 </script>
 
 <div class="chart-wrapper grid">
@@ -155,8 +154,6 @@
 <style lang="scss">
     .chart-wrapper {
         width: 100%;
-        margin-left: 1rem;
-        max-height: 600px;
         justify-content: center;
         min-width: 0;
         position: relative;
