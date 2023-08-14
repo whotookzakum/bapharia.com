@@ -94,7 +94,7 @@ Passive skills:
 - 2 class-shared abilities
 - all unlocked base abilites
 
-Learn more about the class actions and class abilities in the [classes guide](/guides/classes).
+Learn more about the class actions and class abilities on the [classes page](/classes).
 
 The developers have stated that they prefer to add more skill diversity to existing classes than create new classes that aren't very unique.
 

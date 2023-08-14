@@ -26,8 +26,9 @@
 
 <p>
     Tactical skills can have variations such as α (alpha) and β (beta), which
-    provide modifications to the normal version. Learn how to unlock skill
-    variations <a href="/guides/skill-variations">here</a>.
+    provide modifications to the normal version. 
+    <!-- TODO: Add guide for skill variations -->
+    <!-- Learn how to unlock skill variations <a href="/guides/skill-variations">here</a>. -->
 </p>
 
 <div id="skills" class="grid">
@@ -42,8 +43,9 @@
     </ol>
     <h2 id="tactical-skills">Tactical Skills</h2>
     <p>
-        Up to 4 tactical skills can be a equipped at a time. Learn about
-        unlocking Alpha and Beta variants <a href="/guides/skills">here</a>.
+        Up to 4 tactical skills can be a equipped at a time. 
+        <!-- TODO: Add guide for skill variations -->
+        <!-- Learn about unlocking Alpha and Beta variants <a href="/guides/skills">here</a>. -->
     </p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type >= 2 && skill.skill_type <= 5) as skill}

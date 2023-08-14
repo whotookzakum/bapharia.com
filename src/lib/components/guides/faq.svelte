@@ -146,7 +146,7 @@
         <p>
             The game will release with 5 classes, with more being added after
             release. Existing classes will have their playability expanded as
-            well. Check the guide on <a href="/guides/classes">classes</a>
+            well. Check out the <a href="/classes">classes page</a>
             to learn more.
         </p>
     </details>

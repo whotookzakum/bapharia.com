@@ -4,13 +4,14 @@
     export let imgWidth = 256;
     export let imgHeight = 256;
 
+    // TODO: refactor this to split the string and append "L"
     $: imgSrc = data.thumb
-        ?.replace("Item", "ItemL")
-        .replace("Weapon", "WeaponL")
-        .replace("Battle", "BattleL")
-        .replace("Picture", "PictureL")
-        .replace("Costume", "CostumeL")
-        .replace("Token", "TokenL");
+        ?.replace("Icon/Item", "Icon/ItemL")
+        .replace("Icon/Weapon", "Icon/WeaponL")
+        .replace("Imagine/Battle", "Imagine/BattleL")
+        .replace("Imagine/Picture", "Imagine/PictureL")
+        .replace("/Costume", "/CostumeL")
+        .replace("Icon/Token", "Icon/TokenL");
 
     $: hasValidSalePrice = !data.no_sale_flag && data.price_player_sells
     $: hasValidBuyPrice = data.price_player_buys && data.price_player_buys !== 99999 && data.price_player_buys !== 1 && data.price_player_buys !== 999999999
@@ -18,13 +19,14 @@
 
 <h2>Basic Info</h2>
 <div class="box flex g-50">
-    <img
+    <!-- <img
         src={imgSrc}
+        on:error={(e) => e.target.src = "/UI/Icon/ItemL/UI_Icon_NoData.png"}
         alt=""
         width={imgWidth}
         height={imgHeight}
         loading="lazy"
-    />
+    /> -->
     <div class="text-col grid">
 
         {#if data.sourceDesc && !["-", "非公開"].includes(data.sourceDesc.ja_JP)}

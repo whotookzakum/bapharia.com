@@ -5,6 +5,10 @@
 
     export let data;
     const CLASS_NAMES = {
+        "0": {
+            ja_JP: "全クラス",
+            en_US: "All Classes",
+        },
         "6": {
             ja_JP: "ブラストアーチャー",
             en_US: "Blast Archer",
@@ -66,6 +70,41 @@
         },
     };
 
+    const ELEMENT_NAMES_SKILL = {
+        "1": {
+            ja_JP: "火属性",
+            en_US: "Fire",
+        },
+        "2": {
+            ja_JP: "雷属性",
+            en_US: "Thunder",
+        },
+        "3": {
+            ja_JP: "氷属性",
+            en_US: "Ice",
+        },
+        "4": {
+            ja_JP: "土属性",
+            en_US: "Earth",
+        },
+        "5": {
+            ja_JP: "光属性",
+            en_US: "Light",
+        },
+        "6": {
+            ja_JP: "闇属性",
+            en_US: "Dark",
+        },
+        "0": {
+            ja_JP: "無属性",
+            en_US: "No Element",
+        },
+        Empty: {
+            ja_JP: "無属性",
+            en_US: "No Element",
+        },
+    };
+
     const IMAGINE_SLOTS = {
         "1": {
             ja_JP: "三葉",
@@ -103,7 +142,7 @@
     // TODO: Back button should take you "BACK" if your previous page was the DB, so your search params will still be applied; if you came from another page, it will take you to /db
 </script>
 
-<!-- <MetaTags title="{data.name[$userLocale]} — Bapharia" /> -->
+<MetaTags title="{data.name[$userLocale]} — Bapharia" />
 
 <div class="entry-details grid">
     <a href="/db" class="back-button btn btn-fadein">🡠 Back to Search</a>
@@ -167,19 +206,14 @@
                 <hr />
                 <div class="grid g-25">
                     <img src={data.elementImg} alt="" width="46" height="46" />
-                    {#if data.attribute}
-                        <span>{ELEMENT_NAMES[data.attribute][$userLocale]}</span
+                    {#if data.entryTypes[0] === "Skill"}
+                        <span
+                            >{ELEMENT_NAMES_SKILL[
+                                data.elementImg.replace("/UI/Icon/Attribute/UI_IconAttribute_", "").replace(".png", "")
+                            ][$userLocale]}</span
                         >
                     {:else}
-                        <span
-                            >{ELEMENT_NAMES[
-                                data.elementImg
-                                    .replace(
-                                        "/UI/Icon/Attribute/UI_IconAttribute_",
-                                        ""
-                                    )
-                                    .replace(".png", "")
-                            ][$userLocale]}</span
+                        <span>{ELEMENT_NAMES[data.attribute][$userLocale]}</span
                         >
                     {/if}
                 </div>
@@ -194,7 +228,7 @@
 
 <style lang="scss">
     .back-button {
-        font-size: var(--step-0); 
+        font-size: var(--step-0);
         color: var(--text2);
         // border-radius: 5px;
 

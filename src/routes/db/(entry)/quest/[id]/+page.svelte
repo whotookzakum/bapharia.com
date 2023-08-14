@@ -1,7 +1,13 @@
 <script>
+    import mapsData from "$bp_client/japan/Content/Blueprints/Manager/DT_ZoneDB.json"
     import { Item } from "../../index";
     import { userLocale } from "$lib/stores.js";
     export let data;
+
+    // To check if View Location url actually exists, unlike "Astelreas" in MQ101_050 or "arn002A_A" in SQ101_146
+    function isRealMap(mapId) {
+        return Object.keys(mapsData[0].Rows).includes(mapId)
+    }
     // TODO: Add icon to prerequisites? (AR icon, quest icon, class icon..)
 </script>
 
@@ -68,7 +74,7 @@
                 {#each condition.descriptionId as description}
                     <p>{description.desc[$userLocale]}</p>
                     <div class="flex g-50" style="flex-wrap: wrap">
-                        {#if condition.locationId}
+                        {#if condition.locationId && isRealMap(condition.locationId)}
                             <a href="/db/map/{condition.locationId}"
                                 >View Location</a
                             >
@@ -79,7 +85,7 @@
                                 >View NPC</a
                             >
                         {/if} -->
-                        {#if condition.dungeonId}
+                        {#if condition.dungeonId && isRealMap(condition.dungeonId)}
                             <a href="/db/map/{condition.dungeonId}"
                                 >View Dungeon</a
                             >

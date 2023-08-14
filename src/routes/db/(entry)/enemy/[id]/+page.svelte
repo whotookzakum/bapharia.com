@@ -143,10 +143,11 @@
                     {/if}
                     {#if treasures.rarity_3_rewards}
                         {#each treasures.rarity_3_rewards as rareTreasure}
+                        <!-- TODO: need a more permanent fix for treasure reward link (E000_21_00_00000 is a mook that drops weapons) -->
                             <Item
                                 name={rareTreasure.name}
                                 thumb={rareTreasure.thumb}
-                                href="/db/imagine/{rareTreasure.reward_master_id}"
+                                href={`${rareTreasure.reward_master_id}`.charAt(0) == 1 ? `/db/imagine/${rareTreasure.reward_master_id}` : "/db"}
                                 rate="{(
                                     (treasures.drop_rate *
                                         treasures.rarity_3_rate *
@@ -159,14 +160,14 @@
                                 }}
                                 chest="goldchest"
                             />
-                            <!-- <p>
+                            <p>
                                 This enemy has a <b
                                     >{treasures.drop_rate / 100}%</b
                                 >
                                 of dropping a chest. The chest has a
-                                <b>{treasures.rarity_1_rate / 100}%</b>
+                                <b>{treasures.rarity_1_rate / 100 || 0}%</b>
                                 chance of being a normal chest, and a
-                                <b>{treasures.rarity_3_rate / 100}%</b>
+                                <b>{treasures.rarity_3_rate / 100 || 0}%</b>
                                 chance of being a rare chest. The rare chest contains
                                 <b>{treasures.rarity_3_rewards.length}</b>
                                 items, and the
@@ -174,7 +175,7 @@
                                 has a
                                 <b>{rareTreasure.rate / 100}%</b> chance of dropping
                                 from the chest.
-                            </p> -->
+                            </p>
                         {/each}
                     {/if}
                 {/each}
