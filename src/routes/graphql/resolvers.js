@@ -1,19 +1,18 @@
 
 import { checkStringIncludes } from '$lib/utils/string_utils.js';
-import entries from "../kv/functions";
-import items from "../kv/functions/items";
-import weapons from "../kv/functions/weapons";
-import imagines from "../kv/functions/imagines";
-import enemies from '../kv/functions/enemies';
-import skills from '../kv/functions/skills';
-import tokens from '../kv/functions/tokens';
-import liquidMemories from '../kv/functions/liquidmemories';
-import gestures from '../kv/functions/gestures';
-import stampSets from '../kv/functions/stampsets';
-import maps from '../kv/functions/maps';
-import costumes from '../kv/functions/costumes';
-import avatarparts from '../kv/functions/avatarparts';
-import quests from '../kv/functions/quests';
+import items from "$functions/items";
+import weapons from "$functions/weapons";
+import imagines from "$functions/imagines";
+import enemies from '$functions/enemies';
+import skills from '$functions/skills';
+import tokens from '$functions/tokens';
+import liquidMemories from '$functions/liquidmemories';
+import gestures from '$functions/gestures';
+import stampSets from '$functions/stampsets';
+import maps from '$functions/maps';
+import costumes from '$functions/costumes';
+import avatarparts from '$functions/avatarparts';
+import quests from '$functions/quests';
 
 const resolvers = {
     Query: {

@@ -128,7 +128,7 @@ const resolveFileImportPromises = async (files) => {
 
 // Return ALL enemy habitats (contains enemy sets, respawn time, density)
 async function getAllEnemyHabitats() {
-    const allMapFiles = import.meta.glob('../../../bp_client/japan/Content/Maps/**/**/sublevel/*_EN.json')
+    const allMapFiles = import.meta.glob('../bp_client/japan/Content/Maps/**/**/sublevel/*_EN.json')
     const mapsData = await resolveFileImportPromises(Object.values(allMapFiles))
     const enemyHabitats = mapsData.filter(obj => obj.Type === "SBEnemyHabitat")
     return enemyHabitats
@@ -136,7 +136,7 @@ async function getAllEnemyHabitats() {
 
 // Return ALL enemy sets (contains enemies, their level,
 async function getAllEnemySets() {
-    const allEnemySetFiles = import.meta.glob('../../../bp_client/japan/Content/Blueprints/Manager/EnemySet/*.json')
+    const allEnemySetFiles = import.meta.glob('../bp_client/japan/Content/Blueprints/Manager/EnemySet/*.json')
     // [EnemySet_arena, EnemySet_common, EnemySet_dungeon, EnemySet_extra, EnemySet_field]
     const enemySetsData = await resolveFileImportPromises(Object.values(allEnemySetFiles))
     // Only the EnemySets, no file metadata
@@ -266,7 +266,7 @@ function getEnemyVariantData(enemyVariant) {
 
 // Enemy groups
 const enemies = enemiesGroupedByNameAndType.map(enemyGroup => {
-
+    
     const enemyVariants =
         enemyGroup.enemyVariants
             .map(enemyVariant => getEnemyVariantData(enemyVariant))

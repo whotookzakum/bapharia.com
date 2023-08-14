@@ -103,7 +103,7 @@
     // TODO: Back button should take you "BACK" if your previous page was the DB, so your search params will still be applied; if you came from another page, it will take you to /db
 </script>
 
-<MetaTags title="{data.name[$userLocale]} — Bapharia" />
+<!-- <MetaTags title="{data.name[$userLocale]} — Bapharia" /> -->
 
 <div class="entry-details grid">
     <a href="/db" class="back-button btn btn-fadein">🡠 Back to Search</a>

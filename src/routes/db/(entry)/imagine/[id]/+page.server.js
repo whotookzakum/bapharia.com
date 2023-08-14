@@ -1,4 +1,4 @@
-import data from '$functions/enemies.js';
+import data from '$functions/imagines.js';
 
 export function entries() {
     const routes = data.map(item => {
