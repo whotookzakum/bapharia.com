@@ -40,7 +40,7 @@ const config = {
 			$bp_server: path.resolve('.', 'src/bp_server'),
 			$functions: path.resolve('.', 'src/functions'),
 		}
-	}
+	},
 };
 
 export default config;
