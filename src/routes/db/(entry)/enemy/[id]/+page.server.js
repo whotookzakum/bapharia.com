@@ -1,4 +1,5 @@
 import data from '$functions/enemies.js';
+import { redirect } from '@sveltejs/kit';
 
 export function entries() {
     const routes = data.map(item => {
@@ -11,13 +12,10 @@ export function entries() {
 
 export const prerender = true;
 
-
-
-// import { redirect } from '@sveltejs/kit';
-
-// /** @type {import('./$types.js').LayoutServerLoad} */
-// export function load({ locals }) {
-//     if (!locals.user) {
-//         throw redirect(307, 'https://discord.gg/ZKwhn3a4yH');
-//     }
-// }
+export function load({ params }) {
+    // Redirect all enemy variants to the main entry id
+    const enemyGroup = data.find(enemy => enemy.enemyVariantIds.includes(params.id) && enemy.enemyVariantIds[0] !== params.id)
+    if (enemyGroup) {
+        throw redirect(308, `/db/enemy/${enemyGroup.enemyVariantIds[0]}`)
+    }
+}

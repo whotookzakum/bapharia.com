@@ -160,7 +160,7 @@
                                 }}
                                 chest="goldchest"
                             />
-                            <p>
+                            <!-- <p>
                                 This enemy has a <b
                                     >{treasures.drop_rate / 100}%</b
                                 >
@@ -175,7 +175,7 @@
                                 has a
                                 <b>{rareTreasure.rate / 100}%</b> chance of dropping
                                 from the chest.
-                            </p>
+                            </p> -->
                         {/each}
                     {/if}
                 {/each}
