@@ -86,7 +86,7 @@
     }
 </script>
 
-<header class="flex box" style="width: fit-conten">
+<header class="flex box">
     <div class="one flex g-50">
         <SkillIcon
             skillType={skill.skill_type}
@@ -95,8 +95,8 @@
             skillBackgroundImg={skill.skillBackgroundImg}
         />
         <div>
-            <h3 class="toc-exclude">
-                {skill.name[$userLocale]}
+            <h3 class="toc-exclude" id={skill.name.en_US.toLowerCase().replace(" ", "-").replace(" ", "-")}>
+                {skill.name[$userLocale]} {skill.id}
             </h3>
             <div>
                 {#if elementId !== "Empty"}

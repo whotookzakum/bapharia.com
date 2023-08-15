@@ -19,21 +19,26 @@
     }
 
     function getText(locale) {
-        
-        const string = desc[locale].replace(/(G[1-3]|α|β)/g, '').replace(/：|: /g, '|')
-        const splitString = string.split("|")
-        if (splitString[grade]) return splitString[grade] // tac skills
-        if (splitString[0]) return splitString[0] // ults
-        return splitString[1] // alpha and beta
+        // Remove from text: G1 G2 G3 and Japanese and English colons
+        const string = desc[locale].replace(/(G[1-3]|α|β)|：|:/g, '')
+         // Assumes that skill text doesn't contain a new line in it within the same grade, i.e. G1: some text \n some text \nG2: ...
+        const splitString = string.split("\n")
+
+        // tac skills and ults
+        if (splitString[grade - 1]) return splitString[grade - 1]
+
+        // alpha and beta shouldn't be affected by the regex above and thus only index 0 exists
+        // can also be rewritten as if (ability_type > 0 && ability_type !== 100) or if (condition_skill_id_1 > 0)
+        return splitString[0] 
     }
 
     $: interpolatedString = getText($userLocale)
 </script>
 
 <div class="row grid">
-    {#if ability_type > 0 && ability_type !== 100}
-        <hr style:margin="1rem 0" style:grid-column="-2" />
-    {/if}
+    <!-- {#if ability_type > 0 && ability_type !== 100}
+        <hr style:margin="0" style:grid-column="-2" />
+    {/if} -->
     <dt class="grid">
         <span
             class="grade skip-std"
@@ -46,10 +51,10 @@
                 ? ability_type
                 : 0}.png"
             alt={getAltText()}
-            width="32"
-            height="32"
+            width="24"
+            height="24"
         />
-        <span class="level-requirement">(Level {reqLevel})</span>
+        <span class="level-requirement">(Lv. {reqLevel})</span>
     </dt>
     <dd>{interpolatedString}</dd>
 </div>
@@ -57,19 +62,18 @@
 <style lang="scss">
     .row {
         grid-template-columns: 16ch 1fr;
-        column-gap: 2rem;
-        font-size: var(--step-1);
+        align-items: center;
+        padding: 0.5rem 0;
     }
 
     dt {
-        grid-template-columns: 3ch 32px auto !important;
+        grid-template-columns: 3ch 24px auto !important;
         gap: 0.5rem;
         align-items: center;
 
         .grade {
             justify-self: end;
             font-size: var(--step-2);
-            font-weight: normal;
         }
 
         .hidden {
@@ -77,12 +81,12 @@
         }
 
         .level-requirement {
-            color: var(--text2);
+            color: var(--accent);
+            font-weight: normal;
         }
     }
 
     dd {
-        max-inline-size: none;
         margin: 0;
     }
 

@@ -122,6 +122,8 @@ const skills = skillsData.reduce((acc, curr) => {
         if (targetSkill) {
 
             // Get ability text
+            // Alpha and Beta text always comes first before G1 G2 G3
+            // Assumes that alpha/beta text doesn't contain a new line in it
             let abilityText = getText("master_skill_data_text", curr.skill_desc_array[0].desc)
             curr.desc = {
                 ja_JP: abilityText.ja_JP.split("\n")[0],

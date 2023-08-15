@@ -20,15 +20,8 @@
 <p>
     Skills can be obtained by leveling up a class high enough to unlock the G1
     version of the skill. Typically anything with "ability" as the category is a
-    passive skill. Class Action, or Subaction, refers to the second Base Action
+    passive skill. Class Action (or Subaction) refers to the second Base Action
     (right click).
-</p>
-
-<p>
-    Tactical skills can have variations such as α (alpha) and β (beta), which
-    provide modifications to the normal version. 
-    <!-- TODO: Add guide for skill variations -->
-    <!-- Learn how to unlock skill variations <a href="/guides/skill-variations">here</a>. -->
 </p>
 
 <div id="skills" class="grid">
@@ -43,7 +36,9 @@
     </ol>
     <h2 id="tactical-skills">Tactical Skills</h2>
     <p>
-        Up to 4 tactical skills can be a equipped at a time. 
+        Up to 4 tactical skills can be a equipped at a time.
+        Tactical skills can have variations such as α (alpha) and β (beta), which
+        provide modifications to the normal version.
         <!-- TODO: Add guide for skill variations -->
         <!-- Learn about unlocking Alpha and Beta variants <a href="/guides/skills">here</a>. -->
     </p>
@@ -75,8 +70,9 @@
     <h2 id="class-shared-abilities">Class-Shared Abilities</h2>
     <p>
         Up to two class-shared abilities can be equipped at a time. Slots unlock
-        at Level 30 and 45. These skills can be equipped on any other class
-        after unlocking them.
+        at Level 30 and 45. These skills can be equipped on <strong
+            >other classes</strong
+        > after unlocking them.
     </p>
     <ol class="unstyled-list grid" role="list">
         {#each skills.filter((skill) => skill.skill_type === 8 && skill.ability_type === 100) as skill}
