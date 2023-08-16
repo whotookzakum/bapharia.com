@@ -3,7 +3,7 @@ import markerNames from "./markerNames.json"
 import markerCategories from "./markerCategories.json"
 import mapsData from "./maps.json"
 
-export const prerender = true
+export const prerender = false
 
 export const load = async ({ params }) => {
     let zoneId = params.zone
