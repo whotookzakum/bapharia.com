@@ -7,7 +7,7 @@ export const prerender = false
 
 export const load = async ({ params }) => {
     let zoneId = params.zone
-    const allMapFiles = import.meta.glob('../../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json')
+    const allMapFiles = import.meta.glob('../../../bp_client/japan/Content/Maps/**/**/sublevel/*.json')
     const mapFiles = await getMapFiles(allMapFiles, zoneId)
     const mapData = await getMapData(mapFiles)
     const mapComponents = await getMapComponents(mapData)
