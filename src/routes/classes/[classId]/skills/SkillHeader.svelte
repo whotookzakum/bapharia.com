@@ -96,7 +96,7 @@
         />
         <div>
             <h3 class="toc-exclude" id={skill.name.en_US.toLowerCase().replace(" ", "-").replace(" ", "-")}>
-                {skill.name[$userLocale]} {skill.id}
+                {skill.name[$userLocale]}
             </h3>
             <div>
                 {#if elementId !== "Empty"}
