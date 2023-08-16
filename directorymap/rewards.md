@@ -5,6 +5,7 @@
 - Lottery rewards: `/master_reward_lottery_groups.json`
 
 ### Variables
+Also check /UI/Icon/Reward for more
 `reward_type`
 - 0: luno
 - 2: exp
@@ -25,5 +26,5 @@
 - 27: crafting recipe set
 - 28: adventure board
 - 30: warehouse ability
-- 32: imagine beta ?
+- 32: beta skill
 - 33: lottery (RNG)

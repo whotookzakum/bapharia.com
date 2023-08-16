@@ -12,42 +12,43 @@ type Ability {
 }
 
 type AvatarPart implements DBEntry {
-  category: Text
   desc: Text
   id: String!
   name: Text
+  subcategoryName: Text
   thumb: String
 }
 
 type Costume implements DBEntry {
-  category: Text
   desc: Text
   id: String!
   name: Text
+  subcategoryName: Text
   thumb: String
-}
-
-type DBConnection {
-  edges: [EntryEdge!]!
-  pageInfo: PageInfo!
-  totalResults: Int!
 }
 
 interface DBEntry {
-  category: Text
   desc: Text
   id: String!
   name: Text
+  subcategoryName: Text
   thumb: String
 }
 
+type DBResults {
+  hasNextPage: Boolean
+  hasPreviousPage: Boolean
+  results: [DBEntry]!
+  totalResults: Int!
+}
+
 type Enemy implements DBEntry {
-  category: Text
   desc: Text
   found_in: [EnemyLocation]!
   id: String!
   level_params: [LevelParams]!
   name: Text
+  subcategoryName: Text
   thumb: String
 }
 
@@ -87,31 +88,25 @@ type EnemyLocation {
   name: Text
 }
 
-type EntryEdge {
-  cursor: String
-  node: DBEntry
-}
-
 type GameMap implements DBEntry {
-  category: Text
   desc: Text
   id: String!
   mapImages: [String]!
   name: Text
+  subcategoryName: Text
   thumb: String
 }
 
 type Gesture implements DBEntry {
-  category: Text
   desc: Text
   id: String!
   name: Text
+  subcategoryName: Text
   thumb: String
 }
 
 type Imagine implements DBEntry {
   abilities: [Ability]!
-  category: Text
   desc: Text
   elementImg: String
   id: String!
@@ -122,12 +117,12 @@ type Imagine implements DBEntry {
   price_player_sells: Int
   recipe: Recipe
   slotImg: String
+  subcategoryName: Text
   thumb: String
 }
 
 type Item implements DBEntry {
   adventurer_rank: Int
-  category: Text
   desc: Text
   dungeon_only: Boolean
   effectDesc: Text
@@ -139,6 +134,7 @@ type Item implements DBEntry {
   price_player_buys: Int
   price_player_sells: Int
   sourceDesc: Text
+  subcategoryName: Text
   thumb: String
 }
 
@@ -184,11 +180,11 @@ type LevelParams {
 type LiquidMemory implements DBEntry {
   accumulate_condition_parameters: [LMChargeCondition]!
   bottle_accumulate_limit: Int
-  category: Text
   desc: Text
   efficacy_parameters: [LMEffect]!
   id: String!
   name: Text
+  subcategoryName: Text
   thumb: String
 }
 
@@ -202,16 +198,16 @@ type Material {
   sourceDesc: Text
 }
 
-type PageInfo {
-  endCursor: String
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
+type Query {
+  entries(ar: String, avatarparts: String, categories: String, classes: String, costumes: String, elements: String, enemies: String, imagine: String, items: String, level: String, limit: Int, maps: String, offset: Int, quests: String, searchTerm: String, skills: String, weapons: String): DBResults!
 }
 
-type Query {
-  entries(after: String, before: String, categories: String, first: Int, last: Int, searchTerm: String): DBConnection!
-  entry(longId: String!): DBEntry
+type Quest implements DBEntry {
+  desc: Text
+  id: String!
+  name: Text
+  subcategoryName: Text
+  thumb: String
 }
 
 type Recipe {
@@ -234,7 +230,6 @@ type Recipe {
 
 type Skill implements DBEntry {
   abilities: [Ability]!
-  category: Text
   classImg: String
   class_type: Int
   desc: Text
@@ -244,6 +239,7 @@ type Skill implements DBEntry {
   skillBackgroundImg: String
   skill_mastery_param: [SkillMasteryParam]
   skill_type: Int
+  subcategoryName: Text
   thumb: String
 }
 
@@ -257,11 +253,11 @@ type Stamp {
 }
 
 type StampSet implements DBEntry {
-  category: Text
   desc: Text
   id: String!
   name: Text
   stamp_data: [Stamp]!
+  subcategoryName: Text
   thumb: String
 }
 
@@ -276,7 +272,6 @@ type Text {
 }
 
 type Token implements DBEntry {
-  category: Text
   desc: Text
   effect_value: Int
   id: String!
@@ -286,6 +281,7 @@ type Token implements DBEntry {
   purchase_type: Int
   recovery_amount: Int
   recovery_type: Int
+  subcategoryName: Text
   thumb: String
 }
 
@@ -311,7 +307,6 @@ type TreasureSource {
 type Weapon implements DBEntry {
   abilities: [Ability]!
   attribute: Int
-  category: Text
   classImg: String
   desc: Text
   elementImg: String
@@ -321,6 +316,7 @@ type Weapon implements DBEntry {
   price_player_sells: Int
   recipe: Recipe
   stats: [LevelParams]!
+  subcategoryName: Text
   thumb: String
   treasureSources: [TreasureSource]
   weapon_max_level: Int

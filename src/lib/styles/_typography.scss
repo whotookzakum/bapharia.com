@@ -10,13 +10,26 @@ body {
 }
 
 a {
+    color: var(--link);
+}
+
+a.styled-link {
     color: inherit;
     text-decoration: none;
-    border-bottom: 0.24em solid var(--accent);
 
-    &:hover,
-    &:focus-visible {
-        color: var(--accent);
+    &:hover, &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+.styled-link-parent {
+    a {
+        color: inherit;
+        text-decoration: none;
+    
+        &:hover, &:focus-visible {
+            text-decoration: underline;
+        }
     }
 }
 
@@ -87,7 +100,6 @@ figcaption,
 caption {
     color: var(--text2);
     line-height: 1.75;
-    text-align: center;
     margin: 0.25rem 0;
 }
 
@@ -121,33 +133,22 @@ mark {
 // HEADERS 
 // ======================================================================
 
-h1 {
-    margin-top: 10vh;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: "Skip Std", "Georgia", serif;
+    font-family: "Skip Std", "Public Sans", "Georgia", serif;
     margin-block: var(--h-size, 1rem) 0; 
     font-size: var(--h-size, 1rem);
-}
-
-h1,
-h2,
-h3 {
-    font-weight: 300;
+    font-weight: 800;
     letter-spacing: .05em;
     line-height: 1.75;
 }
 
-h4,
-h5,
-h6 {
-    font-weight: 500;
+h1 {
+    margin: 0;
 }
 
 h1 {
@@ -184,14 +185,11 @@ p, details {
 }
 
 article table {
-    background: var(--surface2);
-    padding: 1rem;
-    border-radius: 9px;
-    box-shadow: 0 2px 4px var(--surface-shadow);
+    background: var(--surface1);
+    border-radius: 1rem;
     caption-side: bottom;
 
     thead th {
-        text-transform: uppercase;
         color: var(--text2);
         font-weight: 500;
         text-align: left;
@@ -242,14 +240,14 @@ dt {
     font-display: swap;
 }
 
-@font-face {
-    font-family: "Skip Std";
-    src: url("/fonts/SkipStd.ttf");
-    font-display: swap;
-}
+// @font-face {
+//     font-family: "Skip Std";
+//     src: url("/fonts/SkipStd.ttf");
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: "Century Gothic Pro";
-    src: url("/fonts/CenturyGothicProBold.ttf");
-    font-display: swap;
-}
+// @font-face {
+//     font-family: "Century Gothic Pro";
+//     src: url("/fonts/CenturyGothicProBold.ttf");
+//     font-display: swap;
+// }

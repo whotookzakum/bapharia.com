@@ -1,3 +1,19 @@
+## Update checklist
+1. **Fetch and decrypt API**
+2. Update cloudflare KV
+3. Update worker schema
+
+1. **Datamine new client files**
+2. Update bp_client files
+3. Update UI files
+4. Create new map images
+5. Place new map markers
+
+## Deploy checklist
+- Change graphql endpoint `/src/client.js`
+- Move `kv` and `graphql` out of routes
+- Watch remote schema `/houdini.config.js`
+
 ## ITEMS
 - Weapons
     - 3d model

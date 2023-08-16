@@ -1,31 +1,36 @@
 <script>
-    import "./article.scss";
-    import PageFooter from "$lib/components/PageFooter.svelte";
+    import { fetchMarkdownPosts } from "$lib/utils";
     import MetaTags from "$lib/components/MetaTags.svelte";
+    import HeroBanner from "$lib/components/HeroBanner.svelte";
+    import ReadMore from "./ReadMore.svelte";
+    import PagesList from "$lib/components/layout/PagesList.svelte";
+    import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
     export let data;
     $: formattedDate = new Date(data.meta.date).toLocaleDateString();
 </script>
 
-<MetaTags title={`${data.meta.title} — Bapharia`} description={data.meta.caption} />
+<MetaTags
+    title={`${data.meta.title} — Bapharia`}
+    description={data.meta.caption}
+/>
 
-<div class="contents">
-    <main id="main" tabindex="-1">
-        <article class="guide">
-            <img class="bg-img" src={data.meta.bannerImg} alt="" loading="lazy" />
-            <header class="guide-header g-50">
-                <h1>{data.meta.title}</h1>
-                <p class="skip-std" style:color="var(--accent)">By {data.meta.author}</p>
-                <p>Last updated {formattedDate}</p>
-            </header>
-            <!-- <p style="color: var(--text2)">&leftarrow; Guides / {data.meta.title}</p> -->
-            <p style="color: var(--text2);">{data.meta.caption}</p>
-            <svelte:component this={data.content} />
-            <PageFooter />
-            <div class="scroll-tracker" />
-        </article>
-    </main>
-</div>
+<HeroBanner bannerUrl={data.meta.bannerImg}>
+    <h1>{data.meta.title}</h1>
+    <p style:color="var(--text2)" style:margin-top="0">
+        {data.meta.caption}
+    </p>
+    <b>By {data.meta.author} • Last Updated {formattedDate}</b>
+</HeroBanner>
 
-<style lang="scss">
+{#await fetchMarkdownPosts() then guides}
+    <PagesList links={guides} />
+{/await}
 
-</style>
+<TableOfContents />
+
+<article class="grid">
+    <svelte:component this={data.content} />
+    {#await fetchMarkdownPosts() then guides}
+        <ReadMore {guides} />
+    {/await}
+</article>

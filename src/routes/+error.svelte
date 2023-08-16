@@ -20,7 +20,7 @@
 
 <style>
 	.wrapper {
-		max-width: 1400px;
+		max-width: var(--content-width);
 		display: grid;
 		width: 100%;
 		padding: 0 1em;

@@ -26,24 +26,21 @@ hr {
     background-color: var(--surface3);
 }
 
-.box,
-.sns-tag {
-    background: var(--surface1);
-    border-radius: 5px;
-    box-shadow: 0 2px 4px var(--surface-shadow);
-}
 
 .box {
-    border: 1px solid transparent;
-    border: 1px solid var(--surface2);
-
+    background: var(--surface1);
+    border-radius: 1rem; // orig. 5px
+    border: none;
+    // box-shadow: 0 2px 4px var(--surface-shadow);
+    // border: 1px solid transparent;
+    // border: 1px solid var(--surface2);
     padding: 1rem;
     overflow: hidden;
 
     &.hover:hover,
     &.hover:focus-visible {
         background: var(--surface2);
-        border-color: var(--surface3);
+        // border-color: var(--surface3);
     }
 }
 
@@ -102,68 +99,26 @@ input.visually-hidden[type="radio"]:focus-visible+label {
 }
 
 .skip-std {
-    font-family: "Skip Std";
+    font-family: "Skip Std", inherit;
 }
 
-.entry-details {
-    padding-top: 0.5rem;
+.entry-details table {
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1.8;
+    overflow: hidden;
 
-    h4 {
-        font-size: var(--step-0);
-
-        &:first-of-type {
-            // margin: 0;
-        }
+    thead tr {
+        background: var(--surface2);
     }
 
-    h5 {
-        font-size: initial;
+    tr+tr {
+        border-top: 1px solid var(--surface2);
     }
 
-    p,
-    li {
-        max-inline-size: none;
-        margin: 0;
-    }
-
-    table {
-        width: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        border-collapse: collapse;
-        line-height: 1.8;
-        margin: 0.25rem 0;
-        overflow: hidden;
-
-        td:nth-child(3),
-        td:last-child,
-        th:nth-child(3),
-        th:last-child {
-            text-align: right;
-        }
-
-        thead tr {
-            background: var(--surface3);
-        }
-
-        tr+tr {
-            border-top: 1px solid var(--surface3);
-        }
-
-        td,
-        th {
-            padding: 0.5rem 1rem;
-        }
-    }
-
-    p.border-left {
-        margin: 0;
-    }
-
-    .border-left {
-        margin: 0.25rem 0;
-        padding: 0 1rem;
-        border-left: 6px solid var(--surface3);
-        align-items: center;
+    td,
+    th {
+        padding:  1rem;
     }
 }
 
@@ -196,6 +151,22 @@ input[type="number"] {
 .entry-id {
     --h: 0;
     --s: 0%;
+}
+
+:root {
+    --Enemies: hsl(0, 70%, 18%);
+    --Tokens: hsl(0, 70%, 18%);
+    --Skills: hsl(0, 70%, 18%);
+    --StampSets: hsl(0, 70%, 18%);
+    --Items: hsl(0, 70%, 18%);
+    --Imagine: hsl(0, 70%, 18%);
+    --Weapons: hsl(0, 70%, 18%);
+    --GameMaps: hsl(0, 70%, 18%);
+    --LiquidMemories: hsl(0, 70%, 18%);
+    --Costume: hsl(0, 70%, 18%);
+    --Gestures: hsl(0, 70%, 18%);
+    --AvatarParts: hsl(0, 70%, 18%);
+
 }
 
 .Enemy {
@@ -246,47 +217,8 @@ input[type="number"] {
     --h: 330;
 }
 
-.sns-tag {
-    padding: 0.25rem 0.4rem;
-    white-space: nowrap;
-    line-height: 2.1;
-    background: var(--surface2);
-    border: 1px solid var(--surface3);
-
-    &:hover,
-    &:focus-visible {
-        background: var(--surface2);
-    }
-}
-
-.skip-std {
-    font-size: var(--step-1);
-}
-
-.kofi {
-    color: white;
-}
-
-.patreon {
-    color: #ff424d;
-}
-
-.youtube,
-.youtube:hover {
-    color: #ea3223;
-}
-
-.twitch,
-.twitch:hover {
-    color: #9146ff;
-}
-
-.discord {
-    color: #5865f2;
-}
-
-.paypal {
-    color: #009cde;
+.Quest {
+    --h: 200;
 }
 
 .kofi {
@@ -295,10 +227,10 @@ input[type="number"] {
     &::before {
         content: "";
         z-index: 1;
-        top: 10px;
-        left: 8px;
-        width: 11px;
-        height: 9px;
+        top: 9px;
+        left: 5px;
+        width: 16px;
+        height: 16px;
         position: absolute;
         background: #ff5e5b;
     }
@@ -320,24 +252,115 @@ input[type="number"] {
     }
 }
 
+.rounded {
+    border-radius: 3rem;
+}
+
+.show-when-focus-visible:not(:focus-visible) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.transition-pushable {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--text1);
+    font-weight: 500;
+    font-size: var(--step-1);
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    border-radius: 3rem;
+}
+
+.btn-primary {
+    background: var(--accent);
+    transition: background-color 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+        background: hsl(210, 68%, 45%);
+    }
+}
+
+.btn-fadein {
+    position: relative;
+    // border: 1px solid rgba(39, 52, 78, 0.9);
+    background: rgba(39, 52, 78, 0.4);
+    overflow: hidden;
+    transition: background-color 0.35s ease;
+
+    &:hover,
+    &:focus-visible {
+        background: rgba(39, 52, 78, 0.4);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(-138deg, rgb(58, 164, 193), #6315ac, #ab1572);
+        opacity: 0;
+        transform: scaleX(1);
+        transform-origin: 0%;
+        transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    &:where(:hover, :focus-visible)::after {
+        opacity: 1;
+        transform: scaleX(1.5);
+    }
+}
+
+.unstyled-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-inline-size: none !important;
+}
 
 .layout {
     display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: flex-start;
+    grid-template-columns: 1fr min(var(--content-width), calc(100% - 2rem)) 1fr;
+
+    &>* {
+        grid-column: 2;
+    }
+
+    .full-bleed,
+    .bg-bleed {
+        grid-column: 1/-1;
+    }
+
+    .bg-bleed {
+        width: 100%;
+
+        .unbleed {
+            max-width: var(--content-width);
+            margin: auto;
+        }
+    }
 }
 
-@media (max-width: 850px) {
-    .layout {
-        grid-template-columns: unset;
-        --nav-height: 70px;
-    }
+.centered-section {
+    text-align: center;
 
-    .contents {
-        padding-top: var(--nav-height) !important;
-    }
-
-    .desktop-only {
-        display: none;
+    p {
+        margin-inline: auto;
     }
 }

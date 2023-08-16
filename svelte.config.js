@@ -8,6 +8,12 @@ import rehypeToc from "@jsdevtools/rehype-toc";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+	onwarn: (warning, handler) => {
+		if (warning.code === "a11y-no-redundant-roles") {
+			return
+		}
+		handler(warning)
+	},
 	extensions: ['.svelte', '.md', '.mdx', '.svx'],
 	preprocess: [
 		vitePreprocess(),
@@ -19,10 +25,10 @@ const config = {
 					rehypeAutolinkHeadings,
 					{ behavior: 'append' }
 				],
-				[
-					rehypeToc,
-					{}
-				]
+				// [
+				// 	rehypeToc,
+				// 	{}
+				// ]
 			]
 		})
 	],
@@ -30,10 +36,11 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$houdini: path.resolve('.', '$houdini'),
-			$bp_client: path.resolve('.', 'src/bp_client'),
-			$bp_server: path.resolve('.', 'src/bp_server'),
+			$bp_client: path.resolve('.', 'bp_client'),
+			$bp_server: path.resolve('.', 'bp_server'),
+			$functions: path.resolve('.', 'functions'),
 		}
-	}
+	},
 };
 
 export default config;
