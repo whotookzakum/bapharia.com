@@ -27,7 +27,7 @@
         </div>
     {/each}
 </dl>
-<small style="max-inline-size: 55ch;">A sparkle icon <Icon icon="ph:sparkle-fill" style="margin-bottom: -2px" color="goldenrod" /> indicates that this a recommended animation cancel for this skill. Context on when to perform the cancel is provided when necessary.</small>
+<small style="max-inline-size: 55ch;" aria-hidden="true">A sparkle icon <Icon icon="ph:sparkle-fill" style="margin-bottom: -2px" color="goldenrod" /> indicates that this a recommended animation cancel for this skill. Context on when to perform the cancel is provided when necessary.</small>
 
 <style lang="scss">
     dl {
