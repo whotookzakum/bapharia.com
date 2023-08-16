@@ -17,7 +17,7 @@
 <ul>
     {#each boards as board}
         <li>
-            <!-- {board.id} -->
+            {board.id}
             <!-- <img class="board-img" src="/UI/Icon/Adventureboard/UI_Adventureboard_{board.icon_id}.png" alt="" width="208" height="128" loading="lazy"> -->
             <strong>{board.name[$userLocale]}</strong>
             {#each searchTerm ? board.panels.filter(panel => checkStringIncludes(panel.quest.name.en_US, searchTerm) || checkStringIncludes(panel.quest.name.ja_JP, searchTerm)) : board.panels as panel}

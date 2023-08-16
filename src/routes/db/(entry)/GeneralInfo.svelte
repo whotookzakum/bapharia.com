@@ -46,7 +46,9 @@
 
         {#if data.imagine_type === 1}
             <h3>Skill</h3>
-            <strong>{data.imagineSkill.name[$userLocale]}</strong>
+            {#if data.imagineSkill.name}
+                <strong>{data.imagineSkill.name[$userLocale]}</strong>
+            {/if}
             <p>{data.desc[$userLocale]}</p>
         {/if}
 

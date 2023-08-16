@@ -1,10 +1,18 @@
+## Update checklist
+1. **Fetch and decrypt API**
+2. Update cloudflare KV
+3. Update worker schema
+
+1. **Datamine new client files**
+2. Update bp_client files
+3. Update UI files
+4. Create new map images
+5. Place new map markers
+
 ## Deploy checklist
-`127.0.0.1:5173/kv` get the kv data to push to cloudflare
-`/src/routes/graphql/schema.js` get the schema to put in the worker
-`/src/client.js` change graphql api endpoint
-`/src/routes/kv` move kv out of routes
-`/src/routes/graphql` move graphql out of routes
-`/houdini.config.js` change watch schema
+- Change graphql endpoint `/src/client.js`
+- Move `kv` and `graphql` out of routes
+- Watch remote schema `/houdini.config.js`
 
 ## ITEMS
 - Weapons

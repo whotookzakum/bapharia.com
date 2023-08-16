@@ -678,6 +678,91 @@
             ]
         },
         {
+            "name": "P_208_001_007",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Mission1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_Arena007Wave_1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_Damage\")\nend"
+                },
+                {
+                    "ProcessId": "Mission2_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_Arena007Wave_4",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DamageAmount\")\nend"
+                },
+                {
+                    "ProcessId": "Boss1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_Arena007Wave_3",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
+                },
+                {
+                    "ProcessId": "LastWave",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_Arena007Wave_6",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
+                },
+                {
+                    "ProcessId": "Boss1_Dead",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\nend"
+                },
+                {
+                    "ProcessId": "DungeonClear",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDestroy",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "Arn_ResultWait",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"WaveAllComplete\")\nend"
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
             "name": "P_208_002_001",
             "params": [
                 {
@@ -695,14 +780,6 @@
                     "ClearParameter": "Dng_ArenaEx01Wave_7",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx01Wave_11",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -766,14 +843,6 @@
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
                 },
                 {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx02Wave_11",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
-                },
-                {
                     "ProcessId": "Boss1_Dead",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyDead",
@@ -833,14 +902,6 @@
                     "ClearParameter": "Dng_ArenaEx03Wave_7",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx03Wave_11",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -904,14 +965,6 @@
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
                 },
                 {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx04Wave_11",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
-                },
-                {
                     "ProcessId": "Boss1_Dead",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyDead",
@@ -970,7 +1023,7 @@
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_ArenaEx05Wave_3",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex05\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Start",
@@ -979,14 +1032,6 @@
                     "ClearParameter": "Dng_ArenaEx05Wave_7",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx05Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1047,7 +1092,7 @@
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_ArenaEx06Wave_3",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex05\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Start",
@@ -1056,14 +1101,6 @@
                     "ClearParameter": "Dng_ArenaEx06Wave_7",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx06Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1124,7 +1161,7 @@
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_ArenaEx07Wave_3",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex05\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Start",
@@ -1133,14 +1170,6 @@
                     "ClearParameter": "Dng_ArenaEx07Wave_7",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx07Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1201,7 +1230,7 @@
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_ArenaEx08Wave_3",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex05\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Start",
@@ -1210,14 +1239,6 @@
                     "ClearParameter": "Dng_ArenaEx08Wave_7",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx08Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1273,20 +1294,28 @@
                     "ExecScriptCode": ""
                 },
                 {
+                    "ProcessId": "Mission1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx09Wave_9",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
+                    "ProcessId": "Mission2_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx09Wave_13",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
                     "ProcessId": "Boss1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx09Wave_6",
+                    "ClearParameter": "Dng_ArenaEx09Wave_8",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx09Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1342,20 +1371,28 @@
                     "ExecScriptCode": ""
                 },
                 {
+                    "ProcessId": "Mission1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx10Wave_9",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
+                    "ProcessId": "Mission2_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx10Wave_13",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
                     "ProcessId": "Boss1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx10Wave_6",
+                    "ClearParameter": "Dng_ArenaEx10Wave_8",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx10Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1411,20 +1448,28 @@
                     "ExecScriptCode": ""
                 },
                 {
+                    "ProcessId": "Mission1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx11Wave_9",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
+                    "ProcessId": "Mission2_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx11Wave_13",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
                     "ProcessId": "Boss1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx11Wave_6",
+                    "ClearParameter": "Dng_ArenaEx11Wave_8",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
-                },
-                {
-                    "ProcessId": "LastWave",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx11Wave_10",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1480,20 +1525,272 @@
                     "ExecScriptCode": ""
                 },
                 {
+                    "ProcessId": "Mission1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx12Wave_9",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
+                    "ProcessId": "Mission2_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx12Wave_13",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_ex09\")\nend"
+                },
+                {
                     "ProcessId": "Boss1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx12Wave_6",
+                    "ClearParameter": "Dng_ArenaEx12Wave_8",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
                 },
                 {
-                    "ProcessId": "LastWave",
+                    "ProcessId": "Boss1_Dead",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\nend"
+                },
+                {
+                    "ProcessId": "DungeonClear",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDestroy",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "Arn_ResultWait",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"WaveAllComplete\")\nend"
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_208_002_013",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Boss1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_ArenaEx12Wave_10",
+                    "ClearParameter": "Dng_ArenaEx13Wave_7",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"LastWave\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
+                },
+                {
+                    "ProcessId": "Boss1_Dead",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\nend"
+                },
+                {
+                    "ProcessId": "DungeonClear",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDestroy",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "Arn_ResultWait",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"WaveAllComplete\")\nend"
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_208_002_014",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Boss1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx14Wave_7",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
+                },
+                {
+                    "ProcessId": "Boss1_Dead",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\nend"
+                },
+                {
+                    "ProcessId": "DungeonClear",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDestroy",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "Arn_ResultWait",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"WaveAllComplete\")\nend"
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_208_002_015",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Boss1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx15Wave_7",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
+                },
+                {
+                    "ProcessId": "Boss1_Dead",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\nend"
+                },
+                {
+                    "ProcessId": "DungeonClear",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDestroy",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "Arn_ResultWait",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"WaveAllComplete\")\nend"
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_208_002_016",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Boss1_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_ArenaEx16Wave_7",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Dead",
@@ -1552,15 +1849,23 @@
                     "ProcessId": "Mission1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_sks001Wave_14",
+                    "ClearParameter": "Dng_sks001Wave_12",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_sks01\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_sks001\")\nend"
+                },
+                {
+                    "ProcessId": "RushTime",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_sks001Wave_15",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"RushTime\")\nend"
                 },
                 {
                     "ProcessId": "Boss1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_sks001Wave_29",
+                    "ClearParameter": "Dng_sks001Wave_20",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossSpawn\")\nend"
                 },
@@ -1568,7 +1873,7 @@
                     "ProcessId": "SpawnEnemySupplier1",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
-                    "ClearParameter": "Dng_sks001Wave_24",
+                    "ClearParameter": "Dng_sks001Wave_19",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_EnemySupplier1\", FieldStatus_Available)\nend"
                 },
@@ -1631,7 +1936,7 @@
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_sks002Wave_12",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_sks02\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_sks001\")\nend"
                 },
                 {
                     "ProcessId": "RushTime",
@@ -1711,12 +2016,20 @@
                     "ExecScriptCode": ""
                 },
                 {
+                    "ProcessId": "Spike01_Start",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_sks001HardWave_1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_sks001_spike01\", FieldStatus_Available)\nend"
+                },
+                {
                     "ProcessId": "Mission1_Start",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_sks001HardWave_12",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_sks02\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Mission_DpsCheck_sks001\")\nend"
                 },
                 {
                     "ProcessId": "RushTime",
@@ -1724,7 +2037,7 @@
                     "ClearType": "EnemyWaveFinished",
                     "ClearParameter": "Dng_sks001HardWave_15",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"RushTime\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"RushTime\")\n   SBDS.SetFieldStatusByTag(\"Dng_sks001_spike01\", FieldStatus_Unavailable)\n   SBDS.SetFieldStatusByTag(\"Dng_sks001_spike02\", FieldStatus_Available)\nend"
                 },
                 {
                     "ProcessId": "Boss1_Start",
@@ -1748,7 +2061,7 @@
                     "ClearType": "EnemyDead",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"KillBoss\")\n   SBDS.SetFieldStatusByTag(\"Dng_sks001_spike02\", FieldStatus_Unavailable)\nend"
                 },
                 {
                     "ProcessId": "DungeonClear",
@@ -2262,6 +2575,165 @@
                     "ClearType": "PreResult",
                     "ClearParameter": "",
                     "Scripts": "def001_PreResult",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_210_001_002",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
+                },
+                {
+                    "ProcessId": "Boss",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "def002_PreResult",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_210_001_003",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
+                },
+                {
+                    "ProcessId": "Boss",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "def003_PreResult",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_210_001_004",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
+                },
+                {
+                    "ProcessId": "Boss",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "def004_PreResult",
                     "ExecScriptCode": ""
                 },
                 {
@@ -2949,7 +3421,7 @@
                     "ProcessStatus": "Ready",
                     "ClearType": "PostLoad",
                     "ClearParameter": "",
-                    "Scripts": "MQ105_010_step4_02",
+                    "Scripts": "MQ105_010_done_02",
                     "ExecScriptCode": ""
                 },
                 {
@@ -5160,7 +5632,7 @@
                     "ClearType": "PostLoad",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": ""
+                    "ExecScriptCode": "SBDS.SendDungeonProcessMessage(\"PostLoad\") "
                 },
                 {
                     "ProcessId": "GameStart",
@@ -5168,7 +5640,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "SBDS.EnemyUnlimitedChasing(true)"
+                    "ExecScriptCode": "SBDS.SendDungeonProcessMessage(\"GameStart\")\nSBDS.EnemyUnlimitedChasing(true)"
                 },
                 {
                     "ProcessId": "Boss",
@@ -5270,6 +5742,14 @@
                     "ClearParameter": "Dng_MidBoss2",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n  --- FieldStausTestのタグをもつFieldObjectをUnabailableに\n    SBDS.SetFieldStatusByTag(\"Dng_MidBossWall_2\", FieldStatus_Unavailable)\nend"
+                },
+                {
+                    "ProcessId": "MidBoss3",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_MidBoss3",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- FieldStausTestのタグをもつFieldObjectをUnabailableに\n    SBDS.SetFieldStatusByTag(\"Dng_MidBossWall_3\", FieldStatus_Unavailable)\nend"
                 },
                 {
                     "ProcessId": "BossStandbyArea",
@@ -5379,6 +5859,30 @@
                     "ClearParameter": "",
                     "Scripts": "",
                     "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "MidBoss1",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_MidBoss1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- FieldStausTestのタグをもつFieldObjectをUnabailableに\n    SBDS.SetFieldStatusByTag(\"Dng_MidBossWall_1\", FieldStatus_Unavailable)\nend"
+                },
+                {
+                    "ProcessId": "MidBoss2",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_MidBoss2",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- FieldStausTestのタグをもつFieldObjectをUnabailableに\n    SBDS.SetFieldStatusByTag(\"Dng_MidBossWall_2\", FieldStatus_Unavailable)\nend"
+                },
+                {
+                    "ProcessId": "MidBoss3",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_MidBoss3",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- FieldStausTestのタグをもつFieldObjectをUnabailableに\n    SBDS.SetFieldStatusByTag(\"Dng_MidBossWall_3\", FieldStatus_Unavailable)\nend"
                 },
                 {
                     "ProcessId": "BossSpawned",
@@ -6843,7 +7347,7 @@
                     "ProcessStatus": "Ready",
                     "ClearType": "PostLoad",
                     "ClearParameter": "",
-                    "Scripts": "MQ105_010_step4_01",
+                    "Scripts": "MQ105_010_done_01",
                     "ExecScriptCode": ""
                 },
                 {
@@ -11368,6 +11872,91 @@
             ]
         },
         {
+            "name": "P_207_011_001",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP10\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP80\", DungeonProcessStatus_Ready)\nend"
+                },
+                {
+                    "ProcessId": "BossArea",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP20",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP80",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 80％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.8  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_PopOn1\", FieldStatus_Available)\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP50",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_PopOn2\", FieldStatus_Available)\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP10",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 10％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.1  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_PopOn3\", FieldStatus_Available)\nend"
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
             "name": "P_206_000_001",
             "params": [
                 {
@@ -11384,7 +11973,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "PreResult",
@@ -11429,7 +12018,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "MidBoss1",
@@ -11482,7 +12071,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "MidBoss1",
@@ -11543,7 +12132,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "MidBoss1",
@@ -11604,7 +12193,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "MidBoss1",
@@ -11697,7 +12286,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -11774,7 +12363,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBGS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -11915,7 +12504,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -11992,7 +12581,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12069,7 +12658,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12154,7 +12743,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12231,7 +12820,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12308,7 +12897,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12385,7 +12974,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12470,7 +13059,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBDS.ResetCoolTimeAllPlayers()\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12547,7 +13136,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBGS.ResetCoolTimeAllPlayers(\"Ult\")\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12624,7 +13213,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBGS.ResetCoolTimeAllPlayers(\"Ult\")\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12701,7 +13290,7 @@
                     "ClearType": "GameStart",
                     "ClearParameter": "",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   SBGS.ResetCoolTimeAllPlayers(\"Ult\")\nend"
+                    "ExecScriptCode": ""
                 },
                 {
                     "ProcessId": "Lap1",
@@ -12864,6 +13453,107 @@
                     "ClearParameter": "function ProcMain()\n  --- ダメージ監視 90％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.9  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_EnemySupplier1\", FieldStatus_Available)\nend"
+                },
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossArea",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_209_002_001",
+            "params": [
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP45\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP60\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP75\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP90\", DungeonProcessStatus_Ready)\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP20",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossHelpEnemys\")\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP30",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 30％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.3  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_NormalB_35F_Sup1\", FieldStatus_Available)\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP45",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 45％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.45  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossHelpEnemys\")\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP60",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 60％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.6  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_NormalB_35F_Sup1\", FieldStatus_Available)\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP75",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 75％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.75  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossHelpEnemys\")\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP90",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 90％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.9  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_NormalB_35F_Sup1\", FieldStatus_Available)\nend"
                 },
                 {
                     "ProcessId": "PostLoad",

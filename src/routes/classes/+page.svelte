@@ -4,16 +4,6 @@
     import ClassesList from "./ClassesList.svelte";
 
     export let data;
-
-    // {
-    //     "id": 20,
-    //     "shortName": "LAN",
-    //     "internalName": "lancer",
-    //     "name": "Blitz Lancer",
-    //     "href": "/classes/20",
-    //     "weapon": "Lance",
-    //     "image": "/UI/Icon/ClassXL/UI_IconClassXL_20.png"
-    // },
 </script>
 
 <MetaTags

@@ -50,7 +50,6 @@
     });
 
     function getStatTrueValue(stat, levelData) {
-        if (levelData.class === "lancer") return 0
         const { ap, dp, cr, cp, str, dex, int, mnd, vit, rp, hp } = levelData;
         const params = class_params.find(
             (paramSet) => paramSet.class === levelData.class

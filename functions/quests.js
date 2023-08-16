@@ -438,8 +438,14 @@ function getRewardTypeName(type) {
 }
 
 function getRewardItem(rewardData) {
-    let name, thumb, href, rewardItem;
-
+    let rewardItem;
+    let name = {
+        ja_JP: "報酬",
+        en_US: "Reward"
+    }
+    let thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
+    let href = "/db"
+    
     switch (rewardData.reward_type) {
         case 0:
             name = {
@@ -489,9 +495,11 @@ function getRewardItem(rewardData) {
             break;
         case 10:
             rewardItem = stampSets.find(item => item.stamp_data.some(stamp => stamp.stamp_id === rewardData.item_id))
-            name = rewardItem.name
-            thumb = rewardItem.thumb
-            href = `/db/stampset/${rewardItem.id}`
+            if (rewardItem) {
+                name = rewardItem.name
+                thumb = rewardItem.thumb
+                href = `/db/stampset/${rewardItem.id}`
+            }
             break;
         case 11:
             rewardItem = imagines.find(item => item.id == rewardData.item_id)
@@ -598,14 +606,6 @@ function getRewardItem(rewardData) {
             name = {
                 ja_JP: "RNG",
                 en_US: "RNG"
-            }
-            thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
-            href = "/db"
-            break;
-        default:
-            name = {
-                ja_JP: "報酬",
-                en_US: "Reward"
             }
             thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
             href = "/db"
