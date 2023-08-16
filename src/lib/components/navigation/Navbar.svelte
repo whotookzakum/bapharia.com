@@ -160,10 +160,6 @@
 		}
 	}
 
-	.opaque-bg {
-		background: var(--surface1);
-	}
-
 	// LINKS =====================================================
 
 	.link {
@@ -216,9 +212,14 @@
 			align-items: center;
 			backdrop-filter: unset;
 			pointer-events: none;
+			background: linear-gradient(var(--bg), transparent);
 
 			* {
 				pointer-events: initial;
+			}
+
+			&.opaque-bg {
+				background: var(--surface1);
 			}
 		}
 
@@ -238,7 +239,6 @@
 
 		.nav-contents {
 			background: inherit;
-			backdrop-filter: inherit;
 			display: none;
 			position: fixed;
 			top: 62px;
