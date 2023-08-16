@@ -25,11 +25,13 @@
                 >
                     {source.name[$userLocale]}
                 </a>
-                <a
-                    class="location-name styled-link"
-                    href="/db/map/{source.location.id}"
-                    >{source.location.name[$userLocale]}</a
-                >
+                {#if source.location.id && !source.location.id.includes("_Hard")}
+                    <a
+                        class="location-name styled-link"
+                        href="/db/map/{source.location.id}"
+                        >{source.location.name[$userLocale]}</a
+                    >
+                {/if}
             </div>
         </li>
     {/each}
@@ -37,6 +39,7 @@
 <small
     >Weapon chests have a 50% chance to contain a weapon for your current class.</small
 >
+
 <style lang="scss">
     small {
         display: block;
