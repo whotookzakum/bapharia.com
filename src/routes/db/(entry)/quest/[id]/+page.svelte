@@ -55,7 +55,7 @@
     </ul>
 {/if}
 
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <input type="checkbox" id="synopses-toggle" />
 <label for="synopses-toggle">View Synopses</label>
 <ol class="unstyled-list" role="list">

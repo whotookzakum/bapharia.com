@@ -19,6 +19,8 @@ import costumes from "./costumes";
 import liquidMemories from "./liquidmemories";
 import imagines from "./imagines"
 
+// EQ101_907 is a quest that has multiple conditions; I don't think any have multiple descriptions yet?
+
 // TODO Step NPC names
 // TODO interpolate descriptions such as in SQ103_234
 // TODO: quest_condition_steps[x].condition_items[y].synopsisId is undefined for class quests

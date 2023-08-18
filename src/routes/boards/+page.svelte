@@ -1,15 +1,17 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import { checkStringIncludes } from "$lib/utils/string_utils.js";
-    import BoardHeader from "./BoardHeader.svelte";
     import uniqBy from "lodash/uniqBy";
-    import { userLocale } from "$lib/stores";
+    import StickyNote from "$lib/components/StickyNote.svelte";
+    import ResultItem from "./ResultItem.svelte";
 
     export let data;
 
     let searchTerm = "";
     let selectedMap = "";
     let selectedBoardType = "";
+    let includeBoardTasks = true;
+    let includeRelatedQuests = true;
 
     // TODO Cache the completed boards
 
@@ -19,10 +21,42 @@
         .filter((map) => map);
     const uniqueMaps = uniqBy(allMaps);
 
-    $: boards = data.adventureboards
-        .filter((board) => hasMatchingQuests(board, searchTerm))
-        .filter((board) => hasMatchingMap(board, selectedMap))
-        .filter((board) => hasMatchingBoardType(board, selectedBoardType));
+    $: boards = data.adventureboards.filter(
+        (board) =>
+            matchesSearchTerm(board, searchTerm, includeBoardTasks) &&
+            hasMatchingMap(board, selectedMap) &&
+            hasMatchingBoardType(board, selectedBoardType)
+    );
+
+    $: quests = data.quests.filter((quest) =>
+        hasMatchingStep(quest, searchTerm)
+    );
+
+    function hasMatchingStep(quest, keyword) {
+        if (!keyword) return true;
+        return quest.steps.some(
+            (step) =>
+                checkStringIncludes(step.desc.en_US, keyword) ||
+                checkStringIncludes(step.desc.ja_JP, keyword)
+        );
+    }
+
+    function matchesSearchTerm(board, term, includeTasks) {
+        if (includeTasks) {
+            return (
+                hasMatchingName(board, term) || hasMatchingQuests(board, term)
+            );
+        }
+        return hasMatchingName(board, term);
+    }
+
+    function hasMatchingName(board, keyword) {
+        if (!keyword) return true;
+        return (
+            checkStringIncludes(board.name.en_US, keyword) ||
+            checkStringIncludes(board.name.ja_JP, keyword)
+        );
+    }
 
     function hasMatchingQuests(board, keyword) {
         if (!keyword) return true;
@@ -42,12 +76,21 @@
 
     function hasMatchingBoardType(board, boardType) {
         if (!boardType) return true;
+        else if ([0, 1, 2].includes(boardType)) {
+            return board.board_type === boardType;
+        } else if (boardType === "weapon") {
+            return board.name.ja_JP.includes("武器ボード");
+        } else if (boardType === "class") {
+            return board.name.ja_JP.includes("闘士の護符ボード");
+        } else if (boardType === "imagine") {
+            return board.name.ja_JP.slice(0, 2) === "E-";
+        }
     }
 </script>
 
 <MetaTags
     title={`Adventure Boards — Bapharia`}
-    description={`Lookup all Adventure Boards in BLUE PROTOCOL. Find boards with duplicate tasks to save time completing them!`}
+    description={`Lookup all Adventure Boards in BLUE PROTOCOL. Find boards with duplicate tasks to save time completing them! Also includes overlapping quests.`}
 />
 
 <h1>Adventure Boards</h1>
@@ -59,14 +102,23 @@
     <a href="/guides/adventure-boards">here</a>.
 </p>
 
+<StickyNote type="warning">
+    Some of the English text is currently incorrect, so please check the
+    Japanese text as well.
+</StickyNote>
+
 <div class="flex g-50 search-row">
-    <div class="grid" style="flex: 1; max-width: 700px; flex-basis: 200px">
+    <div class="grid search-box-wrapper">
         <span class="component-label">Search</span>
         <input
             class="box"
             type="text"
             bind:value={searchTerm}
-            placeholder={`Search by board name or included quests, i.e. "Dragon's Rive" or "Goblin"`}
+            placeholder={`Search by board name ${
+                includeBoardTasks
+                    ? `or tasks, i.e. "dragon's rive" or "goblin"`
+                    : ""
+            }`}
         />
     </div>
 
@@ -74,13 +126,14 @@
         <span class="component-label">Board Type</span>
         <select class="box" bind:value={selectedBoardType}>
             <option value="">All</option>
-            <option value="1">Adventurer Rank</option>
-            <option value="1">Weapon</option>
-            <option value="1">Class Talisman</option>
-            <option value="1">Imagine</option>
-            <option value="1">Event</option>
+            <option value={2}>Adventurer Rank</option>
+            <option value="weapon">Weapon</option>
+            <option value="class">Class Talisman</option>
+            <option value="imagine">Imagine</option>
+            <option value={1}>Event</option>
         </select>
     </div>
+
     <div class="grid">
         <span class="component-label">Map</span>
         <select class="box" bind:value={selectedMap}>
@@ -90,35 +143,63 @@
             {/each}
         </select>
     </div>
+
+    <div>
+        <label>
+            <input type="checkbox" bind:checked={includeBoardTasks} /> Include board
+            tasks in search
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <input type="checkbox" bind:checked={includeRelatedQuests} /> Include
+            related quests
+        </label>
+    </div>
 </div>
 
-{#if searchTerm}
-    <p class="results-text">
-        {boards.length} results for "<b>{searchTerm}</b>"
-    </p>
-{:else}
-    <p class="results-text">{boards.length} results</p>
-{/if}
+<p class="results-text">
+    {#if searchTerm && includeRelatedQuests}
+        {boards.length + quests.length}
+    {:else}
+        {boards.length}
+    {/if}
+    results
+    {#if searchTerm}
+        for "<b>{searchTerm}</b>"
+        {#if includeRelatedQuests}
+            ({boards.length} boards and {quests.length} quests)
+        {/if}
+    {/if}
+</p>
 
 <ul class="boards-list unstyled-list" role="list">
     {#each boards as board}
         {#if board.id !== 110010000}
-            <li class="box">
-                <BoardHeader {board} />
-                {#each board.panels.filter((panel) => checkStringIncludes(panel.quest.name.en_US, searchTerm) || checkStringIncludes(panel.quest.name.ja_JP, searchTerm)) as panel}
-                    <p style="color: var(--text2); font-size: var(--step-0)">
-                        {panel.quest.name[$userLocale]}
-                    </p>
-                {/each}
-            </li>
+            <ResultItem result={board} type="board" {searchTerm} {includeBoardTasks} />
         {/if}
     {/each}
+    {#if searchTerm && includeRelatedQuests}
+        {#each quests as quest}
+            <ResultItem result={quest} type="quest" {searchTerm} />
+        {/each}
+
+        <!-- <RelatedQuests {quests} {searchTerm} /> -->
+    {/if}
 </ul>
 
 <style lang="scss">
     .search-row {
         flex-wrap: wrap;
         row-gap: 1rem;
+        align-items: last baseline;
+
+        .search-box-wrapper {
+            flex: 1;
+            max-width: 700px;
+            flex-basis: 260px;
+        }
     }
 
     .results-text {
