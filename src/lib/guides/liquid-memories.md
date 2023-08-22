@@ -8,7 +8,7 @@ bannerImg: "/guides/liqmem/banner.webp"
 thumbImg: "/guides/liqmem/thumb.webp"
 ---
 
-<!-- TO DO: Quest walkthroughs, Ticket explanations and acquisition methods -->
+<!-- TODO: Quest walkthroughs, Ticket explanations and acquisition methods -->
 
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';

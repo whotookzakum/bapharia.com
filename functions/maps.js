@@ -13,7 +13,6 @@ import { getText } from "./utils";
 
 // Client's ZoneShortName.json seems bugged, 3030100 comes up as Arena but it should be Gunnetower Ruins
 
-// TO DO:
 // TODO notable markers (# of nappos, npcs, enemies, resources, quests, treasure chests)
 // TODO dungeon supplies (supply.json)
 // TODO dungeon rewards, dungeon stats (max players, revives) DT_map_dungeon.json
