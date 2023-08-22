@@ -1,5 +1,6 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
+    import Icon from "@iconify/svelte";
     import Skill from "./Skill.svelte";
     export let data;
 
@@ -24,6 +25,21 @@
     (right click).
 </p>
 
+<p aria-hidden="true">
+    For animation cancels, a sparkle icon <Icon
+        icon="ph:sparkle-fill"
+        style="margin-bottom: -2px"
+        color="goldenrod"
+    /> indicates recommended animations cancel for that skill. Context
+    on when to perform the cancel is provided if necessary.
+</p>
+
+<p class="visually-hidden">
+    For animation cancels, recommended cancels for that skill are prefixed with
+    "Recommended". Context on when to perform the cancel is provided if
+    necessary.
+</p>
+
 <div id="skills" class="grid">
     <h2 id="base-actions">Base Actions</h2>
     <p>One basic attack and one class action can be equipped at a time.</p>
@@ -36,9 +52,9 @@
     </ol>
     <h2 id="tactical-skills">Tactical Skills</h2>
     <p>
-        Up to 4 tactical skills can be a equipped at a time.
-        Tactical skills can have variations such as α (alpha) and β (beta), which
-        provide modifications to the normal version.
+        Up to 4 tactical skills can be a equipped at a time. Tactical skills can
+        have variations such as α (alpha) and β (beta), which provide
+        modifications to the normal version.
         <!-- TODO: Add guide for skill variations -->
         <!-- Learn about unlocking Alpha and Beta variants <a href="/guides/skills">here</a>. -->
     </p>

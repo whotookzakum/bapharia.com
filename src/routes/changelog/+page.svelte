@@ -1,2 +1,6 @@
+<script>
+    export let data;
+</script>
+
 <h1>Changelog</h1>
-<p>nothing yet</p>
+<svelte:component this={data.content} />

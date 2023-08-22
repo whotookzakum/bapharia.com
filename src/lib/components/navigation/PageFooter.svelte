@@ -105,9 +105,9 @@
 			<span>&copy; 2021-2023 Bapharia.com</span>
 			<hr />
 			<a class="styled-link" href="/about">About</a>
-			<!-- <hr />
-			<a class="styled-link" href="/changelog">Changelog</a>
 			<hr />
+			<a class="styled-link" href="/changelog">Changelog</a>
+			<!-- <hr />
 			<a class="styled-link" href="/privacy">Privacy</a> -->
 		</div>
 	</nav>
