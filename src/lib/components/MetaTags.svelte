@@ -3,6 +3,7 @@
 	export let title, description = undefined;
 	export let color = "#ffffff"
 	export let image = "/favicon.png";
+	export let bigImage = false;
 </script>
 
 <svelte:head>
@@ -13,5 +14,7 @@
 	<meta property="og:image" content={image} />
 	<meta name="theme-color" content={color} />
 	<link rel="canonical" href={`https://bapharia.com${$page.url.pathname}`} />
-    <!-- <meta name="twitter:card" content="summary_large_image" key="misc-card" /> -->
+	{#if bigImage}
+		<meta name="twitter:card" content="summary_large_image" key="misc-card" />
+	{/if}
 </svelte:head>

@@ -2,5 +2,5 @@
     import { GeneralInfo } from "../../index";
     export let data
 </script>
-
-<GeneralInfo {data} />
+<!-- imgSrc={data.thumb.replace("/Costume", "/CostumeL")} -->
+<GeneralInfo {data}  />

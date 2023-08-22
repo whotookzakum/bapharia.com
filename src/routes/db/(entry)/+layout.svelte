@@ -140,9 +140,21 @@
     };
 
     // TODO: Back button should take you "BACK" if your previous page was the DB, so your search params will still be applied; if you came from another page, it will take you to /db
+
+    $: metaImg = data.thumb
+        ?.replace("Icon/Item", "Icon/ItemL")
+        .replace("Icon/Weapon", "Icon/WeaponL")
+        .replace("Imagine/Battle", "Imagine/BattleL")
+        .replace("Imagine/Picture", "Imagine/PictureL")
+        .replace("/Costume", "/CostumeL")
+        .replace("Icon/Token", "Icon/TokenL");
 </script>
 
-<MetaTags title="{data.name[$userLocale]} — Bapharia" />
+<MetaTags 
+    title="{data.name[$userLocale]} — Bapharia" 
+    description={data.desc ? data.desc[$userLocale] : "No description available."}
+    image={metaImg}
+/>
 
 <div class="entry-details grid">
     <a href="/db" class="back-button btn btn-fadein"><!--🡠--> Back to Search</a>

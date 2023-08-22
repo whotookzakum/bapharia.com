@@ -7,7 +7,7 @@
     export let includeBoardTasks = false;
 </script>
 
-<li class="box gri g-50">
+<li class="box g-50">
     {#if type === "board"}
         <img
             class="board-img"
@@ -33,11 +33,6 @@
 </li>
 
 <style lang="scss">
-    .grid {
-        justify-items: center;
-        align-content: start;
-    }
-
     img {
         display: block;
         margin: auto;

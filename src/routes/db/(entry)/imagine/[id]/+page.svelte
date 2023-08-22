@@ -3,7 +3,7 @@
     export let data;
 </script>
 
-<GeneralInfo {data} />
+<GeneralInfo {data} imgSrc={data.thumb.replace("Battle", "BattleL").replace("Picture", "PictureL")} />
 
 {#if data.recipe}
     <Recipe recipe={data.recipe} />

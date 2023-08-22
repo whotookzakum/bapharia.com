@@ -43,6 +43,10 @@ const items = itemsData.map(item => {
 })
 
 export function getItemThumbnail(id) {
+    // Crown boxes
+    if ([185076200, 185076300, 185076600, 185076700].includes(id)) return "/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png"
+    // Random box for gacha banner outfits and mounts
+    if ([185070401, 185069901, 185070001, 185070101, 185070201, 185070301, 185070401].includes(id)) return "/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichRandom.png"
     return icons[id]
 }
 

@@ -4,4 +4,4 @@
 
 </script>
 
-<GeneralInfo {data} />
+<GeneralInfo {data} imgSrc={data.thumb.replace("Token", "TokenL")} />

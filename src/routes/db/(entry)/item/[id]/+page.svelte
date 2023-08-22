@@ -4,4 +4,4 @@
     // TODO: Add data.adventurer_rank
 </script>
 
-<GeneralInfo {data} />
+<GeneralInfo {data} imgSrc={data.thumb.replace("Item", "ItemL")} />
