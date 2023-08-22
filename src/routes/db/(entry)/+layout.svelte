@@ -146,7 +146,7 @@
         .replace("Icon/Weapon", "Icon/WeaponL")
         .replace("Imagine/Battle", "Imagine/BattleL")
         .replace("Imagine/Picture", "Imagine/PictureL")
-        .replace("/Costume", "/CostumeL")
+        // .replace("/Costume", "/CostumeL")
         .replace("Icon/Token", "Icon/TokenL");
 </script>
 
