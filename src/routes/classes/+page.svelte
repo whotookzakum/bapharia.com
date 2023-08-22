@@ -9,6 +9,8 @@
 <MetaTags
     title="Classes — Bapharia"
     description="Information on all the playable classes in BLUE PROTOCOL, including their skills, unique mechanics, and meta."
+    image="/images/banner_classes.png"
+    bigImage
 />
 
 <HeroBanner bannerUrl="/images/banner_classes.png" style="--backdrop-opacity: 0.68">

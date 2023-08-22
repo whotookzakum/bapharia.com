@@ -38,7 +38,7 @@
     let leafletMap;
     export let data;
     $: zone = data;
-    
+
     data.markers.forEach(marker =>{
         if (!marker.coords) console.log(marker)
     })
@@ -154,12 +154,14 @@
         }
     }
 
-    
+    // TODO: for embeds, add mapImages array to missing maps.. OR use the thumbImage
 </script>
 
 <MetaTags
-    title={`World Map — Bapharia`}
+    title="{zone.name[$userLocale]} ({zone.category}) — Bapharia"
     description={`Interactive map for BLUE PROTOCOL. Find enemies, locations, quests, treasure chests, gathering spots, and more!`}
+    image={zone.mapImages ? zone.mapImages[0] : zone.thumbImage}
+    bigImage
 />
 
 <!-- <img src="/overlay.png" alt="" style="position: fixed; z-index: 10000; opacity: 0.8; right: 7px; top: -212px; transform: scale(70%)"> -->
@@ -171,7 +173,7 @@
 {/if}
 
 {#if browser}
-    <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} />
+    <!-- <MetaTags title={`${zone.name[$userLocale]} — Bapharia`} /> -->
     <div class="bottom-left">
         <h1>{zone.name[$userLocale]}</h1>
         <div class="attribution">

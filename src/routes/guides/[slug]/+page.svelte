@@ -12,6 +12,8 @@
 <MetaTags
     title={`${data.meta.title} — Bapharia`}
     description={data.meta.caption}
+    image={data.meta.bannerImg}
+    bigImage
 />
 
 <HeroBanner bannerUrl={data.meta.bannerImg}>

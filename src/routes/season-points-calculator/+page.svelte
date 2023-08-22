@@ -8,6 +8,8 @@
 <MetaTags 
     title="Season Points Calculator — Bapharia"
     description="A calculator for the maximum Season Points you can earn in a season based on how many days you missed, and when you purchased the pass."
+    image="/images/banner_seasonpointscalc.png"
+    bigImage
 />
 
 <HeroBanner bannerUrl="/images/banner_seasonpointscalc.png">

@@ -1,12 +1,16 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import Stats from "./Stats.svelte";
+    import hues from "./classHues.json"
     export let data;
 </script>
 
 <MetaTags
     title={`${data.meta.title} — Bapharia`}
     description={`All about the ${data.meta.title} class in BLUE PROTOCOL—unique mechanics, stats, skills, recommended loadouts, and more!`}
+    image={data.meta.bannerUrl}
+    bigImage
+    color="hsla({hues[data.meta.internalName]}, 60%, 50%)"
 />
 
 <Stats />

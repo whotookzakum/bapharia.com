@@ -1,6 +1,7 @@
 ## August 21, 2023
 - Finished Twin Striker [animation cancels](/classes/7/skills)
 - Added [changelog](/changelog) page
+- Added difficulties to [classes](/classes)
 
 ## August 15, 2023
 Updated site layout and pages.

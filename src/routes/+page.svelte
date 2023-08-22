@@ -8,6 +8,8 @@
 <MetaTags
 	title="Bapharia — The premier knowledge base for BLUE PROTOCOL."
 	description="The premier knowledge base for BLUE PROTOCOL. Interactive tools, game database, and guides—all in one place!"
+	image="/images/b.png"
+	bigImage
 />
 
 <HeroBanner bannerUrl="/images/b.png" style="--backdrop-opacity: 0.73">
