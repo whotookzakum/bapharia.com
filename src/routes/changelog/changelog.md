@@ -3,6 +3,7 @@
 - Added [changelog](/changelog) page
 - Added difficulties to [classes](/classes)
 - Improve embeds for various pages
+- Recipes now show required adventurer rank
 
 ## August 15, 2023
 Updated site layout and pages.

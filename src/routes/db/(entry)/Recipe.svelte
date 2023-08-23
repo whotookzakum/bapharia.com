@@ -1,10 +1,16 @@
 <script>
     import Item from "./Item.svelte";
     export let recipe;
+    console.log(recipe)
     // TODO: Recipe requires adventurer rank
 </script>
 
 <h2 id="recipe">Recipe</h2>
+
+{#if recipe.adventurer_rank > 0 || recipe.difficulty > 0}
+    <p class="ar-req">Requires Adventurer Rank {recipe.adventurer_rank || recipe.difficulty}</p>
+{/if}
+
 <ul class="unstyled-list grid" role="list">
     {#each recipe.materials as material}
         <Item
@@ -62,8 +68,16 @@
 {/if}
 
 <style lang="scss">
+    .ar-req {
+        margin: 0;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: var(--step-0);
+    }
+
     ul {
         grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
+        margin: 1rem 0;
     }
 
     hr {
