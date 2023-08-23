@@ -7,7 +7,7 @@
         GeneralInfo,
     } from "../../index";
     export let data;
-    console.log(data.newAbilities)
+    console.log(data.abilities)
 </script>
 
 <GeneralInfo {data} imgSrc={data.thumb.replace("Weapon", "WeaponL")} />
@@ -18,7 +18,7 @@
 {/if}
 
 {#if data.treasureSources.length > 0}
-    <!-- <TreasureSources sources={data.treasureSources} /> -->
+    <TreasureSources sources={data.treasureSources} />
 {/if}
 
 {#if data.abilities.length > 0}

@@ -186,10 +186,10 @@ function getEnemySetsContainingEnemyId(enemyId, filterOutOtherEnemies) {
     }
 
     // Return the entire enemy set, in case I want to add "Spawn alongside XYZ enemies" info
-    const enemySetsContainingEnemyId = 
+    const enemySetsContainingEnemyId =
         allEnemySets
             .filter(enemySet => enemySet.Members.find(member => member.EnemyId === enemyId))
-    
+
     const flattened = enemySetsContainingEnemyId.map(enemySet => {
         const members = enemySet.Members.map(member => {
             return {
@@ -202,7 +202,7 @@ function getEnemySetsContainingEnemyId(enemyId, filterOutOtherEnemies) {
         })
         return members
     }).flat()
-    
+
     return flattened
 }
 
@@ -231,7 +231,7 @@ const enemiesGroupedByNameAndType = enemiesData.reduce((acc, enemy) => {
 }, [])
 
 // Get all relevant data for a specific enemy (params, enemy set metadata, habitat metadata)
-function getEnemyVariantData(enemyVariant) {
+export function getEnemyVariantData(enemyVariant) {
     // Get all possible enemy sets that this enemy belongs to
     const enemySets = getEnemySetsContainingEnemyId(enemyVariant.enemy_id, true)
 
@@ -266,7 +266,7 @@ function getEnemyVariantData(enemyVariant) {
 
 // Enemy groups
 const enemies = enemiesGroupedByNameAndType.map(enemyGroup => {
-    
+
     const enemyVariants =
         enemyGroup.enemyVariants
             .map(enemyVariant => getEnemyVariantData(enemyVariant))
@@ -308,6 +308,28 @@ function getSubcategory(category) {
                 en_US: "Enemy"
             }
     }
+}
+
+export function getEnemiesByDroppedItem(itemId) {
+    const flattened =
+        enemies
+            .map(enemyGroup =>
+                enemyGroup.enemyVariants.map(enemyVariant => {
+                    return { ...enemyVariant, name: enemyGroup.name }
+                })
+            ).flat()
+    return flattened.filter(enemyVariant => enemyVariant.drop_items.some(drop => drop.item_index === itemId))
+}
+
+export function getEnemiesByDroppedChestId(chestId) {
+    const flattened =
+        enemies
+            .map(enemyGroup =>
+                enemyGroup.enemyVariants.map(enemyVariant => {
+                    return { ...enemyVariant, name: enemyGroup.name }
+                })
+            ).flat()
+    return flattened.filter(enemyVariant => enemyVariant.treasureChests.some(drop => drop.item_index === chestId))
 }
 
 // export default enemiesGroupedByNameAndType;
