@@ -1,6 +1,7 @@
 import itemsData from "$bp_server/japan/items.json";
 import { getText } from "./utils";
 import iconData from "$bp_client/japan/Content/Blueprints/UI/Icon/DT_ItemIconDB.json"
+import craftingRecipesData from "$bp_server/japan/craft.json"
 
 // TODO obtained from (drops, quest, board, chest...)
 // TODO found in (map) ...
@@ -28,6 +29,7 @@ const items = itemsData.map(item => {
     const effectDesc = getText("item_text", item.item_effect_desc_text)
     const thumb = getItemThumbnail(item.id)
     const subcategoryName = getSubcategory(item.category)
+    const recipe = getRecipe(item.id)
     
     return {
         ...item,
@@ -36,6 +38,7 @@ const items = itemsData.map(item => {
         desc,
         sourceDesc,
         effectDesc,
+        recipe,
         thumb,
         subcategoryName,
         entryTypes: ["Item"]
@@ -93,6 +96,23 @@ function getSubcategory(category) {
                 en_US: "Random Box"
             }
     }
+}
+
+function getRecipe(id) {
+    const recipe = craftingRecipesData.find(recipe => recipe.out_item_id === id)
+    if (recipe) {
+        recipe.materials = recipe.materials.map(mat => {
+            const itemData = itemsData.find(item => item.id === mat.item_id)
+            return {
+                ...mat,
+                id: `${itemData.id}`,
+                thumb: getItemThumbnail(mat.item_id),
+                name: getText("item_text", itemData.name),
+                sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
+            }
+        })
+    }
+    return recipe
 }
 
 export default items;

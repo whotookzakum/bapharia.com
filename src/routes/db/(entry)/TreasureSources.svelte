@@ -21,11 +21,11 @@
             <div class="grid">
                 <a
                     class="enemy-name styled-link"
-                    href="/db/enemy/{source.enemy_id}"
+                    href="/db/enemy/{source.enemy_id}{source.location.id ? `?map=${source.location.id}` : ""}"
                 >
                     {source.name[$userLocale]}
                 </a>
-                {#if source.location.id && !source.location.id.includes("_Hard")}
+                {#if source.location.id}
                     <a
                         class="location-name styled-link"
                         href="/db/map/{source.location.id}"

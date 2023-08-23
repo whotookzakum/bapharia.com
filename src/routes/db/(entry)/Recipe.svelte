@@ -1,14 +1,12 @@
 <script>
     import Item from "./Item.svelte";
     export let recipe;
-    console.log(recipe)
-    // TODO: Recipe requires adventurer rank
 </script>
 
 <h2 id="recipe">Recipe</h2>
 
 {#if recipe.adventurer_rank > 0 || recipe.difficulty > 0}
-    <p class="ar-req">Requires Adventurer Rank {recipe.adventurer_rank || recipe.difficulty}</p>
+    <p class="ar-req">Requires Adventurer Rank {recipe.adventurer_rank || recipe.difficulty} to craft</p>
 {/if}
 
 <ul class="unstyled-list grid" role="list">

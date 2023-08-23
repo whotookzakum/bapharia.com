@@ -2,7 +2,7 @@ import weaponsData from "$bp_server/japan/weapons.json";
 import weaponsStatsData from "$bp_server/japan/weapon_status_levels.json";
 import craftingRecipesData from "$bp_server/japan/craft.json";
 import masterPerkPicks from "$bp_server/japan/master_weapon_perk_picks.json";
-import lotteryData from "$bp_server/japan/master_reward_lottery_groups.json";
+import lotteriesData from "$bp_server/japan/master_reward_lottery_groups.json";
 import itemsData from "$bp_server/japan/items.json";
 import weaponPerks from "$bp_server/japan/weaponperks.json";
 import perksData from "$bp_server/japan/perks.json";
@@ -61,6 +61,8 @@ const weapons = weaponsData.map(weapon => {
             elementImg = `/UI/Icon/Attribute/UI_IconAttribute_Empty.png`
     }
 
+    const newAbilities = []
+
     const recipe = craftingRecipesData.find(rec => rec.out_item_id === weapon.id) || null
     if (recipe) {
         recipe.materials = recipe.materials.map(mat => {
@@ -73,7 +75,46 @@ const weapons = weaponsData.map(weapon => {
                 sourceDesc: getText("item_text", itemData.obtaining_route_detail_id)
             }
         })
+
+        // If recipe exists, add Special Effects that can be obtained from crafting
+        // At this time, there is only one perk per perkPick. If in the future there is a perkPick with 2 perks, i.e. Bapharia Killer that provide Quad-Arm Slayer and Golem Slayer, might need to revisit this code to see if they have separate percentages, and if they do, find where they are determined.
+        const perkTableId = recipe.killer_perk_pick
+        const allPerksInTable = masterPerkPicks.filter(perk => perk.table_id === perkTableId)
+        allPerksInTable.forEach(perkPick => {
+            const { success_max_value, success_min_value, big_success_max_value, big_success_min_value, weight } = perkPick
+
+            const weaponPerk = weaponPerks.find(wepPerk => wepPerk.id === perkPick.perk_id)
+            const weaponPerkName = getText("weapon_perk_text", weaponPerk.name)
+            const weaponPerkDesc = getText("weapon_perk_text", weaponPerk.desc)
+
+            const perks = perksData.filter(perk => perk.id === weaponPerk.perk_id).map(perk => {
+                const ability_name1 = getText("perk_text", perk.ability_name1)
+                const ability_name2 = perk.ability_name2 !== 0 ? getText("perk_text", perk.ability_name2) : null
+                return {
+                    // ...perk,
+                    ability_name1,
+                    ability_name2
+                }
+            })
+
+            newAbilities.push({
+                // perkPick,
+                // weaponPerk,
+                success_max_value,
+                success_min_value,
+                big_success_max_value,
+                big_success_min_value,
+                weight,
+                name: weaponPerkName,
+                desc: weaponPerkDesc,
+                perks,
+                source: "crafting"
+            })
+        })
     }
+
+
+
 
     const abilities = masterPerkPicks.filter(perk => perk.table_id === weapon.level_table).map(currentPerk => {
         const weaponPerk = weaponPerks.find(perk => perk.id === currentPerk.perk_id)
@@ -92,8 +133,69 @@ const weapons = weaponsData.map(weapon => {
     // Enemy > Treasure > Lottery > Weapon
     let treasureSources = []
 
+    // There may be multiple lotteries; I think pick_type 0 is random and pick_type 1 is for your current class or vice versa; not sure about pick_type 2
+    const lotteriesContainingWeapon = lotteriesData.filter(lottery => lottery.rewards.some(reward => reward.item_id === weapon.id))
+    const treasuresContainingLottery = treasuresData.filter(treasure => treasure.lot_rate.some(rate => lotteriesContainingWeapon.some(lotto => lotto.id === rate.reward_master_id)))
+    const enemiesDroppingTreasure = enemiesData.filter(enemy => enemy.drop_items.some(drop => treasuresContainingLottery.some(treasure => treasure.id === drop.item_index)))
+
+    if (weapon.id === 106001402) console.log(enemiesDroppingTreasure[0])
+
+    // Get all unique perk pick ids inside of all lottery rewards for this weapon
+    const perkTableIdsFromDrops = lotteriesContainingWeapon.reduce((acc, lottery) => {
+        lottery.rewards.forEach(reward => {
+            if (!acc.includes(reward.perk_pick_id)) acc.push(reward.perk_pick_id)
+        })
+        return acc
+    }, [])
+
+    // if (weapon.id === 106001402) console.log(perkTableIdsFromDrops)
+    // For each perk from a dropped weapon, add it to the Special Effects list
+    perkTableIdsFromDrops.forEach(perkTableId => {
+        const allPerksInTable = masterPerkPicks.filter(perk => perk.table_id === perkTableId)
+        allPerksInTable.forEach(perkPick => {
+            const { success_max_value, success_min_value, big_success_max_value, big_success_min_value, weight } = perkPick
+
+            const weaponPerk = weaponPerks.find(wepPerk => wepPerk.id === perkPick.perk_id)
+            const weaponPerkName = getText("weapon_perk_text", weaponPerk.name)
+            const weaponPerkDesc = getText("weapon_perk_text", weaponPerk.desc)
+
+            const perks = perksData.filter(perk => perk.id === weaponPerk.perk_id).map(perk => {
+                const ability_name1 = getText("perk_text", perk.ability_name1)
+                const ability_name2 = perk.ability_name2 !== 0 ? getText("perk_text", perk.ability_name2) : null
+                return {
+                    // ...perk,
+                    ability_name1,
+                    ability_name2
+                }
+            })
+
+            // There should be only one unique "perk" which *may* have multiple "Boar Killer" "Golem Killer" lines, but those are separated as ability_name1 and ability_name2
+            // If there are multiple perks in the future for some reason, use .filter instead of .find
+            const perk = perksData.find(perk => perk.id === weaponPerk.perk_id)
+            const ability_name1 = getText("perk_text", perk.ability_name1)
+            const ability_name2 = perk.ability_name2 !== 0 ? getText("perk_text", perk.ability_name2) : null
+
+            newAbilities.push({
+                // perkPick,
+                // weaponPerk,
+                success_max_value,
+                success_min_value,
+                big_success_max_value,
+                big_success_min_value,
+                weight,
+                name: weaponPerkName,
+                desc: weaponPerkDesc,
+                // perks,
+                ability_name1,
+                ability_name2,
+                source: "enemyDrop"
+            })
+        })
+    })
+
+
     // The lottery that contains the weapon
-    const availableLotteries = findObjectByItemId(lotteryData, "rewards", weapon.id, "item_id")
+    const availableLotteries = findObjectByItemId(lotteriesData, "rewards", weapon.id, "item_id")
     if (availableLotteries) {
         // The treasure box that contains the lottery
         const treasureData = findObjectByItemId(treasuresData, "lot_rate", availableLotteries.id, "reward_master_id")
@@ -131,6 +233,7 @@ const weapons = weaponsData.map(weapon => {
         elementImg,
         recipe,
         abilities,
+        newAbilities,
         treasureSources,
         subcategoryName: getSubcategory(weapon.is_for_weapon_stickers),
         entryTypes: ["Weapon"]
