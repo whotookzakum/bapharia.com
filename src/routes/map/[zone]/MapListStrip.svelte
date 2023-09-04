@@ -2,7 +2,7 @@
     import { userLocale, mapSearchQuery, mapControls } from "$lib/stores";
     import { checkStringIncludes, katakanaToHiragana } from "$lib/utils/string_utils";
     import { fly } from "svelte/transition";
-    import mapsData from "./maps.json";
+    import mapsData from "$bp_client/maps.json";
     import uniqBy from "lodash/uniqBy";
     import { page } from "$app/stores";
     import Icon from "@iconify/svelte";

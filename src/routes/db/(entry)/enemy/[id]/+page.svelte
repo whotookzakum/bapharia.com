@@ -5,7 +5,7 @@
     import uniqBy from "lodash/uniqBy";
     import isEqual from "lodash/isEqual";
     import { userLocale } from "$lib/stores";
-    import maps from "../../../../map/[zone]/maps.json";
+    import maps from "$bp_client/maps.json";
 
     export let data;
     
