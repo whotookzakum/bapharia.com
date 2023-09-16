@@ -9,7 +9,7 @@
     import ChartDataLabels from "chartjs-plugin-datalabels";
     
 
-    let selectedSeason = 1;
+    let selectedSeason = 2;
     $: season = seasons.find((season) => season.season === selectedSeason);
 
     $: ({
