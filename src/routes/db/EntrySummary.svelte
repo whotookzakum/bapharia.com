@@ -57,14 +57,14 @@
 
 {#if data}
     <div class="entry-summary flex">
-        <img
+        <!-- <img
             src={data.thumb}
             class="entry-thumb"
             style={backgroundStyle}
             alt=""
             width="64"
             height="64"
-        />
+        /> -->
         <div class="grid g-25">
             <div>
                 <a class="styled-link" href="/db/{data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">{@html highlightMatchedTerm(data.name[$userLocale])}</a>

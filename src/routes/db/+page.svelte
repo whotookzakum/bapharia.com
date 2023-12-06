@@ -2,6 +2,7 @@
     import MetaTags from "$lib/components/MetaTags.svelte";
     import EntrySummary from "./EntrySummary.svelte";
     import Filters from "./Filters.svelte";
+    import NewFilters from "./NewFilters.svelte";
     import PageControls from "./PageControls.svelte";
     import Search from "./Search.svelte";
 
@@ -21,7 +22,8 @@
 
 <div class="db-wrapper">
     <div class="filters">
-        <Filters />
+        <NewFilters />
+        <!-- <Filters /> -->
     </div>
     <div class="search-and-results grid">
         <Search />

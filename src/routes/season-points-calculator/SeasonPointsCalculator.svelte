@@ -424,31 +424,32 @@
             <thead>
                 <tr>
                     <th />
-                    <th>Leftover Points (Rank 70)</th>
-                    <th>Leftover Points (Rank 100)</th>
+                    <th>Advanced Pass</th>
+                    <th>Royal Pass</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th>Advanced Pass</th>
+                    <th>Leftover Points (Rank 70)</th>
                     <td
                         ><strong>{Math.max(TOTAL_PAID_POINTS - 7000, 0)}</strong
                         ></td
                     >
                     <td
                         ><strong
-                            >{Math.max(TOTAL_PAID_POINTS - 10000, 0)}</strong
-                        ></td
-                    >
-                </tr>
-                <tr>
-                    <th>Royal Pass</th>
-                    <td
-                        ><strong
                             >{Math.max(
                                 TOTAL_PAID_POINTS - 7000 + 2500,
                                 0
                             )}</strong
+                        ></td
+                    >
+                    
+                </tr>
+                <tr>
+                    <th>Leftover Points (Rank 100)</th>
+                    <td
+                        ><strong
+                            >{Math.max(TOTAL_PAID_POINTS - 10000, 0)}</strong
                         ></td
                     >
                     <td

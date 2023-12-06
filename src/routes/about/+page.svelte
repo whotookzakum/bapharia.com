@@ -2,12 +2,48 @@
     import HeroBanner from "$lib/components/HeroBanner.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import references from "./references.json";
+    import { uniqBy } from "lodash";
+
+    export let data;
+    const dungeons = uniqBy(data.enemies, (enemy) => enemy.content_id).map(
+        (drop) => drop.content_id,
+    );
+
+    const dungeonNames = {
+        arn002_ex01: "EXラッシュ初段　守護者",
+        arn002_ex02: "EXラッシュ初段　ヨミガエリ",
+        arn002_ex03: "EXラッシュ初段　鉄棺",
+        arn002_ex04: "EXラッシュ初段　三つ足の影",
+        arn002_ex05: "EXラッシュ二段　岩巨人",
+        arn002_ex06: "EXラッシュ二段　スニークスネーク",
+        arn002_ex07: "", // desc 3037
+        arn002_ex08: "", // desc 3038
+        arn002_ex09: "", // 三段?
+        arn002_ex10: "", // 三段?
+        arn002_ex11: "", // 三段?
+        arn002_ex12: "", // 三段?
+    }
 </script>
 
 <MetaTags
     title={`About — Bapharia`}
     description={`About Bapharia. Site credits and links to referenced material.`}
 />
+
+<!-- {#each dungeons as dungeon}
+    <h2>{dungeonNames[dungeon]} ({dungeon})</h2>
+    <ul>
+        {#each data.enemies.filter((drop) => drop.content_id === dungeon) as enemy}
+            <div>
+                {enemy.name.ja_JP} 
+                | {(enemy.drop_percent * 100).toFixed(4)}% |
+            </div>
+        {/each}
+    </ul>
+{/each} -->
+<!-- {#each data.enemies as enemy}
+        <div>{enemy.name.ja_JP} {enemy.name.en_US}</div>
+    {/each} -->
 
 <div class="wrapper">
     <div class="inner-wrapper flex">
@@ -28,8 +64,8 @@
             <h3>Special Thanks</h3>
             <!-- <p style="color: var(--text1); font-size: var(--step-1)">Special thanks to everyone who contributed to this project.</p> -->
             <p class="small-gray">
-                Tan, Santa, Maru, Sigmy, tiny, Rhy, Kazarune, owl,
-                Ando, marko, Voldy, IncinerateZ, mrarm
+                Tan, Santa, Maru, Sigmy, tiny, Rhy, Kazarune, owl, Ando, marko,
+                Voldy, IncinerateZ, mrarm
             </p>
             <h3>Referenced Material</h3>
             <ul class="unstyled-list grid g-25" role="list">
