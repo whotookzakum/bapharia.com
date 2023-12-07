@@ -1,8 +1,5 @@
 // Runs every goto() with invalidateAll
 // TODO implement 500ms debounce
-
-import { userSearch, selectedCategories } from "./stores";
-import { get } from "svelte/store";
 export const prerender = false
 
 // export const load = async (event) => {

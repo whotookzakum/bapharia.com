@@ -1,10 +1,10 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import EntrySummary from "./EntrySummary.svelte";
-    import Filters from "./Filters.svelte";
     import NewFilters from "./NewFilters.svelte";
     import PageControls from "./PageControls.svelte";
     import Search from "./Search.svelte";
+    import { categories } from "./stores";
 
     export let data;
 
@@ -26,6 +26,18 @@
         <!-- <Filters /> -->
     </div>
     <div class="search-and-results grid">
+        {#each $categories as store}
+            {#if store.checked}
+                <label>
+                    <input
+                        class="cat"
+                        type="checkbox"
+                        bind:checked={store.checked}
+                    />
+                    {store.name.en_US}
+                </label>
+            {/if}
+        {/each}
         <Search />
         <div class="results box">
             <PageControls
@@ -52,6 +64,14 @@
 </div>
 
 <style lang="scss">
+    // .cat:not(:checked) {
+    //     display: none;
+
+    //     & + label {
+    //     display: none;
+    // }
+    // }
+
     .db-wrapper {
         display: flex;
         gap: 1rem;
