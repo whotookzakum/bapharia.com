@@ -1,16 +1,35 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
+    import { userLocale } from "$lib/stores";
     import EntrySummary from "./EntrySummary.svelte";
     import NewFilters from "./NewFilters.svelte";
     import PageControls from "./PageControls.svelte";
     import Search from "./Search.svelte";
-    import { categories } from "./stores";
+    import { categories, classes, elements, level, ar } from "./stores";
 
     export let data;
 
     $: ({ DBSearchQuery } = data);
     // TODO save and cache preferences: filters
     // TODO favorite items
+
+    function resetLevel() {
+        $level.values[0] = $level.min;
+        $level.values[1] = $level.max;
+    }
+
+    function resetAR() {
+        $ar.values[0] = $ar.min;
+        $ar.values[1] = $ar.max;
+    }
+
+    function resetAllFilters() {
+        resetAR()
+        resetLevel()
+        $categories = $categories.map(job => ({...job, checked: false}))
+        $elements = $elements.map(job => ({...job, checked: false}))
+        $classes = $classes.map(job => ({...job, checked: false}))
+    }
 </script>
 
 <MetaTags
@@ -26,19 +45,62 @@
         <!-- <Filters /> -->
     </div>
     <div class="search-and-results grid">
-        {#each $categories as store}
-            {#if store.checked}
-                <label>
-                    <input
-                        class="cat"
-                        type="checkbox"
-                        bind:checked={store.checked}
-                    />
-                    {store.name.en_US}
-                </label>
-            {/if}
-        {/each}
         <Search />
+        {#if [...$categories, ...$classes, ...$elements].filter((c) => c.checked).length > 0 || $level.values[0] > $level.min || $level.values[1] < $level.max || $ar.values[0] > $ar.min || $ar.values[1] < $ar.max}
+            <div
+                class="flex g-50"
+                style="flex-wrap: wrap; margin-block: -0.25rem;"
+            >
+                <button class="filter-bubble reset" on:click={resetAllFilters}>Remove all filters</button>
+                {#each $categories as store}
+                    {#if store.checked}
+                        <label class="filter-bubble">
+                            <input
+                                class="visually-hidden"
+                                type="checkbox"
+                                bind:checked={store.checked}
+                            />
+                            {store.name[$userLocale]}
+                        </label>
+                    {/if}
+                {/each}
+                {#if $level.values[0] > $level.min || $level.values[1] < $level.max}
+                    <button class="filter-bubble" on:click={resetLevel}
+                        >Level {$level.values[0]}-{$level.values[1]}</button
+                    >
+                {/if}
+                {#if $ar.values[0] > $ar.min || $ar.values[1] < $ar.max}
+                    <button class="filter-bubble" on:click={resetAR}
+                        >Adventurer Rank {$ar.values[0]}-{$ar.values[1]}</button
+                    >
+                {/if}
+                {#each $classes as store}
+                    {#if store.checked}
+                        <label class="filter-bubble">
+                            <input
+                                class="visually-hidden"
+                                type="checkbox"
+                                bind:checked={store.checked}
+                            />
+                            {store.name[$userLocale]}
+                        </label>
+                    {/if}
+                {/each}
+                {#each $elements as store}
+                    {#if store.checked}
+                        <label class="filter-bubble">
+                            <input
+                                class="visually-hidden"
+                                type="checkbox"
+                                bind:checked={store.checked}
+                            />
+                            {store.name[$userLocale]}
+                        </label>
+                    {/if}
+                {/each}
+            </div>
+        {/if}
+
         <div class="results box">
             <PageControls
                 hasPreviousPage={$DBSearchQuery?.data?.entries.hasPreviousPage}
@@ -64,13 +126,45 @@
 </div>
 
 <style lang="scss">
-    // .cat:not(:checked) {
-    //     display: none;
+    .filter-bubble {
+        display: flex;
+        gap: 0.35rem;
+        align-items: baseline;
+        border: 2px solid var(--surface1);
+        border-radius: 2rem;
+        background: var(--surface1);
+        padding: 0.5rem 1rem 0.5rem 0.75rem;
+        color: var(--text2);
+        font-size: var(--step--1);
+        user-select: none;
 
-    //     & + label {
-    //     display: none;
-    // }
-    // }
+        &:not(.reset)::before {
+            content: "🞪";
+            margin-block: -5px;
+        }
+
+        &:not(.reset):hover {
+            color: var(--accent);
+        }
+    }
+
+    .reset {
+        padding: 0.5rem 1rem;
+        align-items: last baseline;
+        border-color: crimson;
+        color: crimson;
+        font-weight: 600;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        &:focus-visible {
+            outline: none !important;
+        }
+    }
 
     .db-wrapper {
         display: flex;

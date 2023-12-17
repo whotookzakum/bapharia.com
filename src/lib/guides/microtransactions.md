@@ -10,8 +10,7 @@ thumbImg: "/guides/microtransactions/thumb.webp"
 
 <script>
     import StickyNote from "$lib/components/StickyNote.svelte";
-    import RoseOrbPacks from "$lib/components/guides/RoseOrbPacks.svelte";
-    import RoseOrbPacksOptions from "$lib/components/guides/RoseOrbPacksOptions.svelte";
+    
 </script>
 
 <StickyNote type="warning">
@@ -25,24 +24,17 @@ Rose orbs are the paid currency in BLUE PROTOCOL. There are **Paid Rose Orbs** a
 
 **Rose Orbs expire in 5 months** from the month you purchase them, on the last day of the month. For example, if you buy them in June, they will expire on October 31st.
 
-<!-- <StickyNote type="note">
+<StickyNote type="note">
     There are payment limits based on age.<br />
     Ages 0~15: limit 5,000<br />
     Ages 16~17: limit 20,000<br />
     Ages 18~999: limit 9,999,999
-</StickyNote> -->
+</StickyNote>
 
-The packs in the Japanese version are as follows:
-
-<RoseOrbPacksOptions />
-<RoseOrbPacks />
-
-<small>Blue indicates Free Rose Orbs added on as a bonus</small>
+Find the latest pricing in the [Rose Orb Price Calculator](/rose-orb-calculator).
 
 ### Seasonal Sales
-These deals are available for one-time purchase during the sale period. When the sale period ends, they will be restocked.
-
-<RoseOrbPacks releaseSales />
+The shop will occasionally have deals with a limited stock available for purchase. Once the sale period ends, they may be restocked.
 
 ### How to buy Rose Orbs in BP Japan
 <StickyNote type="tip">

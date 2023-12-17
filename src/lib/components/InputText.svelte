@@ -12,6 +12,8 @@
     export let invalid = false;
     export let suffix = "";
     export let textAlign = "left";
+    export let placeholder = "";
+    export let inputFunction;
 </script>
 
 <label class="input-wrapper" {style} class:disabled class:invalid>
@@ -22,7 +24,7 @@
     <input
         {id}
         class="input"
-        type="number"
+        type="text"
         inputmode="numeric"
         bind:value
         {max}
@@ -31,6 +33,8 @@
         aria-describedby={describedby}
         {disabled}
         style:text-align={textAlign}
+        {placeholder}
+        on:input={inputFunction}
     />
     {#if suffix}
         <span aria-hidden="true" class="suffix">{suffix}</span>
@@ -43,7 +47,7 @@
         align-items: center;
         gap: 0.25rem;
         background: var(--bg);
-        border-radius: 5px;
+        border-radius: 0.5rem;
         padding-inline: 0.8rem;
         font: inherit;
         font-weight: 600;

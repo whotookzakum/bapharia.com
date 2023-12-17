@@ -17,7 +17,8 @@ a.styled-link {
     color: inherit;
     text-decoration: none;
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
         text-decoration: underline;
     }
 }
@@ -26,8 +27,9 @@ a.styled-link {
     a {
         color: inherit;
         text-decoration: none;
-    
-        &:hover, &:focus-visible {
+
+        &:hover,
+        &:focus-visible {
             text-decoration: underline;
         }
     }
@@ -114,14 +116,15 @@ details>*:not(summary):first-of-type {
 button {
     color: inherit;
     font: inherit;
-    background: var(--surface2);
-    border: 1px solid var(--surface3);
+    background: var(--surface1);
+    border: none;
+    border-radius: 0.5rem;
     padding: 0.5rem;
 }
 
 select {
     color: var(--text1);
-	font: inherit;
+    font: inherit;
 }
 
 mark {
@@ -133,6 +136,15 @@ mark {
 // HEADERS 
 // ======================================================================
 
+.mini-header {
+    margin: 0 0 1rem 0;
+    line-height: 1;
+    font-size: var(--step--1);
+    font-weight: 700;
+    color: var(--text2);
+    text-transform: uppercase;
+}
+
 h1,
 h2,
 h3,
@@ -140,7 +152,7 @@ h4,
 h5,
 h6 {
     font-family: "Skip Std", "Public Sans", "Georgia", serif;
-    margin-block: var(--h-size, 1rem) 0; 
+    margin-block: var(--h-size, 1rem) 0;
     font-size: var(--h-size, 1rem);
     font-weight: 800;
     letter-spacing: .05em;
@@ -180,7 +192,8 @@ h6 {
     --h-size: var(--step-1);
 }
 
-p, details {
+p,
+details {
     font-size: var(--step-1);
 }
 
