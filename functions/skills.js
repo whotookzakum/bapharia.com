@@ -138,25 +138,51 @@ const skills = skillsData.reduce((acc, curr) => {
     }
 
     // If skill does not have a condition_skill_id_1, add it to the result array
-    const name = getText("master_skill_data_text", curr.skill_name)
-    const desc = getText("master_skill_data_text", curr.skill_desc_array[curr.skill_desc_array.length - 1].desc)
-    const thumb = getThumbnail(curr.skill_type, curr.skill_id, curr.class_type)
-    const classImg = getClassThumbnail(curr.class_type)
-    const skillBackgroundImg = getSkillTypeImg(curr)
-    const elementImg = getElementImg(curr)
+    // const name = getText("master_skill_data_text", curr.skill_name)
+    // const desc = getText("master_skill_data_text", curr.skill_desc_array[curr.skill_desc_array.length - 1].desc)
+    // const thumb = getThumbnail(curr.skill_type, curr.skill_id, curr.class_type)
+    // const classImg = getClassThumbnail(curr.class_type)
+    // const skillBackgroundImg = getSkillTypeImg(curr)
+    // const elementImg = getElementImg(curr)
+
+    
+
+    const skill_levels = curr.skill_mastery_param.map((mastery_param, index) => {
+
+        const fullDesc = getText("master_skill_data_text", curr.skill_desc_array[index].desc)
+
+        const regex = new RegExp(`G${index+1}:.*?\\.`);
+
+        const ja_JPDesc = fullDesc.ja_JP.match(regex) ?? null
+        const en_USDesc = fullDesc.en_US.match(regex) ?? null
+
+        const desc = {
+            ja_JP: ja_JPDesc,
+            en_US: en_USDesc
+        }
+
+        console.log(desc)
+
+        return {
+            ...mastery_param,
+            desc: fullDesc
+        }
+    })
 
     acc.push({
         ...curr,
-        id: `${curr.skill_id}`,
-        name,
-        desc,
-        thumb,
-        classImg,
-        abilities: [],
-        skillBackgroundImg,
-        elementImg,
-        subcategoryName: getSubcategory(curr.skill_type, curr.ability_type),
-        entryTypes: ["Skill"]
+        skill_levels,
+
+        // id: `${curr.skill_id}`,
+        // name,
+        // desc,
+        // thumb,
+        // classImg,
+        // abilities: [],
+        // skillBackgroundImg,
+        // elementImg,
+        // subcategoryName: getSubcategory(curr.skill_type, curr.ability_type),
+        // entryTypes: ["Skill"]
     });
 
     return acc;
@@ -164,7 +190,7 @@ const skills = skillsData.reduce((acc, curr) => {
 
 // One pass to sort abilities in order of a, b, etc.
 skills.forEach(skill => {
-    if (skill.abilities.length > 0) {
+    if (skill.abilities?.length > 0) {
         skill.abilities.sort((a, b) => a.ability_type - b.ability_type)
     }
 })

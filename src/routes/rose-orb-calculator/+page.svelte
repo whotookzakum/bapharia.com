@@ -18,7 +18,7 @@
     bigImage
 />
 
-<HeroBanner bannerUrl="/guides/microtransactions/banner.webp">
+<HeroBanner bannerUrl="/aa/2.png">
     <h1>Rose Orb Calculator</h1>
     <p>
         A comparison of purchase value between various Rose Orb packages, on all
