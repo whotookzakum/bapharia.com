@@ -6,8 +6,8 @@
 
     const skills = data.skills.sort(
         (a, b) =>
-            a.skill_mastery_param[0]?.condition_class_level -
-            b.skill_mastery_param[0]?.condition_class_level
+            a.skill_levels[0]?.condition_class_level -
+            b.skill_levels[0]?.condition_class_level
     );
 </script>
 

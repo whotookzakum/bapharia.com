@@ -1,5 +1,6 @@
-import { getSkillsForClass } from "$functions/skills"
+import skills from "$functions/skills"
 
-export const load = ({ params }) => {
-    return { skills: getSkillsForClass(params.classId) }
+export const load = async ({ params }) => {
+    const skillsForClass = skills.filter(skill => skill.class_type == params.classId)
+    return { skills: skillsForClass }
 }

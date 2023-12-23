@@ -15,7 +15,7 @@
     import StatsChartSettings from "./StatsChartSettings.svelte";
 
     export let classes = [];
-    export let level = 50;
+    export let level = 0;
 
     let chartElement; // reference to canvas element
     let myChart; // the chart instance

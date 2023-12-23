@@ -6,7 +6,7 @@
     import hue from "./classHues.json";
     import classesData from "../classes.json";
     let selectedClasses;
-    let levelSelector = 50;
+    let levelSelector = 60;
     $: selectedLevel = levelSelector;
     $: {
         if (levelSelector > 100) selectedLevel = 100;

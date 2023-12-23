@@ -4,8 +4,8 @@
     import SkillGrade from "./SkillGrade.svelte";
     import SkillHeader from "./SkillHeader.svelte";
     import TabSelectors from "./TabSelectors.svelte";
-    import animationCancelsData from "./animation-cancels.json"
-    import notesData from "./skill-notes.json"
+    import animationCancelsData from "./animation-cancels.json";
+    import notesData from "./skill-notes.json";
 
     export let skill = {};
 
@@ -15,12 +15,12 @@
         return skill.abilities.filter(
             (ability) =>
                 ability.condition_skill_id_1 === skill.skill_id &&
-                ability.condition_skill_level_1 === skillLevel.level
+                ability.condition_skill_level_1 === skillLevel.level,
         );
     }
 
-    let animationCancels = animationCancelsData[skill.id]
-    let notes = notesData[skill.id]
+    let animationCancels = animationCancelsData[skill.id];
+    let notes = notesData[skill.id];
 </script>
 
 <div class="skill grid">
@@ -31,26 +31,20 @@
             class="unstyled-list skill-grade-descriptions"
             style:gap="0"
             role="list"
-            
         >
-            {#each skill.skill_mastery_param as skillLevel, index}
+            {#each skill.skill_levels as skillLevel, index}
                 <SkillGrade
-                    grade={skillLevel.level}
-                    reqLevel={skillLevel.condition_class_level}
-                    ability_type={skill.ability_type}
-                    desc={skill.desc}
+                    {skillLevel}
+                    abilityType={skill.ability_type}
                 />
-                {#if getAbilitiesForGrade(skillLevel).length > 0}
-                    {#each getAbilitiesForGrade(skillLevel) as variant}
-                        <SkillGrade
-                            grade={skillLevel.level}
-                            reqLevel={variant.class_level}
-                            ability_type={variant.ability_type}
-                            desc={variant.desc}
-                        />
+                {#if skillLevel.abilities}
+                    {#each skillLevel.abilities as ability}
+                        {#each ability.ability_levels as abilityLevel}
+                            <SkillGrade skillLevel={abilityLevel} abilityType={ability.ability_type} />
+                        {/each}
                     {/each}
                 {/if}
-                {#if index < skill.skill_mastery_param.length - 1}
+                {#if index < skill.skill_levels.length - 1}
                     <hr style:margin="0" />
                 {/if}
             {/each}
@@ -59,7 +53,9 @@
         <AnimationCancels {animationCancels} />
     {:else if notes && selectedTab === "notes"}
         <div>
-            <p style="padding-top: 0; margin-block: 0.5rem 0; font-size: var(--step-0)">
+            <p
+                style="padding-top: 0; margin-block: 0.5rem 0; font-size: var(--step-0)"
+            >
                 {notes}
             </p>
         </div>

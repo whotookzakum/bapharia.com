@@ -1,12 +1,13 @@
 <script>
     import { userLocale } from "$lib/stores";
 
-    export let grade = 0;
-    export let reqLevel = 0;
-    export let ability_type = 0;
-    export let desc;
+    export let skillLevel;
+    export let abilityType;
+
+    const { level, condition_class_level, desc, buffs } = skillLevel;
+
     function getAltText() {
-        switch (ability_type) {
+        switch (abilityType) {
             case 1:
                 return "alpha";
             case 2:
@@ -18,50 +19,49 @@
         }
     }
 
-    function getText(locale) {
-        // Remove from text: G1 G2 G3 and Japanese and English colons
-        const string = desc[locale].replace(/(G[1-3]|α|β)|：|:/g, '')
-         // Assumes that skill text doesn't contain a new line in it within the same grade, i.e. G1: some text \n some text \nG2: ...
-        const splitString = string.split("\n")
-
-        // tac skills and ults
-        if (splitString[grade - 1]) return splitString[grade - 1]
-
-        // alpha and beta shouldn't be affected by the regex above and thus only index 0 exists
-        // can also be rewritten as if (ability_type > 0 && ability_type !== 100) or if (condition_skill_id_1 > 0)
-        return splitString[0] 
-    }
-
-    $: interpolatedString = getText($userLocale)
+    $: descString = desc[$userLocale].replace(/(G[1-9]|α|β)|：|:/g, "");
 </script>
 
 <div class="row grid">
-    <!-- {#if ability_type > 0 && ability_type !== 100}
+    {#if abilityType > 0 && abilityType !== 100}
         <hr style:margin="0" style:grid-column="-2" />
-    {/if} -->
+    {/if}
     <dt class="grid">
         <span
             class="grade skip-std"
-            class:hidden={ability_type > 0 && ability_type !== 100}
+            class:hidden={abilityType > 0 && abilityType !== 100}
         >
-            G{grade}
+            G{level}
         </span>
         <img
-            src="/UI/SkillTree/UI_SkiList_IconType0{ability_type !== 100
-                ? ability_type
+            src="/UI/SkillTree/UI_SkiList_IconType0{abilityType !== 100
+                ? abilityType
                 : 0}.png"
             alt={getAltText()}
             width="24"
             height="24"
         />
-        <span class="level-requirement">(Lv. {reqLevel})</span>
+        <span class="level-requirement">(Lv. {condition_class_level})</span>
     </dt>
-    <dd>{interpolatedString}</dd>
+    <dd>
+        <!-- <br> -->
+        {descString}
+        {#if buffs?.length > 0}
+            <div class="flex g-25">
+                {#each buffs as buff}
+                    <img
+                        src="/UI/Icon/StatusAilment/UI_StatusAilment_{buff.id}.png"
+                        alt=""
+                    />
+                {/each}
+            </div>
+        {/if}
+    </dd>
 </div>
 
 <style lang="scss">
     .row {
-        grid-template-columns: 16ch 1fr;
+        grid-template-columns: 16ch 1fr 4ch;
         align-items: center;
         padding: 0.5rem 0;
     }
@@ -79,15 +79,16 @@
         .hidden {
             opacity: 0;
         }
+    }
 
-        .level-requirement {
-            color: var(--accent);
-            font-weight: normal;
-        }
+    .level-requirement {
+        color: var(--accent);
+        font-weight: normal;
     }
 
     dd {
         margin: 0;
+        max-inline-size: none;
     }
 
     @media (max-width: 600px) {

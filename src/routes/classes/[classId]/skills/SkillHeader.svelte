@@ -1,121 +1,111 @@
 <script>
     import SkillIcon from "./SkillIcon.svelte";
     import { userLocale } from "$lib/stores";
+    import SkillCategoryTag from "./SkillCategoryTag.svelte";
 
     export let skill = {};
 
-    $: elementId = skill.elementImg.replace("/UI/Icon/Attribute/UI_IconAttribute_", "").replace(".png", "")
-    $: skillTypeId = skill.skillBackgroundImg.replace("/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_", "").replace(".png", "")
-
-    const ELEMENT_NAMES = {
-        "1": {
+    const TAG_TEXT = {
+        Fire: {
             ja_JP: "火属性",
             en_US: "Fire",
         },
-        "2": {
+        Thunder: {
             ja_JP: "雷属性",
             en_US: "Thunder",
         },
-        "3": {
+        Ice: {
             ja_JP: "氷属性",
             en_US: "Ice",
         },
-        "4": {
+        Earth: {
             ja_JP: "土属性",
             en_US: "Earth",
         },
-        "5": {
+        Light: {
             ja_JP: "光属性",
             en_US: "Light",
         },
-        "6": {
+        Dark: {
             ja_JP: "闇属性",
             en_US: "Dark",
         },
-        "0": {
+        None: {
             ja_JP: "無属性",
             en_US: "No Element",
         },
-        Empty: {
-            ja_JP: "無属性",
-            en_US: "No Element",
+        Attack: {
+            ja_JP: "攻撃",
+            en_US: "Attack",
+        },
+        AttackBuf: {
+            ja_JP: "攻撃バフ",
+            en_US: "Attack・Buff",
+        },
+        AttackDebuf: {
+            ja_JP: "攻撃デバフ",
+            en_US: "Attack・Debuff",
+        },
+        AttackHeal: {
+            ja_JP: "攻撃回復",
+            en_US: "Attack・Recovery",
+        },
+        Buf: {
+            ja_JP: "バフ",
+            en_US: "Buff",
+        },
+        BufDebuf: {
+            ja_JP: "バフ・デバフ",
+            en_US: "Buff・Debuff",
+        },
+        Debuf: {
+            ja_JP: "デバフ",
+            en_US: "Debuff",
+        },
+        Heal: {
+            ja_JP: "回復",
+            en_US: "Recovery",
+        },
+        HealBuf: {
+            ja_JP: "回復バフ",
+            en_US: "Recovery・Buff",
+        },
+        HealDebuf: {
+            ja_JP: "回復デバフ",
+            en_US: "Recovery・Debuff",
         },
     };
-
-    const SKILL_TYPE_NAMES = {
-        A: {
-            ja_JP: "",
-            en_US: "Attack"
-        },
-        A_B: {
-            ja_JP: "",
-            en_US: "Attack / Buff"
-        },
-        A_D: {
-            ja_JP: "",
-            en_US: "Attack / Debuff"
-        },
-        A_R: {
-            ja_JP: "",
-            en_US: "Attack / Recovery"
-        },
-        B: {
-            ja_JP: "",
-            en_US: "Buff"
-        },
-        B_D: {
-            ja_JP: "",
-            en_US: "Buff / Debuff"
-        },
-        D: {
-            ja_JP: "",
-            en_US: "Debuff"
-        },
-        R: {
-            ja_JP: "",
-            en_US: "Recovery"
-        },
-        R_B: {
-            ja_JP: "",
-            en_US: "Recovery / Buff"
-        },
-        R_D: {
-            ja_JP: "",
-            en_US: "Recovery / Debuff"
-        },
-    }
 </script>
 
 <header class="flex box">
     <div class="one flex g-50">
-        <SkillIcon
-            skillType={skill.skill_type}
-            skillIcon={skill.thumb}
-            elementImg={skill.elementImg}
-            skillBackgroundImg={skill.skillBackgroundImg}
-        />
+        <SkillIcon {skill} />
         <div>
-            <h3 class="toc-exclude" id={skill.name.en_US.toLowerCase().replace(" ", "-").replace(" ", "-")}>
+            <h3
+                class="toc-exclude"
+                id={skill.name.en_US
+                    .toLowerCase()
+                    .replace(" ", "-")
+                    .replace(" ", "-")}
+            >
                 {skill.name[$userLocale]}
             </h3>
             <div>
-                {#if elementId !== "Empty"}
-                    {ELEMENT_NAMES[elementId][$userLocale]} •
+                {#if skill.client_data?.ElementType && skill.client_data?.ElementType !== "None"}
+                    <SkillCategoryTag tag={skill.client_data.ElementType} styleless /> •
                 {/if}
-                {#if skillTypeId !== "Empty"}
-                    {SKILL_TYPE_NAMES[skillTypeId][$userLocale]}
+                {#if skill.client_data?.BgType}
+                    <SkillCategoryTag tag={skill.client_data.BgType} styleless />
                 {/if}
             </div>
         </div>
     </div>
-    <div class="two">
-        <b>Cooldown</b>
-        <div>-</div>
-    </div>
-    <div class="three">
-        <b>Buffs & Debuffs</b>
-        <div>-</div>
-    </div>
+    {#if skill.client_data?.Properties.RecastTime}
+        <div class="two">
+            <b>Cooldown</b>
+            <div>{skill.client_data.Properties.RecastTime} seconds</div>
+        </div>
+    {/if}
 </header>
 
 <style lang="scss">
@@ -123,7 +113,7 @@
         flex-wrap: wrap;
         gap: 1rem 2rem;
         align-items: center;
-        grid-template-columns: minmax(30ch, 1fr) minmax(30ch, 1fr) minmax(30ch, 1fr);
+        grid-template-columns: minmax(30ch, 1fr) minmax(30ch, 1fr);
     }
 
     .one {
@@ -136,13 +126,9 @@
         flex: 1 1 10ch;
     }
 
-    .three {
-        flex: 1 1 15ch;
-    }
-
     h3 {
         margin: 0;
         line-height: 1.4;
-        font-size: clamp(1.2rem, calc(0.74rem + 0.80vw), 1.4rem);
+        font-size: clamp(1.2rem, calc(0.74rem + 0.8vw), 1.4rem);
     }
 </style>

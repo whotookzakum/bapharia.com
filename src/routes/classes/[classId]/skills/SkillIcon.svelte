@@ -1,36 +1,93 @@
 <script>
-    export let skillType = 0;
-    export let elementImg = "";
-    export let skillBackgroundImg = "";
-    export let skillIcon = "";
+    import ElementIcon from "./ElementIcon.svelte";
+
+    export let skill;
+    const { skill_type, client_data, class_type, id } = skill;
+
+    let typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png";
+    switch (client_data?.BgType) {
+        case "Attack":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A.png";
+            break;
+        case "AttackBuf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_B.png";
+            break;
+        case "AttackDebuf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_D.png";
+            break;
+        case "AttackHeal":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_R.png";
+            break;
+        case "Buf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B.png";
+            break;
+        case "BufDebuf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B_D.png";
+            break;
+        case "Debuf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_D.png";
+            break;
+        case "Heal":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R.png";
+            break;
+        case "HealBuf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_B.png";
+            break;
+        case "HealDebuf":
+            typeBg = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_D.png";
+            break;
+        default:
+            break;
+    }
+    const applyTypeBg = skill_type < 8 && `url(${typeBg})`;
+
+    let className = "";
+    let iconPath = "";
+    switch (skill_type) {
+        case 0:
+            className = "basic";
+            iconPath = "/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Main.png";
+            break;
+        case 1:
+            className = "subaction";
+            iconPath = "/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Sub.png";
+            break;
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            className = "tactical";
+            iconPath = `/UI/Icon/PlayerSkill/Class${class_type}/UI_PlayerSkill_${id}.png`;
+            break;
+        case 6:
+            className = "ult";
+            iconPath = "/UI/Icon/PlayerSkill/Common/UI_PlayerSkill_Special.png";
+            break;
+        case 8:
+            className = "passive-square";
+            iconPath = `/UI/Icon/PlayerAbility/Class/Class${class_type}/UI_PlayerAbilityC_${id}.png`;
+            break;
+        case 9:
+            className = "passive-pentagon";
+            iconPath = `/UI/Icon/PlayerAbility/Base/Class${class_type}/UI_PlayerAbilityB_${id}.png`;
+            break;
+    }
 </script>
 
-<div
-    class="skill-icon-wrapper"
-    class:tactical={skillType <= 5 && skillType >= 2}
-    class:basic={skillType === 0}
-    class:subaction={skillType === 1}
-    class:ult={skillType === 6}
-    class:passive-square={skillType === 8}
-    class:passive-pentagon={skillType === 9}
->
+<div class="skill-icon-wrapper {className}">
     <img
         class="skill-icon"
-        src={skillIcon}
+        src={iconPath}
         alt=""
-        style:background-image="url({skillType !== 8 && skillType !== 9 ? skillBackgroundImg : ""})"
+        style:background-image={applyTypeBg}
         width="48"
         height="48"
     />
-    {#if !elementImg.includes("Empty")}
-        <img
-            class="element-icon"
-            src={elementImg}
-            alt=""
-            width="24"
-            height="24"
-        />
-    {/if}
+    <ElementIcon
+        elementName={client_data?.ElementType}
+        size="24"
+        style="position: absolute; bottom: 8px; left: 8px;"
+    />
 </div>
 
 <style lang="scss">
@@ -38,7 +95,7 @@
         position: relative;
         background-size: cover;
         width: 88px;
-        height: 88px; 
+        height: 88px;
         // main circle is 64x64, so -24px (1.5rem) total, or 0.75rem on each side
         margin: -0.75rem;
         // margin-right: -1.25rem;
@@ -48,12 +105,6 @@
         background-size: cover;
         position: absolute;
         height: auto;
-    }
-
-    .element-icon {
-        position: absolute;
-        bottom: 8px;
-        left: 8px;
     }
 
     .tactical {
@@ -85,21 +136,21 @@
 
     .passive-square {
         background-image: url("/UI/SkillTree/UI_SkillTree_IconBG_Passive_normal.png");
-    }
 
-    .passive-square .skill-icon {
-        bottom: 18px;
-        left: 18px;
-        width: 52px;
+        .skill-icon {
+            bottom: 18px;
+            left: 18px;
+            width: 52px;
+        }
     }
 
     .passive-pentagon {
         background-image: url("/UI/SkillTree/UI_SkillTree_IconBG_PassiveAlways_normal.png");
-    }
 
-    .passive-pentagon .skill-icon {
-        bottom: 19px;
-        left: 17px;
-        width: 54px;
+        .skill-icon {
+            bottom: 19px;
+            left: 17px;
+            width: 54px;
+        }
     }
 </style>
