@@ -16,6 +16,15 @@ import quests from '$functions/quests';
 
 const resolvers = {
     Query: {
+        async weapons(_, args) {
+            return weapons
+                .filter(result =>
+                    matchesSearchTerm(result.id, result.name)
+                    && matchesFilter("weapons", result.is_for_weapon_stickers)
+                    && matchesFilter("classes", result.equip_class)
+                    && matchesElement("weapon", result.attribute)
+                )
+        },
         async entries(_, args) {
             let results = [];
 
@@ -32,7 +41,7 @@ const resolvers = {
 
             function matchesElement(itemType, id) {
                 if (!args.elements) return true
-                
+
                 if (itemType === "weapon") {
                     switch (id) {
                         case 3:
@@ -163,8 +172,8 @@ const resolvers = {
                 results.push(...categoryResults)
             }
 
-             // Stamp Sets
-             if (!args.categories || args.categories.includes("stampsets")) {
+            // Stamp Sets
+            if (!args.categories || args.categories.includes("stampsets")) {
                 let categoryResults = stampSets
                     .filter(result =>
                         matchesSearchTerm(result.id, result.name)
@@ -185,8 +194,8 @@ const resolvers = {
             // Quests
             if (!args.categories || args.categories.includes("quests")) {
                 let categoryResults = quests
-                    .filter(result => 
-                        matchesSearchTerm(result.long_id, result.name) 
+                    .filter(result =>
+                        matchesSearchTerm(result.long_id, result.name)
                         && matchesFilter("quests", result.prefix)
                     )
                 results.push(...categoryResults)

@@ -108,9 +108,9 @@
                 totalResults={$DBSearchQuery?.data?.entries.totalResults}
             />
             {#if $DBSearchQuery.data}
-                <ul id="search-results" role="list">
+                <ul id="search-results" role="list" class="grid">
                     {#each $DBSearchQuery.data.entries.results as entry}
-                        <li>
+                        <li class="flex">
                             <EntrySummary data={entry} />
                         </li>
                     {/each}
@@ -189,9 +189,9 @@
     ul#search-results {
         list-style-type: none;
         padding: 0;
-        display: block;
         overflow: visible;
         max-inline-size: none;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 
         li {
             max-inline-size: none;
