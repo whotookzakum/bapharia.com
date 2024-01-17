@@ -183,7 +183,7 @@
                 icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4062.png"], // not sure, but based on BA's refresh area
                 desc: "Become immune to abnormal status effects",
             },
-            
+
             {
                 name: "Full Heal",
                 icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4064.png"],
@@ -323,13 +323,6 @@
             },
         ],
     };
-
-    // barrier ready
-
-    // immune
-    // bad status immune
-    // resist
-    // critical rate up
 </script>
 
 <div class="box flex g-100">
@@ -377,9 +370,11 @@
             </tr>
         {/each}
     </tbody>
-    <caption style="text-align: left">
-        <strong>※ Existed in the Closed Beta Test (unused).</strong>
-    </caption>
+    {#if tableType === "buffs"}
+        <caption style="text-align: left">
+            <strong>※ Existed in the Closed Beta Test (unused).</strong>
+        </caption>
+    {/if}
 </table>
 
 <style lang="scss">
@@ -388,7 +383,17 @@
         line-height: 1.7;
     }
 
-    tr:nth-of-type(even) {
+    tr:nth-of-type(even) > * {
         background: rgba(255, 255, 255, 0.02);
+    }
+
+    tr:last-of-type > * {
+        &:first-of-type {
+            border-bottom-left-radius: 1rem;
+        }
+
+        &:last-of-type {
+            border-bottom-right-radius: 1rem;
+        }
     }
 </style>

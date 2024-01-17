@@ -148,11 +148,11 @@
 <style lang="scss">
     .first-row th {
         &:first-of-type {
-            border-top-left-radius: 9px;
+            border-top-left-radius: 1rem;
         }
 
         &:last-of-type {
-            border-top-right-radius: 9px;
+            border-top-right-radius: 1rem;
         }
     }
 

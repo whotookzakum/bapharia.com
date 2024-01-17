@@ -121,6 +121,5 @@
         margin: 0;
         // background: var(--bg);
         // padding: 1rem;
-        // border-radius: 9px;
     }
 </style>

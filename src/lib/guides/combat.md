@@ -158,8 +158,6 @@ Abnormal statuses that can be applied to players or enemies. Debuffs from elemen
 
 <AbnormalStatusesTable />
 
-
-
 ## 🗡️ EXP & Drops
 When an enemy is defeated, **all players** who dealt at least 1 damage to the enemy will be **eligible to receive full EXP and drops**. In party play, **all party members** will be eligible if at least one of their members dealt at least 1 damage to the enemy.
 
