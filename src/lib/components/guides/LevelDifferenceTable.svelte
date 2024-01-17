@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th>Level Difference</th>
-            <th>Damage dealt</th>
+            <th>Damage & Elemental Charge dealt</th>
             <th>EXP gain</th>
         </tr>
     </thead>
@@ -96,11 +96,22 @@
 </table>
 
 <style lang="scss">
-    tbody th {
+    tbody th, td {
         text-align: left;
+        // padding-block: 0.5rem;
     }
 
-    tbody {
-        line-height: 2;
+    tr:nth-of-type(even) > * {
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    tr:last-of-type > * {
+        &:first-of-type {
+            border-bottom-left-radius: 1rem;
+        }
+
+        &:last-of-type {
+            border-bottom-right-radius: 1rem;
+        }
     }
 </style>

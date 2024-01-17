@@ -20,7 +20,7 @@
     <thead>
         <tr>
             <th>Chain</th>
-            <th>Damage</th>
+            <th>Damage<br> & Self-healing</th>
             <th>Effect</th>
             <th>Effect (Raid)</th>
             <th>Reset Timer</th>
