@@ -15,6 +15,7 @@ thumbImg: "/guides/combat/thumb.jpg"
     import LevelDifferenceTable from '$lib/components/guides/LevelDifferenceTable.svelte';
     import StaminaConsumptionTable from "$lib/components/guides/StaminaConsumptionTable.svelte";
     import AbnormalStatusesTable from "$lib/components/guides/AbnormalStatusesTable.svelte";
+    import PartyChainTable from "$lib/components/guides/PartyChainTable.svelte";
 </script>
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action. Let's take a look at each one.
@@ -194,3 +195,19 @@ For example, if you and I are in the same party and I'm using a [G2 Drop-Drop](/
 
 ## Party Chain
 The party chain is a combo count of all party members' hits. As it accumulates, your party gains a slight damage increase. The higher the chain count, the less time you have to successfully perform another attack before the chain ends. The party chain will reset to 0 if no successful attacks are detected before the timer ends.
+
+    攻撃を連続で素早く与えることでチェインをすることができる。
+        チェインを多く繋げると与ダメージと自身からのHP回復効果が上昇し、さらに特定のチェイン数まで繋げると『HP継続回復』や『被ダメージダウン』などボーナスが発生する。
+        チェイン数は、自分とパーティを組んでいる味方で共有される。
+        パーティリーダーとなっているプレイヤーから離れすぎると、チェインの効果が受けられなくなってしまう。
+            （リーダー基準なのか相互距離なのかは要検証か）
+        チェインを繋げることができるチェインタイムは、チェイン数が増加すると短くなる。
+        50チェイン以上の状態でチェインが途切れてしまうと、10秒間チェインが発生しなくなる。
+    レイド専用仕様
+        追加効果の発生が250/550/850/999チェイン時になり、それぞれ通常時の350/450/550/999チェイン時の追加効果が発動する。
+            なお、ツインストライカーのクラスアビリティ「ドレインフィーバー」は影響を受けない。
+        チェインが途切れた時のインターバル発生閾値が250チェイン以上になり、インターバル時間は30秒になる。
+    チェインの効果について
+        チェイン数増加で最大でPT全体の与ダメージと自身からのHP回復効果が1.1倍になる。その他、一定チェインごとに特殊効果が発生する（以下に列記）
+
+<PartyChainTable />
