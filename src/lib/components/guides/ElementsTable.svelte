@@ -1,5 +1,6 @@
 <script>
     import Icon from "@iconify/svelte";
+    import StickyNote from "../StickyNote.svelte";
 
     const elements = [
         {
@@ -305,6 +306,7 @@
         font-weight: bold;
         align-items: center !important;
         background: hsla(var(--h), 80%, 17%, 0.2);
+        max-inline-size: none;
     }
 
     .on-header {
@@ -319,7 +321,11 @@
         grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
         row-gap: 2rem;
         align-items: start;
-        background: linear-gradient(to bottom, hsla(var(--h), 71%, 18%, 0.1) 0%, var(--surface1) 19%);
+        background: linear-gradient(
+            to bottom,
+            hsla(var(--h), 71%, 18%, 0.1) 0%,
+            var(--surface1) 19%
+        );
     }
 
     ol {

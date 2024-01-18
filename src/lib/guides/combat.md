@@ -17,14 +17,22 @@ thumbImg: "/guides/combat/thumb.jpg"
     import AbnormalStatusesTable from "$lib/components/guides/AbnormalStatusesTable.svelte";
     import PartyChainTable from "$lib/components/guides/PartyChainTable.svelte";
     import ElementsTable from "$lib/components/guides/ElementsTable.svelte";
+    import EleResistDamageTable from "$lib/components/guides/EleResistDamageTable.svelte";
 </script>
 
-BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action. Let's take a look at each one.
+BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action.
 
-- in combat vs being targeted vs being targeted (and the timers on them)
-- "Ability" refers to passive
+<h2 class="toc-exclude">Precursor</h2>
 
+The UI has an aggro icon whose color indicates <span style="color: orange">when enemies have sensed your presence</span> and <span style="color: red">when they are actively engaging you</span>.
 
+<div><img src="/UI/HateAlert/UI_HateAlertIcon1.png" alt="aggro indicator" width="80" height="40"></div>
+
+For the purposes of this guide, **being in combat** will refer to when a player has their weapon out (unsheathed and in a combatative stance), and **being targeted** will refer to either scenario that you have aggro. 
+
+When targed, various actions consume stamina and when in combat your jump height is reduced and you cannot sprint (you must sheathe your weapon). Your weapon can be sheathed by pressing the interact key, summoning a mount, or by initiating sprinting.
+
+**Ability** is a common term in the game referring to a passive effect. It's used in Skills to describe passive skills (such as Class-Shared Ability), in [Weapon "Ability" Plugs](/guides/weapons-and-plugs#ability-plugs), in [Battle Imagine and Enhance Imagine](/guides/imagine) (referring to their passive stat line). Just keep in mind that the keyword **Ability = passive**.
 
 ## 🧮 Stats
 Each class has various stats that can be altered by equipping and upgrading [Weapons](/guides/weapons-and-plugs) and [Imagine](/guides/imagine). Base Stats in particular have different effects based on whether you are playing a physical class or a magic class.
@@ -115,46 +123,106 @@ Level syncs also exist in dungeons, forcefully adjusting all high level players'
 ### ⚜️ Adventurer Rank
 Raising your Adventurer Rank allows you to accept new quests (including continuing the main story quest), raises your maximum level cap, and provides some goodies. To raise your Adventurer Rank, you need to complete a Rank Up [Adventure Board](/guides/adventure-boards). Some ranks also require you to pass an exam (speak to NPC Millie at the Reclamation Bureau).
 
-
-
-
-
-
-
-
-<!-- https://blueprotocol.swiki.jp/index.php?%E3%83%90%E3%83%88%E3%83%AB%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0#fb0adbfc -->
-
 ## 🔥 Elements
-Players can use 6 elements in BLUE PROTOCOL: Fire, Ice, Thunder, Earth, Light, and Dark. They can be utilized through elemental skills, weapons, and [Battle Imagine](/guides/imagine#battle-imagine).
+Players and enemies can use 6 elements in BLUE PROTOCOL: Fire, Ice, Thunder, Earth, Light, and Dark. They can be utilized through elemental skills, weapons, and [Battle Imagine](/guides/imagine#battle-imagine). Elements influence combat via **Elemental Effects** and **Elemental Resistance**.
 
-When using a neutral (non-elemental) skill, the skill will inherit the element of your weapon. 
-
-That being said, skill element and weapon element *both* factor into your damage in regards to elemental weaknesses. In other words, on an enemy that is weak against fire, you will do more damage using a fire skill + fire weapon than a fire skill + ice weapon. Elemental weaknesses are explained in detail below.
-
-### Elemental Charge
-Attacking with elements will fill the Elemental Charge gauge underneath an enemy's health bar. Filling it past the level 1, 2, or 3 threshold will apply an **Elemental Effect** on the enemy, based on which element has contributed the most charge. If not filled to the next level within a certain amount of time, the gauge will reset.
-
-The active element can <a href="https://www.youtube.com/live/K6euuPFx5wg?feature=share&t=7704" target="_blank" rel="noreferrer noopener nofollow">change between levels</a>, though the active debuff will remain until replaced, or the elemental charge gauge resets.
+### ✨ Elemental Charge
+Attacking with elements will fill the **Elemental Charge gauge** underneath an enemy's health bar. Filling it to level 1 (100 charge), level 2 (300 charge), or level 3 (600 charge) will apply an **Elemental Effect** on the enemy, based on which element has contributed the most charge. 
 
 <StickyNote type="note">
-    Elemental charge is accumulated regardless of the element you are currently using, so all players can contribute towards the gauge.
+    Charge is accumulated even if you are using a different element.
 </StickyNote>
 
-<!-- It's currently unknown whether a weapon's Elemental Power stat influences how fast elemental charge is built, or if its simply for damage against enemies with elemental weaknesses. -->
+The active element (shown on the gauge) can <a href="https://www.youtube.com/live/K6euuPFx5wg?feature=share&t=7704" target="_blank" rel="noreferrer noopener nofollow">change between levels</a>, though the active debuff will remain until replaced at the next level, or the gauge resets. The condition to prevent the gauge from resetting is determined by the current gauge level.
 
-### Elemental Effects
+| Gauge Level | Time limit extension condition |
+|-------------|-----------------|
+| Lv. 0       | Accumulate **any amount of charge** within 60 seconds (20 seconds on players)  |
+| Lv. 1+      | Reach the **next charge level** within 60 seconds (20 seconds on players)      |
+
+Elemental Charge is accumulated for both your weapon and skill elements (at some ratio).
+
+Enemies in Missions, Raids, and Elite Monsters have a multiplier that reduces the accumulation rate of elemental charge, i.e. 0.16x for Survey/Advenaced Survey and 0.33x for Rush Battle.
+
+<details>
+    <summary style="color: purple">Elemental Accumulation Formula</summary>
+    <div>
+        <p style="padding-top: 0">Non-elemental Action:</p>
+        <code style="line-height: 2; color: purple">(Base Multiplier × 7) × Elemental Resistance × Elemental Buff</code>
+        <p>Elemental Action:</p>
+        <code style="line-height: 2; color: purple">(Base Multiplier × 7 × 0.3 + Element's Accumulation Value) × Elemental Resistance × Elemental Buff</code>
+        <p>The stat "Elemental Attack" found on weapons does not influence Elemental Charge accumulation.</p>
+        <p>Elemental Resistance (including from buffs/debuffs) does influence Elemental Charge accumulation, but the ratio is different from elemental damage.</p>
+        <p>Elemental buffs also influence Elemental Charge accumulation, but similar to resistance, it's not clear if the formula is different from that for damage.</p>
+        <p>The relationship between Elemental Resistance and Elemental buffs are currently unknown, so they are currently listed separately. It's possible that enemy resistance and player buffs are in the same category and thus additive.</p>
+    </div>
+</details>
+
+### 💥 Elemental Effects
 At level 1 and 2, a debuff is applied, with level 2 being a stronger version. Level 3 triggers an **Elemental Burst**, which deals considerable damage and begins **Burst Bonus Time**.
 
 <ElementsTable />
 
 <StickyNote type="tip">
-    Enemies will also use elements to apply debuffs on players. If players get affected by the Ice or Earth Elemental Bursts, other players can hit them to help free them faster.
+    Fire: Level 1 and 2 burn damage is affected by fire resistance at the time that the debuff was applied. After the burn is applied, the damage will not change even if the enemy's fire resistance changes. Aim to apply fire resistance down debuffs before the gauge reaches Level 1 or Level 2.
+</StickyNote>
+<StickyNote type="tip">
+    Players can hit frozen and petrified allies to help free them faster.
 </StickyNote>
 
-### Burst Bonus Time
-Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**. Players and Battle Imagine will deal increased damage, and elemental effects are removed.
+<!-- TODO: confirm reduced effects? -->
+**The effects of Level 1 and 2 Fire are reduced by 75% against Elite Monsters and Raid Bosses.**
+
+### ⌛ Burst Bonus Time
+Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**. Players and Battle Imagine will deal increased elemental damage, and Level 2 elemental effects are removed. The damage boost is determined by the element of the attack (prioritizing skill element).
+
+| Elements | Player Damage Increase | Battle Imagine Damage Increase |
+|----------|------------------------|--------------------------------|
+| <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png" alt="Fire" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_2.png" alt="Thunder" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_5.png" alt="Light" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.png" alt="Dark" width="36" height="36"> | 15% | 20% |
+| <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png" alt="Ice" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_4.png" alt="Earth" width="36" height="36"> | 10% | 15% |
+| <img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="No element" width="36" height="36"> | 0% | 10% |
+
+<small>Burst Bonus Time is part of the buff/debuff category in the damage formula.</small>
+
+<details style="margin-top: 1rem">
+    <summary style="color: purple">Example</summary>
+    <table>
+        <thead>
+            <tr>
+                <th>Weapon Element</th>
+                <th>Skill Element</th>
+                <th>Damage Increase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png" alt="Ice" width="36" height="36"></td>
+                <td><img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png" alt="Fire" width="36" height="36"></td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td><img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png" alt="Ice" width="36" height="36"></td>
+                <td><img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="Non-elemental" width="36" height="36"></td>
+                <td>10%</td>
+            </tr>
+            <tr>
+                <td><img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="Non-elemental" width="36" height="36"></td>
+                <td><img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="Non-elemental" width="36" height="36"></td>
+                <td>0%</td>
+            </tr>
+        </tbody>
+        <caption style="text-align: left">(During burst bonus time)</caption>
+    </table>
+</details>
 
 A **Burst Finish Gauge** will appear with a level 1 indicator next to it. Attacking with elements will rapidly fill the gauge. Levels are increased by 1 each time the gauge is filled, up to level 5.
+
+| Gauge Level | Charge Required for next level | Total Charge Required |
+|-------------|--------------------------------|-----------------------|
+| Level 1→2   | 30                             | 30                    |
+| Level 2→3   | 30                             | 60                    |
+| Level 3→4   | 40                             | 100                   |
+| Level 4→5   | 40                             | 140                   | 
 
 After Burst Bonus Time ends, a **Burst Finish** will occur, dealing damage based on the gauge's level. Some elements will also apply buffs or debuffs after a Burst Finish (see table above).
 
@@ -165,8 +233,38 @@ After Burst Bonus Time ends, a **Burst Finish** will occur, dealing damage based
     <figcaption>Demonstration of the Elemental Burst and Burst Bonus Time mechanics. The Burst Finish Gauge starts to flash white as Burst Bonus Time comes to an end.</figcaption>
 </figure>
 
-## Elemental Weakness
-Attacking with the element that an enemy is weak against will allow you to do increased damage, indicated by an icon next to your damage numbers. The icon has 3 versions, denoting how effective the damage increase is.
+<StickyNote type="note">
+    After an Elemental Burst Finish (or Elemental Burst on players), there is a 30 second cooldown before you can start filling the gauge again.
+</StickyNote>
+
+<!-- TODO: confirm reduced effects? -->
+Elemental Burst and Burst Finish damage is not affected by defense or elemental resistance. **The effects of Burst and Burst Finish are reduced by 75% against Elite Monsters and Raid Bosses.**
+
+### 🛡️ Elemental Resistance
+Players and enemies both have elemental resistance for each element, influencing damage taken and elemental charge buildup. Negative resistance values indicate that the target is weak to that element. 
+
+<StickyNote type="note">
+    There is a limit on how much you can reduce elemental resistance using debuffs. The max damage gains are +50% damage for targets weak against the element and +10% for targets resistant to the element.
+</StickyNote>
+
+| Resistance level | Damage | Elemental charge | Damage (max) | Ele. charge (max) |
+|----------|---------------------|--------------------------------------------|---------------|----|
+| **Weakness** | <span style="color: green">+20%</span> | <span style="color: green">+10%</span> | <span style="color: green">+50%</span> | ? |
+| **Resistant** | <span style="color: red">-20%</span> | <span style="color: red">-10%</span>  | <span style="color: green">+10%</span> | ? |
+| **Resistant (Elemental-type enemy)** | <span style="color: red">-40%</span> | <span style="color: red">-20%</span> | ? | ? |
+<!-- TODO: Need a row for Weakness (Elemental-type enemy)? do they have any substantial value for ele weakness? -->
+
+Debuffs that reduce Elemental Resistance are additive to the target's elemental resistance stat. When debuffing an element that the target is resistant to, **the debuff's potency will be reduced to 20%**.
+
+<details>
+    <summary style="color: purple">Example</summary>
+    <p class="box">
+        On an enemy weak to Fire, applying Fire Resist Down (small) will result in +20% → <strong>+40%</strong> damage.<br>
+        On an enemy resistant to Fire, applying Fire Resist Down (small) will result in -20% → <strong>-16%</strong> damage.
+    </p>
+</details>
+
+Chevron icons next to your damage number indicate that the enemy is weak against an element (affected by debuffs as well).
 
 <div class="flex">
     <img src="/UI/DamageUI/UI_DamageUIWeakness1.png" alt="Weakness 1" width="48" height="84" />
@@ -174,22 +272,47 @@ Attacking with the element that an enemy is weak against will allow you to do in
     <img src="/UI/DamageUI/UI_DamageUIWeakness3.png" alt="Weakness 3" width="48" height="84" /> 
 </div>
 
-It's currently unknown what the damage multipliers are, or how they can be derived from an enemy's elemental weakness.
+<details>
+    <summary style="color: purple">Elemental-Resistance-to-Damage Formula</summary>
+    <p class="box">
+        If target's Elemental Resistance &lt; 0 (weakness)<br>
+        <code style="color:purple">Damage Multiplier = ( 1 - Elemental Resistance × 0.04 )</code><br>
+        If target's Elemental Resistance &gt; 0 (resistant)<br>
+        <code style="color:purple">Damage Multiplier = ( 1 - Elemental Resistance × 0.008 )</code><br>
+        <br>
+        From this formula, we can derive that Spell Caster's Trinity Shot (applies All Ele Resist Down (Small)) and normal (non-elemental) enemies' weakness element value is -5, normal enemies' resistant element value is +25, and elemental enemies' resistant value is +50.<br>
+        <br>
+        Ex: An enemy weak to Fire (-5) with Trinity Shot debuffs (-5), attacked by a fire weapon and fire skill:<br>
+        <code style="color:purple">( 1 - ( -10 × 0.04 ) ) = 1.4</code>
+    </p>
+</details>
 
-## Weapon-Skill interaction
-When using both an elemental weapon and an elemental skill, the skill's element will be prioritized. Most classes have a set of non-elemental skills if they want to use their weapon's element. However, Spell Caster players may want to consider that all of their tactical skills are elemental--they may be unable to use certain elements.
+### ⚖️ Weapon-Skill interaction
+Skill element and weapon element **both** factor into your damage in regards to elemental weaknesses. In other words, on an enemy that is weak against fire, you will do more damage using a fire skill + fire weapon than a fire skill + ice weapon. The skill will retain its element (fire) even if equipped with a different element weapon (ice).
 
-<!-- エネミーに属性攻撃を与えるたびに属性値が蓄積していき、一定量を超えると最も多い属性の属性状態異常を起こします。（異なる属性の攻撃を当てても、属性値は蓄積します）属性状態異常はLv1、Lv2、バーストの3段階で段階が進むほど効果も高まります。
+If the weapon and skill **elements match**, the weapon's Elemental Attack stat is added to your attack when calculating damage. **Non-elemental skills** will always get this bonus because they **inherit the weapon element**.
 
-武器の中には属性を持っているものがあります。エネミーの弱点属性と武器の属性が合致するとダメージ表記が変わり、与ダメージが増えていることが分かります。弱点属性を突くことで素早く敵を倒すことができるので、武器の属性も意識してみましょう。
+Most classes have a set of non-elemental skills if they wish to use their weapon's element.
 
-属性蓄積値を蓄積させてバーストを発生させると、一定時間バーストボーナスタイムとなります。ボーナスタイム中は与ダメージがアップする状態となり、さらにバトルイマジンの与ダメージがよりアップするボーナスもありバトルイマジンで効率よくダメージを与えることができます。また、バーストボーナスタイム中は属性蓄積値を蓄積することでバーストフィニッシュゲージを増加します。一定以上ゲージが溜まるとバーストフィニッシュレベルがアップしバーストボーナスフィニッシュした時の効果を大きくできます。バーストフィニッシュレベルを上げて大ダメージも狙いましょう！ -->
+<StickyNote type="warning">
+    Spell Caster's tactical skills are almost entirely elemental, thus they may not be able to utilize certain elements effectively. 
+</StickyNote>
 
+If the weapon and skill **elements do not match**, damage from resistance is calculated at a **30/70 ratio of weapon/skill**. In other words, you may only get a portion of the damage increase/decrease mentioned in the [Elemental Resistance section](/guides/combat#elemental-resistance) based on which elements you use. Additionally, Elemental Charge is accumulated for both elements.
 
+<details>
+    <summary style="color: purple">Formula Examples</summary>
+    <p class="box">
+        Enemy resistant to Fire, not resistant to Ice; using Fire Weapon and Ice Skill.<br>
+        <code style="color:purple">Fire Weapon (0.8 damage) × (0.3 ratio) + Ice Skill (1.0 damage) × (0.7 ratio) = 0.94</code>
+    </p>
+    <p class="box">
+        Enemy weak to Ice, not resistant to Fire; debuffed to increase damage; usingFire Weapon and Ice Skill<br>
+        <code style="color:purple">Fire Weapon (1.2 damage) × (0.3 ratio) + Ice Skill (1.5 damage) × (0.7 ratio) = 1.41</code>
+    </p>
+</details>
 
-
-
-
+<EleResistDamageTable />
 
 ## 🪄 Skills
 Skills can be unlocked by leveling up. You can equip the following: 
@@ -233,7 +356,7 @@ The class tokens can be obtained from tasks in the **Class Adventure Boards**. T
 </StickyNote>
 
 <StickyNote type="caution">
-    You can NOT make progress towards a class board on a different class.
+    You can only make progress towards the board of the class you are currently playing.
 </StickyNote>
 
 The class tokens can be collected on one class and used on another.
@@ -259,33 +382,41 @@ EXP gain is scaled based on your [level difference](/guides/combat#-level) with 
 
 **Item drops** are determined on a **per-player** basis. Players may have differing drop rate multipliers (via consumable items and [liquid memories](/guides/liquid-memories)). Item drops go straight to the player's inventory (consumables) or storage (non-consumables). 
 
-For example, if you and I are collecting rare drops in the same party, there may be times where one of us gets the drop and the other doesn't. If I'm using a [G2 Drop-Drop](/db/item/123000110) and you are not, my drop rate for items will be 1.3x and yours will be 1x.
+<details>
+    <summary style="color: purple">Example</summary>
+    <p class="box">
+        If you and I are collecting rare drops in the same party, there may be times where one of us gets the drop and the other doesn't. If I'm using a <a href="/db/item/123000110" target="_blank" rel="noopener noreferrer nofollow">G2 Drop-Drop</a> and you are not, my drop rate for items will be 1.3x and yours will be 1x.
+    </p>
+</details>
 
 **Treasure chest drops** are determined on a **per-party** basis, using the drop rate of the party member with the highest drop rate. Solo players are considered as being in a party of one. When a chest drops, it is visible to other party members as well. Treasure chests *must be opened* to receive the rewards inside and its **contents are determined on a per-player** basis. 
 
-For example, if you and I are in the same party and I'm using a [G2 Drop-Drop](/db/item/123000110) and you are not, your drop rate for chests will also be 1.3x. In regards to chest contents, an elite monster chest might give you 2 [Idea](/guides/imagine#recipes) while I only get 1 (elite monsters have a 100% chance of dropping a chest, but the chest can contain different rewards).
-
+<details>
+    <summary style="color: purple">Example</summary>
+    <p class="box">
+        If you and I are in the same party and I'm using a <a href="/db/item/123000110" target="_blank" rel="noopener noreferrer nofollow">G2 Drop-Drop</a> and you are not, your drop rate for chests will also be 1.3x. In regards to chest contents, an elite monster chest might give you 2 <a href="/guides/imagine#recipes" target="_blank" rel="noopener noreferrer nofollow">Idea</a> while I only get 1 (elite monsters have a 100% chance of dropping a chest, but the chest can contain different rewards).
+    </p>
+</details>
 <!-- TODO: do drop rates stack in dungeons? test 6x drop drops in dungeons -->
 
-## ⚔️ PvP
-**There is no player versus player system in BLUE PROTOCOL.** PvP refers to Party vs Party—player party vs enemy AI party. Similar to players, enemies will cooperate and try to take down you and your allies. 
-
-Enemy leaders will be indicated by a star **☆** preceeding their name, and they will give orders to other enemies.
-
-<!-- TODO: confirm that party chain affects healing? -->
 ## ♾️ Party Chain
+<!-- TODO: confirm that party chain affects healing? -->
 The party chain is a combo count of all party members' hits. As it accumulates, your party gains a slight increase in damage and self-healing effects. The higher the chain count, the less time you have to successfully perform another attack before the chain ends. The party chain will reset to 0 if no successful attacks are detected before the timer ends.
 
 If the chain is reset while over 50 hits, there will be a 10 second cooldown before starting another chain. Otherwise, the chain can instantly be reinitiated.
 
-Raids require higher chain count for some effects because there are more players. In raids, if the chain is reset while over 250 hits, the cooldown will be 30 seconds. 
+Raids require higher chain count for some effects because there are more players. In raids, if the chain is reset while over 250 hits, the cooldown will be 30 seconds.  
 
 If you are too far away from the party leader, you won't receive party chain effects. (Needs confirmation if its based on distance from party leader or between any/all party members).
 
 Elemental damage-over-time debuffs do not count towards the party chain.
 
-<!-- TODO: なお、ツインストライカーのクラスアビリティ「ドレインフィーバー」は影響を受けない。 -->
 <PartyChainTable />
 
 ## 🎯 Parts Destruction
 Some enemies have designated parts that can be destroyed, downing the enemy for a brief period. Attacking this point will deal increased damage. This is separate from Blast Archer's [Weak Point Targeting](/classes/6#weak-point-targeting).
+
+## ⚔️ PvP
+**There is no player versus player system in BLUE PROTOCOL.** PvP refers to Party vs Party—player party vs enemy AI party. Similar to players, enemies will cooperate and try to take down you and your allies. 
+
+Enemy leaders will be indicated by a star **☆** preceeding their name, and they will give orders to other enemies.

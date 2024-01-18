@@ -98,10 +98,7 @@
                 </td>
                 <td>
                     {#if customAmount && customPrice}
-                        {(
-                            (customPrice * $currency.rate) /
-                            customAmount
-                        ).toFixed(3)}
+                        {(customPrice / customAmount).toFixed(3)}
                     {/if}
                 </td>
             </tr>
