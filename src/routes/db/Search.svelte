@@ -51,5 +51,6 @@
 <style lang="scss">
     #search-box {
         width: 100%;
+        
     }
 </style>

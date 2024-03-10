@@ -11,20 +11,21 @@
     export let rate = "";
 </script>
 
-<li class="flex box" class:gold={chest}>
+<li class="flex" class:gold={chest}>
     <div class="thumbnail-wrapper">
         <img src={thumb} alt="" width="64" height="64" loading="lazy" />
-        {#if amount}
+        <!-- {#if amount}
             <span class="floaty" class:small={smallTag}
                 >{amount.toLocaleString()}</span
             >
         {/if}
         {#if rate}
             <span class="floaty rate">{rate.toLocaleString()}</span>
-        {/if}
+        {/if} -->
     </div>
     <div class="grid">
-        <a {href} class="item-name styled-link">{name[$userLocale]}</a>
+        
+        <a {href} class="item-name styled-link">{amount.toLocaleString()} {name[$userLocale]}</a>
         {#if source}
             <span class="item-source">{source[$userLocale]}</span>
         {/if}
@@ -42,6 +43,7 @@
 
 <style lang="scss">
     li {
+        // background: var(--surface2);
         gap: 1rem;
         align-items: center;
         position: relative;
@@ -58,7 +60,7 @@
     }
 
     a.item-name {
-        font-size: var(--step-2);
+        font-size: var(--step-1);
         font-weight: 600;
     }
 
@@ -71,7 +73,7 @@
         position: absolute;
         right: -8px;
         top: -7px;
-        background: linear-gradient(335deg, var(--bg), var(--surface1));
+        background: linear-gradient(335deg, var(--bg), var(--surface2));
         // background: linear-gradient(335deg, rgba(0, 0, 0, 0.9), rgba(22, 24, 51, 0.9));
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         font-weight: 700;

@@ -16,6 +16,10 @@
     });
 
     const categoryNames = {
+        boards: {
+            ja_JP: "アドベンチャーボード",
+            en_US: "Adventure Boards",
+        },
         items: {
             ja_JP: "アイテム",
             en_US: "Items",

@@ -1,5 +1,6 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
+    import Tag from "$lib/components/Tag.svelte";
     import { userLocale } from "$lib/stores.js";
     import Icon from "@iconify/svelte";
 
@@ -150,40 +151,40 @@
         .replace("Icon/Token", "Icon/TokenL");
 </script>
 
-<MetaTags 
-    title="{data.name[$userLocale]} — Bapharia" 
-    description={data.desc ? data.desc[$userLocale] : "No description available."}
+<MetaTags
+    title="{data.name[$userLocale]} — Bapharia"
+    description={data.desc
+        ? data.desc[$userLocale]
+        : "No description available."}
     image={metaImg}
 />
 
-<div class="entry-details grid">
-    <a href="/db" class="back-button btn btn-fadein"><!--🡠--> Back to Search</a>
+<div class="entry-details grid box">
+    <!-- <a href="/db" class="back-button btn btn-fadein">🡠 Back to Search</a> -->
     <header>
-        <span class="category-name">{data.subcategoryName[$userLocale]}</span>
+        <span class="category-name"></span>
         <h1>{data.name[$userLocale]}</h1>
         <!-- <hr style="background: var(--surface1)"> -->
-        <div class="header-extras flex">
-            {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
-                <div class="grid g-25">
-                    <span style="order: 2">{LEVEL_TEXT[$userLocale]}</span>
-                    <span class="level">
-                        {data.item_level ||
-                            data.weapon_max_level ||
-                            data.imagine_max_level}
-                    </span>
-                </div>
-            {/if}
+        <div class="header-extras flex g-50">
+            <Tag style="padding-left: 0;">
+                {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
+                    {LEVEL_TEXT[$userLocale]}
+                    {data.item_level ||
+                        data.weapon_max_level ||
+                        data.imagine_max_level}
+                {/if}
+                {data.subcategoryName[$userLocale]}
+            </Tag>
 
             {#if data.classImg}
-                <hr />
-                <div class="grid g-25">
-                    <img src={data.classImg} alt="" width="46" height="46" />
-                    <span
-                        >{CLASS_NAMES[data.equip_class || data.class_type][
+                <Tag>
+                    <img src={data.classImg} alt="" width="24" height="24" />
+                    <span style="margin-right: 0rem">
+                        {CLASS_NAMES[data.equip_class || data.class_type][
                             $userLocale
-                        ]}</span
-                    >
-                </div>
+                        ]}
+                    </span>
+                </Tag>
             {/if}
 
             {#if data.slotImg}
@@ -215,20 +216,24 @@
             {/if}
 
             {#if data.elementImg}
-                <hr />
-                <div class="grid g-25">
-                    <img src={data.elementImg} alt="" width="46" height="46" />
+                <Tag>
+                    <img src={data.elementImg} alt="" width="24" height="24" />
                     {#if data.entryTypes[0] === "Skill"}
                         <span
                             >{ELEMENT_NAMES_SKILL[
-                                data.elementImg.replace("/UI/Icon/Attribute/UI_IconAttribute_", "").replace(".png", "")
+                                data.elementImg
+                                    .replace(
+                                        "/UI/Icon/Attribute/UI_IconAttribute_",
+                                        "",
+                                    )
+                                    .replace(".png", "")
                             ][$userLocale]}</span
                         >
                     {:else}
                         <span>{ELEMENT_NAMES[data.attribute][$userLocale]}</span
                         >
                     {/if}
-                </div>
+                </Tag>
             {/if}
         </div>
     </header>
@@ -249,13 +254,6 @@
         }
     }
 
-    .entry-details {
-        width: 100%;
-        max-width: 900px;
-        margin: auto;
-        margin-top: 1rem;
-    }
-
     @media (max-width: 1150px) {
         .entry-details {
             margin-top: calc(1rem + 62px);
@@ -266,15 +264,12 @@
         margin-top: 3rem;
     }
 
-    header {
-        margin-top: 1.5rem;
-    }
-
     h1 {
         margin-bottom: -0.5rem;
         padding-bottom: 0.75rem;
         border-bottom: 1px solid var(--surface1);
         line-height: 1.3;
+        font-size: var(--step-5);
     }
 
     .category-name {
@@ -283,9 +278,6 @@
     }
 
     .header-extras {
-        align-items: center;
-        margin-block: 1.75rem 1rem;
-
         .level {
             font-weight: 800;
             color: var(--accent);
@@ -299,11 +291,6 @@
             background: var(--surface2);
             width: 0;
             margin: 0.5rem;
-        }
-
-        .grid {
-            justify-items: center;
-            font-size: var(--step--1);
         }
     }
 

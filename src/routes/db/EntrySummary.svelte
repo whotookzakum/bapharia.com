@@ -3,6 +3,7 @@
     import { katakanaToHiragana } from "$lib/utils/string_utils";
     import { userSearch } from "./stores";
     export let data;
+    export let isListView = true;
 
     // data.category is more specific, i.e. "Consumable" instead of "Item"
     let backgroundStyle =
@@ -58,14 +59,13 @@
 </script>
 
 {#if data}
-    <li class="entry-summary grid box">
+    <li class="entry-summary grid box" class:list-view-item={isListView}>
         <img
             src={data.thumb}
             class="entry-thumb"
             class:board-bg={data.thumb?.includes("Icon/Adventureboard")}
             style={backgroundStyle}
             alt=""
-            
         />
         <div class="grid g-25">
             <div>
@@ -116,6 +116,17 @@
 
         &:hover {
             background: var(--surface2);
+        }
+    }
+
+    .list-view-item {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 64px;
+            height: auto;
+            background: none;
         }
     }
 

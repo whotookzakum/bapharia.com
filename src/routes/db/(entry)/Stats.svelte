@@ -320,10 +320,7 @@
 <style lang="scss">
     .box {
         max-width: 30ch;
-    }
-
-    .level-section {
-        margin-top: 0.5rem;
+        background: var(--surface2);
     }
 
     .row {

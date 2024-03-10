@@ -6,7 +6,10 @@
 <h2 id="recipe">Recipe</h2>
 
 {#if recipe.adventurer_rank > 0 || recipe.difficulty > 0}
-    <p class="ar-req">Requires Adventurer Rank {recipe.adventurer_rank || recipe.difficulty} to craft</p>
+    <span style="color: var(--accent); font-weight: 600">
+        Requires Adventurer Rank {recipe.adventurer_rank || recipe.difficulty} to
+        craft
+    </span>
 {/if}
 
 <ul class="unstyled-list grid" role="list">
@@ -14,7 +17,7 @@
         <Item
             href="/db/item/{material.id}"
             name={material.name}
-            amount="x{material.amount || material.need_num}"
+            amount="{material.amount || material.need_num}x"
             source={material.sourceDesc}
             thumb={material.thumb}
         />
@@ -31,50 +34,42 @@
     />
 </ul>
 
-{#if recipe.bonus_rate}
-    <hr />
-    <div class="flex align-center g-25">
-        <div
-            class="grid"
-            style="width: 64px; height: 64px; place-content: center"
-        >
-            <img
-                src="/images/crafting.svg"
-                alt="Great success ticket"
-                width="48"
-                height="48"
-            />
-        </div>
-        <p>Great Success rate: <strong>{recipe.bonus_rate}%</strong></p>
-    </div>
-{/if}
-
-{#if recipe.great_success_tokens}
-    <div class="flex align-center g-25">
-        <img
-            src="/UI/Icon/Token/UI_Icon_140000200.png"
-            alt="Great success ticket"
-            width="64"
-            height="64"
-        />
-        <p>
-            Tickets needed to guarantee Great Success: <strong
-                >{recipe.great_success_tokens}</strong
+<div class="grid g-25" style="color: var(--text2)">
+    {#if recipe.bonus_rate}
+        <div class="flex align-center g-25">
+            <div
+                class="grid"
+                style="width: 32px; height: 32px; place-content: center"
             >
-        </p>
-    </div>
-{/if}
+                <img
+                    src="/images/crafting.svg"
+                    alt="Great success ticket"
+                    width="24"
+                    height="24"
+                />
+            </div>
+            <span>Great Success rate: {recipe.bonus_rate}%</span>
+        </div>
+    {/if}
+
+    {#if recipe.great_success_tokens}
+        <div class="flex align-center g-25">
+            <img
+                src="/UI/Icon/Token/UI_Icon_140000200.png"
+                alt="Great success ticket"
+                width="32"
+                height="32"
+            />
+            <span>
+                Tickets needed to guarantee Great Success: {recipe.great_success_tokens}
+            </span>
+        </div>
+    {/if}
+</div>
 
 <style lang="scss">
-    .ar-req {
-        margin: 0;
-        color: var(--accent);
-        font-weight: 600;
-        font-size: var(--step-0);
-    }
-
     ul {
-        grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
+        // grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
         margin: 1rem 0;
     }
 

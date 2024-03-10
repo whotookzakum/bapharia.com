@@ -5,7 +5,7 @@
     import { classes, elements, level, ar } from "./stores";
 </script>
 
-<div class="grid" style:gap="1rem">
+<div class="db-filters grid" style:gap="1rem">
     <div class="box">
         <h3 class="mini-header">Categories</h3>
         <div class="grid g-50">
@@ -100,6 +100,11 @@
 </div>
 
 <style lang="scss">
+    .db-filters {
+        position: sticky;
+        top: calc(62px + 1rem);
+    }
+
     :global(.rangeSlider) {
         margin-block: 1.25rem 4rem !important;
 

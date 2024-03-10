@@ -12,11 +12,11 @@
         },
         great_success_value: {
             ja_JP: "大成功時の効果値",
-            en_US: "Value (Great Success)",
+            en_US: "Value<br><small style='white-space:nowrap'>(Great Success)</small>",
         },
         success_value: {
             ja_JP: "成功時の効果値",
-            en_US: "Value (Success)",
+            en_US: "Value<br><small>(Success)</small>",
         },
         probability: {
             ja_JP: "確率",
@@ -51,7 +51,7 @@
                 if (
                     !acc.some(
                         (includedEnemy) =>
-                            includedEnemy.enemy_id === enemy.enemy_id
+                            includedEnemy.enemy_id === enemy.enemy_id,
                     )
                 )
                     acc.push(enemy);
@@ -62,16 +62,20 @@
 </script>
 
 {#if itemType === "Weapon"}
-    <h2>Special Effects</h2>
-    <h3>Crafting</h3>
+    <div class="flex g-25 weapon-effects-header">
+        <h2>Special Effects</h2>
+        <select class="box">
+            <option value="">From Crafting</option>
+        </select>
+    </div>
     <table>
         <thead>
             <tr>
-                <th>{WEAPON_HEADERS.ability_name[$userLocale]}</th>
-                <th>{WEAPON_HEADERS.effect_name[$userLocale]}</th>
-                <th>{WEAPON_HEADERS.great_success_value[$userLocale]}</th>
-                <th>{WEAPON_HEADERS.success_value[$userLocale]}</th>
-                <th>{WEAPON_HEADERS.probability[$userLocale]}</th>
+                <th>{@html WEAPON_HEADERS.ability_name[$userLocale]}</th>
+                <th>{@html WEAPON_HEADERS.effect_name[$userLocale]}</th>
+                <th>{@html WEAPON_HEADERS.great_success_value[$userLocale]}</th>
+                <th>{@html WEAPON_HEADERS.success_value[$userLocale]}</th>
+                <th>{@html WEAPON_HEADERS.probability[$userLocale]}</th>
             </tr>
         </thead>
         <tbody>
@@ -105,11 +109,15 @@
         <table>
             <thead>
                 <tr>
-                    <th>{WEAPON_HEADERS.ability_name[$userLocale]}</th>
-                    <th>{WEAPON_HEADERS.effect_name[$userLocale]}</th>
-                    <th>{WEAPON_HEADERS.great_success_value[$userLocale]}</th>
-                    <th>{WEAPON_HEADERS.success_value[$userLocale]}</th>
-                    <th>{WEAPON_HEADERS.probability[$userLocale]}</th>
+                    <th>{@html WEAPON_HEADERS.ability_name[$userLocale]}</th>
+                    <th>{@html WEAPON_HEADERS.effect_name[$userLocale]}</th>
+                    <th
+                        >{@html WEAPON_HEADERS.great_success_value[
+                            $userLocale
+                        ]}</th
+                    >
+                    <th>{@html WEAPON_HEADERS.success_value[$userLocale]}</th>
+                    <th>{@html WEAPON_HEADERS.probability[$userLocale]}</th>
                 </tr>
             </thead>
             <tbody class="golden">
@@ -176,3 +184,38 @@
         </tbody>
     </table>
 {/if}
+
+<style lang="scss">
+    thead th {
+        background: var(--surface3);
+        line-height: normal;
+    }
+
+    tbody tr {
+        background: var(--surface2);
+        border-color: var(--surface3);
+    }
+
+    .weapon-effects-header {
+        align-items: center;
+        justify-content: space-between;
+        margin-top: var(--step-5);
+        margin-bottom: 0.5rem;
+
+        h2 {
+            margin: 0;
+        }
+
+        select {
+            font-size: var(--step--1);
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            background: var(--surface3);
+            border-radius: 0.5rem;
+            
+            option {
+                font-weight: normal;
+            }
+        }
+    }
+</style>
