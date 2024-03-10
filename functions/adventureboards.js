@@ -20,7 +20,8 @@ const adventureboards = boardData.map(board => {
         name,
         desc,
         category,
-        panels
+        panels,
+        thumb: `/UI/Icon/Adventureboard/UI_Adventureboard_${board.id}.png`
     }
 })
 

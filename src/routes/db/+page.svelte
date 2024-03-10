@@ -6,7 +6,8 @@
     import PageControls from "./PageControls.svelte";
     import Search from "./Search.svelte";
     import { categories, classes, elements, level, ar } from "./stores";
-
+    import dummydata from "./dummydata.json"
+    console.log(dummydata.length)
     export let data;
 
     $: ({ DBSearchQuery } = data);
@@ -24,11 +25,11 @@
     }
 
     function resetAllFilters() {
-        resetAR()
-        resetLevel()
-        $categories = $categories.map(job => ({...job, checked: false}))
-        $elements = $elements.map(job => ({...job, checked: false}))
-        $classes = $classes.map(job => ({...job, checked: false}))
+        resetAR();
+        resetLevel();
+        $categories = $categories.map((job) => ({ ...job, checked: false }));
+        $elements = $elements.map((job) => ({ ...job, checked: false }));
+        $classes = $classes.map((job) => ({ ...job, checked: false }));
     }
 </script>
 
@@ -45,13 +46,15 @@
         <!-- <Filters /> -->
     </div>
     <div class="search-and-results grid">
-        <Search />
+        <Search totalEntries={dummydata.length} />
         {#if [...$categories, ...$classes, ...$elements].filter((c) => c.checked).length > 0 || $level.values[0] > $level.min || $level.values[1] < $level.max || $ar.values[0] > $ar.min || $ar.values[1] < $ar.max}
             <div
                 class="flex g-50"
                 style="flex-wrap: wrap; margin-block: -0.25rem;"
             >
-                <button class="filter-bubble reset" on:click={resetAllFilters}>Remove all filters</button>
+                <button class="filter-bubble reset" on:click={resetAllFilters}
+                    >Remove all filters</button
+                >
                 {#each $categories as store}
                     {#if store.checked}
                         <label class="filter-bubble">
@@ -101,7 +104,14 @@
             </div>
         {/if}
 
-        <div class="results box">
+        <ul id="search-results" role="list" class="grid">
+            {#each dummydata as entry}
+                <EntrySummary data={entry} />
+            {/each}
+        </ul>
+
+        <!-- <div class="results box">
+            
             <PageControls
                 hasPreviousPage={$DBSearchQuery?.data?.entries.hasPreviousPage}
                 hasNextPage={$DBSearchQuery?.data?.entries.hasNextPage}
@@ -121,7 +131,7 @@
                 hasNextPage={$DBSearchQuery?.data?.entries.hasNextPage}
                 totalResults={$DBSearchQuery?.data?.entries.totalResults}
             />
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -191,13 +201,15 @@
         padding: 0;
         overflow: visible;
         max-inline-size: none;
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        margin: 0;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(calc(208px + 2rem), 1fr));
 
         li {
             max-inline-size: none;
 
             &:not(:last-child) {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                // border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
         }
     }

@@ -18,7 +18,7 @@ import weapons from '$functions/weapons.js';
 
 export const GET = async ({ params }) => {
     const hello = [adventureboards, avatars, costumes, enemies, gestures, imagines, items, liquidMemories, maps, quests, skills, stampSets, tokens, weapons].flat().map(entry => ({
-        name: entry.name, thumb: entry.thumb, entryTypes: entry.entryTypes, subcategoryName: entry.subcategoryName, id: entry.id, NAME: "hi"
+        name: entry.name, thumb: entry.thumb, entryTypes: entry.entryTypes, subcategoryName: entry.subcategoryName, id: entry.id, thumb: entry.thumb, __typename: "test", 
     }))
     
     return json(hello)

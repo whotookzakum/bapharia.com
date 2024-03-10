@@ -4,9 +4,15 @@
     import { userLocale } from "$lib/stores";
     import { userSearch } from "./stores"
 
+    // const placeholderText = {
+    //     ja_JP: "アイテム名かIDで検索",
+    //     en_US: "Search by item name or id",
+    // };
+    export let totalEntries = 0;
+
     const placeholderText = {
-        ja_JP: "アイテム名かIDで検索",
-        en_US: "Search by item name or id",
+        ja_JP: `${totalEntries.toLocaleString()}件を検索`,
+        en_US: `Search ${totalEntries.toLocaleString()} entries`,
     };
 
     $userSearch = $userSearch || $page.url.searchParams.get("search") || ""

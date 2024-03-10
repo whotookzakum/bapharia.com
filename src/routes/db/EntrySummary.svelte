@@ -15,6 +15,7 @@
     // https://stackoverflow.com/questions/19899554/unicode-range-for-japanese
     // TODO: Only match first instance, so for example Bahamar wouldn't highlight 3 separate characters
     function highlightMatchedTerm(entryName) {
+        return entryName
         // Every language other than Japanese
         if ($userLocale !== "ja_JP") {
             return entryName.replace(
@@ -42,6 +43,7 @@
     }
 
     function highlightMatchedId(entryId) {
+        return entryId
         return entryId.replace(
             new RegExp($userSearch, "gi"),
             (match) => `<mark>${match}</mark>`
@@ -56,30 +58,30 @@
 </script>
 
 {#if data}
-    <div class="entry-summary flex">
-        <!-- <img
+    <li class="entry-summary grid box">
+        <img
             src={data.thumb}
             class="entry-thumb"
+            class:board-bg={data.thumb?.includes("Icon/Adventureboard")}
             style={backgroundStyle}
             alt=""
-            width="64"
-            height="64"
-        /> -->
+            
+        />
         <div class="grid g-25">
             <div>
-                <a class="styled-link" href="/db/{data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">{@html highlightMatchedTerm(data.name[$userLocale])}</a>
+                <a class="styled-link" href="/db/{"a" || data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">{@html highlightMatchedTerm(data.name[$userLocale])}</a>
                 {#if itemLevel()}
                     <i>(Lv. {itemLevel()})</i>
                 {/if}
             </div>
-            <div>
+            <!-- <div>
                 <span class={`${data.__typename} box pill`}>
                     {data.subcategoryName[$userLocale]}
                 </span>
                 <span class="entry-id box pill">
                     ID: {@html highlightMatchedId(data.id)}
                 </span>
-            </div>
+            </div> -->
         </div>
         <div class="extra-icons flex">
             {#if data.classImg}
@@ -89,19 +91,21 @@
                 <img src={data.elementImg} alt="" width="32" height="32" />
             {/if}
         </div>
-    </div>
+    </li>
 {/if}
 
 <style lang="scss">
     .entry-summary {
-        align-items: center;
+        align-content: start;
+        justify-items: center;
         gap: 0.8rem;
         position: relative;
         z-index: 1;
         max-inline-size: none;
         width: 100%;
         line-height: 1.4;
-        padding: 0.8rem;
+        // padding: 0.8rem;
+        text-align: center;
 
         i {
             font-style: normal;
@@ -119,11 +123,15 @@
         content: "";
         position: absolute;
         inset: 0;
-        z-index: -1;
+        z-index: 1;
     }
 
-    .entry-thumb {
+    .board-bg {
         background-repeat: no-repeat;
+        background-image: url("/UI/AdventureBoard/UI_AdventureBoardBoardBg_copper.png");
+        background-size: contain;
+        // width: 100%;
+        // height: auto;
     }
 
     .extra-icons {
