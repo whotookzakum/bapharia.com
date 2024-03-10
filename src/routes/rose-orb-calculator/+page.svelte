@@ -7,7 +7,7 @@
 
     let showDetails;
 
-    // possibly add conversion rate editor in the future
+    // Default to frankfurter conversion rate, but allow user to manually adjust as well
     // TODO: grab conversion rates from https://github.com/hakanensari/frankfurter
 </script>
 

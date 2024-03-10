@@ -16,7 +16,7 @@
         },
     ];
 
-    export const CURRENCIES = [
+    const CURRENCIES = [
         {
             name: "Japanese Yen",
             code: "JPY",

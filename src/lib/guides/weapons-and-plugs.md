@@ -20,7 +20,7 @@ thumbImg: "/guides/weapons/thumb.webp"
 />
 
 ## Overview
-Weapons provide stats, and may have an element. They are one of the three equipment that influence your damage, along with [Battle Imagine](/guides/imagine#battle-imagine) and [Enhance Imagine](/guides/imagine#enhance-imagine)
+Weapons provide stats, and often have an element. They are one of the three equipment that influence your damage, along with [Battle Imagine](/guides/imagine#battle-imagine) and [Enhance Imagine](/guides/imagine#enhance-imagine)
 
 Switching weapon types while in town will automatically change your class (once you have completed the Class Master's quest). Base weapons for each class can be purchased from the vendor in Asterleeds.
 

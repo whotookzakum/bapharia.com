@@ -12,6 +12,7 @@ Also check /UI/Icon/Reward for more
 - 3: item
 - 4: weapon
 - 5: costume
+- 6: e-imagine ?
 - 7: mount
 - 9: gesture/emote
 - 10: stamp

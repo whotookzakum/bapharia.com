@@ -5,7 +5,7 @@
 
     let orbsAmount = "100";
     let orbsCost;
-    let conversionRate = "10";
+    $: conversionRate = $currency.rate.toString();
 
     $: {
         $currency;
@@ -32,7 +32,7 @@
         }
     }
 </script>
-
+<div class="box">{conversionRate}</div>
 <div class="box">
     <h2 class="mini-header visually-hidden">Price Conversion</h2>
     <div class="flex g-50" style="align-items: center;">
