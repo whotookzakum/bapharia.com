@@ -135,6 +135,10 @@
         }
     }
 
+    summary {
+        max-inline-size: none;
+    }
+
     .subcategories {
         font-size: var(--step--1);
         margin-top: 0.25rem;

@@ -9,6 +9,7 @@ import uniqBy from "lodash/uniqBy"
 export const userSearch = writable("")
 export const resultsPerPage = writable(10)
 export const currentPage = writable(1)
+export const resultsViewMode = writable("list")
 
 export const uniqueCategories = uniqBy(CATEGORIES, cat => cat.param).map(obj => obj.param)
 

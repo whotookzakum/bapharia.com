@@ -159,6 +159,10 @@
 		display: flex;
 	}
 
+	#drawerToggle {
+		display: none;
+	}
+
 	#drawerToggle:focus-visible + .drawer-label,
 	.drawer-label:hover { 
 		background: var(--surface1);

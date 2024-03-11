@@ -3,9 +3,10 @@
     import RangeSlider from "svelte-range-slider-pips";
     import { userLocale } from "$lib/stores";
     import { classes, elements, level, ar } from "./stores";
+    import Popper from "$lib/components/Popper.svelte";
 </script>
 
-<div class="db-filters grid" style:gap="1rem">
+<div class="grid" style:gap="1rem">
     <div class="box">
         <h3 class="mini-header">Categories</h3>
         <div class="grid g-50">
@@ -56,55 +57,67 @@
         <h3 class="mini-header">Class</h3>
         <div class="flex g-25" style="flex-wrap: wrap">
             {#each $classes as job}
-                <input
-                    id="class-{job.id}"
-                    type="checkbox"
-                    class="visually-hidden"
-                    bind:checked={job.checked}
-                />
-                <label for="class-{job.id}">
-                    <img
-                        src="/UI/Icon/Class/UI_IconClass_{job.id < 10
-                            ? '0' + job.id
-                            : job.id}.png"
-                        alt={job.name[$userLocale]}
-                        width="32"
-                        height="32"
+                <Popper let:setFocused placement="bottom">
+                    <input
+                        id="class-{job.id}"
+                        type="checkbox"
+                        class="visually-hidden"
+                        bind:checked={job.checked}
+                        on:focus={() => setFocused(true)}
+                        on:blur={() => setFocused(false)}
+                        on:click={() => setFocused(false)}
                     />
-                </label>
+                    <label for="class-{job.id}">
+                        <img
+                            src="/UI/Icon/Class/UI_IconClass_{job.id < 10
+                                ? '0' + job.id
+                                : job.id}.png"
+                            alt={job.name[$userLocale]}
+                            width="32"
+                            height="32"
+                        />
+                    </label>
+                    <p slot="tooltip" aria-hidden="true">
+                        {job.name[$userLocale]}
+                    </p>
+                </Popper>
             {/each}
         </div>
 
         <h3 class="mini-header" style="margin-top: 1.25rem">Element</h3>
         <div class="flex g-25" style="flex-wrap: wrap">
             {#each $elements as element}
-                <input
-                    id="element-{element.id}"
-                    type="checkbox"
-                    class="visually-hidden"
-                    bind:checked={element.checked}
-                />
-                <label for="element-{element.id}">
-                    <img
-                        src="/UI/Icon/Attribute/UI_IconAttribute_{element.id > 0
-                            ? element.id
-                            : 'Empty'}.png"
-                        alt={element.name[$userLocale]}
-                        width="32"
-                        height="32"
+                <Popper let:setFocused placement="bottom">
+                    <input
+                        id="element-{element.id}"
+                        type="checkbox"
+                        class="visually-hidden"
+                        bind:checked={element.checked}
+                        on:focus={() => setFocused(true)}
+                        on:blur={() => setFocused(false)}
+                        on:click={() => setFocused(false)}
                     />
-                </label>
+                    <label for="element-{element.id}">
+                        <img
+                            src="/UI/Icon/Attribute/UI_IconAttribute_{element.id >
+                            0
+                                ? element.id
+                                : 'Empty'}.png"
+                            alt={element.name[$userLocale]}
+                            width="32"
+                            height="32"
+                        />
+                    </label>
+                    <p slot="tooltip" aria-hidden="true">
+                        {element.name[$userLocale]}
+                    </p>
+                </Popper>
             {/each}
         </div>
     </div>
 </div>
 
 <style lang="scss">
-    .db-filters {
-        position: sticky;
-        top: calc(62px + 1rem);
-    }
-
     :global(.rangeSlider) {
         margin-block: 1.25rem 4rem !important;
 

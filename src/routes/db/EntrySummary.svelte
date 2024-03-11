@@ -69,7 +69,9 @@
         />
         <div class="grid g-25">
             <div>
-                <a class="styled-link" href="/db/{"a" || data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">{@html highlightMatchedTerm(data.name[$userLocale])}</a>
+                <a class="styled-link" href="/db/{"a" || data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">
+                    {@html highlightMatchedTerm(data.name[$userLocale])}
+                </a>
                 {#if itemLevel()}
                     <i>(Lv. {itemLevel()})</i>
                 {/if}
