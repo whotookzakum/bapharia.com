@@ -54,7 +54,7 @@ In fields, you can remain downed and wait for someone to rescue you, or can choo
 
 When in fields or free exploration dungeons, **HP will continuously recover over time** while not in combat (1% of max HP every 3 seconds). While sitting (on an object or via an emote), you will recover 5% of max HP every 3 seconds. Visiting **a village with a warp gate** or **sitting near a campfire** will allow you to recover 5% of max HP every second. Natural HP recovery is disabled in dungeons.
 
-HP can be recovered through various means such as [skills](/guides/combat#skills), [party chain](/guides/combat#party-chain), [buffs](/guides/combat#abnormal-statuses), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
+HP can be recovered through various means such as [skills](/guides/combat#-skills), [party chain](/guides/combat#-party-chain), [buffs](/guides/combat#-buffs--debuffs), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
 
 ### 🏃‍♀️ Stamina
 Stamina is consumed when performing certain actions. Stamina consumption can be reduced by certain skills and Enhance Imagine [abilities](/guides/imagine#abilities-1). Max stamina can be increased by certain skills, such as Heavy Smasher's [passive skill](/classes/19/skills#stamina-up), and Enhance Imagine abilities.
@@ -298,7 +298,7 @@ Most classes have a set of non-elemental skills if they wish to use their weapon
     Spell Caster's tactical skills are almost entirely elemental, thus they may not be able to utilize certain elements effectively. 
 </StickyNote>
 
-If the weapon and skill **elements do not match**, damage from resistance is calculated at a **30/70 ratio of weapon/skill**. In other words, you may only get a portion of the damage increase/decrease mentioned in the [Elemental Resistance section](/guides/combat#elemental-resistance) based on which elements you use. Additionally, Elemental Charge is accumulated for both elements.
+If the weapon and skill **elements do not match**, damage from resistance is calculated at a **30/70 ratio of weapon/skill**. In other words, you may only get a portion of the damage increase/decrease mentioned in the [Elemental Resistance section](/guides/combat#-elemental-resistance) based on which elements you use. Additionally, Elemental Charge is accumulated for both elements.
 
 <details>
     <summary style="color: purple">Formula Examples</summary>
@@ -307,7 +307,7 @@ If the weapon and skill **elements do not match**, damage from resistance is cal
         <code style="color:purple">Fire Weapon (0.8 damage) × (0.3 ratio) + Ice Skill (1.0 damage) × (0.7 ratio) = 0.94</code>
     </p>
     <p class="box">
-        Enemy weak to Ice, not resistant to Fire; debuffed to increase damage; usingFire Weapon and Ice Skill<br>
+        Enemy weak to Ice, not resistant to Fire; debuffed to increase damage; using Fire Weapon and Ice Skill<br>
         <code style="color:purple">Fire Weapon (1.2 damage) × (0.3 ratio) + Ice Skill (1.5 damage) × (0.7 ratio) = 1.41</code>
     </p>
 </details>
@@ -338,9 +338,9 @@ Learn more about the class actions and class abilities on the [classes page](/cl
 The developers have stated that they prefer to add more skill diversity to existing classes than create new classes that aren't very unique.
 
 ### 📈 Skill Variants
-G3 Skills have three variations: Normal, Alpha, and Beta variants. These variants slightly alter how a skill works, such as increasing the number of hits, adding additional buffs/debuffs, and more.
+At G3+, skills have three variations: Normal, Alpha, and Beta variants. These variants slightly alter how a skill works, such as increasing the number of hits, adding additional buffs/debuffs, and more.
 
-G3 **Alpha skills** can be purchased with class tokens at the Class Master. To unlock his shop, you need to be **Adventure Rank 9** and **Class Level 45** and complete all of his quests. To *purchase* from the shop, you need to be Level 50. 
+**Alpha skills** can be purchased with class tokens at the Class Master. To unlock his shop, you need to be **Adventure Rank 9** and **Class Level 45** and complete all of his quests. To *purchase* from the shop, you need to be Level 50. 
 
 The class tokens can be obtained from tasks in the **Class Adventure Boards**. To get these boards, you must complete a quest chain given by your respective "class instructor" NPC. Below are links to the **final** quest in the quest chain—you can follow the prerequisites backwards to find where to start.
 
@@ -361,7 +361,7 @@ The class tokens can be obtained from tasks in the **Class Adventure Boards**. T
 
 The class tokens can be collected on one class and used on another.
 
-G3 **Beta skills** have a chance of dropping in **Survey & Advanced Survey Missions** after you reach **level 50**. Only the skills that you currently have equipped on your palette will be eligible for a beta skill drop. The drop rates are notoriously low.
+**Beta skills** have a chance of dropping in **Survey & Advanced Survey Missions** after you reach **level 50**. Only the skills that you currently have equipped on your palette will be eligible for a beta skill drop. The drop rates are notoriously low.
 
 ## 💪 Buffs & Debuffs
 Abnormal statuses that can be applied to players or enemies. Debuffs from elemental effects can be found in the [elements](/guides/combat#-elements) section.

@@ -102,7 +102,7 @@
 			</div>
 		</div>
 		<div class="footer-bottom flex">
-			<span>&copy; 2021-2023 Bapharia.com</span>
+			<span>&copy; 2021-2024 Bapharia.com</span>
 			<hr />
 			<a class="styled-link" href="/about">About</a>
 			<hr />

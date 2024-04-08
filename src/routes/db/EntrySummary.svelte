@@ -60,13 +60,13 @@
 
 {#if data}
     <li class="entry-summary grid box" class:list-view-item={isListView}>
-        <img
+        <!-- <img
             src={data.thumb}
             class="entry-thumb"
             class:board-bg={data.thumb?.includes("Icon/Adventureboard")}
             style={backgroundStyle}
             alt=""
-        />
+        /> -->
         <div class="grid g-25">
             <div>
                 <a class="styled-link" href="/db/{"a" || data.__typename.toLowerCase().replace("gamemap", "map")}/{data.id}">
