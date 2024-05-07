@@ -1,9 +1,17 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let data = {};
-    export let imgWidth = 256;
-    export let imgHeight = 256;
-    export let imgSrc = "/UI/Icon/ItemL/UI_Icon_NoData.png";
+    let imgSrc = "/UI/Icon/ItemL/UI_Icon_NoData.png",
+        width = 256,
+        height = 256;
+
+    if (data.assets?.iconL) {
+        imgSrc = data.assets.iconL;
+    } else if (data.assets?.icon) {
+        imgSrc = data.assets.icon;
+        width = 64;
+        height = 64;
+    }
 
     $: hasValidSalePrice = !data.no_sale_flag && data.price_player_sells;
     $: hasValidBuyPrice =
@@ -13,7 +21,7 @@
         data.price_player_buys !== 999999999;
 </script>
 
-<img src={imgSrc} alt="" width={imgWidth} height={imgHeight} loading="lazy" />
+<img src={imgSrc} alt="" {width} {height} loading="lazy" />
 
 <div class="text-col grid">
     {#if data.sourceDesc && !["-", "非公開"].includes(data.sourceDesc.ja_JP)}
@@ -39,9 +47,9 @@
         <p>{data.desc[$userLocale]}</p>
     {/if}
 
-    {#if data.desc && data.imagine_type !== 1}
+    {#if data.text.desc && data.imagine_type !== 1}
         <h3>Description</h3>
-        <blockquote>{data.desc[$userLocale]}</blockquote>
+        <blockquote>{data.text.desc}</blockquote>
     {/if}
 
     {#if hasValidSalePrice || hasValidBuyPrice}

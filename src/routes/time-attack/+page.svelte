@@ -38,6 +38,7 @@
     though the time listed will match their best time on video.
 </p>
 <p>Records may vary from in-game rankings based on when the record was inputted. Some players get banned afterwards, increasing ranks of those below them.</p>
+<p>More info can be found on Swiki https://blueprotocol.swiki.jp/index.php?%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%A2%E3%82%BF%E3%83%83%E3%82%AF</p>
 
 <select bind:value={selectedTaId}>
     {#each timeAttacks as ta}

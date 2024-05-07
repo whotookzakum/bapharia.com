@@ -8,5 +8,3 @@ export function entries() {
     })
     return routes
 }
-
-export const prerender = true;

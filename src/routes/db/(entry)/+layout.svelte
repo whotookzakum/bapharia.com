@@ -152,19 +152,15 @@
 </script>
 
 <MetaTags
-    title="{data.name[$userLocale]} — Bapharia"
-    description={data.desc
-        ? data.desc[$userLocale]
-        : "No description available."}
+    title="{data.text.name} — Bapharia"
+    description={data.text.desc ?? "No description available."}
     image={metaImg}
 />
 
 <div class="entry-details grid box">
-    <!-- <a href="/db" class="back-button btn btn-fadein">🡠 Back to Search</a> -->
     <header>
         <span class="category-name"></span>
-        <h1>{data.name[$userLocale]}</h1>
-        <!-- <hr style="background: var(--surface1)"> -->
+        <h1>{data.text.name}</h1>
         <div class="header-extras flex g-50">
             <Tag style="padding-left: 0;">
                 {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
@@ -173,7 +169,7 @@
                         data.weapon_max_level ||
                         data.imagine_max_level}
                 {/if}
-                {data.subcategoryName[$userLocale]}
+                {data.text.category}
             </Tag>
 
             {#if data.classImg}

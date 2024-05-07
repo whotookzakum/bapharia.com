@@ -6,6 +6,11 @@ export const load = async ({ params, url }) => {
     }
 
     const entries = await import(`../../../../functions/${fileName}s.js`)
-    
+
+    // const res = await fetch("http://localhost:5173/weapons/106001201?lang=en_US")
+    const res = await fetch("http://localhost:5173/tokens/100000101?lang=en_US")
+    const data = await res.json()
+
+    return data
     return entries.default.find(entry => entry.id === params.id)
 }

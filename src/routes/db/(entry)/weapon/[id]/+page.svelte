@@ -1,5 +1,6 @@
 <script>
-    import {
+    import Sources from "../../Sources.svelte";
+import {
         Recipe,
         Stats,
         Abilities,
@@ -7,26 +8,22 @@
         GeneralInfo,
     } from "../../index";
     export let data;
-    console.log(data.abilities)
+    console.log(data);
+
+    
 </script>
 
-<GeneralInfo {data} imgSrc={data.thumb.replace("Weapon", "WeaponL")} />
+<GeneralInfo {data} />
+
+<Sources {data} />
 
 {#if data.recipe}
-    <Recipe recipe={data.recipe} />
+    <!-- <Recipe recipe={data.recipe} /> -->
     <!-- <Sockets data={data.recipe} /> -->
 {/if}
 
-{#if data.treasureSources.length > 0}
-    <TreasureSources sources={data.treasureSources} />
-{/if}
-
-{#if data.abilities.length > 0}
-    <Abilities abilities={data.abilities} itemType="Weapon" />
-{/if}
-
-{#if data.stats.length > 0}
+<!-- {#if data.stats.length > 0}
     <Stats {data} />
-{/if}
+{/if} -->
 
 <!-- <Model modelSrc="/fst.glb" posterImg={data.thumb.replace("Weapon", "WeaponL")} /> -->
