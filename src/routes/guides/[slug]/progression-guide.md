@@ -8,6 +8,10 @@ bannerImg: "/guides/progressionguide/banner.webp"
 thumbImg: "/guides/progressionguide/thumb.webp"
 ---
 
+<hgroup>
+    <h1>Progression Guide</h1>
+</hgroup>
+
 This guide is to quickly get through the game contents and **will most likely change when new story quests are added and AR requirements are higher**. Information is current as of the Closed Beta Test.
 
 ## Level 1~10: Main Story Quest
