@@ -1,16 +1,31 @@
 <script>
+    import { userLocale } from "$lib/stores";
+
     export let data;
+
+    const SOCKET_HEADERS = [
+        {
+            ja_JP: "ソケット数",
+            en_US: "Sockets"
+        },
+        {
+            ja_JP: "大成功時のソケット数確率",
+            en_US: "Rate<br><small>(Great Success)</small>"
+        },
+        {
+            ja_JP: "成功時のソケット数確率",
+            en_US: "Rate<br><small>(Success)</small>"
+        },
+    ]
 </script>
 
-<h4>Sockets</h4>
+
 <table>
     <thead>
         <tr>
-            <th>ソケット数</th>
-            <!-- 大成功時の入手武器ソケット数確率 -->
-            <th>大成功時のソケット数確率</th>
-            <!-- 成功時の入手武器ソケット数確率 -->
-            <th>成功時のソケット数確率</th>
+            {#each SOCKET_HEADERS as header}
+                <th>{@html header[$userLocale]}</th>
+            {/each}
         </tr>
     </thead>
     <tbody>
@@ -39,8 +54,18 @@
 
 
 <style>
-    td, th {
+    table {
         text-align: center !important;
+        border-radius: 0.5rem;
+    }
+
+    th {
+        font-size: var(--step--1);
+        line-height: normal;
+    }
+
+    td {
+        padding-block: 0.5rem !important;
     }
 </style>
 

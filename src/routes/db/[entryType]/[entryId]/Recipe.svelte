@@ -23,10 +23,7 @@
         />
     {/each}
     <Item
-        name={{
-            ja_JP: "ルーノ",
-            en_US: "Luno",
-        }}
+        name="Luno"
         thumb="/UI/Icon/Reward/UI_Icon_0.png"
         href="/db"
         amount={recipe.price || recipe.use_money}

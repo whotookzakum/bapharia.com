@@ -1,8 +1,0 @@
-export { default as Stats } from "./Stats.svelte"
-export { default as Abilities } from "./Abilities.svelte"
-export { default as Recipe } from "./Recipe.svelte"
-export { default as TreasureSources } from "./TreasureSources.svelte"
-export { default as Model } from "./Model.svelte"
-export { default as Sockets } from "./Sockets.svelte"
-export { default as GeneralInfo } from "./GeneralInfo.svelte"
-export { default as Item } from "./Item.svelte"

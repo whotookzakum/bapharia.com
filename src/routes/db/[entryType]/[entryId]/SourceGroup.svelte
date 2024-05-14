@@ -1,5 +1,7 @@
 <script>
     import Icon from "@iconify/svelte";
+    
+    import CraftingSources from "./CraftingSources.svelte";
 
     export let category, sources;
     let src = "/UI/Icon/Item/UI_Icon_UnidentifiedItem.png",
@@ -48,6 +50,10 @@
             categoryName = "Mount Caravan Rewards";
             break;
     }
+
+    const categories = {
+        crafting: CraftingSources
+    }
 </script>
 
 <div class="drawer-wrapper grid" class:open={checked}>
@@ -73,11 +79,7 @@
     </label>
     <div class="contents">
         <hr />
-        {#if ["bonus quest", "achievement"].includes(category)}
-            {#each sources as source}
-                <li>{source.text.name}</li>
-            {/each}
-        {/if}
+        <svelte:component this={categories[category]} {sources} />
     </div>
 </div>
 
@@ -128,5 +130,9 @@
             background: var(--surface4);
             margin-top: 0.25rem;
         }
+    }
+
+    .open .contents {
+        margin-bottom: 1rem;
     }
 </style>

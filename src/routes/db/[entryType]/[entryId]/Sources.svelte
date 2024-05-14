@@ -15,7 +15,7 @@
 
     console.log(groupedSources);
 
-    const sources = Object.entries(groupedSources).sort((a, b) => {
+    const sortedSources = Object.entries(groupedSources).sort((a, b) => {
         if (a[0] < b[0]) {
             return -1;
         }
@@ -29,7 +29,7 @@
 {#if data.sources?.length > 0}
     <h3>Sources</h3>
     <ul class="unstyled-list" style="grid-template-columns: 1fr">
-        {#each sources as [category, sources]}
+        {#each sortedSources as [category, sources]}
             <li class="box" style="background: var(--surface3)">
                 <SourceGroup {category} {sources} />
             </li>
