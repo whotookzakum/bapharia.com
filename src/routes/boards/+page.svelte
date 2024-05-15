@@ -220,7 +220,7 @@
 
     @media (max-width: 1150px) {
         h1 {
-            padding-top: 62px;
+            padding-top: var(--nav-height);
         }
     }
 </style>

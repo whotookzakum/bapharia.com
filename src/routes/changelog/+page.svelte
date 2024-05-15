@@ -15,7 +15,7 @@
 <style lang="scss">
     @media (max-width: 1150px) {
         h1 {
-            margin-top: 62px;
+            margin-top: var(--nav-height);
         }
     }
 </style>

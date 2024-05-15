@@ -228,7 +228,7 @@
 
     @media (max-width: 1150px) {
         .entry-details {
-            margin-top: calc(1rem + 62px);
+            margin-top: calc(1rem + var(--nav-height));
         }
     }
 

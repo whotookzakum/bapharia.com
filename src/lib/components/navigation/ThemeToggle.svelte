@@ -2,6 +2,8 @@
 	import { browser } from "$app/environment";
 	import Icon from "@iconify/svelte";
 	import { onMount } from "svelte";
+	import NavButton from "./NavButton.svelte";
+	import NavModal from "./NavModal.svelte";
 
 	let theme = browser && localStorage.getItem("theme-preference");
 	let showing = false;
@@ -57,12 +59,8 @@
 	</script>
 </svelte:head>
 
-<div class="wrapper">
-	<button
-		aria-label="Open theme selector"
-		aria-live="polite"
-		on:click={() => (showing = !showing)}
-	>
+<div style="position: relative;">
+	<NavButton bind:showing ariaLabel="Open theme selector" tooltip="Theme">
 		{#if theme === "system" ? systemTheme === "dark" : theme === "dark"}
 			<Icon
 				icon={themeChanged
@@ -78,110 +76,29 @@
 				color={theme === "system" ? "inherit" : "var(--accent1)"}
 			/>
 		{/if}
-	</button>
+	</NavButton>
 
 	{#if showing}
-		<div class="modal box grid g-50">
-			<label class="mini-header">
-				<input
-					type="radio"
-					class="visually-hidden"
-					value="light"
-					bind:group={theme}
-					on:input={(e) => updateTheme(e)}
-				/>
-				<span>
-					Light
-					<Icon icon="mingcute:sun-line" width="20" />
-				</span>
-			</label>
-			<label class="mini-header">
-				<input
-					type="radio"
-					class="visually-hidden"
-					value="dark"
-					bind:group={theme}
-					on:input={(e) => updateTheme(e)}
-				/>
-				<span>
-					Dark
-					<Icon icon="mingcute:moon-stars-line" width="20" />
-				</span>
-			</label>
-			<label class="mini-header">
-				<input
-					type="radio"
-					class="visually-hidden"
-					value="system"
-					bind:group={theme}
-					on:input={(e) => updateTheme(e)}
-				/>
-				<span>
-					System
-					<Icon icon="mingcute:computer-line" width="20" />
-				</span>
-			</label>
-		</div>
+		<NavModal
+			bind:group={theme}
+			inputCallback={updateTheme}
+			data={[
+				{
+					value: "light",
+					title: "Light",
+					icon: "mingcute:sun-line",
+				},
+				{
+					value: "dark",
+					title: "Dark",
+					icon: "mingcute:moon-stars-line",
+				},
+				{
+					value: "system",
+					title: "System",
+					icon: "mingcute:computer-line",
+				},
+			]}
+		/>
 	{/if}
 </div>
-
-<style lang="scss">
-	.wrapper {
-		position: relative;
-	}
-
-	button {
-		padding: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 44px;
-		height: 44px;
-		pointer-events: auto;
-		background: none;
-		border: none;
-		border-radius: 50%;
-		transition: translate 0.15s ease;
-		font-size: var(--step-4);
-		color: var(--text3);
-
-		&:hover,
-		&:focus-visible {
-			color: var(--text2);
-			background-color: var(--surface1);
-		}
-
-		&:active {
-			translate: 0 1px;
-		}
-	}
-
-	.modal {
-		position: absolute;
-		right: 0;
-		// bottom: 0.5rem;
-		top: calc(0.5rem + 44px);
-		border-radius: 0.5rem;
-	}
-
-	label {
-		text-transform: unset;
-	}
-
-	span {
-		display: flex;
-		align-items: center;
-		gap: 0.35rem;
-		flex-direction: row-reverse;
-		justify-content: start;
-	}
-
-	input:focus-visible + span,
-	span:hover {
-		color: var(--text2);
-	}
-
-	input:checked + span {
-		color: var(--accent1);
-	}
-</style>

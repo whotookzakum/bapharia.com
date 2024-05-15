@@ -43,7 +43,7 @@
 
         // Padding version
         header.hero-banner {
-            padding-top: calc(20vh + 62px);
+            padding-top: calc(20vh + var(--nav-height));
         }
     }
 </style>

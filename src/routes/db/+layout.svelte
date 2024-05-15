@@ -78,7 +78,7 @@
         align-content: start;
         grid-template-rows: 51px auto auto;
         margin-top: 2rem;
-        // height: calc(100vh - 62px - 5rem);
+        // height: calc(100vh - var(--nav-height) - 5rem);
         // background: red;
     }
 
@@ -104,7 +104,7 @@
 
     @media (max-width: 1150px) {
         h1 {
-            margin-top: 62px;
+            margin-top: var(--nav-height);
         }
     }
 </style>

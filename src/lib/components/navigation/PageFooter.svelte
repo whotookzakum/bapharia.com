@@ -8,7 +8,7 @@
 
 <footer class="page-footer" class:top-margin={$page.url.pathname !== "/"}>
 	<div class="footer-contents grid">
-		<div class="grid g-50">
+		<div class="grid g-50" style="place-self: start;">
 			<a href="/">
 				<img src="/images/logo.png" alt="" width="48" height="48" />
 				<span class="visually-hidden">Home</span>
@@ -168,6 +168,7 @@
 	.col-header {
 		color: var(--text1);
 		font-weight: 800;
+		display: none;
 	}
 
 	.socials {

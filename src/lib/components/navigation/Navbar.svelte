@@ -88,7 +88,7 @@
 			</a>
 		{/each}
 		<div class="extras">
-			<TimeInJapan />
+			<!-- <TimeInJapan /> -->
 			<LocaleSelector />
 			<ThemeToggle />
 		</div>
@@ -108,7 +108,7 @@
 		backdrop-filter: blur(50px);
 		top: 0;
 		padding: 0 1rem;
-		height: 62px;
+		height: var(--nav-height);
 		z-index: 9000;
 	}
 
@@ -150,7 +150,7 @@
 
 	.extras {
 		display: flex;
-		gap: 0.5rem;
+		// gap: 0.5rem;
 		align-items: center;
 		margin-left: auto;
 	}
@@ -211,7 +211,7 @@
 			background: inherit;
 			display: none;
 			position: fixed;
-			top: 62px;
+			top: var(--nav-height);
 			left: 0;
 			width: 100%;
 			padding: 0 1rem 1rem 1rem;

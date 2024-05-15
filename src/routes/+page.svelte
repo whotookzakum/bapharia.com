@@ -23,13 +23,15 @@
 	</div>
 </HeroBanner> -->
 
+<div class="fullpage">
+	<hgroup class="grid g-100" style="place-items: center; margin-top: 5rem;">
+		<!-- <img src="/images/logo.png" alt="" width="96" height="96" /> -->
+		<h1><span>The premier knowledge base for</span><mark>Blue Protocol</mark></h1>
+		<p>Learn about the game with comprehensive guides and enhance your experience with our interactive tools.</p>
+	</hgroup>
+</div>
 
 
-<hgroup class="grid g-100" style="place-items: center; margin-top: 5rem;">
-	<!-- <img src="/images/logo.png" alt="" width="96" height="96" /> -->
-	<h1><span>The premier knowledge base for</span><mark>Blue Protocol</mark></h1>
-	<p>Learn about the game with comprehensive guides and enhance your experience with our interactive tools.</p>
-</hgroup>
 
 <!-- <section id="featured" class="bg-bleed centered-section">
 	<div class="unbleed">

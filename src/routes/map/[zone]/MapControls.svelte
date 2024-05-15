@@ -73,7 +73,7 @@
         align-items: start;
         gap: 1rem;
         padding: 0 1rem;
-        padding-top: calc(62px + 44px + 2rem);
+        padding-top: calc(var(--nav-height) + 44px + 2rem);
     }
 
     :global(.sidebar-contents header) {
@@ -129,7 +129,7 @@
         }
 
         :global(.topbar) {
-            top: 62px;
+            top: var(--nav-height);
         }
     }
 </style>

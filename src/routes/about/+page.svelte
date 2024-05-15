@@ -144,7 +144,7 @@
 
     @media (max-width: 1150px) {
         h1 {
-            margin-top: calc(1rem + 62px);
+            margin-top: calc(1rem + var(--nav-height));
         }
     }
 </style>

@@ -55,7 +55,7 @@
         background: rgba(0, 0, 0, 1);
         border-radius: 0.5rem;
         font-size: var(--step--1);
-        color: var(--text1);
+        color: var(--text1-light);
         font-weight: 600;
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
         backdrop-filter: blur(5px);
@@ -69,6 +69,10 @@
 
     :global(.tooltip p) {
         font-size: inherit;
+    }
+
+    .tooltip:has(.hide) {
+        visibility: hidden;
     }
 
     // .arrow,

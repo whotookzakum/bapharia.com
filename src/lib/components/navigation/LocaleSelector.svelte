@@ -1,28 +1,53 @@
 <script>
 	import { userLocale } from "$lib/stores";
-	import { browser } from "$app/environment";
+	import Icon from "@iconify/svelte";
+	import NavButton from "./NavButton.svelte";
+	import NavModal from "./NavModal.svelte";
 
-	export let isCollapsed = false;
+	let showing = false;
 
-	let locales = [
-		{
-			name: "English",
-			code: "en_US",
-			shortName: "EN"
-		},
-		{
-			name: "日本語",
-			code: "ja_JP",
-			shortName: "JA"
-		},
-	];
+	function closeModal(e) {
+		$userLocale = e.target.value
+		showing = false
+	}
 </script>
 
-<select id="locale-selector" bind:value={$userLocale} class:hide-marker={isCollapsed}>
+<div style="position: relative;">
+	<NavButton
+		bind:showing
+		ariaLabel="Open language selector"
+		tooltip="Language"
+	>
+		<Icon icon="material-symbols:language" />
+	</NavButton>
+	
+	{#if showing}
+		<NavModal
+			bind:group={$userLocale}
+			inputCallback={closeModal}
+			data={[
+				{
+					title: "English",
+					value: "en",
+				},
+				{
+					title: "日本語",
+					value: "ja",
+				},
+			]}
+		/>
+	{/if}
+</div>
+
+<!-- "mingcute:translate-2-line" -->
+
+<!-- <Icon icon="mingcute:translate-2-line" style="font-size: var(--step-4)" color="var(--text3)" /> -->
+
+<!-- <select id="locale-selector" bind:value={$userLocale} class:hide-marker={isCollapsed}>
 	{#each locales as locale}
 		<option value={locale.code}>{isCollapsed ? locale.shortName : locale.name}</option>
 	{/each}
-</select>
+</select> -->
 
 <style lang="scss">
 	#locale-selector {
@@ -36,7 +61,8 @@
 		border-radius: 5px;
 		border: 1px solid transparent;
 
-		&:hover, &:focus-visible {
+		&:hover,
+		&:focus-visible {
 			background: var(--surface2);
 		}
 	}

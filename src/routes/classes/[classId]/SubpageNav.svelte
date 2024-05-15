@@ -43,7 +43,7 @@
         // padding-top: 1rem;
         margin-top: 1rem;
         position: sticky;
-        top: calc(62px + 1rem);
+        top: calc(var(--nav-height) + 1rem);
         justify-content: space-between;
         gap: 0;
         background: var(--surface2);
