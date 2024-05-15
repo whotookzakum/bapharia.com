@@ -5,39 +5,29 @@
 
 	let theme = browser && localStorage.getItem("theme-preference");
 	let showing = false;
-	let previousTheme, previousSystemTheme;
 	let systemTheme;
-		
-	if (browser && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-		systemTheme = "dark"
-	}
-	else {
-		systemTheme = "light"
-	}
+	let themeChanged = false;
 
-	let changeDirection;
+	if (browser && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+		systemTheme = "dark";
+	} else {
+		systemTheme = "light";
+	}
 
 	onMount(() => {
 		window
 			.matchMedia("(prefers-color-scheme: dark)")
 			.addEventListener("change", (event) => {
-				previousSystemTheme = systemTheme;
 				systemTheme = event.matches ? "dark" : "light";
-				if (theme === "system") 
-				updateChangeDirection(previousSystemTheme, systemTheme)
+				themeChanged = true;
 			});
 	});
 
 	function updateTheme(e) {
-		previousTheme = theme;
 		theme = e.target.value;
-		updateChangeDirection(previousTheme === "system" ? systemTheme : previousTheme, theme === "system" ? systemTheme : theme)
 		applyTheme(theme);
 		showing = false;
-	}
-
-	function updateChangeDirection(before, after) {
-		changeDirection = `${before}-to-${after}`
+		themeChanged = true;
 	}
 
 	function applyTheme(theme) {
@@ -67,27 +57,26 @@
 	</script>
 </svelte:head>
 
-<span>
-	<!-- {previousTheme}
-	{systemTheme}
-	{theme} -->
-	{changeDirection}
-</span>
 <div class="wrapper">
 	<button
-		class="btn-theme-toggle"
 		aria-label="Open theme selector"
 		aria-live="polite"
 		on:click={() => (showing = !showing)}
 	>
-		{#if changeDirection === "dark-to-light"}
-			<Icon icon="line-md:moon-to-sunny-outline-transition" />
-		{:else if changeDirection === "light-to-dark"}
-			<Icon icon="line-md:sunny-outline-to-moon-transition" />
-		{:else if (theme === "system" ? systemTheme === "dark" : theme === "dark") && (previousSystemTheme !== "light" || previousTheme !== "light")}
-			<Icon icon="line-md:moon" />
-		{:else if (theme === "system" ? systemTheme === "light" : theme === "light") && (previousSystemTheme !== "dark" || previousTheme !== "dark")}
-			<Icon icon="line-md:sunny-outline" />
+		{#if theme === "system" ? systemTheme === "dark" : theme === "dark"}
+			<Icon
+				icon={themeChanged
+					? "line-md:sunny-outline-to-moon-transition"
+					: "line-md:moon"}
+				color={theme === "system" ? "inherit" : "var(--accent1)"}
+			/>
+		{:else}
+			<Icon
+				icon={themeChanged
+					? "line-md:moon-to-sunny-outline-transition"
+					: "line-md:sunny-outline"}
+				color={theme === "system" ? "inherit" : "var(--accent1)"}
+			/>
 		{/if}
 	</button>
 
@@ -141,7 +130,7 @@
 		position: relative;
 	}
 
-	.btn-theme-toggle {
+	button {
 		padding: 0;
 		display: flex;
 		align-items: center;
@@ -152,19 +141,18 @@
 		background: none;
 		border: none;
 		border-radius: 50%;
-		color: var(--text2);
-		transition: all 0.15s ease;
+		transition: translate 0.15s ease;
 		font-size: var(--step-4);
+		color: var(--text3);
 
 		&:hover,
 		&:focus-visible {
-			color: var(--text1);
+			color: var(--text2);
 			background-color: var(--surface1);
 		}
 
 		&:active {
-			translate: 0 2px;
-			color: var(--text2);
+			translate: 0 1px;
 		}
 	}
 
@@ -190,7 +178,7 @@
 
 	input:focus-visible + span,
 	span:hover {
-		color: var(--text1);
+		color: var(--text2);
 	}
 
 	input:checked + span {
