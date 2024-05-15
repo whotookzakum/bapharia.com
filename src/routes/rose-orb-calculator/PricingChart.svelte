@@ -180,7 +180,7 @@
         }
 
         .custom {
-            color: var(--accent);
+            color: var(--accent1);
 
             td {
                 background: var(--surface3);
@@ -217,7 +217,7 @@
 
         &:hover,
         &:focus-visible {
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 

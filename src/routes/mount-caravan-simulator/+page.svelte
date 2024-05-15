@@ -269,7 +269,7 @@
 <style lang="scss">
     .highlight {
         background: var(--surface3);
-        color: var(--accent);
+        color: var(--accent1);
         border-radius: 1rem;
     }
 </style>

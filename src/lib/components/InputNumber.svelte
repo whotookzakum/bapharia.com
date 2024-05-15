@@ -51,7 +51,7 @@
         min-width: 44px;
 
         &:has(:focus-visible) {
-            outline: 2px solid var(--accent);
+            outline: 2px solid var(--accent1);
         }
 
         &:has(:disabled) {
@@ -63,7 +63,7 @@
 
     @supports not selector(:has(*)) {
         .input-wrapper:focus-within {
-            outline: 2px solid var(--accent);
+            outline: 2px solid var(--accent1);
         }
 
         .input-wrapper.disabled {

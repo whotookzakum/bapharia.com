@@ -82,7 +82,7 @@
     }
 
     .level-requirement {
-        color: var(--accent);
+        color: var(--accent1);
         font-weight: normal;
     }
 

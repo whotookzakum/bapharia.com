@@ -234,7 +234,7 @@
 		}
 
 		.tagline {
-			color: var(--accent);
+			color: var(--accent1);
 		// 	font-size: 8rem;
 		// 	// font-size: 5rem;
 		// 	position: absolute;

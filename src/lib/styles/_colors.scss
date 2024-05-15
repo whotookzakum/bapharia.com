@@ -1,16 +1,14 @@
-// @import './themes';
-
 :root {
-    --text1-light: #dfdfd6;
-    --text2-light: #bdbdb9;
-    --text3-light: #98989f;
-    --text1-dark: hsl(220, 7%, 17%);
-    --text2-dark: hsl(220, 7%, 27%);
+    --text1-light: hsl(240, 2%, 94%);
+    --text2-light: hsl(240, 3%, 83%);
+    --text3-light: hsl(240, 4%, 61%);
+    --text1-dark: hsl(220, 7%, 12%);
+    --text2-dark: hsl(220, 7%, 23%);
+    --text3-dark: hsl(220, 7%, 44%);
 }
 
 @mixin text-light {
     color-scheme: dark;
-    --outline-color: white;
     --text1: var(--text1-light);
     --text2: var(--text2-light);
     --text3: var(--text3-light);
@@ -18,161 +16,42 @@
 
 @mixin text-dark {
     color-scheme: light;
-    --outline-color: black;
     --text1: var(--text1-dark);
     --text2: var(--text2-dark);
     --text3: var(--text3-dark);
 }
 
 // Dark Themes
-@mixin theme-dark {
-    @include text-light;
-    --bg: #18181c;
-    --surface1: #1f1f26;
-    --surface2: #282931;
-    --surface3: #31333c;
-    --surface4: #383a43;
-    --link: #5F85DB;
-}
-
 @mixin theme-entropy {
     @include text-light;
     --bg: hsl(236, 23%, 10%);
-    --surface1: hsl(226, 25%, 15%);
-    --surface2: hsl(226, 26%, 18%);
-    --surface3: hsl(221, 25%, 22%);
-    --surface4: hsl(221, 25%, 26%);
-    --link: #0092ca;
-    --accent1: crimson;
-    --accent2: forestgreen;
-    --accent3: goldenrod;
-}
-
-@mixin theme-entropy2 {
-    @include text-light;
-    --bg: hsl(236, 33%, 10%);
-    --surface1: hsl(226, 35%, 15%);
-    --surface2: hsl(226, 36%, 18%);
-    --surface3: hsl(221, 35%, 22%);
-    --surface4: hsl(221, 35%, 26%);
-    --link: #0092ca;
-}
-
-@mixin theme-carbon {
-    @include text-light;
-    --bg: hsl(224, 29%, 10%);
-    --surface1: hsl(224, 26%, 14%);
-    --surface2: hsl(224, 29%, 17%);
-    --surface3: hsl(224, 29%, 21%);
-    --surface4: hsl(224, 27%, 24%);
-    --link: #3162cc;
-}
-
-@mixin theme-stealth {
-    @include text-light;
-    --bg: hsl(240, 29%, 10%);
-    --surface1: hsl(240, 26%, 14%);
-    --surface2: hsl(233, 29%, 17%);
-    --surface3: hsl(229, 29%, 21%);
-    --surface4: hsl(229, 27%, 24%);
-    --link: #8a5fdb;
-}
-
-@mixin theme-crimson-passion {
-    @include text-light;
-    --bg: #1b1317;
-    --surface1: #251420;
-    --surface2: #361029; // #680747
-    --surface3: #550929;
-    --surface4: #C3195D;
-    --text2: #F70776; // #C3195D
-    --link: #ffaad5; // #ffccaa
-}
-
-@mixin theme-retro-arcade {
-    @include text-light;
-    --bg: #1A1A40;
-    --surface1: #270082;
-    --surface2: #7A0BC0;
-    --surface3: #FA58B6;
-    --surface4: #008cff;
-    --link: #0bd426;
-    --text2: orange;
+    --surface1: hsl(231, 23%, 13%);
+    --surface2: hsl(231, 23%, 16%);
+    --surface3: hsl(231, 23%, 19%);
+    --accent1: #0092ca;
+    --accent2: goldenrod;
+    --warning: crimson;
 }
 
 // Light Themes
-@mixin theme-light {
+@mixin theme-clearskies {
     @include text-dark;
-    --bg: #DBE2EF;
-    --surface1: hsl(219, 39%, 82%);
-    --surface2: hsl(218, 34%, 75%);
-    --surface3: hsl(218, 31%, 69%);
-    --surface4: hsl(218, 25%, 62%);
-    --link: #0e83e4;
+    --bg: hsl(230, 30%, 88%);
+    --surface1: hsl(225, 35%, 85%);
+    --surface2: hsl(225, 35%, 82%);
+    --surface3: hsl(225, 35%, 79%);
+    --accent1: hsl(205, 100%, 40%);
+    --accent2: rgb(207, 7, 124);
+    --warning: crimson;
 }
-
-@mixin theme-zephyr {
-    @include text-dark;
-    --bg: hsl(209, 48%, 89%);
-    --surface1: hsl(209, 34%, 85%);
-    --surface2: hsl(209, 39%, 82%);
-    --surface3: hsl(209, 53%, 82%);
-    --surface4: hsl(209, 54%, 79%);
-    --link: hsl(212, 64%, 50%);
-    --text1: #112D4E;
-    --text2: #3F72AF;
-}
-
-@mixin theme-divinity {}
 
 // Defaults
 :root {
-    @include theme-zephyr
+    @include theme-clearskies
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
         @include theme-entropy
     }
-}
-
-// For testing
-* {
-    // transition: all 0.3s ease
-}
-
-.theme-dark {
-    @include theme-dark
-}
-
-.theme-entropy {
-    @include theme-entropy
-}
-
-.theme-carbon {
-    @include theme-carbon
-}
-
-.theme-stealth {
-    @include theme-stealth
-}
-
-.theme-velvet {
-    @include theme-crimson-passion
-}
-
-.theme-retro {
-    @include theme-retro-arcade
-}
-
-.theme-light {
-    @include theme-light
-}
-
-.theme-zephyr {
-    @include theme-zephyr
-}
-
-.theme-divinity {
-    @include theme-divinity;
 }

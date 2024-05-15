@@ -117,7 +117,7 @@
         height: 44px;
         display: grid;
         place-content: center;
-        color: var(--accent);
+        color: var(--accent1);
         transition: all 0.05s ease;
 
         &:where(:hover, :focus-visible):not(:disabled) { background: var(--surface2); }

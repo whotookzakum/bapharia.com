@@ -85,7 +85,7 @@
 
 		.category {
 			font-weight: 600;
-			color: var(--accent);
+			color: var(--accent1);
 			font-size: var(--step-0);
 		}
 
@@ -120,12 +120,12 @@
 	// 	}
 
 	// 	input:focus-visible + span {
-	// 		outline: 2px solid var(--accent);
+	// 		outline: 2px solid var(--accent1);
 	// 	}
 	// }
 
 	.card:has(:focus-visible) {
-		outline: 2px solid var(--accent);
+		outline: 2px solid var(--accent1);
 	}
 
 	.card:where(:hover, :has(:focus-visible)) {
@@ -142,7 +142,7 @@
 
 	@supports not selector(:has(*)) {
 		.card:focus-within {
-			outline: 2px solid var(--accent);
+			outline: 2px solid var(--accent1);
 
 			// to hide click use another element that will take the outline and use a:focus-within ~ and label:focus-within ~ to activate outline
 

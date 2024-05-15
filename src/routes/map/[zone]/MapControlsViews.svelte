@@ -46,6 +46,6 @@
     }
 
     input:checked + label {
-        color: var(--accent);
+        color: var(--accent1);
     }
 </style>

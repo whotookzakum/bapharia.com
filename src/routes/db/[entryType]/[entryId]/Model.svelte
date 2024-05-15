@@ -72,7 +72,7 @@
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
         padding: 0.5rem 1rem;
         border: none;
-        background-color: var(--accent);
+        background-color: var(--accent1);
         color: hsl(209, 0%, 94%);
         font-weight: 600;
         transition: transform 0.1s ease, background-color 0.3s ease;

@@ -11,49 +11,8 @@ body {
     color: var(--text1);
 }
 
-a {
-    color: var(--link);
-}
-
-a.styled-link {
-    color: inherit;
-    text-decoration: none;
-
-    &:hover,
-    &:focus-visible {
-        text-decoration: underline;
-    }
-}
-
-.styled-link-parent {
-    a {
-        color: inherit;
-        text-decoration: none;
-
-        &:hover,
-        &:focus-visible {
-            text-decoration: underline;
-        }
-    }
-}
-
 *:focus-visible {
-    outline: 2px solid var(--accent) !important;
-}
-
-input[type="text"],
-input[type="search"] {
-    font: inherit;
-    color: inherit;
-    caret-color: var(--accent);
-
-    &::placeholder {
-        color: var(--text2);
-    }
-}
-
-aside i {
-    font-weight: bolder;
+    outline: 2px solid var(--accent1) !important;
 }
 
 figure {
@@ -64,30 +23,12 @@ figure {
     }
 }
 
-strong {
-    color: var(--accent);
-}
-
-strong,
-b {
-    font-weight: 600;
-}
-
 sup,
 sub,
 small,
 figcaption,
 caption {
     font-size: var(--step--1);
-}
-
-sup,
-small {
-    color: var(--accent);
-}
-
-sub {
-    color: var(--text2);
 }
 
 figcaption,
@@ -101,27 +42,74 @@ caption {
     margin-top: 0.5rem;
 }
 
-details>*:not(summary):first-of-type {
-    margin-block-start: 1rem;
+// ======================================================================
+// FUNCTIONAL ELEMENTS
+// ======================================================================
+
+a {
+    color: var(--accent1);
+}
+
+a.styled-link {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+a.active,
+details[open] > summary,
+summary .selection-count {
+    color: var(--accent1) !important;
+    font-weight: bold;
+}
+
+summary {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+summary::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-bottom: 2px solid var(--text1);
+    border-right: 2px solid var(--text1);
+    margin-block: 0 2px;
+    transform: rotate(45deg);
+}
+
+details[open] summary::after {
+    transform: rotate(225deg);
+    margin-block: 6px 0;
+    border-color: var(--accent1);
+    border-width: 3px;
+}
+
+::placeholder {
+    color: var(--text2);
 }
 
 button {
-    color: inherit;
-    font: inherit;
     background: var(--surface1);
     border: none;
     border-radius: 0.5rem;
     padding: 0.5rem;
 }
 
+input,
+button,
 select {
-    color: var(--text1);
+    color: inherit;
     font: inherit;
-}
-
-mark {
-    color: var(--accent);
-    background-color: transparent;
+    caret-color: var(--accent1);
 }
 
 // ======================================================================
@@ -129,12 +117,11 @@ mark {
 // ======================================================================
 
 .mini-header {
-    margin: 0 0 1rem 0;
-    line-height: 1;
+    font-weight: 600;
     font-size: var(--step--1);
-    font-weight: 700;
-    color: var(--text2);
+    letter-spacing: 0.0625em;
     text-transform: uppercase;
+    color: var(--text3);
 }
 
 h1,
@@ -160,14 +147,9 @@ h1 {
 
 h2 {
     --h-size: var(--step-5);
-
-    &:not(:first-of-type) {
-        margin-top: 3.6em;
-    }
 }
 
 h3 {
-    // margin-top: 1.33em;
     --h-size: var(--step-4);
 }
 
@@ -195,7 +177,8 @@ article table {
         font-weight: 500;
     }
 
-    th, td {
+    th,
+    td {
         padding: 1rem;
     }
 }
@@ -209,7 +192,6 @@ ul,
 dl {
     display: grid;
     gap: 1rem;
-    max-inline-size: max-content;
 }
 
 dt {
@@ -217,35 +199,21 @@ dt {
 }
 
 ::marker {
-    color: var(--accent);
-    font-weight: bold;
+    color: var(--accent1);
 }
 
+.unstyled-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 
 // ======================================================================
 // FONTS
 // ======================================================================
 
 // @font-face {
-//     font-family: "Blue Protocol";
-//     src: url("/static/fonts/BlueProtocolUnofficial.ttf");
-//     font-display: swap;
-// }
-
-@font-face {
-    font-family: "Public Sans";
-    src: url("/fonts/PublicSans.ttf");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Skip Std";
-    src: url("/fonts/SkipStd.ttf");
-    font-display: swap;
-}
-
-// @font-face {
-//     font-family: "Century Gothic Pro";
-//     src: url("/fonts/CenturyGothicProBold.ttf");
+//     font-family: "Skip Std";
+//     src: url("/fonts/SkipStd.ttf");
 //     font-display: swap;
 // }

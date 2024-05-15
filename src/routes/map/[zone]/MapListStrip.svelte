@@ -302,11 +302,11 @@
         }
 
         input:checked + span {
-            color: var(--accent);
+            color: var(--accent1);
             background: var(--surface2);
 
             .icon {
-                background: var(--accent);
+                background: var(--accent1);
             }
         }
 
@@ -320,7 +320,7 @@
         }
 
         label:focus-within span {
-            outline: 2px solid var(--accent);
+            outline: 2px solid var(--accent1);
         }
     }
 

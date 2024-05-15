@@ -100,7 +100,7 @@
     .footnote {
         display: block;
         font-size: var(--step--1);
-        color: var(--accent);
+        color: var(--accent1);
         margin-top: 0.5rem;
         line-height: 1.4;
     }
@@ -121,16 +121,16 @@
     #toggle-input:focus-visible + .toggle,
     .toggle:hover {
         background: var(--surface2);
-        color: var(--accent);
+        color: var(--accent1);
     }
 
     #toggle-input:focus-visible + .toggle {
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--accent1);
     }
 
     #toggle-input:checked {
         & + .toggle {
-            color: var(--accent);
+            color: var(--accent1);
         }
 
         & ~ .settings {

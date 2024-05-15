@@ -48,7 +48,7 @@
     description={`Database for BLUE PROTOCOL. Look up items, weapons, echoes, skills, enemies, maps, liquid memories, and more!`}
 />
 
-<h1>Database <a href="/db/weapon/106001201">test link</a></h1>
+<!-- <h1>Database <a href="/db/weapon/106001201">test link</a></h1> -->
 
 <div id="db-layout" class="grid g-100">
     <div class="entry">
@@ -68,18 +68,8 @@
 </div>
 
 <style lang="scss">
-    .db-wrapper {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        display: grid;
-        grid-template-columns: 30ch 1fr;
-        align-items: start;
-        align-content: start;
-    }
-
     #db-layout {
-        grid-template-columns: 30ch 1fr 0.65fr;
+        grid-template-columns: 260px 1fr 0.65fr;
         grid-template-areas:
             "filters search entry"
             // "filters active-filters entry"
@@ -87,6 +77,9 @@
         align-items: start;
         align-content: start;
         grid-template-rows: 51px auto auto;
+        margin-top: 2rem;
+        // height: calc(100vh - 62px - 5rem);
+        // background: red;
     }
 
     .entry {

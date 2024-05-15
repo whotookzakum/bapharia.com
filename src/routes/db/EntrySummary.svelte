@@ -112,7 +112,7 @@
         i {
             font-style: normal;
             font-size: var(--step--1);
-            color: var(--accent);
+            color: var(--accent1);
             font-weight: bold;
         }
 

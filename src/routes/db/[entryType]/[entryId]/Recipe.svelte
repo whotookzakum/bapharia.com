@@ -6,7 +6,7 @@
 <h2 id="recipe">Recipe</h2>
 
 {#if recipe.adventurer_rank > 0 || recipe.difficulty > 0}
-    <span style="color: var(--accent); font-weight: 600">
+    <span style="color: var(--accent1); font-weight: 600">
         Requires Adventurer Rank {recipe.adventurer_rank || recipe.difficulty} to
         craft
     </span>

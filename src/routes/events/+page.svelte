@@ -61,7 +61,7 @@
         background: var(--surface2);
 
         .date {
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 

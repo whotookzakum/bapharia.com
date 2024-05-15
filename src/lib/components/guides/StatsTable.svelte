@@ -139,7 +139,7 @@
     tbody {
         th {
             font-weight: bold;
-            color: var(--accent);
+            color: var(--accent1);
         }
 
         i {

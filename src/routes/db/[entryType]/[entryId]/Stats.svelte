@@ -376,7 +376,7 @@
     button.reset-level {
         border-radius: 5px;
         padding: 0.5rem;
-        color: var(--accent);
+        color: var(--accent1);
         background: var(--surface2);
         border: 1px solid var(--surface3);
         box-shadow: none;

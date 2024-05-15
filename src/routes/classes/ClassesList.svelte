@@ -51,7 +51,7 @@
     }
 
     a {
-        color: var(--link);
+        color: var(--accent1);
         font-size: var(--step-2);
         font-weight: 600;
     }
@@ -73,7 +73,7 @@
 
     @supports not selector(:has(*)) {
         li:focus-within {
-            outline: 2px solid var(--accent);
+            outline: 2px solid var(--accent1);
             background: var(--surface2);
         }
     }

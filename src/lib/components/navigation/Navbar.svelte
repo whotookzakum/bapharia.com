@@ -114,7 +114,7 @@
 
 	input {
 		border: none;
-		background: rgba(120, 131, 155, 0.2);
+		background: var(--surface2, rgba(120, 131, 155, 0.2));
 		padding: 0.5rem 1rem;
 		border-radius: 3rem;
 		flex: 1;
@@ -143,7 +143,7 @@
 	}
 
 	.active {
-		color: var(--accent) !important;
+		color: var(--accent1) !important;
 	}
 
 	// EXTRAS ======================================================

@@ -1,0 +1,106 @@
+.layout {
+    display: grid;
+    grid-template-columns: 1fr min(var(--content-width), calc(100% - 2rem)) 1fr;
+    margin-bottom: 5rem;
+
+    &>* {
+        grid-column: 2;
+    }
+
+    .full-bleed,
+    .bg-bleed {
+        grid-column: 1/-1;
+    }
+
+    .bg-bleed {
+        width: 100%;
+
+        .unbleed {
+            max-width: var(--content-width);
+            margin: auto;
+        }
+    }
+}
+
+article p {
+    line-height: 1.75;
+    font-size: var(--step-2);
+    letter-spacing: 0.02em;
+    max-inline-size: 60ch;
+    text-wrap: pretty;
+}
+
+.article-layout {
+    max-width: 1450px;
+    display: grid;
+    grid-template-columns: 220px auto;
+    margin-top: 5rem;
+    gap: 3rem;
+
+    .menu,
+    .toc {
+        position: sticky;
+        top: calc(62px + 5rem);
+        align-self: start;
+        font-size: var(--step-1);
+        letter-spacing: 0.02em;
+
+        a:not(:hover) {
+            color: var(--text2);
+        }
+    }
+
+    article {
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        grid-template-rows: auto auto;
+        column-gap: 3rem;
+
+        hgroup {
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+            line-height: normal;
+        }
+
+        hgroup p {
+            color: var(--text3);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        hgroup .mini-header {
+            color: var(--accent2);
+            line-height: unset;
+            margin-bottom: 2px;
+        }
+
+        .toc {
+            grid-column: 2;
+            grid-row: 1/-1;
+            align-self: start;
+        }
+
+        &>*:not(.toc) {
+            grid-column: 1;
+        }
+    }
+
+    article .toc ol::before,
+    .menu ul::before {
+        @extend .mini-header;
+    }
+
+    &.guide-article {
+        .toc ol::before {
+            content: "Contents";
+        }
+    
+        .menu ul::before {
+            content: "Guides";
+        }
+    }
+}
+

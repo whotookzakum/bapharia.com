@@ -55,7 +55,7 @@
                 value="notes"
                 bind:group={selectedTab}
             />
-            <span class="tab-text flex g-50" style="--tab-color: var(--accent)">
+            <span class="tab-text flex g-50" style="--tab-color: var(--accent1)">
                 <Icon
                     icon="heroicons:exclamation-circle-20-solid"
                     width="20"
@@ -98,7 +98,7 @@
     }
 
     input:focus-visible + .tab-text {
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--accent1);
     }
 
     input:checked + .tab-text {

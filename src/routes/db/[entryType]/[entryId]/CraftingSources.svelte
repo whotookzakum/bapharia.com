@@ -22,7 +22,7 @@
 
             {#if source.recipe.adventurer_rank > 0 || source.recipe.difficulty > 0}
                 <br />
-                <b style="color: var(--accent)">
+                <b style="color: var(--accent1)">
                     Requires Adventurer Rank {source.recipe.adventurer_rank ||
                         source.recipe.difficulty} to craft
                 </b>
@@ -50,7 +50,7 @@
             {#if source.recipe.bonus_rate}
                 <p class="box" style="padding: 0.5rem 1rem; flex: 1;">
                     Great Success Rate:
-                    <b style="color: var(--accent)"
+                    <b style="color: var(--accent1)"
                         >{source.recipe.bonus_rate}%</b
                     >
                 </p>
@@ -63,7 +63,7 @@
                 >
                     <span>
                         <a href="/db/tokens/140000200" style="color: inherit">Tickets</a> Needed:
-                        <b style="color: var(--accent)"
+                        <b style="color: var(--accent1)"
                             >{source.recipe.great_success_tokens}</b
                         >
                     </span>

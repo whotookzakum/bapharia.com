@@ -33,7 +33,7 @@
 
         &:hover,
         &:focus-visible {
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 </style>

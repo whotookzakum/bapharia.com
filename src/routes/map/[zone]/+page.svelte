@@ -274,7 +274,7 @@
         a:hover,
         a:focus-visible {
             text-decoration: none;
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 </style>

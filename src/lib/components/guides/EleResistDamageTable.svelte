@@ -46,7 +46,7 @@
             <td class="worst" style="border-bottom-right-radius: 1rem;">60%</td>
         </tr>
     </tbody>
-    <caption style="text-align: left; color: var(--accent)">
+    <caption style="text-align: left; color: var(--accent1)">
         1. Neutral Element refers to elements that the target neither has weakness nor resistance to.<br>
         2. In the case of weapons, Neutral Element also includes Non-elemental weapons.
     </caption>

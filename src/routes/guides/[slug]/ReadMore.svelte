@@ -50,7 +50,7 @@
 
         a {
             font-size: var(--step-1);
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 </style>

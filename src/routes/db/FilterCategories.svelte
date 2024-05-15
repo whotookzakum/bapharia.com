@@ -77,25 +77,17 @@
 
 {#each uniqueCategories as uniqueCategory}
     <details>
-        <summary class="flex">
+        <summary>
             <span
                 >{categoryNames[uniqueCategory][$userLocale]}
                 {#if $categories.filter((cat) => cat.param === uniqueCategory && cat.checked).length}
-                    <small>
+                    <small class="selection-count">
                         ({$categories.filter(
                             (cat) =>
                                 cat.param === uniqueCategory && cat.checked,
                         ).length})
                     </small>
                 {/if}
-            </span>
-            <span class="chevron">
-                <Icon
-                    icon="mdi:chevron-down"
-                    width="18"
-                    height="18"
-                    style="margin-bottom: -3px"
-                />
             </span>
         </summary>
         <div class="subcategories grid g-25">
@@ -115,34 +107,12 @@
 {/each}
 
 <style lang="scss">
-    details {
-        font-size: var(--step-0);
-
-        summary {
-            list-style-type: none;
-        }
-
-        &:not(:last-of-type) .subcategories {
-            margin-bottom: 0.5rem;
-        }
-
-        &[open] .chevron {
-            transform: rotate(-180deg);
-        }
-
-        .chevron {
-            margin-left: auto;
-        }
-    }
-
     summary {
-        max-inline-size: none;
+        font-size: var(--step-1);
     }
 
     .subcategories {
         font-size: var(--step--1);
-        margin-top: 0.25rem;
-        padding-top: 0.5rem;
-        border-top: 1px solid var(--surface3);
+        padding: 0.75rem 0.5rem 0.5rem 0.5rem;
     }
 </style>

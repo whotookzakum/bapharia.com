@@ -1,6 +1,7 @@
 @import './colors';
 @import './typography';
 @import './variables';
+@import './layout';
 
 html {
     background-color: var(--bg);
@@ -11,7 +12,7 @@ html {
 
 body {
     margin: 0;
-    accent-color: var(--accent);
+    accent-color: var(--accent1);
 }
 
 * {
@@ -65,16 +66,12 @@ hr {
 }
 
 label:has(input.visually-hidden:focus-visible) {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--accent1);
 }
 
 input.visually-hidden[type="checkbox"]:focus-visible+label,
 input.visually-hidden[type="radio"]:focus-visible+label {
-    outline: 2px solid var(--accent);
-}
-
-.iconify {
-    // display: block !important;
+    outline: 2px solid var(--accent1);
 }
 
 .flex {
@@ -152,87 +149,14 @@ input[type="number"] {
     white-space: nowrap;
 }
 
-.entry-id {
-    --h: 0;
-    --s: 0%;
-}
-
-:root {
-    --Enemies: hsl(0, 70%, 18%);
-    --Tokens: hsl(0, 70%, 18%);
-    --Skills: hsl(0, 70%, 18%);
-    --StampSets: hsl(0, 70%, 18%);
-    --Items: hsl(0, 70%, 18%);
-    --Imagine: hsl(0, 70%, 18%);
-    --Weapons: hsl(0, 70%, 18%);
-    --GameMaps: hsl(0, 70%, 18%);
-    --LiquidMemories: hsl(0, 70%, 18%);
-    --Costume: hsl(0, 70%, 18%);
-    --Gestures: hsl(0, 70%, 18%);
-    --AvatarParts: hsl(0, 70%, 18%);
-
-}
-
-.Enemy {
-    --h: 0;
-}
-
-.Token {
-    --h: 30;
-}
-
-.Skill {
-    --h: 60;
-}
-
-.StampSet {
-    --h: 90;
-}
-
-.Item {
-    --h: 120;
-}
-
-.Imagine {
-    --h: 150;
-}
-
-.Weapon {
-    --h: 180;
-}
-
-.GameMap {
-    --h: 210;
-}
-
-.LiquidMemory {
-    --h: 240;
-}
-
-.Costume {
-    --h: 270;
-}
-
-.Gesture {
-    --h: 300;
-}
-
-.AvatarPart {
-    --h: 330;
-}
-
-.Quest {
-    --h: 200;
-}
-
 .kofi {
     position: relative;
 
     &::before {
         content: "";
         z-index: 1;
-        top: 9px;
-        left: 5px;
+        top: 6px;
+        left: 3px;
         width: 16px;
         height: 16px;
         position: absolute;
@@ -252,7 +176,7 @@ input[type="number"] {
 
     &:hover,
     &:focus-visible {
-        color: var(--accent);
+        color: var(--accent1);
     }
 }
 
@@ -292,7 +216,7 @@ input[type="number"] {
 }
 
 .btn-primary {
-    background: var(--accent);
+    background: var(--accent1);
     transition: background-color 0.15s ease;
 
     &:hover,
@@ -331,35 +255,9 @@ input[type="number"] {
     }
 }
 
-.unstyled-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    max-inline-size: none !important;
-}
 
-.layout {
-    display: grid;
-    grid-template-columns: 1fr min(var(--content-width), calc(100% - 2rem)) 1fr;
 
-    &>* {
-        grid-column: 2;
-    }
 
-    .full-bleed,
-    .bg-bleed {
-        grid-column: 1/-1;
-    }
-
-    .bg-bleed {
-        width: 100%;
-
-        .unbleed {
-            max-width: var(--content-width);
-            margin: auto;
-        }
-    }
-}
 
 .centered-section {
     text-align: center;
@@ -393,4 +291,8 @@ iconify-icon {
 .table-wrapper {
     width: 100%;
     overflow-x: scroll;
+}
+
+.rangeSlider.range.pips {
+    margin-bottom: 2.3em !important
 }

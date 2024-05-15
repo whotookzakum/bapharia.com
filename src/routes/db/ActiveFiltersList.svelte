@@ -124,7 +124,7 @@
         }
 
         &:not(.reset):hover {
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 
@@ -137,8 +137,8 @@
 
         &:hover,
         &:focus-visible {
-            color: var(--accent);
-            border-color: var(--accent);
+            color: var(--accent1);
+            border-color: var(--accent1);
         }
 
         &:focus-visible {

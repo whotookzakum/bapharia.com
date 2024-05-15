@@ -252,7 +252,7 @@
     .header-extras {
         .level {
             font-weight: 800;
-            color: var(--accent);
+            color: var(--accent1);
             background: var(--surface2);
         }
 

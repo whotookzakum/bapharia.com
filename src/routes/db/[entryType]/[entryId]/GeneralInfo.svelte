@@ -87,7 +87,7 @@
         {/if} -->
 
     {#if data.dungeon_only}
-        <p style:color="var(--accent)">Dungeon-only item</p>
+        <p style:color="var(--accent1)">Dungeon-only item</p>
     {/if}
 </div>
 

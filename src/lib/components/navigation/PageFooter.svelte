@@ -7,159 +7,171 @@
 </script>
 
 <footer class="page-footer" class:top-margin={$page.url.pathname !== "/"}>
-	<nav class="footer-contents flex">
-		<div class="left-col grid g-50" style="flex-basis: 100%;">
-			<a href="/" class="home-link flex g-50 styled-link">
-				<img src="/images/logo.png" alt="" width="38" height="38" />
-				<span>Bapharia</span>
+	<div class="footer-contents grid">
+		<div class="grid g-50">
+			<a href="/">
+				<img src="/images/logo.png" alt="" width="48" height="48" />
+				<span class="visually-hidden">Home</span>
 			</a>
-		</div>
-		<div class="grid g-50">
-			<p class="col-header">Links</p>
-			{#each links as link}
-				<a class="styled-link" href={link.href}
-					>{link.name[$userLocale]}</a
+			<span style="color: var(--text2)"
+				>Designed and developed by Zakum</span
+			>
+			<div class="socials flex">
+				<a href="/discord">
+					<Icon
+						icon="logos:discord-icon"
+						rel="noopener nofollow noreferrer"
+						target="_blank"
+						width="24"
+						height="24"
+					/>
+					<span class="visually-hidden">Join us on Discord!</span>
+				</a>
+				<a
+					href="https://youtube.com/zakum"
+					rel="noopener nofollow noreferrer"
+					target="_blank"
 				>
-			{/each}
-		</div>
-		<div class="grid g-50">
-			<p class="col-header">Tools</p>
-			{#each tools as tool}
-				<a class="styled-link" href={tool.href}
-					>{tool.name[$userLocale]}</a
+					<Icon icon="logos:youtube-icon" width="24" height="24" />
+					<span class="visually-hidden">Check out my YouTube!</span>
+				</a>
+				<a
+					href="https://ko-fi.com/whotookzakum"
+					rel="noopener nofollow noreferrer"
+					target="_blank"
+					class="kofi"
 				>
-			{/each}
-		</div>
-		<div>
-			<p class="col-header">Support</p>
-			<div>
-				<p style="font-size: var(--step--1); margin-block: 0.25rem 0;">
-					If Bapharia has been helpful to you, consider showing
-					support and joining our community!
-				</p>
-				<div class="socials flex" style="gap: 0.75rem">
-					<a href="/discord">
-						<Icon
-							icon="logos:discord-icon"
-							rel="noopener nofollow noreferrer"
-							target="_blank"
-							width="32"
-							height="32"
-						/>
-						<span class="visually-hidden">Join us on Discord!</span>
-					</a>
-					<a
-						href="https://youtube.com/zakum"
-						rel="noopener nofollow noreferrer"
-						target="_blank"
+					<Icon
+						icon="simple-icons:kofi"
+						width="28"
+						height="28"
+						color="white"
+					/>
+					<span class="visually-hidden"
+						>Support Bapharia on Ko-Fi!</span
 					>
-						<Icon
-							icon="logos:youtube-icon"
-							width="32"
-							height="32"
-						/>
-						<span class="visually-hidden"
-							>Check out my YouTube!</span
-						>
-					</a>
-					<a
-						href="https://ko-fi.com/whotookzakum"
-						rel="noopener nofollow noreferrer"
-						target="_blank"
-						class="kofi"
+				</a>
+				<a
+					href="https://paypal.me/bapharia"
+					rel="noopener nofollow noreferrer"
+					target="_blank"
+				>
+					<Icon icon="logos:paypal" width="20" height="20" />
+					<span class="visually-hidden"
+						>Support Bapharia on PayPal!</span
 					>
-						<Icon
-							icon="simple-icons:kofi"
-							width="36"
-							height="36"
-							color="white"
-						/>
-						<span class="visually-hidden"
-							>Support Bapharia on Ko-Fi!</span
-						>
-					</a>
-					<a
-						href="https://paypal.me/bapharia"
-						rel="noopener nofollow noreferrer"
-						target="_blank"
+				</a>
+				<a
+					href="https://www.patreon.com/zakum"
+					rel="noopener nofollow noreferrer"
+					target="_blank"
+				>
+					<Icon icon="logos:patreon" width="20" height="20" />
+					<span class="visually-hidden"
+						>Support Bapharia on Patreon!</span
 					>
-						<Icon icon="logos:paypal" width="28" height="28" />
-						<span class="visually-hidden"
-							>Support Bapharia on PayPal!</span
-						>
-					</a>
-					<a
-						href="https://www.patreon.com/zakum"
-						rel="noopener nofollow noreferrer"
-						target="_blank"
-					>
-						<Icon icon="logos:patreon" width="28" height="28" />
-						<span class="visually-hidden"
-							>Support Bapharia on Patreon!</span
-						>
-					</a>
-				</div>
+				</a>
 			</div>
 		</div>
-		<div class="footer-bottom flex">
-			<span>&copy; 2021-2024 Bapharia.com</span>
-			<hr />
-			<a class="styled-link" href="/about">About</a>
-			<hr />
-			<a class="styled-link" href="/changelog">Changelog</a>
-			<!-- <hr />
-			<a class="styled-link" href="/privacy">Privacy</a> -->
-		</div>
-	</nav>
+		<nav class="flex">
+			<div class="grid g-50">
+				<span class="col-header">Links</span>
+				<ul class="unstyled-list g-50">
+					{#each links.filter((_, i) => i < 4) as link}
+						<li>
+							<a class="styled-link" href={link.href}
+								>{link.name[$userLocale]}</a
+							>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div class="grid g-50">
+				<span class="col-header" style="opacity: 0">Links</span>
+				<ul class="unstyled-list g-50">
+					{#each links.filter((_, i) => i >= 4 && i < 8) as link}
+						<li>
+							<a class="styled-link" href={link.href}
+								>{link.name[$userLocale]}</a
+							>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div class="grid g-50">
+				<span class="col-header">Tools</span>
+				{#each tools as tool}
+					<a class="styled-link" href={tool.href}
+						>{tool.name[$userLocale]}</a
+					>
+				{/each}
+			</div>
+			<div class="grid g-50">
+				<span class="col-header">Other</span>
+				<ul class="unstyled-list g-50">
+					<li>
+						<a class="styled-link" href="/about">
+							About
+						</a>
+					</li>
+					<li>
+						<a class="styled-link" href="/changelog">
+							Changelog
+						</a>
+					</li>
+					<li>
+						<a class="styled-link" href="/privacy">
+							Privacy
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="footer-bottom flex">
+		<span>&copy; 2021-2024 Bapharia.com</span>
+		<hr />
+		<span
+			>BLUE PROTOCOL is a trademark of Bandai Namco Online Inc. & Bandai
+			Namco Studios Inc.</span
+		>
+	</div>
 </footer>
 
 <style lang="scss">
 	.page-footer {
-		border-top: 1px solid var(--surface2);
-		background: var(--surface1);
-	}
-
-	.top-margin {
-		margin-top: var(--space-2xl);
+		// border-top: 1px solid var(--surface2);
+		max-width: calc(1450px + 5rem);
+		padding: 2.5rem;
+		margin: auto;
 	}
 
 	.footer-contents {
-		row-gap: 2rem;
-		max-width: 1220px;
-		margin: auto;
-		font-size: var(--step--1);
-		color: var(--text2);
-		padding: var(--space-s-m) var(--space-s-m);
-		align-items: start;
-		flex-wrap: wrap;
+		gap: 3rem;
+		grid-template-columns: 1fr 2fr;
 
-		& > div {
-			flex: 1;
-			flex-basis: 27ch;
+		nav {
+			gap: 3rem;
+			align-items: start;
+
+			& > * {
+				flex: 1;
+			}
 		}
 	}
 
 	a {
 		width: fit-content;
-	}
-
-	.home-link {
-		font-size: var(--step-1);
-		font-weight: 700;
-		color: var(--text1);
-		align-items: center;
+		color: var(--text2);
 	}
 
 	.col-header {
-		margin: 0;
-		font-weight: 800;
-		font-size: var(--step-2);
 		color: var(--text1);
+		font-weight: 800;
 	}
 
 	.socials {
-		margin-block: 0.5rem;
-		align-items: center;
+		gap: 0.75rem;
 		flex-wrap: wrap;
 
 		a:where(:hover, :focus-visible) {
@@ -172,16 +184,17 @@
 	}
 
 	.footer-bottom {
-		font-size: var(--step--1); 
-		flex-basis: 100% !important; 
-		gap: 0.5rem 1rem; 
-		flex-wrap: wrap; 
+		font-size: var(--step--1);
+		flex-basis: 100% !important;
+		gap: 0.5rem 1rem;
+		flex-wrap: wrap;
 		align-items: center;
-		color: gray;
-		
+		color: var(--text3);
+		margin-top: 3rem;
+
 		hr {
-			width: 1px; 
-			height: 1rem; 
+			width: 1px;
+			height: 1rem;
 			margin: 0;
 		}
 	}

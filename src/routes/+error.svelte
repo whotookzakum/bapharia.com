@@ -29,6 +29,6 @@
 	}
 	span {
 		font-size: var(--step-0);
-		color: var(--accent);
+		color: var(--accent1);
 	}
 </style>

@@ -80,7 +80,7 @@
         font-weight: 700;
         padding: 0.05rem 0.3rem;
         border-radius: 5px;
-        color: var(--accent);
+        color: var(--accent1);
         background: linear-gradient(335deg, var(--bg), var(--surface1));
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }

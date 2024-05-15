@@ -6,16 +6,13 @@
     import Popper from "$lib/components/Popper.svelte";
 </script>
 
-<div class="grid" style:gap="1rem">
-    <div class="box">
-        <h3 class="mini-header">Categories</h3>
-        <div class="grid g-50">
-            <FilterCategories />
-        </div>
-    </div>
-
-    <div class="box">
-        <h3 class="mini-header">Level</h3>
+<aside class="grid g-100">
+    <section class="grid g-100">
+        <span class="mini-header">Categories</span>
+        <FilterCategories />
+    </section>
+    <section>
+        <span class="mini-header">Level</span>
         <div
             class:adjusted={$level.values[0] > $level.min ||
                 $level.values[1] < $level.max}
@@ -34,8 +31,9 @@
                 last="label"
             />
         </div>
-
-        <h3 class="mini-header">Adventurer Rank</h3>
+    </section>
+    <section>
+        <span class="mini-header">Adventurer Rank</span>
         <div
             class:adjusted={$ar.values[0] > $ar.min || $ar.values[1] < $ar.max}
         >
@@ -53,8 +51,9 @@
                 last="label"
             />
         </div>
-
-        <h3 class="mini-header">Class</h3>
+    </section>
+    <section>
+        <span class="mini-header">Class</span>
         <div class="flex g-25" style="flex-wrap: wrap">
             {#each $classes as job}
                 <Popper let:setFocused placement="bottom">
@@ -83,8 +82,9 @@
                 </Popper>
             {/each}
         </div>
-
-        <h3 class="mini-header" style="margin-top: 1.25rem">Element</h3>
+    </section>
+    <section>
+        <span class="mini-header">Element</span>
         <div class="flex g-25" style="flex-wrap: wrap">
             {#each $elements as element}
                 <Popper let:setFocused placement="bottom">
@@ -114,8 +114,8 @@
                 </Popper>
             {/each}
         </div>
-    </div>
-</div>
+    </section>
+</aside>
 
 <style lang="scss">
     :global(.rangeSlider) {
@@ -124,15 +124,15 @@
         --range-slider: var(--surface3);
 
         // --range-handle-inactive: var(--text2);
-        --range-handle: var(--accent);
-        --range-handle-focus: var(--accent);
-        --range-handle-border: var(--accent);
+        --range-handle: var(--accent1);
+        --range-handle-focus: var(--accent1);
+        --range-handle-border: var(--accent1);
 
         // --range-range-inactive: var(--text2);
-        // --range-range: var(--accent);
+        // --range-range: var(--accent1);
 
-        --range-float-inactive: var(--accent);
-        --range-float: var(--accent);
+        --range-float-inactive: var(--accent1);
+        --range-float: var(--accent1);
         --range-float-text: hsl(220, 0%, 89%);
     }
 
@@ -141,19 +141,19 @@
         --range-pip-text: var(--text2);
         --range-pip-active: var(--text2);
         --range-pip-active-text: var(--text2);
-        --range-pip-hover: var(--accent);
-        --range-pip-hover-text: var(--accent);
+        --range-pip-hover: var(--accent1);
+        --range-pip-hover-text: var(--accent1);
         --range-pip-in-range: var(--text2);
         --range-pip-in-range-text: var(--text2);
     }
 
     .adjusted {
-        --range-handle-inactive: var(--accent);
+        --range-handle-inactive: var(--accent1);
 
-        --range-pip-active: var(--accent);
-        // --range-pip-active-text: var(--accent);
-        --range-pip-in-range: var(--accent);
-        // --range-pip-in-range-text: var(--accent);
+        --range-pip-active: var(--accent1);
+        // --range-pip-active-text: var(--accent1);
+        --range-pip-in-range: var(--accent1);
+        // --range-pip-in-range-text: var(--accent1);
     }
 
     label {
@@ -165,6 +165,10 @@
 
     input:checked + label {
         background: var(--surface3);
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--accent1);
+    }
+
+    section:not(:first-of-type) {
+        margin-top: 1rem;
     }
 </style>

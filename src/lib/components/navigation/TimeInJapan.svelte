@@ -23,10 +23,10 @@
 <span class="visually-hidden">In Japan, it's {timeInJST}</span>
 <div class="jst-time" aria-hidden="true">
     {#if isExpanded}
-        <Icon icon="mdi:clock-outline" color="var(--accent)" />
+        <Icon icon="mdi:clock-outline" color="var(--accent1)" />
         <time>{timeInJST} JST</time>
     {:else}
-        <time style="color: var(--accent)">{timeInJST.split(", ")[1]}</time>
+        <time style="color: var(--accent1)">{timeInJST.split(", ")[1]}</time>
     {/if}
 </div>
 

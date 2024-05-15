@@ -211,7 +211,7 @@
 
         b {
             font-weight: 800;
-            color: var(--accent);
+            color: var(--accent1);
         }
     }
 </style>
