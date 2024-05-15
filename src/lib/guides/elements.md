@@ -45,12 +45,12 @@ Additionally, a **Burst Finish Gauge** will appear with a level 1 indicator next
     The Burst Finish Gauge will start to flash white faster and faster as Burst Bonus Time comes to an end!
 </StickyNote>
 
-<figure>
+<!-- <figure>
     <video src="/guides/elements/burstfinish.mp4" controls preload="none" poster="/guides/elements/burstfinishposter.webp">
         <track kind="captions">
     </video>
     <figcaption>Demonstration of the Elemental Burst and Burst Bonus Time mechanics.</figcaption>
-</figure>
+</figure> -->
 
 ### Burst Finish
 After Burst Bonus Time ends, a **Burst Finish** will occur, dealing massive damage determined by the level that was reached on the Burst Finish Gauge. Some elements will also apply buffs or debuffs after a Burst Finish.

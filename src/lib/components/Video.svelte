@@ -8,7 +8,7 @@
 
 <iframe
 	class="video"
-	class:full-bleed={bleed}
+	
 	style:border-radius={radius}
 	title="Video showcasing {title}"
 	src="https://www.youtube.com/embed/{id}"

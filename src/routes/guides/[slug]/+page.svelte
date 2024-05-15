@@ -1,59 +1,38 @@
 <script>
-    import { fetchMarkdownPosts } from "$lib/utils";
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import HeroBanner from "$lib/components/HeroBanner.svelte";
-    import ReadMore from "./ReadMore.svelte";
-    import PagesList from "$lib/components/layout/PagesList.svelte";
-    import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
+    import { page } from "$app/stores";
     import { onMount } from "svelte";
     export let data;
-    const { metadata, allGuides, html } = data;
-    let anchors = []
-
-    onMount(() => {
-        const headers = document.querySelectorAll("h2")
-        headers.forEach(node => {
-            anchors.push({ href: `#${node.id}`, title: node.innerText })
-        })
-        anchors = anchors
-    })
-
-    // $: formattedDate = ;
+    $: ({ metadata, allGuides, html } = data);
 </script>
 
-<!-- <MetaTags
+<MetaTags
     title={`${metadata.title} — Bapharia`}
     description={metadata.caption}
     image={metadata.bannerImg}
     bigImage
-/> -->
+/>
 
 <div class="article-layout">
-    <aside class="menu-col">
-        <nav>
+    <aside class="menu">
+        <nav class>
             <ul class="unstyled-list">
                 {#each allGuides as { href, title }}
                     <li>
-                        <a {href}>{title}</a>
+                        <a
+                            {href}
+                            class="styled-link"
+                            class:active-link={$page.url.pathname.includes(
+                                href,
+                            )}>{title}</a
+                        >
                     </li>
                 {/each}
             </ul>
         </nav>
     </aside>
-    <hgroup>
-        <p class="category">{metadata.category}</p>
-        <h1>{metadata.title}</h1>
-        <p>{metadata.caption}</p>
-        <!-- <b
-            >By {metadata.author}・Last updated {new Date(
-                metadata.date,
-            ).toLocaleDateString()}</b
-        > -->
-    </hgroup>
-    <article>
-        <svelte:component this={html} />
-    </article>
-    <aside class="toc-col">
+
+    <!-- <aside class="toc-col">
         <nav>
             <ol class="unstyled-list">
                 {#each anchors as { href, title }}
@@ -63,53 +42,142 @@
                 {/each}
             </ol>
         </nav>
-    </aside>
+    </aside> -->
+    <article>
+        <hgroup>
+            <p class="category">{metadata.category}</p>
+            <h1>{metadata.title}</h1>
+            <p>{metadata.caption}</p>
+            <!-- <b
+                >By {metadata.author}・Last updated {new Date(
+                    metadata.date,
+                ).toLocaleDateString()}</b
+            > -->
+        </hgroup>
+        <svelte:component this={html} />
+    </article>
 </div>
 
 <style lang="scss">
+    @mixin small-text {
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.0625em;
+        text-transform: uppercase;
+        color: var(--text3);
+    }
+
+    :global(article p) {
+        line-height: 1.75;
+        font-size: 1.25rem;
+        letter-spacing: 0.02em;
+        max-inline-size: 60ch;
+        text-wrap: pretty;
+    }
+
     .article-layout {
         max-width: 1450px;
         display: grid;
-        grid-template-areas:
-            "menu header toc"
-            "menu body toc";
+        grid-template-columns: 220px auto;
+        margin-top: 5rem;
+        gap: 3rem;
     }
 
-    .menu-col {
-        grid-area: menu;
+    .menu {
+        position: sticky;
+        top: calc(62px + 5rem);
+        align-self: start;
+
+        ul::before {
+            content: "Guides";
+            @include small-text;
+        }
+
+        a:not(:hover) {
+            color: var(--text2);
+        }
+
+        a {
+            // display: flex;
+            font-size: 1.125rem;
+            letter-spacing: 0.02em;
+
+            // padding: 0.125rem 0.25rem;
+        }
     }
 
-    hgroup {
-        grid-area: header;
+    .active-link {
+        color: var(--link) !important;
+        font-weight: bold;
     }
 
-    .toc-col {
-        grid-area: toc;
+    :global(.toc) {
+        grid-column: 2;
+        grid-row: 1/-1;
+        align-self: start;
+        min-width: 30ch;
+        position: sticky;
+        top: calc(62px + 5rem);
+        font-size: 1.125rem;
+        letter-spacing: 0.02em;
+    }
+
+    :global(.toc ol::before) {
+        content: "Contents";
+        @include small-text;
+    }
+
+    :global(.toc ol) {
+        // border-left: 1px solid rgba(128 128 128 / 0.2);
+        // gap: 0.5rem;
+    }
+
+    :global(.toc a) {
+        // display: flex;
+
+        // padding: 0.25rem 0;
+    }
+
+    :global(.toc li:first-of-type a) {
+        color: var(--link);
+        // border-left: 1px solid var(--link);
+        // margin-left: -1px;
+        font-weight: bold;
     }
 
     article {
-        grid-area: body;
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        grid-template-rows: auto auto;
+        column-gap: 3rem;
+    }
+
+    :global(article > *:not(.toc)) {
+        grid-column: 1;
     }
 
     hgroup {
-        margin-top: 2rem;
+        margin-bottom: 2rem;
 
-        .category {
-            color: goldenrod;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 0.0625em;
-            text-transform: uppercase;
-        }
-
-        * {
-            margin: 0;
-            line-height: 1.3;
+        h1 {
+            margin-bottom: 0.5rem;
+            line-height: normal;
         }
 
         p {
-            color: var(--text2);
-            font-size: 1.3125rem;
+            color: var(--text3);
+            line-height: 1.5;
+            margin: 0;
         }
+
+        .category {
+            color: var(--accent3);
+            line-height: unset;
+            margin-bottom: 2px;
+        }
+    }
+
+    .category {
+        @include small-text;
     }
 </style>

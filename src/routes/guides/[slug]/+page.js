@@ -1,4 +1,5 @@
 // export const csr = false
+import hi from "../../../lib/guides/combat.md"
 // https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog
 export async function load({ params }) {
     const allGuides =
@@ -11,7 +12,6 @@ export async function load({ params }) {
 
     const guide = await import(`../../../lib/guides/${params.slug}.md`)
     const { metadata } = guide
-
     // Find all <h2> elements and extract their id and inner text to create a table of contents
     const pattern = /<h2\s+id="([^"]+)"[^>]*>(.*?)<a\s[^>]*>.*?<\/a>?<\/h2>/g;
     let matches, anchors = [];
