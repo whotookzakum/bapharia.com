@@ -14,6 +14,8 @@
 		padding: var(--space-xs);
 		margin: 1rem 0;
 		font-size: var(--step-1);
+		max-inline-size: var(--text-length);
+		line-height: 1.75;
 	}
 
 	header {

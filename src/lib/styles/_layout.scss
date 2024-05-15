@@ -60,16 +60,17 @@ main {
         @extend .mini-header;
         content: attr(data-pane-title);
     }
+
+    ol::before {
+        @extend .mini-header;
+        content: "Contents";
+    }
 }
 
 .toc {
     grid-column: 2;
     grid-row: 1/-1;
     align-self: start;
-
-    ol::before {
-        content: "Contents";
-    }
 }
 
 .side-pane {
@@ -82,6 +83,7 @@ main {
     grid-template-columns: 1fr var(--sidepane-width);
     grid-template-rows: auto auto;
     column-gap: 3rem;
+    align-content: start;
 
     &>*:not(.toc) {
         grid-column: 1;
@@ -97,12 +99,22 @@ main {
         margin-bottom: 2px;
     }
 
-    p:not(.mini-header) {
+    p:not([class]) {
         line-height: 1.75;
         font-size: var(--step-2);
         letter-spacing: 0.02em;
         max-inline-size: var(--text-length);
         text-wrap: pretty;
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    table {
+        width: 100%;
     }
 }
 

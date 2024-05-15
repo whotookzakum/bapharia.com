@@ -34,7 +34,7 @@ When targed, various actions consume stamina and when in combat your jump height
 
 **Ability** is a common term in the game referring to a passive effect. It's used in Skills to describe passive skills (such as Class-Shared Ability), in [Weapon "Ability" Plugs](/guides/weapons-and-plugs#ability-plugs), in [Battle Imagine and Enhance Imagine](/guides/imagine) (referring to their passive stat line). Just keep in mind that the keyword **Ability = passive**.
 
-## 🧮 Stats
+## Stats
 Each class has various stats that can be altered by equipping and upgrading [Weapons](/guides/weapons-and-plugs) and [Imagine](/guides/imagine). Base Stats in particular have different effects based on whether you are playing a physical class or a magic class.
 
 <img src="https://cdn.discordapp.com/attachments/862600196704829443/1092825223226732555/image.png" alt="Battle Build page showing stats and loadout">
@@ -45,7 +45,7 @@ For example, increasing STR on a physical class will increase its ATK as well (w
 
 <BaseStatsConversionTable />
 
-### ❤️ HP
+### HP
 Hit Points (or Health Points). When your HP reaches 0, your character will be downed and can be resurrected by other players interacting with you. Rescue time is decreased as more players interact with a downed player. 
 
 In dungeons, you will automatically revive after some time if not rescued by others. Dungeons may have **limited revives shared between all party members**—these will not be consumed if the downed player is rescued by party members. If a party member is defeated with 0 lives left, the party will fail the dungeon and be kicked out, forfeiting all rewards.
@@ -56,7 +56,7 @@ When in fields or free exploration dungeons, **HP will continuously recover over
 
 HP can be recovered through various means such as [skills](/guides/combat#-skills), [party chain](/guides/combat#-party-chain), [buffs](/guides/combat#-buffs--debuffs), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
 
-### 🏃‍♀️ Stamina
+### Stamina
 Stamina is consumed when performing certain actions. Stamina consumption can be reduced by certain skills and Enhance Imagine [abilities](/guides/imagine#abilities-1). Max stamina can be increased by certain skills, such as Heavy Smasher's [passive skill](/classes/19/skills#stamina-up), and Enhance Imagine abilities.
 
 <StaminaConsumptionTable />
@@ -92,14 +92,14 @@ Finally, all classes can utilize **Rebound** (Ukemi) by pressing the dodge key r
 
 Learn more about each class' perfect dodge attack effects, plunge attack, and animation cancels on their [class page](/classes).
 
-### 📶 Level
+### Level
 Raising your class level will increase your stats and reduce the effects of equipment **level syncs** (details below). By raising your Adventurer Rank, you can increase the maximum level cap for your character.
 
 The **level difference** between a player and an enemy influences how much **damage and elemental charge** a player will deal and **EXP** they will gain by defeating that enemy. For enemies that are 8 or more levels higher than you, your attacks will do 0 damage (thus you won't be eligible for drops and won't be able to activate certain effects that require hitting an enemy). 
 
 <LevelDifferenceTable />
 
-### 💯 Battle Score
+### Battle Score
 Battle Score is the rating of a player's equipment. While it doesn't directly convey how powerful a player is, it represents the level of equipment a player is using.
 
 | Equipment           | Post-Limit Break Update                       | Pre-Limit Break Update |
@@ -110,7 +110,7 @@ Battle Score is the rating of a player's equipment. While it doesn't directly co
 
 Level and Battle Score are common requirements to entering [Missions](/guides/missions).
 
-### 😱 Level Sync
+### Level Sync
 If an item's max level exceeds your class level, the item will be level synced down, **reducing all of its stats besides Vitality** to match your class level.
 Since VIT is not level synced, you will end up with higher HP and defense than usual. 
 
@@ -120,13 +120,13 @@ Level syncs also exist in dungeons, forcefully adjusting all high level players'
     Ability Plugs, Abilities (passive skills, Imagine passives), Special Effects (weapon lines), and Skills are not affected by level syncs.
 </StickyNote>
 
-### ⚜️ Adventurer Rank
+### Adventurer Rank
 Raising your Adventurer Rank allows you to accept new quests (including continuing the main story quest), raises your maximum level cap, and provides some goodies. To raise your Adventurer Rank, you need to complete a Rank Up [Adventure Board](/guides/adventure-boards). Some ranks also require you to pass an exam (speak to NPC Millie at the Reclamation Bureau).
 
-## 🔥 Elements
+## Elements
 Players and enemies can use 6 elements in BLUE PROTOCOL: Fire, Ice, Thunder, Earth, Light, and Dark. They can be utilized through elemental skills, weapons, and [Battle Imagine](/guides/imagine#battle-imagine). Elements influence combat via **Elemental Effects** and **Elemental Resistance**.
 
-### ✨ Elemental Charge
+### Elemental Charge
 Attacking with elements will fill the **Elemental Charge gauge** underneath an enemy's health bar. Filling it to level 1 (100 charge), level 2 (300 charge), or level 3 (600 charge) will apply an **Elemental Effect** on the enemy, based on which element has contributed the most charge. 
 
 <StickyNote type="note">
@@ -158,7 +158,7 @@ Enemies in Missions, Raids, and Elite Monsters have a multiplier that reduces th
     </div>
 </details>
 
-### 💥 Elemental Effects
+### Elemental Effects
 At level 1 and 2, a debuff is applied, with level 2 being a stronger version. Level 3 triggers an **Elemental Burst**, which deals considerable damage and begins **Burst Bonus Time**.
 
 <ElementsTable />
@@ -173,7 +173,7 @@ At level 1 and 2, a debuff is applied, with level 2 being a stronger version. Le
 <!-- TODO: confirm reduced effects? -->
 **The effects of Level 1 and 2 Fire are reduced by 75% against Elite Monsters and Raid Bosses.**
 
-### ⌛ Burst Bonus Time
+### Burst Bonus Time
 Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**. Players and Battle Imagine will deal increased elemental damage, and Level 2 elemental effects are removed. The damage boost is determined by the element of the attack (prioritizing skill element).
 
 | Elements | Player Damage Increase | Battle Imagine Damage Increase |
@@ -240,7 +240,7 @@ After Burst Bonus Time ends, a **Burst Finish** will occur, dealing damage based
 <!-- TODO: confirm reduced effects? -->
 Elemental Burst and Burst Finish damage is not affected by defense or elemental resistance. **The effects of Burst and Burst Finish are reduced by 75% against Elite Monsters and Raid Bosses.**
 
-### 🛡️ Elemental Resistance
+### Elemental Resistance
 Players and enemies both have elemental resistance for each element, influencing damage taken and elemental charge buildup. Negative resistance values indicate that the target is weak to that element. 
 
 <StickyNote type="note">
@@ -287,7 +287,7 @@ Chevron icons next to your damage number indicate that the enemy is weak against
     </p>
 </details>
 
-### ⚖️ Weapon-Skill interaction
+### Weapon-Skill Interaction
 Skill element and weapon element **both** factor into your damage in regards to elemental weaknesses. In other words, on an enemy that is weak against fire, you will do more damage using a fire skill + fire weapon than a fire skill + ice weapon. The skill will retain its element (fire) even if equipped with a different element weapon (ice).
 
 If the weapon and skill **elements match**, the weapon's Elemental Attack stat is added to your attack when calculating damage. **Non-elemental skills** will always get this bonus because they **inherit the weapon element**.
@@ -314,7 +314,7 @@ If the weapon and skill **elements do not match**, damage from resistance is cal
 
 <EleResistDamageTable />
 
-## 🪄 Skills
+## Skills
 Skills can be unlocked by leveling up. You can equip the following: 
 
 Active skills: 
@@ -337,7 +337,7 @@ Learn more about the class actions and class abilities on the [classes page](/cl
 
 The developers have stated that they prefer to add more skill diversity to existing classes than create new classes that aren't very unique.
 
-### 📈 Skill Variants
+### Skill Variants
 At G3+, skills have three variations: Normal, Alpha, and Beta variants. These variants slightly alter how a skill works, such as increasing the number of hits, adding additional buffs/debuffs, and more.
 
 **Alpha skills** can be purchased with class tokens at the Class Master. To unlock his shop, you need to be **Adventure Rank 9** and **Class Level 45** and complete all of his quests. To *purchase* from the shop, you need to be Level 50. 
@@ -363,12 +363,12 @@ The class tokens can be collected on one class and used on another.
 
 **Beta skills** have a chance of dropping in **Survey & Advanced Survey Missions** after you reach **level 50**. Only the skills that you currently have equipped on your palette will be eligible for a beta skill drop. The drop rates are notoriously low.
 
-## 💪 Buffs & Debuffs
+## Buffs & Debuffs
 Abnormal statuses that can be applied to players or enemies. Debuffs from elemental effects can be found in the [elements](/guides/combat#-elements) section.
 
 <AbnormalStatusesTable />
 
-## 🗡️ EXP & Drops
+## EXP & Drops
 When an enemy is defeated, **all players** who dealt at least 1 damage to the enemy will be **eligible to receive full EXP and drops**. In party play, **all party members** will be eligible if at least one of their members dealt at least 1 damage to the enemy.
 
 <StickyNote type="warning">
@@ -399,7 +399,7 @@ EXP gain is scaled based on your [level difference](/guides/combat#-level) with 
 </details>
 <!-- TODO: do drop rates stack in dungeons? test 6x drop drops in dungeons -->
 
-## ♾️ Party Chain
+## Party Chain
 <!-- TODO: confirm that party chain affects healing? -->
 The party chain is a combo count of all party members' hits. As it accumulates, your party gains a slight increase in damage and self-healing effects. The higher the chain count, the less time you have to successfully perform another attack before the chain ends. The party chain will reset to 0 if no successful attacks are detected before the timer ends.
 
@@ -413,10 +413,10 @@ Elemental damage-over-time debuffs do not count towards the party chain.
 
 <PartyChainTable />
 
-## 🎯 Parts Destruction
+## Parts Destruction
 Some enemies have designated parts that can be destroyed, downing the enemy for a brief period. Attacking this point will deal increased damage. This is separate from Blast Archer's [Weak Point Targeting](/classes/6#weak-point-targeting).
 
-## ⚔️ PvP
+## PvP
 **There is no player versus player system in BLUE PROTOCOL.** PvP refers to Party vs Party—player party vs enemy AI party. Similar to players, enemies will cooperate and try to take down you and your allies. 
 
 Enemy leaders will be indicated by a star **☆** preceeding their name, and they will give orders to other enemies.
