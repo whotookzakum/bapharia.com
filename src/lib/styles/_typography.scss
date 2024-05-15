@@ -116,10 +116,14 @@ select {
 // HEADERS 
 // ======================================================================
 
-.mini-header {
+.attribution {
     font-weight: 600;
     font-size: var(--step--1);
     letter-spacing: 0.0625em;
+}
+
+.mini-header {
+    @extend .attribution;
     text-transform: uppercase;
     color: var(--text3);
 }
@@ -180,6 +184,19 @@ article table {
     th,
     td {
         padding: 1rem;
+    }
+}
+
+hgroup {
+    * {
+        line-height: normal;
+    }
+
+    p {
+        font-size: var(--step-2);
+        color: var(--text3);
+        line-height: 1.5;
+        margin: 0;
     }
 }
 

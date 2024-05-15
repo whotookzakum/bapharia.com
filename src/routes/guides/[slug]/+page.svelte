@@ -30,17 +30,19 @@
             </ul>
         </nav>
     </aside>
-    
+
     <article>
         <hgroup>
             <p class="mini-header">{metadata.category}</p>
             <h1>{metadata.title}</h1>
             <p>{metadata.caption}</p>
-            <!-- <b
-                >By {metadata.author}・Last updated {new Date(
-                    metadata.date,
-                ).toLocaleDateString()}</b
-            > -->
+            <p>
+                <span class="attribution" style="color: var(--text1)">
+                    By {metadata.author}・Last updated {new Date(
+                        metadata.date,
+                    ).toLocaleDateString()}
+                </span>
+            </p>
         </hgroup>
         <svelte:component this={html} />
     </article>

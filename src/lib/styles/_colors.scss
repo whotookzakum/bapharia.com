@@ -24,7 +24,7 @@
 // Dark Themes
 @mixin theme-entropy {
     @include text-light;
-    --bg: hsl(236, 23%, 10%);
+    --bg: hsl(236, 23%, 10%) !important;
     --surface1: hsl(231, 23%, 13%);
     --surface2: hsl(231, 23%, 16%);
     --surface3: hsl(231, 23%, 19%);
@@ -36,7 +36,7 @@
 // Light Themes
 @mixin theme-clearskies {
     @include text-dark;
-    --bg: hsl(230, 30%, 88%);
+    --bg: hsl(230, 30%, 88%) !important;
     --surface1: hsl(225, 35%, 85%);
     --surface2: hsl(225, 35%, 82%);
     --surface3: hsl(225, 35%, 79%);
@@ -55,3 +55,22 @@
         @include theme-entropy
     }
 }
+
+[color-scheme="dark"] {
+    
+    @include theme-entropy
+    
+}
+
+[color-scheme="light"] {
+    @include theme-clearskies
+}
+
+.theme-entropy {
+    
+}
+
+.theme-clearskies {
+    
+}
+

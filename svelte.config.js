@@ -6,6 +6,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import rehypeToc from "@jsdevtools/rehype-toc";
 import rehypeSectionize from "@hbsnow/rehype-sectionize";
+import rehypeInferReadingTimeMeta from "rehype-infer-reading-time-meta"
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -37,6 +38,9 @@ const config = {
 				],
 				[
 					rehypeSectionize
+				],
+				[
+					rehypeInferReadingTimeMeta
 				]
 			]
 		})
