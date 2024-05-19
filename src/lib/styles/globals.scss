@@ -20,6 +20,33 @@ body {
     cursor: url('/images/cursor.png'), default;
 }
 
+
+
+
+:where(*:focus-visible,
+    input.visually-hidden:focus-visible+label,
+    /* dependent on :has() */
+    .outline-focus-within:has(:focus-visible),
+    label:has(input:where(.visually-hidden, [type="text"], [type="number"]):focus-visible)) {
+    outline: 2px solid var(--outline-color) !important;
+}
+
+.outline-focus-within a,
+label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) {
+    outline: none !important;
+}
+
+@supports not selector(:has(*)) {
+    .outline-focus-within:focus-within,
+    label:focus-within {
+        outline: 2px solid var(--outline-color) !important;
+    }
+}
+
+.invalid {
+    outline: 2px solid crimson !important;
+}
+
 hr {
     border: none;
     margin: 0.5rem 0;
@@ -65,14 +92,7 @@ hr {
     width: 1px;
 }
 
-label:has(input.visually-hidden:focus-visible) {
-    outline: 2px solid var(--accent1);
-}
 
-input.visually-hidden[type="checkbox"]:focus-visible+label,
-input.visually-hidden[type="radio"]:focus-visible+label {
-    outline: 2px solid var(--accent1);
-}
 
 .flex {
     display: flex;

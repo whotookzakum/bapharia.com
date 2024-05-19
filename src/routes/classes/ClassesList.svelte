@@ -4,7 +4,7 @@
 <!--  PUT IN NAV -->
 <ul class="classes-list grid unstyled-list" role="list">
     {#each classes as job}
-        <li class="grid box hover">
+        <li class="grid box hover outline-focus-within">
             <img src={job.image} alt="" width="96" height="96" />
             <a href={job.href} class="styled-link">{job.name}</a>
             <span>{job.weapon}</span>
@@ -56,10 +56,6 @@
         font-weight: 600;
     }
 
-    a:focus-visible {
-        outline: none !important;
-    }
-
     a::after {
         content: "";
         position: absolute;
@@ -69,13 +65,6 @@
 
     li:has(:focus-visible) {
         background: var(--surface2);
-    }
-
-    @supports not selector(:has(*)) {
-        li:focus-within {
-            outline: 2px solid var(--accent1);
-            background: var(--surface2);
-        }
     }
 
     @media (max-width: 424px) {

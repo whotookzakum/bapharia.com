@@ -98,7 +98,7 @@
     }
 
     input:focus-visible + .tab-text {
-        outline: 2px solid var(--accent1);
+        
     }
 
     input:checked + .tab-text {

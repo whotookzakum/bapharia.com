@@ -92,10 +92,6 @@
             height: 100%;
             width: 100%;
             padding: 0 1rem;
-
-            &:focus-visible {
-                outline: none !important;
-            }
         }
 
         .flex {
@@ -104,7 +100,7 @@
         }
 
         &:has(.search:focus-visible) {
-            outline: 2px solid var(--accent1);
+            
         }
     }
 

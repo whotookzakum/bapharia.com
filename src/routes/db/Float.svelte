@@ -89,9 +89,10 @@
 
             targetElement.addEventListener("mouseenter", showTooltip);
             targetElement.addEventListener("mouseleave", hideTooltip);
-            targetElement.addEventListener("focus", showTooltip);
-            targetElement.addEventListener("focusin", showTooltip);
+            targetElement.addEventListener("focus", () => show = true);
             targetElement.addEventListener("blur", hideTooltip);
+            targetElement.addEventListener("focusin", () => show = true);
+            targetElement.addEventListener("focusout", hideTooltip);
             targetElement.addEventListener("click", hideTooltip);
         }
     });
@@ -127,7 +128,7 @@
         position: relative;
     }
 
-    :global(.float-wrapper:not(.delay) *:where(:hover, :focus-visible, :focus-within) ~ .tooltip),
+    :global(.float-wrapper:not(.delay) *:where(:hover, :focus-visible, :has(:focus-visible)) ~ .tooltip),
     .show .tooltip {
         visibility: visible !important;
         opacity: 1 !important;

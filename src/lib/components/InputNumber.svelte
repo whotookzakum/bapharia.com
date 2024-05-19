@@ -50,10 +50,6 @@
         min-height: 44px;
         min-width: 44px;
 
-        &:has(:focus-visible) {
-            outline: 2px solid var(--accent1);
-        }
-
         &:has(:disabled) {
             color: var(--text2);
             background: var(--surface2);
@@ -62,19 +58,11 @@
     }
 
     @supports not selector(:has(*)) {
-        .input-wrapper:focus-within {
-            outline: 2px solid var(--accent1);
-        }
-
         .input-wrapper.disabled {
             color: var(--text2);
             background: var(--surface2);
             filter: brightness(0.9) saturate(0);
         }
-    }
-
-    .invalid {
-        outline: 2px solid crimson !important;
     }
 
     input.input {
@@ -84,11 +72,6 @@
         border: none;
         width: 100%;
         height: 100%;
-
-        &:focus,
-        &:focus-visible {
-            outline: none !important;
-        }
     }
 
     .prefix, .suffix {

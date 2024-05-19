@@ -23,6 +23,8 @@
     import Icon from "@iconify/svelte";
     import { updateSearchParams } from "$lib/utils";
     import Float from "./Float.svelte";
+    import InputText from "$lib/components/InputText.svelte";
+    import InputNumber from "$lib/components/InputNumber.svelte";
 
     export let data;
 
@@ -142,7 +144,7 @@
     <p>
         hello
         
-        <Float>
+        <Float delay>
             <button aria-label="Filters" on:click={() => console.log("submitted")}>
                 This is my button.
             </button>
@@ -151,15 +153,19 @@
                 to work properly otherwise it won't work.
             </svelte:fragment>
         </Float>
-        <Float>
+        <Float delay>
             <label on:input={() => console.log("hi")}>
-                <input type="checkbox" class="visually-hidde"> heyy
+                <input type="checkbox" class="visually-hidden"> heyy
             </label>
             <svelte:fragment slot="tooltip">
                 This setting requires you to select one of the settings below
                 to work properly otherwise it won't work.
             </svelte:fragment>
         </Float>
+        <input type="checkbox" id="h" class="visually-hidden">
+        <label for="h">asdasd</label>
+        <InputText value={3} description="heyasdsad" />
+        <InputNumber value={7} />
     </p>
     <!-- <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur

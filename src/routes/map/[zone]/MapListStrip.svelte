@@ -320,7 +320,7 @@
         }
 
         label:focus-within span {
-            outline: 2px solid var(--accent1);
+            
         }
     }
 

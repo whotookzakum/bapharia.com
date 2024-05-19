@@ -124,10 +124,6 @@
         color: var(--accent1);
     }
 
-    #toggle-input:focus-visible + .toggle {
-        outline: 2px solid var(--accent1);
-    }
-
     #toggle-input:checked {
         & + .toggle {
             color: var(--accent1);

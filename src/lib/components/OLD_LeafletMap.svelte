@@ -169,6 +169,5 @@
 		background-size: cover;
 		background-position: 50% 50%;
 		cursor: inherit !important;
-		outline: none !important;
 	}
 </style>

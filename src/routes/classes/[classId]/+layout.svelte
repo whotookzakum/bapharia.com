@@ -1,8 +1,6 @@
 <script>
     import HeroBanner from "$lib/components/HeroBanner.svelte";
-    import PagesList from "$lib/components/layout/PagesList.svelte";
     import classes from "../classes.json";
-    import TableOfContents from "$lib/components/layout/TableOfContents.svelte";
     import { page } from "$app/stores";
     import SubpageNav from "./SubpageNav.svelte";
 
@@ -42,9 +40,6 @@
     </HeroBanner>
 {/if}
 
-<PagesList links={classes} includeUpperRoutes />
-
-<TableOfContents />
 
 <article id="classPage" class="grid">
     <SubpageNav />

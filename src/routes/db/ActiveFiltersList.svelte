@@ -134,15 +134,5 @@
         font-weight: 600;
         border-color: crimson;
         color: crimson;
-
-        &:hover,
-        &:focus-visible {
-            color: var(--accent1);
-            border-color: var(--accent1);
-        }
-
-        &:focus-visible {
-            outline: none !important;
-        }
     }
 </style>
