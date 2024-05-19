@@ -138,17 +138,18 @@
             Tooltip
         );
         Chart.defaults.font.size = 12;
+        // Chart.defaults.color = 
         myChart = new Chart(chartElement, config);
         myChart.options.animation = false;
     });
 </script>
 
 <div class="chart-wrapper grid">
-    <h2>Stats</h2>
+    <span class="mini-header">Stats</span>
     <StatsChartSettings {changeAxis} bind:maxAxisValue bind:selectedIndexAxis bind:showTrueValue />
     <canvas bind:this={chartElement} />
-    <small>All classes have 100 Stamina, and a maximum Crit Rate of 30%.</small>
 </div>
+
 
 <style lang="scss">
     .chart-wrapper {
@@ -157,18 +158,8 @@
         min-width: 0;
         position: relative;
 
-        h2 {
-            margin: 0;
-            font-size: var(--step-3);
-        }
-
         canvas {
             max-width: 100%;
-        }
-
-        small {
-            margin-top: 1rem;
-            line-height: 1.4;
         }
     }
 </style>

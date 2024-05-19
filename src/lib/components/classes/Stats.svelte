@@ -4,9 +4,9 @@
     import StatsChartCheckboxes from "./StatsChartCheckboxes.svelte";
     import InputNumber from "$lib/components/InputNumber.svelte";
     import hue from "./classHues.json";
-    import classesData from "../classes.json";
+    import classesData from "./classes.json";
     let selectedClasses;
-    let levelSelector = 60;
+    let levelSelector = 70;
     $: selectedLevel = levelSelector;
     $: {
         if (levelSelector > 100) selectedLevel = 100;
@@ -14,41 +14,41 @@
         if (typeof levelSelector !== "number") selectedLevel = 1;
     }
     $: currentClass = classesData.find(
-        (job) => job.id === parseInt($page.params.classId)
+        (job) => job.id === parseInt($page.params.classId),
     );
 </script>
 
 <div class="stats-wrapper box flex">
     <div class="left-col grid">
-        <div>
-            <span id="stats-level-description" class="component-label"
-                >Level</span
-            >
-            <InputNumber
-                description="Level"
-                prefix="LV."
-                id="level-input-number"
-                bind:value={levelSelector}
-                max={100}
-                min={1}
-                invalid={levelSelector > 100 || levelSelector < 0}
-                describedby="stats-level-description"
-            />
+        <div class="grid g-50">
+            <span id="stats-level-description" class="mini-header">Level</span>
+            <div>
+                <InputNumber
+                    description="Level"
+                    prefix="LV."
+                    id="level-input-number"
+                    bind:value={levelSelector}
+                    max={100}
+                    min={1}
+                    invalid={levelSelector > 100 || levelSelector < 0}
+                    describedby="stats-level-description"
+                />
 
-            <input
-                type="range"
-                bind:value={levelSelector}
-                max="100"
-                min="1"
-                style="accent-color: hsla({hue[
-                    currentClass.internalName
-                ]}, 60%, 50%, 1); margin: 1rem 0; width: 100%;"
-                describedby="stats-level-description"
-            />
+                <input
+                    type="range"
+                    bind:value={levelSelector}
+                    max="100"
+                    min="1"
+                    style="accent-color: hsla({hue[
+                        currentClass.internalName
+                    ]}, 60%, 50%, 1); margin: 1rem 0; width: 100%;"
+                    describedby="stats-level-description"
+                />
+            </div>
         </div>
 
-        <div>
-            <span class="component-label">Compare classes</span>
+        <div class="grid g-75">
+            <span class="mini-header">Classes</span>
             <StatsChartCheckboxes
                 currentClassId={parseInt($page.params.classId)}
                 bind:selectedClasses
@@ -60,10 +60,11 @@
         <StatsChart level={selectedLevel} classes={selectedClasses} />
     </div>
 </div>
+<small style="color: var(--text3)">All classes have 100 base Stamina, and a maximum Crit Rate of 30%.</small>
 
 <style lang="scss">
     .stats-wrapper {
-        margin: 2rem 0;
+        margin-block: 0.5rem 1rem;
         overflow: unset;
         gap: 1rem;
     }

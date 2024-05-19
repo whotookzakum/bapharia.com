@@ -7,14 +7,14 @@
 </script>
 
 <GoogleAnalytics properties={["G-WFYTLGB8B9"]} />
-<!-- <Navbar /> -->
+<Navbar />
 
 <main id="main" class="layout" tabindex="-1">
     <slot />
 </main>
 
 {#if !$page.url.pathname.includes("/map")}
-    <!-- <PageFooter /> -->
+    <PageFooter />
 {/if}
 
 <!-- <div class="ambience" /> -->

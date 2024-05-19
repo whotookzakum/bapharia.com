@@ -33,7 +33,7 @@ The beauty salon can be accessed through the Aesthetician. There are various cou
 Like the character creator, the beauty salon allows you to preview your character in different lighting, positions, and zoom levels.
 
 <StickyNote type="tip">
-    A free regular-course ticket can be obtained from the quest <a href="/db/quest/SQ101_120">A Whole New Me</a>.
+    A free regular-course ticket can be obtained from the quest <a href="/db/quests/SQ101_120">A Whole New Me</a>.
 </StickyNote>
 
 <StickyNote type="tip">

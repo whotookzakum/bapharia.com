@@ -65,12 +65,12 @@ Adventure Boards can be obtained from treasure chests, dungeons, and completing 
 ### Class Boards
 To get these boards, you must complete a quest chain given by your respective class instructor NPC. Below are links to the **final** quest in the quest chain—you can follow the prerequisites backwards to find where to start.
 
-- [Blast Archer](/db/quest/SQ103_235)
-- [Twin Striker](/db/quest/SQ103_234)
-- [Spell Caster](/db/quest/SQ103_236)
-- [Aegis Fighter](/db/quest/SQ103_233)
-- [Heavy Smasher](/db/quest/SQ103_237)
-- [Blitz Lancer](/db/quest/SQ103_238)
+- [Blast Archer](/db/quests/SQ103_235)
+- [Twin Striker](/db/quests/SQ103_234)
+- [Spell Caster](/db/quests/SQ103_236)
+- [Aegis Fighter](/db/quests/SQ103_233)
+- [Heavy Smasher](/db/quests/SQ103_237)
+- [Blitz Lancer](/db/quests/SQ103_238)
 
 Class boards give class talismans, which can be used to purchase [Alpha skills](/guides/combat#skill-variants). While you can only make progress towards the board of **the class you are currently playing**, the talismans can be used on **any** class once obtained.
 

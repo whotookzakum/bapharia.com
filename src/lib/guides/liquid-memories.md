@@ -24,7 +24,7 @@ thumbImg: "/guides/liqmem/thumb.webp"
 Liquid Memories are buffs that assist the player in progression-related tasks. While they don't increase combat prowess, they provide convenient effects that can increase efficiency when collecting materials or selling items.
 
 ## How to unlock
-After reaching Adventurer Rank 3, complete the quest [When Life Gives You Memories](/db/quest/SQ101_127). Afterwards, Liquid Memory bottles can be unlocked through various methods such as clearing quests or opening treasure chests.
+After reaching Adventurer Rank 3, complete the quest [When Life Gives You Memories](/db/quests/SQ101_127). Afterwards, Liquid Memory bottles can be unlocked through various methods such as clearing quests or opening treasure chests.
 
 There are up to **three bottles** (M1, M2, M3) for each buff. Unlocking more bottles will increase the buff's duration or effectiveness.
 

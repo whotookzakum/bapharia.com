@@ -1,5 +1,5 @@
 <script>
-    import classes from "./classes.json";
+    import classes from "$lib/components/classes/classes.json";
 </script>
 <!--  PUT IN NAV -->
 <ul class="classes-list grid unstyled-list" role="list">

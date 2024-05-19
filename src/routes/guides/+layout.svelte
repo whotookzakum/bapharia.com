@@ -1,6 +1,5 @@
 <script>
     import { page } from "$app/stores";
-    import MetaTags from "$lib/components/MetaTags.svelte";
     export let data;
 </script>
 

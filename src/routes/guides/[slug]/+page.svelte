@@ -2,7 +2,7 @@
     import MetaTags from "$lib/components/MetaTags.svelte";
     import Icon from "@iconify/svelte";
     export let data;
-    $: ({ metadata, html, readingTime } = data);
+    $: ({ metadata, html } = data);
 </script>
 
 <MetaTags
@@ -10,7 +10,6 @@
     description={metadata.caption}
     image={metadata.bannerImg}
     bigImage
-    readingTime={metadata.readingTime}
 />
 
 <article class="main-pane">

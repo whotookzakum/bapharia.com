@@ -10,6 +10,9 @@
     import _ from "lodash";
 
     // Display tooltip slot if provided, else display aria-label value.
+    // Uses CSS to toggle tooltip visibility instead of creating and removing DOM nodes.
+    // TODO: Might need onDestroy() code to clean up event listeners?
+    // TODO: role="tooltip" or "popover" + "popovertarget"?
 
     export let inline = false;
     export let show = false; // if delay is specified, will hide after blur or hover out; if no delay then will permanently be open
@@ -37,6 +40,7 @@
             targetElement.setAttribute("aria-describedby", tooltipId);
         } else {
             targetElementName = targetElement.getAttribute("aria-label");
+            if (!targetElementName) targetElementName = targetElement.getAttribute("alt")
         }
     };
 
@@ -113,6 +117,7 @@
         class="tooltip"
         class:animate
         bind:this={tooltipElement}
+        aria-hidden={!$$slots.tooltip}
     >
         <slot name="tooltip">
             {targetElementName}

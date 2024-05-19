@@ -1,9 +1,10 @@
 <script>
     import HeroBanner from "$lib/components/HeroBanner.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import ClassesList from "./ClassesList.svelte";
+    // import ClassesList from "./ClassesList.svelte";
 
     export let data;
+    const { html } = data;
 </script>
 
 <MetaTags
@@ -13,40 +14,22 @@
     bigImage
 />
 
-<HeroBanner bannerUrl="/images/banner_classes.png" style="--backdrop-opacity: 0.68">
-    <h1>Classes</h1>
-    <p style:color="var(--text2)" style:margin-top="0">
-        Information on all the playable classes in BLUE PROTOCOL, including
-        their skills, unique mechanics, and meta.
-    </p>
-</HeroBanner>
+<article class="main-pane">
+    <hgroup>
+        <p class="mini-header">Class Overview</p>
+        <h1>Classes</h1>
+        <p>
+            Information on all the playable classes in BLUE PROTOCOL, including
+            their skills, unique mechanics, and meta.
+        </p>
+    </hgroup>
+    <img src="/images/_epic.png" alt="" />
+    <!-- <img src="/images/banner_seasonpointscalc.png" alt="" /> -->
+    <svelte:component this={html} />
+</article>
 
-<div class="flex">
-    <ClassesList />
-    <div class="article-wrapper">
-        <article>
-            <svelte:component this={data.content} />
-        </article>
-    </div>
-</div>
-
-<style lang="scss">
-    .flex {
-        flex-direction: row-reverse;
-        flex-wrap: wrap;
-        column-gap: 2rem;
-        width: 100%;
-        max-width: 1500px;
-        margin: 0 auto;
-    }
-
-    .article-wrapper {
-        flex-grow: 1;
-        flex-basis: 35rem;
-    }
-
-    article {
-        margin: auto;
-        width: fit-content;
+<style>
+    img {
+        border-radius: 1rem;
     }
 </style>

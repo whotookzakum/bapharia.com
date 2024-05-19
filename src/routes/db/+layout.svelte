@@ -22,13 +22,11 @@
     import Popper from "$lib/components/Popper.svelte";
     import Icon from "@iconify/svelte";
     import { updateSearchParams } from "$lib/utils";
-    import Float from "./Float.svelte";
+    import Float from "$lib/components/Float.svelte";
     import InputText from "$lib/components/InputText.svelte";
     import InputNumber from "$lib/components/InputNumber.svelte";
 
     export let data;
-
-    console.log(data);
 
     $: searchResults = dummydata.filter((entry) => {
         const queryMatch = $userSearch
@@ -43,7 +41,6 @@
         return queryMatch;
     });
 
-    $: ({ DBSearchQuery } = data);
     // TODO save and cache preferences: filters
     // TODO favorite items
 

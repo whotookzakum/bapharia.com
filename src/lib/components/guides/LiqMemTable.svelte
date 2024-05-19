@@ -11,7 +11,7 @@
             sources: [
                 {
                     name: "Sim-patti-co",
-                    href: "/db/quest/SQ101_128"
+                    href: "/db/quests/SQ101_128"
                 },
                 {
                     name: "Treasure Chest", // Olvid Plains
@@ -32,7 +32,7 @@
             sources: [
                 {
                     name: "The Next Step",
-                    href: "/db/quest/SQ101_146"
+                    href: "/db/quests/SQ101_146"
                 },
                 {
                     name: "Treasure Chest", // ラウレーベン古戦場
@@ -49,7 +49,7 @@
             sources: [
                 {
                     name: "The Laid-Back Lab's Latest",
-                    href: "/db/quest/SQ101_131"
+                    href: "/db/quests/SQ101_131"
                 },
                 {
                     name: "Treasure Chest", // Melissos River Basin
@@ -70,7 +70,7 @@
             sources: [
                 {
                     name: "When Life Gives You Memories",
-                    href: "/db/quest/SQ101_127",
+                    href: "/db/quests/SQ101_127",
                 },
                 {
                     name: "Treasure Chest", // 帰らずの砂塵
@@ -91,7 +91,7 @@
             sources: [
                 {
                     name: "Back to the Beginning",
-                    href: "/db/quest/SQ101_140"
+                    href: "/db/quests/SQ101_140"
                 },
                 {
                     name: "Treasure Chest", // イア・モーレ岩礁
@@ -108,7 +108,7 @@
             sources: [
                 {
                     name: "Never Hurts to Doublecheck!",
-                    href: "/db/quest/SQ102_250"
+                    href: "/db/quests/SQ102_250"
                 },
                 {
                     name: "Treasure Chest", // 孤影の城下
@@ -129,7 +129,7 @@
             sources: [
                 {
                     name: "Waiting for the Goat to Go",
-                    href: "/db/quest/SQ101_129"
+                    href: "/db/quests/SQ101_129"
                 },
                 {
                     name: "Treasure Chest", // シュタール海岸
@@ -146,7 +146,7 @@
             sources: [
                 {
                     name: "Divination Intervention",
-                    href: "/db/quest/SQ101_141"
+                    href: "/db/quests/SQ101_141"
                 },
                 {
                     name: "Treasure Chest", // 風止みの荒地
@@ -167,7 +167,7 @@
             sources: [
                 {
                     name: "Revising the Process",
-                    href: "/db/quest/SQ101_143"
+                    href: "/db/quests/SQ101_143"
                 },
                 {
                     name: "Treasure Chest", // ともし火の森

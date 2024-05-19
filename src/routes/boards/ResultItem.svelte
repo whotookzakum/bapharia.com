@@ -25,7 +25,7 @@
         {/if}
     {:else if type === "quest"}
         <img src={result.thumb} alt="" width="64" height="64" />
-        <a class="styled-link result-name" href="/db/quest/{result.id}#steps"
+        <a class="styled-link result-name" href="/db/quests/{result.id}#steps"
             >{result.name[$userLocale]}</a
         >
         <MatchedDescriptions {result} {type} {searchTerm} />

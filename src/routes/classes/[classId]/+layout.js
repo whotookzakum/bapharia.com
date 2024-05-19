@@ -1,7 +1,7 @@
 export async function load({ params }) {
     const post = await import(`../../../lib/classes/${params.classId}.md`)
     return {
-        meta: post.metadata,
-        content: post.default
+        metadata: post.metadata,
+        html: post.default,
     }
 }

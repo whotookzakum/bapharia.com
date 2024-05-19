@@ -19,22 +19,6 @@
 	// TODO: tiny says use aria-expanded instead of visually-hidden?
 
 	// db, map, builder, boards, classes, guides, events
-
-//     {
-//         "name": {
-//             "ja_JP": "ビルダー",
-//             "en_US": "Builder"
-//         },
-//         "href": "/builder"
-//     },
-//     {
-//         "name": {
-//             "ja_JP": "イベント",
-//             "en_US": "Events"
-//         },
-//         "href": "/events"
-//     }
-
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->
@@ -88,7 +72,7 @@
 			</a>
 		{/each}
 		<div class="extras">
-			<!-- <TimeInJapan /> -->
+			<TimeInJapan />
 			<LocaleSelector />
 			<ThemeToggle />
 		</div>
@@ -106,6 +90,8 @@
 		z-index: 1002;
 		// background: rgb(35 39 47/0.9);
 		backdrop-filter: blur(50px);
+		background: var(--bg);
+		// background: red;
 		top: 0;
 		padding: 0 1rem;
 		height: var(--nav-height);

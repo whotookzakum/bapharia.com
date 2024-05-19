@@ -47,20 +47,31 @@
     --warning: crimson;
 }
 
+@mixin bp-colors {
+    --color-Attack: #d10000;
+    --color-Heal: #006894;
+    --color-Buf: #ff568c;
+    --color-Debuf: #00a555;
+}
+
 :root {
-    @include theme-clearskies
+    @include theme-clearskies;
+    @include bp-colors;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        @include theme-entropy
+        @include theme-entropy;
+        @include bp-colors;
     }
 }
 
 [color-scheme="dark"] {
-    @include theme-entropy
+    @include theme-entropy;
+    @include bp-colors;
 }
 
 [color-scheme="light"] {
-    @include theme-clearskies
+    @include theme-clearskies;
+    @include bp-colors;
 }

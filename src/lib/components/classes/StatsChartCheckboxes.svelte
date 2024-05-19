@@ -1,5 +1,5 @@
 <script>
-    import classesData from "../classes.json";
+    import classesData from "./classes.json";
     import { page } from "$app/stores";
     import hue from "./classHues.json";
 

@@ -340,7 +340,7 @@ The developers have stated that they prefer to add more skill diversity to exist
 ### Skill Variants
 At G3+, skills have three variations: Normal, Alpha, and Beta variants. These variants slightly alter how a skill works, such as increasing the number of hits, adding additional buffs/debuffs, and more.
 
-**Alpha skills** can be purchased with class talismans (available from [Class Adventure Boards](/guides/adventure-boards#class-boards)) at the Class Master. To unlock the shop, complete all of his [quests](/db/quest/SQ101_145) (you need to be Level 50 to purchase from the shop).
+**Alpha skills** can be purchased with class talismans (available from [Class Adventure Boards](/guides/adventure-boards#class-boards)) at the Class Master. To unlock the shop, complete all of his [quests](/db/quests/SQ101_145) (you need to be Level 50 to purchase from the shop).
 
 **Beta skills** have a chance of dropping in **Survey & Advanced Survey Missions** after you reach **level 50**. Only the skills that you currently have equipped on your palette will be eligible for a beta skill drop. The drop rates are notoriously low.
 
