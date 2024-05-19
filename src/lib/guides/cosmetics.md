@@ -1,7 +1,7 @@
 ---
 title: 'Cosmetics'
 author: "Zakum"
-date: '2022-12-17'
+date: '2024-5-15'
 category: 'Game Systems'
 caption: "All about customizing your character's appearance!"
 bannerImg: "/guides/cosmetics/banner.webp"
@@ -13,75 +13,61 @@ thumbImg: "/guides/cosmetics/thumb.webp"
 </script>
 
 ## Character Creator
-The character creator is available at the start of the game and may include a few options that the beauty salon does not (such as clothes), but otherwise is more or less the same.
+<img src="/guides/cosmetics/banner.webp" alt="Character creator demonstration">
+
+When creating a character, you have access to fewer options than the beauty salon. However, you have the option to select basic clothing. 
+
+Before the game released, you could design your character beforehand using the [Benchmark Software](https://blue-protocol.com/guide/benchmark), and later import the creation in the live servers. This only applies to initial character creation—there is no option to import from or export to a file from the beauty salon.
+
+Future additions to the character creator will also be accessible at the beauty salon.
 
 ## Beauty Salon
-Your character's base appearance can be changed at the aesthetician NPC. There are two courses; the regular course allows you to make appearance changes, while the type-change course includes extra options such as changing sex. 
+<img src="/guides/cosmetics/aesthetician.png" alt="Aesthetician NPC">
 
-<img class="full-bleed" src="/guides/cosmetics/aesthetician.png" alt="Aesthetician example">
+The beauty salon can be accessed through the Aesthetician. There are various courses to select from:
 
-To finalize changes, you will need a ticket corresponding to the selected course. Preset slots allow you to save designs if you don't have a ticket at that exact moment. Future additions to the character creator will be accessible at the beauty salon.
+- Regular course lets you change everything except sex
+- Type-change course lets you change everything including sex
+- Courses for exclusively changing hair or make up
 
-Like the character creator, the beauty salon allows you to preview your character in different lighting and positions, and allows some levels of camera control.
+Like the character creator, the beauty salon allows you to preview your character in different lighting, positions, and zoom levels.
 
-### Sex
-Switch from female to male or vice versa. Your current clothing will be removed.
-
-### Preset
-Choose from preset options.
-
-### Body
-Options include face, body size, physique, and bust (female). 
-<StickyNote type="caution">
-    The face you select will determine availability of certain parts, i.e. some faces may not have the S body size available.
+<StickyNote type="tip">
+    A free regular-course ticket can be obtained from the quest <a href="/db/quest/SQ101_120">A Whole New Me</a>.
 </StickyNote>
 
-### Hair
-Options include hairstyle (can be filtered by category) and color. There is an option to reverse the hairstyle direction. 
+<StickyNote type="tip">
+    You can save a couple character designs in the salon and load them up later. To finalize changes, you will need a ticket corresponding to the selected course.
+</StickyNote>
 
-<img class="full-bleed" src="/guides/cosmetics/hair.png" alt="Hair example">
+<StickyNote type="warning">
+    Changing sexes will not change the sex of your outfits.
+</StickyNote>
 
-There is a two-tone color feature, allowing gradients and color patterns by mixing the main color and secondary color. There is a setting to make eyebrows match the main or secondary color. 
-
-There is also an option to add highlights in various patterns, for a total of up to 3 hair colors. The colors can be adjusted in lightness.
-
-
-### Skin & head
-There are a few skin tones (lightness adjustable) and head shapes.
-
-### Eyes
-Eyes can be customized by shape (angle adjustable), eyelashes (lightness adjustable), pupil style, and eyebrows. 
-
-<img class="full-bleed" src="/guides/cosmetics/eyes.png" alt="Eyes example">
-
-You can set up to 4 iris and pupil colors, adjust the colors by saturation and lightness, and even enable Odd Eye, allowing individual adjustment of each pupil. Eyebrows can be adjusted by shape, angle, and color.
-
-### Face
-Facial features can be adjusted by nose, mouth, and teeth (optional). 
-
-### Make up
-Fixed features include moles (4 types; can be mirrored), freckles and scars (color and lightness adjustable). Lip options include lipstick type (highlight on/off) and color (saturation and lightness adjustable).
-
-<img class="full-bleed" src="/guides/cosmetics/facepaint.png" alt="Face paint example">
-
-You can add up to 2 face paints, which can be adjusted by type and color (saturation and lightness adjustable) and some face paints can be mirrored. 
-
-### Voice
-There are a few voice packs you can select for your character.
+<StickyNote type="caution">
+    The face you select will determine the availability of certain parts. For example, Face A may correspond to body size S, while Face B may correspond to body sizes M and L.
+</StickyNote>
 
 ## Cosmetic Items
-Everything visible on your character, other than weapons, are fully cosmetic. Items that provide stats do not affect your appearance, and items that change your appearance do not provide stats.
-
 <img class="full-bleed" src="/guides/cosmetics/outfits.png" alt="Outfits example">
 
+Besides weapons, everything visible on your character is fully cosmetic. Items that provide stats do not affect your appearance, and items that change your appearance do not provide stats.
+
+Cosmetic items can be explored in the [database](/db) and include:
 - Weapon Skins
 - Outfits (hat, top, gloves, bottom, shoes)
 - Underwear
 - Accessories (head, ears, eyes, cheeks, hands, upper back, lower back)
 
 ## Dying
-At the Dye Shop, you can recolor **outfit** items. Clothing that can be dyed will have a color marker in the bottom right of the item thumbnail.
-
 <img class="full-bleed" src="/guides/cosmetics/dyes.png" alt="Dye shop example">
 
-To dye an item, you will need the correct color of Clothing Dye for the color you selected. Dyes can be obtained through events or purchased with real money. Saturation and lightness can also be adjusted at the cost of a Toning Agent.
+At the Dyeworker, you can recolor your clothing. Eligible items will have a color marker in the bottom right of the item thumbnail. 
+
+Dyes are mainly obtained through events and gacha. Outfits that are a combination of multiple parts, like top and bottom, and will require more dye. 
+
+Saturation and lightness can be adjusted by consuming Toning Agents. The outfit can be reset to its original color with a Dye Remover.
+
+<StickyNote type="note">
+    Dying an outfit will modify the secondary color as well. You cannot change the secondary color manually—it is paired with the primary color and depends on the outfit.
+</StickyNote>

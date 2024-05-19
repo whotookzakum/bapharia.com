@@ -35,13 +35,14 @@ main {
     --gutter-x: 2rem;
     --sidepane-width: 220px;
     --text-length: 60ch;
+    --pane-column-gap: clamp(1rem, 2.8vw, 3rem);
     width: 100%;
     max-width: calc(var(--max-content-width) + var(--gutter-x) * 2);
     display: grid;
     grid-template-columns: var(--sidepane-width) auto;
     padding: var(--gutter-y) var(--gutter-x);
     margin-inline: auto;
-    gap: clamp(1rem, 2.8vw, 3rem);
+    column-gap: var(--pane-column-gap);
 }
 
 .side-pane,
@@ -58,7 +59,7 @@ main {
 
     ul::before {
         @extend .mini-header;
-        content: attr(data-pane-title);
+        // content: attr(data-pane-title); // or aria-label
     }
 
     ol::before {
@@ -74,15 +75,15 @@ main {
 }
 
 .side-pane {
-    overflow-y: auto;
-    max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2 - 33px);
+    // overflow: clip;
+    // max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2 - 33px);
 }
 
 .main-pane {
     display: grid;
     grid-template-columns: 1fr var(--sidepane-width);
     grid-template-rows: auto auto;
-    column-gap: 3rem;
+    column-gap: var(--pane-column-gap) !important;
     align-content: start;
 
     &>*:not(.toc) {
@@ -99,7 +100,7 @@ main {
         margin-bottom: 2px;
     }
 
-    p:not([class]) {
+    p:not(.mini-header, .attribution) {
         line-height: 1.75;
         font-size: var(--step-2);
         letter-spacing: 0.02em;
@@ -111,6 +112,14 @@ main {
     video,
     iframe {
         max-width: 100%;
+    }
+
+    section > img,
+    figure img,
+    section > video,
+    figure video {
+        margin-top: 1rem;
+        border-radius: 1rem;
     }
 
     table {

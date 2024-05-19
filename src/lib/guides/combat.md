@@ -340,26 +340,7 @@ The developers have stated that they prefer to add more skill diversity to exist
 ### Skill Variants
 At G3+, skills have three variations: Normal, Alpha, and Beta variants. These variants slightly alter how a skill works, such as increasing the number of hits, adding additional buffs/debuffs, and more.
 
-**Alpha skills** can be purchased with class tokens at the Class Master. To unlock his shop, you need to be **Adventure Rank 9** and **Class Level 45** and complete all of his quests. To *purchase* from the shop, you need to be Level 50. 
-
-The class tokens can be obtained from tasks in the **Class Adventure Boards**. To get these boards, you must complete a quest chain given by your respective "class instructor" NPC. Below are links to the **final** quest in the quest chain—you can follow the prerequisites backwards to find where to start.
-
-- [Blast Archer class board quest line](/db/quest/SQ103_235)
-- [Twin Striker class board quest line](/db/quest/SQ103_234)
-- [Spell Caster class board quest line](/db/quest/SQ103_236)
-- [Aegis Fighter class board quest line](/db/quest/SQ103_233)
-- [Heavy Smasher class board quest line](/db/quest/SQ103_237)
-- [Blitz Lancer class board quest line](/db/quest/SQ103_238)
-
-<StickyNote type="tip">
-    It's recommended to get the class boards as soon as possible after reaching level 45 for maximum efficiency.
-</StickyNote>
-
-<StickyNote type="caution">
-    You can only make progress towards the board of the class you are currently playing.
-</StickyNote>
-
-The class tokens can be collected on one class and used on another.
+**Alpha skills** can be purchased with class talismans (available from [Class Adventure Boards](/guides/adventure-boards#class-boards)) at the Class Master. To unlock the shop, complete all of his [quests](/db/quest/SQ101_145) (you need to be Level 50 to purchase from the shop).
 
 **Beta skills** have a chance of dropping in **Survey & Advanced Survey Missions** after you reach **level 50**. Only the skills that you currently have equipped on your palette will be eligible for a beta skill drop. The drop rates are notoriously low.
 

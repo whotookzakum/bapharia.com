@@ -33,13 +33,13 @@
             on:blur={() => setFocused(false)}
             on:click={() => setFocused(false)}
         />
-        <label class="grid" for="results-view-grid">
+        <label class="grid last" for="results-view-grid">
             <span class="visually-hidden">Grid View</span>
             <iconify-icon icon="bi:grid-fill" />
         </label>
         <p slot="tooltip" aria-hidden="true">Grid View</p>
     </Popper>
-    <Popper let:setFocused placement="bottom">
+    <!-- <Popper let:setFocused placement="bottom">
         <input
             type="radio"
             id="results-view-table"
@@ -55,7 +55,7 @@
             <iconify-icon icon="ri:table-view" />
         </label>
         <p slot="tooltip" aria-hidden="true">Table View</p>
-    </Popper>
+    </Popper> -->
 </div>
 
 <style lang="scss">

@@ -5,6 +5,7 @@
     import Header from "./Header.svelte";
 
     export let data;
+    console.log(data)
 </script>
 
 {#key data.resolveType + data.id}
