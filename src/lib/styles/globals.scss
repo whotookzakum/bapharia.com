@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './colors';
+@import './typography';
+@import './variables';
+@import './layout';
+@import './animations';
+
+html {
+    scroll-padding-top: 5rem; // For Article anchor links
+    // scroll-behavior: smooth;
+    accent-color: var(--accent1);
+    background-color: var(--bg);
+    cursor: url('/images/cursor.png'), default;
+}
+
+* {
+    cursor: inherit;
+}
+
+.youtube-video {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+// ======================================================================
+// OUTLINES
+// ======================================================================
+
+:where(*:focus-visible,
+    input.visually-hidden:focus-visible+label,
+    /* dependent on :has() */
+    .outline-focus-within:has(:focus-visible),
+    label:has(input:where(.visually-hidden, [type="text"], [type="number"]):focus-visible)) {
+    outline: 2px solid var(--outline-color) !important;
+}
+
+.outline-focus-within a,
+label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) {
+    outline: none !important;
+}
+
+@supports not selector(:has(*)) {
+    .outline-focus-within:focus-within,
+    label:focus-within {
+        outline: 2px solid var(--outline-color) !important;
+    }
+}
+
+.invalid {
+    outline: 2px solid crimson !important;
+}
+
+// ======================================================================
+// UTILITY
+// ======================================================================
+
+.visually-hidden,
+.show-on-focus:not(:focus-visible) {
+    @apply sr-only;
+    clip-path: inset(50%);
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+@for $i from 1 through 3 {
+    .surface#{$i},
+    .hover-surface#{$i}:hover,
+    .focus-surface#{$i}:focus-visible,
+    .active-surface#{$i}:active {
+        background-color: var(--surface#{$i});
+    }
+
+    .text#{$i},
+    .hover-text#{$i}:hover,
+    .focus-text#{$i}:focus-visible,
+    .active-text#{$i}:active {
+        color: var(--surface#{$i});
+    }
+}
+
+@media (max-width: 850px) {
+    .hide-on-phone {
+        display: none;
+    }
+}
+

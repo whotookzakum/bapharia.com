@@ -1,0 +1,28 @@
+.transition-button {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeinrise {
+    0% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,6 +1,14 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+// import { isoImport } from 'vite-plugin-iso-import'
 
-export default defineConfig({
-	plugins: [sveltekit()]
-});
+const config = {
+	plugins: [
+		// isoImport(), 
+		sveltekit()
+	],
+	ssr: {
+		noExternal: ['chart.js'],
+	},
+};
+
+export default config;

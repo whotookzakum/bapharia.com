@@ -1,0 +1,40 @@
+.rangeSlider {
+    --range-slider: var(--surface3); // slider track color; text3 or surface3
+
+    // Focused
+    --range-range: var(--accent1); // space between the handles
+    --range-handle: var(--accent1); // the handle(s) not being dragged
+    --range-handle-focus: var(--accent1); // the handle being dragged
+    --range-handle-border: var(--accent1); // shadow on the dragged handle
+    --range-float: var(--accent1); // tooltip when dragging
+    --range-float-text: hsl(220, 0%, 89%); // tooltip text color
+
+    // Unfocused
+    --range-handle-inactive: var(--text3); // handle color
+    --range-range-inactive: var(--text3); // space between the handles
+    --range-float-inactive: var(--accent1); // tooltip when hovering but not dragging
+
+    // Pips
+    --range-pip: var(--text2); // tick marker color in unselected area
+    --range-pip-text: var(--text2); // tick label color in unselected area
+    --range-pip-active: var(--text2); // tick marker color for labeled & lines up with thumb
+    --range-pip-active-text: var(--text2); // tick label color for labeled & lines up with thumb
+    --range-pip-hover: var(--accent1); // tick marker color when hovered
+    --range-pip-hover-text: var(--accent1); // tick label color when hovered
+    --range-pip-in-range: var(--text2); // tick label color in selected area
+    --range-pip-in-range-text: var(--text2); // tick label color in selected area
+
+    &.range.pips {
+        // margin-inline: 1.25rem !important;
+        margin-bottom: 2.3em !important
+    }
+}
+
+.adjusted-range .rangeSlider {
+    --range-handle-inactive: var(--accent1) !important;
+    --range-range-inactive: var(--accent1) !important;
+    --range-pip-active: var(--accent1) !important;
+    --range-pip-in-range: var(--accent1) !important;
+    --range-pip-active-text: var(--accent1) !important;
+    --range-pip-in-range-text: var(--accent1) !important;
+}

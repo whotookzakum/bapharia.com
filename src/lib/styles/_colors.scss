@@ -1,0 +1,72 @@
+:root {
+    --text1-light: hsl(240, 2%, 94%);
+    --text2-light: hsl(240, 3%, 83%);
+    --text3-light: hsl(240, 4%, 61%);
+    --text1-dark: hsl(220, 7%, 12%);
+    --text2-dark: hsl(220, 7%, 23%);
+    --text3-dark: hsl(220, 7%, 44%);
+
+    // BP colors
+    --color-Attack: #d10000;
+    --color-Heal: #006894;
+    --color-Buf: #ff568c;
+    --color-Debuf: #00a555;
+}
+
+@mixin text-light {
+    color-scheme: dark;
+    --outline-color: white;
+    --text1: var(--text1-light);
+    --text2: var(--text2-light);
+    --text3: var(--text3-light);
+}
+
+@mixin text-dark {
+    color-scheme: light;
+    --outline-color: black;
+    --text1: var(--text1-dark);
+    --text2: var(--text2-dark);
+    --text3: var(--text3-dark);
+}
+
+// Dark Themes
+@mixin theme-entropy {
+    @include text-light;
+    --bg: hsl(236, 23%, 10%) !important;
+    --surface1: hsl(231, 23%, 13%);
+    --surface2: hsl(231, 23%, 16%);
+    --surface3: hsl(231, 23%, 19%);
+    --accent1: #0092ca;
+    --accent2: goldenrod;
+    --warning: crimson;
+}
+
+// Light Themes
+@mixin theme-clearskies {
+    @include text-dark;
+    --bg: hsl(230, 30%, 88%) !important;
+    --surface1: hsl(225, 35%, 85%);
+    --surface2: hsl(225, 35%, 82%);
+    --surface3: hsl(225, 35%, 79%);
+    --accent1: hsl(205, 100%, 40%);
+    --accent2: rgb(207, 7, 124);
+    --warning: crimson;
+}
+
+:root {
+    @include theme-clearskies;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include theme-entropy;
+    }
+}
+
+[color-scheme="dark"] {
+    @include theme-entropy;
+}
+
+[color-scheme="light"] {
+    @include theme-clearskies;
+}
