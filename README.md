@@ -1,68 +1,38 @@
-## Update checklist
-1. **Fetch and decrypt API**
-2. Update cloudflare KV
-3. Update worker schema
+# create-svelte
 
-1. **Datamine new client files**
-2. Update bp_client files
-3. Update UI files
-4. Create new map images
-5. Place new map markers
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
-## Deploy checklist
-- Change graphql endpoint `/src/client.js`
-- Move `kv` and `graphql` out of routes
-- Watch remote schema `/houdini.config.js`
+## Creating a project
 
-## ITEMS
-- Weapons
-    - 3d model
-    - stats (class, level, element, str, int...)
-    - recipe
-    - sale price
-- Imagine
-    - 3d model
-    - stats
-    - recipe
-    -sale price
-- Consumables
-    - effect
-    - sale price
-- Cosmetic Items
-    - 3d model
-- Materials (drops & resources)
-    - source (drops from x in y/found in y)
-- Plugs
-    - stats
-- Currencies
-- Stamps
-- Liquid Memory
-    - effect
-    - source
+If you're seeing this, you've probably already done this step. Congrats!
 
-## ENTITIES
-- Enemies
-    - 3d model
-    - stats
-    - location
-    - drops
-- NPCs
-    - location
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-## OTHER
-- Achievements
-- Maps
-    - enemies
-    - resources
-    - NPCs
-- Buffs?
-- Skills
-    - class
-    - stats/effects
-- Classes?
-    - skills
+# create a new project in my-app
+npm create svelte@latest my-app
+```
 
+## Developing
 
-If possible have links show a preview of content on hover, i.e. hover a map name -> show map image; hover an item name -> show the header content with thumbnail and whatnot
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Search parameters i.e. `location:minster hills` or `drops:goblin staff` and show results that have those
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
