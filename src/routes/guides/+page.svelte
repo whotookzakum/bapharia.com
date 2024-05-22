@@ -18,6 +18,7 @@
 		</p>
 	</hgroup>
 
+	<small style="font-size: var(--step-0); color: var(--accent2)">More guides are available in our <a href="/discord">Discord</a>, covering more nuanced content.</small>
 	<h2>Where should I start?</h2>
 	<p>
 		If you're just beginning your journey in BLUE PROTOCOL, I recommended

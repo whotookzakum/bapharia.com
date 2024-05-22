@@ -1,9 +1,10 @@
 <script>
     export let style = "";
     export let bg = false;
+    export let isNew = false;
 </script>
 
-<i class="flex g-25" class:bg {style}>
+<i class="flex g-25" class:bg {style} class:new={isNew}>
     <slot />
 </i>
 
@@ -24,5 +25,17 @@
         border: 1px solid var(--surface3);
         // background: linear-gradient(335deg, rgba(0, 0, 0, 0.9), rgba(22, 24, 51, 0.9));
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .new {
+        background: orange;
+        color: white;
+        font-size: var(--step--1);
+        text-shadow: 0 0 8px var(--surface3);
+        box-shadow: 0 2px 8px var(--surface3);
+        padding: 0.3em 0.4em;
+        line-height: 1;
+        min-height: unset;
+        text-transform: uppercase;
     }
 </style>

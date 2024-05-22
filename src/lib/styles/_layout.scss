@@ -49,9 +49,9 @@ main {
 .toc {
     position: sticky;
     top: calc(var(--nav-height) + 5rem);
-    align-self: start;
     font-size: var(--step-1);
     letter-spacing: 0.02em;
+    align-self: start;
 
     *:not(.mini-header):not(:hover) {
         color: var(--text2);
@@ -83,18 +83,21 @@ main {
     summary:not(:where(:hover, :focus-visible))::after {
         content: unset;
     }
+
+    nav > a {
+        width: fit-content;
+    }
 }
 
 .toc {
     grid-column: 2;
     grid-row: 1/-1;
-    align-self: start;
 }
 
-.side-pane {
-    // overflow: clip;
-    // max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2 - 33px);
-}
+// .side-pane {
+//     overflow: clip;
+//     max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2 - 33px);
+// }
 
 .main-pane {
     display: grid;
@@ -109,12 +112,20 @@ main {
 
     hgroup {
         margin-bottom: 2rem;
+        display: grid;
     }
 
     hgroup .mini-header {
+        order: 1;
         color: var(--accent2);
         line-height: unset;
         margin-bottom: 2px;
+    }
+
+    // TODO: Should I re-order the markup so h1 comes before p.mini-header?
+
+    hgroup>*:not(.mini-header) {
+        order: 2;
     }
 
     p:not(.mini-header, .attribution) {
@@ -143,6 +154,89 @@ main {
         width: 100%;
     }
 }
+
+@media (max-width: 1150px) {
+    .main-pane {
+        grid-template-columns: 1fr;
+
+        * {
+            order: 3;
+        }
+
+        hgroup {
+            order: 1;
+        }
+    }
+
+    .side-pane,
+    .toc {
+        align-self: unset;
+    }
+
+    .toc {
+        grid-column: 1;
+        grid-row: unset;
+        order: 2;
+        position: unset;
+        margin-block: 1rem;
+
+        ol {
+            gap: 0;
+            margin-top: -1rem;
+        }
+
+        ol::before {
+            margin-bottom: 0.5rem;
+        }
+
+        li {
+            display: flex;
+        }
+
+        a {
+            padding-left: 1rem;
+            margin-left: 0.5rem;
+            line-height: 1.75;
+            border-left: 1px solid var(--surface1);
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .panes {
+        grid-template-columns: 1fr;
+        --gutter-x: 1rem;
+    }
+
+    .main-pane,
+    .side-pane,
+    .toc {
+        p:not(.mini-header, .attribution),
+        li a {
+            font-size: var(--step-0) !important;
+        }
+    }
+
+    // Shrink element icons on classes
+    hgroup img {
+        width: 30px;
+        height: auto;
+    }
+
+    .side-pane {
+        position: unset;
+        margin-bottom: var(--gutter-x);
+
+        nav>a::before {
+            content: "← Back to ";
+        }
+
+        nav ul {
+            display: none;
+        }
+    }
+}
+
 
 .ambience {
     // Blob style

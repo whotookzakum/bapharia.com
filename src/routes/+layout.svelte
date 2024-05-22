@@ -14,7 +14,7 @@
 </main>
 
 {#if !$page.url.pathname.includes("/map")}
-    <PageFooter />
+    <!-- <PageFooter /> -->
 {/if}
 
 <!-- <div class="ambience" /> -->

@@ -27,7 +27,12 @@
 <div class="panes">
     <aside class="side-pane">
         <nav class="grid g-100">
-            <span class="mini-header">Classes</span>
+            <a
+                href="/classes"
+                class="styled-link mini-header"
+                class:hide-on-phone={$page.url.pathname === "/classes"}
+                >Classes</a
+            >
             <ul class="unstyled-list">
                 {#each data.allClasses as { href, title, isNew }}
                     <li>
@@ -35,9 +40,8 @@
                             <summary>
                                 {title}
                                 {#if isNew}
-                                    <Tag
-                                        style="background: orange; margin-left: 0.5rem; color: white; font-size: var(--step--1); text-shadow: 0 0 8px var(--surface3); box-shadow: 0 2px 8px var(--surface3); padding: 0.3em 0.4em; line-height: 1; min-height: unset;"
-                                        >NEW</Tag
+                                    <Tag isNew style="margin-left: 0.5rem;"
+                                        >New</Tag
                                     >
                                 {/if}
                             </summary>

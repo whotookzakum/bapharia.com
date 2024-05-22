@@ -3,7 +3,7 @@ export const load = async () => {
         Object.entries(import.meta.glob("../../lib/classes/*.md", { import: "metadata", eager: true }))
             .reduce((acc, [key, value]) => {
                 const href = key.split("/lib")[1].split(".")[0]
-                acc.push({ href, title: value.title, isNew: value.isNew })
+                acc.push({ href, title: value.title, isNew: value.isNew, weapon: value.weapon })
                 return acc
             }, [])
             .sort((a, b) => {

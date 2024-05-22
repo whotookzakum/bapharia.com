@@ -6,7 +6,7 @@
 <div class="panes">
     <aside class="side-pane">
         <nav class="grid g-100">
-            <span class="mini-header">Guides</span>
+            <a href="/guides" class="styled-link mini-header">Guides</a>
             <ul class="unstyled-list">
                 {#each data.allGuides as { href, title }}
                     <li>
