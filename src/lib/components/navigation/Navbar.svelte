@@ -26,7 +26,7 @@
 
 <a
 	href="#main"
-	class="link show-when-focus-visible"
+	class="skip-and-focus px-2 py-1 m-2 flex w-fit"
 	style:font-size="var(--step--1)"
 >
 	Skip to main content and focus
@@ -34,11 +34,11 @@
 <nav class="navbar flex gap-2" class:opaque-bg={isMobileExpanded}>
 	<a
 		href="/"
-		class="home-btn link styled-link"
+		class="home-btn"
 		on:click={() => isMobileExpanded = false}
 	>
 		<img
-			class="transition-button flex"
+			class="transition-shrink flex"
 			src="/images/logo.png"
 			alt="Home"
 			width="38"
@@ -64,14 +64,14 @@
 		{#each links as link}
 			<a
 				href={link.href}
-				class="link styled-link hover-link rounded"
+				class="styled-link hover-surface1 p-3 rounded-full"
 				class:active={$page.url.pathname.includes(link.href)}
 				on:click={() => isMobileExpanded = false}
 			>
 				{link.name[$userLocale]}
 			</a>
 		{/each}
-		<div class="extras">
+		<div class="extras flex items-center">
 			<TimeInJapan />
 			<LocaleSelector />
 			<ThemeToggle />
@@ -114,30 +114,14 @@
 
 	// LINKS =====================================================
 
-	.link {
-		border: none;
-		padding: 0.75rem;
-	}
-
 	.home-btn {
-		margin: auto auto auto 0;
+		margin: auto;
 		padding: 0.5rem;
-	}
-
-	.hover-link:hover {
-		background: rgba(246, 247, 249, 0.05);
-	}
-
-	.active {
-		color: var(--accent1) !important;
 	}
 
 	// EXTRAS ======================================================
 
 	.extras {
-		display: flex;
-		// gap: 0.5rem;
-		align-items: center;
 		margin-left: auto;
 	}
 

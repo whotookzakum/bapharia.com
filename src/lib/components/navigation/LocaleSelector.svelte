@@ -1,26 +1,33 @@
 <script>
 	import { userLocale } from "$lib/stores";
 	import Icon from "@iconify/svelte";
-	import NavButton from "./NavButton.svelte";
 	import NavModal from "./NavModal.svelte";
+	import Tooltip from "../FloatingUI/Tooltip.svelte";
 
 	let showing = false;
 
 	function closeModal(e) {
-		$userLocale = e.target.value
-		showing = false
+		$userLocale = e.target.value;
+		showing = false;
 	}
 </script>
 
 <div style="position: relative;">
-	<NavButton
-		bind:showing
-		ariaLabel="Open language selector"
-		tooltip="Language"
-	>
-		<Icon icon="material-symbols:language" />
-	</NavButton>
-	
+	<Tooltip inline hide={showing} animateOut={false} reverseAnimation>
+		<button
+			class="nav-button"
+			aria-label="Open language selector"
+			aria-live="polite"
+			on:click={() => {
+				showing = !showing;
+			}}
+		>
+			<!-- "mingcute:translate-2-line" -->
+			<Icon icon="material-symbols:language" />
+		</button>
+		<svelte:fragment slot="tooltip">Language</svelte:fragment>
+	</Tooltip>
+
 	{#if showing}
 		<NavModal
 			bind:group={$userLocale}
@@ -38,37 +45,3 @@
 		/>
 	{/if}
 </div>
-
-<!-- "mingcute:translate-2-line" -->
-
-<!-- <Icon icon="mingcute:translate-2-line" style="font-size: var(--step-4)" color="var(--text3)" /> -->
-
-<!-- <select id="locale-selector" bind:value={$userLocale} class:hide-marker={isCollapsed}>
-	{#each locales as locale}
-		<option value={locale.code}>{isCollapsed ? locale.shortName : locale.name}</option>
-	{/each}
-</select> -->
-
-<style lang="scss">
-	#locale-selector {
-		pointer-events: auto;
-		padding: 0.5rem;
-		height: 44px;
-		min-width: 44px;
-		// font-size: var(--step--1);
-		background: none;
-		border: none;
-		border-radius: 5px;
-		border: 1px solid transparent;
-
-		&:hover,
-		&:focus-visible {
-			background: var(--surface2);
-		}
-	}
-
-	.hide-marker {
-		appearance: none;
-		text-align: center;
-	}
-</style>

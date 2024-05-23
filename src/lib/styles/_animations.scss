@@ -1,8 +1,16 @@
-.transition-button {
+.transition-shrink {
     transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:active {
         transform: scale(0.95);
+    }
+}
+
+.transition-bob-down {
+    transition: translate 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:active {
+        translate: 0 1px;
     }
 }
 
@@ -21,6 +29,7 @@
         transform: translateY(20%);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;

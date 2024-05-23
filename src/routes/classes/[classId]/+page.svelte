@@ -1,6 +1,6 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import Float from "$lib/components/Float.svelte";
+    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
 
     export let data;
     $: ({ metadata, html } = data);
@@ -32,14 +32,14 @@
             <div>
                 {#each JSON.parse(metadata.elements) as element (element)}
                     <!-- "/images/elements/UI_IconAttribute_{element}.png" -->
-                    <Float inline>
+                    <Tooltip inline>
                         <img
                             src="/UI/Icon/Attribute/UI_IconAttribute_{element}.png"
                             alt={ELEMENT_NAMES[element]}
                             width="48"
                             height="48"
                         />
-                    </Float>
+                    </Tooltip>
                 {/each}
             </div>
         </div>

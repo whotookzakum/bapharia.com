@@ -20,8 +20,7 @@
 	setInterval(() => (timeNow += 1000), 1000);
 </script>
 
-<span class="visually-hidden">In Japan, it's {timeInJST}</span>
-<div class="jst-time" aria-hidden="true">
+<div class="jst-time text2 hover-surface1 hover-text1 items-center flex gap-1 rounded-2xl">
     {#if isExpanded}
         <Icon icon="mdi:clock-outline" color="var(--accent1)" />
         <time>{timeInJST} JST</time>
@@ -33,13 +32,9 @@
 <style lang="scss">
     .jst-time {
 		font-size: var(--step--1);
-		color: var(--text2);
 		padding: 0.25rem 1rem;
+		height: 44px;
 	}	
-
-	:global(.jst-time *) {
-		vertical-align: middle;
-	}
 
 	:global(.navbar-wrapper:not(.expanded) .jst-time) {
 		margin: 0 auto;

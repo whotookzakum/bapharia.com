@@ -12,11 +12,10 @@ html {
     // scroll-behavior: smooth;
     accent-color: var(--accent1);
     background-color: var(--bg);
-    cursor: url('/images/cursor.png'), default;
 }
 
 * {
-    cursor: inherit;
+    cursor: url('/images/cursor.png'), default !important;
 }
 
 .youtube-video {
@@ -42,6 +41,7 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
 }
 
 @supports not selector(:has(*)) {
+
     .outline-focus-within:focus-within,
     label:focus-within {
         outline: 2px solid var(--outline-color) !important;
@@ -57,7 +57,7 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
 // ======================================================================
 
 .visually-hidden,
-.show-on-focus:not(:focus-visible) {
+.skip-and-focus:not(:focus-visible) {
     @apply sr-only;
     clip-path: inset(50%);
 }
@@ -68,6 +68,7 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
 }
 
 @for $i from 1 through 3 {
+
     .surface#{$i},
     .hover-surface#{$i}:hover,
     .focus-surface#{$i}:focus-visible,
@@ -79,7 +80,7 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
     .hover-text#{$i}:hover,
     .focus-text#{$i}:focus-visible,
     .active-text#{$i}:active {
-        color: var(--surface#{$i});
+        color: var(--text#{$i});
     }
 }
 
@@ -89,3 +90,11 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
     }
 }
 
+.nav-button {
+    width: 44px;
+    height: 44px;
+    pointer-events: auto;
+    border-radius: 50%;
+    font-size: var(--step-4);
+    @apply flex items-center justify-center text3 hover-text2 focus-text2 active-text3 hover-surface1 focus-surface1 transition-bob-down;
+}

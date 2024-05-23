@@ -2,8 +2,8 @@
 	import { browser } from "$app/environment";
 	import Icon from "@iconify/svelte";
 	import { onMount } from "svelte";
-	import NavButton from "./NavButton.svelte";
 	import NavModal from "./NavModal.svelte";
+	import Tooltip from "../FloatingUI/Tooltip.svelte";
 
 	let theme = browser && localStorage.getItem("theme-preference");
 	let showing = false;
@@ -60,23 +60,34 @@
 </svelte:head>
 
 <div style="position: relative;">
-	<NavButton bind:showing ariaLabel="Open theme selector" tooltip="Theme">
-		{#if theme === "system" ? systemTheme === "dark" : theme === "dark"}
-			<Icon
-				icon={themeChanged
-					? "line-md:sunny-outline-to-moon-transition"
-					: "line-md:moon"}
-				color={theme === "system" ? "inherit" : "var(--accent1)"}
-			/>
-		{:else}
-			<Icon
-				icon={themeChanged
-					? "line-md:moon-to-sunny-outline-transition"
-					: "line-md:sunny-outline"}
-				color={theme === "system" ? "inherit" : "var(--accent1)"}
-			/>
-		{/if}
-	</NavButton>
+	<Tooltip inline hide={showing} animateOut={false} reverseAnimation>
+		<button
+			class="nav-button"
+			class:surface1={showing}
+			aria-label="Open theme selector"
+			aria-live="polite"
+			on:click={() => {
+				showing = !showing;
+			}}
+		>
+			{#if theme === "system" ? systemTheme === "dark" : theme === "dark"}
+				<Icon
+					icon={themeChanged
+						? "line-md:sunny-outline-to-moon-transition"
+						: "line-md:moon"}
+					color={theme === "system" ? "inherit" : "var(--accent1)"}
+				/>
+			{:else}
+				<Icon
+					icon={themeChanged
+						? "line-md:moon-to-sunny-outline-transition"
+						: "line-md:sunny-outline"}
+					color={theme === "system" ? "inherit" : "var(--accent1)"}
+				/>
+			{/if}
+		</button>
+		<svelte:fragment slot="tooltip">Theme</svelte:fragment>
+	</Tooltip>
 
 	{#if showing}
 		<NavModal

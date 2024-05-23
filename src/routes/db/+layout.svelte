@@ -1,7 +1,7 @@
 <script>
-    import { userLocale } from "$lib/stores";
-    import EntrySummary from "./EntrySummary.svelte";
-    import PageControls from "./PageControls.svelte";
+    // import { userLocale } from "$lib/stores";
+    // import EntrySummary from "./EntrySummary.svelte";
+    // import PageControls from "./PageControls.svelte";
     import {
         categories,
         classes,
@@ -12,17 +12,17 @@
     } from "./stores";
     import dummydata from "./dummydata.json";
     import { page } from "$app/stores";
-    import { Pane, Splitpanes } from "svelte-splitpanes";
+    // import { Pane, Splitpanes } from "svelte-splitpanes";
     import { userSearch } from "./stores";
-    import SearchBar from "./SearchBar.svelte";
-    import SearchResults from "./SearchResults.svelte";
-    import ActiveFiltersList from "./ActiveFiltersList.svelte";
-    import ResultsDisplaySelector from "./ResultsDisplaySelector.svelte";
-    import RangeSlider from "svelte-range-slider-pips";
-    import Popper from "$lib/components/Popper.svelte";
-    import Icon from "@iconify/svelte";
-    import { updateSearchParams } from "$lib/utils";
-    import Float from "$lib/components/Float.svelte";
+    // import SearchBar from "./SearchBar.svelte";
+    // import SearchResults from "./SearchResults.svelte";
+    // import ActiveFiltersList from "./ActiveFiltersList.svelte";
+    // import ResultsDisplaySelector from "./ResultsDisplaySelector.svelte";
+    // import RangeSlider from "svelte-range-slider-pips";
+    // import Popper from "$lib/components/Popper.svelte";
+    // import Icon from "@iconify/svelte";
+    // import { updateSearchParams } from "$lib/utils";
+    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import InputText from "$lib/components/InputText.svelte";
     import InputNumber from "$lib/components/InputNumber.svelte";
 
@@ -60,7 +60,7 @@
             .flatMap((cat) => cat.ids)
             .join(" ");
 
-        updateSearchParams(param, checkedIds);
+        // updateSearchParams(param, checkedIds);
     });
 
     const categoryNames = {
@@ -137,20 +137,19 @@
     }
 </script>
 
-<div style="margin: 0 1rem">
+<div style="margin: 0 auto">
     <p>
         hello
         
-        <Float delay>
+        <Tooltip placement="right">
             <button aria-label="Filters" on:click={() => console.log("submitted")}>
                 This is my button.
             </button>
             <svelte:fragment slot="tooltip">
-                This setting requires you to select one of the settings below
-                to work properly otherwise it won't work.
+                Testing my new thing yhhh
             </svelte:fragment>
-        </Float>
-        <Float delay>
+        </Tooltip>
+        <Tooltip>
             <label on:input={() => console.log("hi")}>
                 <input type="checkbox" class="visually-hidden"> heyy
             </label>
@@ -158,7 +157,7 @@
                 This setting requires you to select one of the settings below
                 to work properly otherwise it won't work.
             </svelte:fragment>
-        </Float>
+        </Tooltip>
         <input type="checkbox" id="h" class="visually-hidden">
         <label for="h">asdasd</label>
         <InputText value={3} description="heyasdsad" />
