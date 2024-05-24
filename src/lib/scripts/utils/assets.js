@@ -1,0 +1,111 @@
+import DT_StampDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampDataDB.json"
+import DT_StampCategoryDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampCategoryDataDB.json"
+import DT_EmotionDB from "$bp_client/japan/Content/Blueprints/Manager/DT_EmotionDB.json"
+import IMAGINE from "$bp_api/japan/imagine.json";
+
+// TODO: emote icons are in DT_EmotionDB
+// TODO: move imagine equipSlot image finding logic into here
+const ASSETS_URL = ""
+const icons = {}
+const allIconsFiles = import.meta.glob("/src/bp_client/japan/Content/Blueprints/UI/Icon/*.json", { import: "default" })
+Object.entries(allIconsFiles)
+    .forEach(async ([key, value]) => {
+        const ns = key.split("/").pop().replace("DB.json", "").replace("Icon", "").replace("DT_", "").toLowerCase()
+        console.log(ns)
+        const data = await value()
+        icons[ns] =
+            Object.entries(data[0].Rows)
+                .reduce((acc, [rowId, rowData]) => {
+                    acc[rowId] = {}
+                    const assetPaths = Object.values(rowData)
+                        .map(obj => ASSETS_URL + obj.AssetPathName?.replace("/Game", "").split(".")[0] + ".png")
+
+                    acc[rowId].icon = assetPaths.find(path => path.includes("/UI_Icon"))
+                    acc[rowId].iconL = assetPaths.find(path => path.includes("L/") || path.includes("/UI/Icon/Adventureboard"))
+
+                    return acc
+                }, {})
+    })
+
+console.log("stamp")
+icons.stamp = {}
+Object.values(DT_StampDataDB[0].Rows)
+    .forEach(obj => {
+        icons.stamp[obj.Id] = {
+            icon: ASSETS_URL + obj.IconTexture.AssetPathName?.replace("/Game", "").split(".")[0] + ".png",
+            iconL: ASSETS_URL + obj.Texture.AssetPathName?.replace("/Game", "").split(".")[0] + ".png",
+        }
+    })
+
+console.log("stampcategory")
+icons.stampcategory = {}
+Object.values(DT_StampCategoryDataDB[0].Rows)
+    .forEach(obj => {
+        icons.stampcategory[obj.CategoryId] = {
+            icon: ASSETS_URL + obj.IconTexture.AssetPathName?.replace("/Game", "").split(".")[0] + ".png",
+        }
+    })
+
+console.log("achievement")
+icons.achievement = {
+    "0": {
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_5.png"
+    },
+    "1": {
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_4.png"
+    },
+    "2": {
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_3.png"
+    },
+    "3": {
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_2.png"
+    },
+    "4": {
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_1.png"
+    }
+}
+
+console.log("emote")
+icons.emote = {}
+Object.values(DT_EmotionDB[0].Rows)
+    .forEach(obj => {
+        icons.emote[obj.Id] = {
+            icon: ASSETS_URL + obj.IconTexture?.ObjectPath?.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
+        }
+    })
+
+export function getAssets(ns, id) {
+    if (ns === "item") {
+        // Crown boxes
+        if ([185076200, 185076300, 185076600, 185076700].includes(id)) return {
+            icon: "/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png",
+            iconL: "/UI/Icon/ItemL/Consumption/UI_Icon_Itembox_Select.png"
+        }
+        // Random box for gacha banner outfits and mounts
+        if ([185070401, 185069901, 185070001, 185070101, 185070201, 185070301, 185070401].includes(id)) return {
+            icon: "/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichRandom.png",
+            iconL: "/UI/Icon/ItemL/Consumption/UI_Icon_gashabox_RichRandom.png"
+        }
+    }
+
+    let slotIcon
+    if (ns === "imagine") {
+        const imagine = IMAGINE.find(i => i.id === id)
+        if (imagine.imagine_type === 0) {
+            Object.keys(imagine)
+                .filter(key => key.includes("equip_position"))
+                .forEach(key => {
+                    if (imagine[key] === 1) {
+                        let slotId = key.split("equip_position")[1] // Could probably be simplified to id.charAt[2]
+                        slotIcon = `/UI/MyCharaMenu/UI_MyCharaMenuImagineIcon2_${slotId}.png`
+                    }
+                })
+        }
+    }
+
+    return {
+        ...icons[ns][id],
+        slotIcon,
+        // TODO: 3d models, etc (sound effects?)
+    }
+}

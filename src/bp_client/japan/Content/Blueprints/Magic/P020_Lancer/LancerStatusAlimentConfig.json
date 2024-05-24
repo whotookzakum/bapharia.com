@@ -1,0 +1,2239 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "LancerStatusAlimentConfig",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBStatusAlimentConfig'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "MainAttack_ExtendNegativeStatus": {
+        "ID": 2000050,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "ExtendNegaiveStatus"
+            },
+            "Value1": 10,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::Count",
+        "EffectiveTime": 0.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 1,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark": {
+        "ID": 2000011,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "LancerMark"
+            },
+            "Value1": 1,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMark",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 20.0,
+        "AdditionalEffectiveTimeList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 1.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 3.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LAN_ResonanceSpearSpreading",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2022
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Less",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": -5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LAN_ResonanceSpearSpreading",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2022
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 0.0
+          }
+        ],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::InvokerAlternativeAdd",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": true,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_LancerMark"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_B": {
+        "ID": 2000012,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "LancerMark"
+            },
+            "Value1": 2,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMark",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 20.0,
+        "AdditionalEffectiveTimeList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 1.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 3.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LAN_ResonanceSpearSpreading",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2022
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Less",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": -5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LAN_ResonanceSpearSpreading",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2022
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 0.0
+          }
+        ],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::InvokerAlternativeAdd",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": true,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_LancerMark_B"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_C": {
+        "ID": 2000013,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "LancerMark"
+            },
+            "Value1": 3,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMark",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 20.0,
+        "AdditionalEffectiveTimeList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 1.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 3.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120601
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LAN_ResonanceSpearSpreading",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2022
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Less",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": -5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LAN_ResonanceSpearSpreading",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2022
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 0.0
+          }
+        ],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::InvokerAlternativeAdd",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": true,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_LancerMark_C"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_GiveDamageDown": {
+        "ID": 2000020,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "GiveDamageDown"
+            },
+            "Value1": 10,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_GiveDamageDown_WeaknessStance": {
+        "ID": 2000021,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "GiveDamageDown"
+            },
+            "Value1": 15,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_MoveSpeedDown": {
+        "ID": 2000030,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedDown"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_MoveSpeedDown_WeaknessStance": {
+        "ID": 2000031,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedDown"
+            },
+            "Value1": 40,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_EraseAllMarkAttack": {
+        "ID": 2000040,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "HPUp"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMarkFinish",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 2.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "LancerMark_EraseAllMarkAttack"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_EraseAllMarkAttack"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": false,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "CruelThrust_Restraint": {
+        "ID": 2011001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Restraint"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Restraint",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 6.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "DT_CommonStatusAilmentDB_Restraint"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "PrepareStyle_0": {
+        "ID": 2013001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Player_PrepareStyle"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::UserAction",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_PrepareStyle"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "PrepareStyle_1": {
+        "ID": 2013002,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Player_PrepareStyle"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::UserAction",
+        "EffectiveTime": 0.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_PrepareStyle"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "PrepareStyle_2": {
+        "ID": 2013003,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Player_PrepareStyle"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::UserAction",
+        "EffectiveTime": 0.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_PrepareStyle"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "PrepareStyle_3": {
+        "ID": 2013004,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Player_PrepareStyle"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::UserAction",
+        "EffectiveTime": 0.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_PrepareStyle"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "PrepareStyle_Icon": {
+        "ID": 2013005,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "HPUp"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120131
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": true
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2013
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 5.0
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120131
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2013
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": 10.0
+          }
+        ],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::PrepareStyle",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "ThrowingStyle": {
+        "ID": 2017001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Player_ThrowingStyle"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_ThowingStyle"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LightningAssault_Restraint": {
+        "ID": 2018001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Restraint"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Restraint",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 6.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "DT_CommonStatusAilmentDB_Restraint"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "ThunderThrust_MoveSpeedDown": {
+        "ID": 2019001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedDown"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "ThunderSpear_MoveSpeedDown": {
+        "ID": 2020002,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedDown"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "ThunderSpear_ThunderResistDown": {
+        "ID": 2020003,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "ThunderResistDown"
+            },
+            "Value1": 30,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::ElementResistDown",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "WeaknessStance": {
+        "ID": 2021001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "Player_WeaknessStance"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 20.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_WeaknessStance"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "WeaknessStance_SuperArmor": {
+        "ID": 2021011,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "SuperArmor"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 25.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "WeaknessStance_Drain": {
+        "ID": 2021021,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "RecoverAttackerWhenRecieveDamage"
+            },
+            "Value1": 2,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 6.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 1,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.8,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Passive_MoveSpeedUpToRevivePlayer_Lv1": {
+        "ID": 2099001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedUp"
+            },
+            "Value1": 10,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Passive_MoveSpeedUpToRevivePlayer_Lv2": {
+        "ID": 2099002,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedUp"
+            },
+            "Value1": 12,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Passive_MoveSpeedUpToRevivePlayer_Lv3": {
+        "ID": 2099003,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedUp"
+            },
+            "Value1": 15,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Passive_MoveSpeedUpToRevivePlayer_Lv4": {
+        "ID": 2099004,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedUp"
+            },
+            "Value1": 17,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Passive_MoveSpeedUpToRevivePlayer_Lv5": {
+        "ID": 2099005,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "MoveSpeedUp"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_SingleAttack": {
+        "ID": 2000039,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "HPUp"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMarkFinish",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 2.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "LancerMark_SingleAttack"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_SingleAttack"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": false,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_EraseAllMarkAttack_Weakness": {
+        "ID": 2000041,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "HPUp"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMarkFinish",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 2.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "LancerMark_EraseAllMarkAttack_Weakness"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_EraseAllMarkAttack_Weekness"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": false,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "LancerMark_SingleAttack_Weakness": {
+        "ID": 2000042,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "HPUp"
+            },
+            "Value1": 0,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::LancerMarkFinish",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 2.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "LancerMark_SingleAttack_Weakness"
+        },
+        "EffectID": {
+          "ID": "LancerStatusAilmentConfig_SingleAttack_Weekness"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": false,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "SpearShot_ThunderResistDown": {
+        "ID": 2000051,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "ThunderResistDown"
+            },
+            "Value1": 30,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::ElementResistDown",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 30.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 0,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Negative",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 1.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "CommonDebuff"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::None",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_5sec": {
+        "ID": 2098000,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 5.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_10sec": {
+        "ID": 2098001,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 10.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_15sec": {
+        "ID": 2098002,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 15.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_20sec": {
+        "ID": 2098003,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 20.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_25sec": {
+        "ID": 2098004,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 25.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_30sec": {
+        "ID": 2098005,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 30.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      },
+      "Desire_35sec": {
+        "ID": 2098006,
+        "IncidenceRate": 100.0,
+        "Parts": [
+          {
+            "AbilityID": {
+              "ID": "DrainByAttackScale"
+            },
+            "Value1": 20,
+            "Value2": 0,
+            "bIndividualRate": false,
+            "Rate": 100.0,
+            "ConditionList": []
+          }
+        ],
+        "BattleEffectiveGroup": "ESBBattleEffectiveGroup::Drain",
+        "Flag": "ESBAbilityFlags::None",
+        "ExpirationType": "ESBAbilityExpirationType::TimeLimit",
+        "EffectiveTime": 35.0,
+        "AdditionalEffectiveTimeList": [],
+        "ExpirationValue": 10,
+        "TriggerCondisions": [],
+        "bTriggerCondIsContinueCond": false,
+        "FinishCondisions": [],
+        "DuplicateType": "EStatusAilmentDuplicateType::Default",
+        "FeelType": "ESBBattleEffectiveFeel::Positive",
+        "bExcludeBadConditionHitOnFeelNegative": false,
+        "bExcludeExtendTimeOnFeelNegative": false,
+        "HateScale": 0.0,
+        "ProjectileID": {
+          "ID": "None"
+        },
+        "EffectID": {
+          "ID": "None"
+        },
+        "bHideDamageUI": false,
+        "bVisibleIcon": true,
+        "IconType": "ESBStatusAilmentIconType::Drain",
+        "IconCombineCategory": "ESBStatusAilmentIconCombineCategory::None"
+      }
+    }
+  }
+]

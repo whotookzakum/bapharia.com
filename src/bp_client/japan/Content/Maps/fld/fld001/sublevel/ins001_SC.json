@@ -1,0 +1,2284 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_ins001_SC",
+    "Outer": "ins001_SC_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_InScriptActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBScriptActor'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_InScriptHandle",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_SetGamePaused_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "ins001_SC_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Tutorial_Stamina_Close",
+    "Outer": "ins001_SC_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnEndScript",
+    "Outer": "ins001_SC_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "InScriptActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'SBScriptActor'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "InScriptHandle",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "ins001_SC_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'ins001_SC_C:ExecuteUbergraph_ins001_SC'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'LevelScriptActor'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'ins001_SC_C:OnEndScript'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.3"
+      },
+      {
+        "ObjectName": "Function'ins001_SC_C:Tutorial_Stamina_Close'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.2"
+      },
+      {
+        "ObjectName": "Function'ins001_SC_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.1"
+      },
+      {
+        "ObjectName": "Function'ins001_SC_C:ExecuteUbergraph_ins001_SC'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "TimerLooping",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CurrentPhase",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "GoblinCount",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "GoblinShaman",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "BlueprintGeneratedClass'BP_EnemyCharacter_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Enemy/BP_EnemyCharacter.22"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "TimerLooping2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "EscapeLength",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Player",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerCharacter'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_ins001_SC": {
+        "ObjectName": "Function'ins001_SC_C:ExecuteUbergraph_ins001_SC'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.0"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'ins001_SC_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.1"
+      },
+      "Tutorial_Stamina_Close": {
+        "ObjectName": "Function'ins001_SC_C:Tutorial_Stamina_Close'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.2"
+      },
+      "OnEndScript": {
+        "ObjectName": "Function'ins001_SC_C:OnEndScript'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.3"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_NotPlaceable | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "ins001_SC_C'Default__ins001_SC_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.5"
+    }
+  },
+  {
+    "Type": "ins001_SC_C",
+    "Name": "Default__ins001_SC_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.ins001_SC_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "TimerLooping": true,
+      "TimerLooping2": true,
+      "EscapeLength": 1000.0
+    }
+  },
+  {
+    "Type": "BodySetup",
+    "Name": "BodySetup_0",
+    "Outer": "BrushComponent0",
+    "Class": "UScriptClass'BodySetup'",
+    "Properties": {
+      "AggGeom": {
+        "ConvexElems": [
+          {
+            "VertexData": [
+              {
+                "X": -250.0,
+                "Y": 250.0,
+                "Z": -100.0
+              },
+              {
+                "X": -250.0,
+                "Y": 250.0,
+                "Z": 100.0
+              },
+              {
+                "X": -250.0,
+                "Y": -250.0,
+                "Z": 100.0
+              },
+              {
+                "X": -250.0,
+                "Y": -250.0,
+                "Z": -100.0
+              },
+              {
+                "X": 250.0,
+                "Y": 250.0,
+                "Z": -100.0
+              },
+              {
+                "X": 250.0,
+                "Y": 250.0,
+                "Z": 100.0
+              },
+              {
+                "X": 250.0,
+                "Y": -250.0,
+                "Z": -100.0
+              },
+              {
+                "X": 250.0,
+                "Y": -250.0,
+                "Z": 100.0
+              }
+            ],
+            "IndexData": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3,
+              4,
+              5,
+              1,
+              4,
+              1,
+              0,
+              6,
+              7,
+              5,
+              6,
+              5,
+              4,
+              3,
+              2,
+              7,
+              3,
+              7,
+              6,
+              5,
+              7,
+              2,
+              5,
+              2,
+              1,
+              6,
+              4,
+              0,
+              6,
+              0,
+              3
+            ],
+            "ElemBox": {
+              "Min": {
+                "X": -250.0,
+                "Y": -250.0,
+                "Z": -100.0
+              },
+              "Max": {
+                "X": 250.0,
+                "Y": 250.0,
+                "Z": 100.0
+              },
+              "IsValid": 1
+            },
+            "Transform": {
+              "Rotation": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0,
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
+              },
+              "Translation": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Scale3D": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              }
+            },
+            "RestOffset": 0.0,
+            "Name": "None",
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
+          }
+        ]
+      },
+      "bGenerateMirroredCollision": false,
+      "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "AE40D23E47A077A06634C99F84CA9B10",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+        "ElementCount": 470,
+        "SizeOnDisk": 470,
+        "OffsetInFile": "0xE05B"
+      }
+    }
+  },
+  {
+    "Type": "BodySetup",
+    "Name": "BodySetup_0",
+    "Outer": "BrushComponent0",
+    "Class": "UScriptClass'BodySetup'",
+    "Properties": {
+      "bGenerateMirroredCollision": false,
+      "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "9990426D4338FC2AA0D99EB2F0DD2FB7"
+  },
+  {
+    "Type": "BodySetup",
+    "Name": "BodySetup_0",
+    "Outer": "BrushComponent0",
+    "Class": "UScriptClass'BodySetup'",
+    "Properties": {
+      "AggGeom": {
+        "ConvexElems": [
+          {
+            "VertexData": [
+              {
+                "X": -2500.0,
+                "Y": 2500.0,
+                "Z": -1000.0
+              },
+              {
+                "X": -2500.0,
+                "Y": 2500.0,
+                "Z": 1000.0
+              },
+              {
+                "X": -2500.0,
+                "Y": -2500.0,
+                "Z": 1000.0
+              },
+              {
+                "X": -2500.0,
+                "Y": -2500.0,
+                "Z": -1000.0
+              },
+              {
+                "X": 2500.0,
+                "Y": 2500.0,
+                "Z": -1000.0
+              },
+              {
+                "X": 2500.0,
+                "Y": 2500.0,
+                "Z": 1000.0
+              },
+              {
+                "X": 2500.0,
+                "Y": -2500.0,
+                "Z": -1000.0
+              },
+              {
+                "X": 2500.0,
+                "Y": -2500.0,
+                "Z": 1000.0
+              }
+            ],
+            "IndexData": [
+              0,
+              1,
+              2,
+              0,
+              2,
+              3,
+              4,
+              5,
+              1,
+              4,
+              1,
+              0,
+              6,
+              7,
+              5,
+              6,
+              5,
+              4,
+              3,
+              2,
+              7,
+              3,
+              7,
+              6,
+              5,
+              7,
+              2,
+              5,
+              2,
+              1,
+              6,
+              4,
+              0,
+              6,
+              0,
+              3
+            ],
+            "ElemBox": {
+              "Min": {
+                "X": -2500.0,
+                "Y": -2500.0,
+                "Z": -1000.0
+              },
+              "Max": {
+                "X": 2500.0,
+                "Y": 2500.0,
+                "Z": 1000.0
+              },
+              "IsValid": 1
+            },
+            "Transform": {
+              "Rotation": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0,
+                "W": 1.0,
+                "IsNormalized": true,
+                "Size": 1.0,
+                "SizeSquared": 1.0
+              },
+              "Translation": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Scale3D": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              }
+            },
+            "RestOffset": 0.0,
+            "Name": "None",
+            "bContributeToMass": true,
+            "CollisionEnabled": "ECollisionEnabled::QueryAndPhysics"
+          }
+        ]
+      },
+      "bGenerateMirroredCollision": false,
+      "CollisionTraceFlag": "CTF_UseSimpleAsComplex"
+    },
+    "BodySetupGuid": "537B2C1E4B5752D2989DFAB894317719",
+    "CookedFormatData": {
+      "PhysXPC": {
+        "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+        "ElementCount": 470,
+        "SizeOnDisk": 470,
+        "OffsetInFile": "0xE6E4"
+      }
+    }
+  },
+  {
+    "Type": "BoxComponent",
+    "Name": "CollisionComp",
+    "Outer": "SBPlayerStart_2",
+    "Class": "UScriptClass'BoxComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'ins001_SC:PersistentLevel.SBPlayerStart_2.CollisionCapsule'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.14"
+      }
+    }
+  },
+  {
+    "Type": "BP_ProcessEnemySpawn_C",
+    "Name": "BP_ProcessEnemySpawn_2",
+    "Outer": "PersistentLevel",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_ProcessEnemySpawn.BP_ProcessEnemySpawn_C'",
+    "Template": {
+      "ObjectName": "BP_ProcessEnemySpawn_C'Default__BP_ProcessEnemySpawn_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_ProcessEnemySpawn.9"
+    },
+    "Properties": {
+      "DefaultSceneRoot": {
+        "ObjectName": "SceneComponent'ins001_SC:PersistentLevel.BP_ProcessEnemySpawn_2.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.34"
+      },
+      "Encounter": {
+        "ObjectName": "SBEncounterVolume'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.23"
+      },
+      "HelpEnemySet": [
+        {
+          "GroupMembers_16_1488E86C4B86822BC7B7B3A87BA25D3F": [
+            {
+              "ObjectName": "SBSpawnAreaDungeon'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_3'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.28"
+            }
+          ]
+        }
+      ],
+      "RootComponent": {
+        "ObjectName": "SceneComponent'ins001_SC:PersistentLevel.BP_ProcessEnemySpawn_2.DefaultSceneRoot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.34"
+      },
+      "BlueprintCreatedComponents": [
+        {
+          "ObjectName": "SceneComponent'ins001_SC:PersistentLevel.BP_ProcessEnemySpawn_2.DefaultSceneRoot'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.34"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "BrushComponent",
+    "Name": "BrushComponent0",
+    "Outer": "SBEncounterVolume_ins001",
+    "Class": "UScriptClass'BrushComponent'",
+    "Properties": {
+      "Brush": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.18"
+      },
+      "BrushBodySetup": {
+        "ObjectName": "BodySetup'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.BrushComponent0.BodySetup_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.6"
+      },
+      "RelativeLocation": {
+        "X": -60060.0,
+        "Y": -29080.0,
+        "Z": 4320.0
+      }
+    }
+  },
+  {
+    "Type": "BrushComponent",
+    "Name": "BrushComponent0",
+    "Outer": "SBEncounterVolume_ins001_2",
+    "Class": "UScriptClass'BrushComponent'",
+    "Properties": {
+      "Brush": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.19"
+      },
+      "BrushBodySetup": {
+        "ObjectName": "BodySetup'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.BrushComponent0.BodySetup_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.7"
+      },
+      "RelativeLocation": {
+        "X": -59750.0,
+        "Y": -29550.0,
+        "Z": 4250.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 23.626137,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "BrushComponent",
+    "Name": "BrushComponent0",
+    "Outer": "SBEnemySenseChanger_1",
+    "Class": "UScriptClass'BrushComponent'",
+    "Properties": {
+      "Brush": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.SBEnemySenseChanger_1.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.20"
+      },
+      "BrushBodySetup": {
+        "ObjectName": "BodySetup'ins001_SC:PersistentLevel.SBEnemySenseChanger_1.BrushComponent0.BodySetup_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.8"
+      },
+      "RelativeLocation": {
+        "X": -59330.0,
+        "Y": -30600.0,
+        "Z": 4700.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCapsule",
+    "Outer": "SBPlayerStart_2",
+    "Class": "UScriptClass'CapsuleComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -60060.0,
+        "Y": -29080.0,
+        "Z": 4320.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -65.000145,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "ins001_SC_C",
+    "Name": "ins001_SC_C_3",
+    "Outer": "PersistentLevel",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.ins001_SC_C'",
+    "Template": {
+      "ObjectName": "ins001_SC_C'Default__ins001_SC_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.5"
+    }
+  },
+  {
+    "Type": "Level",
+    "Name": "PersistentLevel",
+    "Outer": "ins001_SC",
+    "Class": "UScriptClass'Level'",
+    "Properties": {
+      "Model": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.17"
+      },
+      "LevelScriptActor": {
+        "ObjectName": "ins001_SC_C'ins001_SC:PersistentLevel.ins001_SC_C_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.15"
+      },
+      "LevelBuildDataId": "E4BB91B1-4A7C7B1D-1004B295-C3E3BECB",
+      "WorldSettings": {
+        "ObjectName": "SBWorldSettings'ins001_SC:PersistentLevel.SBWorldSettings'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.33"
+      }
+    },
+    "Actors": [
+      {
+        "ObjectName": "SBWorldSettings'ins001_SC:PersistentLevel.SBWorldSettings'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.33"
+      },
+      null,
+      {
+        "ObjectName": "SBEncounterVolume'ins001_SC:PersistentLevel.SBEncounterVolume_ins001'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.22"
+      },
+      {
+        "ObjectName": "SBPlayerStart'ins001_SC:PersistentLevel.SBPlayerStart_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.26"
+      },
+      {
+        "ObjectName": "SBEncounterVolume'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.23"
+      },
+      {
+        "ObjectName": "StaticMeshActor'ins001_SC:PersistentLevel.Cube_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.37"
+      },
+      {
+        "ObjectName": "SBSpawnAreaDungeon'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.27"
+      },
+      {
+        "ObjectName": "SBSpawnAreaDungeon'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.28"
+      },
+      {
+        "ObjectName": "SBEnemySenseChanger'ins001_SC:PersistentLevel.SBEnemySenseChanger_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.24"
+      },
+      {
+        "ObjectName": "ins001_SC_C'ins001_SC:PersistentLevel.ins001_SC_C_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.15"
+      },
+      {
+        "ObjectName": "BP_ProcessEnemySpawn_C'ins001_SC:PersistentLevel.BP_ProcessEnemySpawn_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.10"
+      }
+    ],
+    "URL": {
+      "Protocol": "unreal",
+      "Host": "",
+      "Port": 7777,
+      "Valid": true,
+      "Map": "/Game/Maps/Launcher",
+      "Op": [],
+      "Portal": ""
+    },
+    "Model": {
+      "ObjectName": "Model'ins001_SC:PersistentLevel.Model_0'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.17"
+    },
+    "ModelComponents": [],
+    "LevelScriptActor": {
+      "ObjectName": "ins001_SC_C'ins001_SC:PersistentLevel.ins001_SC_C_3'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.15"
+    },
+    "NavListStart": null,
+    "NavListEnd": null,
+    "PrecomputedVisibilityHandler": {
+      "PrecomputedVisibilityCellBucketOriginXY": {
+        "X": 0.0,
+        "Y": 0.0
+      },
+      "PrecomputedVisibilityCellSizeXY": 0.0,
+      "PrecomputedVisibilityCellSizeZ": 0.0,
+      "PrecomputedVisibilityCellBucketSizeXY": 0,
+      "PrecomputedVisibilityNumCellBuckets": 0,
+      "PrecomputedVisibilityCellBuckets": []
+    },
+    "PrecomputedVolumeDistanceField": {
+      "VolumeMaxDistance": 0.0,
+      "VolumeBox": {
+        "Min": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Max": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "IsValid": 0
+      },
+      "VolumeSizeX": 0,
+      "VolumeSizeY": 0,
+      "VolumeSizeZ": 0,
+      "Data": []
+    }
+  },
+  {
+    "Type": "Model",
+    "Name": "Model_0",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'Model'",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "SphereRadius": 0.0
+    },
+    "Vectors": [],
+    "Points": [],
+    "Nodes": [],
+    "Surfs": [],
+    "NumSharedSides": 4,
+    "VertexBuffer": {
+      "Vertices": []
+    },
+    "LightingGuid": "B8AD8E36-4C1454EB-8DA1DA9E-C44C2B75",
+    "LightmassSettings": []
+  },
+  {
+    "Type": "Model",
+    "Name": "Model_0",
+    "Outer": "SBEncounterVolume_ins001",
+    "Class": "UScriptClass'Model'",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 250.0,
+        "Y": 250.0,
+        "Z": 100.0
+      },
+      "SphereRadius": 367.42346
+    },
+    "Vectors": [
+      {
+        "X": -1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -1.0
+      },
+      {
+        "X": 1.0,
+        "Y": -0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": -1.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 1.0
+      }
+    ],
+    "Points": [
+      {
+        "X": -250.0,
+        "Y": -250.0,
+        "Z": -100.0
+      },
+      {
+        "X": -250.0,
+        "Y": -250.0,
+        "Z": 100.0
+      },
+      {
+        "X": -250.0,
+        "Y": 250.0,
+        "Z": 100.0
+      },
+      {
+        "X": -250.0,
+        "Y": 250.0,
+        "Z": -100.0
+      },
+      {
+        "X": 250.0,
+        "Y": 250.0,
+        "Z": 100.0
+      },
+      {
+        "X": 250.0,
+        "Y": 250.0,
+        "Z": -100.0
+      },
+      {
+        "X": 250.0,
+        "Y": -250.0,
+        "Z": 100.0
+      },
+      {
+        "X": 250.0,
+        "Y": -250.0,
+        "Z": -100.0
+      }
+    ],
+    "Nodes": [
+      {
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 0,
+        "iSurf": 0,
+        "iVertexIndex": 0,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 4,
+        "iSurf": 1,
+        "iVertexIndex": 4,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 2,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 8,
+        "iSurf": 2,
+        "iVertexIndex": 8,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 3,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 12,
+        "iSurf": 3,
+        "iVertexIndex": 12,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 4,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 100.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "iVertPool": 16,
+        "iSurf": 4,
+        "iVertexIndex": 16,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 5,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 100.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "iVertPool": 20,
+        "iSurf": 5,
+        "iVertexIndex": 20,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": -1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": 0,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      }
+    ],
+    "Surfs": [
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 0,
+        "vTextureU": 1,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 3,
+        "vNormal": 1,
+        "vTextureU": 3,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 5,
+        "vNormal": 3,
+        "vTextureU": 4,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 7,
+        "vNormal": 4,
+        "vTextureU": 0,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 250.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 2,
+        "vNormal": 5,
+        "vTextureU": 3,
+        "vTextureV": 1,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 100.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 2,
+        "vTextureU": 3,
+        "vTextureV": 4,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 100.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      }
+    ],
+    "NumSharedSides": 4,
+    "VertexBuffer": null,
+    "LightingGuid": "561A6529-4E9A6A1E-FE99A89E-B73B3BB3",
+    "LightmassSettings": [
+      {
+        "bUseTwoSidedLighting": false,
+        "bShadowIndirectOnly": false,
+        "bUseEmissiveForStaticLighting": false,
+        "bUseVertexNormalForHemisphereGather": false,
+        "EmissiveLightFalloffExponent": 8.0,
+        "EmissiveLightExplicitInfluenceRadius": 0.0,
+        "EmissiveBoost": 1.0,
+        "DiffuseBoost": 1.0,
+        "FullyOccludedSamplesFraction": 1.0
+      }
+    ]
+  },
+  {
+    "Type": "Model",
+    "Name": "Model_0",
+    "Outer": "SBEncounterVolume_ins001_2",
+    "Class": "UScriptClass'Model'",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "SphereRadius": 0.0
+    },
+    "Vectors": [],
+    "Points": [],
+    "Nodes": [],
+    "Surfs": [],
+    "NumSharedSides": 4,
+    "VertexBuffer": null,
+    "LightingGuid": "49533BC5-4581DB5B-C7D9A39B-8A3E93D4",
+    "LightmassSettings": []
+  },
+  {
+    "Type": "Model",
+    "Name": "Model_0",
+    "Outer": "SBEnemySenseChanger_1",
+    "Class": "UScriptClass'Model'",
+    "Bounds": {
+      "Origin": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "BoxExtent": {
+        "X": 2500.0,
+        "Y": 2500.0,
+        "Z": 1000.0
+      },
+      "SphereRadius": 3674.2346
+    },
+    "Vectors": [
+      {
+        "X": -1.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.99999994,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -0.99999994
+      },
+      {
+        "X": 0.99999994,
+        "Y": -0.0,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": -0.99999994,
+        "Z": 0.0
+      },
+      {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 1.0
+      }
+    ],
+    "Points": [
+      {
+        "X": -2500.0,
+        "Y": -2500.0,
+        "Z": -1000.0
+      },
+      {
+        "X": -2500.0,
+        "Y": -2500.0,
+        "Z": 1000.0
+      },
+      {
+        "X": -2500.0,
+        "Y": 2500.0,
+        "Z": 1000.0
+      },
+      {
+        "X": -2500.0,
+        "Y": 2500.0,
+        "Z": -1000.0
+      },
+      {
+        "X": 2500.0,
+        "Y": 2500.0,
+        "Z": 1000.0
+      },
+      {
+        "X": 2500.0,
+        "Y": 2500.0,
+        "Z": -1000.0
+      },
+      {
+        "X": 2500.0,
+        "Y": -2500.0,
+        "Z": 1000.0
+      },
+      {
+        "X": 2500.0,
+        "Y": -2500.0,
+        "Z": -1000.0
+      }
+    ],
+    "Nodes": [
+      {
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 0,
+        "iSurf": 0,
+        "iVertexIndex": 0,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 4,
+        "iSurf": 1,
+        "iVertexIndex": 4,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 2,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "iVertPool": 8,
+        "iSurf": 2,
+        "iVertexIndex": 8,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 3,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "iVertPool": 12,
+        "iSurf": 3,
+        "iVertexIndex": 12,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 4,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 1000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "iVertPool": 16,
+        "iSurf": 4,
+        "iVertexIndex": 16,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": 5,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": -1,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      },
+      {
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 1000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "iVertPool": 20,
+        "iSurf": 5,
+        "iVertexIndex": 20,
+        "ComponentIndex": 0,
+        "ComponentNodeIndex": 0,
+        "ComponentElementIndex": 0,
+        "iBack": -1,
+        "iFront": -1,
+        "iPlane": -1,
+        "iCollisionBound": 0,
+        "iZone0": 0,
+        "iZone1": 0,
+        "NumVertices": 4,
+        "NodeFlags": 0,
+        "iLeaf0": -1,
+        "iLeaf1": -1
+      }
+    ],
+    "Surfs": [
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 0,
+        "vTextureU": 1,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": -1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": -1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 3,
+        "vNormal": 1,
+        "vTextureU": 3,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 1.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": 0.0,
+          "Y": 1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 5,
+        "vNormal": 3,
+        "vTextureU": 4,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 1.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": 1.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 7,
+        "vNormal": 4,
+        "vTextureU": 0,
+        "vTextureV": 2,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": -1.0,
+            "Z": 0.0
+          },
+          "W": 2500.0,
+          "X": 0.0,
+          "Y": -1.0,
+          "Z": 0.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 2,
+        "vNormal": 5,
+        "vTextureU": 3,
+        "vTextureV": 1,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 1.0
+          },
+          "W": 1000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      },
+      {
+        "Material": null,
+        "PolyFlags": 0,
+        "pBase": 0,
+        "vNormal": 2,
+        "vTextureU": 3,
+        "vTextureV": 4,
+        "iBrushPoly": -1,
+        "Actor": null,
+        "Plane": {
+          "Vector": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -1.0
+          },
+          "W": 1000.0,
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": -1.0
+        },
+        "LightMapScale": 32.0,
+        "iLightmassIndex": 0
+      }
+    ],
+    "NumSharedSides": 4,
+    "VertexBuffer": null,
+    "LightingGuid": "E4666471-47BB7A28-C60244B1-23BA87C2",
+    "LightmassSettings": [
+      {
+        "bUseTwoSidedLighting": false,
+        "bShadowIndirectOnly": false,
+        "bUseEmissiveForStaticLighting": false,
+        "bUseVertexNormalForHemisphereGather": false,
+        "EmissiveLightFalloffExponent": 8.0,
+        "EmissiveLightExplicitInfluenceRadius": 0.0,
+        "EmissiveBoost": 1.0,
+        "DiffuseBoost": 1.0,
+        "FullyOccludedSamplesFraction": 1.0
+      }
+    ]
+  },
+  {
+    "Type": "SBEncounterType_Trigger",
+    "Name": "SBEncounterType_Trigger_1",
+    "Outer": "SBEncounterVolume_ins001",
+    "Class": "UScriptClass'SBEncounterType_Trigger'"
+  },
+  {
+    "Type": "SBEncounterVolume",
+    "Name": "SBEncounterVolume_ins001",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBEncounterVolume'",
+    "Properties": {
+      "SpawnAreas": [
+        {
+          "ObjectName": "SBSpawnAreaDungeon'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.27"
+        }
+      ],
+      "SpawnQuery": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_EV_SpawnFromAllAreas'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_EV_SpawnFromAllAreas.0"
+        }
+      },
+      "SpawnSourceComponent": {
+        "ObjectName": "SBSpawnSourceComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.SpawnSourceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.29"
+      },
+      "EncounterType": {
+        "ObjectName": "SBEncounterType_Trigger'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.SBEncounterType_Trigger_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.21"
+      },
+      "BrushType": "Brush_Add",
+      "BrushColor": {
+        "B": 128,
+        "G": 128,
+        "R": 255,
+        "A": 255,
+        "Hex": "FFFF8080"
+      },
+      "Brush": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.18"
+      },
+      "BrushComponent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.11"
+      },
+      "bHidden": false,
+      "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
+      "RootComponent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.11"
+      }
+    }
+  },
+  {
+    "Type": "SBEncounterVolume",
+    "Name": "SBEncounterVolume_ins001_2",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBEncounterVolume'",
+    "Properties": {
+      "SpawnAreas": [
+        {
+          "ObjectName": "SBSpawnAreaDungeon'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.28"
+        }
+      ],
+      "SpawnQuery": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_EV_SpawnFromAllAreas'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_EV_SpawnFromAllAreas.0"
+        }
+      },
+      "SpawnSourceComponent": {
+        "ObjectName": "SBSpawnSourceComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.SpawnSourceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.30"
+      },
+      "BrushType": "Brush_Add",
+      "Brush": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.19"
+      },
+      "BrushComponent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.12"
+      },
+      "bHidden": false,
+      "bNetLoadOnClient": true,
+      "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
+      "RootComponent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.12"
+      }
+    }
+  },
+  {
+    "Type": "SBEnemySenseChanger",
+    "Name": "SBEnemySenseChanger_1",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBEnemySenseChanger'",
+    "Properties": {
+      "DebugDrawData": {
+        "bIsValid": true,
+        "bIsBox": true,
+        "Extent": {
+          "X": 2500.0,
+          "Y": 2500.0,
+          "Z": 1000.0
+        }
+      },
+      "BrushType": "Brush_Add",
+      "Brush": {
+        "ObjectName": "Model'ins001_SC:PersistentLevel.SBEnemySenseChanger_1.Model_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.20"
+      },
+      "BrushComponent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEnemySenseChanger_1.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.13"
+      },
+      "bHidden": false,
+      "RootComponent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEnemySenseChanger_1.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.13"
+      }
+    }
+  },
+  {
+    "Type": "SBNavigationSystemConfig",
+    "Name": "SBNavigationSystemConfig_0",
+    "Outer": "SBWorldSettings",
+    "Class": "UScriptClass'SBNavigationSystemConfig'",
+    "Properties": {
+      "bCreateOnClient": true,
+      "bAutoSpawnMissingNavData": true
+    }
+  },
+  {
+    "Type": "SBPlayerStart",
+    "Name": "SBPlayerStart_2",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBPlayerStart'",
+    "Properties": {
+      "CollisionComponent": {
+        "ObjectName": "BoxComponent'ins001_SC:PersistentLevel.SBPlayerStart_2.CollisionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.9"
+      },
+      "PlayerStartTag": "ins001_Start",
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'ins001_SC:PersistentLevel.SBPlayerStart_2.CollisionCapsule'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.14"
+      },
+      "GoodSprite": null,
+      "BadSprite": null,
+      "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'ins001_SC:PersistentLevel.SBPlayerStart_2.CollisionCapsule'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.14"
+      }
+    }
+  },
+  {
+    "Type": "SBSpawnAreaDungeon",
+    "Name": "SBSpawnAreaDungeon_2",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBSpawnAreaDungeon'",
+    "Properties": {
+      "EnemySenseChangers": [
+        {
+          "ObjectName": "SBEnemySenseChanger'ins001_SC:PersistentLevel.SBEnemySenseChanger_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.24"
+        }
+      ],
+      "FindSpawnPointQuery": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'PT_NE_SelectPointInSpawnArea'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/PerceptionTree/PT_NE_SelectPointInSpawnArea.0"
+        }
+      },
+      "SpawnSourceComponent": {
+        "ObjectName": "SBSpawnSourceComponent'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_2.SpawnSourceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.31"
+      },
+      "bGenerateSpawnPoint": true,
+      "Extent": {
+        "X": 200.0,
+        "Y": 400.0,
+        "Z": 100.0
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_2.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.35"
+      }
+    }
+  },
+  {
+    "Type": "SBSpawnAreaDungeon",
+    "Name": "SBSpawnAreaDungeon_3",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBSpawnAreaDungeon'",
+    "Properties": {
+      "EnemySenseChangers": [
+        {
+          "ObjectName": "SBEnemySenseChanger'ins001_SC:PersistentLevel.SBEnemySenseChanger_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.24"
+        }
+      ],
+      "FindSpawnPointQuery": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'PT_NE_SelectPointInSpawnArea'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/PerceptionTree/PT_NE_SelectPointInSpawnArea.0"
+        }
+      },
+      "SpawnSourceComponent": {
+        "ObjectName": "SBSpawnSourceComponent'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_3.SpawnSourceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.32"
+      },
+      "bGenerateSpawnPoint": true,
+      "Extent": {
+        "X": 200.0,
+        "Y": 300.0,
+        "Z": 100.0
+      },
+      "StepSize": 100.0,
+      "RootComponent": {
+        "ObjectName": "SceneComponent'ins001_SC:PersistentLevel.SBSpawnAreaDungeon_3.SceneComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.36"
+      }
+    }
+  },
+  {
+    "Type": "SBSpawnSourceComponent",
+    "Name": "SpawnSourceComponent",
+    "Outer": "SBEncounterVolume_ins001",
+    "Class": "UScriptClass'SBSpawnSourceComponent'",
+    "Properties": {
+      "SpawnTree": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_EV_SpawnFromAllAreas'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_EV_SpawnFromAllAreas.0"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SBSpawnSourceComponent",
+    "Name": "SpawnSourceComponent",
+    "Outer": "SBEncounterVolume_ins001_2",
+    "Class": "UScriptClass'SBSpawnSourceComponent'",
+    "Properties": {
+      "SpawnTree": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_EV_SpawnFromAllAreas'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_EV_SpawnFromAllAreas.0"
+        }
+      }
+    }
+  },
+  {
+    "Type": "SBSpawnSourceComponent",
+    "Name": "SpawnSourceComponent",
+    "Outer": "SBSpawnAreaDungeon_2",
+    "Class": "UScriptClass'SBSpawnSourceComponent'",
+    "Properties": {
+      "SpawnTree": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_SA_SpawnEnemySet'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_SA_SpawnEnemySet.0"
+        },
+        "Arguments": [
+          {
+            "Name": "EnemySetId",
+            "Type": "EAIFwBTParamType::String",
+            "bUseValue": true,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "ES_ins001_Goblins",
+            "BlackboardKey": ""
+          },
+          {
+            "Name": "EnemyId",
+            "Type": "EAIFwBTParamType::String",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "E000_00_00_00000",
+            "BlackboardKey": ""
+          },
+          {
+            "Name": "Level",
+            "Type": "EAIFwBTParamType::Int",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 1,
+            "FloatValue": 0.0,
+            "StringValue": "",
+            "BlackboardKey": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBSpawnSourceComponent",
+    "Name": "SpawnSourceComponent",
+    "Outer": "SBSpawnAreaDungeon_3",
+    "Class": "UScriptClass'SBSpawnSourceComponent'",
+    "Properties": {
+      "SpawnTree": {
+        "Template": {
+          "ObjectName": "AIFwBehaviorTree'ST_SA_SpawnEnemySet'",
+          "ObjectPath": "BLUEPROTOCOL/Content/AI/SpawnTree/Common/ST_SA_SpawnEnemySet.0"
+        },
+        "Arguments": [
+          {
+            "Name": "EnemySetId",
+            "Type": "EAIFwBTParamType::String",
+            "bUseValue": true,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "ES_ins001_Goblins2",
+            "BlackboardKey": ""
+          },
+          {
+            "Name": "EnemyId",
+            "Type": "EAIFwBTParamType::String",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "",
+            "BlackboardKey": ""
+          },
+          {
+            "Name": "Level",
+            "Type": "EAIFwBTParamType::Int",
+            "bUseValue": false,
+            "bUseBBKey": false,
+            "BoolValue": false,
+            "IntValue": 0,
+            "FloatValue": 0.0,
+            "StringValue": "",
+            "BlackboardKey": ""
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBWorldSettings",
+    "Name": "SBWorldSettings",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'SBWorldSettings'",
+    "Properties": {
+      "bEnableNavigationSystem": false,
+      "NavigationSystemConfig": {
+        "ObjectName": "SBNavigationSystemConfig'ins001_SC:PersistentLevel.SBWorldSettings.SBNavigationSystemConfig_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.25"
+      },
+      "BookmarkArray": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot",
+    "Outer": "BP_ProcessEnemySpawn_2",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'BP_ProcessEnemySpawn_C:DefaultSceneRoot_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/EnemySpawners/BP_ProcessEnemySpawn.10"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "BrushComponent'ins001_SC:PersistentLevel.SBEncounterVolume_ins001_2.BrushComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.12"
+      },
+      "RelativeLocation": {
+        "X": 400.28763,
+        "Y": -731.75806,
+        "Z": -30.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": -23.626114,
+        "Roll": 0.0
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript",
+      "UCSModifiedProperties": [
+        {
+          "MemberParent": {
+            "ObjectName": "Class'SceneComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "MemberName": "RelativeLocation",
+          "MemberGuid": "00000000-00000000-00000000-00000000"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "SBSpawnAreaDungeon_2",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -59120.043,
+        "Y": -30989.098,
+        "Z": 4233.8975
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 115.00011,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComp",
+    "Outer": "SBSpawnAreaDungeon_3",
+    "Class": "UScriptClass'SceneComponent'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": -58783.824,
+        "Y": -31624.498,
+        "Z": 4486.2515
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 120.00008,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshActor",
+    "Name": "Cube_2",
+    "Outer": "PersistentLevel",
+    "Class": "UScriptClass'StaticMeshActor'",
+    "Properties": {
+      "StaticMeshComponent": {
+        "ObjectName": "StaticMeshComponent'ins001_SC:PersistentLevel.Cube_2.StaticMeshComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.38"
+      },
+      "bHidden": true,
+      "RootComponent": {
+        "ObjectName": "StaticMeshComponent'ins001_SC:PersistentLevel.Cube_2.StaticMeshComponent0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.38"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMeshComponent0",
+    "Outer": "Cube_2",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'Cube'",
+        "ObjectPath": "Engine/Content/BasicShapes/Cube.2"
+      },
+      "bUseDefaultCollision": false,
+      "OverrideMaterials": [
+        {
+          "ObjectName": "Material'BasicShapeMaterial'",
+          "ObjectPath": "Engine/Content/BasicShapes/BasicShapeMaterial.0"
+        }
+      ],
+      "CastShadow": false,
+      "BodyInstance": {
+        "CollisionProfileName": "SBBlockAllPawn",
+        "CollisionResponses": {
+          "ResponseArray": [
+            {
+              "Channel": "WorldStatic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "WorldDynamic",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Visibility",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Camera",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "PhysicsBody",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Vehicle",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "Destructible",
+              "Response": "ECR_Ignore"
+            },
+            {
+              "Channel": "SBPlayerPawn",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBEnemyPawn",
+              "Response": "ECR_Block"
+            },
+            {
+              "Channel": "SBPhotoModeCamera",
+              "Response": "ECR_Block"
+            }
+          ]
+        }
+      },
+      "RelativeLocation": {
+        "X": -58920.0,
+        "Y": -33280.0,
+        "Z": 5170.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 150.0,
+        "Roll": 0.0
+      },
+      "RelativeScale3D": {
+        "X": 6.375,
+        "Y": 2.0,
+        "Z": 6.375
+      },
+      "bCanEverAffectNavigation": false
+    },
+    "LODData": [
+      {
+        "MapBuildDataId": "9442E6914928D178D776A2A719ADA099"
+      }
+    ]
+  },
+  {
+    "Type": "World",
+    "Name": "ins001_SC",
+    "Class": "UScriptClass'World'",
+    "PersistentLevel": {
+      "ObjectName": "Level'ins001_SC:PersistentLevel'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/fld/fld001/sublevel/ins001_SC.16"
+    },
+    "ExtraReferencedObjects": [],
+    "StreamingLevels": []
+  }
+]

@@ -1,0 +1,209 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_CastRingHeal_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_CastRingBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.8"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_CastRingHeal_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.7"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'BP_CastRingHeal_C:InheritableComponentHandler'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.2"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_CastRingBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.8"
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_CastRingHeal_C'Default__BP_CastRingHeal_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.1"
+    }
+  },
+  {
+    "Type": "BP_CastRingHeal_C",
+    "Name": "Default__BP_CastRingHeal_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.BP_CastRingHeal_C'",
+    "Template": {
+      "ObjectName": "BP_CastRingBase_C'Default__BP_CastRingBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.9"
+    },
+    "Properties": {
+      "CastSter": {
+        "ObjectName": "ParticleSystem'PS_CastRingSter_Heal'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Enemy/CastRing/PS_CastRingSter_Heal.87"
+      },
+      "RingMaterial": {
+        "ObjectName": "Material'M_EF_CastRing2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Material/Material_Base/MasterMterials/Other/M_EF_CastRing2.0"
+      },
+      "Color": {
+        "R": 0.5,
+        "G": 3.0,
+        "B": 1.25,
+        "A": 0.0,
+        "Hex": "BCFFFF"
+      },
+      "EffectComp": {
+        "ObjectName": "SBProjectileEffectComponent'Default__BP_CastRingHeal_C:EffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.4"
+      },
+      "EffectValueComp": {
+        "ObjectName": "SBEffectValueComponent'Default__BP_CastRingHeal_C:EffectValueComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.3"
+      },
+      "RootComponent": {
+        "ObjectName": "SBProjectileEffectComponent'Default__BP_CastRingHeal_C:EffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.4"
+      },
+      "OnActorHit": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_CastRingHeal_C'Default__BP_CastRingHeal_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.1"
+            },
+            "FunctionName": "OnProjectileGroundHit"
+          }
+        ]
+      },
+      "OnEndPlay": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_CastRingHeal_C'Default__BP_CastRingHeal_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.1"
+            },
+            "FunctionName": "OnProjectileEndPlay"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "BP_CastRingHeal_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'StaticMeshComponent'",
+            "ObjectPath": "/Script/Engine"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "StaticMeshComponent'BP_CastRingHeal_C:StaticMesh_GEN_VARIABLE'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.8"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_CastRingBase_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.8"
+            },
+            "SCSVariableName": "StaticMesh",
+            "AssociatedGuid": "53C8C0B2-45A58057-5AB47DBE-678C94B5"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SBEffectValueComponent",
+    "Name": "EffectValueComp",
+    "Outer": "Default__BP_CastRingHeal_C",
+    "Class": "UScriptClass'SBEffectValueComponent'",
+    "Template": {
+      "ObjectName": "SBEffectValueComponent'Default__BP_CastRingBase_C:EffectValueComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.10"
+    }
+  },
+  {
+    "Type": "SBProjectileEffectComponent",
+    "Name": "EffectComp",
+    "Outer": "Default__BP_CastRingHeal_C",
+    "Class": "UScriptClass'SBProjectileEffectComponent'",
+    "Template": {
+      "ObjectName": "SBProjectileEffectComponent'Default__BP_CastRingBase_C:EffectComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.11"
+    },
+    "Properties": {
+      "SpawnEffectSound": {
+        "Event": {
+          "ObjectName": "AkAudioEvent'Play_Bandit_Magician_Heal_ChargeEFF'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E300_00_Human/Play_Bandit_Magician_Heal_ChargeEFF.1"
+        },
+        "StopWhenOwnerDestroyed": false
+      }
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_CastRingHeal_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_CastRingHeal_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.5"
+      },
+      "VariableGuid": "E525DBDD-4B364BF3-BCCD32AC-9F38BED5",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_CastRingHeal_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_CastRingHeal_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingHeal.6"
+      }
+    }
+  },
+  {
+    "Type": "StaticMeshComponent",
+    "Name": "StaticMesh_GEN_VARIABLE",
+    "Outer": "BP_CastRingHeal_C",
+    "Class": "UScriptClass'StaticMeshComponent'",
+    "Template": {
+      "ObjectName": "StaticMeshComponent'BP_CastRingBase_C:StaticMesh_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/EnemyCommon/CastRing/BP_CastRingBase.16"
+    },
+    "Properties": {
+      "StaticMesh": {
+        "ObjectName": "StaticMesh'SM_EF_CastRing_03'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Mesh/SM/SM_EF_CastRing_03.2"
+      }
+    }
+  }
+]

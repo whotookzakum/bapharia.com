@@ -1,0 +1,401 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_SoundManager_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBSoundManager'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_SoundManager_C'Default__BP_SoundManager_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/BP_SoundManager.1"
+    }
+  },
+  {
+    "Type": "BP_SoundManager_C",
+    "Name": "Default__BP_SoundManager_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Manager/BP_SoundManager.BP_SoundManager_C'",
+    "Properties": {
+      "LoadedResidentAssets": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "ObjectName": "DataTable'WindSoundList'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Ambient/WindSoundList.0"
+        },
+        null,
+        null,
+        {
+          "ObjectName": "DataTable'SystemSETable'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Resident/SystemSETable.0"
+        },
+        {
+          "ObjectName": "DataTable'DemoSoundList'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Demo/DemoSoundList.0"
+        },
+        {
+          "ObjectName": "DataTable'ResidentAkEventTable'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Resident/ResidentAkEventTable.0"
+        },
+        null,
+        {
+          "ObjectName": "CompositeDataTable'CDT_PlayerSkillVoice'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Player/CDT_PlayerSkillVoice.0"
+        }
+      ],
+      "ResidentAkEventTable": {
+        "AssetPathName": "/Game/Blueprints/Sound/Resident/ResidentAkEventTable.ResidentAkEventTable",
+        "SubPathString": ""
+      },
+      "SystemSETable": {
+        "AssetPathName": "/Game/Blueprints/Sound/Resident/SystemSETable.SystemSETable",
+        "SubPathString": ""
+      },
+      "ScriptSEDataTable": {
+        "AssetPathName": "/Game/Blueprints/Sound/Script/ScriptSEList.ScriptSEList",
+        "SubPathString": ""
+      },
+      "BGMInitializeValueData": {
+        "BGMGameModeMap": [
+          {
+            "exq006": "ESBBGMMapGameMode::DungeonNormal"
+          },
+          {
+            "exq009": "ESBBGMMapGameMode::DungeonNormal"
+          },
+          {
+            "kwm001": "ESBBGMMapGameMode::DungeonNormal"
+          }
+        ],
+        "ContentIdListOfForceUpdateMapID": [
+          "ofd005_001"
+        ],
+        "InterruptQuest": {
+          "WaitTimeOfSuccess": 10.0,
+          "WaitTimeOfFail": 5.0
+        },
+        "Battle": {
+          "WeakEnemyLevelDiff": 10,
+          "StrongEnemyLevelDiff": 5,
+          "WaitTimeOfFieldBattleEnd": 10.0,
+          "WaitTimeOfDungeonMiddleBossBattleEnd": 5.0,
+          "LevelBattleBGMMap": [
+            {
+              "exq010": "ESBBattleBGMType::Zako"
+            },
+            {
+              "exq001": "ESBBattleBGMType::LargeBoss"
+            },
+            {
+              "exq002": "ESBBattleBGMType::LargeBoss"
+            },
+            {
+              "cqb010": "ESBBattleBGMType::Zako"
+            },
+            {
+              "cqb011": "ESBBattleBGMType::LargeBoss"
+            },
+            {
+              "cqb020": "ESBBattleBGMType::MiddleBoss"
+            },
+            {
+              "cqb030": "ESBBattleBGMType::Zako"
+            },
+            {
+              "cqb040": "ESBBattleBGMType::Zako"
+            },
+            {
+              "cqb050": "ESBBattleBGMType::Zako"
+            },
+            {
+              "cqb060": "ESBBattleBGMType::LargeBoss"
+            },
+            {
+              "exq008": "ESBBattleBGMType::MiddleBoss"
+            },
+            {
+              "cqb070": "ESBBattleBGMType::MiddleBoss"
+            }
+          ],
+          "NoRequestDefaultBattleBGMList": [
+            "ins011",
+            "ins009"
+          ]
+        },
+        "InstanceArea": {
+          "MapIDArrayOfStopTickBGM": [
+            "min007",
+            "ins001",
+            "ofd005_3_1"
+          ],
+          "MapIDArrayOfNotRequestNoBattle": [
+            "ins011"
+          ],
+          "MapIDArrayOfStopMusciAfterInstanceArea": [
+            "ins008",
+            "ins010",
+            "ins011"
+          ]
+        },
+        "Arena": {
+          "RequestTimeOfPreBattleEnd": 65.0
+        }
+      },
+      "BossBGMDataTable": {
+        "AssetPathName": "/Game/LevelDesign/Blueprint/DT_BossBGM.DT_BossBGM",
+        "SubPathString": ""
+      },
+      "MapBossBGMDataTable": {
+        "ObjectName": "DataTable'MapBossBGMList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/BGM/MapBossBGMList.0"
+      },
+      "ServerBossBGMDataTable": {
+        "ObjectName": "DataTable'ServerBossBGMList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/BGM/ServerBossBGMList.0"
+      },
+      "BGMEventAssetDataTable": {
+        "ObjectName": "DataTable'BGMAssetList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/BGM/BGMAssetList.0"
+      },
+      "BGMTimeAttackAreaIDDataTable": {
+        "ObjectName": "DataTable'BGMTimeAttackAreaIDList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/BGM/BGMTimeAttackAreaIDList.0"
+      },
+      "BGMMuteInTheaterDataTable": {
+        "ObjectName": "DataTable'BGMMuteInTheaterList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/BGM/BGMMuteInTheaterList.0"
+      },
+      "WindParticleSoundDataTable": {
+        "AssetPathName": "/Game/Blueprints/Sound/Ambient/WindSoundList.WindSoundList",
+        "SubPathString": ""
+      },
+      "SoundEnemyIdDataTable": {
+        "ObjectName": "DataTable'SoundEnemyIdList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Enemy/SoundEnemyIdList.0"
+      },
+      "PlayerSkillVoiceTable": {
+        "AssetPathName": "/Game/Blueprints/Sound/Player/CDT_PlayerSkillVoice.CDT_PlayerSkillVoice",
+        "SubPathString": ""
+      },
+      "UseCurrentSkillChargeLevelSkillIDList": [
+        2110
+      ],
+      "EnemyTypeSwitchListDataTable": {
+        "ObjectName": "DataTable'EnemyTypeSwitchList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Enemy/EnemyTypeSwitchList.0"
+      },
+      "UniqueEnemyVoiceDataTable": {
+        "ObjectName": "DataTable'UniqueEnemyVoiceList'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Enemy/UniqueEnemyVoiceList.0"
+      },
+      "VoiceEffectCharaPartsNameTable": {
+        "ObjectName": "DataTable'DT_VoiceEffectCharaPartsName'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/DT_VoiceEffectCharaPartsName.0"
+      },
+      "LODDistanceDataTable": {
+        "ObjectName": "DataTable'SBAkEventLODTable'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/SBAkEventLODTable.0"
+      },
+      "DefaultLOD": "ESBAkEventLOD::LOD_3",
+      "FootprintLODByCharacterSizeMap": [
+        {
+          "ESBAkEventLOD::LOD_2": 3000.0
+        },
+        {
+          "ESBAkEventLOD::LOD_3": 10000.0
+        },
+        {
+          "ESBAkEventLOD::LOD_4": 18000.0
+        },
+        {
+          "ESBAkEventLOD::LOD_5": 50000.0
+        },
+        {
+          "ESBAkEventLOD::LOD_6": 99999.0
+        }
+      ],
+      "CostumeMaterialTables": [
+        {
+          "ObjectName": "CompositeDataTable'CDT_CostumeMaterial_Player'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/Player/CDT_CostumeMaterial_Player.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterial_Enemy'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterial_Enemy.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterial_NPC'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterial_NPC.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterial_Mob'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterial_Mob.0"
+        }
+      ],
+      "CostumeMaterialActorTables": [
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterialActor_Enemy'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterialActor_Enemy.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterialActor_BattleImagine'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterialActor_BattleImagine.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterialActor_MountImagine'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterialActor_MountImagine.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_CostumeMaterialActor_NPC'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Costume/CostumeMaterial/DT_CostumeMaterialActor_NPC.0"
+        }
+      ],
+      "RTPCEventDataArray": [
+        {
+          "RTPCType": "ESBAkEventRTPCType::Chara_Height",
+          "EventNameArray": [
+            "Play_Walk_Switch_2D_MAV101_030_005",
+            "Play_E024_COM_Walk",
+            "Play_E024_COM_Run",
+            "Play_Run",
+            "Play_Landing",
+            "Play_Walk",
+            "Play_Walk_Start",
+            "Play_Dash",
+            "Play_Landing_S",
+            "Play_Walk_2D",
+            "Play_Chair_Sit",
+            "Play_Jump",
+            "Play_Barefoot_Landing_S",
+            "Play_Barefoot_Landing_M",
+            "Play_Barefoot_Run",
+            "Play_Barefoot_Walk",
+            "Play_Cloth_ATK_L",
+            "Play_Cloth_ATK_M",
+            "Play_Cloth_ATK_S",
+            "Play_Cloth_Dash",
+            "Play_Cloth_Jump",
+            "Play_Cloth_Landing",
+            "Play_Cloth_Move_Fast",
+            "Play_Cloth_Move_Mid",
+            "Play_Cloth_Move_Slow",
+            "Play_Cloth_Run",
+            "Play_Cloth_Walk",
+            "Play_Human_Down",
+            "Play_Human_Down_Hard",
+            "Play_Cloth_Dash_Robe",
+            "Play_Cloth_Jump_Robe",
+            "Play_Cloth_Landing_Robe",
+            "Play_Cloth_Walk_Robe",
+            "Play_qst_act_applause01"
+          ]
+        },
+        {
+          "RTPCType": "ESBAkEventRTPCType::Water_Depth",
+          "EventNameArray": [
+            "Play_Water_Out",
+            "Play_Water_Landing",
+            "Play_Landing_Water",
+            "Play_Jump_Water",
+            "Play_qst_animal_Eee"
+          ]
+        },
+        {
+          "RTPCType": "ESBAkEventRTPCType::Player_SkillPlayRate",
+          "EventNameArray": [
+            "Play_Berserk_Atk_Swing_L_skill",
+            "Play_Berserk_Atk_Swing_L_PitchHigh",
+            "Play_Berserker_ScarletBlow_Eff_LV1",
+            "Play_Berserker_ScarletBlow_Eff_LV2",
+            "Play_Berserker_ScarletBlow_Eff_LV3",
+            "Play_Berserker_ScarletBlow_Eff_LV3",
+            "Play_Rebellion_Whoosh_M_skill"
+          ]
+        },
+        {
+          "RTPCType": "ESBAkEventRTPCType::None",
+          "EventNameArray": []
+        },
+        {
+          "RTPCType": "ESBAkEventRTPCType::None",
+          "EventNameArray": []
+        },
+        {
+          "RTPCType": "ESBAkEventRTPCType::None",
+          "EventNameArray": []
+        },
+        {
+          "RTPCType": "ESBAkEventRTPCType::None",
+          "EventNameArray": []
+        }
+      ],
+      "DemoSoundDataTable": {
+        "AssetPathName": "/Game/Blueprints/Sound/Demo/DemoSoundList.DemoSoundList",
+        "SubPathString": ""
+      },
+      "ImagineSoundDataTables": [
+        {
+          "ObjectName": "DataTable'DT_BattleImagineSound'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Imagine/DT_BattleImagineSound.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_MountImagineSound'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Sound/Imagine/DT_MountImagineSound.0"
+        }
+      ],
+      "CharacterSizeSwitchMap": [
+        {
+          "S": 4999.0
+        },
+        {
+          "M": 50000.0
+        },
+        {
+          "L": 99999.0
+        }
+      ],
+      "EventTermIDDataMap": [
+        {
+          "Normal": {
+            "StartEventTerm": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Set_Eventterm/SET_EventTerm_Normal.SET_EventTerm_Normal",
+              "SubPathString": ""
+            },
+            "EndEventTerm": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Set_Eventterm/SET_EventTerm_Normal_End.SET_EventTerm_Normal_End",
+              "SubPathString": ""
+            }
+          }
+        },
+        {
+          "10001": {
+            "StartEventTerm": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Set_Eventterm/SET_EventTerm_FES_Summer2023.SET_EventTerm_FES_Summer2023",
+              "SubPathString": ""
+            },
+            "EndEventTerm": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Set_Eventterm/SET_EventTerm_FES_Summer2023_End.SET_EventTerm_FES_Summer2023_End",
+              "SubPathString": ""
+            }
+          }
+        }
+      ],
+      "QuestProgressStateDataArray": [
+        {
+          "QuestID": "MQ104_070",
+          "StateGroupName": "fld005_Quest"
+        }
+      ]
+    }
+  }
+]

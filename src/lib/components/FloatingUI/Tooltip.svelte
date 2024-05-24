@@ -13,7 +13,8 @@
 
     // Displays tooltip slot if provided, else displays aria-label value.
     // Uses CSS to toggle tooltip visibility instead of creating and removing DOM nodes.
- 
+
+    // TODO: implement autoUpdate to update on screen size changes
     // TODO: role="tooltip" or "popover" + "popovertarget"?
 
     export let inline = false;
@@ -53,57 +54,56 @@
     };
 
     function update() {
-        autoUpdate(targetElement, tooltipElement, () =>
-            computePosition(targetElement, tooltipElement, {
-                // Either use placement + flip(), or only autoPlacement().
-                placement,
-                // strategy: "absolute" or "fixed",
-                middleware: [
-                    offsetMiddleware(offset),
-                    flip(),
-                    // autoPlacement({
-                    //     padding: 32
-                    // }),
-                    shift({ padding: 16 }),
-                    arrowMiddleware({ element: arrowElement }),
-                ],
-            }).then(({ x, y, placement, middlewareData }) => {
+        computePosition(targetElement, tooltipElement, {
+            // Either use placement + flip(), or only autoPlacement().
+            placement,
+            // strategy: "absolute" or "fixed",
+            middleware: [
+                offsetMiddleware(offset),
+                flip(),
+                // autoPlacement({
+                //     padding: 32
+                // }),
+                shift({ padding: 16 }),
+                arrowMiddleware({ element: arrowElement }),
+            ],
+        }).then(({ x, y, placement, middlewareData }) => {
+            if (tooltipElement) {
                 Object.assign(tooltipElement.style, {
                     left: `${x}px`,
                     top: `${y}px`,
                 });
+            }
 
-                // Add animation css class
-                if (reverseAnimation) {
-                    if (placement === "top") animationClass = "bottom"
-                    else if (placement === "bottom") animationClass = "top"
-                    else if (placement === "left") animationClass = "right"
-                    else if (placement === "right") animationClass = "left"
-                }
-                else {
-                    animationClass = placement;
-                }
+            // Add animation css class
+            if (reverseAnimation) {
+                if (placement === "top") animationClass = "bottom";
+                else if (placement === "bottom") animationClass = "top";
+                else if (placement === "left") animationClass = "right";
+                else if (placement === "right") animationClass = "left";
+            } else {
+                animationClass = placement;
+            }
 
-                if (arrow) {
-                    const { x: arrowX, y: arrowY } = middlewareData.arrow;
+            if (arrow) {
+                const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
-                    const staticSide = {
-                        top: "bottom",
-                        right: "left",
-                        bottom: "top",
-                        left: "right",
-                    }[placement.split("-")[0]];
+                const staticSide = {
+                    top: "bottom",
+                    right: "left",
+                    bottom: "top",
+                    left: "right",
+                }[placement.split("-")[0]];
 
-                    Object.assign(arrowElement.style, {
-                        left: arrowX != null ? `${arrowX}px` : "",
-                        top: arrowY != null ? `${arrowY}px` : "",
-                        right: "",
-                        bottom: "",
-                        [staticSide]: "-4px",
-                    });
-                }
-            }),
-        );
+                Object.assign(arrowElement.style, {
+                    left: arrowX != null ? `${arrowX}px` : "",
+                    top: arrowY != null ? `${arrowY}px` : "",
+                    right: "",
+                    bottom: "",
+                    [staticSide]: "-4px",
+                });
+            }
+        });
     }
 
     onMount(() => {
@@ -128,7 +128,7 @@
     });
 
     onDestroy(() => {
-        if (targetElement) update();
+        
     });
 </script>
 
@@ -214,7 +214,6 @@
 
     .animate-in,
     .animate-out {
-
         // Slides up to down
         &.top {
             translate: 0 -0.25rem;

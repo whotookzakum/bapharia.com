@@ -1,0 +1,757 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_BattleStatusManager_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBattleStatusManager'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_BattleStatusManager_C'Default__BP_BattleStatusManager_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/BP_BattleStatusManager.1"
+    }
+  },
+  {
+    "Type": "BP_BattleStatusManager_C",
+    "Name": "Default__BP_BattleStatusManager_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Manager/BP_BattleStatusManager.BP_BattleStatusManager_C'",
+    "Properties": {
+      "RegisterBattleStatusTablesRedident": [
+        {
+          "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+        },
+        {
+          "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'SmasherStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'LancerStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/LancerStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'PerformerStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerStatusAlimentConfig.0"
+        },
+        {
+          "ObjectName": "CompositeDataTable'CDT_MapGimmickStatusAliment'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/MapGimmick/CDT_MapGimmickStatusAliment.0"
+        },
+        {
+          "ObjectName": "CompositeDataTable'CDT_ArenaMissionStatusAliment'",
+          "ObjectPath": "BLUEPROTOCOL/Content/LevelDesign/Blueprint/ArenaMission/CDT_ArenaMissionStatusAliment.0"
+        }
+      ],
+      "StatusCommonTable": {
+        "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+      },
+      "StatusMapGimmickTable": {
+        "ObjectName": "CompositeDataTable'CDT_MapGimmickStatusAliment'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/MapGimmick/CDT_MapGimmickStatusAliment.0"
+      },
+      "BattleStatusEffectTable": {
+        "ObjectName": "DataTable'DT_BattleStatusEffectDB'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_BattleStatusEffectDB.0"
+      },
+      "BattleStatusProjectileTables": [
+        {
+          "ObjectName": "DataTable'DT_BattleStatusProjectileDB'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_BattleStatusProjectileDB.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_RebellionBattleStatusProjectileConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/DT_RebellionBattleStatusProjectileConfig.0"
+        },
+        {
+          "ObjectName": "DataTable'DT_LancerBattleStatusProjectileConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/DT_LancerBattleStatusProjectileConfig.0"
+        }
+      ],
+      "AbilityConditionTable": {
+        "ObjectName": "DataTable'DT_AbilityConditionDB'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_AbilityConditionDB.0"
+      },
+      "AbilityTable": {
+        "ObjectName": "DataTable'DT_AbilityDB'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_AbilityDB.0"
+      },
+      "AbilityGroups": [
+        {
+          "ESBBattleEffectiveGroup::Frailness": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Weakness",
+            "Flag": "ESBAbilityFlags::DeathPenalty",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": true,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Fire": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Ice": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Earth": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Thunder": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Light": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Darkness": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Sleep": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Sleep",
+            "Flag": "ESBAbilityFlags::Sleep",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Sleep",
+            "ReferenceResistType": "ESBBattleStatusResistType::Sleep",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Stun": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Stun",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Stun",
+            "ReferenceResistType": "ESBBattleStatusResistType::Stun",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::LancerMark": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": true,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::FixTarget": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::FixTarget",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::FirstInFirstOut",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": false,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::FixTarget",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Transform": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Transform",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::FirstInFirstOut",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Nappo",
+            "ReferenceResistType": "ESBBattleStatusResistType::Nappo",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Restraint": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Restraint",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Restraint",
+            "ReferenceResistType": "ESBBattleStatusResistType::Restraint",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::ElementResistDown": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::FirstInFirstOut",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::DotDamagePoison": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Poison",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 10,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::FirstInFirstOut",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Poison",
+            "ReferenceResistType": "ESBBattleStatusResistType::Poison",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Light_HPRegen": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::FirstInFirstOut",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Fear": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Fear",
+            "Flag": "ESBAbilityFlags::Fear",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Fear",
+            "ReferenceResistType": "ESBBattleStatusResistType::Fear",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Blind": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Blind",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Dark",
+            "ReferenceResistType": "ESBBattleStatusResistType::Dark",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::CannotSkill": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::NoSkill",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::CannotSkill",
+            "ReferenceResistType": "ESBBattleStatusResistType::CannotSkill",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::StaminaZero": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Stamina0",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::StaminaZero",
+            "ReferenceResistType": "ESBBattleStatusResistType::StaminaZero",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::CannotItem": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::NoItem",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::CannotItem",
+            "ReferenceResistType": "ESBBattleStatusResistType::CannotItem",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::Paralysis": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Paralyze",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Paralyze",
+            "ReferenceResistType": "ESBBattleStatusResistType::Paralyze",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::TakeDrain": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Drained",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::RecoverAttackerWhenRecieveDamage",
+            "ReferenceResistType": "ESBBattleStatusResistType::RecoverAttackerWhenRecieveDamage",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": true
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::StunNoAccumulation": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::Stun",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::Stun",
+            "ReferenceResistType": "ESBBattleStatusResistType::Stun",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::HPLoss": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::ESBStatusAilmentIconType_MAX",
+            "Flag": "ESBAbilityFlags::ESBAbilityFlags_MAX",
+            "MaxTriggers": 1,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": true,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::VoltageUpBuff": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": false,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": false,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::RecoveryHPBelowHPRate": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 3,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::FirstInFirstOut",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": true,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::LancerMarkFinish": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": true,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::FlashStun": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 3,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::FlashStun",
+            "bExclusionLevelDifference": true,
+            "bApplyAccumulation": false
+          }
+        },
+        {
+          "ESBBattleEffectiveGroup::SandArea": {
+            "EffectID": {
+              "ID": "None"
+            },
+            "IconType": "ESBStatusAilmentIconType::None",
+            "Flag": "ESBAbilityFlags::None",
+            "MaxTriggers": 999,
+            "SimultaneousControl": "ESBAbilitySimultaneousActivationControl::Block",
+            "ExcludeGroupList": [],
+            "bIsImpossibleSummonMount": false,
+            "bApplyGroupCalcToAbility": true,
+            "CalcSuccessRate": "ESBAbilityCalcSuccessRate::None",
+            "ReferenceResistType": "ESBBattleStatusResistType::None",
+            "bExclusionLevelDifference": true,
+            "bApplyAccumulation": false
+          }
+        }
+      ],
+      "AbilityLimitParamObjects": [
+        {
+          "ESBAbilityLimitType::Last": {
+            "ObjectName": "BlueprintGeneratedClass'BP_ABL_Last_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Ability/Limit/BP_ABL_Last.0"
+          }
+        },
+        {
+          "ESBAbilityLimitType::NoEquipNoBilling": {
+            "ObjectName": "BlueprintGeneratedClass'BP_ABL_NoEquipNoBiiling_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Ability/Limit/BP_ABL_NoEquipNoBiiling.0"
+          }
+        },
+        {
+          "ESBAbilityLimitType::EquipItem": {
+            "ObjectName": "BlueprintGeneratedClass'BP_ABL_Equip_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Ability/Limit/BP_ABL_Equip.0"
+          }
+        }
+      ],
+      "BattleStatusTimeExtendList": [
+        10.0,
+        15.0,
+        25.0
+      ],
+      "AccumulationResists": [
+        {
+          "SuccessRate": 1.0,
+          "EffectiveTimeRate": 1.0,
+          "Time": 60.0
+        },
+        {
+          "SuccessRate": 0.5,
+          "EffectiveTimeRate": 1.0,
+          "Time": 60.0
+        },
+        {
+          "SuccessRate": 0.25,
+          "EffectiveTimeRate": 1.0,
+          "Time": 60.0
+        },
+        {
+          "SuccessRate": 0.0,
+          "EffectiveTimeRate": 0.0,
+          "Time": 60.0
+        }
+      ],
+      "ControlBadConditions": [
+        {
+          "ESBAbilityCalcSuccessRate::Stun": "ESBAbilityControlBadCondition::Stun"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Sleep": "ESBAbilityControlBadCondition::Sleep"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Poison": "ESBAbilityControlBadCondition::Poison"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::FixTarget": "ESBAbilityControlBadCondition::FixTarget"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Fear": "ESBAbilityControlBadCondition::Fear"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Dark": "ESBAbilityControlBadCondition::Dark"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::CannotSkill": "ESBAbilityControlBadCondition::CannotSkill"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::StaminaZero": "ESBAbilityControlBadCondition::StaminaZero"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::CannotItem": "ESBAbilityControlBadCondition::CannotItem"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Nappo": "ESBAbilityControlBadCondition::Nappo"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Restraint": "ESBAbilityControlBadCondition::Restraint"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::Paralyze": "ESBAbilityControlBadCondition::Paralyze"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::RecoverAttackerWhenRecieveDamage": "ESBAbilityControlBadCondition::RecoverAttackerWhenRecieveDamage"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::GiveDamageDown": "ESBAbilityControlBadCondition::GiveDamageDown"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::ReceiveDamageUp": "ESBAbilityControlBadCondition::ReceiveDamageUp"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::ChargeSpeedDown": "ESBAbilityControlBadCondition::ChargeSpeedDown"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::IntervalSpeedDown": "ESBAbilityControlBadCondition::IntervalSpeedDown"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::MoveSpeedDown": "ESBAbilityControlBadCondition::MoveSpeedDown"
+        },
+        {
+          "ESBAbilityCalcSuccessRate::StaminaRecoveryDown": "ESBAbilityControlBadCondition::StaminaRecoveryDown"
+        }
+      ],
+      "AbilitySuccessCorrectionTable": {
+        "ObjectName": "CurveFloat'CV_AbilitySuccessCorrectionRate'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_AbilitySuccessCorrectionRate.0"
+      }
+    }
+  }
+]

@@ -1,0 +1,216 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_MGC_Meteor_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBMagicianMeteorSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_MGC_Meteor_C'Default__Skill_MGC_Meteor_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_Meteor.1"
+    }
+  },
+  {
+    "Type": "Skill_MGC_Meteor_C",
+    "Name": "Default__Skill_MGC_Meteor_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_Meteor.Skill_MGC_Meteor_C'",
+    "Properties": {
+      "MarkerSetting": {
+        "MarkerActor": {
+          "AssetPathName": "/Game/Blueprints/Marker/BP_Marker_MGC.BP_Marker_MGC_C",
+          "SubPathString": ""
+        },
+        "bSetMarkerRadius": true,
+        "MarkerRadius": 1000.0,
+        "MarkerPlaceType": "ESBSkillMarkerPlace::Ground",
+        "MarkerAimType": "ESBSkillMarkerAim::ReticleFrontDown",
+        "MarkerRangeType": "ESBSkillMarkerRange::Horizontal",
+        "RangeMax": 30.0
+      },
+      "SkillName": "Meteor",
+      "bIsSpecial": true,
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Magician/Meteor/SM_MGC_Meteor.SM_MGC_Meteor",
+        "SubPathString": ""
+      },
+      "RecastTime": 140.0,
+      "bRemoveTurnActorRequest": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+              },
+              "RowName": "Meteor_Fall"
+            }
+          ]
+        }
+      ],
+      "InActionEffectSettingList": [
+        {
+          "ConditionList": [],
+          "InActionEffectList": [
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_CastChargeHigh_SP.PS_MGC_CastChargeHigh_SP",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Skill_Meteo_Start.Play_Skill_Meteo_Start",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorMesh",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": true,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_ULTProduction",
+              "EffectType": "ESBEffectType::Default"
+            },
+            {
+              "Particle": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Skill_Meteo_Start_LOOP.Play_Skill_Meteo_Start_LOOP",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Stop_Skill_Meteo_Start_LOOP.Stop_Skill_Meteo_Start_LOOP",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

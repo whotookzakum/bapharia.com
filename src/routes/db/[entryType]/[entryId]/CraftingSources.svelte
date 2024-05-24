@@ -1,5 +1,4 @@
 <script>
-    import Popper from "$lib/components/Popper.svelte";
     import Icon from "@iconify/svelte";
     import Abilities from "./Abilities.svelte";
     import Item from "./Item.svelte";
@@ -67,13 +66,13 @@
                             >{source.recipe.great_success_tokens}</b
                         >
                     </span>
-                    <Popper let:setFocused placement="top">
+                    <!-- <Popper let:setFocused placement="top">
                         <Icon
                             icon="ph:question"
                             style="font-size: var(--step-1); display: flex; margin-left: auto; color: var(--text2)"
                         />
                         <p slot="tooltip" aria-hidden="true">The number of Great Success Tickets needed to guarantee a great success when crafting.</p>
-                    </Popper>
+                    </Popper> -->
                 </p>
             {/if}
         </div>

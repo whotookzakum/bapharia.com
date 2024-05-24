@@ -1,5 +1,5 @@
 <script>
-    import { uniqBy } from "lodash";
+    import uniqBy from "lodash/uniqBy";
     import SourceGroup from "./SourceGroup.svelte";
     export let data;
 
@@ -12,8 +12,6 @@
         },
         {},
     );
-
-    console.log(groupedSources);
 
     const sortedSources = Object.entries(groupedSources).sort((a, b) => {
         if (a[0] < b[0]) {

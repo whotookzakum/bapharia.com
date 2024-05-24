@@ -1,0 +1,1002 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PlayerManager_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBPlayerManager'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PlayerManager_C'Default__BP_PlayerManager_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/BP_PlayerManager.1"
+    }
+  },
+  {
+    "Type": "BP_PlayerManager_C",
+    "Name": "Default__BP_PlayerManager_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Manager/BP_PlayerManager.BP_PlayerManager_C'",
+    "Properties": {
+      "m_ClassCommonDataList": [
+        {
+          "ESBPlayerClassCommonParam::AutoSheatheTime": {
+            "Int32Value": 0,
+            "FloatValue": 10.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::ComboKeepTime": {
+            "Int32Value": 0,
+            "FloatValue": 60.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::CommandInputTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.3
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::SkillPreInputActiveTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.5
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::AimAngleReplicateTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.2
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::ResurrectionTime": {
+            "Int32Value": 0,
+            "FloatValue": 5.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::ResurrectionSubtractTime": {
+            "Int32Value": 0,
+            "FloatValue": 10.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::ResurrectionMaxHPDecreaseRate": {
+            "Int32Value": 0,
+            "FloatValue": 100.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::ResurrectionMaxHPDecreaseMin": {
+            "Int32Value": 0,
+            "FloatValue": 100.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::RayCheckForPlayerReticle": {
+            "Int32Value": 0,
+            "FloatValue": 0.1
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::MinMoveInput": {
+            "Int32Value": 0,
+            "FloatValue": 0.33
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::CityCapsuleRadius": {
+            "Int32Value": 0,
+            "FloatValue": 32.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::SpawnEffectWaitTime": {
+            "Int32Value": 0,
+            "FloatValue": 2.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::DashInputAutoSheatheTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.0
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::ControlCameraByMoveInputTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.4
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::SkillPreInputHoldTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.3
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::SkillPreInputLaunchWaitTime": {
+            "Int32Value": 0,
+            "FloatValue": 0.2
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::CommandInputTime_Short": {
+            "Int32Value": 0,
+            "FloatValue": 0.2
+          }
+        },
+        {
+          "ESBPlayerClassCommonParam::CommandInputTime_Long": {
+            "Int32Value": 0,
+            "FloatValue": 0.4
+          }
+        }
+      ],
+      "m_ClassCommonSkillDataTable": {
+        "ObjectName": "DataTable'DT_PlayerCommon_SkillData'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/DT_PlayerCommon_SkillData.0"
+      },
+      "PlayerCharacterParams": [
+        {
+          "ESBClassType::P006": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::LongRange",
+            "RayLengthForPlayerReticle": 2975.0,
+            "bCheckPlayerReticle": true,
+            "TargetCursorNearColorRange": 3000.0,
+            "DefaultMainSkill": {
+              "ID": 616
+            },
+            "DefaultSubSkill": {
+              "ID": 624
+            },
+            "DefaultAerialSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts1": {
+              "ID": 615
+            },
+            "DefaultActiveArts2": {
+              "ID": 602
+            },
+            "DefaultActiveArts3": {
+              "ID": 608
+            },
+            "DefaultActiveArts4": {
+              "ID": 613
+            },
+            "DefaultSpecialSkill": {
+              "ID": 605
+            },
+            "DefaultDodgeSkill": {
+              "ID": 603
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 699
+            },
+            "DefaultUkemiSkill": {
+              "ID": 698
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_BLS_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Blaster/DT_BLS_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_BLS_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Blaster/DT_BLS_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P007": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::ShortRange",
+            "RayLengthForPlayerReticle": 1000.0,
+            "bCheckPlayerReticle": false,
+            "TargetCursorNearColorRange": 700.0,
+            "DefaultMainSkill": {
+              "ID": 700
+            },
+            "DefaultSubSkill": {
+              "ID": 701
+            },
+            "DefaultAerialSkill": {
+              "ID": 703
+            },
+            "DefaultActiveArts1": {
+              "ID": 710
+            },
+            "DefaultActiveArts2": {
+              "ID": 721
+            },
+            "DefaultActiveArts3": {
+              "ID": 712
+            },
+            "DefaultActiveArts4": {
+              "ID": 713
+            },
+            "DefaultSpecialSkill": {
+              "ID": 702
+            },
+            "DefaultDodgeSkill": {
+              "ID": 704
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 799
+            },
+            "DefaultUkemiSkill": {
+              "ID": 798
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_BSK_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/DT_BSK_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_BSK_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Berserker/DT_BSK_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P011": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::LongRange",
+            "RayLengthForPlayerReticle": 2975.0,
+            "bCheckPlayerReticle": true,
+            "TargetCursorNearColorRange": 3000.0,
+            "DefaultMainSkill": {
+              "ID": 1101
+            },
+            "DefaultSubSkill": {
+              "ID": 1107
+            },
+            "DefaultAerialSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts1": {
+              "ID": 1103
+            },
+            "DefaultActiveArts2": {
+              "ID": 1106
+            },
+            "DefaultActiveArts3": {
+              "ID": 1104
+            },
+            "DefaultActiveArts4": {
+              "ID": 1110
+            },
+            "DefaultSpecialSkill": {
+              "ID": 1109
+            },
+            "DefaultDodgeSkill": {
+              "ID": 1108
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 1199
+            },
+            "DefaultUkemiSkill": {
+              "ID": 1198
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_MGC_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/DT_MGC_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_MGC_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Magician/DT_MGC_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P012": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::ShortRange",
+            "RayLengthForPlayerReticle": 1000.0,
+            "bCheckPlayerReticle": false,
+            "TargetCursorNearColorRange": 750.0,
+            "DefaultMainSkill": {
+              "ID": 1201
+            },
+            "DefaultSubSkill": {
+              "ID": 1202
+            },
+            "DefaultAerialSkill": {
+              "ID": 1204
+            },
+            "DefaultActiveArts1": {
+              "ID": 1220
+            },
+            "DefaultActiveArts2": {
+              "ID": 1211
+            },
+            "DefaultActiveArts3": {
+              "ID": 1222
+            },
+            "DefaultActiveArts4": {
+              "ID": 1223
+            },
+            "DefaultSpecialSkill": {
+              "ID": 1208
+            },
+            "DefaultDodgeSkill": {
+              "ID": 1209
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 1299
+            },
+            "DefaultUkemiSkill": {
+              "ID": 1298
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_RBL_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/DT_RBL_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_RBL_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Rebellion/DT_RBL_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P001": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::ShortRange",
+            "RayLengthForPlayerReticle": 1000.0,
+            "bCheckPlayerReticle": false,
+            "TargetCursorNearColorRange": 750.0,
+            "DefaultMainSkill": {
+              "ID": 100
+            },
+            "DefaultSubSkill": {
+              "ID": 101
+            },
+            "DefaultAerialSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts1": {
+              "ID": 0
+            },
+            "DefaultActiveArts2": {
+              "ID": 0
+            },
+            "DefaultActiveArts3": {
+              "ID": 0
+            },
+            "DefaultActiveArts4": {
+              "ID": 0
+            },
+            "DefaultSpecialSkill": {
+              "ID": 0
+            },
+            "DefaultDodgeSkill": {
+              "ID": 103
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 0
+            },
+            "DefaultUkemiSkill": {
+              "ID": 0
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_SAV_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/ShadowAvatar/DT_SAV_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_RBL_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Rebellion/DT_RBL_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P019": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::ShortRange",
+            "RayLengthForPlayerReticle": 1000.0,
+            "bCheckPlayerReticle": true,
+            "TargetCursorNearColorRange": 750.0,
+            "DefaultMainSkill": {
+              "ID": 1900
+            },
+            "DefaultSubSkill": {
+              "ID": 1901
+            },
+            "DefaultAerialSkill": {
+              "ID": 1902
+            },
+            "DefaultActiveArts1": {
+              "ID": 1910
+            },
+            "DefaultActiveArts2": {
+              "ID": 1930
+            },
+            "DefaultActiveArts3": {
+              "ID": 1912
+            },
+            "DefaultActiveArts4": {
+              "ID": 1913
+            },
+            "DefaultSpecialSkill": {
+              "ID": 1903
+            },
+            "DefaultDodgeSkill": {
+              "ID": 1904
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 1999
+            },
+            "DefaultUkemiSkill": {
+              "ID": 1998
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_SMA_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/DT_SMA_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_SMA_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Smasher/DT_SMA_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P020": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::ShortRange",
+            "RayLengthForPlayerReticle": 1000.0,
+            "bCheckPlayerReticle": false,
+            "TargetCursorNearColorRange": 750.0,
+            "DefaultMainSkill": {
+              "ID": 2000
+            },
+            "DefaultSubSkill": {
+              "ID": 2001
+            },
+            "DefaultAerialSkill": {
+              "ID": 2002
+            },
+            "DefaultActiveArts1": {
+              "ID": 2010
+            },
+            "DefaultActiveArts2": {
+              "ID": 2011
+            },
+            "DefaultActiveArts3": {
+              "ID": 2012
+            },
+            "DefaultActiveArts4": {
+              "ID": 2013
+            },
+            "DefaultSpecialSkill": {
+              "ID": 2003
+            },
+            "DefaultDodgeSkill": {
+              "ID": 2004
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 2099
+            },
+            "DefaultUkemiSkill": {
+              "ID": 2098
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_LAN_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/DT_LAN_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_LAN_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Lancer/DT_LAN_PassiveSkillData.0"
+            }
+          }
+        },
+        {
+          "ESBClassType::P021": {
+            "AttackPower": 0.0,
+            "DefencePower": 0.0,
+            "BattleRange": "ESBPlayerClassBattleRange::LongRange",
+            "RayLengthForPlayerReticle": 3300.0,
+            "bCheckPlayerReticle": true,
+            "TargetCursorNearColorRange": 800.0,
+            "DefaultMainSkill": {
+              "ID": 2101
+            },
+            "DefaultSubSkill": {
+              "ID": 2102
+            },
+            "DefaultAerialSkill": {
+              "ID": 0
+            },
+            "DefaultActiveArts1": {
+              "ID": 2112
+            },
+            "DefaultActiveArts2": {
+              "ID": 2110
+            },
+            "DefaultActiveArts3": {
+              "ID": 2117
+            },
+            "DefaultActiveArts4": {
+              "ID": 2120
+            },
+            "DefaultSpecialSkill": {
+              "ID": 2105
+            },
+            "DefaultDodgeSkill": {
+              "ID": 2197
+            },
+            "DefaultEnemyStepJumpSkill": {
+              "ID": 2199
+            },
+            "DefaultUkemiSkill": {
+              "ID": 2198
+            },
+            "DefaultSkillCancelStepSkill": {
+              "ID": 2124
+            },
+            "DefaultActiveArts5": {
+              "ID": 0
+            },
+            "DefaultActiveArts6": {
+              "ID": 0
+            },
+            "DefaultActiveArts7": {
+              "ID": 0
+            },
+            "DefaultActiveArts8": {
+              "ID": 0
+            },
+            "SkillDataTable": {
+              "ObjectName": "DataTable'DT_PFM_SkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Performer/DT_PFM_SkillData.0"
+            },
+            "PassiveSkillDataTable": {
+              "ObjectName": "DataTable'DT_PFM_PassiveSkillData'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Performer/DT_PFM_PassiveSkillData.0"
+            }
+          }
+        }
+      ],
+      "SkillTagPresetList": [
+        {
+          "ActionType": "ESBPlayerSkillActionType::MainAction",
+          "NeedTags": [
+            "Idle",
+            "Act_Dodge",
+            "Act_Sub",
+            "Act_Aerial"
+          ],
+          "ForbidTags": [
+            "Act_Skill",
+            "Act_Special",
+            "CannotSkill"
+          ]
+        },
+        {
+          "ActionType": "ESBPlayerSkillActionType::SubAction",
+          "NeedTags": [
+            "Idle",
+            "Act_Dodge",
+            "Act_Main",
+            "Act_Aerial",
+            "Act_Skill"
+          ],
+          "ForbidTags": [
+            "Act_Special",
+            "CannotSkill"
+          ]
+        },
+        {
+          "ActionType": "ESBPlayerSkillActionType::AerialAction",
+          "NeedTags": [
+            "Air",
+            "Act_Main",
+            "Act_Sub"
+          ],
+          "ForbidTags": [
+            "Act_Skill",
+            "Act_Special",
+            "CannotSkill"
+          ]
+        },
+        {
+          "ActionType": "ESBPlayerSkillActionType::TacticalSkill",
+          "NeedTags": [
+            "Idle",
+            "Act_Dodge",
+            "Act_Main",
+            "Act_Sub",
+            "Act_Aerial",
+            "Act_Skill"
+          ],
+          "ForbidTags": [
+            "Act_Special",
+            "CannotSkill"
+          ]
+        },
+        {
+          "ActionType": "ESBPlayerSkillActionType::SpecialSkill",
+          "NeedTags": [
+            "Idle",
+            "Act_Dodge",
+            "Act_Main",
+            "Act_Sub",
+            "Act_Aerial",
+            "Act_Skill"
+          ],
+          "ForbidTags": [
+            "CannotSkill"
+          ]
+        },
+        {
+          "ActionType": "ESBPlayerSkillActionType::DodgeAction",
+          "NeedTags": [
+            "Idle",
+            "Act_Main",
+            "Act_Sub",
+            "Act_Aerial",
+            "Act_Skill",
+            "Act_Dodge",
+            "SkillCharge",
+            "MarkerAimLoop"
+          ],
+          "ForbidTags": [
+            "Air",
+            "CannotDodge"
+          ]
+        },
+        {
+          "ActionType": "ESBPlayerSkillActionType::ImagineArts",
+          "NeedTags": [
+            "Idle",
+            "Act_Dodge",
+            "Act_Main",
+            "Act_Sub",
+            "Act_Aerial",
+            "Act_Skill"
+          ],
+          "ForbidTags": [
+            "Air",
+            "CannotSkill"
+          ]
+        }
+      ],
+      "m_SignificanceAnimUpdateRateThresholdList": [
+        {
+          "Significance": 1.0,
+          "ThresholdList": [
+            10.0,
+            0.01
+          ],
+          "SkipInerpolationNum": 0
+        },
+        {
+          "Significance": 0.001,
+          "ThresholdList": [
+            10.0,
+            0.05
+          ],
+          "SkipInerpolationNum": 0
+        },
+        {
+          "Significance": 0.0,
+          "ThresholdList": [
+            10.0,
+            4.0,
+            0.4,
+            0.2
+          ],
+          "SkipInerpolationNum": 1
+        }
+      ],
+      "m_ZeroSignificanceIdleTime": 2.0,
+      "CameraShieldingTransparentParam_Player": {
+        "Distance": 100.0
+      },
+      "CameraShieldingTransparentParam_Npc": {
+        "Distance": 100.0
+      },
+      "CameraShieldingTransparentParam_Mount": {
+        "Distance": 100.0
+      },
+      "CameraShieldingTransparentParam_Other": {
+        "Distance": 100.0
+      },
+      "TransformSettingList": [
+        {
+          "CharacterType": "ESBPlayerTransformCharacter::Nappo",
+          "TransformCharacter": {
+            "AssetPathName": "/Game/Blueprints/PlayerTransform/Nappo/BP_Player_Nappo.BP_Player_Nappo_C",
+            "SubPathString": ""
+          },
+          "TransformStartEffectSetting": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Status/Particle/PS_STS_Change.PS_STS_Change",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/Abnormal_State/Play_EAC_Trans_Nappo.Play_EAC_Trans_Nappo",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": false,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": true,
+            "AttachPointName": "Root_J",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "TransformEndEffectSetting": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Status/Particle/PS_STS_Change.PS_STS_Change",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/Abnormal_State/Play_EAC_Trans_Normal.Play_EAC_Trans_Normal",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": false,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": true,
+            "AttachPointName": "Root_J",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
+        }
+      ],
+      "PlayerFollowParam_Default": {
+        "StopDist": 200.0,
+        "WalkDist": 300.0,
+        "DashStartDist": 800.0,
+        "DashEndDist": 500.0
+      },
+      "PlayerFollowParam_Mount": {
+        "StopDist": 200.0,
+        "WalkDist": 1000.0,
+        "DashStartDist": 800.0,
+        "DashEndDist": 500.0
+      },
+      "PlayerFollowParam_HoldHand": {
+        "StopDist": 15.0,
+        "WalkDist": 100.0,
+        "DashStartDist": 800.0,
+        "DashEndDist": 500.0,
+        "TargetOffset": {
+          "X": 50.0,
+          "Y": -80.0,
+          "Z": 0.0
+        }
+      }
+    }
+  }
+]

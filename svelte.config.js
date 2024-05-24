@@ -43,8 +43,8 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$bp_api: path.resolve('.', 'bp_api'),
-			$bp_client: path.resolve('.', 'bp_client'),
+			$bp_api: path.resolve('.', 'src/bp_api'),
+			$bp_client: path.resolve('.', 'src/bp_client'),
 		}
 	},
 };

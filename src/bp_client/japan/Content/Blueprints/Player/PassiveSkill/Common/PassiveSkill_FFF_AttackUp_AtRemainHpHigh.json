@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PassiveSkill_FFF_AttackUp_AtRemainHpHigh_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBPlayerPassiveParamModifyConditionSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PassiveSkill_FFF_AttackUp_AtRemainHpHigh_C'Default__PassiveSkill_FFF_AttackUp_AtRemainHpHigh_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Common/PassiveSkill_FFF_AttackUp_AtRemainHpHigh.1"
+    }
+  },
+  {
+    "Type": "PassiveSkill_FFF_AttackUp_AtRemainHpHigh_C",
+    "Name": "Default__PassiveSkill_FFF_AttackUp_AtRemainHpHigh_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Common/PassiveSkill_FFF_AttackUp_AtRemainHpHigh.PassiveSkill_FFF_AttackUp_AtRemainHpHigh_C'",
+    "Properties": {
+      "Category": "ESBPassiveArtsModifyCategory::Attack",
+      "ConditionList": [
+        {
+          "ConditionCheckType": "ESBConditionCheckType::RemainHitPointRate",
+          "ActiveArtsID": {
+            "ID": 0
+          },
+          "PassiveArtsID": {
+            "ID": 0
+          },
+          "IntValue": 0,
+          "FloatValue": 80.0,
+          "NameValue": "None",
+          "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+          "BattleStatusRowHandle": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+          "AbilityFlagList": [],
+          "OnlyPlayerStatusList": [],
+          "ElementType": "ESBAttribute::None",
+          "ArrayLogic": "ESBArrayLogicalOperator::AND",
+          "bNot": false
+        }
+      ],
+      "LevelParamModifySettingList": [
+        {
+          "SkillLevel": 1,
+          "ModifyValue": {
+            "CalcType": "ESBPassiveStatusParamCalcType::Percent",
+            "Value": 2.0
+          }
+        },
+        {
+          "SkillLevel": 2,
+          "ModifyValue": {
+            "CalcType": "ESBPassiveStatusParamCalcType::Percent",
+            "Value": 4.0
+          }
+        },
+        {
+          "SkillLevel": 3,
+          "ModifyValue": {
+            "CalcType": "ESBPassiveStatusParamCalcType::Percent",
+            "Value": 6.0
+          }
+        }
+      ]
+    }
+  }
+]

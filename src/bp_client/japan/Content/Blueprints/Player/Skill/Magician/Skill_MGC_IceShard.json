@@ -1,0 +1,451 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_MGC_IceShard_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBMagicianSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_MGC_IceShard_C'Default__Skill_MGC_IceShard_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_IceShard.1"
+    }
+  },
+  {
+    "Type": "Skill_MGC_IceShard_C",
+    "Name": "Default__Skill_MGC_IceShard_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_IceShard.Skill_MGC_IceShard_C'",
+    "Properties": {
+      "MagicPoint": 25.0,
+      "EnableElementAmp": true,
+      "SkillName": "IceShard",
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1117
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+                  },
+                  "RowName": "IceShard_MoveSpeedDown"
+                }
+              },
+              {
+                "UseSlotIndex": 1,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+                  },
+                  "RowName": "IceShard_GiveDamageDown"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/SingleAction/SM_FFF_SingleAction_TargetDirection_Interp.SM_FFF_SingleAction_TargetDirection_Interp",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Magician/IceShard/AST_MGC_IceShard.AST_MGC_IceShard",
+        "SubPathString": ""
+      },
+      "bCancelSameSkill": true,
+      "bLaunchSkillPreInput": true,
+      "LaunchSkillPreInputTime": 0.5,
+      "RecastTime": 0.0001,
+      "bRemoveTurnActorRequest": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+              },
+              "RowName": "IceShard"
+            }
+          ]
+        }
+      ],
+      "CastApplyStatusAilmentList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1117
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+              },
+              "RowName": "IceShard_MoveSpeedUp"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        }
+      ],
+      "InActionEffectSettingList": [
+        {
+          "ConditionList": [],
+          "InActionEffectList": [
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_Ice_Aura.PS_MGC_Ice_Aura",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Play_Magician_IceShard_Charge.Play_Magician_IceShard_Charge",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": false,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorMesh",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "BoneSocketActor",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            },
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_2b_Iceshard_charge.PS_MGC_2b_Iceshard_charge",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorRoot",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": true,
+              "bDetachWhenDeactivate": true,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "BoneSocketActor",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            },
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_SkillActiveWP_ICE.PS_MGC_SkillActiveWP_ICE",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            },
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_CastCharge_Ice.PS_MGC_CastCharge_Ice",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorMesh",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": true,
+              "bDetachWhenDeactivate": true,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

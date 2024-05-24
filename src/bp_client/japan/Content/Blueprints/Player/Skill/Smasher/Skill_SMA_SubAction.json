@@ -1,0 +1,110 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_SMA_SubAction_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBSmasherSubActionSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_SMA_SubAction_C'Default__Skill_SMA_SubAction_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_SubAction.1"
+    }
+  },
+  {
+    "Type": "Skill_SMA_SubAction_C",
+    "Name": "Default__Skill_SMA_SubAction_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_SubAction.Skill_SMA_SubAction_C'",
+    "Properties": {
+      "ReturnBallEffectSetting": {
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_LOOP.Play_Smasher_BallShot_LOOP",
+          "SubPathString": ""
+        },
+        "EndSound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_BallShot_LOOP.Stop_Smasher_BallShot_LOOP",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_WeaponR_AdditionalMesh_0"
+      },
+      "bShowBallReturnTimingEffect": true,
+      "BallReturnTimingEffectSetting": {
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_END.Play_Smasher_BallShot_END",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_WeaponMesh_R",
+        "VisibleType": "ESBEffectVisibleType::Battle_Weapon"
+      },
+      "BoostCartridgeAmountRequiredForCastSkillSettingList": [
+        {
+          "RequiredAmount": 1.0,
+          "ModifySettingList": []
+        },
+        {
+          "RequiredAmount": 2.0,
+          "ModifySettingList": []
+        }
+      ],
+      "bCheckCartridgeAmountBeforeCastSkill": false,
+      "SkillConsumeBoostCartridgeSettingList": [
+        {
+          "bAmountSetting": true,
+          "bRateSetting": false,
+          "ConsumptionAmount": 1.0,
+          "ConsumptionRate": 0.0,
+          "ModifySettingList": []
+        },
+        {
+          "bAmountSetting": true,
+          "bRateSetting": false,
+          "ConsumptionAmount": 2.0,
+          "ConsumptionRate": 0.0,
+          "ModifySettingList": []
+        },
+        {
+          "bAmountSetting": false,
+          "bRateSetting": true,
+          "ConsumptionAmount": 0.0,
+          "ConsumptionRate": 1.0,
+          "ModifySettingList": []
+        }
+      ],
+      "bConsumeBoostCartridgeAtCastSkill": false,
+      "SkillName": "SMA_SubAction",
+      "AimBodyStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/SubAction/SM_SMA_SubAction.SM_SMA_SubAction",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/SubAction/SM_SMA_SubAction_AimOffset.SM_SMA_SubAction_AimOffset",
+        "SubPathString": ""
+      },
+      "LeadStateMachine": "EPlayerStateMachine::AimBody",
+      "bRemoveTurnActorRequest": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'SmasherProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherProjectileConfigInfo.0"
+              },
+              "RowName": "BallShoot_Regular"
+            }
+          ]
+        }
+      ],
+      "bHideCastLog": true
+    }
+  }
+]

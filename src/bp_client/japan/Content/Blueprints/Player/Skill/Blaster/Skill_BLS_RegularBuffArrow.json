@@ -1,0 +1,986 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BLS_RegularBuffArrow_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBlasterRegularBuffArrowSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BLS_RegularBuffArrow_C'Default__Skill_BLS_RegularBuffArrow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Blaster/Skill_BLS_RegularBuffArrow.1"
+    }
+  },
+  {
+    "Type": "Skill_BLS_RegularBuffArrow_C",
+    "Name": "Default__Skill_BLS_RegularBuffArrow_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Blaster/Skill_BLS_RegularBuffArrow.Skill_BLS_RegularBuffArrow_C'",
+    "Properties": {
+      "GaugeAmountBaseMultiplier": 1.3,
+      "GaugeAmountAddSettingList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 624
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "AddValue": 0.35
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveOnlyPlayerStatus",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [
+                "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
+              ],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 609
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "AddValue": 4.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveOnlyPlayerStatus",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [
+                "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
+              ],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 609
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "AddValue": 5.0
+        }
+      ],
+      "GaugeAmountWeakPointHitMultiplierSettingList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 624
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "MultiplierValue": 1.3
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 624
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "MultiplierValue": 1.5
+        }
+      ],
+      "GaugeAmountCriticalHitMultiplier": 1.2,
+      "GaugeAmountResetTime": 60.0,
+      "MarkerSetting": {
+        "MarkerActor": {
+          "AssetPathName": "/Game/Blueprints/Marker/BP_Marker_BLS.BP_Marker_BLS_C",
+          "SubPathString": ""
+        },
+        "MarkerPlaceType": "ESBSkillMarkerPlace::Ground",
+        "MarkerAimType": "ESBSkillMarkerAim::ReticleFrontDown",
+        "MarkerRangeType": "ESBSkillMarkerRange::Horizontal",
+        "RangeMax": 30.0,
+        "bStampMarkerAtLaunchProjectile": true,
+        "StampLifeTime": 1.0
+      },
+      "GaugeLevelSettingList": [
+        {
+          "NeedAmount": 0.0,
+          "HoldArrowSetting": {
+            "AnimTag": "HoldArrow",
+            "Effect": {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_RegularSkill_HLD_Lv1.PS_BLS_RegularSkill_HLD_Lv1",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "EffectType": "ESBEffectType::Default"
+            }
+          },
+          "ChargeEffectList": [],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrow_Lv1"
+            }
+          ],
+          "ProjectileChangeConditionList": []
+        },
+        {
+          "NeedAmount": 50.0,
+          "HoldArrowSetting": {
+            "AnimTag": "HoldArrow",
+            "Effect": {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_RegularSkill_HLD_Lv1.PS_BLS_RegularSkill_HLD_Lv1",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_HealRain_Charge_Lv2.Play_Blaster_HealRain_Charge_Lv2",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "EffectType": "ESBEffectType::Default"
+            }
+          },
+          "ChargeEffectList": [
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_HealRain_Charge.PS_BLS_HealRain_Charge",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "EffectType": "ESBEffectType::Default"
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrow_Lv2"
+            }
+          ],
+          "ProjectileChangeConditionList": []
+        },
+        {
+          "NeedAmount": 100.0,
+          "HoldArrowSetting": {
+            "AnimTag": "HoldArrow",
+            "Effect": {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_RegularSkill_HLD_Lv1.PS_BLS_RegularSkill_HLD_Lv1",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_HealRain_Charge_Lv3.Play_Blaster_HealRain_Charge_Lv3",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "EffectType": "ESBEffectType::Default"
+            }
+          },
+          "ChargeEffectList": [
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_HealRain_Charge.PS_BLS_HealRain_Charge",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_Inventory_0",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "Projectile_Shoot",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "EffectType": "ESBEffectType::Default"
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrow_Lv3"
+            }
+          ],
+          "ProjectileChangeConditionList": []
+        }
+      ],
+      "MaxGaugeAmount": 100.0,
+      "HoldArrowSettingList": [
+        {
+          "AnimTag": "HoldArrow",
+          "Effect": {
+            "Particle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_HealRain_Charge_Loop.Play_Blaster_HealRain_Charge_Loop",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Stop_Blaster_HealRain_Charge_Loop.Stop_Blaster_HealRain_Charge_Loop",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Infinity",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_Inventory_0",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "Projectile_Shoot",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
+        }
+      ],
+      "BowAnimationList": [
+        {
+          "AnimTag": "BowAnimation_Start",
+          "AnimationName": "Bow_RegularBuffArrow_Start",
+          "bLooping": false,
+          "PlayRate": 1.0
+        },
+        {
+          "AnimTag": "BowAnimation_Loop",
+          "AnimationName": "Bow_RegularBuffArrow_Loop",
+          "bLooping": true,
+          "PlayRate": 1.0
+        },
+        {
+          "AnimTag": "BowAnimation_Shoot",
+          "AnimationName": "Bow_RegularBuffArrow_Shoot",
+          "bLooping": false,
+          "PlayRate": 1.0
+        }
+      ],
+      "SkillName": "RegularBuffArrow",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Blaster/MarkerAction/SM_BLS_MarkerAction.SM_BLS_MarkerAction",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Blaster/RegularBuffArrow/AST_BLS_RegularBuffArrow.AST_BLS_RegularBuffArrow",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "LaunchSkillPreInputTime": 0.233,
+      "RecastTime": 20.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -11.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveOnlyPlayerStatus",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [
+                "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
+              ],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "bRemoveTurnActorRequest": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 106523
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrowSelfHealLv1"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 106523
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrowSelfHealLv2"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 106523
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrowSelfHealLv3"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 106523
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrowSelfHealLv4"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 106523
+              },
+              "IntValue": 5,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+              },
+              "RowName": "RegularBuffArrowSelfHealLv5"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

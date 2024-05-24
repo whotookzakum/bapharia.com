@@ -1,7 +1,7 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import references from "./references.json";
-    import { uniqBy } from "lodash";
+    import uniqBy from "lodash/uniqBy";
 
     export let data;
     const dungeons = uniqBy(data.enemies, (enemy) => enemy.content_id).map(

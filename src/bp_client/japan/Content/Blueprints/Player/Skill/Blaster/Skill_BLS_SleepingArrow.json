@@ -1,0 +1,740 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BLS_SleepingArrow_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBlasterChargeShootSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BLS_SleepingArrow_C'Default__Skill_BLS_SleepingArrow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Blaster/Skill_BLS_SleepingArrow.1"
+    }
+  },
+  {
+    "Type": "Skill_BLS_SleepingArrow_C",
+    "Name": "Default__Skill_BLS_SleepingArrow_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Blaster/Skill_BLS_SleepingArrow.Skill_BLS_SleepingArrow_C'",
+    "Properties": {
+      "ChargeSkillSetting": {
+        "LevelSettingList": [
+          {
+            "HoldArrowSetting": {
+              "AnimTag": "HoldArrow",
+              "Effect": {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_1c_SleepingArrow_Lv1_HLD.PS_BLS_1c_SleepingArrow_Lv1_HLD",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_SleepingArrow_Ready.Play_Blaster_SleepingArrow_Ready",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Projectile_Shoot",
+                "ActorParameterName": "BoneSocketActor",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            },
+            "ChargeTime": 0.0,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 617
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_1c_SleepingArrow_Quiver.PS_BLS_1c_SleepingArrow_Quiver",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_SleepingArrow_Loop.Play_Blaster_SleepingArrow_Loop",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Stop_Blaster_SleepingArrow_Loop.Stop_Blaster_SleepingArrow_Loop",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_1",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Quiver_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [
+              {
+                "DataTable": {
+                  "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+                },
+                "RowName": "SleepingArrow_Lv1"
+              }
+            ],
+            "ProjectileChangeConditionList": [
+              {
+                "ChangeProjectileIndex": 0,
+                "ChangeConditionList": [
+                  {
+                    "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                    "ActiveArtsID": {
+                      "ID": 617
+                    },
+                    "PassiveArtsID": {
+                      "ID": 0
+                    },
+                    "IntValue": 4,
+                    "FloatValue": 0.0,
+                    "NameValue": "None",
+                    "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                    "BattleStatusRowHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                    "AbilityFlagList": [],
+                    "OnlyPlayerStatusList": [],
+                    "ElementType": "ESBAttribute::None",
+                    "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                    "bNot": false
+                  }
+                ],
+                "ChangeProjectileHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+                  },
+                  "RowName": "SleepingArrow_Lv4_chargeLv1"
+                }
+              }
+            ]
+          },
+          {
+            "HoldArrowSetting": {
+              "AnimTag": "HoldArrow",
+              "Effect": {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_1c_SleepingArrow_Lv2_HLD.PS_BLS_1c_SleepingArrow_Lv2_HLD",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_SleepingArrow_Loop.Play_Blaster_SleepingArrow_Loop",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Stop_Blaster_SleepingArrow_Loop.Stop_Blaster_SleepingArrow_Loop",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Infinity",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Projectile_Shoot",
+                "ActorParameterName": "BoneSocketActor",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            },
+            "ChargeTime": 0.5,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 617
+                },
+                "PassiveArtsID": {
+                  "ID": 106006
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_SleepingArrow_Ready_Lv2_Loop.Play_Blaster_SleepingArrow_Ready_Lv2_Loop",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Stop_Blaster_SleepingArrow_Ready_Lv2_Loop.Stop_Blaster_SleepingArrow_Ready_Lv2_Loop",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Infinity",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Projectile_Shoot",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_1c_SleepingArrow_Quiver.PS_BLS_1c_SleepingArrow_Quiver",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_1",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Quiver_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [
+              {
+                "DataTable": {
+                  "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+                },
+                "RowName": "SleepingArrow_Lv2"
+              }
+            ],
+            "ProjectileChangeConditionList": [
+              {
+                "ChangeProjectileIndex": 0,
+                "ChangeConditionList": [
+                  {
+                    "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                    "ActiveArtsID": {
+                      "ID": 617
+                    },
+                    "PassiveArtsID": {
+                      "ID": 0
+                    },
+                    "IntValue": 4,
+                    "FloatValue": 0.0,
+                    "NameValue": "None",
+                    "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                    "BattleStatusRowHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                    "AbilityFlagList": [],
+                    "OnlyPlayerStatusList": [],
+                    "ElementType": "ESBAttribute::None",
+                    "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                    "bNot": false
+                  }
+                ],
+                "ChangeProjectileHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+                  },
+                  "RowName": "SleepingArrow_Lv4_chargeLv2"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "HoldArrowSettingList": [
+        {
+          "AnimTag": "HoldArrow",
+          "Effect": {
+            "Particle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
+        }
+      ],
+      "BowAnimationList": [
+        {
+          "AnimTag": "BowAnimation_Start",
+          "AnimationName": "Bow_PowerShot_Start",
+          "bLooping": false,
+          "PlayRate": 1.0
+        },
+        {
+          "AnimTag": "BowAnimation_Loop",
+          "AnimationName": "Bow_PowerShot_Loop",
+          "bLooping": true,
+          "PlayRate": 1.0
+        },
+        {
+          "AnimTag": "BowAnimation_Shoot",
+          "AnimationName": "Bow_PowerShot_Shoot",
+          "bLooping": false,
+          "PlayRate": 1.0
+        }
+      ],
+      "SkillName": "SleepingArrow",
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 617
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
+                  },
+                  "RowName": "SleepingArrow_GiveDamageDown"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "AimBodyStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Blaster/PowerShot/SM_BLS_PowerShot_AimBody.SM_BLS_PowerShot_AimBody",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Blaster/PowerShot/SM_BLS_PowerShot_AimOffset_Outer.SM_BLS_PowerShot_AimOffset_Outer",
+        "SubPathString": ""
+      },
+      "LeadStateMachine": "EPlayerStateMachine::AimOffset",
+      "RecastTime": 25.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -5.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 617
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

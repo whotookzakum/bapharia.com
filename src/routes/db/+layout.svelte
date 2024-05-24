@@ -26,14 +26,11 @@
 
     export let data;
 
-    $: searchResults = dummydata.filter((entry) => {
+    $: console.log(data)
+
+    $: searchResults = data.entries.filter((entry) => {
         const queryMatch = $userSearch
-            ? entry.name?.en_US
-                  ?.toLowerCase()
-                  .includes($userSearch.toLowerCase()) ||
-              entry.name?.ja_JP
-                  ?.toLowerCase()
-                  .includes($userSearch.toLowerCase())
+            ? entry.text.name.toLowerCase().includes($userSearch.toLowerCase())
             : true;
 
         return queryMatch;
@@ -134,88 +131,6 @@
         }));
     }
 </script>
-
-<div style="margin: 0 auto">
-    <p>
-        hello
-        
-        <Tooltip placement="right">
-            <button aria-label="Filters" on:click={() => console.log("submitted")}>
-                This is my button.
-            </button>
-            <svelte:fragment slot="tooltip">
-                Testing my new thing yhhh
-            </svelte:fragment>
-        </Tooltip>
-        <Tooltip>
-            <label on:input={() => console.log("hi")}>
-                <input type="checkbox" class="visually-hidden"> heyy
-            </label>
-            <svelte:fragment slot="tooltip">
-                This setting requires you to select one of the settings below
-                to work properly otherwise it won't work.
-            </svelte:fragment>
-        </Tooltip>
-        <input type="checkbox" id="h" class="visually-hidden">
-        <label for="h">asdasd</label>
-        <InputText value={3} description="heyasdsad" />
-        <InputNumber value={7} />
-    </p>
-    <!-- <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur
-        quidem est consequuntur adipisci eos ad deserunt facilis officiis
-        corporis alias ducimus nesciunt harum hic, tempore ut officia sed libero
-        aut!
-    </p> -->
-</div>
 
 <!-- <h1>Database <a href="/db/weapons/106001201">test link</a></h1> -->
 
@@ -373,7 +288,7 @@
             </div>
         </section>
     </aside>
-    <article class="main-pane" style="grid-column: 1/-1; width: 100%">
+    <article class="main-pane" style="">
         <div class="grid gap-4">
             <input
                 class="box"
@@ -386,6 +301,9 @@
             <ActiveFiltersList />
             <!-- <ResultsDisplaySelector /> -->
             <SearchResults data={searchResults} />
+            {#each searchResults as item}
+                <a href={item.href}>{item.text.name}</a>
+            {/each}
         </div>
         <div class="toc">
             <slot />

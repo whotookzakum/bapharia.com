@@ -1,0 +1,608 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_CreationCharacter",
+    "Outer": "BP_CreationCharacter_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveActorBeginOverlap",
+    "Outer": "BP_CreationCharacter_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveActorBeginOverlap'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "OtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_CreationCharacter_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_CreationCharacter_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_CreationCharacter_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.36"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_CreationCharacter_C:ExecuteUbergraph_BP_CreationCharacter'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SBCharaCreateCharacter'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_CreationCharacter_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.2"
+      },
+      {
+        "ObjectName": "Function'BP_CreationCharacter_C:ReceiveActorBeginOverlap'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.1"
+      },
+      {
+        "ObjectName": "Function'BP_CreationCharacter_C:ExecuteUbergraph_BP_CreationCharacter'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "UseDebugClassType",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_CreationCharacter": {
+        "ObjectName": "Function'BP_CreationCharacter_C:ExecuteUbergraph_BP_CreationCharacter'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.0"
+      },
+      "ReceiveActorBeginOverlap": {
+        "ObjectName": "Function'BP_CreationCharacter_C:ReceiveActorBeginOverlap'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.1"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_CreationCharacter_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.2"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Game",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_CreationCharacter_C'Default__BP_CreationCharacter_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.4"
+    }
+  },
+  {
+    "Type": "BP_CreationCharacter_C",
+    "Name": "Default__BP_CreationCharacter_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.BP_CreationCharacter_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "CharaCreateParameter": {
+        "BodyType": "ECharaPartsBody::M000",
+        "HairName": "har_naked",
+        "HairColor1": {
+          "ID": 14,
+          "Value": 7
+        },
+        "HairColor2": {
+          "ID": 14,
+          "Value": 7
+        },
+        "UpperName": "bdu_cmn_000",
+        "UpperColor": {
+          "Saturation": 1,
+          "Value": 1
+        },
+        "LowerName": "bdl_cmn_000",
+        "LowerColor": {
+          "Saturation": 1,
+          "Value": 1
+        },
+        "GlovesName": "glv_cmn_000",
+        "GlovesColor": {
+          "Saturation": 1,
+          "Value": 1
+        },
+        "ShoesName": "sho_cmn_000",
+        "ShoesColor": {
+          "Saturation": 1,
+          "Value": 1
+        },
+        "HatColor": {
+          "Saturation": 1,
+          "Value": 1
+        },
+        "NoseName": "nos_0_000",
+        "EyeLeftColor1": {
+          "ID": 7
+        },
+        "EyeLeftColor2": {
+          "ID": 7
+        },
+        "EyeLeftColor3": {
+          "ID": 7
+        },
+        "EyeRightColor1": {
+          "ID": 7
+        },
+        "EyeRightColor2": {
+          "ID": 7
+        },
+        "EyeRightColor3": {
+          "ID": 7
+        }
+      },
+      "CharaCreateComponent": {
+        "ObjectName": "SBCharaCreateComponent'Default__BP_CreationCharacter_C:CharaCreate'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.15"
+      },
+      "FaceComp": {
+        "ObjectName": "SBCharaPartsFaceComponent'Default__BP_CreationCharacter_C:FaceSlot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.17"
+      },
+      "PartsDamageAnimParamter": {
+        "ObjectName": "SBPartsDamageAnimParamter'Default__BP_CreationCharacter_C:PartsDamageAnimParamter'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.27"
+      },
+      "SpawnComp": {
+        "ObjectName": "SBProjectileSpawnComponent'Default__BP_CreationCharacter_C:ProjectileSpawnComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.31"
+      },
+      "BattleStatusComp": {
+        "ObjectName": "SBBattleStatusComponent'Default__BP_CreationCharacter_C:BattleStatusComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.12"
+      },
+      "ProjectileShareHitComp": {
+        "ObjectName": "SBProjectileShareHitComponent'Default__BP_CreationCharacter_C:ProjectileShareHitComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.30"
+      },
+      "SendNetDataComp": {
+        "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_CreationCharacter_C:ProjectileSendNetDataComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.29"
+      },
+      "StateManageComp": {
+        "ObjectName": "SBProjectileStateManageComponent'Default__BP_CreationCharacter_C:ProjectileStateManageComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.32"
+      },
+      "AnimationControlComp": {
+        "ObjectName": "SBAnimationControlComponent'Default__BP_CreationCharacter_C:AnimationControlComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.11"
+      },
+      "DemoParameterComp": {
+        "ObjectName": "SBDemoParameterComponent'Default__BP_CreationCharacter_C:DemoParameterComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.23"
+      },
+      "FactionComponent": {
+        "ObjectName": "AIFwFactionComponent'Default__BP_CreationCharacter_C:FactionComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.5"
+      },
+      "FactionInfluenceComponent": {
+        "ObjectName": "SBFactionInfluenceSourceComponent'Default__BP_CreationCharacter_C:FactionInfluenceComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.25"
+      },
+      "AISharedInfoComponent": {
+        "ObjectName": "SBAISharedInfoComponent'Default__BP_CreationCharacter_C:AISharedInfoComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.10"
+      },
+      "MovePredictComponent": {
+        "ObjectName": "SBMovementPredictComponent'Default__BP_CreationCharacter_C:MovementPredictComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.26"
+      },
+      "ActorVisibilityComponent": {
+        "ObjectName": "SBActorVisibilityComponent'Default__BP_CreationCharacter_C:ActorVisibilityComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.8"
+      },
+      "CollisionGroup": {
+        "ObjectName": "SBCollisionGroupComponent'Default__BP_CreationCharacter_C:CollisionGroup'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.20"
+      },
+      "DamageCollision": {
+        "ObjectName": "ASCollisionSphereComponent'Default__BP_CreationCharacter_C:DamageCollision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.6"
+      },
+      "Mesh": {
+        "ObjectName": "SBCharaPartsBodyComponent'Default__BP_CreationCharacter_C:CharacterMesh0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.16"
+      },
+      "CharacterMovement": {
+        "ObjectName": "SBPlayerMovementComponent'Default__BP_CreationCharacter_C:CharMoveComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.28"
+      },
+      "CapsuleComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_CreationCharacter_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.7"
+      },
+      "RootComponent": {
+        "ObjectName": "CapsuleComponent'Default__BP_CreationCharacter_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.7"
+      }
+    }
+  },
+  {
+    "Type": "AIFwFactionComponent",
+    "Name": "FactionComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'AIFwFactionComponent'"
+  },
+  {
+    "Type": "ASCollisionSphereComponent",
+    "Name": "DamageCollision",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'ASCollisionSphereComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBCollisionGroupComponent'Default__BP_CreationCharacter_C:CollisionGroup'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.20"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 60.0
+      }
+    }
+  },
+  {
+    "Type": "CapsuleComponent",
+    "Name": "CollisionCylinder",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'CapsuleComponent'"
+  },
+  {
+    "Type": "SBActorVisibilityComponent",
+    "Name": "ActorVisibilityComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBActorVisibilityComponent'"
+  },
+  {
+    "Type": "SBAestheShopComponent",
+    "Name": "AestheShopComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBAestheShopComponent'"
+  },
+  {
+    "Type": "SBAISharedInfoComponent",
+    "Name": "AISharedInfoComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBAISharedInfoComponent'"
+  },
+  {
+    "Type": "SBAnimationControlComponent",
+    "Name": "AnimationControlComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBAnimationControlComponent'",
+    "Properties": {
+      "bBreastPhysicsActive": true
+    }
+  },
+  {
+    "Type": "SBBattleStatusComponent",
+    "Name": "BattleStatusComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBBattleStatusComponent'",
+    "Properties": {
+      "OnClientSendEffectiveBattleStatusParamDelegete": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_CreationCharacter_C'Default__BP_CreationCharacter_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.4"
+            },
+            "FunctionName": "OnClientSendEffectiveBattleStatusParam"
+          }
+        ]
+      },
+      "OnClientSendImportantBattleEffectiveDelegete": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_CreationCharacter_C'Default__BP_CreationCharacter_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.4"
+            },
+            "FunctionName": "OnClientSendImportantBattleEffective"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBBoneScaleCacheData",
+    "Name": "BoneScaleChacheData",
+    "Outer": "CharaCreate",
+    "Class": "UScriptClass'SBBoneScaleCacheData'"
+  },
+  {
+    "Type": "SBCharaBodyCapsuleGroupComponent",
+    "Name": "CharaBodyCapsuleGroupComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBCharaBodyCapsuleGroupComponent'"
+  },
+  {
+    "Type": "SBCharaCreateComponent",
+    "Name": "CharaCreate",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBCharaCreateComponent'",
+    "Properties": {
+      "AccessoryAnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'AB_AccessoryAnimBlueprint_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Animations/Player/AB_AccessoryAnimBlueprint.2"
+      },
+      "bMergeMesh": true,
+      "bIsLoadAllAssets": true,
+      "bIsHoldAllAssets": true,
+      "bForceMiplevelsToBeResident": true
+    }
+  },
+  {
+    "Type": "SBCharaPartsBodyComponent",
+    "Name": "CharacterMesh0",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBCharaPartsBodyComponent'",
+    "Properties": {
+      "ResetDynamicsCount": 30,
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'AB_CharaCreateAnimBlueprint_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Animations/Player/AB_CharaCreateAnimBlueprint.10"
+      },
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_CH_scaleskeleton'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/Common/Skeleton/SK_CH_scaleskeleton.0"
+      },
+      "BodyInstance": {
+        "bEnableGravity": false
+      },
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_CreationCharacter_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.7"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -80.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 90.0,
+        "Roll": 0.0
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsFaceComponent",
+    "Name": "FaceSlot",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBCharaPartsFaceComponent'",
+    "Properties": {
+      "AnimClass": {
+        "ObjectName": "AnimBlueprintGeneratedClass'AB_Common_Face_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Facial/StateMachine/AB_Common_Face.14"
+      },
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "AttachParent": {
+        "ObjectName": "SBCharaPartsBodyComponent'Default__BP_CreationCharacter_C:CharacterMesh0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.16"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "CharacterMesh0",
+    "Class": "UScriptClass'SBCharaPartsMaterial'"
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "FaceSlot",
+    "Class": "UScriptClass'SBCharaPartsMaterial'"
+  },
+  {
+    "Type": "SBCollisionGroupComponent",
+    "Name": "CollisionGroup",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBCollisionGroupComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "CapsuleComponent'Default__BP_CreationCharacter_C:CollisionCylinder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.7"
+      }
+    }
+  },
+  {
+    "Type": "SBColoringShopComponent",
+    "Name": "ColoringShopComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBColoringShopComponent'"
+  },
+  {
+    "Type": "SBDebugFunctionComponent",
+    "Name": "DebugFunctionComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBDebugFunctionComponent'"
+  },
+  {
+    "Type": "SBDemoParameterComponent",
+    "Name": "DemoParameterComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBDemoParameterComponent'"
+  },
+  {
+    "Type": "SBFacialAnimationDataHolder",
+    "Name": "FacialAnimationDataHolder",
+    "Outer": "CharaCreate",
+    "Class": "UScriptClass'SBFacialAnimationDataHolder'"
+  },
+  {
+    "Type": "SBFactionInfluenceSourceComponent",
+    "Name": "FactionInfluenceComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBFactionInfluenceSourceComponent'"
+  },
+  {
+    "Type": "SBMovementPredictComponent",
+    "Name": "MovementPredictComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBMovementPredictComponent'"
+  },
+  {
+    "Type": "SBPartsDamageAnimParamter",
+    "Name": "PartsDamageAnimParamter",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBPartsDamageAnimParamter'"
+  },
+  {
+    "Type": "SBPlayerMovementComponent",
+    "Name": "CharMoveComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBPlayerMovementComponent'",
+    "Properties": {
+      "GravityScale": 0.0,
+      "bApplyGravityWhileJumping": false
+    }
+  },
+  {
+    "Type": "SBProjectileSendNetDataComponent",
+    "Name": "ProjectileSendNetDataComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBProjectileSendNetDataComponent'"
+  },
+  {
+    "Type": "SBProjectileShareHitComponent",
+    "Name": "ProjectileShareHitComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBProjectileShareHitComponent'"
+  },
+  {
+    "Type": "SBProjectileSpawnComponent",
+    "Name": "ProjectileSpawnComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBProjectileSpawnComponent'"
+  },
+  {
+    "Type": "SBProjectileStateManageComponent",
+    "Name": "ProjectileStateManageComp",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBProjectileStateManageComponent'"
+  },
+  {
+    "Type": "SBWeaponVisibilityComponent",
+    "Name": "WeaponVisibilityComponent",
+    "Outer": "Default__BP_CreationCharacter_C",
+    "Class": "UScriptClass'SBWeaponVisibilityComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_CreationCharacter_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_CreationCharacter_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.34"
+      },
+      "VariableGuid": "E1A45767-499324A2-2D09F09E-C9A44859",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_CreationCharacter_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_CreationCharacter_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_CreationCharacter.35"
+      }
+    }
+  }
+]

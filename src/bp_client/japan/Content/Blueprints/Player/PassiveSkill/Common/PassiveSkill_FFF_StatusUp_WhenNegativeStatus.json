@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PassiveSkill_FFF_StatusUp_WhenNegativeStatus_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBPlayerPassiveParamModifyConditionSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PassiveSkill_FFF_StatusUp_WhenNegativeStatus_C'Default__PassiveSkill_FFF_StatusUp_WhenNegativeStatus_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Common/PassiveSkill_FFF_StatusUp_WhenNegativeStatus.1"
+    }
+  },
+  {
+    "Type": "PassiveSkill_FFF_StatusUp_WhenNegativeStatus_C",
+    "Name": "Default__PassiveSkill_FFF_StatusUp_WhenNegativeStatus_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Common/PassiveSkill_FFF_StatusUp_WhenNegativeStatus.PassiveSkill_FFF_StatusUp_WhenNegativeStatus_C'",
+    "Properties": {
+      "Category": "ESBPassiveArtsModifyCategory::BaseStatusAll",
+      "ConditionList": [
+        {
+          "ConditionCheckType": "ESBConditionCheckType::SelfNegativeStatus",
+          "ActiveArtsID": {
+            "ID": 0
+          },
+          "PassiveArtsID": {
+            "ID": 0
+          },
+          "IntValue": 0,
+          "FloatValue": 0.0,
+          "NameValue": "None",
+          "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+          "BattleStatusRowHandle": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+          "AbilityFlagList": [],
+          "OnlyPlayerStatusList": [],
+          "ElementType": "ESBAttribute::None",
+          "ArrayLogic": "ESBArrayLogicalOperator::AND",
+          "bNot": false
+        }
+      ],
+      "LevelParamModifySettingList": [
+        {
+          "SkillLevel": 1,
+          "ModifyValue": {
+            "CalcType": "ESBPassiveStatusParamCalcType::Percent",
+            "Value": 5.0
+          }
+        },
+        {
+          "SkillLevel": 2,
+          "ModifyValue": {
+            "CalcType": "ESBPassiveStatusParamCalcType::Percent",
+            "Value": 10.0
+          }
+        },
+        {
+          "SkillLevel": 3,
+          "ModifyValue": {
+            "CalcType": "ESBPassiveStatusParamCalcType::Percent",
+            "Value": 20.0
+          }
+        }
+      ]
+    }
+  }
+]
