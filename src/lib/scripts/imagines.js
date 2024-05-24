@@ -189,6 +189,23 @@ export function getEntry(id, lang) {
     return processImagine(IMAGINE.find(imag => imag.id == id), lang)
 }
 
+export const getImagineSummaries = (lang) => IMAGINE.map(imagine => {
+    const { icon, iconL } = getAssets("imagine", imagine.id)
+    return {
+        href: `/db/imagines/${imagine.id}`,
+        text: {
+            name: getText("master_imagine_text", imagine.imagine_name, lang),
+            jpName: getText("master_imagine_text", imagine.imagine_name, "ja_JP")
+        },
+        assets: {
+            icon,
+            iconL
+        },
+        resolveType: "Imagine",
+        category: imagine.imagine_type
+    }
+})
+
 const imagines = (lang) => IMAGINE.map(imagine => processImagine(imagine, lang))
 
 export default imagines;

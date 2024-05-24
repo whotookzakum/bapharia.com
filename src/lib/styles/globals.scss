@@ -6,6 +6,7 @@
 @import './variables';
 @import './layout';
 @import './animations';
+@import './components';
 
 html {
     scroll-padding-top: 5rem; // For Article anchor links
@@ -81,6 +82,13 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
     .active-text#{$i}:active {
         color: var(--text#{$i});
     }
+
+    .accent#{$i},
+    .hover-accent#{$i}:hover,
+    .focus-accent#{$i}:focus-visible,
+    .active-accent#{$i}:active {
+        color: var(--accent#{$i});
+    }
 }
 
 @media (max-width: 850px) {
@@ -103,4 +111,8 @@ a.area-link::after {
     position: absolute;
     inset: 0;
     z-index: 1;
+}
+
+.area-link-wrapper:has(.area-link) {
+    @extend .outline-focus-within;   
 }

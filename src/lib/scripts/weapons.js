@@ -5,7 +5,7 @@ import { getAssets, getText, getSources, getEquipmentStats, getCategory } from "
 function processWeapon(weapon, lang) {
     const name = getText("weapon_text", weapon.name, lang)
     const desc = getText("weapon_text", weapon.desc, lang)
-    const category = getCategory("Weapon", weapon.id, lang)
+    const category = getCategory("Weapon", weapon.is_for_weapon_stickers, lang)
     const assets = getAssets("weapon", weapon.id)
     const stats = getEquipmentStats(weapon.id, ["attribute_value", "offensive_power", "str", "vit", "dex", "mnd", "int", "critical_power"])
     // For weapon skins, get the source of the weapon skin item
@@ -47,13 +47,14 @@ export const getWeaponSummaries = (lang) => WEAPONS.map(weapon => {
         href: `/db/weapons/${weapon.id}`,
         text: {
             name: getText("weapon_text", weapon.name, lang),
-            category: getCategory("Weapon", weapon.id, lang),
             jpName: getText("weapon_text", weapon.name, "ja_JP")
         },
         assets: {
             icon,
             iconL
         },
+        resolveType: "Weapon",
+        category: weapon.is_for_weapon_stickers
     }
 })
 

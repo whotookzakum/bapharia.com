@@ -1,6 +1,5 @@
 <script>
     import { userLocale } from "$lib/stores";
-    import PageControls from "./PageControls.svelte";
     import {
         categories,
         classes,
@@ -9,24 +8,16 @@
         ar,
         uniqueCategories,
     } from "./stores";
-    import dummydata from "./dummydata.json";
     import { page } from "$app/stores";
-    // import { Pane, Splitpanes } from "svelte-splitpanes";
     import { userSearch } from "./stores";
-    import SearchBar from "./SearchBar.svelte";
-    import SearchResults from "./SearchResults.svelte";
     import ActiveFiltersList from "./ActiveFiltersList.svelte";
-    // import ResultsDisplaySelector from "./ResultsDisplaySelector.svelte";
     import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
-    import { updateSearchParams } from "$lib/utils";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
-    import InputText from "$lib/components/InputText.svelte";
-    import InputNumber from "$lib/components/InputNumber.svelte";
+    import CATEGORIES from "$scripts/utils/categories.json";
+    import CATEGORY_NAMES from "$scripts/utils/categoryNames.json";
 
     export let data;
-
-    $: console.log(data)
 
     $: searchResults = data.entries.filter((entry) => {
         const queryMatch = $userSearch
@@ -58,60 +49,62 @@
         // updateSearchParams(param, checkedIds);
     });
 
+    const myCategories = Object.entries(CATEGORIES[$userLocale]);
+
     const categoryNames = {
-        boards: {
+        AdventureBoard: {
             ja_JP: "アドベンチャーボード",
             en_US: "Adventure Boards",
         },
-        items: {
+        Item: {
             ja_JP: "アイテム",
             en_US: "Items",
         },
-        weapons: {
+        Weapon: {
             ja_JP: "武器",
             en_US: "Weapons",
         },
-        imagine: {
+        Imagine: {
             ja_JP: "イマジン",
             en_US: "Imagine",
         },
-        enemies: {
+        Enemy: {
             ja_JP: "エネミー",
             en_US: "Enemies",
         },
-        skills: {
+        Skill: {
             ja_JP: "スキル",
             en_US: "Skills",
         },
-        tickets: {
+        Token: {
             ja_JP: "トークン",
             en_US: "Tickets",
         },
-        maps: {
+        Map: {
             ja_JP: "マップ",
             en_US: "Maps",
         },
-        liquidmemories: {
+        LiquidMemory: {
             ja_JP: "リキッドメモリ",
             en_US: "Liquid Memories",
         },
-        costumes: {
+        Costume: {
             ja_JP: "コスチューム",
             en_US: "Costumes",
         },
-        emotes: {
+        Emote: {
             ja_JP: "ジェスチャー",
             en_US: "Emotes",
         },
-        stampsets: {
-            ja_JP: "スタンプセット",
-            en_US: "Stamp Sets",
+        Stamp: {
+            ja_JP: "スタンプ",
+            en_US: "Stamps",
         },
-        avatarparts: {
+        AvatarPart: {
             ja_JP: "アバター部位",
             en_US: "Avatar Parts",
         },
-        quests: {
+        Quest: {
             ja_JP: "クエスト",
             en_US: "Quests",
         },
@@ -130,19 +123,42 @@
             checked: cat.param === category ? false : cat.checked,
         }));
     }
+
+    const checked = {}
+
+    $: console.log(checked)
 </script>
 
 <!-- <h1>Database <a href="/db/weapons/106001201">test link</a></h1> -->
 
 <div class="panes">
     <aside class="side-pane grid">
-        <section class="grid gap-4">
+        <section class="grid gap-2">
             <span class="mini-header">Categories</span>
-            {#each uniqueCategories as uniqueCategory}
+            {#each Object.entries(CATEGORIES[$userLocale]) as [key, catObj]}
+                {#if key !== "SkillType"}
+                    <details>
+                        <summary>{CATEGORY_NAMES[$userLocale][key]}</summary>
+                        <ul>
+                            {#each Object.entries(catObj) as [value, text]}
+                                {#if Object.values(catObj).length > 1 ? value !== "default" : true}
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" {value} bind:checked={checked[`${key}-${value}`]} />
+                                            {text}
+                                        </label>
+                                    </li>
+                                {/if}
+                            {/each}
+                        </ul>
+                    </details>
+                {/if}
+            {/each}
+
+            <!-- {#each uniqueCategories as uniqueCategory}
                 <details open={uniqueCategory === "items"}>
                     <summary>
                         <span>
-                            {categoryNames[uniqueCategory][$userLocale]}
                             {#if $categories.filter((cat) => cat.param === uniqueCategory && cat.checked).length}
                                 <small>
                                     ({$categories.filter(
@@ -181,7 +197,7 @@
                     </div>
                 </details>
             {/each}
-        </section>
+        </section> -->
         <section>
             <span class="mini-header">Level</span>
             <div
@@ -288,33 +304,111 @@
             </div>
         </section>
     </aside>
-    <article class="main-pane" style="">
+    <article class="main-pane">
         <div class="grid gap-4">
-            <input
-                class="box"
-                id="search-box"
-                type="search"
-                placeholder={placeholderText[$userLocale]}
-                bind:value={$userSearch}
-                style="width: 100%"
-            />
-            <ActiveFiltersList />
-            <!-- <ResultsDisplaySelector /> -->
-            <SearchResults data={searchResults} />
-            {#each searchResults as item}
-                <div class="surface1 hover-surface2 p-4 rounded-2xl relative flex items-center gap-2 text2">
-                    <img src={item.assets.icon} alt="" width="64" height="64">
-                    <div class="grid">
-                        <span class="text3" style="font-size: var(--step--1); font-weight: 600">{item.text.category}</span>
-                        <a href={item.href} class="styled-link area-link" style="font-size: var(--step-1); font-weight: 600;">{item.text.name}</a>
-                        
+            <div class="grid gap-2">
+                <div class="flex gap-4 items-center">
+                    <span class="mini-header"
+                        >{searchResults.length.toLocaleString()} results</span
+                    >
+                    <div class="flex ml-auto">
+                        <Tooltip inline>
+                            <label
+                                class="nav-button p-2 grid"
+                                style="width: 34px; height: 34px; margin-block: -0.5rem"
+                                aria-label="List View"
+                            >
+                                <input
+                                    type="radio"
+                                    value="list"
+                                    class="visually-hidden"
+                                    bind:group={resultsDisplayMode}
+                                />
+                                <Icon
+                                    icon="fluent:text-bullet-list-16-filled"
+                                    class={resultsDisplayMode === "list"
+                                        ? "accent1"
+                                        : ""}
+                                />
+                            </label>
+                        </Tooltip>
+                        <Tooltip inline>
+                            <label
+                                class="nav-button p-2 grid"
+                                style="width: 34px; height: 34px; margin-block: -0.5rem"
+                                aria-label="Grid View"
+                            >
+                                <input
+                                    type="radio"
+                                    value="grid"
+                                    class="visually-hidden"
+                                    bind:group={resultsDisplayMode}
+                                />
+                                <Icon
+                                    icon="fluent:grid-24-filled"
+                                    class={resultsDisplayMode === "grid"
+                                        ? "accent1"
+                                        : ""}
+                                />
+                            </label>
+                        </Tooltip>
                     </div>
+                    <!-- <span class="mini-header">Clear Filters</span> -->
                 </div>
-            {/each}
+                <div class="flex gap-2 items-center">
+                    <input
+                        class="surface1 p-4 rounded-full flex-1"
+                        style="max-height: 44px"
+                        type="search"
+                        placeholder="Search"
+                        bind:value={$userSearch}
+                    />
+                </div>
+            </div>
+            <ActiveFiltersList />
+            <div class="results-wrapper {resultsDisplayMode}">
+                {#each searchResults as item}
+                    <div
+                        class="result-item area-link-wrapper surface1 hover-surface2 p-4 rounded-2xl relative flex items-center gap-4 text2"
+                    >
+                        <!-- <img src="/UI/AdventureBoard/UI_AdventureBoardBoardBg_copper.png" alt=""> -->
+                        {#if resultsDisplayMode === "grid"}
+                            <img
+                                src={item.assets.iconL}
+                                alt=""
+                                width="128"
+                                height="128"
+                                loading="lazy"
+                            />
+                        {:else}
+                            <img
+                                src={item.assets.icon}
+                                alt=""
+                                width="64"
+                                height="64"
+                                loading="lazy"
+                            />
+                        {/if}
+                        <div class="grid">
+                            <span
+                                class="text3"
+                                style="font-size: var(--step--1); font-weight: 600"
+                                >{CATEGORIES["en_US"][item.resolveType][
+                                    item.category
+                                ]}</span
+                            >
+                            <a
+                                href={item.href}
+                                class="styled-link area-link"
+                                style="font-size: var(--step-1); font-weight: 600;"
+                                >{item.text.name}</a
+                            >
+                        </div>
+                    </div>
+                {/each}
+            </div>
         </div>
-        <div class="toc">
-            <slot />
-        </div>
+        <slot />
     </article>
 </div>
 
@@ -325,6 +419,30 @@
 
     .main-pane {
         grid-template-columns: 1fr 1fr;
+        // grid-template-columns: 1fr;
+    }
+
+    .results-wrapper {
+        display: grid;
+        gap: 1rem;
+
+        &.grid {
+            grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+        }
+    }
+
+    .results-wrapper.grid .result-item {
+        display: grid;
+        text-align: center;
+        align-content: start;
+
+        a {
+            font-size: var(--step-0) !important;
+        }
+
+        img {
+            margin: auto;
+        }
     }
 
     .category-filter-contents {

@@ -111,6 +111,23 @@ export function getEntry(id, lang) {
     return processItem(ITEMS.find(item => item.id == id), lang)
 }
 
+export const getItemSummaries = (lang) => ITEMS.map(item => {
+    const { icon, iconL } = getAssets("item", item.id)
+    return {
+        href: `/db/items/${item.id}`,
+        text: {
+            name: getText("item_text", item.name, lang),
+            jpName: getText("item_text", item.name, "ja_JP")
+        },
+        assets: {
+            icon,
+            iconL
+        },
+        resolveType: "Item",
+        category: item.category
+    }
+})
+
 const items = (lang) => ITEMS.map(item => processItem(item, lang))
 
 export default items;
