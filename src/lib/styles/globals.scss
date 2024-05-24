@@ -68,7 +68,6 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
 }
 
 @for $i from 1 through 3 {
-
     .surface#{$i},
     .hover-surface#{$i}:hover,
     .focus-surface#{$i}:focus-visible,
@@ -97,4 +96,11 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
     border-radius: 50%;
     font-size: var(--step-4);
     @apply flex items-center justify-center text3 hover-text2 focus-text2 active-text3 hover-surface1 focus-surface1 transition-bob-down;
+}
+
+a.area-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }

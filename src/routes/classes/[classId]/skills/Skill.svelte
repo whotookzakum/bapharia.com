@@ -117,7 +117,7 @@
         <SkillIcon {skill} />
         <span class="flex gap-1" style="flex-direction: column-reverse">
             <span style="font-weight: 600"
-                >{skill.name[$userLocale]}</span
+                >{skill.text.name}</span
             >
             <span class="mini-header">
                 {#each getTags() as tag}
@@ -133,7 +133,7 @@
             style:gap="0"
             role="list"
         >
-            {#each skill.skill_levels as skillLevel, index}
+            <!-- {#each skill.skill_levels as skillLevel, index}
                 <SkillGrade {skillLevel} abilityType={skill.ability_type} />
                 {#if skillLevel.abilities}
                     {#each skillLevel.abilities as ability}
@@ -148,7 +148,7 @@
                 {#if index < skill.skill_levels.length - 1}
                     <hr style:margin="0" />
                 {/if}
-            {/each}
+            {/each} -->
         </dl>
     {:else if animationCancels && selectedTab === "animation-cancels"}
         <AnimationCancels {animationCancels} />

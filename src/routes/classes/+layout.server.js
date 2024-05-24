@@ -1,8 +1,8 @@
 export const load = async () => {
     const allClasses =
-        Object.entries(import.meta.glob("../../lib/classes/*.md", { import: "metadata", eager: true }))
+        Object.entries(import.meta.glob("./[classId]/*.md", { import: "metadata", eager: true }))
             .reduce((acc, [key, value]) => {
-                const href = key.split("/lib")[1].split(".")[0]
+                const href = "/classes/" + key.split("/")[2].split(".")[0]
                 acc.push({ href, title: value.title, isNew: value.isNew, weapon: value.weapon })
                 return acc
             }, [])

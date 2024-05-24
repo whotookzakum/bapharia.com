@@ -6,11 +6,12 @@
     export let data;
     $: ({ metadata } = data);
 
-    const skills = data.skills.sort(
-        (a, b) =>
-            a.skill_levels[0]?.condition_class_level -
-            b.skill_levels[0]?.condition_class_level,
-    );
+    const skills = data.skills;
+    // .sort(
+    //     (a, b) =>
+    //         a.skill_levels[0]?.condition_class_level -
+    //         b.skill_levels[0]?.condition_class_level,
+    // );
 </script>
 
 <MetaTags

@@ -45,6 +45,7 @@ const config = {
 		alias: {
 			$bp_api: path.resolve('.', 'src/bp_api'),
 			$bp_client: path.resolve('.', 'src/bp_client'),
+			$scripts: path.resolve('.', 'src/lib/scripts'),
 		}
 	},
 };

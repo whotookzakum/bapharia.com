@@ -302,7 +302,14 @@
             <!-- <ResultsDisplaySelector /> -->
             <SearchResults data={searchResults} />
             {#each searchResults as item}
-                <a href={item.href}>{item.text.name}</a>
+                <div class="surface1 hover-surface2 p-4 rounded-2xl relative flex items-center gap-2 text2">
+                    <img src={item.assets.icon} alt="" width="64" height="64">
+                    <div class="grid">
+                        <span class="text3" style="font-size: var(--step--1); font-weight: 600">{item.text.category}</span>
+                        <a href={item.href} class="styled-link area-link" style="font-size: var(--step-1); font-weight: 600;">{item.text.name}</a>
+                        
+                    </div>
+                </div>
             {/each}
         </div>
         <div class="toc">
