@@ -6,12 +6,13 @@
     export let data;
     $: ({ metadata } = data);
 
-    const skills = data.skills;
-    // .sort(
-    //     (a, b) =>
-    //         a.skill_levels[0]?.condition_class_level -
-    //         b.skill_levels[0]?.condition_class_level,
-    // );
+    $: skills = data.skills
+        .filter((s) => s.skillLevels[0]?.length > 0)
+        .sort((a, b) => {
+            const [reqLevelA, reqLevelB] = [a.skillLevels[0][0].classLevel, b.skillLevels[0][0].classLevel]
+            if (reqLevelA === reqLevelB) return a.skill_id - b.skill_id
+            return reqLevelA - reqLevelB
+        });
 </script>
 
 <MetaTags
@@ -47,13 +48,8 @@
                 >
             </li>
             <li>
-                <a href="#class-specific-abilities" class="styled-link"
-                    >Class-Specific Abilities</a
-                >
-            </li>
-            <li>
-                <a href="#class-shared-abilities" class="styled-link"
-                    >Class-Shared Abilities</a
+                <a href="#class-abilities" class="styled-link"
+                    >Class Abilities</a
                 >
             </li>
             <li>
@@ -127,25 +123,14 @@
 
     <section class="grid gap-4">
         <hgroup>
-            <h2 id="class-specific-abilities">Class-Specific Abilities</h2>
-            <p>Up to two class-specific abilities can be equipped at a time.</p>
-        </hgroup>
-        {#each skills.filter((skill) => skill.skill_type === 8 && skill.ability_type !== 100) as skill}
-            <Skill {skill} />
-        {/each}
-    </section>
-
-    <section class="grid gap-4">
-        <hgroup>
-            <h2 id="class-shared-abilities">Class-Shared Abilities</h2>
+            <h2 id="class-abilities">Class Abilities</h2>
             <p>
-                Up to two class-shared abilities can be equipped at a time.
-                Slots unlock at Level 30 and 45. These skills can be equipped on <strong
-                    >other classes</strong
-                > after unlocking them.
+                {metadata.title} can equip up to two class abilities from the below,
+                along with two <strong>shareable</strong> class abilities from other
+                classes (slots unlock at level 30 and 45).
             </p>
         </hgroup>
-        {#each skills.filter((skill) => skill.skill_type === 8 && skill.ability_type === 100) as skill}
+        {#each skills.filter((skill) => skill.skill_type === 8) as skill}
             <Skill {skill} />
         {/each}
     </section>

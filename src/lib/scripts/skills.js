@@ -4,7 +4,7 @@ import allBuffs from "./buffs"
 import skillz from "./skillz.json";
 import uniq from "lodash/uniq";
 
-// TODO skill videos
+// TODO skill videos (might be in Blueprints/UI/SkillTree/MediaPlayer/DT_SkillTreeImageData.uasset ?)
 // TODO: add projectile info (connect to attack_data.json? i dont remember)
 // TODO: add status ailments
 // TODO: connect attackID to attack_data.json
@@ -128,6 +128,7 @@ async function getSkillDTs() {
     // Next, map through every skill in every class file and append the skill-specific DTs
     await Promise.all(files.map(async (file) => {
         await Promise.all(Object.entries(file.Rows).map(async ([SkillName, skillData]) => {
+            const { BgType, ElementType } = skillData
 
             // Active skills; append skill-specific DT file
             if (skillData.SkillInfo) {
@@ -143,6 +144,8 @@ async function getSkillDTs() {
                         detailIcon: getIconPath(skillData.DetailIconAsset)
                     },
                     SkillInfo,
+                    BgType,
+                    ElementType
                 }
             }
 
@@ -159,13 +162,70 @@ async function getSkillDTs() {
                         icon: getIconPath(skillData.Icon),
                         iconL: getIconPath(skillData.LargeIcon),
                     },
-                    SkillInfo
+                    SkillInfo,
+                    BgType,
+                    ElementType
                 }
             }
         }))
     }))
 
     return result
+}
+
+// Returns background color image and element icon
+// TODO: replace hardcoding
+async function getExtraIcons(BgType, ElementType, skillType, abilityType) {
+    let bgIcon, elementIcon, frameIcon;
+
+    switch (skillType) {
+        case 0: // base actions
+            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Main_normal.png"
+            break;
+        case 1:
+            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Sub_normal.png"
+            break;
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            // SkillTree_SkillIconTactical and SkillTree_SkillIconTacticalAbility are similar, if not identical.. going with the former
+            const IconMappingFile = await getFile("/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTactical.json")
+            const wrapperObj = IconMappingFile.find(obj => obj.Type === "SkillTree_SkillIconTactical_C")
+            const bgPathObj = wrapperObj.Properties.IconBgImageList.find(obj => Object.keys(obj).includes(BgType))
+            const elementPathObj = wrapperObj.Properties.ElementIconImageList.find(obj => Object.keys(obj).includes(ElementType))
+            bgIcon = bgPathObj[BgType].ObjectPath.split("/Content")[1].split(".")[0] + ".png"
+            if (!ElementType.includes("::None")) {
+                elementIcon = elementPathObj[ElementType].ObjectPath.split("/Content")[1].split(".")[0] + ".png"
+            }
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Tactical_normal.png"
+            break;
+        case 6: // ultimate
+            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_SP_normal.png"
+            break;
+        case 7: // dodge
+            break;
+        case 8: // class ability
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_passive_normal.png"
+            break;
+        case 9: // base ability
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_PassiveAlways_normal.png"
+            break;
+        case 10: // aerial attack
+        case 11: // tactical skill ability
+        case 12: // springboard jump
+        case 13: // ukemi
+            break;
+    }
+
+    return {
+        bgIcon,
+        elementIcon,
+        frameIcon
+    }
 }
 
 // Takes a ModifyValue obj and returns it as a string
@@ -184,7 +244,7 @@ async function processSkill(skill, lang) {
         const { skill_type, ability_type, class_type, skill_id, skill_name } = skill
         const name = getText("master_skill_data_text", skill_name, lang)
         const category = getCategory("Skill", skill_type === 8 ? `${skill_type}_${ability_type}` : skill_type, lang)
-        const { SkillInfo, assets, SkillName } = await SkillDTs[skill_id]
+        const { SkillInfo, assets, SkillName, BgType, ElementType } = await SkillDTs[skill_id]
         const skillLevels = await getSkillLevels(skill, SkillInfo, lang)
 
         return {
@@ -195,9 +255,14 @@ async function processSkill(skill, lang) {
             class_type,
             text: {
                 name,
-                category
+                category,
+                type: BgType?.split("::").pop(),
+                element: ElementType?.split("::").pop(),
             },
-            assets,
+            assets: {
+                ...assets,
+                ...await getExtraIcons(BgType, ElementType, skill_type, ability_type)
+            },
             skillLevels,
             SkillInfo
         }
@@ -213,7 +278,7 @@ async function getSkillLevels(skill, SkillInfo, lang) {
         .sort((a, b) => a.ability_type - b.ability_type)
         .map(async (variant) => {
             const { skill_desc_array, ability_type } = variant
-            const desc = getText("master_skill_data_text", skill_desc_array[skill_desc_array.length - 1].desc, lang).split("\n")[0].split("：")[1]
+            const desc = getText("master_skill_data_text", skill_desc_array[skill_desc_array.length - 1].desc, lang).split("\n")[0].split("：").pop().split(":").pop()
 
             return {
                 skill_id: variant.skill_id,
@@ -245,7 +310,7 @@ async function getSkillLevels(skill, SkillInfo, lang) {
         skill.skill_mastery_param.flatMap(async (gradeObj, index) => {
             const { level, condition_class_level } = gradeObj
             const fullDescArr = getText("master_skill_data_text", skill.skill_desc_array[index].desc, lang).split("\n")
-            const desc = fullDescArr[fullDescArr.length - 1].split("：")[1]
+            const desc = fullDescArr[fullDescArr.length - 1].split("：").pop().split(":").pop()
             const skillLevelData = getSkillLevelData(SkillInfo, { level, skillId: skill.skill_id })
             const ModifyValue = Array.isArray(SkillInfo) ? simplifyModifyValue(SkillInfo.find(obj => obj.SkillLevel === level).ModifyValue) : undefined
             let variants = level >= 3 ? await getVariantsForLevel(level, condition_class_level) : []
@@ -470,7 +535,7 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // ROOTERS SONG
     // AdditionalInputLaunchProjectileList
 
-    const { RecastTime,  RecastTimeModifyList, MagicPoint, MPCostModifyAmountSettingList } = SkillInfo.Properties || {}
+    const { RecastTime, RecastTimeModifyList, MagicPoint, MPCostModifyAmountSettingList } = SkillInfo.Properties || {}
 
     const data = {}
 
@@ -530,7 +595,7 @@ function passesConditions(conditions, conditionParams) {
             case "ESBConditionCheckType::EquippedPassiveSkill":
                 return condition.PassiveArtsID.ID === conditionParams.skillId;
             case "ESBConditionCheckType::SkillChargeLevel":
-                // return true
+            // return true
         }
 
         switch (condition.Relation) {

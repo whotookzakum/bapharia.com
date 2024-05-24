@@ -1,0 +1,821 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_SkillTree_SkillIconTacticalAbility",
+    "Outer": "SkillTree_SkillIconTacticalAbility_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Temp_byte_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESkillTreeAbilityType'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_3",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Variable_4",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "K2Node_CustomEvent_AbilityType",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESkillTreeAbilityType'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_Select_Default",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "SelectActiveAbility",
+    "Outer": "SkillTree_SkillIconTacticalAbility_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "EnumProperty",
+        "Name": "AbilityType",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Enum": {
+          "ObjectName": "Enum'ESkillTreeAbilityType'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "SkillTree_SkillIconTacticalAbility_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "SkillTree_SkillIconTacticalAbility_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "WidgetBlueprintGeneratedClass'SkillTree_SkillIconBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconBase.9"
+    },
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'SkillTree_SkillIconTacticalAbility_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.26"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:ExecuteUbergraph_SkillTree_SkillIconTacticalAbility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "WidgetBlueprintGeneratedClass'SkillTree_SkillIconBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconBase.9"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.2"
+      },
+      {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:SelectActiveAbility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.1"
+      },
+      {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:ExecuteUbergraph_SkillTree_SkillIconTacticalAbility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Image_EquipmentIcon2",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "WidgetSwitcher_50",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetSwitcher'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_SkillTree_SkillIconTacticalAbility": {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:ExecuteUbergraph_SkillTree_SkillIconTacticalAbility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.0"
+      },
+      "SelectActiveAbility": {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:SelectActiveAbility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.1"
+      },
+      "Construct": {
+        "ObjectName": "Function'SkillTree_SkillIconTacticalAbility_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.2"
+      }
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "SkillTree_SkillIconTacticalAbility_C'Default__SkillTree_SkillIconTacticalAbility_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.4"
+    }
+  },
+  {
+    "Type": "SkillTree_SkillIconTacticalAbility_C",
+    "Name": "Default__SkillTree_SkillIconTacticalAbility_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.SkillTree_SkillIconTacticalAbility_C'",
+    "Template": {
+      "ObjectName": "SkillTree_SkillIconBase_C'Default__SkillTree_SkillIconBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconBase.10"
+    },
+    "Properties": {
+      "UberGraphFrame": {},
+      "IconBgImageList": [
+        {
+          "ESBSkillIconBgType::Attack": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_A'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::Heal": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_R'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::Buf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_B'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::Debuf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_D'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_D.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::AttackHeal": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_A_R'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_R.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::AttackBuf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_A_B'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_B.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::AttackDebuf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_A_D'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_A_D.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::HealBuf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_R_B'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_B.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::HealDebuf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_R_D'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_R_D.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::BufDebuf": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_B_D'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_B_D.0"
+          }
+        },
+        {
+          "ESBSkillIconBgType::None": {
+            "ObjectName": "Texture2D'UI_PlayerSkillType_Empty'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.0"
+          }
+        }
+      ],
+      "ElementIconImageList": [
+        {
+          "ESBSkillElementIconType::Fire": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_1'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.0"
+          }
+        },
+        {
+          "ESBSkillElementIconType::Ice": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_3'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.0"
+          }
+        },
+        {
+          "ESBSkillElementIconType::Thunder": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_2'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_2.0"
+          }
+        },
+        {
+          "ESBSkillElementIconType::Earth": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_4'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_4.0"
+          }
+        },
+        {
+          "ESBSkillElementIconType::Light": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_5'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_5.0"
+          }
+        },
+        {
+          "ESBSkillElementIconType::Darkness": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_6'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.0"
+          }
+        },
+        {
+          "ESBSkillElementIconType::None": {
+            "ObjectName": "Texture2D'UI_PlayerSkillAttribute_Empty'",
+            "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_Empty.0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "Alpha",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Alpha.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.11"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50.WidgetSwitcherSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.23"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "Beta",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Beta.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.12"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50.WidgetSwitcherSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.24"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "Camma",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Camma.CanvasPanelSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.13"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "WidgetSwitcherSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50.WidgetSwitcherSlot_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.25"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_173",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_173.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.14"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_87",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87.CanvasPanelSlot_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.16"
+        },
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87.CanvasPanelSlot_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.15"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_Click.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.17"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanel",
+    "Name": "CanvasPanel_Click",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'CanvasPanel'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_Click.CanvasPanelSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.17"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_173.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.14"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "Alpha",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 44.0,
+          "Bottom": 44.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Alpha'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.5"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'SkillTree_SkillIconTacticalAbility_C:WidgetTree.SBRuntimeTextBlock_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.21"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "Beta",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Top": 2.0,
+          "Right": 44.0,
+          "Bottom": 44.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Beta'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.6"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'SkillTree_SkillIconTacticalAbility_C:WidgetTree.SBRuntimeTextBlock_205'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.20"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_1",
+    "Outer": "Camma",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 44.0,
+          "Bottom": 44.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Camma'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.7"
+      },
+      "Content": {
+        "ObjectName": "SBRuntimeTextBlock'SkillTree_SkillIconTacticalAbility_C:WidgetTree.SBRuntimeTextBlock'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.19"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_173",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_173'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.8"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_Click'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.10"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_3",
+    "Outer": "CanvasPanel_87",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 44.0,
+          "Top": 10.0,
+          "Right": 44.0,
+          "Bottom": 44.0
+        },
+        "Alignment": {
+          "X": 0.5,
+          "Y": 0.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.9"
+      },
+      "Content": {
+        "ObjectName": "WidgetSwitcher'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.22"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_9",
+    "Outer": "CanvasPanel_87",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Left": 61.0,
+          "Top": 68.0,
+          "Right": 12.0,
+          "Bottom": 12.0
+        }
+      },
+      "bAutoSize": true,
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.9"
+      },
+      "Content": {
+        "ObjectName": "Image'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Image_EquipmentIcon2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.18"
+      }
+    }
+  },
+  {
+    "Type": "CanvasPanelSlot",
+    "Name": "CanvasPanelSlot_0",
+    "Outer": "CanvasPanel_Click",
+    "Class": "UScriptClass'CanvasPanelSlot'",
+    "Properties": {
+      "LayoutData": {
+        "Offsets": {
+          "Right": 88.0,
+          "Bottom": 88.0
+        }
+      },
+      "Parent": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_Click'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.10"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.9"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "Image_EquipmentIcon2",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 12.0,
+          "Y": 12.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_CmnIconMarkEquipment'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/CommonIcon/UI_CmnIconMarkEquipment.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87.CanvasPanelSlot_9'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.16"
+      },
+      "RenderTransform": {
+        "Scale": {
+          "X": 1.65,
+          "Y": 1.65
+        }
+      },
+      "Visibility": "ESlateVisibility::Collapsed"
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "SBRuntimeTextBlock",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'SkillTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/SkillTree.0"
+      },
+      "NameTextId": "Camma",
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 28
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Camma.CanvasPanelSlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.13"
+      }
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "SBRuntimeTextBlock_205",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'SkillTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/SkillTree.0"
+      },
+      "NameTextId": "Beta",
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 28
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Beta.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.12"
+      }
+    }
+  },
+  {
+    "Type": "SBRuntimeTextBlock",
+    "Name": "SBRuntimeTextBlock_87",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'SBRuntimeTextBlock'",
+    "Properties": {
+      "TextTable": {
+        "ObjectName": "SBTextTableAsset'SkillTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Text/SkillTree.0"
+      },
+      "NameTextId": "Alpha",
+      "Text": {
+        "Namespace": "UMG",
+        "Key": "TextBlockDefaultValue",
+        "SourceString": "Text Block",
+        "LocalizedString": "Text Block"
+      },
+      "Font": {
+        "FontObject": {
+          "ObjectName": "Font'UI_FOT-SkipStd-B'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Font/UI_FOT-SkipStd-B.0"
+        },
+        "TypefaceFontName": "Default",
+        "Size": 28
+      },
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Alpha.CanvasPanelSlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.11"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcher",
+    "Name": "WidgetSwitcher_50",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'WidgetSwitcher'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "WidgetSwitcherSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50.WidgetSwitcherSlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.23"
+        },
+        {
+          "ObjectName": "WidgetSwitcherSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50.WidgetSwitcherSlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.24"
+        },
+        {
+          "ObjectName": "WidgetSwitcherSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50.WidgetSwitcherSlot_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.25"
+        }
+      ],
+      "Slot": {
+        "ObjectName": "CanvasPanelSlot'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_87.CanvasPanelSlot_3'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.15"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_0",
+    "Outer": "WidgetSwitcher_50",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.22"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Alpha'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.5"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_1",
+    "Outer": "WidgetSwitcher_50",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.22"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Beta'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.6"
+      }
+    }
+  },
+  {
+    "Type": "WidgetSwitcherSlot",
+    "Name": "WidgetSwitcherSlot_2",
+    "Outer": "WidgetSwitcher_50",
+    "Class": "UScriptClass'WidgetSwitcherSlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "WidgetSwitcher'SkillTree_SkillIconTacticalAbility_C:WidgetTree.WidgetSwitcher_50'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.22"
+      },
+      "Content": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.Camma'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.7"
+      }
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "SkillTree_SkillIconTacticalAbility_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "CanvasPanel'SkillTree_SkillIconTacticalAbility_C:WidgetTree.CanvasPanel_173'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/SkillTree/SubWidget/SkillTree_SkillIconTacticalAbility.8"
+      }
+    }
+  }
+]

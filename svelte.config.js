@@ -31,7 +31,6 @@ const config = {
 					rehypeToc,
 					{
 						headings: ["h2"], cssClasses: {
-							list: "unstyled-list",
 							link: "styled-link"
 						}
 					}
