@@ -1,5 +1,5 @@
 <script>
-    import EntrySummary from "./EntrySummary.svelte";
+    // import EntrySummary from "./EntrySummary.svelte.old";
     export let data;
 </script>
 
@@ -8,7 +8,7 @@
         <!-- class:list-view={resultsDisplayMode === "list"}
         class:grid-view={resultsDisplayMode === "grid"} -->
         {#each data as entry (entry.name.ja_JP + entry.id)}
-            <EntrySummary data={entry} />
+            <!-- <EntrySummary data={entry} /> -->
         {/each}
     </ul>
 </div>

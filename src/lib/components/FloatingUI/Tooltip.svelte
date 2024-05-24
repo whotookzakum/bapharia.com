@@ -128,7 +128,7 @@
     });
 
     onDestroy(() => {
-        update();
+        if (targetElement) update();
     });
 </script>
 

@@ -1,7 +1,6 @@
 <script>
-    // import { userLocale } from "$lib/stores";
-    // import EntrySummary from "./EntrySummary.svelte";
-    // import PageControls from "./PageControls.svelte";
+    import { userLocale } from "$lib/stores";
+    import PageControls from "./PageControls.svelte";
     import {
         categories,
         classes,
@@ -14,14 +13,13 @@
     import { page } from "$app/stores";
     // import { Pane, Splitpanes } from "svelte-splitpanes";
     import { userSearch } from "./stores";
-    // import SearchBar from "./SearchBar.svelte";
-    // import SearchResults from "./SearchResults.svelte";
-    // import ActiveFiltersList from "./ActiveFiltersList.svelte";
+    import SearchBar from "./SearchBar.svelte";
+    import SearchResults from "./SearchResults.svelte";
+    import ActiveFiltersList from "./ActiveFiltersList.svelte";
     // import ResultsDisplaySelector from "./ResultsDisplaySelector.svelte";
-    // import RangeSlider from "svelte-range-slider-pips";
-    // import Popper from "$lib/components/Popper.svelte";
-    // import Icon from "@iconify/svelte";
-    // import { updateSearchParams } from "$lib/utils";
+    import RangeSlider from "svelte-range-slider-pips";
+    import Icon from "@iconify/svelte";
+    import { updateSearchParams } from "$lib/utils";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import InputText from "$lib/components/InputText.svelte";
     import InputNumber from "$lib/components/InputNumber.svelte";
@@ -221,7 +219,7 @@
 
 <!-- <h1>Database <a href="/db/weapons/106001201">test link</a></h1> -->
 
-<!-- <div class="panes">
+<div class="panes">
     <aside class="side-pane grid">
         <section class="grid gap-4">
             <span class="mini-header">Categories</span>
@@ -315,7 +313,7 @@
             <span class="mini-header">Class</span>
             <div class="flex gap-1" style="flex-wrap: wrap">
                 {#each $classes as job}
-                    <Popper let:setFocused placement="bottom">
+                    <!-- <Popper let:setFocused placement="bottom">
                         <input
                             id="class-{job.id}"
                             type="checkbox"
@@ -338,7 +336,7 @@
                         <p slot="tooltip" aria-hidden="true">
                             {job.name[$userLocale]}
                         </p>
-                    </Popper>
+                    </Popper> -->
                 {/each}
             </div>
         </section>
@@ -346,7 +344,7 @@
             <span class="mini-header">Element</span>
             <div class="flex gap-1" style="flex-wrap: wrap">
                 {#each $elements as element}
-                    <Popper let:setFocused placement="bottom">
+                    <!-- <Popper let:setFocused placement="bottom">
                         <input
                             id="element-{element.id}"
                             type="checkbox"
@@ -370,7 +368,7 @@
                         <p slot="tooltip" aria-hidden="true">
                             {element.name[$userLocale]}
                         </p>
-                    </Popper>
+                    </Popper> -->
                 {/each}
             </div>
         </section>
@@ -386,14 +384,14 @@
                 style="width: 100%"
             />
             <ActiveFiltersList />
-            <ResultsDisplaySelector />
+            <!-- <ResultsDisplaySelector /> -->
             <SearchResults data={searchResults} />
         </div>
         <div class="toc">
             <slot />
         </div>
     </article>
-</div> -->
+</div>
 
 <style lang="scss">
     .side-pane {
