@@ -3,43 +3,31 @@
 	export let style;
 </script>
 
-<aside class="sticky-note box {type}" {style}>
-	<header class="box">{type}</header>
+<aside
+	class="sticky-note p-4 rounded-2xl"
+	style:background="var(--bg-{type}, hsla(210, 77%, 50%, 0.5))"
+	{style}
+>
+	<header class="p-4 rounded-2xl">{type}</header>
 	<slot />
 </aside>
 
 <style lang="scss">
 	.sticky-note {
-		background: var(--color-bg, hsla(210, 77%, 50%, 0.5));
-		padding: var(--space-xs);
+		--bg-tip: hsla(273, 80%, 60%, 0.5);
+		--bg-caution: hsla(40, 80%, 60%, 0.5);
+		--bg-warning: hsla(0, 80%, 60%, 0.5);
 		margin: 1rem 0;
-		font-size: var(--step-1);
+		font-size: var(--step-2);
 		max-inline-size: var(--text-length);
-		line-height: 1.75;
 	}
 
 	header {
 		background: rgb(22, 22, 22, 0.9);
 		border-radius: 0.75rem;
-		margin: -0.5rem -0.5rem 1rem -0.5rem;
+		margin: -0.25rem -0.25rem 1rem -0.25rem;
 		text-transform: capitalize;
 		color: white;
 		font-weight: 700;
-	}
-
-	:global(.sticky-note ul) {
-		gap: 0.5rem;
-	}
-
-	.tip {
-		--color-bg: hsla(273, 80%, 60%, 0.5);
-	}
-
-	.caution {
-		--color-bg: hsla(40, 80%, 60%, 0.5);
-	}
-
-	.warning {
-		--color-bg: hsla(0, 80%, 60%, 0.5);
 	}
 </style>

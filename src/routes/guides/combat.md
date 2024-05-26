@@ -22,7 +22,7 @@ thumbImg: "/guides/combat/thumb.jpg"
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action.
 
-<h2 class="toc-exclude">Precursor</h2>
+## Precursor
 
 The UI has an aggro icon whose color indicates <span style="color: orange">when enemies have sensed your presence</span> and <span style="color: red">when they are actively engaging you</span>.
 

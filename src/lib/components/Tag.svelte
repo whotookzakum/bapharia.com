@@ -29,10 +29,11 @@
 
     .new {
         background: orange;
-        color: white;
+        color: white !important;
         font-size: var(--step--1);
         text-shadow: 0 0 8px var(--surface3);
         box-shadow: 0 2px 8px var(--surface3);
+        box-shadow: 0 2px 8px rgba(255, 166, 0, 0.3);
         padding: 0.3em 0.4em;
         line-height: 1;
         min-height: unset;

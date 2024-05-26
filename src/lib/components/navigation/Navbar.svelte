@@ -106,10 +106,6 @@
 		flex: 1;
 		max-width: 300px;
 		min-width: 0;
-
-		&::placeholder {
-			color: inherit;
-		}
 	}
 
 	// LINKS =====================================================

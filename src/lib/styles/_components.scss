@@ -5,7 +5,7 @@
     --range-range: var(--accent1); // space between the handles
     --range-handle: var(--accent1); // the handle(s) not being dragged
     --range-handle-focus: var(--accent1); // the handle being dragged
-    --range-handle-border: var(--accent1); // shadow on the dragged handle
+    --range-handle-border: var(--text3); // shadow on the dragged handle
     --range-float: var(--accent1); // tooltip when dragging
     --range-float-text: hsl(220, 0%, 89%); // tooltip text color
 
@@ -28,6 +28,10 @@
         // margin-inline: 1.25rem !important;
         margin-bottom: 2.3em !important
     }
+
+    &:has(:active) {
+        --range-handle-border: var(--accent1); 
+    }
 }
 
 .adjusted-range .rangeSlider {
@@ -37,4 +41,24 @@
     --range-pip-in-range: var(--accent1) !important;
     --range-pip-active-text: var(--accent1) !important;
     --range-pip-in-range-text: var(--accent1) !important;
+}
+
+.vlist.grid {
+    gap: 1rem;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(208px, 1fr)) !important;
+
+    .result-item {
+        display: grid;
+        text-align: center;
+        align-content: start;
+
+        a {
+            font-size: var(--step-0) !important;
+        }
+
+        img {
+            margin: auto;
+        }
+    }
 }

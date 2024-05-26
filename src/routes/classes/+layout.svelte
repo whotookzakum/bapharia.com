@@ -26,17 +26,21 @@
 
 <div class="panes">
     <aside class="side-pane">
-        <nav class="grid gap-4">
+        <nav class="grid gap-2">
             <a
                 href="/classes"
                 class="styled-link mini-header"
                 class:hide-on-phone={$page.url.pathname === "/classes"}
                 >Classes</a
             >
-            <ul class="unstyled-list">
+            <ul>
                 {#each data.allClasses as { href, title, isNew }}
                     <li>
-                        <details use:detailsRef data-href={href}>
+                        <details
+                            class="arrow-discreet"
+                            use:detailsRef
+                            data-href={href}
+                        >
                             <summary>
                                 {title}
                                 {#if isNew}
@@ -45,11 +49,11 @@
                                     >
                                 {/if}
                             </summary>
-                            <div class="grid gap-2">
+                            <div class="grid mt-2 mb-4">
                                 {#each SUBLINKS as { name, path }}
                                     <a
                                         href={href + path}
-                                        class="styled-link"
+                                        class="styled-link pl-4"
                                         class:active={$page.url.pathname ===
                                             href + path}
                                     >
@@ -68,23 +72,12 @@
 
 <style lang="scss">
     details .grid {
-        margin-block: 1rem 1.5rem;
-        border-left: 1px solid var(--surface2);
-        margin-left: 0.5rem;
-
-        a {
-            padding-left: 1rem;
-        }
-
-        a.active {
-            border-left: 2px solid var(--accent1);
-            margin-left: -2px;
-        }
+        border-left: 2px solid var(--surface2);
+        line-height: 1.75;
     }
 
-    // details .grid {
-    //     padding-block: 1rem;
-    //     padding-left: 1rem;
-    //     border-bottom: 1px solid var(--surface1);
-    // }
+    a.active {
+        border-left: 2px solid var(--accent1);
+        margin-left: -2px;
+    }
 </style>

@@ -28,18 +28,24 @@ main {
 .side-pane,
 .toc {
     position: sticky;
-    top: calc(var(--nav-height) + 5rem);
+    top: calc(var(--nav-height) + var(--gutter-y));
     font-size: var(--step-1);
     letter-spacing: 0.02em;
     align-self: start;
 
-    *:not(.mini-header):not(:hover) {
+    :is(a:not(.mini-header), summary):not(:hover) {
         color: var(--text2);
+    }
+
+    nav,
+    nav ul,
+    ol {
+        display: grid;
+        gap: 0.5rem;
     }
 
     ul::before {
         @extend .mini-header;
-        // content: attr(data-pane-title); // or aria-label
     }
 
     ol::before {
@@ -47,24 +53,15 @@ main {
         content: "Contents";
     }
 
-    details[open] {
-        color: var(--text1);
+    details[open]>summary {
+        color: var(--text1) !important;
     }
 
-    details[open] summary {
-        // font-weight: inherit;
-        color: inherit !important;
+    details *:not(summary) {
+        font-size: var(--step-0);
     }
 
-    details[open] summary::after {
-        border-color: inherit;
-    }
-
-    summary:not(:where(:hover, :focus-visible))::after {
-        content: unset;
-    }
-
-    nav > a {
+    nav a {
         width: fit-content;
     }
 }
@@ -74,10 +71,9 @@ main {
     grid-row: 1/-1;
 }
 
-// .side-pane {
-//     overflow: clip;
-//     max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2 - 33px);
-// }
+.pane-max-height {
+    max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2);
+}
 
 .main-pane {
     display: grid;
@@ -86,13 +82,16 @@ main {
     column-gap: var(--pane-column-gap) !important;
     align-content: start;
 
-    &>*:not(.toc) {
+    &>*:not(.toc, .col-2) {
         grid-column: 1;
     }
 
     hgroup {
         margin-bottom: 2rem;
-        display: grid;
+
+        &>p:not(:first-of-type, .attribution) {
+            margin-block: 0.5rem 1rem;
+        }
     }
 
     hgroup .mini-header {
@@ -116,6 +115,10 @@ main {
         text-wrap: pretty;
     }
 
+    section p {
+        margin-block: 1em;
+    }
+
     img,
     video,
     iframe {
@@ -124,8 +127,8 @@ main {
 
     section>img,
     figure img,
-    section>video,
-    figure video {
+    video,
+    iframe {
         margin-top: 1rem;
         border-radius: 1rem;
     }
@@ -159,6 +162,7 @@ main {
         order: 2;
         position: unset;
         margin-block: 1rem;
+        font-size: var(--step-0) !important;
 
         ol {
             gap: 0;
@@ -175,9 +179,8 @@ main {
 
         a {
             padding-left: 1rem;
-            margin-left: 0.5rem;
             line-height: 1.75;
-            border-left: 1px solid var(--surface1);
+            border-left: 2px solid var(--surface1);
         }
     }
 }
@@ -191,6 +194,7 @@ main {
     .main-pane,
     .side-pane,
     .toc {
+
         p:not(.mini-header, .attribution),
         li a {
             font-size: var(--step-0) !important;
@@ -254,4 +258,39 @@ main {
     height: 100%;
     z-index: -1;
     animation: 2.4s ease 1 forwards fadein;
+}
+
+// * {
+//     scrollbar-color: var(--surface3) var(--surface1);
+//     // scrollbar-width: thin;
+// }
+
+*::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    margin: 0.5rem;
+    background-color: var(--surface1);
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+    // background-color: green;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--text3-dark);
+    background-color: var(--surface4);
+
+}
+
+*::-webkit-scrollbar-track:hover {
+    // filter: brightness(1.1);
+    // background-color: var(--surface2);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--surface4);
+
 }
