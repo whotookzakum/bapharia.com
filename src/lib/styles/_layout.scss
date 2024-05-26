@@ -13,7 +13,6 @@ main {
 .panes {
     --gutter-y: 5rem;
     --gutter-x: 2rem;
-    --sidepane-width: 220px;
     --text-length: 60ch;
     --pane-column-gap: clamp(1rem, 2.8vw, 3rem);
     width: 100%;
@@ -69,10 +68,6 @@ main {
 .toc {
     grid-column: 2;
     grid-row: 1/-1;
-}
-
-.pane-max-height {
-    max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2);
 }
 
 .main-pane {
@@ -258,39 +253,4 @@ main {
     height: 100%;
     z-index: -1;
     animation: 2.4s ease 1 forwards fadein;
-}
-
-// * {
-//     scrollbar-color: var(--surface3) var(--surface1);
-//     // scrollbar-width: thin;
-// }
-
-*::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 1rem;
-    margin: 0.5rem;
-    background-color: var(--surface1);
-}
-
-*::-webkit-scrollbar {
-    width: 16px;
-    // background-color: green;
-}
-
-*::-webkit-scrollbar-thumb {
-    border-radius: 1rem;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: var(--text3-dark);
-    background-color: var(--surface4);
-
-}
-
-*::-webkit-scrollbar-track:hover {
-    // filter: brightness(1.1);
-    // background-color: var(--surface2);
-}
-
-*::-webkit-scrollbar-thumb:hover {
-    background-color: var(--surface4);
-
 }

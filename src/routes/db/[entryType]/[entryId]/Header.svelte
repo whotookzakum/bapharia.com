@@ -216,16 +216,6 @@
 </header>
 
 <style lang="scss">
-    .back-button {
-        font-size: var(--step-0);
-        color: var(--text2);
-        // border-radius: 5px;
-
-        &:where(:hover, :focus-visible) {
-            color: var(--text1);
-        }
-    }
-
     @media (max-width: 1150px) {
         .entry-details {
             margin-top: calc(1rem + var(--nav-height));
@@ -239,7 +229,6 @@
     h1 {
         margin-bottom: -0.5rem;
         padding-bottom: 0.75rem;
-        border-bottom: 1px solid var(--surface1);
         line-height: 1.3;
         font-size: var(--step-5);
     }
@@ -277,7 +266,6 @@
         place-content: center;
         font-weight: 800;
         font-size: var(--step-2);
-        // border: 1px solid;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     }
 
