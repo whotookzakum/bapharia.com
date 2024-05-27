@@ -57,8 +57,7 @@ a.styled-link {
     }
 }
 
-a.active,
-summary small {
+a.active {
     color: var(--accent1) !important;
     font-weight: bold;
 }
@@ -72,39 +71,6 @@ summary {
     list-style-type: none;
     align-items: center;
     user-select: none;
-}
-
-details.arrow>summary::after,
-details.arrow-discreet>summary:where(:hover, :focus-visible)::after {
-    content: "";
-    display: block;
-    width: 0.4em;
-    height: 0.4em;
-    border-bottom: 0.125em solid currentColor;
-    border-right: 0.125em solid currentColor;
-    margin-left: auto;
-    margin-bottom: 0.3em;
-    margin-right: 2px;
-    transform: rotate(45deg);
-}
-
-details.arrow[open]>summary::after,
-details.arrow-discreet[open]>summary:where(:hover, :focus-visible)::after {
-    transform: rotate(225deg);
-    margin-top: 0.3em;
-    border-bottom: 0.1875em solid currentColor;
-    border-right: 0.1875em solid currentColor;
-}
-
-details.plus-minus>summary::after,
-details.plus-minus-discreet>summary:where(:hover, :focus-visible)::after {
-    content: "+";
-    margin-left: auto;
-}
-
-details.plus-minus[open]>summary::after,
-details.plus-minus-discreet[open]>summary:where(:hover, :focus-visible)::after {
-    content: "-";
 }
 
 input,

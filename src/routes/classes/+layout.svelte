@@ -37,11 +37,10 @@
                 {#each data.allClasses as { href, title, isNew }}
                     <li>
                         <details
-                            class="arrow-discreet"
                             use:detailsRef
                             data-href={href}
                         >
-                            <summary>
+                            <summary class="arrow-discreet">
                                 {title}
                                 {#if isNew}
                                     <Tag isNew style="margin-left: 0.5rem;"

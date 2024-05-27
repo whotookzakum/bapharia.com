@@ -8,6 +8,27 @@
     import filtertext_categories from "./filtertext-categories.json";
 
     export let data;
+    // TODO save and cache preferences: filters
+    // TODO favorite items
+
+    let resultsDisplayMode = "list";
+    let filters = {
+        AR: [0, 30],
+        Level: [0, 100],
+        boardDeepSearch: true,
+    };
+
+    // Remove default keys if there are more than just the default value.
+    Object.entries(CATEGORIES).forEach(([locale, categories]) => {
+        Object.entries(categories).forEach(([category, types]) => {
+            Object.entries(types).forEach(([key, value]) => {
+                const defaultKey = CATEGORIES[locale][category].default;
+                if (Object.entries(types).length > 1 && defaultKey) {
+                    delete CATEGORIES[locale][category].default;
+                }
+            });
+        });
+    });
 
     $: searchResults = data.entries.filter((entry) => {
         const queryMatch = $userSearch
@@ -22,11 +43,6 @@
         return queryMatch & typeMatch;
     });
 
-    // TODO save and cache preferences: filters
-    // TODO favorite items
-
-    let resultsDisplayMode = "list";
-
     function checkAll(category) {
         filters[category] = Object.keys(CATEGORIES[$userLocale][category]);
     }
@@ -35,125 +51,157 @@
         filters[category] = [];
     }
 
-    function quickToggle(e, category) {
-        if (e.ctrlKey) {
-            e.preventDefault();
-
-            if (
-                filters[category]?.length ===
-                Object.keys(CATEGORIES[$userLocale][category]).length
-            ) {
-                uncheckAll(category);
-            } else {
-                checkAll(category);
-            }
-        }
-    }
-
-    let filters = {
-        AR: [0, 30],
-        Level: [0, 100],
-    };
-
-    function updateFilters(e, type, value) {
-        if (!filters[type]) filters[type] = [];
+    function updateFilters(e, category, value) {
+        if (!filters[category]) filters[category] = [];
         if (e.target.checked) {
-            filters[type].push(value);
+            filters[category].push(value);
         } else {
-            filters[type] = filters[type].filter((id) => id !== value);
+            filters[category] = filters[category].filter(
+                (type) => type !== value,
+            );
         }
         filters = filters;
     }
 
     $: console.log(filters);
 
-    let innerHeight;
+    function toggleCategoryVisibility(category) {
+        filters[`show${category}`] = !filters[`show${category}`];
+    }
+
+    function hasAllChecked(category) {
+        const totalTypes = Object.keys(
+            CATEGORIES[$userLocale][category],
+        ).length;
+        const checkedTypes = filters[category]?.length;
+        return totalTypes === checkedTypes;
+    }
+
+    function hasSomeChecked(category) {
+        const checkedTypes = filters[category]?.length ?? 0;
+        return checkedTypes > 0;
+    }
+
+    function toggleCategoryTypes(category) {
+        hasSomeChecked(category) ? uncheckAll(category) : checkAll(category);
+    }
 </script>
 
-<!-- <h1>Database <a href="/db/weapons/106001201">test link</a></h1> -->
-
-<svelte:window bind:innerHeight />
+<h1 class="visually-hidden">Database</h1>
 
 <div class="db-layout">
     <div class="left-col px-8 h-main overflow-y-auto">
+        <h2 id="searchLabel" class="visually-hidden">Search database</h2>
         <div class="search-section grid gap-2 sticky top-0 py-4 z-[2]">
             <input
                 class="surface2 py-2 px-4 rounded-full flex-1"
                 type="search"
                 placeholder="Search database"
-                aria-label="Search database"
-                aria-describedby=""
+                aria-labelledby="searchLabel"
+                aria-describedby="info"
                 bind:value={$userSearch}
             />
         </div>
 
-        
+        <div class="grid gap-2">
+            <h3 class="mini-header mt-3">Categories</h3>
+            {#each Object.entries(filtertext_categories[$userLocale]) as [category, text]}
+                <div>
+                    <div class="flex gap-2 items-center">
+                        <label
+                            class="flex select-none"
+                            style="font-size: var(--step-1)"
+                        >
+                            <input
+                                type="checkbox"
+                                class="visually-hidden"
+                                on:click={() => toggleCategoryTypes(category)}
+                            />
 
-        <aside class="grid gap-6 pt-4 h-full">
-            <section class="grid gap-2">
-                <span class="mini-header">Categories</span>
-                {#each Object.entries(filtertext_categories[$userLocale]) as [category, text]}
-                <!-- <button aria-pressed="false">Hey</button> -->
-                    <!-- svelte-ignore a11y-no-noninteractive-element-interactions a11y-click-events-have-key-events -->
-                    <details
-                        class="arrow"
-                        on:click={(e) => quickToggle(e, category)}
-                    >
-                        <summary class="gap-1">
-                            <input type="checkbox" class="mr-1">
-                            {text}
-                            {#if filters[category]?.length > 0}
-                                <small>({filters[category].length})</small>
-                            {/if}
-                        </summary>
-                        <div class="grid gap-2 mt-2 mb-4 pl-4">
-                            <!-- <div
-                                class="flex gap-2 text3"
-                                style="font-size: var(--step--1);"
+                            {#key filters}
+                                {#if hasAllChecked(category)}
+                                    <Icon
+                                        icon="carbon:checkbox-checked-filled"
+                                        class="accent1"
+                                    />
+                                {:else if hasSomeChecked(category)}
+                                    <Icon
+                                        icon="carbon:checkbox-indeterminate-filled"
+                                        class="accent1"
+                                    />
+                                {:else}
+                                    <Icon
+                                        icon="carbon:checkbox"
+                                        class="text2 hover-text1"
+                                    />
+                                {/if}
+                            {/key}
+                        </label>
+                        <button
+                            on:click={() => toggleCategoryVisibility(category)}
+                            class="hover-text1 arrow-faded"
+                            class:text2={!filters[`show${category}`]}
+                            aria-pressed={Boolean(filters[`show${category}`])}
+                        >
+                            <span class="visually-hidden"
+                                >Show {text} filters ({filters[category]
+                                    ?.length ?? 0} selected)</span
                             >
-                                <button
-                                    class="surface1 px-2 py-1 flex-1 rounded-full text2 hover-text1 active-text2 active-shrink-fast font-semibold"
-                                    on:click={() => checkAll(category)}
-                                    >Select All</button
-                                >
-                                <button
-                                    class="surface1 px-2 py-1 flex-1 rounded-full text2 hover-text1 active-text2 active-shrink-fast font-semibold"
-                                    on:click={() => uncheckAll(category)}
-                                    >Reset</button
-                                >
-                            </div> -->
-                            <ul>
+                            <span aria-hidden="true">
+                                {text}
+                                {#if filters[category]?.length > 0}
+                                    <small class="accent1 font-bold"
+                                        >({filters[category].length})</small
+                                    >
+                                {/if}
+                            </span>
+                        </button>
+                    </div>
+                    {#if filters[`show${category}`]}
+                        <div
+                            class="grid gap-4 pt-2 pb-4 mb-2 pl-5"
+                            style="border-bottom: 1px solid var(--surface2)"
+                        >
+                            <ul class="grid gap-1">
                                 {#each Object.entries(CATEGORIES[$userLocale][category]) as [type, text]}
-                                    <!-- Don't show "default" if there are actual options to use -->
-                                    {#if Object.values(CATEGORIES[$userLocale][category]).length > 1 ? type !== "default" : true}
-                                        <li>
-                                            <label
-                                                class="flex gap-2 items-center"
-                                                style="line-height: 1.6;"
-                                            >
-                                                <input
-                                                    type="checkbox"
-                                                    value={type}
-                                                    checked={filters[
-                                                        category
-                                                    ]?.includes(type)}
-                                                    on:click={(e) =>
-                                                        updateFilters(
-                                                            e,
-                                                            category,
-                                                            type,
-                                                        )}
-                                                />
-                                                <span>{text}</span>
-                                            </label>
-                                        </li>
-                                    {/if}
+                                    <li>
+                                        <label
+                                            class="flex gap-2 items-center select-none"
+                                            style="line-height: 1.6;"
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                value={type}
+                                                checked={filters[
+                                                    category
+                                                ]?.includes(type)}
+                                                on:click={(e) =>
+                                                    updateFilters(
+                                                        e,
+                                                        category,
+                                                        type,
+                                                    )}
+                                            />
+                                            <span>{text}</span>
+                                        </label>
+                                    </li>
                                 {/each}
                             </ul>
+                            {#if category === "AdventureBoard"}
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                        checked={filters.boardDeepSearch}
+                                    /> Deep search
+                                </label>
+                            {/if}
                         </div>
-                    </details>
-                {/each}
-            </section>
+                    {/if}
+                </div>
+            {/each}
+        </div>
+
+        <div class="grid gap-6 pt-4">
             <section>
                 <span class="mini-header">Level</span>
                 <div
@@ -202,7 +250,11 @@
                     class="grid"
                     style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
                 >
-                    {#each Object.entries(CATEGORIES[$userLocale].Class) as [type, text]}
+                    {#each Object.entries(CATEGORIES[$userLocale].Class).toSorted( (a, b) => {
+                            if (a[1] < b[1]) return -1;
+                            if (a[1] > b[1]) return 1;
+                            return 0;
+                        }, ) as [type, text]}
                         <Tooltip
                             placement="top"
                             tooltipStyle="width: max-content"
@@ -268,7 +320,7 @@
                     {/each}
                 </div>
             </section>
-        </aside>
+        </div>
     </div>
 
     <!--
@@ -288,15 +340,21 @@
 
     <div
         class="results-section {resultsDisplayMode} h-main overflow-y-auto grid gap-4 p-4 pt-0 content-start"
+        style="display: none"
     >
-        <div class="flex gap-4 items-center sticky top-0 z-[3] py-4" style="background: var(--bg); margin-bottom: -1rem; grid-column: 1/-1">
+        <div
+            class="flex gap-4 items-center sticky top-0 z-[3] py-4"
+            style="background: var(--bg); margin-bottom: -1rem; grid-column: 1/-1"
+        >
             <h2 class="mini-header m-0" tabindex="-1">
                 {searchResults.length.toLocaleString()} results
                 {#if $userSearch}
                     for "{$userSearch}"
                 {/if}
             </h2>
-            <div id="info" class="visually-hidden">Results will update as you type.</div>
+            <div id="info" class="visually-hidden">
+                Results will update as you type.
+            </div>
             <span class="mini-header ml-auto">Sort by</span>
             <div class="flex">
                 <Tooltip inline tooltipStyle="width: max-content">
@@ -343,7 +401,11 @@
         </div>
 
         {#if searchResults.length < 1}
-            <div aria-live="assertive" aria-atomic="true" class="visually-hidden">
+            <div
+                aria-live="assertive"
+                aria-atomic="true"
+                class="visually-hidden"
+            >
                 No results for {$userSearch}.
             </div>
         {/if}
@@ -402,6 +464,7 @@
 
     .search-section {
         background: var(--bg);
+        margin: 0 -0.5rem;
         box-shadow: 0 0 10px 14px var(--bg);
         border-bottom: 1px solid var(--surface1);
     }

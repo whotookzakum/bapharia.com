@@ -166,3 +166,51 @@ a.area-link::after {
     height: calc(100vh - var(--nav-height));
     height: calc(100dvh - var(--nav-height));
 }
+
+// Collapsible arrow markers
+.arrow,
+.arrow-discreet,
+.arrow-faded {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.arrow::after,
+.arrow-discreet:where(:hover, :focus-visible)::after,
+.arrow-faded::after {
+    content: "";
+    display: block;
+    width: 0.4em;
+    height: 0.4em;
+    border-bottom: 0.125em solid currentColor;
+    border-right: 0.125em solid currentColor;
+    margin-left: auto;
+    margin-right: 2px;
+    transform: rotate(45deg);
+}
+
+[open] .arrow::after,
+[open] .arrow-discreet:where(:hover, :focus-visible)::after {
+    transform: rotate(225deg);
+    margin-top: 0.3em;
+    border-bottom: 0.1875em solid currentColor;
+    border-right: 0.1875em solid currentColor;
+}
+
+.arrow-faded::after {
+    border-color: var(--surface3);
+    width: 0.5em;
+    height: 0.5em;
+    margin-bottom: 0.1em;
+}
+
+.arrow-faded:where(:hover, :focus-visible)::after {
+    border-color: var(--text3);
+}
+
+[aria-pressed="true"].arrow-faded::after {
+    border-color: var(--text2) !important;
+    transform: rotate(225deg);
+    margin-top: 0.4em;
+}
