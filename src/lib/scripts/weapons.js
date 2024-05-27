@@ -9,7 +9,7 @@ function processWeapon(weapon, lang) {
     const assets = getAssets("weapon", weapon.id)
     const stats = getEquipmentStats(weapon.id, ["attribute_value", "offensive_power", "str", "vit", "dex", "mnd", "int", "critical_power"])
     // For weapon skins, get the source of the weapon skin item
-    const sources = weapon.is_for_weapon_stickers 
+    const sources = weapon.is_for_weapon_stickers
         ? getSources(ITEMS.find(item => item.weapon_sticker.appearance_weapon_id == weapon.id), lang, [3])
         : getSources(weapon, lang, [4])
 
@@ -45,16 +45,14 @@ export const getWeaponSummaries = (lang) => WEAPONS.map(weapon => {
     const { icon, iconL } = getAssets("weapon", weapon.id)
     return {
         href: `/db/weapons/${weapon.id}`,
-        text: {
-            name: getText("weapon_text", weapon.name, lang),
-            jpName: getText("weapon_text", weapon.name, "ja_JP")
-        },
-        assets: {
-            icon,
-            iconL
-        },
-        resolveType: "Weapon",
-        category: weapon.is_for_weapon_stickers
+        name: getText("weapon_text", weapon.name, lang),
+        jpName: getText("weapon_text", weapon.name, "ja_JP"),
+        icon,
+        iconL,
+        category: "Weapon",
+        type: weapon.is_for_weapon_stickers,
+        class: weapon.equip_class,
+        element: weapon.attribute
     }
 })
 

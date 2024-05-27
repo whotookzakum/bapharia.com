@@ -1,89 +1,71 @@
 <script>
     import { userLocale } from "$lib/stores";
-    import {
-        categories,
-        classes,
-        elements,
-        level,
-        ar,
-        uniqueCategories,
-    } from "./stores";
-    import { page } from "$app/stores";
     import { userSearch } from "./stores";
-    import ActiveFiltersList from "./ActiveFiltersList.svelte";
     import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import CATEGORIES from "$scripts/utils/categories.json";
-    import CATEGORY_NAMES from "$scripts/utils/categoryNames.json";
-    import Grid from "./Grid.svelte";
+    import filtertext_categories from "./filtertext-categories.json";
 
     export let data;
 
     $: searchResults = data.entries.filter((entry) => {
         const queryMatch = $userSearch
-            ? entry.text.name.toLowerCase().includes($userSearch.toLowerCase())
+            ? entry.name.toLowerCase().includes($userSearch.toLowerCase())
             : true;
 
-        const filterMatch =
-            Object.values(filters).flat().length > 0
-                ? filters[entry.resolveType]?.includes(entry.category)
+        const typeMatch =
+            filters[entry.category]?.length > 0
+                ? filters[entry.category].some((type) => type == entry.type)
                 : true;
 
-        return queryMatch & filterMatch;
+        return queryMatch & typeMatch;
     });
 
     // TODO save and cache preferences: filters
     // TODO favorite items
 
-    $: subroute = $page.url.pathname.split("/").pop() !== "db";
-
     let resultsDisplayMode = "list";
 
-    $: placeholderText = {
-        ja_JP: `${searchResults?.length.toLocaleString()}件を検索`,
-        en_US: `Search ${searchResults?.length.toLocaleString()} entries`,
-    };
-
-    // Whenever $categories is updated, update the URL search param with the checked ids for that param
-    $: uniqueCategories.forEach((param) => {
-        const checkedIds = $categories
-            .filter((cat) => cat.checked && cat.param === param)
-            .flatMap((cat) => cat.ids)
-            .join(" ");
-
-        // updateSearchParams(param, checkedIds);
-    });
-
     function checkAll(category) {
-        $categories = $categories.map((cat) => ({
-            ...cat,
-            checked: cat.param === category || cat.checked,
-        }));
+        filters[category] = Object.keys(CATEGORIES[$userLocale][category]);
     }
 
     function uncheckAll(category) {
-        $categories = $categories.map((cat) => ({
-            ...cat,
-            checked: cat.param === category ? false : cat.checked,
-        }));
+        filters[category] = [];
     }
 
-    const checked = {};
+    function quickToggle(e, category) {
+        if (e.ctrlKey) {
+            e.preventDefault();
 
-    let filters = {};
+            if (
+                filters[category]?.length ===
+                Object.keys(CATEGORIES[$userLocale][category]).length
+            ) {
+                uncheckAll(category);
+            } else {
+                checkAll(category);
+            }
+        }
+    }
+
+    let filters = {
+        AR: [0, 30],
+        Level: [0, 100],
+    };
 
     function updateFilters(e, type, value) {
         if (!filters[type]) filters[type] = [];
         if (e.target.checked) {
-            filters[type].push(parseInt(value));
+            filters[type].push(value);
         } else {
-            filters[type] = filters[type].filter(
-                (id) => id !== parseInt(value),
-            );
+            filters[type] = filters[type].filter((id) => id !== value);
         }
         filters = filters;
     }
+
+    $: console.log(filters);
 
     let innerHeight;
 </script>
@@ -93,75 +75,57 @@
 <svelte:window bind:innerHeight />
 
 <div class="db-layout">
-    <div class="left-col px-8 pb-8 h-main overflow-y-auto">
-        <div class="search-section grid gap-2 sticky top-0 pt-8 pb-4 z-[2]">
-            <div class="flex gap-4 items-center">
-                <span class="mini-header"
-                    >{searchResults.length.toLocaleString()} results</span
-                >
-                <div class="flex ml-auto">
-                    <Tooltip inline>
-                        <label
-                            class="nav-button p-2 grid"
-                            style="width: 34px; height: 34px; margin-block: -0.5rem"
-                            aria-label="List View"
-                        >
-                            <input
-                                type="radio"
-                                value="list"
-                                class="visually-hidden"
-                                bind:group={resultsDisplayMode}
-                            />
-                            <Icon
-                                icon="fluent:text-bullet-list-16-filled"
-                                class={resultsDisplayMode === "list"
-                                    ? "accent1"
-                                    : ""}
-                            />
-                        </label>
-                    </Tooltip>
-                    <Tooltip inline>
-                        <label
-                            class="nav-button p-2 grid"
-                            style="width: 34px; height: 34px; margin-block: -0.5rem"
-                            aria-label="Grid View"
-                        >
-                            <input
-                                type="radio"
-                                value="grid"
-                                class="visually-hidden"
-                                bind:group={resultsDisplayMode}
-                            />
-                            <Icon
-                                icon="fluent:grid-24-filled"
-                                class={resultsDisplayMode === "grid"
-                                    ? "accent1"
-                                    : ""}
-                            />
-                        </label>
-                    </Tooltip>
-                </div>
-            </div>
-            <div class="flex gap-2 items-center">
-                <input
-                    class="surface2 py-2 px-4 rounded-full flex-1"
-                    type="search"
-                    placeholder="Search database"
-                    bind:value={$userSearch}
-                />
-            </div>
+    <div class="left-col px-8 h-main overflow-y-auto">
+        <div class="search-section grid gap-2 sticky top-0 py-4 z-[2]">
+            <input
+                class="surface2 py-2 px-4 rounded-full flex-1"
+                type="search"
+                placeholder="Search database"
+                aria-label="Search database"
+                aria-describedby=""
+                bind:value={$userSearch}
+            />
         </div>
 
-        <aside class="grid gap-4 pt-4 h-full">
+        
+
+        <aside class="grid gap-6 pt-4 h-full">
             <section class="grid gap-2">
                 <span class="mini-header">Categories</span>
-                {#each Object.entries(CATEGORY_NAMES[$userLocale]) as [type, text]}
-                    <details class="arrow-discreet">
-                        <summary>{text}</summary>
-                        <div class="details-body mt-2 mb-4">
+                {#each Object.entries(filtertext_categories[$userLocale]) as [category, text]}
+                <!-- <button aria-pressed="false">Hey</button> -->
+                    <!-- svelte-ignore a11y-no-noninteractive-element-interactions a11y-click-events-have-key-events -->
+                    <details
+                        class="arrow"
+                        on:click={(e) => quickToggle(e, category)}
+                    >
+                        <summary class="gap-1">
+                            <input type="checkbox" class="mr-1">
+                            {text}
+                            {#if filters[category]?.length > 0}
+                                <small>({filters[category].length})</small>
+                            {/if}
+                        </summary>
+                        <div class="grid gap-2 mt-2 mb-4 pl-4">
+                            <!-- <div
+                                class="flex gap-2 text3"
+                                style="font-size: var(--step--1);"
+                            >
+                                <button
+                                    class="surface1 px-2 py-1 flex-1 rounded-full text2 hover-text1 active-text2 active-shrink-fast font-semibold"
+                                    on:click={() => checkAll(category)}
+                                    >Select All</button
+                                >
+                                <button
+                                    class="surface1 px-2 py-1 flex-1 rounded-full text2 hover-text1 active-text2 active-shrink-fast font-semibold"
+                                    on:click={() => uncheckAll(category)}
+                                    >Reset</button
+                                >
+                            </div> -->
                             <ul>
-                                {#each Object.entries(CATEGORIES[$userLocale][type]) as [value, text]}
-                                    {#if Object.values(CATEGORIES[$userLocale][type]).length > 1 ? value !== "default" : true}
+                                {#each Object.entries(CATEGORIES[$userLocale][category]) as [type, text]}
+                                    <!-- Don't show "default" if there are actual options to use -->
+                                    {#if Object.values(CATEGORIES[$userLocale][category]).length > 1 ? type !== "default" : true}
                                         <li>
                                             <label
                                                 class="flex gap-2 items-center"
@@ -169,12 +133,15 @@
                                             >
                                                 <input
                                                     type="checkbox"
-                                                    {value}
+                                                    value={type}
+                                                    checked={filters[
+                                                        category
+                                                    ]?.includes(type)}
                                                     on:click={(e) =>
                                                         updateFilters(
                                                             e,
+                                                            category,
                                                             type,
-                                                            value,
                                                         )}
                                                 />
                                                 <span>{text}</span>
@@ -190,19 +157,19 @@
             <section>
                 <span class="mini-header">Level</span>
                 <div
-                    class:adjusted-range={$level.values[0] > $level.min ||
-                        $level.values[1] < $level.max}
+                    class:adjusted-range={filters.Level[0] > 0 ||
+                        filters.Level[1] < 100}
                 >
                     <RangeSlider
-                        bind:values={$level.values}
-                        min={$level.min}
-                        max={$level.max}
+                        bind:values={filters.Level}
+                        min={0}
+                        max={100}
                         step={1}
                         range
                         pushy
                         float
                         pips
-                        pipstep={$level.max / 10}
+                        pipstep={100 / 10}
                         first="label"
                         last="label"
                     />
@@ -211,109 +178,192 @@
             <section>
                 <span class="mini-header">Adventurer Rank</span>
                 <div
-                    class:adjusted-range={$ar.values[0] > $ar.min ||
-                        $ar.values[1] < $ar.max}
+                    class:adjusted-range={filters.AR[0] > 0 ||
+                        filters.AR[1] < 30}
                 >
                     <RangeSlider
-                        bind:values={$ar.values}
-                        min={$ar.min}
-                        max={$ar.max}
+                        bind:values={filters.AR}
+                        min={0}
+                        max={30}
                         step={1}
                         range
                         pushy
                         float
                         pips
-                        pipstep={$ar.max / 10}
+                        pipstep={30 / 10}
                         first="label"
                         last="label"
                     />
                 </div>
             </section>
-            <section class="grid gap-4">
+            <section class="grid gap-1">
                 <span class="mini-header">Class</span>
-                <div class="flex gap-1" style="flex-wrap: wrap">
-                    {#each $classes as job}
-                        <!-- <Popper let:setFocused placement="bottom">
-                          <input
-                              id="class-{job.id}"
-                              type="checkbox"
-                              class="visually-hidden"
-                              bind:checked={job.checked}
-                              on:focus={() => setFocused(true)}
-                              on:blur={() => setFocused(false)}
-                              on:click={() => setFocused(false)}
-                          />
-                          <label for="class-{job.id}">
-                              <img
-                                  src="/UI/Icon/Class/UI_IconClass_{job.id < 10
-                                      ? '0' + job.id
-                                      : job.id}.png"
-                                  alt={job.name[$userLocale]}
-                                  width="32"
-                                  height="32"
-                              />
-                          </label>
-                          <p slot="tooltip" aria-hidden="true">
-                              {job.name[$userLocale]}
-                          </p>
-                      </Popper> -->
+                <div
+                    class="grid"
+                    style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
+                >
+                    {#each Object.entries(CATEGORIES[$userLocale].Class) as [type, text]}
+                        <Tooltip
+                            placement="top"
+                            tooltipStyle="width: max-content"
+                        >
+                            <label class="nav-button" aria-label={text}>
+                                <input
+                                    type="checkbox"
+                                    class="visually-hidden"
+                                    checked={filters.Class?.includes(type)}
+                                    on:click={(e) =>
+                                        updateFilters(e, "Class", type)}
+                                />
+                                <span
+                                    class="masked"
+                                    style:mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
+                                        2,
+                                        "0",
+                                    )}.png')"
+                                    style:-webkit-mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
+                                        2,
+                                        "0",
+                                    )}.png')"
+                                />
+                            </label>
+                        </Tooltip>
                     {/each}
                 </div>
             </section>
-            <section class="grid gap-4">
+            <section class="grid gap-1 pb-8">
                 <span class="mini-header">Element</span>
-                <div class="flex gap-1" style="flex-wrap: wrap">
-                    {#each $elements as element}
-                        <!-- <Popper let:setFocused placement="bottom">
-                          <input
-                              id="element-{element.id}"
-                              type="checkbox"
-                              class="visually-hidden"
-                              bind:checked={element.checked}
-                              on:focus={() => setFocused(true)}
-                              on:blur={() => setFocused(false)}
-                              on:click={() => setFocused(false)}
-                          />
-                          <label for="element-{element.id}">
-                              <img
-                                  src="/UI/Icon/Attribute/UI_IconAttribute_{element.id >
-                                  0
-                                      ? element.id
-                                      : 'Empty'}.png"
-                                  alt={element.name[$userLocale]}
-                                  width="32"
-                                  height="32"
-                              />
-                          </label>
-                          <p slot="tooltip" aria-hidden="true">
-                              {element.name[$userLocale]}
-                          </p>
-                      </Popper> -->
+                <div
+                    class="grid"
+                    style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
+                >
+                    {#each Object.entries(CATEGORIES[$userLocale].Element) as [type, text]}
+                        <Tooltip
+                            placement="top"
+                            tooltipStyle="width: max-content"
+                        >
+                            <label class="nav-button" aria-label={text}>
+                                <input
+                                    type="checkbox"
+                                    class="visually-hidden"
+                                    checked={filters.Element?.includes(type)}
+                                    on:click={(e) =>
+                                        updateFilters(e, "Element", type)}
+                                />
+                                {#if type === "0"}
+                                    <span
+                                        class="masked"
+                                        style:mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
+                                        style:-webkit-mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
+                                    />
+                                {:else}
+                                    <span
+                                        class="masked"
+                                        style:mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
+                                        style:-webkit-mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
+                                    />
+                                {/if}
+                            </label>
+                        </Tooltip>
                     {/each}
                 </div>
             </section>
         </aside>
     </div>
 
+    <!--
+    text to indicate how this UI works. 
+    it must be associated with the text field.
+  -->
+
+    <!-- 
+    empty, unstyled live region just waiting for no results
+    to be displayed.  
+  -->
+
+    <!-- 
+    markup for rendering search results goes here. 
+    it's whatever you need it to be.
+  -->
+
     <div
-        class="results-section {resultsDisplayMode} h-main  overflow-y-auto grid gap-4 p-8"
+        class="results-section {resultsDisplayMode} h-main overflow-y-auto grid gap-4 p-4 pt-0 content-start"
     >
-        {#each searchResults as item}
+        <div class="flex gap-4 items-center sticky top-0 z-[3] py-4" style="background: var(--bg); margin-bottom: -1rem; grid-column: 1/-1">
+            <h2 class="mini-header m-0" tabindex="-1">
+                {searchResults.length.toLocaleString()} results
+                {#if $userSearch}
+                    for "{$userSearch}"
+                {/if}
+            </h2>
+            <div id="info" class="visually-hidden">Results will update as you type.</div>
+            <span class="mini-header ml-auto">Sort by</span>
+            <div class="flex">
+                <Tooltip inline tooltipStyle="width: max-content">
+                    <label
+                        class="nav-button p-2 grid"
+                        style="width: 34px; height: 34px; margin-block: -0.5rem"
+                        aria-label="List View"
+                    >
+                        <input
+                            type="radio"
+                            value="list"
+                            class="visually-hidden"
+                            bind:group={resultsDisplayMode}
+                        />
+                        <Icon
+                            icon="fluent:text-bullet-list-16-filled"
+                            class={resultsDisplayMode === "list"
+                                ? "accent1"
+                                : ""}
+                        />
+                    </label>
+                </Tooltip>
+                <Tooltip inline tooltipStyle="width: max-content">
+                    <label
+                        class="nav-button p-2 grid"
+                        style="width: 34px; height: 34px; margin-block: -0.5rem"
+                        aria-label="Grid View"
+                    >
+                        <input
+                            type="radio"
+                            value="grid"
+                            class="visually-hidden"
+                            bind:group={resultsDisplayMode}
+                        />
+                        <Icon
+                            icon="fluent:grid-24-filled"
+                            class={resultsDisplayMode === "grid"
+                                ? "accent1"
+                                : ""}
+                        />
+                    </label>
+                </Tooltip>
+            </div>
+        </div>
+
+        {#if searchResults.length < 1}
+            <div aria-live="assertive" aria-atomic="true" class="visually-hidden">
+                No results for {$userSearch}.
+            </div>
+        {/if}
+
+        {#each searchResults as item (item.href)}
             <div
-                class="result-item area-link-wrapper surface1 hover-surface2 p-4 rounded-2xl relative flex items-center gap-4  text2"
+                class="result-item area-link-wrapper surface1 hover-surface2 p-4 rounded-2xl relative flex items-center gap-4 text2"
             >
                 {#if resultsDisplayMode === "grid"}
                     <img
-                        src={item.assets.iconL}
+                        src={item.iconL}
                         alt=""
-                        width={item.resolveType === "board" ? "208" : "128"}
+                        width={item.category === "board" ? "208" : "128"}
                         height="128"
                         loading="lazy"
-                        class:board={item.resolveType === "board"}
+                        class:board={item.category === "board"}
                     />
                 {:else}
                     <img
-                        src={item.assets.icon}
+                        src={item.icon}
                         alt=""
                         width="64"
                         height="64"
@@ -324,49 +374,26 @@
                     <span
                         class="text3"
                         style="font-size: var(--step--1); font-weight: 600"
-                        >{CATEGORIES["en_US"][item.resolveType][
-                            item.category
-                        ]}</span
+                        >{CATEGORIES["en_US"][item.category][item.type]}
+                        {item.element}</span
                     >
                     <a
                         href={item.href}
                         class="styled-link area-link"
                         style="font-size: var(--step-1); font-weight: 600;"
-                        >{item.text.name}</a
+                        >{item.name}</a
                     >
                 </div>
             </div>
         {/each}
-        <!-- <Grid
-            itemCount={searchResults.length}
-            itemHeight={150}
-            itemWidth={200}
-            height={innerHeight - 62}
-        >
-            <div slot="item" class="surface1" marginLeft="80px" let:index let:style {style}>
-                <a href={searchResults[index].href}>{searchResults[index].text.name}</a>
-            </div>
-        </Grid> -->
-        <!-- <VList data={searchResults} let:item class="vlist {resultsDisplayMode} h-full p-8">
-            <div class="mb-4">
-                
-            </div>
-        </VList> -->
     </div>
-
-    <article class="h-main overflow-y-auto p-8">
-        <slot>Select a database entry to see its details!</slot>
-    </article>
+    <slot />
 </div>
 
 <style lang="scss">
     .db-layout {
         display: grid;
         grid-template-columns: calc(var(--sidepane-width) + 4rem) 1fr;
-    }
-
-    article {
-        max-width: 600px;
     }
 
     .left-col {
@@ -411,25 +438,17 @@
         width: 100%;
     }
 
-    .details-body {
-        font-size: inherit;
+    .masked {
+        width: 32px;
+        height: 32px;
+        display: block;
+        background-color: var(--text2);
+        mask-size: contain;
+        -webkit-mask-size: contain;
+        transition: background-color 0.15s var(--timing1);
+    }
 
-        button {
-            font-size: var(--step--1);
-            letter-spacing: inherit;
-            flex: 1;
-            font-weight: 600;
-            color: var(--text3);
-
-            &:hover {
-                color: var(--text1);
-                background: var(--surface2);
-            }
-
-            &:active {
-                color: var(--text2);
-                scale: 0.98;
-            }
-        }
+    input:checked + .masked {
+        background-color: var(--accent1) !important;
     }
 </style>

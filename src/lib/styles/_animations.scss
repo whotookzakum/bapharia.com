@@ -1,5 +1,9 @@
+:root {
+    --timing1: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .transition-shrink {
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.15s var(--timing1);
 
     &:active {
         transform: scale(0.95);
@@ -7,11 +11,15 @@
 }
 
 .transition-bob-down {
-    transition: translate 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: translate 0.15s var(--timing1);
 
     &:active {
         translate: 0 1px;
     }
+}
+
+.active-shrink-fast:active {
+    scale: 0.98;
 }
 
 @keyframes fadein {

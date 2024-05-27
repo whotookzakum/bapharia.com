@@ -27,6 +27,7 @@
     export let delay = 0; // 200~400 is good
     export let hide = false;
     export let placement = "bottom";
+    export let tooltipStyle = ""
 
     let targetElement,
         tooltipElement,
@@ -148,6 +149,7 @@
         class="tooltip {animationClass}"
         class:animate-in={animateIn}
         class:animate-out={animateOut}
+        style={tooltipStyle}
     >
         <slot name="tooltip">
             {targetElementName}
