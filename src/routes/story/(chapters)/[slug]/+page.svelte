@@ -7,16 +7,13 @@
 
 <MetaTags
     title={`${metadata.title} — Bapharia`}
-    description={metadata.caption}
-    image={metadata.bannerImg}
-    bigImage
+    description=""
 />
 
 <article class="main-pane">
     <hgroup>
-        <p class="mini-header">{metadata.category}</p>
+        <p class="mini-header">{metadata.chapter}</p>
         <h1>{metadata.title}</h1>
-        <p>{metadata.caption}</p>
         <div class="attribution flex gap-4 flex-wrap">
             <p class="flex gap-1 align-items-center">
                 <Icon
@@ -25,15 +22,6 @@
                 />
                 <span>
                     {metadata.readingTime} minute read
-                </span>
-            </p>
-            <p class="flex gap-1 align-items-center">
-                <Icon
-                    icon="tabler:edit"
-                    style="font-size: var(--step-1); color: var(--accent1)"
-                />
-                <span>
-                    Last updated {new Date(metadata.date).toLocaleDateString()}
                 </span>
             </p>
         </div>

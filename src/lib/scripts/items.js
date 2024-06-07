@@ -115,16 +115,16 @@ export const getItemSummaries = (lang) => ITEMS.map(item => {
     const { icon, iconL } = getAssets("item", item.id)
     return {
         href: `/db/items/${item.id}`,
-        text: {
-            name: getText("item_text", item.name, lang),
-            jpName: getText("item_text", item.name, "ja_JP")
-        },
-        assets: {
-            icon,
-            iconL
-        },
-        resolveType: "Item",
-        category: item.category
+        name: getText("item_text", item.name, lang),
+        jpName: getText("item_text", item.name, "ja_JP"),
+        icon,
+        iconL,
+        category: "Item",
+        type: item.category,
+        level: item.item_level,
+        rank: item.adventurer_rank,
+        class: item.limit_class,
+        // element from consumable effect?
     }
 })
 

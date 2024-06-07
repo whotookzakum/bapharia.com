@@ -5,7 +5,7 @@ import { getWeaponSummaries } from "./weapons";
 const entries = (lang) => {
     return [
         ...getWeaponSummaries(lang),
-        // ...getItemSummaries(lang),
+        ...getItemSummaries(lang),
         // ...getImagineSummaries(lang),
     ]
 }

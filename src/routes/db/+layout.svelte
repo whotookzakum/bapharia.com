@@ -4,27 +4,58 @@
     import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
-    import CATEGORIES from "$scripts/utils/categories.json";
-    import filtertext_categories from "./filtertext-categories.json";
+    import TYPES_TEXT from "$scripts/utils/categories.json";
+    import CATEGORIES_TEXT from "./filtertext-categories.json";
+    import isEqual from "lodash/isEqual";
 
     export let data;
     // TODO save and cache preferences: filters
     // TODO favorite items
 
     let resultsDisplayMode = "list";
-    let filters = {
+
+    let original = {
         AR: [0, 30],
         Level: [0, 100],
         boardDeepSearch: true,
     };
 
-    // Remove default keys if there are more than just the default value.
-    Object.entries(CATEGORIES).forEach(([locale, categories]) => {
+    // separate filters_category from filters_extras etc
+
+    let filters = {
+        categories: {},
+        ar: {
+            default: [0, 30],
+            values: [0, 30],
+            adjusted: false,
+        },
+        level: {
+            default: [0, 100],
+            values: [0, 100],
+            adjusted: false,
+        },
+        extras: {
+            boardDeepSearch: true,
+        },
+    };
+
+    $: filters.level.adjusted =
+        filters.level.values[0] > filters.level.default[0] ||
+        filters.level.values[1] < filters.level.default[1];
+
+    $: filters.ar.adjusted =
+        filters.ar.values[0] > filters.ar.default[0] ||
+        filters.ar.values[1] < filters.ar.default[1];
+    
+    $: filters.categoriesAdjusted = Object.values(filters.categories).flat().length > 0
+
+    // Remove key "default" if there are more than just the default value.
+    Object.entries(TYPES_TEXT).forEach(([locale, categories]) => {
         Object.entries(categories).forEach(([category, types]) => {
             Object.entries(types).forEach(([key, value]) => {
-                const defaultKey = CATEGORIES[locale][category].default;
+                const defaultKey = TYPES_TEXT[locale][category].default;
                 if (Object.entries(types).length > 1 && defaultKey) {
-                    delete CATEGORIES[locale][category].default;
+                    delete TYPES_TEXT[locale][category].default;
                 }
             });
         });
@@ -35,28 +66,63 @@
             ? entry.name.toLowerCase().includes($userSearch.toLowerCase())
             : true;
 
-        const typeMatch =
-            filters[entry.category]?.length > 0
-                ? filters[entry.category].some((type) => type == entry.type)
+        let typeMatch = true;
+        if (filters.categoriesAdjusted) {
+            typeMatch = filters.categories[entry.category]?.length > 0
+                ? filters.categories[entry.category].some(
+                      (type) => type == entry.type,
+                  )
+                : false;
+        } 
+
+        const levelMatch = filters.level.adjusted
+            ? entry.level &&
+              entry.level >= filters.level.values[0] &&
+              entry.level <= filters.level.values[1]
+            : true;
+
+        const arMatch = filters.ar.adjusted
+            ? entry.rank &&
+              entry.rank >= filters.ar.values[0] &&
+              entry.rank <= filters.ar.values[1]
+            : true;
+
+        const classMatch =
+            filters.categories.Class?.length > 0
+                ? filters.categories.Class.some((job) => job == entry.class)
                 : true;
 
-        return queryMatch & typeMatch;
+        const elementMatch =
+            filters.categories.Element?.length > 0
+                ? filters.categories.Element.some((ele) => ele == entry.element)
+                : true;
+
+        return (
+            queryMatch &&
+            typeMatch &&
+            levelMatch &&
+            arMatch &&
+            classMatch &&
+            elementMatch
+        );
     });
 
     function checkAll(category) {
-        filters[category] = Object.keys(CATEGORIES[$userLocale][category]);
+        filters.categories[category] = Object.keys(
+            TYPES_TEXT[$userLocale][category],
+        );
     }
 
     function uncheckAll(category) {
-        filters[category] = [];
+        filters.categories[category] = [];
     }
 
     function updateFilters(e, category, value) {
-        if (!filters[category]) filters[category] = [];
+        if (!filters.categories[category]) filters.categories[category] = [];
         if (e.target.checked) {
-            filters[category].push(value);
+            filters.categories[category].push(value);
         } else {
-            filters[category] = filters[category].filter(
+            filters.categories[category] = filters.categories[category].filter(
                 (type) => type !== value,
             );
         }
@@ -66,24 +132,24 @@
     $: console.log(filters);
 
     function toggleCategoryVisibility(category) {
-        filters[`show${category}`] = !filters[`show${category}`];
+        filters.extras[`show${category}`] = !filters.extras[`show${category}`];
     }
 
     function hasAllChecked(category) {
         const totalTypes = Object.keys(
-            CATEGORIES[$userLocale][category],
+            TYPES_TEXT[$userLocale][category],
         ).length;
-        const checkedTypes = filters[category]?.length;
+        const checkedTypes = filters.categories[category]?.length;
         return totalTypes === checkedTypes;
     }
 
     function hasSomeChecked(category) {
-        const checkedTypes = filters[category]?.length ?? 0;
+        const checkedTypes = filters.categories[category]?.length ?? 0;
         return checkedTypes > 0;
     }
 
-    function toggleCategoryTypes(category) {
-        hasSomeChecked(category) ? uncheckAll(category) : checkAll(category);
+    function toggleEntireCategory(category) {
+        hasAllChecked(category) ? uncheckAll(category) : checkAll(category);
     }
 </script>
 
@@ -94,7 +160,7 @@
         <h2 id="searchLabel" class="visually-hidden">Search database</h2>
         <div class="search-section grid gap-2 sticky top-0 py-4 z-[2]">
             <input
-                class="surface2 py-2 px-4 rounded-full flex-1"
+                class="surface2 py-2 px-4 rounded-full flex-1 w-full"
                 type="search"
                 placeholder="Search database"
                 aria-labelledby="searchLabel"
@@ -105,74 +171,98 @@
 
         <div class="grid gap-2">
             <h3 class="mini-header mt-3">Categories</h3>
-            {#each Object.entries(filtertext_categories[$userLocale]) as [category, text]}
-                <div>
-                    <div class="flex gap-2 items-center">
+            {#each Object.entries(CATEGORIES_TEXT[$userLocale]) as [category, text]}
+                <fieldset>
+                    <div class="flex items-center">
+                        <legend class="visually-hidden">{text}</legend>
                         <label
-                            class="flex select-none"
-                            style="font-size: var(--step-1)"
+                            class="align-middle select-none text2 hover-text1"
+                            style="font-size: var(--step-0)"
                         >
                             <input
-                                type="checkbox"
                                 class="visually-hidden"
-                                on:click={() => toggleCategoryTypes(category)}
+                                aria-describedby="{category}-checked-count"
+                                type="checkbox"
+                                on:change={() => toggleEntireCategory(category)}
+                                indeterminate={hasSomeChecked(category)}
                             />
 
-                            {#key filters}
+                            {#key filters.categories}
                                 {#if hasAllChecked(category)}
                                     <Icon
                                         icon="carbon:checkbox-checked-filled"
-                                        class="accent1"
+                                        class="accent1 align-middle"
                                     />
                                 {:else if hasSomeChecked(category)}
                                     <Icon
-                                        icon="carbon:checkbox-indeterminate-filled"
-                                        class="accent1"
+                                        icon="carbon:checkbox-indeterminate"
+                                        class="accent1 align-middle"
                                     />
                                 {:else}
                                     <Icon
                                         icon="carbon:checkbox"
-                                        class="text2 hover-text1"
+                                        class="align-middle"
                                     />
                                 {/if}
                             {/key}
+
+                            <span class="visually-hidden">All {text}</span>
+                            <span aria-hidden="true" class="align-middle"
+                                >{text}</span
+                            >
+                            {#if filters.categories[category]?.length > 0 && !hasAllChecked(category)}
+                                <span
+                                    aria-hidden="true"
+                                    class="font-bold accent1 align-middle"
+                                    style="font-size: var(--step--1)"
+                                    >({filters.categories[category]
+                                        .length})</span
+                                >
+                            {/if}
                         </label>
+                        <span hidden id="{category}-checked-count">
+                            {#if filters.categories[category]?.length > 0 && !hasAllChecked(category)}
+                                {filters.categories[category].length} subcategory
+                                filters applied
+                            {/if}
+                        </span>
                         <button
                             on:click={() => toggleCategoryVisibility(category)}
-                            class="hover-text1 arrow-faded"
-                            class:text2={!filters[`show${category}`]}
-                            aria-pressed={Boolean(filters[`show${category}`])}
+                            class="text3 hover-text1 ml-auto"
+                            aria-controls="{category}-subcategories"
+                            aria-expanded={Boolean(
+                                filters.extras[`show${category}`],
+                            )}
                         >
-                            <span class="visually-hidden"
-                                >Show {text} filters ({filters[category]
-                                    ?.length ?? 0} selected)</span
-                            >
-                            <span aria-hidden="true">
-                                {text}
-                                {#if filters[category]?.length > 0}
-                                    <small class="accent1 font-bold"
-                                        >({filters[category].length})</small
-                                    >
-                                {/if}
-                            </span>
+                            <Icon
+                                icon={filters.extras[`show${category}`]
+                                    ? "tabler:chevron-up"
+                                    : "tabler:chevron-down"}
+                                style="font-size: var(--step-2)"
+                                class={filters.extras[`show${category}`]
+                                    ? "accent1"
+                                    : ""}
+                            />
+                            <span class="visually-hidden">Expand {text}</span>
                         </button>
                     </div>
-                    {#if filters[`show${category}`]}
+                    {#if filters.extras[`show${category}`]}
                         <div
+                            id="{category}-subcategories"
                             class="grid gap-4 pt-2 pb-4 mb-2 pl-5"
                             style="border-bottom: 1px solid var(--surface2)"
                         >
                             <ul class="grid gap-1">
-                                {#each Object.entries(CATEGORIES[$userLocale][category]) as [type, text]}
+                                {#each Object.entries(TYPES_TEXT[$userLocale][category]) as [type, text]}
                                     <li>
                                         <label
-                                            class="flex gap-2 items-center select-none"
+                                            class="flex gap-2 items-center select-none text2 hover-text1"
                                             style="line-height: 1.6;"
                                         >
                                             <input
                                                 type="checkbox"
                                                 value={type}
-                                                checked={filters[
+                                                checked={filters.categories[
                                                     category
                                                 ]?.includes(type)}
                                                 on:click={(e) =>
@@ -191,162 +281,137 @@
                                 <label>
                                     <input
                                         type="checkbox"
-                                        checked={filters.boardDeepSearch}
+                                        class="text2 hover-text1"
+                                        checked={filters.extras.boardDeepSearch}
                                     /> Deep search
                                 </label>
                             {/if}
                         </div>
                     {/if}
-                </div>
+                </fieldset>
             {/each}
         </div>
 
-        <div class="grid gap-6 pt-4">
-            <section>
-                <span class="mini-header">Level</span>
-                <div
-                    class:adjusted-range={filters.Level[0] > 0 ||
-                        filters.Level[1] < 100}
-                >
-                    <RangeSlider
-                        bind:values={filters.Level}
-                        min={0}
-                        max={100}
-                        step={1}
-                        range
-                        pushy
-                        float
-                        pips
-                        pipstep={100 / 10}
-                        first="label"
-                        last="label"
-                    />
-                </div>
-            </section>
-            <section>
-                <span class="mini-header">Adventurer Rank</span>
-                <div
-                    class:adjusted-range={filters.AR[0] > 0 ||
-                        filters.AR[1] < 30}
-                >
-                    <RangeSlider
-                        bind:values={filters.AR}
-                        min={0}
-                        max={30}
-                        step={1}
-                        range
-                        pushy
-                        float
-                        pips
-                        pipstep={30 / 10}
-                        first="label"
-                        last="label"
-                    />
-                </div>
-            </section>
-            <section class="grid gap-1">
-                <span class="mini-header">Class</span>
-                <div
-                    class="grid"
-                    style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
-                >
-                    {#each Object.entries(CATEGORIES[$userLocale].Class).toSorted( (a, b) => {
-                            if (a[1] < b[1]) return -1;
-                            if (a[1] > b[1]) return 1;
-                            return 0;
-                        }, ) as [type, text]}
-                        <Tooltip
-                            placement="top"
-                            tooltipStyle="width: max-content"
-                        >
-                            <label class="nav-button" aria-label={text}>
-                                <input
-                                    type="checkbox"
-                                    class="visually-hidden"
-                                    checked={filters.Class?.includes(type)}
-                                    on:click={(e) =>
-                                        updateFilters(e, "Class", type)}
-                                />
+        <div>
+            <h3 class="mini-header">Level</h3>
+            <div class:adjusted-range={filters.level.adjusted}>
+                <RangeSlider
+                    bind:values={filters.level.values}
+                    min={0}
+                    max={100}
+                    step={1}
+                    range
+                    pushy
+                    float
+                    pips
+                    pipstep={100 / 10}
+                    first="label"
+                    last="label"
+                />
+            </div>
+        </div>
+        <div>
+            <h3 class="mini-header mt-16">Adventurer Rank</h3>
+            <div class:adjusted-range={filters.ar.adjusted}>
+                <RangeSlider
+                    bind:values={filters.ar.values}
+                    min={0}
+                    max={30}
+                    step={1}
+                    range
+                    pushy
+                    float
+                    pips
+                    pipstep={30 / 10}
+                    first="label"
+                    last="label"
+                />
+            </div>
+        </div>
+        <div class="grid gap-1">
+            <h3 class="mini-header">Class</h3>
+            <div
+                class="grid"
+                style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
+            >
+                {#each Object.entries(TYPES_TEXT[$userLocale].Class).toSorted( (a, b) => {
+                        if (a[1] < b[1]) return -1;
+                        if (a[1] > b[1]) return 1;
+                        return 0;
+                    }, ) as [type, text]}
+                    <Tooltip placement="top" tooltipStyle="width: max-content">
+                        <label class="nav-button" aria-label={text}>
+                            <input
+                                type="checkbox"
+                                class="visually-hidden"
+                                checked={filters.categories.Class?.includes(
+                                    type,
+                                )}
+                                on:click={(e) =>
+                                    updateFilters(e, "Class", type)}
+                            />
+                            <span
+                                class="masked"
+                                style:mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
+                                    2,
+                                    "0",
+                                )}.png')"
+                                style:-webkit-mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
+                                    2,
+                                    "0",
+                                )}.png')"
+                            />
+                        </label>
+                    </Tooltip>
+                {/each}
+            </div>
+        </div>
+        <div class="grid gap-1 pb-8">
+            <h3 class="mini-header">Element</h3>
+            <div
+                class="grid"
+                style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
+            >
+                {#each Object.entries(TYPES_TEXT[$userLocale].Element) as [type, text]}
+                    <Tooltip placement="top" tooltipStyle="width: max-content">
+                        <label class="nav-button" aria-label={text}>
+                            <input
+                                type="checkbox"
+                                class="visually-hidden"
+                                checked={filters.categories.Element?.includes(
+                                    type,
+                                )}
+                                on:click={(e) =>
+                                    updateFilters(e, "Element", type)}
+                            />
+                            {#if type === "0"}
                                 <span
                                     class="masked"
-                                    style:mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
-                                        2,
-                                        "0",
-                                    )}.png')"
-                                    style:-webkit-mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
-                                        2,
-                                        "0",
-                                    )}.png')"
+                                    style:mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
+                                    style:-webkit-mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
                                 />
-                            </label>
-                        </Tooltip>
-                    {/each}
-                </div>
-            </section>
-            <section class="grid gap-1 pb-8">
-                <span class="mini-header">Element</span>
-                <div
-                    class="grid"
-                    style="grid-template-columns: repeat(auto-fill, minmax(40px, 1fr))"
-                >
-                    {#each Object.entries(CATEGORIES[$userLocale].Element) as [type, text]}
-                        <Tooltip
-                            placement="top"
-                            tooltipStyle="width: max-content"
-                        >
-                            <label class="nav-button" aria-label={text}>
-                                <input
-                                    type="checkbox"
-                                    class="visually-hidden"
-                                    checked={filters.Element?.includes(type)}
-                                    on:click={(e) =>
-                                        updateFilters(e, "Element", type)}
+                            {:else}
+                                <span
+                                    class="masked"
+                                    style:mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
+                                    style:-webkit-mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
                                 />
-                                {#if type === "0"}
-                                    <span
-                                        class="masked"
-                                        style:mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
-                                        style:-webkit-mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
-                                    />
-                                {:else}
-                                    <span
-                                        class="masked"
-                                        style:mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
-                                        style:-webkit-mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
-                                    />
-                                {/if}
-                            </label>
-                        </Tooltip>
-                    {/each}
-                </div>
-            </section>
+                            {/if}
+                        </label>
+                    </Tooltip>
+                {/each}
+            </div>
         </div>
     </div>
 
-    <!--
-    text to indicate how this UI works. 
-    it must be associated with the text field.
-  -->
-
-    <!-- 
-    empty, unstyled live region just waiting for no results
-    to be displayed.  
-  -->
-
-    <!-- 
-    markup for rendering search results goes here. 
-    it's whatever you need it to be.
-  -->
-
     <div
         class="results-section {resultsDisplayMode} h-main overflow-y-auto grid gap-4 p-4 pt-0 content-start"
-        style="display: none"
     >
         <div
             class="flex gap-4 items-center sticky top-0 z-[3] py-4"
             style="background: var(--bg); margin-bottom: -1rem; grid-column: 1/-1"
         >
-            <h2 class="mini-header m-0" tabindex="-1">
+            <h2 class="mini-header m-0 flex-1" tabindex="-1">
                 {searchResults.length.toLocaleString()} results
                 {#if $userSearch}
                     for "{$userSearch}"
@@ -436,9 +501,9 @@
                     <span
                         class="text3"
                         style="font-size: var(--step--1); font-weight: 600"
-                        >{CATEGORIES["en_US"][item.category][item.type]}
-                        {item.element}</span
                     >
+                        {TYPES_TEXT["en_US"][item.category][item.type]} (Lv. {item.level})
+                    </span>
                     <a
                         href={item.href}
                         class="styled-link area-link"

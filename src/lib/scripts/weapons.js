@@ -51,10 +51,26 @@ export const getWeaponSummaries = (lang) => WEAPONS.map(weapon => {
         iconL,
         category: "Weapon",
         type: weapon.is_for_weapon_stickers,
+        level: weapon.weapon_max_level,
         class: weapon.equip_class,
-        element: weapon.attribute
+        element: mapElement(weapon.attribute)
+        // adventure rank from crafting?
     }
 })
+
+// Correct weapon attribute mappings to element id mappings
+function mapElement(attribute) {
+    switch (attribute) {
+        case 0: return 0; // none -> none
+        case 2: return 4; // thunder -> earth
+        case 3: return 1; // ice -> fire
+        case 4: return 3; // earth -> ice
+        case 5: return 2; // light -> thunder
+        case 6: return 5; // dark -> light
+        case 7: return 6; // n/a -> fire
+        default: return 0;
+    }
+}
 
 const weapons = (lang) => WEAPONS.map(weapon => processWeapon(weapon, lang))
 

@@ -96,10 +96,12 @@ input[type="number"] {
     color: inherit !important;
     opacity: 0.8 !important;
 }
+
 // ======================================================================
 // HEADERS 
 // ======================================================================
 
+.mini-header,
 .attribution {
     font-weight: 600;
     font-size: var(--step--1);
@@ -108,9 +110,17 @@ input[type="number"] {
 }
 
 .mini-header {
-    @extend .attribution;
     text-transform: uppercase;
     color: var(--text3);
+}
+
+.attribution {
+    margin: 0.5rem 0;
+
+    p {
+        font: inherit !important;
+        color: inherit;
+    }
 }
 
 h1,

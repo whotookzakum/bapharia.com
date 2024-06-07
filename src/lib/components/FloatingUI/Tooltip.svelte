@@ -28,6 +28,7 @@
     export let hide = false;
     export let placement = "bottom";
     export let tooltipStyle = ""
+    export let wrapperStyle = ""
 
     let targetElement,
         tooltipElement,
@@ -138,6 +139,7 @@
     class="float-wrapper"
     class:show
     use:floatWrapper
+    style={wrapperStyle}
 >
     <slot {show} />
     <svelte:element
