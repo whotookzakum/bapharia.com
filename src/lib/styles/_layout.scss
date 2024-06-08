@@ -76,6 +76,7 @@ main {
     grid-template-rows: auto auto;
     column-gap: var(--pane-column-gap) !important;
     align-content: start;
+    font-size: var(--step-2);
 
     &>*:not(.toc, .col-2) {
         grid-column: 1;
@@ -104,7 +105,7 @@ main {
 
     p:not(.mini-header, .attribution) {
         line-height: 1.75;
-        font-size: var(--step-2);
+        font-size: inherit;
         letter-spacing: 0.02em;
         max-inline-size: var(--text-length);
         text-wrap: pretty;
@@ -157,7 +158,6 @@ main {
         order: 2;
         position: unset;
         margin-block: 1rem;
-        font-size: var(--step-0) !important;
 
         ol {
             gap: 0;
@@ -189,11 +189,7 @@ main {
     .main-pane,
     .side-pane,
     .toc {
-
-        p:not(.mini-header, .attribution),
-        li a {
-            font-size: var(--step-0) !important;
-        }
+        font-size: var(--step-0);
     }
 
     // Shrink element icons on classes

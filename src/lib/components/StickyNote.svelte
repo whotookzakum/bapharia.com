@@ -18,7 +18,6 @@
 		--bg-caution: hsla(40, 80%, 60%, 0.5);
 		--bg-warning: hsla(0, 80%, 60%, 0.5);
 		margin: 1rem 0;
-		font-size: var(--step-2);
 		max-inline-size: var(--text-length);
 	}
 
