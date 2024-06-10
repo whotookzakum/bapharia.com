@@ -3,7 +3,7 @@ export { getFile } from "./file"
 export { getAssets } from "./assets"
 export { getSources } from "./sources"
 export { getAbilities, getEquipmentStats } from "./stats"
-export { getRewardCondensed } from "./rewards"
+export { getRewardItemBrief, getReward } from "./rewards"
 
 export const fetchDTs = async (clientFiles) => {
     const iterableItemFiles = Object.entries(clientFiles)

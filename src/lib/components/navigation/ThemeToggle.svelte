@@ -64,7 +64,7 @@
 		<button
 			class="nav-button"
 			class:surface1={showing}
-			aria-label="Open theme selector"
+			aria-label="Open theme selector modal"
 			aria-live="polite"
 			on:click={() => {
 				showing = !showing;

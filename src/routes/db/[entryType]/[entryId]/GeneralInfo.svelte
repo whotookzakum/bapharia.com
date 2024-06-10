@@ -1,8 +1,8 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let data = {};
-    let imgSrc = "/UI/Icon/ItemL/UI_Icon_NoData.png",
-        width = 256,
+    let imgSrc // = "/UI/Icon/ItemL/UI_Icon_NoData.png";
+    let width = 256,
         height = 256;
 
     if (data.assets?.iconL) {
@@ -21,7 +21,9 @@
         data.price_player_buys !== 999999999;
 </script>
 
-<img src={imgSrc} alt="" {width} {height} loading="lazy" />
+{#if imgSrc}
+    <img src={imgSrc} alt="" {width} {height} loading="lazy" />
+{/if}
 
 <div class="text-col grid">
     {#if data.sourceDesc && !["-", "非公開"].includes(data.sourceDesc.ja_JP)}

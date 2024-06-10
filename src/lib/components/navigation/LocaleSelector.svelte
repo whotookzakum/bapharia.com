@@ -16,7 +16,7 @@
 	<Tooltip inline hide={showing} animateOut={false} reverseAnimation>
 		<button
 			class="nav-button"
-			aria-label="Open language selector"
+			aria-label="Open language selector modal"
 			aria-live="polite"
 			on:click={() => {
 				showing = !showing;

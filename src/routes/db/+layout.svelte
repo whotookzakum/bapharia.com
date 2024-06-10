@@ -46,8 +46,9 @@
     $: filters.ar.adjusted =
         filters.ar.values[0] > filters.ar.default[0] ||
         filters.ar.values[1] < filters.ar.default[1];
-    
-    $: filters.categoriesAdjusted = Object.values(filters.categories).flat().length > 0
+
+    $: filters.categoriesAdjusted =
+        Object.values(filters.categories).flat().length > 0;
 
     // Remove key "default" if there are more than just the default value.
     Object.entries(TYPES_TEXT).forEach(([locale, categories]) => {
@@ -68,12 +69,13 @@
 
         let typeMatch = true;
         if (filters.categoriesAdjusted) {
-            typeMatch = filters.categories[entry.category]?.length > 0
-                ? filters.categories[entry.category].some(
-                      (type) => type == entry.type,
-                  )
-                : false;
-        } 
+            typeMatch =
+                filters.categories[entry.category]?.length > 0
+                    ? filters.categories[entry.category].some((type) =>
+                          entry.type ? type == entry.type : type == "default",
+                      )
+                    : false;
+        }
 
         const levelMatch = filters.level.adjusted
             ? entry.level &&
@@ -340,7 +342,7 @@
                         return 0;
                     }, ) as [type, text]}
                     <Tooltip placement="top" tooltipStyle="width: max-content">
-                        <label class="nav-button" aria-label={text}>
+                        <label class="nav-button">
                             <input
                                 type="checkbox"
                                 class="visually-hidden"
@@ -350,8 +352,10 @@
                                 on:click={(e) =>
                                     updateFilters(e, "Class", type)}
                             />
+                            <span class="visually-hidden">{text}</span>
                             <span
                                 class="masked"
+                                aria-hidden="true"
                                 style:mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
                                     2,
                                     "0",
@@ -362,6 +366,7 @@
                                 )}.png')"
                             />
                         </label>
+                        <svelte:fragment slot="tooltip">{text}</svelte:fragment>
                     </Tooltip>
                 {/each}
             </div>
@@ -374,7 +379,7 @@
             >
                 {#each Object.entries(TYPES_TEXT[$userLocale].Element) as [type, text]}
                     <Tooltip placement="top" tooltipStyle="width: max-content">
-                        <label class="nav-button" aria-label={text}>
+                        <label class="nav-button">
                             <input
                                 type="checkbox"
                                 class="visually-hidden"
@@ -384,6 +389,7 @@
                                 on:click={(e) =>
                                     updateFilters(e, "Element", type)}
                             />
+                            <span class="visually-hidden">{text}</span>
                             {#if type === "0"}
                                 <span
                                     class="masked"
@@ -398,6 +404,7 @@
                                 />
                             {/if}
                         </label>
+                        <svelte:fragment slot="tooltip">{text}</svelte:fragment>
                     </Tooltip>
                 {/each}
             </div>
@@ -426,7 +433,6 @@
                     <label
                         class="nav-button p-2 grid"
                         style="width: 34px; height: 34px; margin-block: -0.5rem"
-                        aria-label="List View"
                     >
                         <input
                             type="radio"
@@ -434,6 +440,7 @@
                             class="visually-hidden"
                             bind:group={resultsDisplayMode}
                         />
+                        <span class="visually-hidden">Vertical list view</span>
                         <Icon
                             icon="fluent:text-bullet-list-16-filled"
                             class={resultsDisplayMode === "list"
@@ -441,12 +448,12 @@
                                 : ""}
                         />
                     </label>
+                    <svelte:fragment slot="tooltip">List View</svelte:fragment>
                 </Tooltip>
                 <Tooltip inline tooltipStyle="width: max-content">
                     <label
                         class="nav-button p-2 grid"
                         style="width: 34px; height: 34px; margin-block: -0.5rem"
-                        aria-label="Grid View"
                     >
                         <input
                             type="radio"
@@ -454,6 +461,7 @@
                             class="visually-hidden"
                             bind:group={resultsDisplayMode}
                         />
+                        <span class="visually-hidden">Grid view</span>
                         <Icon
                             icon="fluent:grid-24-filled"
                             class={resultsDisplayMode === "grid"
@@ -461,6 +469,7 @@
                                 : ""}
                         />
                     </label>
+                    <svelte:fragment slot="tooltip">Grid View</svelte:fragment>
                 </Tooltip>
             </div>
         </div>
@@ -481,7 +490,8 @@
             >
                 {#if resultsDisplayMode === "grid"}
                     <img
-                        src={item.iconL}
+                        src={item.iconL ??
+                            "/UI/Icon/Item/UI_Icon_UnidentifiedItem.png"}
                         alt=""
                         width={item.category === "board" ? "208" : "128"}
                         height="128"
@@ -490,7 +500,8 @@
                     />
                 {:else}
                     <img
-                        src={item.icon}
+                        src={item.icon ??
+                            "/UI/Icon/Item/UI_Icon_UnidentifiedItem.png"}
                         alt=""
                         width="64"
                         height="64"
@@ -498,29 +509,36 @@
                     />
                 {/if}
                 <div class="grid">
+                    <a
+                        href={item.href}
+                        class="styled-link area-link"
+                        style="font-size: var(--step-1); font-weight: 600; order: 1;"
+                        >{item.name}</a
+                    >
                     <span
                         class="text3"
                         style="font-size: var(--step--1); font-weight: 600"
                     >
-                        {TYPES_TEXT["en_US"][item.category][item.type]} (Lv. {item.level})
+                        {TYPES_TEXT[$userLocale][item.category][
+                            item.type ?? "default"
+                        ]}
+                        {#if item.level}
+                            (Lv. {item.level})
+                        {/if}
                     </span>
-                    <a
-                        href={item.href}
-                        class="styled-link area-link"
-                        style="font-size: var(--step-1); font-weight: 600;"
-                        >{item.name}</a
-                    >
                 </div>
             </div>
         {/each}
     </div>
-    <slot />
+    <article class="h-main overflow-y-auto px-8">
+        <slot />
+    </article>
 </div>
 
 <style lang="scss">
     .db-layout {
         display: grid;
-        grid-template-columns: calc(var(--sidepane-width) + 4rem) 1fr;
+        grid-template-columns: calc(var(--sidepane-width) + 4rem) 1fr 1fr;
     }
 
     .left-col {

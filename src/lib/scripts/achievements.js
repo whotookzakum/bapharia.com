@@ -1,6 +1,6 @@
 import ACHIEVEMENTS from "$bp_api/japan/achievements.json";
 import REWARDS from "$bp_api/japan/rewards.json";
-import { getText, getAssets, getSources, getCategory, getRewardCondensed } from "./utils";
+import { getText, getAssets, getSources, getCategory, getRewardItemBrief } from "./utils";
 
 // TODO: Get the achievement categories from in game
 // large_category = the big category (collapsable)
@@ -17,7 +17,7 @@ function processAchievement(achievement, lang) {
             reward_type,
             item_id,
             amount,
-            ...getRewardCondensed(reward_type, item_id, lang)
+            ...getRewardItemBrief(reward_type, item_id, lang)
         }
     })
     if (achievement.title_flag) assets.titleIcon = getAssets("reward", 14).icon

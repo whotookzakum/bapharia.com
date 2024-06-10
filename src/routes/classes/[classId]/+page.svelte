@@ -39,6 +39,7 @@
                             width="48"
                             height="48"
                         />
+                        <svelte:fragment slot="tooltip">{ELEMENT_NAMES[element]}</svelte:fragment>
                     </Tooltip>
                 {/each}
             </div>

@@ -1,10 +1,9 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
-    import StickyNote from "$lib/components/StickyNote.svelte";
 </script>
 
 <MetaTags
-    title="Guides — Bapharia"
+    title="Story — Bapharia"
     description="Information about the main story chapters, characters, and timeline of BLUE PROTOCOL."
 />
 

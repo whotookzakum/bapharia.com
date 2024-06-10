@@ -1,5 +1,5 @@
 import ITEMS from "$bp_api/japan/items.json";
-import { getText, getAssets, getSources, getCategory, getRewardCondensed } from "./utils";
+import { getText, getAssets, getSources, getCategory, getRewardItemBrief } from "./utils";
 import CRAFT from "$bp_api/japan/craft.json"
 import RECEPI from "$bp_api/japan/imagine/recepi.json"
 import IMAGINE from "$bp_api/japan/imagine.json"
@@ -97,7 +97,7 @@ function getItemBoxContents(item, lang) {
         .filter(itemBox => itemBox.id === item.id)
         .map(itemBox => {
             const item_box_contents = itemBox.item_box_contents.map(content => ({
-                ...getRewardCondensed(content.item_type, content.item_type_id, lang),
+                ...getRewardItemBrief(content.item_type, content.item_type_id, lang),
                 ...content
             }))
             return {

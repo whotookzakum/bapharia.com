@@ -2,6 +2,8 @@
     import Tag from "$lib/components/Tag.svelte";
     import { userLocale } from "$lib/stores.js";
     import Icon from "@iconify/svelte";
+    import { DateTime } from "luxon";
+    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte"
 
     export let data;
 
@@ -139,20 +141,45 @@
         ja_JP: "レベル",
         en_US: "Level",
     };
+
+    function getSeasonDate(date, format = "DATE_SHORT") {
+        return DateTime.fromISO(date.replace(" ", "T"), {
+            zone: "Asia/Tokyo",
+        }).toLocaleString(DateTime[format]);
+    }
 </script>
 
 <header>
     <h1>{data.text.name}</h1>
     <div class="header-extras flex gap-2">
-        <Tag style="padding-left: 0;">
-            {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
-                {LEVEL_TEXT[$userLocale]}
-                {data.item_level ||
-                    data.weapon_max_level ||
-                    data.imagine_max_level}
-            {/if}
-            {data.text.category}
-        </Tag>
+        {#if data.start_date && data.end_date}
+            <Tooltip inline>
+                <Tag style="padding-left: 0">
+                    From {getSeasonDate(data.start_date)}
+                </Tag>
+                <svelte:fragment slot="tooltip">
+                    {getSeasonDate(data.start_date, "DATETIME_MED")} JST
+                </svelte:fragment>
+            </Tooltip>
+            <Tooltip inline>
+                <Tag>
+                    To {getSeasonDate(data.end_date)}
+                </Tag>
+                <svelte:fragment slot="tooltip">
+                    {getSeasonDate(data.end_date, "DATETIME_MED")} JST
+                </svelte:fragment>
+            </Tooltip>
+        {:else}
+            <Tag style="padding-left: 0;">
+                {#if data.item_level || data.weapon_max_level || data.imagine_max_level}
+                    {LEVEL_TEXT[$userLocale]}
+                    {data.item_level ||
+                        data.weapon_max_level ||
+                        data.imagine_max_level}
+                {/if}
+                {data.text.category}
+            </Tag>
+        {/if}
 
         {#if data.classImg}
             <Tag>

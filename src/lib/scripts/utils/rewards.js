@@ -1,5 +1,6 @@
 import ITEMS from "$bp_api/japan/items.json";
 import { getText, getAssets } from "./index";
+import REWARDS from "$bp_api/japan/rewards.json"
 import RECEPI from "$bp_api/japan/imagine/recepi.json"
 import IMAGINE from "$bp_api/japan/imagine.json"
 import WEAPONS from "$bp_api/japan/weapons.json"
@@ -10,9 +11,16 @@ import TOKEN from "$bp_api/japan/token.json"
 import MASTER_STAMP_CATEGORY from "$bp_api/japan/master_stamp_category.json"
 
 // TODO: Finish cases, such as type 36 (badges) rewarded from achievements
-// Returns a small description of a reward (name, icon, id)
-export function getRewardCondensed(type, id, lang) {
-    let details, name, assets;
+
+// Returns a reward object
+export function getReward(id) {
+    return REWARDS.find(reward => reward.id === id)
+}
+
+// Returns a brief description of a reward item (name, icon, id, amount)
+export function getRewardItemBrief(type, id, lang) {
+    let details, name, assets
+
     switch (type) {
         case 0:
             name = getText("Common", 4, lang)
@@ -50,13 +58,13 @@ export function getRewardCondensed(type, id, lang) {
         case 9:
             details = EMOTES.find(e => e.emote_id == id)
             name = getText("master_emote_text", details.name, lang)
-            // TODO: Emote icons
+            assets = getAssets("emote", details.emote_id)
             break
         case 10:
             const stampSet = MASTER_STAMP_CATEGORY.find(set => set.stamp_data.some(stamp => stamp.stamp_id === id))
             details = stampSet.stamp_data.find(stamp => stamp.stamp_id === id)
             name = getText("stamp_text", details.name, lang)
-            // TODO: Stamp icons
+            assets = getAssets("stamp", details.stamp_id)
             break
         case 11:
             const imagineRecipe = RECEPI.find(r => r.id === id)
@@ -65,16 +73,31 @@ export function getRewardCondensed(type, id, lang) {
             name = getText("master_imagine_text", details.imagine_name, lang) + "レシピ"
             assets = getAssets("reward", 11)
             break
+        case 17:
+            name = "BPP"
+            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_04.png" }
+            break
+        case 18: 
+            name = "無償ローズオーブ"
+            // master_mail_format_text 295
+            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_03.png" }
+            break
         case 19:
             details = TOKEN.find(t => t.id === id)
             name = getText("master_token_text", details.name, lang)
             assets = getAssets("token", details.id)
+            break
+        case 24:
+            if (id === 1) name = getText("Common", 11, lang)
+            else if (id === 2) name = getText("Common", 12, lang)
+            assets = { icon: "/UI/Icon/Reward/UI_Icon_23.png" }
             break
         default:
             return {}
     }
 
     return {
+        id,
         text: {
             name
         },

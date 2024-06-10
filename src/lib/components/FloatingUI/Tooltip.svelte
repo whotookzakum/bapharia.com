@@ -11,11 +11,12 @@
     import { onDestroy, onMount } from "svelte";
     import _ from "lodash";
 
-    // Displays tooltip slot if provided, else displays aria-label value.
+    // Wraps a target element and includes a tooltip slot.
+    // If the tooltip is a description (as opposed to a label), it will be aria-hidden=false
+    // If the tooltip is NOT a description (default), you must include the text inside of the target element (use .visually-hidden, aria-label, alt="", etc.) as well as inside a <svelte:fragment slot="tooltip" />
     // Uses CSS to toggle tooltip visibility instead of creating and removing DOM nodes.
 
     // TODO: implement autoUpdate to update on screen size changes
-    // TODO: role="tooltip" or "popover" + "popovertarget"?
 
     export let inline = false;
     export let show = false;
@@ -29,6 +30,7 @@
     export let placement = "bottom";
     export let tooltipStyle = ""
     export let wrapperStyle = ""
+    export let describedByTooltip = false // when tooltip is a description to be read in addition to target element's label
 
     let targetElement,
         tooltipElement,
@@ -46,13 +48,10 @@
                 .replace("s-", "")
                 .toUpperCase();
 
-        if ($$slots.tooltip) {
+        // Connect target element to tooltip
+        if (describedByTooltip) {
             targetElement.setAttribute("aria-describedby", tooltipId);
-        } else {
-            targetElementName = targetElement.getAttribute("aria-label");
-            if (!targetElementName)
-                targetElementName = targetElement.getAttribute("alt");
-        }
+        } 
     };
 
     function update() {
@@ -147,7 +146,7 @@
         id={tooltipId}
         role="tooltip"
         bind:this={tooltipElement}
-        aria-hidden={!$$slots.tooltip}
+        aria-hidden={!describedByTooltip}
         class="tooltip {animationClass}"
         class:animate-in={animateIn}
         class:animate-out={animateOut}
