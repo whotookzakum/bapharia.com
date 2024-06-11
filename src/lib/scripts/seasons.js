@@ -1,12 +1,20 @@
 import MASTER_SEASON from "$bp_api/japan/master_season.json";
 import MASTER_SEASON_PASS from "$bp_api/japan/master_season_pass.json";
+import MASTER_SEASON_PASS_SHOPS from "$bp_api/japan/master_season_pass_shops.json";
+import MASTER_SEASON_PASS_SHOP_PURCHASE_LIMITS from "$bp_api/japan/master_season_pass_shop_purchase_limits.json";
+import SHOP_ITEM_SET from "$bp_api/japan/shop_item_set.json";
 import MASTER_SEASON_PASS_REWARD from "$bp_api/japan/master_season_pass_reward.json";
+import MASTER_QUEST_DAILY from "$bp_api/japan/master_quest_daily.json";
+import MASTER_QUEST_WEEKLY from "$bp_api/japan/master_quest_weekly.json";
+import MASTER_QUEST_SEASON from "$bp_api/japan/master_quest_season.json";
 import { getText, getAssets, getSources, getCategory, getRewardItemBrief, getReward } from "./utils";
+import { getEntry as getItemEntry, getItemSummaries } from "./items";
 
 function processSeason(season, lang) {
     const name = getText("master_season_text", season.season_name, lang)
     const passes = getSeasonPasses(season, lang)
     const rewards = getSeasonRewards(season, lang)
+    const shop = getSeasonStore(season, lang)
 
     return {
         text: {
@@ -16,6 +24,7 @@ function processSeason(season, lang) {
         resolveType: "Season",
         passes,
         rewards,
+        shop,
         ...season,
     }
 }
@@ -27,13 +36,20 @@ function getSeasonPasses(season, lang) {
             const desc = getText("master_season_pass_text", pass.description, lang)
             const warning = getText("master_season_pass_text", pass.attention, lang)
 
+            const daily_quests = MASTER_QUEST_DAILY.filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+            const weekly_quests = MASTER_QUEST_WEEKLY.filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+            const season_quests = MASTER_QUEST_SEASON.filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+
             acc.push({
                 ...pass,
                 text: {
                     name,
                     desc,
                     warning
-                }
+                },
+                daily_quests,
+                weekly_quests,
+                season_quests,
             })
         }
         return acc
@@ -52,6 +68,23 @@ function getSeasonRewards(season, lang) {
                 amount: reward.amount,
                 rew_id: passReward.id,
                 ...details
+            })
+        }
+        return acc
+    }, [])
+}
+
+function getSeasonStore(season, lang) {
+    return MASTER_SEASON_PASS_SHOPS.reduce((acc, shop) => {
+        if (shop.season_id === season.id) {
+            const shopItem = SHOP_ITEM_SET.find(obj => obj.shop_item_id === shop.shop_item_id)
+            const purchaseLimits = MASTER_SEASON_PASS_SHOP_PURCHASE_LIMITS.find(obj => obj.purchase_limit_id === shop.purchase_limit_id)
+            // TODO: add limit_count array (when season ends, some items go on sale at a higher stock for 2 extra days, like aromas)
+
+            acc.push({
+                ...getRewardItemBrief(shopItem.item_type, shopItem.item_id, lang),
+                need_rank: purchaseLimits.need_rank,
+                points: purchaseLimits.points
             })
         }
         return acc

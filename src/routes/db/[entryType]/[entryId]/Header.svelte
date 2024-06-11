@@ -243,14 +243,13 @@
 </header>
 
 <style lang="scss">
-    @media (max-width: 1150px) {
-        .entry-details {
-            margin-top: calc(1rem + var(--nav-height));
-        }
-    }
-
-    :global(.entry-details h2:not(:first-of-type)) {
-        margin-top: 3rem;
+    header {
+        position: sticky;
+        top: 0;
+        background: var(--bg);
+        padding-bottom: 0.25rem;
+        box-shadow: 0 0 10px 14px var(--bg);
+        z-index: 3;
     }
 
     h1 {

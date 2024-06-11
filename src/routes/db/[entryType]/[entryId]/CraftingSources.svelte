@@ -1,7 +1,7 @@
 <script>
     import Icon from "@iconify/svelte";
     import Abilities from "./Abilities.svelte";
-    import Item from "./Item.svelte";
+    import Item from "../../../../lib/components/db/Item.svelte";
     import Sockets from "./Sockets.svelte";
 
     export let sources;

@@ -52,6 +52,7 @@ MASTER_REWARD_LOTTERY_GROUPS.forEach((group) => {
 // TODO: client: combine weapon drop sources (50% chance for current class, 50% for other classes. of which 5%/5% are for the secret line)
 
 // TODO: TA/SA clear rewards like EXP, plugs, GC (301000008 from sad005_ITEM2)
+// TODO: check full coverage of NPC shops, season point store
 
 // Source: Crafting
 function getCraftingSources(item, lang, rewardTypes) {

@@ -2,9 +2,10 @@
     export let style = "";
     export let bg = false;
     export let isNew = false;
+    export let blur = false;
 </script>
 
-<i class="flex gap-1" class:bg {style} class:new={isNew}>
+<i class="flex gap-1" class:bg class:backdrop-blur-md={blur} {style} class:new={isNew}>
     <slot />
 </i>
 
@@ -17,6 +18,9 @@
         padding: 2px 0.3rem;
         min-height: 24px;
         border-radius: 5px;
+        color: var(--text1);
+        min-width: 2ch; 
+        justify-content: center;
     }
 
     .bg {

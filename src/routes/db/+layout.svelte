@@ -415,8 +415,7 @@
         class="results-section {resultsDisplayMode} h-main overflow-y-auto grid gap-4 p-4 pt-0 content-start"
     >
         <div
-            class="flex gap-4 items-center sticky top-0 z-[3] py-4"
-            style="background: var(--bg); margin-bottom: -1rem; grid-column: 1/-1"
+            class="results-section-header flex gap-4 items-center sticky top-0 z-[3]"
         >
             <h2 class="mini-header m-0 flex-1" tabindex="-1">
                 {searchResults.length.toLocaleString()} results
@@ -550,6 +549,14 @@
         margin: 0 -0.5rem;
         box-shadow: 0 0 10px 14px var(--bg);
         border-bottom: 1px solid var(--surface1);
+    }
+
+    .results-section-header {
+        grid-column: 1/-1;
+        background: var(--bg);
+        padding-top: 1rem;
+        margin-bottom: 0rem;
+        box-shadow: 0 0 10px 14px var(--bg);
     }
 
     .results-section:not(.list) {

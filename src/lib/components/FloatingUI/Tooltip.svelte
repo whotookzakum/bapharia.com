@@ -141,12 +141,14 @@
     style={wrapperStyle}
 >
     <slot {show} />
+    <!-- aria-hidden=true is still announced by describedby; otherwise set it to !describedByTooltip -->
+    <!-- https://www.tpgi.com/short-note-on-aria-labelledby-and-aria-describedby/ -->
     <svelte:element
         this={wrapperElementTag}
         id={tooltipId}
         role="tooltip"
         bind:this={tooltipElement}
-        aria-hidden={!describedByTooltip}
+        aria-hidden="true"
         class="tooltip {animationClass}"
         class:animate-in={animateIn}
         class:animate-out={animateOut}
