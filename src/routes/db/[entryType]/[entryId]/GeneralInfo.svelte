@@ -32,7 +32,7 @@
     camera-controls
     touch-action="pan-y"
     style=""
-    class="surface rounded-2xl relative w-full grid resize min-h-[300px] overflow-hidden mt-4 max-w-full"
+    class="surface rounded-2xl relative w-full grid resize min-w-[300px] min-h-[300px] overflow-hidden mt-4 max-w-full"
     reveal="manual"
     bind:this={modelViewer}
 >
