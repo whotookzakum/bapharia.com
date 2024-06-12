@@ -7,21 +7,24 @@
     import SeasonPassesTable from "$lib/components/db/SeasonPassesTable.svelte";
     import SeasonPointsCalculator from "$lib/components/db/SeasonPointsCalculator.svelte";
     import SeasonPointsStore from "$lib/components/db/SeasonPointsStore.svelte";
+    import { page } from "$app/stores";
 
     export let data;
 </script>
 
-<MetaTags
-    title="{data.text.name} — Bapharia"
-    description={data.text.desc ?? "No description available."}
-/>
 <!-- image={data.assets?.iconL ?? data.assets?.icon} -->
 
-<Header {data} />
-<div>
-    <GeneralInfo {data} />
-    <Sources {data} />
-    
+{#key $page.url.pathname}
+    <MetaTags
+        title="{data.text.name} — Bapharia"
+        description={data.text.desc ?? "No description available."}
+    />
+
+    <Header {data} />
+    <div>
+        <GeneralInfo {data} />
+        <Sources {data} />
+
         {#if data.resolveType === "Season"}
             <SeasonPassesTable {data} />
             <!-- TODO: add a better visual view, maybe horizontal scroll like in game, maybe a rank range slider -->
@@ -29,5 +32,5 @@
             <SeasonPointsStore {data} />
             <!-- <SeasonPointsCalculator {data} /> -->
         {/if}
-    
-</div>
+    </div>
+{/key}

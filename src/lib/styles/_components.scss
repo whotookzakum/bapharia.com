@@ -43,6 +43,19 @@
     --range-pip-in-range-text: var(--accent1) !important;
 }
 
+model-viewer::part(default-progress-bar) {
+    background: var(--surface3);
+    border-radius: 1rem;
+}
+
+model-viewer {
+    select, button {
+        @apply font-semibold text2 hover-text1 surface2 hover-surface3 active-surface1 py-1 px-2 rounded-md;
+        line-height: normal;
+        min-height: 29px;
+    }
+}
+
 .item-64-grid {
     grid-template-columns: repeat(
         auto-fill,

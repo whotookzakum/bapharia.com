@@ -21,20 +21,40 @@
         data.price_player_buys !== 999999999;
 
     let modelViewer;
+
+    let loaded = false;
+
+    function handleModelLoaded() {
+        loaded = true;
+    }
+
+    let selectedAsset = "model";
+
+    function swapModel(e) {
+        if (modelViewer.reveal !== "auto") {
+            modelViewer.setAttribute("reveal", "auto");
+        }
+        if (modelViewer.src !== data.assets[e.target.value].Mesh) {
+            modelViewer.setAttribute("src", data.assets[e.target.value].Mesh);
+        }
+    }
 </script>
 
 <model-viewer
     alt=""
-    src="/Game/Character/Weapon/WP/WP05/SK_CH_WP05_AF01/Model/SK_CH_WP05_AF01.gltf"
+    src={data.assets[selectedAsset]?.Mesh}
     ar
     poster={imgSrc}
     shadow-intensity="1"
     camera-controls
     touch-action="pan-y"
-    style=""
-    class="surface rounded-2xl relative w-full grid resize min-w-[300px] min-h-[300px] overflow-hidden mt-4 max-w-full"
+    class="relative w-full min-w-[256px] min-h-[256px] grid overflow-hidden mt-4 mb-4 max-w-full"
+    class:resize={data.assets.model?.Mesh}
+    style="font-size: var(--step--1);"
     reveal="manual"
+    field-of-view="30deg"
     bind:this={modelViewer}
+    on:load={handleModelLoaded}
 >
     <img
         src={imgSrc}
@@ -45,13 +65,29 @@
         {height}
         loading="lazy"
     />
-    <button
-        id="button-load"
-        class="surface2 text2 hover-text1 hover-surface3 active-surface1 py-1 px-2 rounded-md transition-bob-down absolute right-2 top-2 font-semibold"
-        style="font-size: var(--step--1)"
-        slot="poster"
-        on:click={() => modelViewer.dismissPoster()}>Load 3D Model</button
-    >
+
+    {#if data.assets.model?.Mesh}
+        <button
+            id="button-load"
+            class="absolute right-2 top-2 transition-bob-down"
+            slot="poster"
+            style="line-height: inherit"
+            on:click={() => modelViewer.dismissPoster()}>Load 3D Model</button
+        >
+    {/if}
+    {#if loaded}
+        <div class="absolute right-2 top-2 grid gap-2">
+            <select>
+                <option value="">Animations</option>
+            </select>
+            {#if data.assets.subweaponModel}
+                <select on:change={swapModel}>
+                    <option value="model">Main Weapon</option>
+                    <option value="subweaponModel">Sub Weapon</option>
+                </select>
+            {/if}
+        </div>
+    {/if}
 </model-viewer>
 
 <div class="text-col grid">

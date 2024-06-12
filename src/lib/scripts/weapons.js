@@ -6,7 +6,11 @@ function processWeapon(weapon, lang) {
     const name = getText("weapon_text", weapon.name, lang)
     const desc = getText("weapon_text", weapon.desc, lang)
     const category = getCategory("Weapon", weapon.is_for_weapon_stickers, lang)
-    const assets = getAssets("weapon", weapon.id)
+    const assets = {
+        ...getAssets("weapon", weapon.id),
+        ...getAssets("weapon", weapon.main_weapon_asset_name),
+        subweaponModel: getAssets("weapon", weapon.sub_weapon_asset_name).model,
+    }
     const stats = getEquipmentStats(weapon.id, ["attribute_value", "offensive_power", "str", "vit", "dex", "mnd", "int", "critical_power"])
     // For weapon skins, get the source of the weapon skin item
     const sources = weapon.is_for_weapon_stickers

@@ -1,6 +1,7 @@
 import DT_StampDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampDataDB.json"
 import DT_StampCategoryDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampCategoryDataDB.json"
 import DT_EmotionDB from "$bp_client/japan/Content/Blueprints/Manager/DT_EmotionDB.json"
+import DT_WeaponAssetDB_Player from "$bp_client/japan/Content/Blueprints/Weapon/Player/DT_WeaponAssetDB_Player.json"
 import IMAGINE from "$bp_api/japan/imagine.json";
 
 // TODO: emote icons are in DT_EmotionDB
@@ -74,7 +75,23 @@ Object.values(DT_EmotionDB[0].Rows)
         }
     })
 
+// 3D models
+const models = {}
+models.weapon = {}
+Object.entries(DT_WeaponAssetDB_Player[0].Rows)
+    .forEach(([key, value]) => {
+        // WeaponAsset2 is never used as of 1.05.102
+        // WeaponAsset1.WeaponBase links to a metadata JSON
+        // WeaponAsset1.ColorList links to a metata JSON containing colors for the item
+        const { WeaponAsset1 } = value
+        models.weapon[key] = {
+            Mesh: WeaponAsset1.Mesh.AssetPathName.split(".")[0] + ".gltf",
+        }
+    })
+
 export function getAssets(ns, id) {
+    let model
+
     if (ns === "item") {
         // Crown boxes
         if ([185076200, 185076300, 185076600, 185076700].includes(id)) return {
@@ -103,8 +120,13 @@ export function getAssets(ns, id) {
         }
     }
 
+    if (models[ns]) {
+        model = models[ns][id]
+    }
+
     return {
         ...icons[ns][id],
+        model,
         slotIcon,
         // TODO: 3d models, etc (sound effects?)
     }
