@@ -56,13 +56,13 @@
         <tr>
             <th scope="row">Daily quests</th>
             {#each data.passes as pass}
-                <td>{[1, 4, 4][pass.type]}</td>
+                <td>{[3, 4, 4][pass.type]}</td>
             {/each}
         </tr>
         <tr>
             <th scope="row">Weekly quests</th>
             {#each data.passes as pass}
-                <td>{[2, 7, 7][pass.type]}</td>
+                <td>{[4, 7, 7][pass.type]}</td>
             {/each}
         </tr>
         <tr>
@@ -74,6 +74,7 @@
         <tr>
             <th scope="row">Bonus ranks</th>
             {#each data.passes as pass}
+            <!-- 23 7 -->
                 <td>{pass.reward_rank}</td>
             {/each}
         </tr>
@@ -131,8 +132,12 @@
         padding: 0.5rem 1rem;
     }
 
+    tbody tr {
+        border-top: 1px solid var(--surface2);
+    }
+
     tbody tr:nth-of-type(2n + 1) > * {
-        background: var(--surface1);
+        // background: var(--surface1);
     }
 
     thead tr {

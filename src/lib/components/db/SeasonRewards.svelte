@@ -9,7 +9,7 @@
     let rewardsDisplayMode = "grid";
     let rewardsCondensed = true;
 
-    $: rewards = getRewards(checkedPassTypes, rewardsCondensed);
+    $: rewards = getRewards(checkedPassTypes, rewardsCondensed, data.id);
 
     function getRewards(passTypes, condensed) {
         const filteredRewards = data.rewards
@@ -123,7 +123,7 @@
         class="grid gap-4 mt-2 mb-4"
         class:item-64-grid={rewardsDisplayMode === "grid"}
     >
-        {#each rewards as reward, index ((reward.href ?? "") + reward.id + index)}
+        {#each rewards as reward, index (reward.id + index)}
             <li>
                 <Item
                     iconOnly={rewardsDisplayMode === "grid"}
@@ -144,7 +144,7 @@
                     }}
                 />
             </li>
-        {:else}{/each}
+        {/each}
     </ol>
 {:else}
     <span class="text3"

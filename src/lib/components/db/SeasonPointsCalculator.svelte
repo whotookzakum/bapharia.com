@@ -10,6 +10,7 @@
         Legend,
     } from "chart.js";
     import ChartDataLabels from "chartjs-plugin-datalabels";
+    import RangeSlider from "svelte-range-slider-pips";
 
     export let data;
 
@@ -119,6 +120,8 @@
             backgroundColor: `hsla(320, 60%, 50%, 0.5)`,
         },
     ];
+
+    let dailies = [0, 60];
 </script>
 
 <div class="flex gap-2 items-baseline mt-8 mb-2">
@@ -139,6 +142,31 @@
         {/each}
     </div>
 </div>
+
+<ul>
+    <li>total days {dailies[1] - dailies[0]}</li>
+    <li>days missed (before)</li>
+</ul>
+
+<ul>
+    {#each data.passes[2].weekly_quests as quest}
+        <li>{quest.season_pass_type} {quest.text.name} {quest.quest_achievement_condition.complete_value} {quest.adventure_rank_required_from} ~ {quest.adventure_rank_required_to}</li>
+    {/each}
+</ul>
+
+<RangeSlider
+    bind:values={dailies}
+    min={0}
+    max={60}
+    step={1}
+    range
+    pushy
+    float
+    pips
+    pipstep={100 / 10}
+    first="label"
+    last="label"
+/>
 
 <div>
     <canvas bind:this={chartElement} />

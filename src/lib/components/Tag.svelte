@@ -15,8 +15,7 @@
         font-style: normal;
         align-items: center;
         font-weight: 600; // 600 or 700
-        padding: 2px 0.3rem;
-        min-height: 24px;
+        padding: 0.143em 0.342em;
         border-radius: 5px;
         color: var(--text1);
         min-width: 2ch; 

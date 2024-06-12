@@ -10,6 +10,8 @@ import MASTER_QUEST_SEASON from "$bp_api/japan/master_quest_season.json";
 import { getText, getAssets, getSources, getCategory, getRewardItemBrief, getReward } from "./utils";
 import { getEntry as getItemEntry, getItemSummaries } from "./items";
 
+// TODO: implement season points calculators
+
 function processSeason(season, lang) {
     const name = getText("master_season_text", season.season_name, lang)
     const passes = getSeasonPasses(season, lang)
@@ -36,9 +38,36 @@ function getSeasonPasses(season, lang) {
             const desc = getText("master_season_pass_text", pass.description, lang)
             const warning = getText("master_season_pass_text", pass.attention, lang)
 
-            const daily_quests = MASTER_QUEST_DAILY.filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
-            const weekly_quests = MASTER_QUEST_WEEKLY.filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
-            const season_quests = MASTER_QUEST_SEASON.filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+            const daily_quests = MASTER_QUEST_DAILY
+                .filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+                .map(quest => {
+                    return {
+                        text: {
+                            name: getText("master_quest_auto_order_daily_text", quest.quest_name, lang)
+                        },
+                        ...quest
+                    }
+                })
+            const weekly_quests = MASTER_QUEST_WEEKLY
+                .filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+                .map(quest => {
+                    return {
+                        text: {
+                            name: getText("master_quest_auto_order_weekly_text", quest.quest_name, lang)
+                        },
+                        ...quest
+                    }
+                })
+            const season_quests = MASTER_QUEST_SEASON
+                .filter(q => (q.season_id === season.id) && (pass.type > 0 || pass.type === q.season_pass_type))
+                .map(quest => {
+                    return {
+                        text: {
+                            name: getText("master_quest_auto_order_season_text", quest.quest_name, lang)
+                        },
+                        ...quest
+                    }
+                })
 
             acc.push({
                 ...pass,
@@ -84,7 +113,8 @@ function getSeasonStore(season, lang) {
             acc.push({
                 ...getRewardItemBrief(shopItem.item_type, shopItem.item_id, lang),
                 need_rank: purchaseLimits.need_rank,
-                points: purchaseLimits.points
+                points: purchaseLimits.points,
+                amount: shopItem.item_count
             })
         }
         return acc

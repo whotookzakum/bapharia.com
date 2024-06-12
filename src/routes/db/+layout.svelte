@@ -299,8 +299,8 @@
             <div class:adjusted-range={filters.level.adjusted}>
                 <RangeSlider
                     bind:values={filters.level.values}
-                    min={0}
-                    max={100}
+                    min={filters.level.default[0]}
+                    max={filters.level.default[1]}
                     step={1}
                     range
                     pushy
@@ -317,8 +317,8 @@
             <div class:adjusted-range={filters.ar.adjusted}>
                 <RangeSlider
                     bind:values={filters.ar.values}
-                    min={0}
-                    max={30}
+                    min={filters.ar.default[0]}
+                    max={filters.ar.default[1]}
                     step={1}
                     range
                     pushy

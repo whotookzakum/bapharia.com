@@ -142,6 +142,7 @@
         en_US: "Level",
     };
 
+    // TODO: add support for changing timezones
     function getSeasonDate(date, format = "DATE_SHORT") {
         return DateTime.fromISO(date.replace(" ", "T"), {
             zone: "Asia/Tokyo",

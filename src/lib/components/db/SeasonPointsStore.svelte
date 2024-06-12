@@ -2,16 +2,17 @@
     import Item from "./Item.svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import Icon from "@iconify/svelte";
+    import { DateTime } from "luxon";
 
     export let data
 
     let rewardsDisplayMode = "grid";
 
-    function updatePassSelection(e, type) {
-        if (e.target.checked) {
-            checkedPassTypes.push(type);
-            checkedPassTypes = checkedPassTypes;
-        } else checkedPassTypes = checkedPassTypes.filter((t) => t !== type);
+    // TODO: timezone support
+    function getSeasonDate(date, format = "DATE_SHORT") {
+        return DateTime.fromISO(date.replace(" ", "T"), {
+            zone: "Asia/Tokyo",
+        }).toLocaleString(DateTime[format]);
     }
 </script>
 
@@ -63,7 +64,7 @@
     class="grid gap-4 mt-2 mb-4"
     class:item-64-grid={rewardsDisplayMode === "grid"}
 >
-    {#each data.shop as reward, index ((reward.href ?? "") + reward.id + index)}
+    {#each data.shop as reward, index (reward.id + index)}
         <li>
             <Item
                 iconOnly={rewardsDisplayMode === "grid"}
@@ -71,9 +72,11 @@
                 item={{
                     ...reward,
                     price: reward.points,
-                    source: reward.points + " pts",
+                    source: `${reward.points} pts (requires rank ${reward.need_rank})`
                 }}
             />
         </li>
     {/each}
 </ol>
+
+<small>The season point store is available until <time>{getSeasonDate(data.change_end_date, "DATETIME_MED")}</time> JST. Unused season points will be deleted.</small>

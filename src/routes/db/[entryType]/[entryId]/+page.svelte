@@ -3,8 +3,10 @@
     import GeneralInfo from "./GeneralInfo.svelte";
     import Sources from "./Sources.svelte";
     import Header from "./Header.svelte";
-
-    import PageSeason from "./Page_Season.svelte";
+    import SeasonRewards from "$lib/components/db/SeasonRewards.svelte";
+    import SeasonPassesTable from "$lib/components/db/SeasonPassesTable.svelte";
+    import SeasonPointsCalculator from "$lib/components/db/SeasonPointsCalculator.svelte";
+    import SeasonPointsStore from "$lib/components/db/SeasonPointsStore.svelte";
 
     export let data;
 </script>
@@ -19,7 +21,15 @@
 <div>
     <GeneralInfo {data} />
     <Sources {data} />
-    {#if data.resolveType === "Season"}
-        <PageSeason {data} />
-    {/if}
+    
+        {#if data.resolveType === "Season"}
+            <SeasonPassesTable {data} />
+            <!-- TODO: add a better visual view, maybe horizontal scroll like in game, maybe a rank range slider -->
+            
+            <SeasonRewards {data} />
+            <SeasonPointsStore {data} />
+            
+            <!-- <SeasonPointsCalculator {data} /> -->
+        {/if}
+    
 </div>

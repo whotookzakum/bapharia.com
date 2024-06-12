@@ -33,7 +33,7 @@
             {#if item.price}
                 <Tag
                     blur
-                    style="position: absolute; bottom: 0.25rem; right: 0.25rem;"
+                    style="position: absolute; top: 0.25rem; right: 0.25rem; font-size: var(--step--2);"
                 >
                     {#if item.price > 999}
                         {item.price.toLocaleString() + currency}
