@@ -14,12 +14,6 @@
 
     let resultsDisplayMode = "list";
 
-    let original = {
-        AR: [0, 30],
-        Level: [0, 100],
-        boardDeepSearch: true,
-    };
-
     // separate filters_category from filters_extras etc
 
     let filters = {
@@ -47,8 +41,17 @@
         filters.ar.values[0] > filters.ar.default[0] ||
         filters.ar.values[1] < filters.ar.default[1];
 
-    $: filters.categoriesAdjusted =
-        Object.values(filters.categories).flat().length > 0;
+    // Check if a category or subcategory (type) checkbox has been selected.
+    // Class and Element are included in the categories object, so omit those. 
+    // We only want to know whether any of the checkbox filters have been selected, and consequently filter out entries that aren't of the checked subcategory.
+    $: filters.hasCheckboxSelection = Object.entries(filters.categories).reduce(
+        (acc, [key, value]) => {
+            if (!["Class", "Element"].includes(key) && value.length > 0)
+                acc = true;
+            return acc;
+        },
+        false,
+    );
 
     // Remove key "default" if there are more than just the default value.
     Object.entries(TYPES_TEXT).forEach(([locale, categories]) => {
@@ -68,11 +71,13 @@
             : true;
 
         let typeMatch = true;
-        if (filters.categoriesAdjusted) {
+        if (filters.hasCheckboxSelection) {
             typeMatch =
                 filters.categories[entry.category]?.length > 0
                     ? filters.categories[entry.category].some((type) =>
-                          entry.type ? type == entry.type : type == "default",
+                          typeof entry.type !== "undefined"
+                              ? type == entry.type
+                              : type == "default",
                       )
                     : false;
         }
@@ -601,7 +606,7 @@
         transition: background-color 0.15s var(--timing1);
     }
 
-    input:checked + .masked {
+    input:checked ~ .masked {
         background-color: var(--accent1) !important;
     }
 </style>

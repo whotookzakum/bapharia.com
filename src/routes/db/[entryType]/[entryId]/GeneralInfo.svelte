@@ -38,6 +38,10 @@
             modelViewer.setAttribute("src", data.assets[e.target.value].Mesh);
         }
     }
+    
+    function handleDismissPoster() {
+        modelViewer.dismissPoster()
+    }
 </script>
 
 <model-viewer
@@ -52,7 +56,8 @@
     class:resize={data.assets.model?.Mesh}
     style="font-size: var(--step--1);"
     reveal="manual"
-    field-of-view="30deg"
+    max-field-of-view="60deg"
+    min-field-of-view="5deg"
     bind:this={modelViewer}
     on:load={handleModelLoaded}
 >
@@ -65,14 +70,13 @@
         {height}
         loading="lazy"
     />
-
     {#if data.assets.model?.Mesh}
         <button
             id="button-load"
             class="absolute right-2 top-2 transition-bob-down"
             slot="poster"
             style="line-height: inherit"
-            on:click={() => modelViewer.dismissPoster()}>Load 3D Model</button
+            on:click={handleDismissPoster}>Load 3D Model</button
         >
     {/if}
     {#if loaded}

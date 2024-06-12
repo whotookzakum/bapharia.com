@@ -3,7 +3,7 @@
     import { userLocale } from "$lib/stores.js";
     import Icon from "@iconify/svelte";
     import { DateTime } from "luxon";
-    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte"
+    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
 
     export let data;
 
@@ -258,6 +258,23 @@
         padding-bottom: 0.75rem;
         line-height: 1.3;
         font-size: var(--step-5);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        @supports (animation-timeline: scroll()) {
+            h1 {
+                font-size: var(--step-6);
+                animation: shrink-text linear both;
+                animation-timeline: scroll();
+                animation-range: 100px 300px;
+            }
+        }
+    }
+
+    @keyframes shrink-text {
+        to {
+            font-size: var(--step-5);
+        }
     }
 
     .category-name {

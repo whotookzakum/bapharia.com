@@ -1,7 +1,7 @@
 import DT_StampDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampDataDB.json"
 import DT_StampCategoryDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampCategoryDataDB.json"
 import DT_EmotionDB from "$bp_client/japan/Content/Blueprints/Manager/DT_EmotionDB.json"
-import DT_WeaponAssetDB_Player from "$bp_client/japan/Content/Blueprints/Weapon/Player/DT_WeaponAssetDB_Player.json"
+import DT_WeaponAssetDB_Player from "$bp_client/japan/Content/Blueprints/Weapon/Player/DataTable/DT_WeaponAssetDB_Player.json"
 import IMAGINE from "$bp_api/japan/imagine.json";
 
 // TODO: emote icons are in DT_EmotionDB
