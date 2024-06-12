@@ -1,7 +1,7 @@
 <script>
     import { userLocale } from "$lib/stores";
     export let data = {};
-    let imgSrc // = "/UI/Icon/ItemL/UI_Icon_NoData.png";
+    let imgSrc; // = "/UI/Icon/ItemL/UI_Icon_NoData.png";
     let width = 256,
         height = 256;
 
@@ -19,11 +19,40 @@
         data.price_player_buys !== 99999 &&
         data.price_player_buys !== 1 &&
         data.price_player_buys !== 999999999;
+
+    let modelViewer;
 </script>
 
-{#if imgSrc}
-    <img src={imgSrc} alt="" {width} {height} loading="lazy" />
-{/if}
+<model-viewer
+    alt=""
+    src="/Game/Character/Weapon/WP/WP05/SK_CH_WP05_AF01/Model/SK_CH_WP05_AF01.gltf"
+    ar
+    poster={imgSrc}
+    shadow-intensity="1"
+    camera-controls
+    touch-action="pan-y"
+    style=""
+    class="surface rounded-2xl relative w-full grid resize min-h-[300px] overflow-hidden mt-4 max-w-full"
+    reveal="manual"
+    bind:this={modelViewer}
+>
+    <img
+        src={imgSrc}
+        class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+        slot="poster"
+        alt=""
+        {width}
+        {height}
+        loading="lazy"
+    />
+    <button
+        id="button-load"
+        class="surface2 text2 hover-text1 hover-surface3 active-surface1 py-1 px-2 rounded-md transition-bob-down absolute right-2 top-2 font-semibold"
+        style="font-size: var(--step--1)"
+        slot="poster"
+        on:click={() => modelViewer.dismissPoster()}>Load 3D Model</button
+    >
+</model-viewer>
 
 <div class="text-col grid">
     {#if data.sourceDesc && !["-", "非公開"].includes(data.sourceDesc.ja_JP)}
@@ -115,5 +144,19 @@
         // font-style: italic;
         // background: var(--bg);
         // padding: 1rem;
+    }
+
+    // Model viewer
+
+    #lazy-load-poster {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url("../../assets/poster-damagedhelmet.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 </style>
