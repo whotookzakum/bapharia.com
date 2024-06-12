@@ -3,7 +3,7 @@
 </script>
 
 <h2>Passes</h2>
-<table>
+<table class="lines cut-padding">
     <thead>
         <tr>
             <td></td>
@@ -115,46 +115,3 @@
         </tr>
     </tbody>
 </table>
-
-<style lang="scss">
-    table {
-        text-align: left;
-        width: 100%;
-    }
-
-    td,
-    thead th {
-        text-align: center;
-    }
-
-    th,
-    td {
-        padding: 0.5rem 1rem;
-    }
-
-    tbody tr {
-        border-top: 1px solid var(--surface2);
-    }
-
-    tbody tr:nth-of-type(2n + 1) > * {
-        // background: var(--surface1);
-    }
-
-    thead tr {
-        *:first-child {
-            border-top-left-radius: 1rem;
-        }
-        *:last-child {
-            border-top-right-radius: 1rem;
-        }
-    }
-
-    tbody tr:last-of-type {
-        *:first-child {
-            border-bottom-left-radius: 1rem;
-        }
-        *:last-child {
-            border-bottom-right-radius: 1rem;
-        }
-    }
-</style>

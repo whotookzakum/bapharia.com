@@ -33,7 +33,7 @@ import RECEPI from "$bp_api/japan/imagine/recepi.json"
 import ACHIEVEMENTS from "$bp_api/japan/achievements.json"
 import COUPON from "$bp_api/japan/coupon.json"
 import uniqBy from "lodash/uniqBy";
-import { getAbilities, getText, getAssets } from "./index";
+import { getAbilities, getText, getAssets, getRewardItemBrief } from "./index";
 import gacha from "../gacha";
 
 // Testing links
@@ -70,20 +70,21 @@ function getCraftingSources(item, lang, rewardTypes) {
 
     return craftingSources.map(recipe => {
         const materials = recipe.materials.map(mat => {
-            const itemData = ITEMS.find(i => i.id === mat.item_id && i.type === mat.item_type)
+            // I don't think we need mat.item_type here; duplicate ids only exist between separate categories?
             return {
-                id: mat.item_id,
-                text: {
-                    name: getText("item_text", itemData.name, lang),
-                    source: getText("item_text", itemData.obtaining_route_detail_id, lang)
-                },
-                assets: {
-                    icon: getAssets("item", mat.item_id).icon
-                },
-                need_num: mat.need_num
+                ...getRewardItemBrief(3, mat.item_id, lang),
+                amount: mat.amount || mat.need_num
             }
         })
 
+        // Add luno cost if applicable
+        if (recipe.price || recipe.use_money) {
+            materials.push({
+                ...getRewardItemBrief(0, null, lang),
+                amount: recipe.price || recipe.use_money
+            })
+        }
+        
         // Sources for the recipe
         const recipeSources = getSources(recipe, lang, [11, 20])
 

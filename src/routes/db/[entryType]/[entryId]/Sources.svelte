@@ -26,28 +26,11 @@
 
 {#if data.sources?.length > 0}
     <h3>Sources</h3>
-    <ul class="unstyled-list" style="grid-template-columns: 1fr">
+    <ul class="unstyled-list grid gap-4" style="grid-template-columns: 1fr">
         {#each sortedSources as [category, sources]}
-            <li class="box" style="background: var(--surface3)">
+            <li class="surface1 rounded-2xl">
                 <SourceGroup {category} {sources} />
             </li>
         {/each}
     </ul>
 {/if}
-
-<style lang="scss">
-    li {
-        max-inline-size: none;
-        padding: 0;
-        align-items: center;
-        overflow: unset;
-    }
-
-    input:not(:checked) + ul {
-        display: none;
-    }
-
-    .summary {
-        align-items: center;
-    }
-</style>

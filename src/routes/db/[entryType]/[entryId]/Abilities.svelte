@@ -12,11 +12,11 @@
         },
         great_success_value: {
             ja_JP: "大成功時の効果値",
-            en_US: "Value<br><small style='white-space:nowrap'>(Great Success)</small>",
+            en_US: "Value<br><small class=\"accent1 font-normal\" style='white-space:nowrap'>(Great Success)</small>",
         },
         success_value: {
             ja_JP: "成功時の効果値",
-            en_US: "Value<br><small>(Success)</small>",
+            en_US: "Value<br><small class=\"accent1 font-normal\">(Success)</small>",
         },
         probability: {
             ja_JP: "確率",
@@ -46,7 +46,7 @@
 
 {#if itemType === "Weapon"}
     <div class="table-wrapper">
-        <table>
+        <table class="lines whitespace-nowrap" style="font-size: var(--step--1)">
             <thead>
                 <tr>
                     <th>{@html WEAPON_HEADERS.ability_name[$userLocale]}</th>
@@ -123,15 +123,3 @@
         </tbody>
     </table>
 {/if}
-
-<style lang="scss">
-    table {
-        font-size: var(--step--1);
-        white-space: nowrap;
-        border-radius: 0.5rem;
-    }
-
-    thead {
-        line-height: normal;
-    }
-</style>

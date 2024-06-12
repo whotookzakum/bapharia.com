@@ -10,17 +10,17 @@
         },
         {
             ja_JP: "大成功時のソケット数確率",
-            en_US: "Rate<br><small>(Great Success)</small>"
+            en_US: "Rate<br><small class=\"accent1 font-normal\">(Great Success)</small>"
         },
         {
             ja_JP: "成功時のソケット数確率",
-            en_US: "Rate<br><small>(Success)</small>"
+            en_US: "Rate<br><small class=\"accent1 font-normal\">(Success)</small>"
         },
     ]
 </script>
 
 
-<table>
+<table class="lines whitespace-nowrap text-center" style="font-size: var(--step--1)">
     <thead>
         <tr>
             {#each SOCKET_HEADERS as header}
@@ -51,21 +51,4 @@
         </tr>
     </tbody>
 </table>
-
-
-<style>
-    table {
-        text-align: center !important;
-        border-radius: 0.5rem;
-    }
-
-    th {
-        font-size: var(--step--1);
-        line-height: normal;
-    }
-
-    td {
-        padding-block: 0.5rem !important;
-    }
-</style>
 

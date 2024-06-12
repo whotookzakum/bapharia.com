@@ -51,7 +51,7 @@
 
     {#if data.text.desc && data.imagine_type !== 1}
         <h3>Description</h3>
-        <blockquote>{data.text.desc}</blockquote>
+        <p>{data.text.desc}</p>
     {/if}
 
     {#if hasValidSalePrice || hasValidBuyPrice}
@@ -66,7 +66,7 @@
                 alt="Luno"
                 width="24"
                 height="24"
-                style="margin: -7px -4px; width: unset;"
+                class="inline"
             />
         </p>
     {/if}
@@ -79,7 +79,7 @@
                 alt="Luno"
                 width="24"
                 height="24"
-                style="margin: -7px -4px; width: unset;"
+                class="inline"
             />
         </p>
     {/if}

@@ -19,12 +19,13 @@ export function getReward(id) {
 
 // Returns a brief description of a reward item (name, icon, id, amount)
 export function getRewardItemBrief(type, id, lang) {
-    let details, name, assets, href
+    let details, name, assets, href, source
 
     switch (type) {
-        case 0:
+        case 0: // Luno
             name = getText("Common", 4, lang)
-            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_01.png" }
+            // "/UI/Icon/Currency/UI_Icon_Currency_01.png" // coin icon
+            assets = { icon: "/UI/Icon/Reward/UI_Icon_0.png" } // coin in bag icon
             break
         case 1:
             name = getText("Common", 5, lang)
@@ -34,6 +35,7 @@ export function getRewardItemBrief(type, id, lang) {
             href = "/db/items/" + id
             details = ITEMS.find(i => i.id === id)
             name = getText("item_text", details.name, lang)
+            source = getText("item_text", details.obtaining_route_detail_id, lang)
             assets = getAssets("item", details.id)
             break
         case 4:
@@ -85,7 +87,7 @@ export function getRewardItemBrief(type, id, lang) {
             name = "BPP"
             assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_04.png" }
             break
-        case 18: 
+        case 18:
             name = "無償ローズオーブ"
             // master_mail_format_text 295
             assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_03.png" }
@@ -109,7 +111,8 @@ export function getRewardItemBrief(type, id, lang) {
         id,
         href,
         text: {
-            name
+            name,
+            source
         },
         assets
     }

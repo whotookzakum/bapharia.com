@@ -25,10 +25,8 @@
         {#if data.resolveType === "Season"}
             <SeasonPassesTable {data} />
             <!-- TODO: add a better visual view, maybe horizontal scroll like in game, maybe a rank range slider -->
-            
             <SeasonRewards {data} />
             <SeasonPointsStore {data} />
-            
             <!-- <SeasonPointsCalculator {data} /> -->
         {/if}
     

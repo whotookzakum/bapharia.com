@@ -5,6 +5,7 @@
     export let iconOnly = false;
     export let item;
     export let currency = ""
+    export let style = ""
     const { href = undefined } = item;
 </script>
 
@@ -55,6 +56,7 @@
 {:else}
     <div
         class="flex gap-4 items-center relative z-[1] surface1 p-4 rounded-2xl"
+        {style}
     >
         <div class="thumbnail-wrapper">
             <img
@@ -69,15 +71,15 @@
             <svelte:element
                 this={href ? "a" : "span"}
                 {href}
-                class="item-name styled-link"
+                class="item-name styled-link w-fit"
             >   
                 {#if item.amount}
                     {item.amount > 999 ? item.amount.toLocaleString() : item.amount + "x"}
                 {/if}
                 {item.text.name}
             </svelte:element>
-            {#if item.source}
-                <small style="color: var(--text2);">{item.source}</small>
+            {#if item.text.source}
+                <small style="color: var(--text2);">{item.text.source}</small>
             {/if}
         </div>
         <!-- {#if chest}

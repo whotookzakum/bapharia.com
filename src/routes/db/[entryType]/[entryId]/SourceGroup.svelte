@@ -1,6 +1,6 @@
 <script>
     import Icon from "@iconify/svelte";
-    
+
     import CraftingSources from "./CraftingSources.svelte";
 
     export let category, sources;
@@ -29,7 +29,7 @@
             break;
         case "coupon":
             src = "/UI/RMShop/UI_RMShopCoupon_S.png";
-            categoryName = "Connect Coupon Usage Rewards";
+            categoryName = "Connect Coupon Usage";
             break;
         case "season pass":
             src =
@@ -41,23 +41,23 @@
             categoryName = "Item Boxes";
             break;
         case "dungeon":
-            categoryName = "Dungeon Rewards";
+            categoryName = "Dungeons";
             break;
         case "exchange":
             categoryName = "Exchange Shop";
             break;
         case "mount caravan":
-            categoryName = "Mount Caravan Rewards";
+            categoryName = "Mount Caravan";
             break;
     }
 
     const categories = {
-        crafting: CraftingSources
-    }
+        crafting: CraftingSources,
+    };
 </script>
 
-<div class="drawer-wrapper grid" class:open={checked}>
-    <label class="flex gap-4 summary">
+<div class:open={checked}>
+    <label class="flex gap-4 hover-surface2 p-2 items-center rounded-2xl select-none">
         <span class="visually-hidden">
             {categoryName}: view {sources.length} source(s)
         </span>
@@ -77,36 +77,21 @@
             style="font-size: var(--step-5); margin-left: auto; margin-right: 0.5rem"
         />
     </label>
-    <div class="contents">
-        <hr />
-        <svelte:component this={categories[category]} {sources} />
+    <div class="drawer-contents grid">
+        <div>
+            <hr class="border-0 surface3 mb-4 h-[1px]" />
+            <svelte:component this={categories[category]} {sources} />
+        </div>
     </div>
 </div>
 
 <style lang="scss">
-    .drawer-wrapper {
-        transition: all 0.3s ease;
-        grid-template-rows: auto 1fr;
-
-        &:not(.open) {
-            grid-template-rows: auto 0fr;
-        }
-    }
 
     .summary {
         align-items: center;
         position: relative;
         z-index: 1;
         padding: 0.5rem;
-        border-radius: 1rem;
-
-        &:hover {
-            background: var(--surface4);
-        }
-    }
-
-    .category-text-wrapper {
-        line-height: 1.6;
     }
 
     .category-img-wrapper {
@@ -120,19 +105,18 @@
         }
     }
 
-    .contents {
-        overflow: hidden;
-        margin: 0 1.5rem;
-        font-size: var(--step-0) !important;
-        gap: 0;
+    .drawer-contents {
+        margin: 0 1rem;
+        grid-template-rows: 0fr;
+        transition: all 0.3s ease;
 
-        hr {
-            background: var(--surface4);
-            margin-top: 0.25rem;
+        & > div {
+            overflow: hidden;
         }
     }
 
-    .open .contents {
+    .open .drawer-contents {
+        grid-template-rows: 1fr;
         margin-bottom: 1rem;
     }
 </style>
