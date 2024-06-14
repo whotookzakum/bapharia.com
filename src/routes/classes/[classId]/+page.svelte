@@ -1,18 +1,11 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
+    import TYPES_TEXT from "$scripts/utils/categories.json";
+    import { userLocale } from "$lib/stores"
 
     export let data;
     $: ({ metadata, html } = data);
-
-    const ELEMENT_NAMES = {
-        1: "Fire",
-        2: "Thunder",
-        3: "Ice",
-        4: "Earth",
-        5: "Light",
-        6: "Dark",
-    }
 </script>
 
 <MetaTags
@@ -35,11 +28,11 @@
                     <Tooltip inline>
                         <img
                             src="/UI/Icon/Attribute/UI_IconAttribute_{element}.png"
-                            alt={ELEMENT_NAMES[element]}
+                            alt={TYPES_TEXT[$userLocale].Element[element]}
                             width="48"
                             height="48"
                         />
-                        <svelte:fragment slot="tooltip">{ELEMENT_NAMES[element]}</svelte:fragment>
+                        <svelte:fragment slot="tooltip">{TYPES_TEXT[$userLocale].Element[element]}</svelte:fragment>
                     </Tooltip>
                 {/each}
             </div>

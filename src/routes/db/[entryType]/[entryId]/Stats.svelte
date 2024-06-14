@@ -3,6 +3,7 @@
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
     import Tooltip from "../../../../lib/components/FloatingUI/Tooltip.svelte";
+    import TYPES_TEXT from "$scripts/utils/categories.json";
 
     // TODO: Figure out Enemy EXP curve
     export let data = {};
@@ -254,15 +255,6 @@
     function getAbilityStatBoost(ability, key) {
         return 0;
     }
-
-    const ELEMENT_NAMES = {
-        1: "Fire",
-        2: "Thunder",
-        3: "Ice",
-        4: "Earth",
-        5: "Light",
-        6: "Dark",
-    };
 </script>
 
 <h2>Stats</h2>
@@ -354,7 +346,7 @@
                     {#if stat.key === "attribute_value"}
                         <div class="inline-flex gap-1 items-center">
                             <span>{stat.name}</span>
-                            <Tooltip>
+                            <Tooltip tooltipStyle="width: max-content">
                                 <img
                                     src="/UI/Icon/Attribute/UI_IconAttribute_{data.element}.png"
                                     alt=""
@@ -363,7 +355,7 @@
                                     class="inline"
                                 />
                                 <svelte:fragment slot="tooltip"
-                                    >{ELEMENT_NAMES[
+                                    >{TYPES_TEXT[$userLocale].Element[
                                         data.element
                                     ]}</svelte:fragment
                                 >

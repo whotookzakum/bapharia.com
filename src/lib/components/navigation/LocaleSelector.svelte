@@ -35,11 +35,11 @@
 			data={[
 				{
 					title: "English",
-					value: "en",
+					value: "en_US",
 				},
 				{
 					title: "日本語",
-					value: "ja",
+					value: "ja_JP",
 				},
 			]}
 		/>

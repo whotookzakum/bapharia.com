@@ -4,113 +4,9 @@
     import Icon from "@iconify/svelte";
     import { DateTime } from "luxon";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
+    import TYPES_TEXT from "$scripts/utils/categories.json";
 
     export let data;
-
-    const CLASS_NAMES = {
-        "0": {
-            ja_JP: "全クラス",
-            en_US: "All Classes",
-        },
-        "6": {
-            ja_JP: "ブラストアーチャー",
-            en_US: "Blast Archer",
-        },
-        "7": {
-            ja_JP: "ツインストライカー",
-            en_US: "Twin Striker",
-        },
-        "11": {
-            ja_JP: "スペルキャスター",
-            en_US: "Spell Caster",
-        },
-        "12": {
-            ja_JP: "イージスファイター",
-            en_US: "Aegis Fighter",
-        },
-        "19": {
-            ja_JP: "ヘビースマッシャー",
-            en_US: "Heavy Smasher",
-        },
-        "20": {
-            ja_JP: "ブリッツランサー",
-            en_US: "Blitz Lancer",
-        },
-        "21": {
-            ja_JP: "ビートパーフォーマー",
-            en_US: "Beat Performer",
-        },
-    };
-
-    // const ELEMENT_NAMES = {
-    //     "3": {
-    //         ja_JP: "火属性",
-    //         en_US: "Fire",
-    //     },
-    //     "5": {
-    //         ja_JP: "雷属性",
-    //         en_US: "Thunder",
-    //     },
-    //     "4": {
-    //         ja_JP: "氷属性",
-    //         en_US: "Ice",
-    //     },
-    //     "2": {
-    //         ja_JP: "土属性",
-    //         en_US: "Earth",
-    //     },
-    //     "6": {
-    //         ja_JP: "光属性",
-    //         en_US: "Light",
-    //     },
-    //     "7": {
-    //         ja_JP: "闇属性",
-    //         en_US: "Dark",
-    //     },
-    //     "0": {
-    //         ja_JP: "無属性",
-    //         en_US: "No Element",
-    //     },
-    //     Empty: {
-    //         ja_JP: "無属性",
-    //         en_US: "No Element",
-    //     },
-    // };
-
-    const ELEMENT_NAMES_SKILL = {
-        "1": {
-            ja_JP: "火属性",
-            en_US: "Fire",
-        },
-        "2": {
-            ja_JP: "雷属性",
-            en_US: "Thunder",
-        },
-        "3": {
-            ja_JP: "氷属性",
-            en_US: "Ice",
-        },
-        "4": {
-            ja_JP: "土属性",
-            en_US: "Earth",
-        },
-        "5": {
-            ja_JP: "光属性",
-            en_US: "Light",
-        },
-        "6": {
-            ja_JP: "闇属性",
-            en_US: "Dark",
-        },
-        "0": {
-            ja_JP: "無属性",
-            en_US: "No Element",
-        },
-        Empty: {
-            ja_JP: "無属性",
-            en_US: "No Element",
-        },
-    };
 
     const IMAGINE_SLOTS = {
         "1": {
@@ -152,15 +48,6 @@
             zone: "Asia/Tokyo",
         }).toLocaleString(DateTime[format]);
     }
-
-    const ELEMENT_NAMES = {
-        1: "Fire",
-        2: "Thunder",
-        3: "Ice",
-        4: "Earth",
-        5: "Light",
-        6: "Dark",
-    };
 </script>
 
 <header>
@@ -204,14 +91,16 @@
                     height="24"
                     style="flex: unset"
                 />
-                <span>{ELEMENT_NAMES[data.element]}</span>
+                <span>{TYPES_TEXT[$userLocale].Element[data.element]}</span>
             </Tag>
         {/if}
 
         {#if data.equip_class || data.class_type}
             <Tag>
                 <img
-                    src="/UI/Icon/Class/UI_IconClass_{(data.equip_class || data.class_type)
+                    src="/UI/Icon/Class/UI_IconClass_{(
+                        data.equip_class || data.class_type
+                    )
                         .toString()
                         .padStart(2, '0')}.png"
                     alt=""
@@ -219,15 +108,14 @@
                     height="24"
                 />
                 <span style="margin-right: 0rem">
-                    {CLASS_NAMES[data.equip_class || data.class_type][
-                        $userLocale
+                    {TYPES_TEXT[$userLocale].Class[
+                        data.equip_class || data.class_type
                     ]}
                 </span>
             </Tag>
         {/if}
 
-        {#if data.slotImg}
-            <hr />
+        <!-- {#if data.slotImg}
             <div class="grid gap-1">
                 <img src={data.slotImg} alt="" width="46" height="46" />
                 <span
@@ -239,20 +127,8 @@
         {/if}
 
         {#if data.imagineSkill}
-            <hr />
-            <div class="grid gap-1">
-                <div class={data.imagineSkill.type.en_US}>
-                    <Icon
-                        icon={IMAGINE_SKILL_TYPE_ICONS[
-                            data.imagineSkill.type.en_US.toLowerCase()
-                        ]}
-                        width="24"
-                        height="24"
-                    />
-                </div>
-                <span>{data.imagineSkill.type[$userLocale]}</span>
-            </div>
-        {/if}
+            <span>{data.imagineSkill.type[$userLocale]}</span>
+        {/if} -->
     </div>
 </header>
 
@@ -288,59 +164,5 @@
         to {
             font-size: var(--step-5);
         }
-    }
-
-    .category-name {
-        font-size: var(--step-2);
-        color: var(--text2);
-    }
-
-    .header-extras {
-        .level {
-            font-weight: 800;
-            color: var(--accent1);
-            background: var(--surface2);
-        }
-
-        hr {
-            width: 1px;
-            height: 24px;
-            margin: 1rem;
-            background: var(--surface2);
-            width: 0;
-            margin: 0.5rem;
-        }
-    }
-
-    .level,
-    .Attack,
-    .Heal,
-    .Support {
-        border-radius: 100%;
-        width: 46px;
-        height: 46px;
-        display: grid;
-        place-content: center;
-        font-weight: 800;
-        font-size: var(--step-2);
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .Attack {
-        background: hsl(0, 95%, 25%);
-        color: hsl(0, 15%, 85%);
-        border-color: hsl(0, 65%, 35%);
-    }
-
-    .Heal {
-        background: hsl(150, 95%, 20%);
-        color: hsl(150, 15%, 80%);
-        border-color: hsl(150, 65%, 30%);
-    }
-
-    .Support {
-        background: hsl(200, 95%, 25%);
-        color: hsl(200, 15%, 85%);
-        border-color: hsl(200, 65%, 35%);
     }
 </style>
