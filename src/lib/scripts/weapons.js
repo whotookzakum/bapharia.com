@@ -1,6 +1,6 @@
 import WEAPONS from "$bp_api/japan/weapons.json";
 import ITEMS from "$bp_api/japan/items.json";
-import { getAssets, getText, getSources, getEquipmentStats, getCategory } from "./utils";
+import { getAssets, getText, getSources, getEquipmentStats, getCategory, getLimitBreakStats } from "./utils";
 
 function processWeapon(weapon, lang) {
     const name = getText("weapon_text", weapon.name, lang)
@@ -12,6 +12,7 @@ function processWeapon(weapon, lang) {
         subweaponModel: getAssets("weapon", weapon.sub_weapon_asset_name).model,
     }
     const stats = getEquipmentStats(weapon.id, ["attribute_value", "offensive_power", "str", "vit", "dex", "mnd", "int", "critical_power"])
+    const limit_break = getLimitBreakStats(weapon.id, ["stackboost_num", "offensive_power", "str", "vit", "dex", "mnd", "int", "critical_power"])
     // For weapon skins, get the source of the weapon skin item
     const sources = weapon.is_for_weapon_stickers
         ? getSources(ITEMS.find(item => item.weapon_sticker.appearance_weapon_id == weapon.id), lang, [3])
@@ -35,8 +36,10 @@ function processWeapon(weapon, lang) {
         },
         assets,
         stats,
+        limit_break,
         sources,
         resolveType: "Weapon",
+        element: mapElement(weapon.attribute),
         ...weapon,
     }
 }

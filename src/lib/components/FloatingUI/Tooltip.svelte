@@ -153,6 +153,7 @@
         class:animate-in={animateIn}
         class:animate-out={animateOut}
         style={tooltipStyle}
+        
     >
         <slot name="tooltip">
             {targetElementName}

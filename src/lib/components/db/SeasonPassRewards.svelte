@@ -41,7 +41,7 @@
 </script>
 
 <div class="flex gap-2 items-baseline mt-8 mb-2">
-    <h3 class="m-0">Rewards</h3>
+    <h3 class="m-0">Pass Rewards</h3>
     <div class="flex gap-4 ml-auto" style="font-size: var(--step--1);">
         {#each data.passes as pass}
             <label

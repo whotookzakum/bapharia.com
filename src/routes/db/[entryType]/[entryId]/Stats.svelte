@@ -1,73 +1,80 @@
 <script>
     import InputNumber from "$lib/components/InputNumber.svelte";
     import { userLocale } from "$lib/stores";
+    import Icon from "@iconify/svelte";
+    import Tooltip from "../../../../lib/components/FloatingUI/Tooltip.svelte";
 
     // TODO: Figure out Enemy EXP curve
     export let data = {};
-    export let style = ""
-    export let h3 = false;
+    export let style = "";
 
-    $: maxLevel =
+    const stats = data.stats;
+    const maxLevel =
         data.weapon_max_level || data.imagine_max_level || data.MaxLv || 100;
-    $: minLevel = data.MinLv || 1;
-
-    $: selectedLevel = maxLevel;
-    // $: if (selectedLevel > maxLevel) selectedLevel = maxLevel;
+    const minLevel = data.MinLv || 1; // Enemies can have a higher minLv depending on where they spawn
+    const maxLimitBreak = 5;
+    const minLimitBreak = 0;
+    let selectedLevel = maxLevel;
+    let selectedLimitBreak = maxLimitBreak;
+    $: if (selectedLevel > maxLevel) selectedLevel = maxLevel;
 
     let battleScore, currentLevelStats, levelParams;
-    let type = data.entryTypes[0];
 
-    $: if (selectedLevel > 0 && selectedLevel <= maxLevel) {
-        switch (type) {
-            case "Weapon":
-                levelParams = data.stats;
-                battleScore = selectedLevel * 50;
-                break;
-            case "Imagine":
-                levelParams = data.params;
-                if (data.imagine_type === 0) {
-                    battleScore = selectedLevel * 6;
-                    break;
-                } else if (data.imagine_type === 1) {
-                    battleScore = selectedLevel * 10;
-                    break;
-                }
-            case "Enemy":
-                levelParams = data.level_params;
-                break;
-        }
-        currentLevelStats = levelParams?.find(
-            (set) => set.level === selectedLevel
-        );
+    // $: if (selectedLevel > 0 && selectedLevel <= maxLevel) {
+    //     switch (data.resolveType) {
+    //         case "Weapon":
+    //             levelParams = data.stats;
+    //             battleScore = selectedLevel * 50;
+    //             break;
+    //         case "Imagine":
+    //             levelParams = data.params;
+    //             if (data.imagine_type === 0) {
+    //                 battleScore = selectedLevel * 6;
+    //                 break;
+    //             } else if (data.imagine_type === 1) {
+    //                 battleScore = selectedLevel * 10;
+    //                 break;
+    //             }
+    //         case "Enemy":
+    //             levelParams = data.level_params;
+    //             break;
+    //     }
+    //     currentLevelStats = levelParams?.find(
+    //         (set) => set.level === selectedLevel
+    //     );
 
-        if (type === "Enemy") {
-            let {
-                hit_point,
-                hit_point_factor,
-                attack_power,
-                attack_power_factor,
-                defence_power,
-                defence_power_factor,
-            } = levelParams[0];
-            currentLevelStats = {
-                hp: hit_point + hit_point_factor * (selectedLevel - 1),
-                offensive_power:
-                    attack_power + attack_power_factor * (selectedLevel - 1),
-                defensive_power:
-                    defence_power + defence_power_factor * (selectedLevel - 1),
-            };
-        }
-    }
+    //     if (type === "Enemy") {
+    //         let {
+    //             hit_point,
+    //             hit_point_factor,
+    //             attack_power,
+    //             attack_power_factor,
+    //             defence_power,
+    //             defence_power_factor,
+    //         } = levelParams[0];
+    //         currentLevelStats = {
+    //             hp: hit_point + hit_point_factor * (selectedLevel - 1),
+    //             offensive_power:
+    //                 attack_power + attack_power_factor * (selectedLevel - 1),
+    //             defensive_power:
+    //                 defence_power + defence_power_factor * (selectedLevel - 1),
+    //         };
+    //     }
+    // }
 
-    $: isValidInput =
+    $: isValidLevel =
         selectedLevel <= maxLevel &&
         selectedLevel >= minLevel &&
         typeof selectedLevel === "number";
 
+    $: isValidLimitBreak =
+        selectedLimitBreak <= maxLimitBreak &&
+        selectedLimitBreak >= minLimitBreak &&
+        typeof selectedLimitBreak === "number";
+
     $: isLevelSynced =
-        isValidInput &&
-        type !== "Enemy" &&
-        typeof selectedLevel === "number" &&
+        isValidLevel &&
+        data.resolveType !== "Enemy" &&
         selectedLevel < maxLevel;
 
     const texts = {
@@ -85,7 +92,7 @@
         },
         attribute_value: {
             ja_JP: "属性攻撃力",
-            en_US: "Elemental Power",
+            en_US: "Elemental Attack",
         },
         defensive_power: {
             ja_JP: "防御力",
@@ -93,7 +100,7 @@
         },
         critical_power: {
             ja_JP: "会心力",
-            en_US: "Critical Power",
+            en_US: "Critical Damage",
         },
         critical_chance: {
             ja_JP: "会心率",
@@ -133,121 +140,284 @@
         },
         resist_slash: {
             ja_JP: "斬撃耐性",
-            en_US: "Slash Resist"
+            en_US: "Slash Resist",
         },
         resist_thrust: {
             ja_JP: "突き刺し耐性",
-            en_US: "Thrust Resist"
+            en_US: "Thrust Resist",
         },
         resist_blow: {
             ja_JP: "打撃耐性",
-            en_US: "Blow Resist"
+            en_US: "Blow Resist",
         },
         resist_rock: {
             ja_JP: "土耐性",
-            en_US: "Earth Resist"
+            en_US: "Earth Resist",
         },
         resist_thunder: {
             ja_JP: "雷耐性",
-            en_US: "Thunder Resist"
+            en_US: "Thunder Resist",
         },
         resist_fire: {
             ja_JP: "火耐性",
-            en_US: "Fire Resist"
+            en_US: "Fire Resist",
         },
         resist_ice: {
             ja_JP: "氷耐性",
-            en_US: "Ice Resist"
+            en_US: "Ice Resist",
         },
         resist_light: {
             ja_JP: "光耐性",
-            en_US: "Light Resist"
+            en_US: "Light Resist",
         },
         resist_darkness: {
             ja_JP: "闇耐性",
-            en_US: "Dark Resist"
+            en_US: "Dark Resist",
         },
         resist_stun: {
             ja_JP: "スタン耐性",
-            en_US: "Stun Resist"
+            en_US: "Stun Resist",
         },
         resist_poison: {
             ja_JP: "毒耐性",
-            en_US: "Poison Resist"
+            en_US: "Poison Resist",
         },
         resist_sleep: {
             ja_JP: "スリープ耐性",
-            en_US: "Sleep Resist"
+            en_US: "Sleep Resist",
         },
         // unconfirmed
         resist_berserk: {
             ja_JP: "挑発耐性 (?)",
-            en_US: "Provoke Resist (?)"
+            en_US: "Provoke Resist (?)",
         },
         // unconfirmed
         resist_dark: {
             ja_JP: "ブラインド耐性 (?)",
-            en_US: "Blind Resist (?)"
+            en_US: "Blind Resist (?)",
         },
         resist_bind: {
             ja_JP: "バインド耐性",
-            en_US: "Bind Resist"
+            en_US: "Bind Resist",
         },
         // unconfirmed
         resist_palsy: {
             ja_JP: "麻痺耐性 (?)",
-            en_US: "Paralysis Resist (?)"
+            en_US: "Paralysis Resist (?)",
         },
         // HP leak, or drain..?
         resist_drain: {
             ja_JP: "ドレイン耐性",
-            en_US: "Drain Resist"
+            en_US: "Drain Resist",
         },
+    };
+
+    const percentValues = ["critical_power", "critical_chance"];
+
+    function getStatValues(level, lb_level) {
+        const statObj = stats[level - 1] ?? stats[0];
+
+        return [
+            "hp",
+            "offensive_power",
+            "attribute_value",
+            "skill",
+            "defensive_power",
+            "critical_power",
+            "critical_chance",
+            "max_hp",
+            "str",
+            "vit",
+            "dex",
+            "mnd",
+            "int",
+            "stamina",
+        ].reduce((acc, key) => {
+            if (statObj[key] > -1) {
+                acc.push({
+                    key,
+                    name: texts[key][$userLocale],
+                    level_value: statObj[key],
+                    limitbreak_value: getLimitBreakStatBoost(lb_level, key),
+                    ability_value: getAbilityStatBoost(),
+                });
+            }
+            return acc;
+        }, []);
+    }
+
+    function getLimitBreakStatBoost(lb_level, key) {
+        const lbObj = data.limit_break[lb_level - 1] ?? 0;
+        return lbObj[key] ?? 0;
+    }
+
+    function getAbilityStatBoost(ability, key) {
+        return 0;
+    }
+
+    const ELEMENT_NAMES = {
+        1: "Fire",
+        2: "Thunder",
+        3: "Ice",
+        4: "Earth",
+        5: "Light",
+        6: "Dark",
     };
 </script>
 
-{#if h3}
-    <h3>Stats</h3>
-{:else}
-    <h2>Stats</h2>
-{/if}
+<h2>Stats</h2>
 
-<div class="box" {style}>
-    <div class="level-section grid gap-2" class:not-max={isLevelSynced}>
-        <div>
-            <h3 class="level-text">
-                Level {isLevelSynced ? "Sync ▼" : ""}
-            </h3>
-            <p
-                class="level-hint"
-                id="level-sync-description"
-                class:invalid={!isValidInput}
-            >
-                Enter a level between <b>{minLevel}</b> and <b>{maxLevel}</b>
-            </p>
-        </div>
-        <div class="level-controls flex gap-2">
+<div class="flex flex-wrap gap-4">
+    <div class="flex-1">
+        <span class="mini-header" class:color-level-sync={isLevelSynced}
+            >Level {isLevelSynced ? "Sync ▼" : ""}</span
+        >
+        <br />
+        <span
+            id="level-value-description"
+            style="font-size: var(--step--1)"
+            class="whitespace-nowrap"
+            class:invalid-text={!isValidLevel}
+        >
+            Enter a number between <b>{minLevel}</b> and <b>{maxLevel}</b>
+        </span>
+        <div class="mt-1" class:color-level-sync={isLevelSynced}>
             <InputNumber
                 description="Level"
-                prefix="LV."
+                prefix="Lv."
                 bind:value={selectedLevel}
+                initialValue={maxLevel}
                 max={maxLevel}
                 min={minLevel}
-                describedby="level-sync-description"
-                invalid={!isValidInput}
+                describedby="level-value-description"
+                invalid={!isValidLevel}
+                style="background: var(--surface1)"
+                editButton
             />
-            <button
-                class="box reset-level"
-                on:click={() => (selectedLevel = maxLevel)}
-                disabled={selectedLevel === maxLevel}
-            >
-                Reset
-            </button>
         </div>
-        <hr />
     </div>
 
-    <dl class="unstyled-list gap-1" class:not-max={isLevelSynced} role="list">
+    <div class="flex-1">
+        <span class="mini-header">Limit Break</span>
+        <br />
+        <span
+            id="limit-break-value-description"
+            style="font-size: var(--step--1)"
+            class="whitespace-nowrap"
+            class:invalid-text={!isValidLimitBreak}
+        >
+            Enter a number between <b>{minLimitBreak}</b> and
+            <b>{maxLimitBreak}</b>
+        </span>
+        <div class="mt-1">
+            <InputNumber
+                description="Limit break level"
+                prefix="+"
+                bind:value={selectedLimitBreak}
+                initialValue={maxLimitBreak}
+                max={maxLimitBreak}
+                min={minLimitBreak}
+                describedby="limit-break-value-description"
+                invalid={!isValidLimitBreak}
+                style="background: var(--surface1)"
+                inputStyle="margin-left: -0.25rem"
+                editButton
+            />
+        </div>
+    </div>
+    <div class="flex-1">
+        <span class="mini-header">Special Effect</span>
+        <br />
+        <i style="font-size: var(--step--1)" class="whitespace-nowrap">
+            Availability varies by source
+        </i>
+        <div class="mt-1">
+            <select class="surface1 rounded-lg min-h-[44px] w-full"> </select>
+        </div>
+    </div>
+</div>
+
+<table class="lines cut-padding mt-4">
+    <thead>
+        <tr>
+            <th>Stat</th>
+            <th>Total</th>
+            <th>From Level</th>
+            <th>From Limit Break</th>
+            <th>From Special Effect</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each getStatValues(selectedLevel, selectedLimitBreak) as stat}
+            <tr>
+                <th>
+                    {#if stat.key === "attribute_value"}
+                        <div class="inline-flex gap-1 items-center">
+                            <span>{stat.name}</span>
+                            <Tooltip>
+                                <img
+                                    src="/UI/Icon/Attribute/UI_IconAttribute_{data.element}.png"
+                                    alt=""
+                                    width="24"
+                                    height="24"
+                                    class="inline"
+                                />
+                                <svelte:fragment slot="tooltip"
+                                    >{ELEMENT_NAMES[
+                                        data.element
+                                    ]}</svelte:fragment
+                                >
+                            </Tooltip>
+                            <Tooltip tooltipStyle="width: max-content">
+                                <Icon
+                                    icon="ri:question-line"
+                                    class="text2 hover-text1"
+                                    style="font-size: var(--step-1)"
+                                />
+                                <svelte:fragment slot="tooltip"
+                                    >Elemental Attack is added to your attack
+                                    during damage calculation when weapon and
+                                    skill elements match.</svelte:fragment
+                                >
+                            </Tooltip>
+                        </div>
+                    {:else}
+                        <span>{stat.name}</span>
+                    {/if}
+                </th>
+                <td class="font-bold">
+                    {stat.level_value +
+                        stat.limitbreak_value +
+                        stat.ability_value}{percentValues.includes(stat.key)
+                        ? "%"
+                        : ""}
+                </td>
+                <td class="text2" class:color-level-sync={isLevelSynced}>
+                    {stat.level_value}{percentValues.includes(stat.key)
+                        ? "%"
+                        : ""}
+                </td>
+                <td
+                    class="text2"
+                    style={stat.limitbreak_value > 0
+                        ? "color: var(--color-aqua)"
+                        : ""}
+                >
+                    {stat.limitbreak_value}{percentValues.includes(stat.key)
+                        ? "%"
+                        : ""}
+                </td>
+                <td class={stat.ability_value > 0 ? "accent1" : "text2"}>
+                    {stat.ability_value}{percentValues.includes(stat.key)
+                        ? "%"
+                        : ""}
+                </td>
+            </tr>
+        {/each}
+    </tbody>
+</table>
+
+<!-- <dl class="unstyled-list gap-1" class:not-max={isLevelSynced} role="list">
         {#each ["attribute_value", "skill"] as stat}
             {#if currentLevelStats[stat]}
                 <div class="row">
@@ -314,85 +484,14 @@
     {#if data.appearance}
         <hr>
         <small>Negative resistance indicates that the enemy is weak against that category.</small>
-    {/if}
-</div>
+    {/if} -->
 
 <style lang="scss">
-    .box {
-        max-width: 30ch;
-        background: var(--surface2);
-    }
-
-    .row {
-        display: flex;
-        column-gap: 0.5rem;
-        justify-content: space-between;
-        font-weight: 600;
-        flex-wrap: wrap;
-    }
-
-    dd {
-        margin: 0;
-    }
-
-    dt {
-        font-weight: normal;
-    }
-
-    .not-max dd,
-    :global(.not-max .input-level-wrapper),
-    .not-max .level-text {
+    .color-level-sync {
         color: #fe5162;
     }
 
-    .level-text {
-        font: inherit;
-        margin: 0;
-        line-height: 1.4;
-    }
-
-    .level-hint {
-        font-weight: normal;
-        margin: 0;
-        color: var(--text2) !important;
-        font-size: var(--step--1);
-        line-height: 1.4;
-
-        b {
-            color: var(--text1);
-            font-weight: 700;
-        }
-
-        &.invalid,
-        &.invalid b {
-            color: crimson !important;
-        }
-    }
-
-    :global(.level-controls > label) {
-        flex: 1;
-    }
-
-    button.reset-level {
-        border-radius: 5px;
-        padding: 0.5rem;
-        color: var(--accent1);
-        background: var(--surface2);
-        border: 1px solid var(--surface3);
-        box-shadow: none;
-
-        &:hover:not(:disabled),
-        &:focus-visible {
-            background: var(--surface3);
-        }
-
-        &:active:not(:disabled) {
-            filter: brightness(0.9);
-        }
-
-        &:disabled,
-        &:hover:disabled {
-            color: gray !important;
-        }
+    tbody tr:first-of-type {
+        border: none !important;
     }
 </style>

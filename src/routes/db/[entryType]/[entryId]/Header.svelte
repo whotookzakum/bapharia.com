@@ -36,42 +36,46 @@
             ja_JP: "ブリッツランサー",
             en_US: "Blitz Lancer",
         },
+        "21": {
+            ja_JP: "ビートパーフォーマー",
+            en_US: "Beat Performer",
+        },
     };
 
-    const ELEMENT_NAMES = {
-        "3": {
-            ja_JP: "火属性",
-            en_US: "Fire",
-        },
-        "5": {
-            ja_JP: "雷属性",
-            en_US: "Thunder",
-        },
-        "4": {
-            ja_JP: "氷属性",
-            en_US: "Ice",
-        },
-        "2": {
-            ja_JP: "土属性",
-            en_US: "Earth",
-        },
-        "6": {
-            ja_JP: "光属性",
-            en_US: "Light",
-        },
-        "7": {
-            ja_JP: "闇属性",
-            en_US: "Dark",
-        },
-        "0": {
-            ja_JP: "無属性",
-            en_US: "No Element",
-        },
-        Empty: {
-            ja_JP: "無属性",
-            en_US: "No Element",
-        },
-    };
+    // const ELEMENT_NAMES = {
+    //     "3": {
+    //         ja_JP: "火属性",
+    //         en_US: "Fire",
+    //     },
+    //     "5": {
+    //         ja_JP: "雷属性",
+    //         en_US: "Thunder",
+    //     },
+    //     "4": {
+    //         ja_JP: "氷属性",
+    //         en_US: "Ice",
+    //     },
+    //     "2": {
+    //         ja_JP: "土属性",
+    //         en_US: "Earth",
+    //     },
+    //     "6": {
+    //         ja_JP: "光属性",
+    //         en_US: "Light",
+    //     },
+    //     "7": {
+    //         ja_JP: "闇属性",
+    //         en_US: "Dark",
+    //     },
+    //     "0": {
+    //         ja_JP: "無属性",
+    //         en_US: "No Element",
+    //     },
+    //     Empty: {
+    //         ja_JP: "無属性",
+    //         en_US: "No Element",
+    //     },
+    // };
 
     const ELEMENT_NAMES_SKILL = {
         "1": {
@@ -148,6 +152,15 @@
             zone: "Asia/Tokyo",
         }).toLocaleString(DateTime[format]);
     }
+
+    const ELEMENT_NAMES = {
+        1: "Fire",
+        2: "Thunder",
+        3: "Ice",
+        4: "Earth",
+        5: "Light",
+        6: "Dark",
+    };
 </script>
 
 <header>
@@ -182,9 +195,29 @@
             </Tag>
         {/if}
 
-        {#if data.classImg}
+        {#if data.element}
             <Tag>
-                <img src={data.classImg} alt="" width="24" height="24" />
+                <img
+                    src="/UI/Icon/Attribute/UI_IconAttribute_{data.element}.png"
+                    alt=""
+                    width="24"
+                    height="24"
+                    style="flex: unset"
+                />
+                <span>{ELEMENT_NAMES[data.element]}</span>
+            </Tag>
+        {/if}
+
+        {#if data.equip_class || data.class_type}
+            <Tag>
+                <img
+                    src="/UI/Icon/Class/UI_IconClass_{(data.equip_class || data.class_type)
+                        .toString()
+                        .padStart(2, '0')}.png"
+                    alt=""
+                    width="24"
+                    height="24"
+                />
                 <span style="margin-right: 0rem">
                     {CLASS_NAMES[data.equip_class || data.class_type][
                         $userLocale
@@ -219,26 +252,6 @@
                 </div>
                 <span>{data.imagineSkill.type[$userLocale]}</span>
             </div>
-        {/if}
-
-        {#if data.elementImg}
-            <Tag>
-                <img src={data.elementImg} alt="" width="24" height="24" />
-                {#if data.entryTypes[0] === "Skill"}
-                    <span
-                        >{ELEMENT_NAMES_SKILL[
-                            data.elementImg
-                                .replace(
-                                    "/UI/Icon/Attribute/UI_IconAttribute_",
-                                    "",
-                                )
-                                .replace(".png", "")
-                        ][$userLocale]}</span
-                    >
-                {:else}
-                    <span>{ELEMENT_NAMES[data.attribute][$userLocale]}</span>
-                {/if}
-            </Tag>
         {/if}
     </div>
 </header>

@@ -2,7 +2,7 @@ export { getText, getCategory } from "./text"
 export { getFile } from "./file"
 export { getAssets } from "./assets"
 export { getSources } from "./sources"
-export { getAbilities, getEquipmentStats } from "./stats"
+export { getAbilities, getEquipmentStats, getLimitBreakStats } from "./stats"
 export { getRewardItemBrief, getReward } from "./rewards"
 
 export const fetchDTs = async (clientFiles) => {

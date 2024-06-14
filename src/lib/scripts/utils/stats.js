@@ -4,6 +4,7 @@ import PERKS from "$bp_api/japan/perks.json"
 import PERK_PICK from "$bp_api/japan/imagine/perk_pick.json";
 import WEAPON_STATUS_LEVELS from "$bp_api/japan/weapon_status_levels.json";
 import IMAGINE_PARAM_LEVEL from "$bp_api/japan/imagine/param_level.json";
+import MASTER_WEAPON_STATUSADD_BYSTACKBOOSTS from "$bp_api/japan/master_weapon_statusadd_bystackboosts.json";
 import { getText } from "./index"
 
 export function getAbilities(tableId, lang) {
@@ -30,7 +31,7 @@ export function getAbilities(tableId, lang) {
                         // Imagine perks
                         // value2 is unused--it's always 0
                         const value1 = weaponPerk[`ability_parts${key.charAt(key.length - 1)}_value1`]
-                        
+
                         if (value1 > 0) {
                             acc.push({ text: { name }, value1 })
                         }
@@ -65,6 +66,20 @@ export function getEquipmentStats(id, keys, returnAsObject = false) {
             return acc
         }, {})
     }
+
+    return stats
+}
+
+export function getLimitBreakStats(id, keys) {
+    const stats = [...MASTER_WEAPON_STATUSADD_BYSTACKBOOSTS]
+        .filter(obj => obj.pattern_id == id)
+        .map(obj => {
+            return Object.entries(obj).reduce((acc, [key, value]) => {
+                const statKey = key.replace("add_", "")
+                if (keys.includes(statKey)) acc[statKey] = value
+                return acc
+            }, {})
+        })
 
     return stats
 }
