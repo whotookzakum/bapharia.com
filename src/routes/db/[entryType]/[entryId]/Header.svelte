@@ -1,7 +1,6 @@
 <script>
     import Tag from "$lib/components/Tag.svelte";
     import { userLocale } from "$lib/stores.js";
-    import Icon from "@iconify/svelte";
     import { DateTime } from "luxon";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import TYPES_TEXT from "$scripts/utils/categories.json";
@@ -29,12 +28,6 @@
             ja_JP: "水瓶",
             en_US: "Vessel", // Water jug,
         },
-    };
-
-    const IMAGINE_SKILL_TYPE_ICONS = {
-        attack: "mdi:sword-cross",
-        support: "ri:shield-cross-fill",
-        heal: "mdi:heart",
     };
 
     const LEVEL_TEXT = {

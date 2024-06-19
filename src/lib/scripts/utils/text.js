@@ -4,6 +4,7 @@ const langs = {}
 
 const allTextsFiles = import.meta.glob("/src/bp_api/**/texts/*.json", { import: "default" })
 
+console.log("Transforming text files into objects...")
 Object.entries(allTextsFiles)
     .filter(([key, value]) => key.match(/^(?!.*ja_JP).*global.*/) || key.match(/^(?=.*japan)(?=.*ja_JP).*$/))
     .forEach(async ([key, value]) => {
@@ -17,6 +18,7 @@ Object.entries(allTextsFiles)
             return acc
         }, {})
     })
+console.log("Done")
 
 export function getText(ns, id, lang) {
     lang ??= "ja_JP"

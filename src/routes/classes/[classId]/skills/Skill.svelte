@@ -7,7 +7,7 @@
     import notesData from "./skill-notes.json";
     import SkillIcon from "./SkillIcon.svelte";
     import { userLocale } from "$lib/stores";
-    import categories from "$scripts/utils/categories";
+    import TYPES_TEXT from "$scripts/utils/categories";
     import Icon from "@iconify/svelte";
 
     export let skill = {};
@@ -25,14 +25,24 @@
     let animationCancels = animationCancelsData[skill.id];
     let notes = notesData[skill.id];
 
+    const eleStringIdToId = {
+        Fire: 1,
+        Thunder: 2,
+        Ice: 3,
+        Earth: 4,
+        Light: 5,
+        Dark: 6,
+    };
+
     function getTags() {
         let tags = [];
 
         skill.text.element?.split(/(?=[A-Z])/).forEach((substr) => {
+            const id = eleStringIdToId[substr];
             if (substr !== "None")
                 tags.push({
-                    idString: substr,
-                    text: categories[$userLocale].Element[substr],
+                    idString: id, // Change "Fire", "Thunder" etc. to 1, 2, etc.
+                    text: TYPES_TEXT[$userLocale].Element[id],
                 });
         });
 
@@ -40,40 +50,50 @@
             if (substr !== "None")
                 tags.push({
                     idString: substr,
-                    text: categories[$userLocale].SkillType[substr],
+                    text: TYPES_TEXT[$userLocale].SkillType[substr],
                 });
         });
 
         return tags.filter((tag) => tag !== "None");
     }
 
-    function getDisplayCooldown(
+    // Return whether ANY of the stats (key values) provided differ from the previous skill level
+    function getStatsChanged(
+        keys,
         skillLevel,
         variantIndex,
         skillLevels,
         levelIndex,
     ) {
-        const hasCooldown = skillLevel[variantIndex].skillLevelData?.cooldown;
+        return keys.some((key) => {
+            const value =
+                skillLevel[variantIndex].skillLevelData &&
+                skillLevel[variantIndex].skillLevelData[key];
 
-        // G1 normal should always be shown
-        if (levelIndex === 0 && variantIndex === 0) return hasCooldown;
+            if (!value) return
 
-        let differsFromPrevious = false;
+            // G1 normal should always be shown
+            if (levelIndex === 0 && variantIndex === 0) return true;
 
-        // Compare alpha and beta cooldown to normal variant in the same grade
-        if (variantIndex > 0) {
-            differsFromPrevious =
-                skillLevel[variantIndex].skillLevelData.cooldown !==
-                skillLevel[0].skillLevelData.cooldown;
-        }
-        // Compare normal variant to previous grade's normal variant
-        else if (skillLevels[levelIndex - 1][0]?.skillLevelData?.cooldown) {
-            differsFromPrevious =
-                skillLevel[variantIndex].skillLevelData.cooldown !==
-                skillLevels[levelIndex - 1][0].skillLevelData.cooldown;
-        }
+            let differsFromPrevious = false;
+            const currentGradeNormalVariant = skillLevel[0].skillLevelData[key]
+            const previousGradeNormalVariant = skillLevels[levelIndex - 1][0]?.skillLevelData && skillLevels[levelIndex - 1][0].skillLevelData[key]
 
-        return hasCooldown && differsFromPrevious;
+            // A value appearing midway through levels (i.e. starts at G4 but does not exist on G1) should always be shown
+            if (levelIndex > 0 && !previousGradeNormalVariant) differsFromPrevious = true
+
+            // Compare alpha and beta to normal variant in the same grade
+            if (variantIndex > 0) {
+                differsFromPrevious = value !== currentGradeNormalVariant;
+            }
+            
+            // Compare normal variant to previous grade's normal variant
+            else if (previousGradeNormalVariant) {
+                differsFromPrevious = value !== previousGradeNormalVariant;
+            }
+
+            return differsFromPrevious;
+        });
     }
 </script>
 
@@ -85,7 +105,10 @@
             <span style="font-weight: 600">{skill.text.name}</span>
             <span class="mini-header">
                 {#each getTags() as { idString, text }}
-                    <span style:color="var(--color-{idString})">{text}</span>
+                    <span
+                        style:color="var(--color-{idString}, var(--element{idString}))"
+                        >{text}</span
+                    >
                 {/each}
                 {#if skill.ability_type === 100}
                     <span style="color: var(--accent2);">Shareable</span>
@@ -116,9 +139,12 @@
                                 {variant.text.desc}
                             </dd>
                         {/if}
-                        <div class="tags-section flex flex-wrap gap-x-4">
-                            {#if getDisplayCooldown(skillLevel, variantIndex, skill.skillLevels, levelIndex)}
-                                <dd class="cooldown">
+                        <div
+                            class="tags-section flex flex-wrap gap-x-4 skill-values"
+                        >
+                            <!-- Cooldown -->
+                            {#if getStatsChanged(["cooldown"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
                                     <!-- ph:timer-duotone -->
                                     <Icon
                                         icon="material-symbols:timer-outline"
@@ -129,23 +155,75 @@
                                         cooldown
                                     </span>
                                 </dd>
-                                <dd class="cooldown">
+                            {/if}
+
+                            <!-- EP Cost -->
+                            {#if variant.skillLevelData?.mpPerSecond}
+                                {#if getStatsChanged(["mpCost", "mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                    <dd>
+                                        <Icon
+                                            icon="ph:sparkle-fill"
+                                            style="color: deeppink; font-size: var(--step-1);"
+                                        />
+                                        <span>
+                                            Consumes {variant.skillLevelData
+                                                .mpCost}
+                                            EP and {variant.skillLevelData
+                                                .mpPerSecond} EP/second ({variant
+                                                .skillLevelData
+                                                .mpPerSecondMoving} EP/sec while
+                                            moving)
+                                        </span>
+                                    </dd>
+                                {/if}
+                            {:else if getStatsChanged(["mpCost"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
                                     <Icon
-                                        icon="ph:fire-duotone"
-                                        style="color: crimson; font-size: var(--step-1);"
+                                        icon="ph:sparkle-fill"
+                                        style="color: deeppink; font-size: var(--step-1);"
                                     />
-                                    <span> 480% damage </span>
-                                </dd>
-                                <dd class="cooldown">
-                                    <!-- ant-design:fire-twotone -->
-                                    <!-- bi:lightning-charge-fill or bi:lightning-charge with color limegreen -->
-                                    <Icon
-                                        icon="bi:lightning-charge"
-                                        style="color: limegreen; font-size: var(--step-1);"
-                                    />
-                                    <span> 55 elemental charge </span>
+                                    <span>
+                                        Consumes {variant.skillLevelData.mpCost}
+                                        EP
+                                    </span>
                                 </dd>
                             {/if}
+
+                            <!-- Reduce Damage received -->
+                            {#if variant.skillLevelData?.receiveDamageDown}
+                                {#if getStatsChanged(["receiveDamageDown"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                    <dd>
+                                        <Icon
+                                            icon="icon-park-twotone:shield"
+                                            style="color: var(--success); font-size: var(--step-1);"
+                                        />
+                                        <span>
+                                            Receive {variant.skillLevelData
+                                                .receiveDamageDown}% less damage
+                                        </span>
+                                    </dd>
+                                {/if}
+                            {/if}
+
+                            <!-- Damage -->
+                            <!-- <dd>
+                                <Icon
+                                    icon="ph:fire-duotone"
+                                    style="color: var(--danger); font-size: var(--step-1);"
+                                />
+                                <span> 480% damage </span>
+                            </dd> -->
+
+                            <!-- Elemental Charge -->
+                            <!-- <dd>
+                                ant-design:fire-twotone
+                                bi:lightning-charge-fill
+                                <Icon
+                                    icon="bi:lightning-charge"
+                                    style="color: var(--success); font-size: var(--step-1);"
+                                />
+                                <span> 55 elemental charge </span>
+                            </dd> -->
                         </div>
                         <!-- <div class="mt-2">
                             <div class="flex items-center gap-2">
@@ -159,14 +237,54 @@
     </dl>
     <h3 class="mini-header">Animation Cancels</h3>
     <ul class="mini-header">
-        <li><Icon icon="mdi:checkbox-blank-circle-outline" style="font-size: var(--step-1)" /> Jump</li>
-        <li class="enabled"><Icon icon="mdi:checkbox-marked-circle-outline" style="font-size: var(--step-1)" /> Springboard Jump</li>
-        <li class="recommended"><Icon icon="mdi:checkbox-marked-circle-auto-outline" style="font-size: var(--step-1)" /> Class Action</li>
-        <li class="enabled"><Icon icon="mdi:checkbox-marked-circle-outline" style="font-size: var(--step-1)" /> Dodge</li>
-        <li class="enabled"><Icon icon="mdi:checkbox-marked-circle-outline" style="font-size: var(--step-1)" /> Battle Imagine</li>
-        <li><Icon icon="mdi:checkbox-blank-circle-outline" style="font-size: var(--step-1)" /> Ultimate Skill</li>
-        <li><Icon icon="mdi:checkbox-blank-circle-outline" style="font-size: var(--step-1)" /> Treasure Chest</li>
-        <li><Icon icon="mdi:checkbox-blank-circle-outline" style="font-size: var(--step-1)" /> Supplier</li>
+        <li>
+            <Icon
+                icon="mdi:checkbox-blank-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Jump
+        </li>
+        <li class="enabled">
+            <Icon
+                icon="mdi:checkbox-marked-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Springboard Jump
+        </li>
+        <li class="recommended">
+            <Icon
+                icon="mdi:checkbox-marked-circle-auto-outline"
+                style="font-size: var(--step-1)"
+            /> Class Action
+        </li>
+        <li class="enabled">
+            <Icon
+                icon="mdi:checkbox-marked-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Dodge
+        </li>
+        <li class="enabled">
+            <Icon
+                icon="mdi:checkbox-marked-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Battle Imagine
+        </li>
+        <li>
+            <Icon
+                icon="mdi:checkbox-blank-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Ultimate Skill
+        </li>
+        <li>
+            <Icon
+                icon="mdi:checkbox-blank-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Treasure Chest
+        </li>
+        <li>
+            <Icon
+                icon="mdi:checkbox-blank-circle-outline"
+                style="font-size: var(--step-1)"
+            /> Supplier
+        </li>
     </ul>
     <div class="flex gap-4 flex-wrap">
         <small class="flex items-center gap-1 text3 font-semibold">
@@ -175,7 +293,10 @@
         <small class="flex items-center gap-1 text1 font-semibold">
             <Icon icon="mdi:checkbox-marked-circle-outline" /> Cancel available
         </small>
-        <small class="flex items-center gap-1 font-semibold" style="color: limegreen;">
+        <small
+            class="flex items-center gap-1 font-semibold"
+            style="color: limegreen;"
+        >
             <Icon icon="mdi:checkbox-marked-circle-auto-outline" /> Recommended cancel
         </small>
     </div>
@@ -217,7 +338,7 @@
         margin-top: 0.5rem;
     }
 
-    .cooldown {
+    .skill-values {
         font-size: var(--step--1);
         color: var(--text2); // text2 or accent2
         font-weight: 600;

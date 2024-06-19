@@ -1,4 +1,5 @@
 import SKILL_DATA from "$bp_api/japan/skill_data.json";
+import AnimationCancels from "$bp_client/skill_animation_cancels.json";
 import { getCategory, getFile, getText } from "./utils";
 import allBuffs from "./buffs"
 import skillz from "./skillz.json";
@@ -9,105 +10,6 @@ import uniq from "lodash/uniq";
 // TODO: add status ailments
 // TODO: connect attackID to attack_data.json
 // TODO: add master_attack_modifier_data.json for skill damage
-
-// Only return relevant data from the client
-function getRelevantClientDataForSkill(skillId) {
-    const skillData = getClientSkillData(skillId)
-    if (skillData) {
-        const { SkillName, BgType, ElementType, ExpansionElementType, Properties } = skillData
-        return {
-            SkillName,
-            BgType: BgType.replace("ESBSkillIconBgType::", ""),
-            ElementType: ElementType.replace("ESBSkillElementIconType::", ""),
-            ExpansionElementType,
-            Properties
-        }
-    }
-}
-
-function getAllBuffsForSkill(skillId) {
-    const skillData = getClientSkillData(skillId)
-    if (skillData) {
-        return skillData.BufIconMap.reduce((acc, curr) => {
-            Object.entries(curr).forEach(([skillLevel, value]) => {
-                const buffsData = value.BuffList.map(buffTextId => {
-                    const details = allBuffs.find(b => b.textId === buffTextId)
-                    return {
-                        buffTextId,
-                        ...details
-                    }
-                })
-
-                acc[skillLevel] = buffsData
-            })
-            return acc
-        }, {})
-    }
-}
-
-function getBuffsForSkillLevel(skill, skillLevel) {
-    if (!skillLevel) return []
-    const allBuffs = getAllBuffsForSkill(skill.skill_id)
-    return allBuffs ? allBuffs[skillLevel] : []
-}
-
-function getAllAbilitiesForSkill(skillId) {
-    return SKILL_DATA
-        .filter(skill => skill.condition_skill_id_1 === skillId || skill.condition_skill_id_2 === skillId)
-}
-
-function getAbilitiesForSkillLevel(skill, skillLevel) {
-    if (!skillLevel) return []
-
-    const allAbilities = getAllAbilitiesForSkill(skill.skill_id)
-
-    return allAbilities
-        .filter(abil =>
-            abil.condition_skill_level_1 === skillLevel
-            || abil.condition_skill_level_2 === skillLevel)
-        .map(abil => {
-            const client_data = getRelevantClientDataForSkill(abil.skill_id)
-            const ability_levels = getSkillLevelsData(abil)
-
-            return {
-                id: abil.skill_id,
-                ability_type: abil.ability_type,
-                class_level: abil.class_level,
-                ability_levels,
-                // client_data,
-            }
-        })
-        .sort((a, b) => a.ability_type - b.ability_type)
-}
-
-// Merges skill level data and abilities
-function getSkillLevelsWithAbilities(skill) {
-    const paramsArray = getSkillLevelsData(skill)
-    return paramsArray.map(params => {
-        const abilities = getAbilitiesForSkillLevel(skill, params.level)
-        return {
-            ...params,
-            abilities
-        }
-    })
-}
-
-// Merges skill_desc_array, skill_mastery_param, and buffs
-function getSkillLevelsData(skill) {
-    return skill.skill_desc_array.map((descObj, index) => {
-        const mastery_param = skill.skill_mastery_param ? skill.skill_mastery_param[index] : null
-        const fullDesc = getText("master_skill_data_text", descObj.desc)
-        const desc = getLevelDesc(fullDesc, index)
-        const buffs = getBuffsForSkillLevel(skill, mastery_param?.level)
-
-        return {
-            ...mastery_param,
-            desc,
-            buffs
-        }
-    })
-}
-
 
 const SkillDTs = await getSkillDTs()
 
@@ -246,6 +148,7 @@ async function processSkill(skill, lang) {
         const category = getCategory("Skill", skill_type === 8 ? `${skill_type}_${ability_type}` : skill_type, lang)
         const { SkillInfo, assets, SkillName, BgType, ElementType } = await SkillDTs[skill_id]
         const skillLevels = await getSkillLevels(skill, SkillInfo, lang)
+        const animation_cancels = AnimationCancels[skill.skill_id]
 
         return {
             SkillName,
@@ -253,6 +156,7 @@ async function processSkill(skill, lang) {
             skill_type,
             ability_type,
             class_type,
+            animation_cancels,
             text: {
                 name,
                 category,
@@ -334,9 +238,33 @@ async function getSkillLevels(skill, SkillInfo, lang) {
 function getSkillLevelData(SkillInfo, conditionParams) {
     if (!SkillInfo) return
 
+    const {
+        RecastTime,
+        RecastTimeModifyList,
+        MagicPoint,
+        MPCostModifyAmountSettingList,
+        bLaunchSkillPreInput,
+        LaunchSkillPreInputTime,
+
+        // Rampart
+        MaxShieldTime,
+        AdjustTimeConditionList,
+
+        // Blaze Blast
+        ActiveTimeMPChangeList,
+        ReceiveDamageDownRateSettingList,
+
+    } = SkillInfo.Properties || {}
+
+    const data = {}
+
     // StatusAilmentPriorityTable
+
     // bLaunchSkillPreInput
     // LaunchSkillPreInputTime
+    if (bLaunchSkillPreInput) data.pre_input_time = LaunchSkillPreInputTime
+
+
     // CastLaunchProjectileList
     // NeedParam
     // bCancelSameSkill
@@ -384,9 +312,6 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // UnsheatheZLaunchAmount
     // OverrideAirControl
 
-    // SKILL CAN BE CAST IMMEDIATELY (CAN BE USED AS AN ANIMATION CANCEL)
-    // bImmediateStart
-
     // AERIAL ATTACK
     // TakeBonusHeight
     // FloatingTime
@@ -425,9 +350,24 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // AttackRangeHModifyList
     // AttackRangeV
 
-    // BLAZE BLAST
-    // ActiveTimeMPChangeList
-    // ReceiveDamageDownRateSettingList
+    // Blaze Blast
+    if (ActiveTimeMPChangeList) {
+        ActiveTimeMPChangeList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.mpPerSecond = Math.abs(mod.FloatValue)
+            }
+            if (passesConditions(mod.ConditionList, conditionParams, true)) {
+                data.mpPerSecondMoving = data.mpPerSecond - mod.FloatValue
+            }
+        })
+    }
+    if (ReceiveDamageDownRateSettingList) {
+        ReceiveDamageDownRateSettingList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.receiveDamageDown = mod.FloatValue
+            }
+        })
+    }
 
     // SHIELD GUARD
     // CounterCost
@@ -435,9 +375,18 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // ImmediateStartForbidTags
     // bRepeatInput
 
-    // RAMPART
-    // MaxShieldTime
-    // AdjustTimeConditionList
+    // Rampart
+    if (MaxShieldTime) {
+        let result = MaxShieldTime
+        if (AdjustTimeConditionList) {
+            AdjustTimeConditionList.forEach(mod => {
+                if (passesConditions(mod.ConditionList, conditionParams)) {
+                    result = MaxShieldTime + mod.AddTimeSec
+                }
+            })
+        }
+        data.duration = result
+    }
     // NoShieldDamageStatusAilment
     // OverlapAttackProjectile
     // MeleePushBackAttack
@@ -530,14 +479,9 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // GENERATE AMP
     // MarkerRangeOverrideSettingList
     // GenerateSpeakerProjectileHandleList
-    // bEnableAutoTarget
 
     // ROOTERS SONG
     // AdditionalInputLaunchProjectileList
-
-    const { RecastTime, RecastTimeModifyList, MagicPoint, MPCostModifyAmountSettingList } = SkillInfo.Properties || {}
-
-    const data = {}
 
     const LevelSettingList = SkillInfo.Properties?.ChargeSkillSetting?.LevelSettingList
     // if (LevelSettingList) {
@@ -582,12 +526,16 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     return data
 }
 
-function passesConditions(conditions, conditionParams) {
+function passesConditions(conditions, conditionParams, customValue = false) {
     // ArrayLogic is always "ESBArrayLogicalOperator::AND", so .every() is fine here
     return conditions.every(condition => {
-        let comparisonParam;
+        let comparisonParam, comparisonResult;
 
         switch (condition.ConditionCheckType) {
+            case "ESBConditionCheckType::AnimTag": // animation playing (i.e. blaze blast)
+                return true
+            case "ESBConditionCheckType::MGC_MovingFireBurner": // moving or stationary during blaze blast
+                return customValue
             case "ESBConditionCheckType::SkillLevel":
             case "ESBConditionCheckType::EquippedPassiveSkillLevel":
                 comparisonParam = conditionParams.level;
@@ -600,20 +548,29 @@ function passesConditions(conditions, conditionParams) {
 
         switch (condition.Relation) {
             case "ESBMagnitudeRelation::Equal":
-                return comparisonParam === condition.IntValue
+                comparisonResult = comparisonParam === condition.IntValue
+                break;
             case "ESBMagnitudeRelation::Greater":
-                return comparisonParam > condition.IntValue
+                comparisonResult = comparisonParam > condition.IntValue
+                break;
             case "ESBMagnitudeRelation::GreaterOrEqual":
-                return comparisonParam >= condition.IntValue
+                comparisonResult = comparisonParam >= condition.IntValue
+                break;
             case "ESBMagnitudeRelation::Less":
-                return comparisonParam < condition.IntValue
+                comparisonResult = comparisonParam < condition.IntValue
+                break;
             case "ESBMagnitudeRelation::LessOrEqual":
-                return comparisonParam <= condition.IntValue
+                comparisonResult = comparisonParam <= condition.IntValue
+                break;
             case "ESBMagnitudeRelation::NotEqual":
-                return comparisonParam !== condition.IntValue
+                comparisonResult = comparisonParam !== condition.IntValue
+                break;
             case "ESBMagnitudeRelation::None":
-                return true
+                comparisonResult = true
+                break;
         }
+
+        return comparisonResult && !condition.bNot
     })
 }
 
@@ -699,6 +656,6 @@ export default skills
 // MaxChargeEffectList (soul combo particle and sound effects)
 // SkillStateMachine (animations)
 
-
-
+// bEnableAutoTarget (performer's "Breakdown")
+// bImmediateStart (can be cast immediately/used as animation cancel--appears on EnemyStepJumps)
 
