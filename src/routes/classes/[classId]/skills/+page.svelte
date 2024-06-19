@@ -9,10 +9,14 @@
     $: skills = data.skills
         .filter((s) => s.skillLevels[0]?.length > 0)
         .sort((a, b) => {
-            const [reqLevelA, reqLevelB] = [a.skillLevels[0][0].classLevel, b.skillLevels[0][0].classLevel]
-            if (reqLevelA === reqLevelB) return a.skill_id - b.skill_id
-            return reqLevelA - reqLevelB
+            const [reqLevelA, reqLevelB] = [
+                a.skillLevels[0][0].classLevel,
+                b.skillLevels[0][0].classLevel,
+            ];
+            if (reqLevelA === reqLevelB) return a.skill_id - b.skill_id;
+            return reqLevelA - reqLevelB;
         });
+    $: hiddenSkills = data.skills.filter((s) => !s.skillLevels[0]);
 </script>
 
 <MetaTags
@@ -54,6 +58,9 @@
             </li>
             <li>
                 <a href="#base-abilities" class="styled-link">Base Abilities</a>
+            </li>
+            <li>
+                <a href="#misc-skills" class="styled-link">Misc. Skills</a>
             </li>
         </ol>
     </nav>
@@ -126,8 +133,9 @@
             <h2 id="class-abilities">Class Abilities</h2>
             <p>
                 {metadata.title} can equip up to two class abilities from the below,
-                along with two <strong>shareable</strong> class abilities from other
-                classes (slots unlock at level 30 and 45).
+                along with two
+                <strong>shareable class abilities from other classes</strong> (slots
+                unlock at level 30 and 45).
             </p>
         </hgroup>
         {#each skills.filter((skill) => skill.skill_type === 8) as skill}
@@ -144,6 +152,16 @@
             </p>
         </hgroup>
         {#each skills.filter((skill) => skill.skill_type === 9) as skill}
+            <Skill {skill} />
+        {/each}
+    </section>
+
+    <section class="grid gap-4">
+        <hgroup>
+            <h2 id="misc-skills">Misc. Skills</h2>
+            <p></p>
+        </hgroup>
+        {#each hiddenSkills as skill}
             <Skill {skill} />
         {/each}
     </section>

@@ -70,23 +70,26 @@
                 skillLevel[variantIndex].skillLevelData &&
                 skillLevel[variantIndex].skillLevelData[key];
 
-            if (!value) return
+            if (!value) return;
 
             // G1 normal should always be shown
             if (levelIndex === 0 && variantIndex === 0) return true;
 
             let differsFromPrevious = false;
-            const currentGradeNormalVariant = skillLevel[0].skillLevelData[key]
-            const previousGradeNormalVariant = skillLevels[levelIndex - 1][0]?.skillLevelData && skillLevels[levelIndex - 1][0].skillLevelData[key]
+            const currentGradeNormalVariant = skillLevel[0].skillLevelData[key];
+            const previousGradeNormalVariant =
+                skillLevels[levelIndex - 1][0]?.skillLevelData &&
+                skillLevels[levelIndex - 1][0].skillLevelData[key];
 
             // A value appearing midway through levels (i.e. starts at G4 but does not exist on G1) should always be shown
-            if (levelIndex > 0 && !previousGradeNormalVariant) differsFromPrevious = true
+            if (levelIndex > 0 && !previousGradeNormalVariant)
+                differsFromPrevious = true;
 
             // Compare alpha and beta to normal variant in the same grade
             if (variantIndex > 0) {
                 differsFromPrevious = value !== currentGradeNormalVariant;
             }
-            
+
             // Compare normal variant to previous grade's normal variant
             else if (previousGradeNormalVariant) {
                 differsFromPrevious = value !== previousGradeNormalVariant;
@@ -102,7 +105,10 @@
         <!-- <SkillHeader {skill} /> -->
         <SkillIcon {skill} />
         <span class="flex flex-col-reverse">
-            <span style="font-weight: 600">{skill.text.name}</span>
+            <span style="font-weight: 600"
+                >{skill.text.name}
+                <sup class="mini-header">#{skill.skill_id}</sup></span
+            >
             <span class="mini-header">
                 {#each getTags() as { idString, text }}
                     <span
@@ -203,6 +209,20 @@
                                         </span>
                                     </dd>
                                 {/if}
+                            {/if}
+
+                            <!-- Activates Follow Bullet -->
+                            {#if getStatsChanged(["activatesFollowBullet"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <!-- cib:twoo -->
+                                    <!-- icon-park-twotone:radio-two -->
+                                    <!-- material-symbols:target -->
+                                    <Icon
+                                        icon="game-icons:silver-bullet"
+                                        style="color: var(--text2); font-size: var(--step-1);"
+                                    />
+                                    <span> Triggers Follow Bullet </span>
+                                </dd>
                             {/if}
 
                             <!-- Damage -->

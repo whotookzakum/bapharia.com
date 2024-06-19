@@ -250,6 +250,9 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         MaxShieldTime,
         AdjustTimeConditionList,
 
+        // Follow Bullet
+        EnableElementAmp,
+
         // Blaze Blast
         ActiveTimeMPChangeList,
         ReceiveDamageDownRateSettingList,
@@ -262,7 +265,7 @@ function getSkillLevelData(SkillInfo, conditionParams) {
 
     // bLaunchSkillPreInput
     // LaunchSkillPreInputTime
-    if (bLaunchSkillPreInput) data.pre_input_time = LaunchSkillPreInputTime
+    if (bLaunchSkillPreInput) data.preInputTime = LaunchSkillPreInputTime
 
 
     // CastLaunchProjectileList
@@ -329,9 +332,9 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // StatusRowHandle
     // StatusAilmentEffectiveTimeModifyList
 
-    // FOLLOW BULLET
-    // EnableElementAmp
-    // ElementSettingList
+    // Follow Bullet
+    // Whether a skill synergizes with Follow Bullet
+    if (EnableElementAmp) data.activatesFollowBullet = true
 
     // ENGRAM CHARGE
     // MPRecoverySpeed
@@ -658,4 +661,4 @@ export default skills
 
 // bEnableAutoTarget (performer's "Breakdown")
 // bImmediateStart (can be cast immediately/used as animation cancel--appears on EnemyStepJumps)
-
+// ElementSettingList (follow bullet sound effects etc)
