@@ -149,6 +149,7 @@ async function processSkill(skill, lang) {
         const { SkillInfo, assets, SkillName, BgType, ElementType } = await SkillDTs[skill_id]
         const skillLevels = await getSkillLevels(skill, SkillInfo, lang)
         const animation_cancels = AnimationCancels[skill.skill_id]
+        const hiddenSkillData = skillLevels.length < 1 ? getSkillLevelData(SkillInfo, {}) : undefined // for springboard jump, dodge, ukemi, etc.
 
         return {
             SkillName,
@@ -168,6 +169,7 @@ async function processSkill(skill, lang) {
                 ...await getExtraIcons(BgType, ElementType, skill_type, ability_type)
             },
             skillLevels,
+            hiddenSkillData,
             SkillInfo
         }
     }
@@ -245,10 +247,36 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         MPCostModifyAmountSettingList,
         bLaunchSkillPreInput,
         LaunchSkillPreInputTime,
+        bCancelSameSkill,
+        ConsumeStaminaAmount,
+        NeedParam,
+
+        // Springboard Jump
+        XYLaunchAmount,
+        SheatheZLaunchAmount,
+        UnsheatheZLaunchAmount,
+        OverrideAirControl,
+
+        // Resonance Shot
+        ElementSpreadProjectileSettingList,
+        ElementSpreadAccumulationSettingList,
+        BattleStatusSpreadSettingList,
+
+        // Shield Guard
+        CounterCost,
 
         // Rampart
         MaxShieldTime,
         AdjustTimeConditionList,
+
+        // Spell Caster Dodge
+        CastMPChangeList,
+
+        // Engram Charge
+        MPRecoverySpeed,
+        MPRecoverySpeedModifySettingList,
+        MPRecoveryAmount,
+        MPRecoveryAmountModifySettingList,
 
         // Follow Bullet
         EnableElementAmp,
@@ -257,20 +285,29 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         ActiveTimeMPChangeList,
         ReceiveDamageDownRateSettingList,
 
+        // Thunder Sphere
+        AttackRangeH,
+        AttackRangeV,
+        AttackRangeHModifyList,
+
     } = SkillInfo.Properties || {}
 
     const data = {}
 
     // StatusAilmentPriorityTable
 
-    // bLaunchSkillPreInput
-    // LaunchSkillPreInputTime
-    if (bLaunchSkillPreInput) data.preInputTime = LaunchSkillPreInputTime
+    // TODO: Archer Springboard (#699) does not have stamina cost
+    // TODO: Ukemi stamina cost?
+    // Spell Caster/Beat Performer NeedParam has a condition that reduces stamina cost of dodge? might be unused
 
+    if (bLaunchSkillPreInput) data.preInputTime = LaunchSkillPreInputTime
+    if (bCancelSameSkill) data.chainable = bCancelSameSkill
+    if (ConsumeStaminaAmount) data.stCost = ConsumeStaminaAmount // springboard jump
+    if (NeedParam?.NeedStamina) data.stCost = NeedParam.NeedStamina // dodge
 
     // CastLaunchProjectileList
     // NeedParam
-    // bCancelSameSkill
+
     // GaugeAmountBaseMultiplier
     // GaugeAmountAddSettingList
     // GaugeAmountWeakPointHitMultiplierSettingList
@@ -288,7 +325,6 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // StatusAlimentHandleList
     // ProjectileLevelSettingList
     // DamageUpSettingList
-    // ConsumeStaminaAmount
     // bCheckCartridgeAmountBeforeCastSkill
     // ConsumeStaminaAmountList (hammer throw and dust vortex)
     // MoveSpeedRateSettingList (hammer throw and dust vortex)
@@ -301,19 +337,26 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // bCorrespondToPrepareStyle
     // AttackHitVoltageGaugeAddList (heat gauge added per hit)
 
-    // RESONANCE SHOT
-    // ElementSpreadProjectileSettingList
-    // ElementSpreadAccumulationSettingList
-    // BattleStatusSpreadSettingList
+    // Resonance Shot
+    if (ElementSpreadAccumulationSettingList) {
+        ElementSpreadAccumulationSettingList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.eleAccumulationRate = mod.AccumulationRate
+                data.eleAccumulationMax = mod.AccumulationMax
+            }
+        })
+    }
+    // ElementSpreadProjectileSettingList (data for levels--changes size--and spreading buffs)
+    // BattleStatusSpreadSettingList (debuffs spread by beta)
 
     // SAGITTARRIUS
     // HatTrickWeakPointHitDamageModifySettingList
 
     // SPRINGBOARD JUMP
-    // XYLaunchAmount
-    // SheatheZLaunchAmount
-    // UnsheatheZLaunchAmount
-    // OverrideAirControl
+    if (XYLaunchAmount) data.jumpDistance = Math.abs(XYLaunchAmount)
+    if (SheatheZLaunchAmount) data.jumpHeightSheathed = SheatheZLaunchAmount
+    if (UnsheatheZLaunchAmount) data.jumpHeightUnsheathed = UnsheatheZLaunchAmount
+    // if (OverrideAirControl) data.overrideAirControl = OverrideAirControl // not sure what this does
 
     // AERIAL ATTACK
     // TakeBonusHeight
@@ -333,25 +376,42 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // StatusAilmentEffectiveTimeModifyList
 
     // Follow Bullet
-    // Whether a skill synergizes with Follow Bullet
-    if (EnableElementAmp) data.activatesFollowBullet = true
+    if (EnableElementAmp) data.activatesFollowBullet = true // Whether a skill activates Follow Bullet projectiles or not
 
-    // ENGRAM CHARGE
-    // MPRecoverySpeed
-    // MPRecoverySpeedModifySettingList
-    // MPRecoveryAmount
-    // MPRecoveryAmountModifySettingList
+    // Engram Charge
+    if (MPRecoverySpeed) data.mpRecoverySpeed = MPRecoverySpeed
+    if (MPRecoverySpeedModifySettingList) {
+        MPRecoverySpeedModifySettingList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.mpRecoverySpeed = mod.FloatValue
+            }
+        })
+    }
+    if (MPRecoveryAmount) data.mpRecoveryAmount = MPRecoveryAmount
+    if (MPRecoveryAmountModifySettingList) {
+        MPRecoveryAmountModifySettingList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.mpRecoveryAmount = MPRecoveryAmount + (mod.FloatValue / 10)
+            }
+        })
+    }
 
-    // SPELL CASTER DODGE
-    // CastMPChangeList
+    // Spell Caster Dodge
+    if (CastMPChangeList) data.dodgeAttackMpRecovery = CastMPChangeList[0].FloatValue
 
-    // THUNDER SPHERE
+    // Thunder Sphere
+    if (AttackRangeH) data.rangeHorizontal = AttackRangeH
+    if (AttackRangeV) data.rangeVertical = AttackRangeV
+    if (AttackRangeHModifyList) {
+        AttackRangeHModifyList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.rangeHorizontal = AttackRangeH * ((mod.FloatValue + 100) / 100)
+            }
+        })
+    }
     // LaunchProjectileList
     // LaunchProjectileCycle (how often it attacks)
     // LaunchProjectileCycleModifyList
-    // AttackRangeH
-    // AttackRangeHModifyList
-    // AttackRangeV
 
     // Blaze Blast
     if (ActiveTimeMPChangeList) {
@@ -372,11 +432,8 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         })
     }
 
-    // SHIELD GUARD
-    // CounterCost
-    // bImmediateStartOnlyTrigger
-    // ImmediateStartForbidTags
-    // bRepeatInput
+    // Shield Guard
+    if (typeof CounterCost !== "undefined") data.counterCost = CounterCost
 
     // Rampart
     if (MaxShieldTime) {
@@ -504,7 +561,7 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         if (RecastTimeModifyList) {
             RecastTimeModifyList.forEach(mod => {
                 if (passesConditions(mod.ConditionList, conditionParams)) {
-                    data.cooldown = RecastTime + mod.ModifyValue
+                    data.cooldown = (data.cooldown ?? RecastTime) + mod.ModifyValue
                 }
             })
         }
@@ -659,6 +716,8 @@ export default skills
 // MaxChargeEffectList (soul combo particle and sound effects)
 // SkillStateMachine (animations)
 
+// Not included for now ========================================================================
 // bEnableAutoTarget (performer's "Breakdown")
 // bImmediateStart (can be cast immediately/used as animation cancel--appears on EnemyStepJumps)
 // ElementSettingList (follow bullet sound effects etc)
+// bImmediateStartOnlyTrigger, ImmediateStartForbidTags, bRepeatInput (shield guard)

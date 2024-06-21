@@ -73,19 +73,6 @@
             skill. Class Action (or Subaction) refers to the second Base Action
             (right click).
         </p>
-        <p aria-hidden="true">
-            For animation cancels, a sparkle icon <Icon
-                icon="ph:sparkle-fill"
-                style="margin-bottom: -2px"
-                color="goldenrod"
-            /> indicates recommended animations cancel for that skill. Context on
-            when to perform the cancel is provided if necessary.
-        </p>
-        <p class="visually-hidden">
-            For animation cancels, recommended cancels for that skill are
-            prefixed with "Recommended". Context on when to perform the cancel
-            is provided if necessary.
-        </p>
     </section>
 
     <section class="grid gap-4">

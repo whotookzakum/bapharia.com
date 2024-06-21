@@ -9,6 +9,7 @@
     import { userLocale } from "$lib/stores";
     import TYPES_TEXT from "$scripts/utils/categories";
     import Icon from "@iconify/svelte";
+    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
 
     export let skill = {};
 
@@ -70,7 +71,7 @@
                 skillLevel[variantIndex].skillLevelData &&
                 skillLevel[variantIndex].skillLevelData[key];
 
-            if (!value) return;
+            if (!value) return false;
 
             // G1 normal should always be shown
             if (levelIndex === 0 && variantIndex === 0) return true;
@@ -97,6 +98,17 @@
 
             return differsFromPrevious;
         });
+    }
+
+    const icons = {
+        cooldown: {
+            icon: "material-symbols:timer-outline",
+            color: "var(--accent2)"
+        }
+    }
+
+    function getStatText() {
+        return "Test";
     }
 </script>
 
@@ -148,6 +160,7 @@
                         <div
                             class="tags-section flex flex-wrap gap-x-4 skill-values"
                         >
+                            
                             <!-- Cooldown -->
                             {#if getStatsChanged(["cooldown"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
                                 <dd>
@@ -164,25 +177,7 @@
                             {/if}
 
                             <!-- EP Cost -->
-                            {#if variant.skillLevelData?.mpPerSecond}
-                                {#if getStatsChanged(["mpCost", "mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
-                                    <dd>
-                                        <Icon
-                                            icon="ph:sparkle-fill"
-                                            style="color: deeppink; font-size: var(--step-1);"
-                                        />
-                                        <span>
-                                            Consumes {variant.skillLevelData
-                                                .mpCost}
-                                            EP and {variant.skillLevelData
-                                                .mpPerSecond} EP/second ({variant
-                                                .skillLevelData
-                                                .mpPerSecondMoving} EP/sec while
-                                            moving)
-                                        </span>
-                                    </dd>
-                                {/if}
-                            {:else if getStatsChanged(["mpCost"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                            {#if getStatsChanged(["mpCost"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
                                 <dd>
                                     <Icon
                                         icon="ph:sparkle-fill"
@@ -190,38 +185,180 @@
                                     />
                                     <span>
                                         Consumes {variant.skillLevelData.mpCost}
-                                        EP
+                                        EP on use
+                                    </span>
+                                </dd>
+                            {/if}
+                            {#if getStatsChanged(["mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="ph:sparkle-fill"
+                                        style="color: var(--accent1); font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        Consumes {variant.skillLevelData
+                                            .mpPerSecond} EP/second ({variant
+                                            .skillLevelData.mpPerSecondMoving} EP/second
+                                        while moving)
+                                    </span>
+                                </dd>
+                            {/if}
+
+                            <!-- EP Recovery -->
+                            {#if getStatsChanged(["mpRecoveryAmount"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="streamline:graph-bar-increase-solid"
+                                        style="color: deeppink; font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        Recovers {variant.skillLevelData
+                                            .mpRecoveryAmount} EP on use
+                                    </span>
+                                </dd>
+                            {/if}
+                            {#if getStatsChanged(["mpRecoverySpeed"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="streamline:graph-bar-increase-solid"
+                                        style="color: var(--accent1); font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        Recovers {variant.skillLevelData
+                                            .mpRecoverySpeed} EP/second
                                     </span>
                                 </dd>
                             {/if}
 
                             <!-- Reduce Damage received -->
-                            {#if variant.skillLevelData?.receiveDamageDown}
-                                {#if getStatsChanged(["receiveDamageDown"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
-                                    <dd>
-                                        <Icon
-                                            icon="icon-park-twotone:shield"
-                                            style="color: var(--success); font-size: var(--step-1);"
-                                        />
-                                        <span>
-                                            Receive {variant.skillLevelData
-                                                .receiveDamageDown}% less damage
-                                        </span>
-                                    </dd>
-                                {/if}
+                            {#if getStatsChanged(["receiveDamageDown"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="icon-park-twotone:shield"
+                                        style="color: var(--success); font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        Receive {variant.skillLevelData
+                                            .receiveDamageDown}% less damage
+                                    </span>
+                                </dd>
                             {/if}
 
                             <!-- Activates Follow Bullet -->
                             {#if getStatsChanged(["activatesFollowBullet"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
                                 <dd>
-                                    <!-- cib:twoo -->
                                     <!-- icon-park-twotone:radio-two -->
                                     <!-- material-symbols:target -->
                                     <Icon
                                         icon="game-icons:silver-bullet"
-                                        style="color: var(--text2); font-size: var(--step-1);"
+                                        style="font-size: var(--step-1);"
                                     />
                                     <span> Triggers Follow Bullet </span>
+                                </dd>
+                            {/if}
+
+                            <!-- Pre-input time -->
+                            {#if getStatsChanged(["preInputTime"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="mingcute:finger-press-line"
+                                        style="font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        {variant.skillLevelData.preInputTime}s
+                                        pre-input time
+                                    </span>
+                                </dd>
+                            {/if}
+
+                            <!-- Self-cancelling skill -->
+                            {#if getStatsChanged(["chainable"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="cib:twoo"
+                                        style="color: var(--accent1); font-size: var(--step-1);"
+                                    />
+                                    <Tooltip inline>
+                                        <span>
+                                            Self-cancelling
+                                            <Icon
+                                                icon="ri:question-line"
+                                                style="color: var(--accent1); font-size: var(--step-1)"
+                                            />
+                                        </span>
+                                        <svelte:fragment slot="tooltip">
+                                            Ending animation is shortened when
+                                            using {skill.text.name} repeatedly.
+                                        </svelte:fragment>
+                                    </Tooltip>
+                                </dd>
+                            {/if}
+
+                            <!-- Range -->
+                            {#if getStatsChanged(["rangeHorizontal"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="icon-park-outline:auto-width-one"
+                                        style="color: var(--accent1); font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        Horizontal range {variant.skillLevelData
+                                            .rangeHorizontal} units
+                                    </span>
+                                </dd>
+                            {/if}
+                            {#if getStatsChanged(["rangeVertical"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="icon-park-outline:auto-height-one"
+                                        style="color: var(--danger); font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        Vertical range {variant.skillLevelData
+                                            .rangeVertical} units
+                                    </span>
+                                </dd>
+                            {/if}
+
+                            <!-- Elemental Charge -->
+                            {#if getStatsChanged(["eleAccumulationRate", "eleAccumulationMax"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <!-- ant-design:fire-twotone
+                                bi:lightning-charge-fill -->
+                                    <Icon
+                                        icon="bi:lightning-charge"
+                                        style="color: var(--success); font-size: var(--step-1);"
+                                    />
+                                    <span>
+                                        {variant.skillLevelData
+                                            .eleAccumulationRate}% elemental
+                                        charge ({variant.skillLevelData
+                                            .eleAccumulationMax} max)
+                                    </span>
+                                </dd>
+                            {/if}
+
+                            // TODO: automate this with the keys
+                            <!-- Counter Cost -->
+                            {#if getStatsChanged(["counterCost"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                <dd>
+                                    <Icon
+                                        icon="cib:twoo"
+                                        style="color: var(--accent1); font-size: var(--step-1);"
+                                    />
+                                    <Tooltip inline>
+                                        <span>
+                                            Self-cancelling
+                                            <Icon
+                                                icon="ri:question-line"
+                                                style="color: var(--accent1); font-size: var(--step-1)"
+                                            />
+                                        </span>
+                                        <svelte:fragment slot="tooltip">
+                                            Ending animation is shortened when
+                                            using {skill.text.name} repeatedly.
+                                        </svelte:fragment>
+                                    </Tooltip>
                                 </dd>
                             {/if}
 
@@ -233,17 +370,6 @@
                                 />
                                 <span> 480% damage </span>
                             </dd> -->
-
-                            <!-- Elemental Charge -->
-                            <!-- <dd>
-                                ant-design:fire-twotone
-                                bi:lightning-charge-fill
-                                <Icon
-                                    icon="bi:lightning-charge"
-                                    style="color: var(--success); font-size: var(--step-1);"
-                                />
-                                <span> 55 elemental charge </span>
-                            </dd> -->
                         </div>
                         <!-- <div class="mt-2">
                             <div class="flex items-center gap-2">
@@ -254,6 +380,89 @@
                 {/each}
             </div>
         {/each}
+        {#if skill.hiddenSkillData}
+            <div class="tags-section flex flex-wrap gap-x-4 skill-values">
+                {#if skill.hiddenSkillData.stCost}
+                    <dd>
+                        <Icon
+                            icon="ph:sparkle-fill"
+                            style="color: darkorchid; font-size: var(--step-1);"
+                        />
+                        <span>
+                            Consumes {skill.hiddenSkillData.stCost} Stamina
+                        </span>
+                    </dd>
+                {/if}
+                {#if skill.hiddenSkillData.dodgeAttackMpRecovery}
+                    <dd>
+                        <Icon
+                            icon="streamline:graph-bar-increase-solid"
+                            style="color: deeppink; font-size: var(--step-1);"
+                        />
+                        <span>
+                            Dodge attack recovers {skill.hiddenSkillData
+                                .dodgeAttackMpRecovery} EP on use
+                        </span>
+                    </dd>
+                {/if}
+                {#if skill.hiddenSkillData.jumpDistance}
+                    <dd>
+                        <Icon
+                            icon="icon-park-outline:auto-width-one"
+                            style="color: var(--accent1); font-size: var(--step-1);"
+                        />
+                        <span>
+                            Distance {skill.hiddenSkillData.jumpDistance} units
+                        </span>
+                    </dd>
+                {/if}
+                {#if skill.hiddenSkillData.jumpHeightSheathed}
+                    <dd>
+                        <Icon
+                            icon="icon-park-outline:auto-height-one"
+                            style="color: var(--danger); font-size: var(--step-1);"
+                        />
+                        <span>
+                            Height (sheathed) {skill.hiddenSkillData
+                                .jumpHeightSheathed} units
+                        </span>
+                    </dd>
+                {/if}
+                {#if skill.hiddenSkillData.jumpHeightUnsheathed}
+                    <dd>
+                        <Icon
+                            icon="icon-park-outline:auto-height-one"
+                            style="color: var(--success); font-size: var(--step-1);"
+                        />
+                        <span>
+                            Height (unsheathed) {skill.hiddenSkillData
+                                .jumpHeightUnsheathed} units
+                        </span>
+                    </dd>
+                {/if}
+                {#if skill.hiddenSkillData.chainable}
+                    <dd>
+                        <Icon
+                            icon="cib:twoo"
+                            style="color: var(--accent1); font-size: var(--step-1);"
+                        />
+                        <Tooltip inline>
+                            <span>
+                                Self-cancelling
+                                <Icon
+                                    icon="ri:question-line"
+                                    style="color: var(--accent1); font-size: var(--step-1)"
+                                />
+                            </span>
+                            <svelte:fragment slot="tooltip">
+                                Ending animation is shortened when using {skill
+                                    .text.name} repeatedly.
+                            </svelte:fragment>
+                        </Tooltip>
+                    </dd>
+                {/if}
+            </div>
+        {/if}
     </dl>
     <h3 class="mini-header">Animation Cancels</h3>
     <ul class="mini-header">
