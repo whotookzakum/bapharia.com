@@ -290,9 +290,26 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         AttackRangeV,
         AttackRangeHModifyList,
 
+        // Drain Spiral
+        LoopStamina,
+        LoopStaminaModifyList,
+
     } = SkillInfo.Properties || {}
 
     const data = {}
+
+    // Cooldown
+    if (RecastTime) {
+        if (RecastTimeModifyList) {
+            RecastTimeModifyList.forEach(mod => {
+                if (passesConditions(mod.ConditionList, conditionParams)) {
+                    data.cooldown = (data.cooldown ?? RecastTime) + mod.ModifyValue
+                }
+            })
+        }
+
+        if (!data.cooldown) data.cooldown = RecastTime
+    }
 
     // StatusAilmentPriorityTable
 
@@ -300,8 +317,6 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // TODO: Ukemi stamina cost?
     // Spell Caster/Beat Performer NeedParam has a condition that reduces stamina cost of dodge? might be unused
 
-    if (bLaunchSkillPreInput) data.preInputTime = LaunchSkillPreInputTime
-    if (bCancelSameSkill) data.chainable = bCancelSameSkill
     if (ConsumeStaminaAmount) data.stCost = ConsumeStaminaAmount // springboard jump
     if (NeedParam?.NeedStamina) data.stCost = NeedParam.NeedStamina // dodge
 
@@ -364,6 +379,15 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // FallSpeed
 
     // DRAIN SPIRAL
+    // TODO: find HP recovery amount
+    if (LoopStamina) data.stCostPerSpin = LoopStamina
+    if (LoopStaminaModifyList) {
+        LoopStaminaModifyList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.stCostPerSpin = (data.stCostPerSpin * ((mod.FloatValue + 100) / 100)).toFixed(2)
+            }
+        })
+    }
     // LoopStamina
     // LoopStaminaModifyList
 
@@ -375,23 +399,34 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // StatusRowHandle
     // StatusAilmentEffectiveTimeModifyList
 
-    // Follow Bullet
-    if (EnableElementAmp) data.activatesFollowBullet = true // Whether a skill activates Follow Bullet projectiles or not
+    // Spell caster EP cost
+    if (MagicPoint) {
+        // Reduce to one value because reduction can stack
+        if (MPCostModifyAmountSettingList) {
+            MPCostModifyAmountSettingList.forEach(mod => {
+                if (passesConditions(mod.ConditionList, conditionParams)) {
+                    data.mpCost = MagicPoint + mod.FloatValue
+                }
+            })
+        }
+
+        if (!data.mpCost) data.mpCost = MagicPoint
+    }
 
     // Engram Charge
-    if (MPRecoverySpeed) data.mpRecoverySpeed = MPRecoverySpeed
-    if (MPRecoverySpeedModifySettingList) {
-        MPRecoverySpeedModifySettingList.forEach(mod => {
-            if (passesConditions(mod.ConditionList, conditionParams)) {
-                data.mpRecoverySpeed = mod.FloatValue
-            }
-        })
-    }
     if (MPRecoveryAmount) data.mpRecoveryAmount = MPRecoveryAmount
     if (MPRecoveryAmountModifySettingList) {
         MPRecoveryAmountModifySettingList.forEach(mod => {
             if (passesConditions(mod.ConditionList, conditionParams)) {
                 data.mpRecoveryAmount = MPRecoveryAmount + (mod.FloatValue / 10)
+            }
+        })
+    }
+    if (MPRecoverySpeed) data.mpRecoverySpeed = MPRecoverySpeed
+    if (MPRecoverySpeedModifySettingList) {
+        MPRecoverySpeedModifySettingList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.mpRecoverySpeed = mod.FloatValue
             }
         })
     }
@@ -432,7 +467,11 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         })
     }
 
+    // Follow Bullet
+    if (EnableElementAmp) data.activatesFollowBullet = true // Whether a skill activates Follow Bullet projectiles or not
+
     // Shield Guard
+    // TODO: Find the shield recovery values
     if (typeof CounterCost !== "undefined") data.counterCost = CounterCost
 
     // Rampart
@@ -556,32 +595,8 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     //         .map(chargeLevel => chargeLevel.ChargeTime)
     // }
 
-    // Cooldown
-    if (RecastTime) {
-        if (RecastTimeModifyList) {
-            RecastTimeModifyList.forEach(mod => {
-                if (passesConditions(mod.ConditionList, conditionParams)) {
-                    data.cooldown = (data.cooldown ?? RecastTime) + mod.ModifyValue
-                }
-            })
-        }
-
-        if (!data.cooldown) data.cooldown = RecastTime
-    }
-
-    // Spell caster EP cost
-    if (MagicPoint) {
-        // Reduce to one value because reduction can stack
-        if (MPCostModifyAmountSettingList) {
-            MPCostModifyAmountSettingList.forEach(mod => {
-                if (passesConditions(mod.ConditionList, conditionParams)) {
-                    data.mpCost = MagicPoint + mod.FloatValue
-                }
-            })
-        }
-
-        if (!data.mpCost) data.mpCost = MagicPoint
-    }
+    if (bLaunchSkillPreInput) data.preInputTime = LaunchSkillPreInputTime
+    if (bCancelSameSkill) data.chainable = bCancelSameSkill
 
     return data
 }
