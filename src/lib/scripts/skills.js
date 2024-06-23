@@ -269,6 +269,11 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         MaxShieldTime,
         AdjustTimeConditionList,
 
+        // Shield Dash
+        DashStamina,
+        DashStaminaModifySettingList,
+        DashEndAttackID,
+
         // Spell Caster Dodge
         CastMPChangeList,
 
@@ -289,6 +294,8 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         AttackRangeH,
         AttackRangeV,
         AttackRangeHModifyList,
+        LaunchProjectileCycle,
+        LaunchProjectileCycleModifyList,
 
         // Drain Spiral
         LoopStamina,
@@ -435,6 +442,16 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     if (CastMPChangeList) data.dodgeAttackMpRecovery = CastMPChangeList[0].FloatValue
 
     // Thunder Sphere
+    if (LaunchProjectileCycle) data.hitInterval = LaunchProjectileCycle
+    if (LaunchProjectileCycleModifyList) {
+        let reduction = 0
+        LaunchProjectileCycleModifyList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                reduction += mod.FloatValue
+            }
+        })
+        data.hitInterval = LaunchProjectileCycle * ((reduction + 100) / 100)
+    }
     if (AttackRangeH) data.rangeHorizontal = AttackRangeH
     if (AttackRangeV) data.rangeVertical = AttackRangeV
     if (AttackRangeHModifyList) {
@@ -444,9 +461,7 @@ function getSkillLevelData(SkillInfo, conditionParams) {
             }
         })
     }
-    // LaunchProjectileList
-    // LaunchProjectileCycle (how often it attacks)
-    // LaunchProjectileCycleModifyList
+    // LaunchProjectileList (contains attacks)
 
     // Blaze Blast
     if (ActiveTimeMPChangeList) {
@@ -492,9 +507,15 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     // ShockWaveConditionList (condition for rampart b)
     // GuardSucceededSelfStatusAilmentList (buff from G4 successful guard)
 
-    // SHIELD DASH
-    // DashStamina
-    // DashStaminaModifySettingList
+    // Shield Dash
+    if (DashStamina) data.stPerSecond = DashStamina
+    if (DashStaminaModifySettingList) {
+        DashStaminaModifySettingList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                data.stPerSecond = (data.stPerSecond * ((mod.FloatValue + 100) / 100)).toFixed(2)
+            }
+        })
+    }
     // DashEndAttackID
 
     // GLITTER MODE

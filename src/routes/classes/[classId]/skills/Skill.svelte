@@ -111,7 +111,8 @@
         technical: "var(--accent1)",
         useResource: "deeppink",
         recoverResource: "var(--success)",
-        other: "inherit"
+        other: "inherit",
+        attack: "var(--danger)",
     };
 
     const icons = {
@@ -172,6 +173,10 @@
             icon: "game-icons:battery-pack",
             color: colors.useResource,
         },
+        stPerSecond: {
+            icon: "game-icons:battery-pack",
+            color: colors.useResource,
+        },
         stCostPerSpin: {
             icon: "game-icons:battery-pack",
             color: colors.useResource,
@@ -188,6 +193,14 @@
             icon: "icon-park-outline:auto-height-one",
             color: colors.technical,
         },
+        eleAccumulationRate: {
+            icon: "bi:lightning-charge", // ant-design:fire-twotone, bi:lightning-charge-fill
+            color: colors.recoverResource,
+        },
+        hitInterval: {
+            icon: "ph:bomb-duotone", // vaadin:bomb
+            color: colors.attack,
+        },
     };
 
     function getStatText(variant, key) {
@@ -197,6 +210,10 @@
 
         if (key === "mpPerSecond") {
             return `Consumes ${value} EP/second (${variant.skillLevelData.mpPerSecondMoving} EP/second while moving)`;
+        }
+
+        if (key === "eleAccumulationRate") {
+            return `${value}% elemental charge (${variant.skillLevelData.eleAccumulationMax} max)`;
         }
 
         switch (key) {
@@ -226,6 +243,8 @@
                 return `Counter consumes ${value} Shield Gauge`;
             case "stCost":
                 return `Consumes ${value} Stamina`;
+            case "stPerSecond":
+                return `Consumes ${value} Stamina/second`;
             case "stCostPerSpin":
                 return `Consumes ${value} Stamina per rotation`;
             case "jumpDistance":
@@ -234,6 +253,8 @@
                 return `Height (sheathed) ${value} units`;
             case "jumpHeightUnsheathed":
                 return `Height (unsheathed) ${value} units`;
+            case "hitInterval":
+                return `Hits every ${value} second(s)`;
             default:
                 return value;
         }
@@ -247,7 +268,7 @@
     }
 </script>
 
-<details class="surface1 p-4 rounded-2xl" open>
+<details id={skill.skill_id} class="skill surface1 p-4 rounded-2xl">
     <summary class="gap-4">
         <!-- <SkillHeader {skill} /> -->
         <SkillIcon {skill} />
@@ -297,7 +318,7 @@
                         >
                             {#if variant.skillLevelData}
                                 {#each Object.keys(variant.skillLevelData) as key}
-                                    {#if key === "mpPerSecond" && getStatsChanged(["mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                    {#if (key === "mpPerSecond" && getStatsChanged(["mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)) || (key === "eleAccumulationRate" && getStatsChanged(["eleAccumulationRate", "eleAccumulationMax"], skillLevel, variantIndex, skill.skillLevels, levelIndex))}
                                         <dd>
                                             <Icon
                                                 icon={icons[key].icon}
@@ -348,24 +369,6 @@
                                         {/if}
                                     {/if}
                                 {/each}
-                            {/if}
-
-                            <!-- Elemental Charge -->
-                            {#if getStatsChanged(["eleAccumulationRate", "eleAccumulationMax"], skillLevel, variantIndex, skill.skillLevels, levelIndex)}
-                                <dd>
-                                    <!-- ant-design:fire-twotone
-                                bi:lightning-charge-fill -->
-                                    <Icon
-                                        icon="bi:lightning-charge"
-                                        style="color: var(--success); font-size: var(--step-1);"
-                                    />
-                                    <span>
-                                        {variant.skillLevelData
-                                            .eleAccumulationRate}% elemental
-                                        charge ({variant.skillLevelData
-                                            .eleAccumulationMax} max)
-                                    </span>
-                                </dd>
                             {/if}
 
                             <!-- Damage -->
@@ -425,6 +428,12 @@
             </div>
         {/if}
     </dl>
+    {#if skill.notes}
+        <h3 class="mini-header">Notes</h3>
+        <div class="skill-notes">
+            <svelte:component this={skill.notes} />
+        </div>
+    {/if}
     <h3 class="mini-header">Animation Cancels</h3>
     <ul class="mini-header">
         <li>
@@ -498,6 +507,10 @@
         color: var(--surface3);
     }
 
+    details.skill {
+        font-size: var(--step-1);
+    }
+
     summary {
         font-size: var(--step-3);
     }
@@ -564,5 +577,15 @@
         background: var(--surface3);
         color: limegreen;
         // outline: 2px solid limegreen;
+    }
+
+    // For some reason rehype-toc places a nav.toc with the skill notes markdown
+    :global(.skill .toc) {
+        display: none;
+    }
+
+    // 2nd child because the .toc is the first child...
+    :global(.skill-notes *:nth-child(2)) {
+        margin-top: 0 !important;
     }
 </style>

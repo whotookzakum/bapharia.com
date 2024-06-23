@@ -20,6 +20,8 @@ Object.entries(allTextsFiles)
     })
 console.log("Done")
 
+export const allText = langs
+
 export function getText(ns, id, lang) {
     lang ??= "ja_JP"
     return langs[lang][ns][id] || langs.ja_JP[ns][id] || ""
