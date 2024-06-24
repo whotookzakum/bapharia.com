@@ -1,30 +1,12 @@
 <script>
-    import { crossfade, fly } from "svelte/transition";
-    import AnimationCancels from "./AnimationCancels.svelte";
-    import SkillGrade from "./SkillGrade.svelte";
-    import TabSelectors from "./TabSelectors.svelte";
-    import animationCancelsData from "./animation-cancels.json";
-    import notesData from "./skill-notes.json";
     import SkillIcon from "./SkillIcon.svelte";
     import { userLocale } from "$lib/stores";
     import TYPES_TEXT from "$scripts/utils/categories";
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
+    import SkillAniCancels from "./SkillAniCancels.svelte";
 
     export let skill = {};
-
-    let selectedTab;
-
-    function getAbilitiesForGrade(skillLevel) {
-        return skill.abilities.filter(
-            (ability) =>
-                ability.condition_skill_id_1 === skill.skill_id &&
-                ability.condition_skill_level_1 === skillLevel.level,
-        );
-    }
-
-    let animationCancels = animationCancelsData[skill.id];
-    let notes = notesData[skill.id];
 
     const eleStringIdToId = {
         Fire: 1,
@@ -270,7 +252,6 @@
 
 <details id={skill.skill_id} class="skill surface1 p-4 rounded-2xl">
     <summary class="gap-4">
-        <!-- <SkillHeader {skill} /> -->
         <SkillIcon {skill} />
         <span class="flex flex-col-reverse">
             <span style="font-weight: 600"
@@ -434,71 +415,11 @@
             <svelte:component this={skill.notes} />
         </div>
     {/if}
-    <h3 class="mini-header">Animation Cancels</h3>
-    <ul class="mini-header">
-        <li>
-            <Icon
-                icon="mdi:checkbox-blank-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Jump
-        </li>
-        <li class="enabled">
-            <Icon
-                icon="mdi:checkbox-marked-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Springboard Jump
-        </li>
-        <li class="recommended">
-            <Icon
-                icon="mdi:checkbox-marked-circle-auto-outline"
-                style="font-size: var(--step-1)"
-            /> Class Action
-        </li>
-        <li class="enabled">
-            <Icon
-                icon="mdi:checkbox-marked-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Dodge
-        </li>
-        <li class="enabled">
-            <Icon
-                icon="mdi:checkbox-marked-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Battle Imagine
-        </li>
-        <li>
-            <Icon
-                icon="mdi:checkbox-blank-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Ultimate Skill
-        </li>
-        <li>
-            <Icon
-                icon="mdi:checkbox-blank-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Treasure Chest
-        </li>
-        <li>
-            <Icon
-                icon="mdi:checkbox-blank-circle-outline"
-                style="font-size: var(--step-1)"
-            /> Supplier
-        </li>
-    </ul>
-    <div class="flex gap-4 flex-wrap">
-        <small class="flex items-center gap-1 text3 font-semibold">
-            <Icon icon="mdi:checkbox-blank-circle-outline" /> No known cancels
-        </small>
-        <small class="flex items-center gap-1 text1 font-semibold">
-            <Icon icon="mdi:checkbox-marked-circle-outline" /> Cancel available
-        </small>
-        <small
-            class="flex items-center gap-1 font-semibold"
-            style="color: limegreen;"
-        >
-            <Icon icon="mdi:checkbox-marked-circle-auto-outline" /> Recommended cancel
-        </small>
-    </div>
+    {#key skill.skill_id}
+        {#if skill.skill_type <= 6}
+            <SkillAniCancels data={skill.animation_cancels} />
+        {/if}
+    {/key}
 </details>
 
 <style lang="scss">
@@ -521,7 +442,6 @@
     }
 
     .desc {
-        // max-inline-size: 65ch;
         text-wrap: pretty;
     }
 
@@ -551,34 +471,6 @@
         }
     }
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-block: 0.5rem 1rem;
-    }
-
-    li {
-        padding: 0.5rem 0.75rem;
-        background: var(--surface2);
-        border-radius: 0.5rem;
-        width: fit-content;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .enabled {
-        color: var(--text1);
-        background: var(--surface3);
-    }
-
-    .recommended {
-        background: var(--surface3);
-        color: limegreen;
-        // outline: 2px solid limegreen;
-    }
-
     // For some reason rehype-toc places a nav.toc with the skill notes markdown
     :global(.skill .toc) {
         display: none;
@@ -587,5 +479,9 @@
     // 2nd child because the .toc is the first child...
     :global(.skill-notes *:nth-child(2)) {
         margin-top: 0 !important;
+    }
+
+    :global(.skill-notes p) {
+        max-inline-size: none !important;
     }
 </style>

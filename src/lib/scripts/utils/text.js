@@ -1,4 +1,5 @@
 import categories from "./categories.json"
+import en_US_override from "$bp_api/en_US_override.json"
 
 const langs = {}
 
@@ -17,12 +18,22 @@ Object.entries(allTextsFiles)
             }, {})
             return acc
         }, {})
+
+        // Manual translation overrides
+        if (langCode === "en_US") {
+            Object.entries(en_US_override).forEach(([ns, valuesObj]) => {
+                Object.entries(valuesObj).forEach(([key, value]) => {
+                    langs.en_US[ns][key] = value
+                })
+            })
+        }
     })
 console.log("Done")
 
 export const allText = langs
 
 export function getText(ns, id, lang) {
+    // TEMP: Manual translations
     lang ??= "ja_JP"
     return langs[lang][ns][id] || langs.ja_JP[ns][id] || ""
 }
