@@ -1,9 +1,10 @@
 import SKILL_DATA from "$bp_api/japan/skill_data.json";
 import AnimationCancels from "$bp_client/skill_animation_cancels.json";
-import { getCategory, getFile, getText } from "./utils";
-import allBuffs from "./buffs"
-import skillz from "./skillz.json";
-import uniq from "lodash/uniq";
+import BP_BattleStatusManager from "$bp_client/japan/Content/Blueprints/Manager/BP_BattleStatusManager.json" // connects BattleEffectiveGroup to buff icon types
+import DT_AbilityDB from "$bp_client/japan/Content/Blueprints/Manager/DT_AbilityDB.json" // connects buff id strings to icons
+import BufIconDataTable from "$bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json" // contains id strings for buff text
+import StatusAlimentNotify from "$bp_client/japan/Content/Text/StatusAlimentNotify.json"
+import { getAssets, getCategory, getFile, getText } from "./utils";
 
 // TODO skill videos (might be in Blueprints/UI/SkillTree/MediaPlayer/DT_SkillTreeImageData.uasset ?)
 // TODO: add projectile info (connect to attack_data.json? i dont remember)
@@ -11,11 +12,37 @@ import uniq from "lodash/uniq";
 // TODO: connect attackID to attack_data.json
 // TODO: add master_attack_modifier_data.json for skill damage
 
-const SkillDTs = await getSkillDTs()
+// Put all class status ailments into one object
+const StatusAilmentDTs = Object.values(import.meta.glob('/src/bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+StatusAlimentConfig\.json', { import: "default", eager: true }))
+    .flat()
+    .reduce((acc, configFile) => {
+        acc = { ...acc, ...configFile.Rows }
+        return acc
+    }, {})
+
+// Put all classes projectile configs into one object
+const ProjectileDTs =
+    Object.values(import.meta.glob('/src/bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+ProjectileConfigInfo\.json', { import: "default", eager: true }))
+        .flat()
+        .reduce((acc, configFile) => {
+            // Add additional data such as status ailments and projectile effects
+            Object.entries(configFile.Rows).forEach(([projectileId, projectileConfig]) => {
+                const StatusAliments = projectileConfig.StatusAliments.map(obj => StatusAilmentDTs[obj.RowName])
+                const SelfStatusAliments = projectileConfig.SelfStatusAliments.map(obj => StatusAilmentDTs[obj.RowName])
+
+                acc[projectileId] = {
+                    ...projectileConfig,
+                    StatusAliments,
+                    SelfStatusAliments
+                }
+            })
+            return acc
+        }, {})
 
 // Return all skills in a table, { "615": { "IdString": "PowerShot", ... } }
 // skillData is the object from the generic skills file for each class, i.e. DT_BLS_SkillData.json
 // SkillInfo is the object from the specific skill file, i.e. Skill_BLS_PowerShot.json
+const SkillDTs = await getSkillDTs()
 async function getSkillDTs() {
     function getIconPath(path) {
         if (!path || path.AssetPathName === "None") return
@@ -37,6 +64,40 @@ async function getSkillDTs() {
                 const SkillInfoDTPath = skillData.SkillInfo.AssetPathName.replace("/Game", "/Content").split(".")[0] + ".json"
                 const SkillInfoFile = await getFile(SkillInfoDTPath)
                 const SkillInfo = SkillInfoFile ? SkillInfoFile[1] : undefined
+
+                // Add projectile data
+                if (SkillInfo?.Properties?.CastLaunchProjectileList) {
+                    SkillInfo.Properties.CastLaunchProjectileList = SkillInfo.Properties.CastLaunchProjectileList.map(projectileList => {
+                        const ProjectileHandleList = projectileList.ProjectileHandleList.map(handleList => {
+                            return {
+                                ...handleList,
+                                projectileData: ProjectileDTs[handleList.RowName]
+                            }
+                        })
+
+                        return {
+                            ...projectileList,
+                            ProjectileHandleList
+                        }
+                    })
+                }
+
+                // Add status ailment data
+                if (SkillInfo?.Properties?.StatusAilmentPriorityTable) {
+                    SkillInfo.Properties.StatusAilmentPriorityTable.PrioritySection = SkillInfo.Properties.StatusAilmentPriorityTable.PrioritySection.map(section => {
+                        const PriorityDataArray = section.PriorityDataArray.map(obj => {
+                            return {
+                                ...obj,
+                                statusAilmentData: StatusAilmentDTs[obj.StatusAilmentRowHandle.RowName]
+                            }
+                        })
+
+                        return {
+                            ...section,
+                            PriorityDataArray
+                        }
+                    })
+                }
 
                 result[skillData.SkillID] = {
                     SkillName,
@@ -250,6 +311,8 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         bCancelSameSkill,
         ConsumeStaminaAmount,
         NeedParam,
+        CastLaunchProjectileList,
+        StatusAilmentPriorityTable,
 
         // Springboard Jump
         XYLaunchAmount,
@@ -318,7 +381,96 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         if (!data.cooldown) data.cooldown = RecastTime
     }
 
-    // StatusAilmentPriorityTable
+    if (CastLaunchProjectileList) {
+        const statusAilmentsFromProjectiles = CastLaunchProjectileList
+            .filter(projectile => passesConditions(projectile.ConditionList, conditionParams))
+            .reduce((acc, projectileWrapper) => {
+                projectileWrapper.ProjectileHandleList.forEach(projectile => {
+                    const { StatusAliments, SelfStatusAliments } = projectile.projectileData;
+                    [...StatusAliments, ...SelfStatusAliments].forEach(buffGroup => {
+                        let { EffectiveTime, ExpirationValue, HateScale, AdditionalEffectiveTimeList, IconType } = buffGroup
+
+                        AdditionalEffectiveTimeList.forEach(mod => {
+                            if (passesConditions(mod.ConditionList, conditionParams)) {
+                                EffectiveTime += mod.FloatValue
+                            }
+                        })
+
+                        buffGroup.Parts.map(buff => {
+                            const { AbilityID, Value1, Value2 } = buff
+
+                            // Exclude effects that don't have a name and icon such as ElementReset (Refresh Area)
+                            if (["ElementReset"].includes(AbilityID.ID)) return acc
+
+                            let iconType, name;
+
+                            const objContainingIconType = BP_BattleStatusManager[1].Properties.AbilityGroups.find(obj => obj[buffGroup.BattleEffectiveGroup])
+
+                            // Try using AbilityID as a key to the IconType
+                            if (!iconType || iconType === "None") {
+                                iconType = DT_AbilityDB[0].Rows[AbilityID.ID].IconType.split("::").pop()
+                            }
+                            // Try using the BattleEffectiveGroup's IconType
+                            if ((!iconType || iconType === "None") && objContainingIconType) {
+                                iconType = objContainingIconType[buffGroup.BattleEffectiveGroup].IconType.split("::").pop()
+                            }
+                            // Try using the buffGroup's IconType
+                            if (!iconType || iconType === "None") {
+                                iconType = IconType.split("::").pop()
+                            }
+
+                            const BufIconData = BufIconDataTable[0].Rows[iconType]
+                            if (BufIconData) {
+                                Object.entries(BufIconData).forEach(([key, value]) => {
+                                    if (key.includes("TextID_")) {
+                                        name = StatusAlimentNotify[0].Properties.TextTable.find(obj => obj.Id.IdString === value).Text
+                                    }
+                                })
+                            }
+                            
+                            acc[AbilityID.ID] = {
+                                Value1,
+                                Value2,
+                                duration: EffectiveTime || undefined,
+                                uses: ExpirationValue || undefined,
+                                HateScale,
+                                text: {
+                                    name
+                                },
+                                assets: getAssets("buff", iconType)
+                            }
+                        })
+                    })
+                })
+                return acc
+            }, {})
+        data.statusAilments ??= {}
+        data.statusAilments = { ...data.statusAilments, ...statusAilmentsFromProjectiles }
+    }
+
+    // if (StatusAilmentPriorityTable) {
+    //     const ailmentsFromPriorityTable = StatusAilmentPriorityTable.PrioritySection
+    //         .filter(section => passesConditions(section.ConditionList, conditionParams))
+    //         .reduce((acc, section) => {
+    //             section.PriorityDataArray.forEach(priorityData => {
+    //                 const buffGroup = priorityData.statusAilmentData
+    //                 const { EffectiveTime, ExpirationValue, HateScale } = buffGroup
+    //                 buffGroup.Parts.map(buff => {
+    //                     const { AbilityID, Value1, Value2 } = buff
+    //                     acc[AbilityID.ID] = {
+    //                         Value1,
+    //                         Value2,
+    //                         duration: EffectiveTime || undefined,
+    //                         uses: ExpirationValue || undefined,
+    //                         HateScale
+    //                     }
+    //                 })
+    //             })
+    //             return acc
+    //         }, {})
+    //     data.statusAilments ??= {}
+    //     // data.statusAilments = { ...data.statusAilments, ...ailmentsFromPriorityTable }
+    // }
 
     // TODO: Archer Springboard (#699) does not have stamina cost
     // TODO: Ukemi stamina cost?
@@ -327,7 +479,6 @@ function getSkillLevelData(SkillInfo, conditionParams) {
     if (ConsumeStaminaAmount) data.stCost = ConsumeStaminaAmount // springboard jump
     if (NeedParam?.NeedStamina) data.stCost = NeedParam.NeedStamina // dodge
 
-    // CastLaunchProjectileList
     // NeedParam
 
     // GaugeAmountBaseMultiplier
@@ -636,8 +787,11 @@ function passesConditions(conditions, conditionParams, customValue = false) {
             case "ESBConditionCheckType::EquippedPassiveSkillLevel":
                 comparisonParam = conditionParams.level;
                 break;
-            case "ESBConditionCheckType::EquippedPassiveSkill":
-                return condition.PassiveArtsID.ID === conditionParams.skillId;
+            case "ESBConditionCheckType::EquippedPassiveSkill": // skip the condition Relation
+                const isCorrectSkillId = condition.PassiveArtsID.ID === conditionParams.skillId
+                return condition.bNot ? !isCorrectSkillId : isCorrectSkillId;
+            case "ESBConditionCheckType::SkillCastCount": // press skill multiple times i.e. bind slash alpha
+                return true
             case "ESBConditionCheckType::SkillChargeLevel":
             // return true
         }
@@ -666,7 +820,7 @@ function passesConditions(conditions, conditionParams, customValue = false) {
                 break;
         }
 
-        return comparisonResult && !condition.bNot
+        return condition.bNot ? !comparisonResult : comparisonResult
     })
 }
 

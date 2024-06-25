@@ -5,6 +5,7 @@
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import SkillAniCancels from "./SkillAniCancels.svelte";
+    import isEqual from "lodash/isEqual";
 
     export let skill = {};
 
@@ -87,6 +88,56 @@
 
             return differsFromPrevious;
         });
+    }
+
+    // Return whether the specific buff has been modified compared to the previous skill levels
+    function getBuffChanged(
+        key,
+        skillLevel,
+        variantIndex,
+        skillLevels,
+        levelIndex,
+    ) {
+        const buffData =
+            skillLevel[variantIndex].skillLevelData.statusAilments[key];
+
+        if (!buffData && buffData !== 0) return false;
+
+        // G1 normal should always be shown
+        if (levelIndex === 0 && variantIndex === 0) return true;
+
+        let differsFromPrevious = false;
+        const currentGradeNormalVariant =
+            skillLevel[0].skillLevelData.statusAilments[key];
+        const previousGradeNormalVariant =
+            skillLevels[levelIndex - 1][0]?.skillLevelData.statusAilments &&
+            skillLevels[levelIndex - 1][0].skillLevelData.statusAilments[key];
+
+        // A value appearing midway through levels (i.e. starts at G4 but does not exist on G1) should always be shown
+        if (
+            levelIndex > 0 &&
+            !previousGradeNormalVariant &&
+            previousGradeNormalVariant !== 0
+        )
+            differsFromPrevious = true;
+
+        // Compare alpha and beta to normal variant in the same grade
+        if (variantIndex > 0) {
+            differsFromPrevious = !isEqual(buffData, currentGradeNormalVariant);
+        }
+
+        // Compare normal variant to previous grade's normal variant
+        else if (
+            previousGradeNormalVariant ||
+            previousGradeNormalVariant === 0
+        ) {
+            differsFromPrevious = !isEqual(
+                buffData,
+                previousGradeNormalVariant,
+            );
+        }
+
+        return differsFromPrevious;
     }
 
     const colors = {
@@ -299,7 +350,56 @@
                         >
                             {#if variant.skillLevelData}
                                 {#each Object.keys(variant.skillLevelData) as key}
-                                    {#if (key === "mpPerSecond" && getStatsChanged(["mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)) || (key === "eleAccumulationRate" && getStatsChanged(["eleAccumulationRate", "eleAccumulationMax"], skillLevel, variantIndex, skill.skillLevels, levelIndex))}
+                                    {#if key === "statusAilments"}
+                                        <div class="w-full order-2">
+                                            {#each Object.entries(variant.skillLevelData.statusAilments) as [key, buff]}
+                                                {#if getBuffChanged(key, skillLevel, variantIndex, skill.skillLevels, levelIndex)}
+                                                    <dd
+                                                        class="flex gap-2 items-center"
+                                                    >
+                                                        <img
+                                                            src={buff.assets
+                                                                .icon}
+                                                            alt=""
+                                                            width="26"
+                                                            height="30"
+                                                        />
+
+                                                        <span>
+                                                            {#if buff.text?.name}
+                                                                {buff.text.name}
+                                                            {:else}
+                                                                {key}
+                                                            {/if}
+                                                            {#if buff.duration && buff.uses}
+                                                                <small
+                                                                    class="text3"
+                                                                >
+                                                                    ({buff.duration}
+                                                                    seconds,
+                                                                    {buff.uses} uses)
+                                                                </small>
+                                                            {:else if buff.duration}
+                                                                <small
+                                                                    class="text3"
+                                                                >
+                                                                    ({buff.duration}
+                                                                    seconds)
+                                                                </small>
+                                                            {:else if buff.uses}
+                                                                <small
+                                                                    class="text3"
+                                                                >
+                                                                    ({buff.uses}
+                                                                    uses)
+                                                                </small>
+                                                            {/if}
+                                                        </span>
+                                                    </dd>
+                                                {/if}
+                                            {/each}
+                                        </div>
+                                    {:else if (key === "mpPerSecond" && getStatsChanged(["mpPerSecond", "mpPerSecondMoving"], skillLevel, variantIndex, skill.skillLevels, levelIndex)) || (key === "eleAccumulationRate" && getStatsChanged(["eleAccumulationRate", "eleAccumulationMax"], skillLevel, variantIndex, skill.skillLevels, levelIndex))}
                                         <dd>
                                             <Icon
                                                 icon={icons[key].icon}

@@ -4,7 +4,7 @@
 
 <div
     class="skill-icon-wrapper skill-type-{skill.skill_type}"
-    style:background-image="url('{skill.assets.frameIcon}')"
+    style:background-image="url('{skill.assets?.frameIcon ?? ""}')"
 >
     <img
         class="skill-icon"

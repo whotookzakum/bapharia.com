@@ -2,6 +2,7 @@ import DT_StampDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_Stamp
 import DT_StampCategoryDataDB from "$bp_client/japan/Content/Blueprints/Manager/DT_StampCategoryDataDB.json"
 import DT_EmotionDB from "$bp_client/japan/Content/Blueprints/Manager/DT_EmotionDB.json"
 import DT_WeaponAssetDB_Player from "$bp_client/japan/Content/Blueprints/Weapon/Player/DataTable/DT_WeaponAssetDB_Player.json"
+import BufIconDataTable from "$bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json"
 import IMAGINE from "$bp_api/japan/imagine.json";
 
 // TODO: emote icons are in DT_EmotionDB
@@ -74,6 +75,24 @@ Object.values(DT_EmotionDB[0].Rows)
             icon: ASSETS_URL + obj.IconTexture?.ObjectPath?.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
         }
     })
+
+// Buffs can be mapped by either their id "RecoverAttackerWhenRecieveDamage" or icon type "ESBStatusAilmentIconType::Drained"
+console.log("buff")
+icons.buff = {}
+Object.entries(BufIconDataTable[0].Rows)
+    .forEach(([id, obj]) => {
+        let iconType, icon, iconL;
+        Object.entries(obj).forEach(([key, value]) => {
+            if (key.includes("IconType_")) iconType = value.split("::").pop() // "Drained", "Restraint" etc.
+            if (key.includes("Texture_")) icon = value?.ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
+            if (key.includes("TextureL_")) iconL = value?.ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
+        })
+        icons.buff[id] = { icon, iconL }
+        if (iconType) {
+            icons.buff[iconType] = { icon, iconL }
+        }
+    })
+// console.log(icons.buff.Restraint)
 
 // 3D models
 const models = {}
