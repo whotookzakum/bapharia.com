@@ -29,11 +29,18 @@ const ProjectileDTs =
             Object.entries(configFile.Rows).forEach(([projectileId, projectileConfig]) => {
                 const StatusAliments = projectileConfig.StatusAliments.map(obj => StatusAilmentDTs[obj.RowName])
                 const SelfStatusAliments = projectileConfig.SelfStatusAliments.map(obj => StatusAilmentDTs[obj.RowName])
+                const OverlapStatusAlimentConfigs = projectileConfig.OverlapStatusAlimentConfigs.map(wrapper => {
+                    return {
+                        ...wrapper,
+                        OverlapStatusAliments: wrapper.OverlapStatusAliments.map(obj => StatusAilmentDTs[obj.RowName])
+                    }
+                })
 
                 acc[projectileId] = {
                     ...projectileConfig,
                     StatusAliments,
-                    SelfStatusAliments
+                    SelfStatusAliments,
+                    OverlapStatusAlimentConfigs
                 }
             })
             return acc
@@ -69,9 +76,20 @@ async function getSkillDTs() {
                 if (SkillInfo?.Properties?.CastLaunchProjectileList) {
                     SkillInfo.Properties.CastLaunchProjectileList = SkillInfo.Properties.CastLaunchProjectileList.map(projectileList => {
                         const ProjectileHandleList = projectileList.ProjectileHandleList.map(handleList => {
+                            const projectileData = ProjectileDTs[handleList.RowName]
+                            const { HitChainConfig } = projectileData || {}
+
+                            if (HitChainConfig?.ProjectileConfigHandle1) {
+                                HitChainConfig.ProjectileConfigHandle1.projectileData = ProjectileDTs[HitChainConfig.ProjectileConfigHandle1.RowName]
+                            }
+
+                            if (HitChainConfig?.ProjectileConfigHandle2) {
+                                HitChainConfig.ProjectileConfigHandle2.projectileData = ProjectileDTs[HitChainConfig.ProjectileConfigHandle2.RowName]
+                            }
+
                             return {
                                 ...handleList,
-                                projectileData: ProjectileDTs[handleList.RowName]
+                                projectileData
                             }
                         })
 
@@ -83,6 +101,22 @@ async function getSkillDTs() {
                 }
 
                 // Add status ailment data
+                // if (SkillInfo?.Properties?.StatusAilmentPriorityTable) {
+                //     SkillInfo.Properties.StatusAilmentPriorityTable.PrioritySection = SkillInfo.Properties.StatusAilmentPriorityTable.PrioritySection.map(section => {
+                //         const PriorityDataArray = section.PriorityDataArray.map(obj => {
+                //             return {
+                //                 ...obj,
+                //                 statusAilmentData: StatusAilmentDTs[obj.StatusAilmentRowHandle.RowName]
+                //             }
+                //         })
+
+                //         return {
+                //             ...section,
+                //             PriorityDataArray
+                //         }
+                //     })
+                // }
+
                 if (SkillInfo?.Properties?.StatusAilmentPriorityTable) {
                     SkillInfo.Properties.StatusAilmentPriorityTable.PrioritySection = SkillInfo.Properties.StatusAilmentPriorityTable.PrioritySection.map(section => {
                         const PriorityDataArray = section.PriorityDataArray.map(obj => {
@@ -312,7 +346,8 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         ConsumeStaminaAmount,
         NeedParam,
         CastLaunchProjectileList,
-        StatusAilmentPriorityTable,
+        // StatusAilmentPriorityTable,
+        ChargeSkillSetting,
 
         // Springboard Jump
         XYLaunchAmount,
@@ -381,71 +416,119 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         if (!data.cooldown) data.cooldown = RecastTime
     }
 
+    function getBuffGroupData(buffGroup) {
+        let acc = {}
+
+        let { EffectiveTime, ExpirationValue, HateScale, AdditionalEffectiveTimeList, IconType } = buffGroup
+
+        AdditionalEffectiveTimeList.forEach(mod => {
+            if (passesConditions(mod.ConditionList, conditionParams)) {
+                EffectiveTime += mod.FloatValue
+            }
+        })
+
+        buffGroup.Parts.map(buff => {
+            const { AbilityID, Value1, Value2 } = buff
+
+            // Exclude effects that don't have a name and icon such as ElementReset (Refresh Area)
+            if (["ElementReset"].includes(AbilityID.ID)) return acc
+
+            let iconType, name;
+
+            const objContainingIconType = BP_BattleStatusManager[1].Properties.AbilityGroups.find(obj => obj[buffGroup.BattleEffectiveGroup])
+
+            // Try using AbilityID as a key to the IconType
+            if (!iconType || iconType === "None") {
+                iconType = DT_AbilityDB[0].Rows[AbilityID.ID].IconType.split("::").pop()
+            }
+            // Try using the BattleEffectiveGroup's IconType
+            if ((!iconType || iconType === "None") && objContainingIconType) {
+                iconType = objContainingIconType[buffGroup.BattleEffectiveGroup].IconType.split("::").pop()
+            }
+            // Try using the buffGroup's IconType
+            if (!iconType || iconType === "None") {
+                iconType = IconType.split("::").pop()
+            }
+
+            const BufIconData = BufIconDataTable[0].Rows[iconType]
+            if (BufIconData) {
+                Object.entries(BufIconData).forEach(([key, value]) => {
+                    if (key.includes("TextID_")) {
+                        name = StatusAlimentNotify[0].Properties.TextTable.find(obj => obj.Id.IdString === value).Text
+                    }
+                })
+            }
+
+            acc[AbilityID.ID] = {
+                Value1,
+                Value2,
+                duration: EffectiveTime || undefined,
+                uses: ExpirationValue || undefined,
+                HateScale,
+                text: {
+                    name
+                },
+                assets: getAssets("buff", iconType)
+            }
+        })
+
+        return acc;
+    }
+
     if (CastLaunchProjectileList) {
         const statusAilmentsFromProjectiles = CastLaunchProjectileList
             .filter(projectile => passesConditions(projectile.ConditionList, conditionParams))
             .reduce((acc, projectileWrapper) => {
                 projectileWrapper.ProjectileHandleList.forEach(projectile => {
-                    const { StatusAliments, SelfStatusAliments } = projectile.projectileData;
-                    [...StatusAliments, ...SelfStatusAliments].forEach(buffGroup => {
-                        let { EffectiveTime, ExpirationValue, HateScale, AdditionalEffectiveTimeList, IconType } = buffGroup
 
-                        AdditionalEffectiveTimeList.forEach(mod => {
-                            if (passesConditions(mod.ConditionList, conditionParams)) {
-                                EffectiveTime += mod.FloatValue
-                            }
-                        })
+                    const { StatusAliments, SelfStatusAliments, OverlapStatusAlimentConfigs, HitChainConfig } = projectile.projectileData;
 
-                        buffGroup.Parts.map(buff => {
-                            const { AbilityID, Value1, Value2 } = buff
+                    const OverlapStatusAliments = OverlapStatusAlimentConfigs.flatMap(obj => obj.OverlapStatusAliments);
 
-                            // Exclude effects that don't have a name and icon such as ElementReset (Refresh Area)
-                            if (["ElementReset"].includes(AbilityID.ID)) return acc
-
-                            let iconType, name;
-
-                            const objContainingIconType = BP_BattleStatusManager[1].Properties.AbilityGroups.find(obj => obj[buffGroup.BattleEffectiveGroup])
-
-                            // Try using AbilityID as a key to the IconType
-                            if (!iconType || iconType === "None") {
-                                iconType = DT_AbilityDB[0].Rows[AbilityID.ID].IconType.split("::").pop()
-                            }
-                            // Try using the BattleEffectiveGroup's IconType
-                            if ((!iconType || iconType === "None") && objContainingIconType) {
-                                iconType = objContainingIconType[buffGroup.BattleEffectiveGroup].IconType.split("::").pop()
-                            }
-                            // Try using the buffGroup's IconType
-                            if (!iconType || iconType === "None") {
-                                iconType = IconType.split("::").pop()
-                            }
-
-                            const BufIconData = BufIconDataTable[0].Rows[iconType]
-                            if (BufIconData) {
-                                Object.entries(BufIconData).forEach(([key, value]) => {
-                                    if (key.includes("TextID_")) {
-                                        name = StatusAlimentNotify[0].Properties.TextTable.find(obj => obj.Id.IdString === value).Text
-                                    }
-                                })
-                            }
-                            
-                            acc[AbilityID.ID] = {
-                                Value1,
-                                Value2,
-                                duration: EffectiveTime || undefined,
-                                uses: ExpirationValue || undefined,
-                                HateScale,
-                                text: {
-                                    name
-                                },
-                                assets: getAssets("buff", iconType)
-                            }
-                        })
+                    [...StatusAliments, ...SelfStatusAliments, ...OverlapStatusAliments].forEach(buffGroup => {
+                        acc = { ...acc, ...getBuffGroupData(buffGroup) }
                     })
+
+                    // Add buffs that are nested inside HitChainConfig like Twin Flash's buff/debuff
+                    const { ProjectileConfigHandle1, ProjectileConfigHandle2 } = HitChainConfig
+
+                    if (ProjectileConfigHandle1.projectileData) {
+                        const { StatusAliments, SelfStatusAliments, OverlapStatusAlimentConfigs } = ProjectileConfigHandle1.projectileData;
+                        const OverlapStatusAliments = OverlapStatusAlimentConfigs.flatMap(obj => obj.OverlapStatusAliments);
+                        [...StatusAliments, ...SelfStatusAliments, ...OverlapStatusAliments].forEach(buffGroup => {
+                            acc = { ...acc, ...getBuffGroupData(buffGroup) }
+                        })
+                    }
+
+                    if (ProjectileConfigHandle2.projectileData) {
+                        const { StatusAliments, SelfStatusAliments, OverlapStatusAlimentConfigs } = ProjectileConfigHandle2.projectileData;
+                        const OverlapStatusAliments = OverlapStatusAlimentConfigs.flatMap(obj => obj.OverlapStatusAliments);
+                        [...StatusAliments, ...SelfStatusAliments, ...OverlapStatusAliments].forEach(buffGroup => {
+                            acc = { ...acc, ...getBuffGroupData(buffGroup) }
+                        })
+                    }
                 })
                 return acc
             }, {})
         data.statusAilments ??= {}
         data.statusAilments = { ...data.statusAilments, ...statusAilmentsFromProjectiles }
+    }
+
+    if (ChargeSkillSetting) {
+        data.chargeTime = []
+        ChargeSkillSetting.LevelSettingList.forEach(mod => {
+            if (passesConditions(mod.ChargeConditionList, conditionParams)) {
+                data.chargeTime.push(mod.ChargeTime)
+            }
+        })
+
+        if (ChargeSkillSetting.ChargeSpeedModifyList) {
+            ChargeSkillSetting.ChargeSpeedModifyList.forEach(mod => {
+                if (passesConditions(mod.ConditionList, conditionParams)) {
+                    data.chargeTime = data.chargeTime.map(val => val * ((100 - mod.IntValue) / 100))
+                }
+            })
+        }
     }
 
     // if (StatusAilmentPriorityTable) {
