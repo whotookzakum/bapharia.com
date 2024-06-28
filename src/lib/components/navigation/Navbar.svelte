@@ -18,7 +18,7 @@
 	}
 	// TODO: tiny says use aria-expanded instead of visually-hidden?
 
-	// db, map, builder, boards, classes, guides, events
+	// db, map, builder, classes, story, guides, calendar
 </script>
 
 <!-- https://nicobachner.com/sveltekit-theme-switch -->

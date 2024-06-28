@@ -7,7 +7,7 @@ const entries = (lang) => {
     return [
         ...getWeaponSummaries(lang),
         ...getSeasonSummaries(lang),
-        // ...getItemSummaries(lang),
+        ...getItemSummaries(lang),
         // ...getImagineSummaries(lang),
     ]
 }
