@@ -88,7 +88,9 @@ Weapon Battle Score is determined by Special Effect (both rarity and values) and
     </p>
 </details>
 
-You can use the Limit Break system to transfer Special Effects from one weapon to another of the same type.
+<StickyNote type="tip">
+    You can use the Limit Break system to transfer Special Effects from one weapon to another copy of the same weapon.
+</StickyNote>
 
 ### Ability Plugs
 Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) and strengthen specific skills (cooldown reduction, skill damage, etc.). Speak to the [Weapon Reconstructor](/map) to attach plugs to empty sockets by using [Union Paste](/db/items/175100000). The number of empty sockets is determined by probability.
@@ -152,10 +154,12 @@ A plug will randomly be assigned a **1~5★** value when attached, indicating th
 | 2★        | 30%         | 
 | 1★        | 30%         | 
 
-Plugs can be removed using [Plug Removal Tickets](/db/tokens/140000700), though if you wish to keep the plug, you will need [Plug Retrieval Tickets](/db/tokens/140000900). The number of tickets needed will vary based on the weapon. You can use the Limit Break system to transfer plugs from one weapon to another of the same type (this removes the need to consume tickets when re-plugging).
+Plugs can be removed using [Plug Removal Tickets](/db/tokens/140000700), though if you wish to keep the plug, you will need [Plug Retrieval Tickets](/db/tokens/140000900). The number of tickets needed will vary based on the weapon. 
+
+<StickyNote type="tip">
+    You can use the Limit Break system to transfer plugs from one weapon to another copy of the same weapon (this removes the need to consume tickets when re-plugging).
+</StickyNote>
 
 ~~Plugs do not increase your Battle Score.~~
-
-
 
 ### Weapon Limit Break

@@ -144,15 +144,7 @@
 
 	@media (max-width: 1150px) {
 		.navbar {
-			position: fixed;
 			align-items: center;
-			backdrop-filter: unset;
-			pointer-events: none;
-			background: linear-gradient(var(--bg), transparent);
-
-			* {
-				pointer-events: initial;
-			}
 
 			&.opaque-bg {
 				background: var(--surface1);
@@ -160,17 +152,7 @@
 		}
 
 		.home-btn {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.75rem;
-			padding: 0;
-
-			&::after {
-				content: "Bapharia";
-				font-weight: 600;
-				font-size: var(--step-1);
-			}
+			flex: 1;
 		}
 
 		.nav-contents {
@@ -183,6 +165,7 @@
 			padding: 0 1rem 1rem 1rem;
 			box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
 			border-bottom: 1px solid var(--surface2);
+			gap: 0.5rem;
 
 			input {
 				order: 2;
@@ -191,12 +174,12 @@
 
 			a {
 				order: 3;
+				padding-block: 0.5rem;
 			}
 		}
 
 		.extras {
 			margin: unset;
-			justify-content: space-between;
 		}
 
 		.drawer-label,
