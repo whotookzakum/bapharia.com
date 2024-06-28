@@ -4,6 +4,7 @@ import BP_BattleStatusManager from "$bp_client/japan/Content/Blueprints/Manager/
 import DT_AbilityDB from "$bp_client/japan/Content/Blueprints/Manager/DT_AbilityDB.json" // connects buff id strings to icons
 import BufIconDataTable from "$bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json" // contains id strings for buff text
 import StatusAlimentNotify from "$bp_client/japan/Content/Text/StatusAlimentNotify.json"
+import DT_AttackMasterDataModifierDB from "$bp_client/japan/Content/Blueprints/Manager/DT_AttackMasterDataModifierDB.json" // contains debuffs applied on attack hit (i.e. Celeste Pillar G4)
 import { getAssets, getCategory, getFile, getText } from "./utils";
 
 // TODO skill videos (might be in Blueprints/UI/SkillTree/MediaPlayer/DT_SkillTreeImageData.uasset ?)
@@ -90,6 +91,62 @@ async function getSkillDTs() {
                             return {
                                 ...handleList,
                                 projectileData
+                            }
+                        })
+
+                        return {
+                            ...projectileList,
+                            ProjectileHandleList
+                        }
+                    })
+                }
+
+                // Add charge skill projectile data
+                if (SkillInfo?.Properties?.ChargeSkillSetting?.LevelSettingList) {
+                    SkillInfo.Properties.ChargeSkillSetting.LevelSettingList = SkillInfo.Properties.ChargeSkillSetting.LevelSettingList.map(projectileList => {
+                        const ProjectileHandleList = projectileList.ProjectileHandleList.map(handleList => {
+                            const projectileData = ProjectileDTs[handleList.RowName]
+                            const { HitChainConfig } = projectileData || {}
+
+                            if (HitChainConfig?.ProjectileConfigHandle1) {
+                                HitChainConfig.ProjectileConfigHandle1.projectileData = ProjectileDTs[HitChainConfig.ProjectileConfigHandle1.RowName]
+                            }
+
+                            if (HitChainConfig?.ProjectileConfigHandle2) {
+                                HitChainConfig.ProjectileConfigHandle2.projectileData = ProjectileDTs[HitChainConfig.ProjectileConfigHandle2.RowName]
+                            }
+
+                            // Add data such as buffs that get applied on hit (i.e. Celeste Pillar G4)
+                            let attackMasterDataModifier;
+
+                            Object.entries(DT_AttackMasterDataModifierDB[0].Rows).forEach(([key, value]) => {
+                                // Remove "RBL_" from "RBL_CelestePillar_AOE_Lv1"
+                                if (key.substring(4) === handleList.RowName) {
+                                    attackMasterDataModifier = DT_AttackMasterDataModifierDB[0].Rows[key]
+
+                                    if (attackMasterDataModifier?.ModiryParamList) {
+                                        attackMasterDataModifier.ModiryParamList = attackMasterDataModifier.ModiryParamList.map(mod => {
+                                            const GiveStatusAilmentList = mod.GiveStatusAilmentList.map(obj => {
+                                                // use statusAilmentData to prevent overwriting memory after saving a few times..
+                                                return {
+                                                    ...obj,
+                                                    statusAilmentData: StatusAilmentDTs[obj.RowHandle.RowName]
+                                                }
+                                            })
+
+                                            return {
+                                                ...mod,
+                                                GiveStatusAilmentList,
+                                            }
+                                        })
+                                    }
+                                }
+                            })
+
+                            return {
+                                ...handleList,
+                                projectileData,
+                                attackMasterDataModifier
                             }
                         })
 
@@ -475,12 +532,15 @@ function getSkillLevelData(SkillInfo, conditionParams) {
         return acc;
     }
 
+    data.statusAilments ??= {}
+
     if (CastLaunchProjectileList) {
         const statusAilmentsFromProjectiles = CastLaunchProjectileList
             .filter(projectile => passesConditions(projectile.ConditionList, conditionParams))
             .reduce((acc, projectileWrapper) => {
                 projectileWrapper.ProjectileHandleList.forEach(projectile => {
 
+                    // Add buffs from projectileData
                     const { StatusAliments, SelfStatusAliments, OverlapStatusAlimentConfigs, HitChainConfig } = projectile.projectileData;
 
                     const OverlapStatusAliments = OverlapStatusAlimentConfigs.flatMap(obj => obj.OverlapStatusAliments);
@@ -510,16 +570,52 @@ function getSkillLevelData(SkillInfo, conditionParams) {
                 })
                 return acc
             }, {})
-        data.statusAilments ??= {}
         data.statusAilments = { ...data.statusAilments, ...statusAilmentsFromProjectiles }
     }
 
     if (ChargeSkillSetting) {
         data.chargeTime = []
-        ChargeSkillSetting.LevelSettingList.forEach(mod => {
-            if (passesConditions(mod.ChargeConditionList, conditionParams)) {
-                data.chargeTime.push(mod.ChargeTime)
+        let buffs = {}
+
+        ChargeSkillSetting.LevelSettingList.forEach(level => {
+            if (passesConditions(level.ChargeConditionList, conditionParams)) {
+                data.chargeTime.push(level.ChargeTime)
             }
+
+            // Add buffs from attackMasterDataModifier
+            level.ProjectileHandleList
+                .forEach(projectile => {
+                    if (projectile.attackMasterDataModifier?.ModiryParamList) {
+                        projectile.attackMasterDataModifier.ModiryParamList.forEach(mod => {
+                            if (passesConditions(mod.ConditionList, conditionParams)) {
+                                mod.GiveStatusAilmentList.forEach(buffGroupWrapper => {
+                                    const groupData = getBuffGroupData(buffGroupWrapper.statusAilmentData)
+                                    Object.entries(groupData).forEach(([key, buff]) => {
+                                        // Might need to add other keys like duration, uses, hatescale as well.
+                                        if (!buffs[key]) {
+                                            buffs[key] = {
+                                                ...buff,
+                                                Value1: [buff.Value1],
+                                                Value2: [buff.Value2],
+                                            }
+                                        }
+                                        else {
+                                            buffs[key] = {
+                                                ...buffs[key],
+                                                Value1: [...buffs[key].Value1, buff.Value1],
+                                                Value2: [...buffs[key].Value2, buff.Value2],
+                                            }
+                                        }
+                                    })
+                                })
+                            }
+                        })
+                    }
+                })
+            
+            if (conditionParams.level === 4) console.log(buffs)
+
+            data.statusAilments = { ...data.statusAilments, ...buffs }
         })
 
         if (ChargeSkillSetting.ChargeSpeedModifyList) {

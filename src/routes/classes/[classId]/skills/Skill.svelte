@@ -299,6 +299,20 @@
                 return `Ending animation is shortened when using this skill repeatedly.`;
         }
     }
+
+    function getBuffValuesString(buff) {
+        let result = []
+
+        if (buff.Value1?.length > 0) result.push(`values ${buff.Value1.join("/")}`)
+        else if (buff.Value1 > 0) result.push(`value ${buff.Value1}`)
+
+        if (buff.Value2?.length > 0) result.push(`values ${buff.Value2.join("/")}`)
+        else if (buff.Value2 > 0) result.push(`value ${buff.Value2}`)
+
+        if (buff.duration) result.push(`${buff.duration} second${buff.duration > 1 ? "s" : ""}`)
+        if (buff.uses) result.push(`${buff.uses} use${buff.uses > 1 ? "s" : ""}`)
+        return `(${result.join(", ")})`
+    }
 </script>
 
 <details id={skill.skill_id} class="skill surface1 p-4 rounded-2xl">
@@ -371,29 +385,9 @@
                                                             {:else}
                                                                 {key}
                                                             {/if}
-                                                            {#if buff.duration && buff.uses}
-                                                                <small
-                                                                    class="text3"
-                                                                >
-                                                                    ({buff.duration}
-                                                                    seconds,
-                                                                    {buff.uses} uses)
-                                                                </small>
-                                                            {:else if buff.duration}
-                                                                <small
-                                                                    class="text3"
-                                                                >
-                                                                    ({buff.duration}
-                                                                    seconds)
-                                                                </small>
-                                                            {:else if buff.uses}
-                                                                <small
-                                                                    class="text3"
-                                                                >
-                                                                    ({buff.uses}
-                                                                    uses)
-                                                                </small>
-                                                            {/if}
+                                                            <small class="text3">
+                                                                {getBuffValuesString(buff)}
+                                                            </small>
                                                         </span>
                                                     </dd>
                                                 {/if}
