@@ -62,14 +62,14 @@
 	<div class="nav-contents gap-2" style="align-items: center; flex: 1;">
 		<input type="search" placeholder="Search" name="" id="" />
 		{#each links as link}
-			<a
+			<!-- <a
 				href={link.href}
 				class="styled-link hover-surface1 p-3 rounded-full"
 				class:active={$page.url.pathname.includes(link.href)}
 				on:click={() => isMobileExpanded = false}
 			>
 				{link.name[$userLocale]}
-			</a>
+			</a> -->
 		{/each}
 		<div class="extras flex items-center">
 			<TimeInJapan />

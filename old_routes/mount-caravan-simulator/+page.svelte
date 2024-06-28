@@ -1,5 +1,4 @@
 <script>
-    import HeroBanner from "$lib/components/HeroBanner.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
 
     // 1 select map
@@ -33,14 +32,6 @@
     image="/guides/microtransactions/banner.webp"
     bigImage
 />
-
-<HeroBanner bannerUrl="/images/banner_chest.png">
-    <h1>Mount Caravan Simulator</h1>
-    <p>
-        A tool to simulate the Mount Caravan system. Find the optimal party
-        compositions to get the rewards you want!
-    </p>
-</HeroBanner>
 
 <h1>Lucky Chance: {totalLuckyChance}. Unique Mounts: {totalUniqueMounts}</h1>
 <div class="box flex gap-4" style="margin-top: 1.5rem">

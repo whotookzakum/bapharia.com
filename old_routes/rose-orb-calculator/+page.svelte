@@ -1,5 +1,4 @@
 <script>
-    import HeroBanner from "$lib/components/HeroBanner.svelte";
     import MetaTags from "$lib/components/MetaTags.svelte";
     import ConversionTool from "./ConversionTool.svelte";
     import Options from "./Options.svelte";
@@ -17,14 +16,6 @@
     image="/guides/microtransactions/banner.webp"
     bigImage
 />
-
-<HeroBanner bannerUrl="/aa/2.png">
-    <h1>Rose Orb Calculator</h1>
-    <p>
-        A comparison of purchase value between various Rose Orb packages, on all
-        available platforms.
-    </p>
-</HeroBanner>
 
 <div class="grid gap-4" style="margin-top: 1.5rem; max-width: 800px">
     <p style="margin: 0">
