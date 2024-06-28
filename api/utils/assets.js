@@ -9,11 +9,12 @@ import IMAGINE from "$bp_api/japan/imagine.json";
 // TODO: move imagine equipSlot image finding logic into here
 const ASSETS_URL = ""
 const icons = {}
-const allIconsFiles = import.meta.glob("/src/bp_client/japan/Content/Blueprints/UI/Icon/*.json", { import: "default" })
+
+console.log("Preparing icon paths...")
+const allIconsFiles = import.meta.glob("./bp_client/japan/Content/Blueprints/UI/Icon/*.json", { import: "default" })
 Object.entries(allIconsFiles)
     .forEach(async ([key, value]) => {
         const ns = key.split("/").pop().replace("DB.json", "").replace("Icon", "").replace("DT_", "").toLowerCase()
-        console.log(ns)
         const data = await value()
         icons[ns] =
             Object.entries(data[0].Rows)
@@ -29,7 +30,6 @@ Object.entries(allIconsFiles)
                 }, {})
     })
 
-console.log("stamp")
 icons.stamp = {}
 Object.values(DT_StampDataDB[0].Rows)
     .forEach(obj => {
@@ -39,7 +39,6 @@ Object.values(DT_StampDataDB[0].Rows)
         }
     })
 
-console.log("stampcategory")
 icons.stampcategory = {}
 Object.values(DT_StampCategoryDataDB[0].Rows)
     .forEach(obj => {
@@ -48,7 +47,6 @@ Object.values(DT_StampCategoryDataDB[0].Rows)
         }
     })
 
-console.log("achievement")
 icons.achievement = {
     "0": {
         icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_5.png"
@@ -67,7 +65,6 @@ icons.achievement = {
     }
 }
 
-console.log("emote")
 icons.emote = {}
 Object.values(DT_EmotionDB[0].Rows)
     .forEach(obj => {
@@ -77,7 +74,6 @@ Object.values(DT_EmotionDB[0].Rows)
     })
 
 // Buffs can be mapped by either their id "RecoverAttackerWhenRecieveDamage" or icon type "ESBStatusAilmentIconType::Drained"
-console.log("buff")
 icons.buff = {}
 Object.entries(BufIconDataTable[0].Rows)
     .forEach(([id, obj]) => {

@@ -1,7 +1,7 @@
 <script>
     import SkillIcon from "./SkillIcon.svelte";
     import { userLocale } from "$lib/stores";
-    import TYPES_TEXT from "$scripts/utils/categories";
+    import TYPES_TEXT from "$api/utils/categories";
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import SkillAniCancels from "./SkillAniCancels.svelte";

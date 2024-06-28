@@ -1,5 +1,5 @@
-import adventureboards from '$scripts/adventureboards.js'
-import quests from '$scripts/quests.js'
+import adventureboards from '$api/adventureboards.js'
+import quests from '$api/quests.js'
 
 export const load = async () => {
     const processedQuests = quests.map(quest => {

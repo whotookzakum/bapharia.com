@@ -14,7 +14,7 @@ import { getAssets, getCategory, getFile, getText } from "./utils";
 // TODO: add master_attack_modifier_data.json for skill damage
 
 // Put all class status ailments into one object
-const StatusAilmentDTs = Object.values(import.meta.glob('/src/bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+StatusAlimentConfig\.json', { import: "default", eager: true }))
+const StatusAilmentDTs = Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+StatusAlimentConfig\.json', { import: "default", eager: true }))
     .flat()
     .reduce((acc, configFile) => {
         acc = { ...acc, ...configFile.Rows }
@@ -23,7 +23,7 @@ const StatusAilmentDTs = Object.values(import.meta.glob('/src/bp_client/japan/Co
 
 // Put all classes projectile configs into one object
 const ProjectileDTs =
-    Object.values(import.meta.glob('/src/bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+ProjectileConfigInfo\.json', { import: "default", eager: true }))
+    Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+ProjectileConfigInfo\.json', { import: "default", eager: true }))
         .flat()
         .reduce((acc, configFile) => {
             // Add additional data such as status ailments and projectile effects
@@ -60,7 +60,7 @@ async function getSkillDTs() {
     const result = {}
 
     // First, get the generic Class Skills DTS (contains the paths for individual skill DTs for the class)
-    const files = Object.values(import.meta.glob('/src/bp_client/japan/Content/Blueprints/Player/(Skill|PassiveSkill)/*/DT_*.json', { import: "default", eager: true })).flat()
+    const files = Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Player/(Skill|PassiveSkill)/*/DT_*.json', { import: "default", eager: true })).flat()
 
     // Next, map through every skill in every class file and append the skill-specific DTs
     await Promise.all(files.map(async (file) => {

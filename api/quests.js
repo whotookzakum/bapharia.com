@@ -12,9 +12,9 @@ import warehouseAbilitiesData from "$bp_api/japan/master_warehouse_storing_abili
 import { getText } from './utils';
 import weapons from "./weapons";
 import items from "./items";
-import stampSets from "./stampsets";
+import stampSets from "./stamps";
 import tokens from "./tokens";
-import gestures from "./gestures";
+import gestures from "./emotes";
 import costumes from "./costumes";
 import liquidMemories from "./liquidmemories";
 import imagines from "./imagines"

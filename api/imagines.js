@@ -14,12 +14,12 @@ import ATTACK_DATA from "$bp_api/japan/attack_data.json"
 
 // Collection of DataTables from client
 const DTList_Skills = await fetchDTs({
-    ...import.meta.glob('/src/bp_client/japan/Content/Blueprints/Player/Skill/*/*.json'),
-    ...import.meta.glob('/src/bp_client/japan/Content/Blueprints/Player/Skill/*/*/*.json')
+    ...import.meta.glob('./bp_client/japan/Content/Blueprints/Player/Skill/*/*.json'),
+    ...import.meta.glob('./bp_client/japan/Content/Blueprints/Player/Skill/*/*/*.json')
 })
 
 const DTList_Projectiles = await fetchDTs(
-    import.meta.glob('/src/bp_client/japan/Content/Blueprints/Magic/Imagine/*/*/*.json'))
+    import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/Imagine/*/*/*.json'))
 
 const DT_ImagineTable = DTList_Skills.find(obj => obj.Name === "ImagineTable")
 

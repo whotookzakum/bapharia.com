@@ -3,9 +3,9 @@ import en_US_override from "$bp_api/en_US_override.json"
 
 const langs = {}
 
-const allTextsFiles = import.meta.glob("/src/bp_api/**/texts/*.json", { import: "default" })
+const allTextsFiles = import.meta.glob(".././bp_api/**/texts/*.json", { import: "default" })
 
-console.log("Transforming text files into objects...")
+console.log("Loading localizations...")
 Object.entries(allTextsFiles)
     .filter(([key, value]) => key.match(/^(?!.*ja_JP).*global.*/) || key.match(/^(?=.*japan)(?=.*ja_JP).*$/))
     .forEach(async ([key, value]) => {
@@ -28,7 +28,6 @@ Object.entries(allTextsFiles)
             })
         }
     })
-console.log("Done")
 
 export const allText = langs
 

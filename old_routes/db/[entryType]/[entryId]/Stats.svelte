@@ -3,7 +3,7 @@
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
     import Tooltip from "../../../../lib/components/FloatingUI/Tooltip.svelte";
-    import TYPES_TEXT from "$scripts/utils/categories.json";
+    import TYPES_TEXT from "$api/utils/categories.json";
 
     // TODO: Figure out Enemy EXP curve
     export let data = {};

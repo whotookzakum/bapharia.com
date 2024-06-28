@@ -1,5 +1,5 @@
 import enemiesData from "$bp_api/japan/enemyparams.json"
-import { getText } from "$scripts/utils"
+import { getText } from "$api/utils"
 
 export const load = () => {
     const enemies =

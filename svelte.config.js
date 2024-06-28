@@ -42,9 +42,13 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$bp_api: path.resolve('.', 'src/bp_api'),
-			$bp_client: path.resolve('.', 'src/bp_client'),
-			$scripts: path.resolve('.', 'src/lib/scripts'),
+			$api: path.resolve('.', 'api'),
+			$bp_api: path.resolve('.', 'api/bp_api'),
+			$bp_client: path.resolve('.', 'api/bp_client'),
+		},
+		prerender: {
+			handleHttpError: "ignore",
+			handleMissingId: "ignore"
 		}
 	},
 };

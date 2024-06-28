@@ -54,10 +54,10 @@ In fields, you can remain downed and wait for someone to rescue you, or can choo
 
 When in fields or free exploration dungeons, **HP will continuously recover over time** while not in combat (1% of max HP every 3 seconds). While sitting (on an object or via an emote), you will recover 5% of max HP every 3 seconds. Visiting **a village with a warp gate** or **sitting near a campfire** will allow you to recover 5% of max HP every second. Natural HP recovery is disabled in dungeons.
 
-HP can be recovered through various means such as [skills](/guides/combat#-skills), [party chain](/guides/combat#-party-chain), [buffs](/guides/combat#-buffs--debuffs), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
+HP can be recovered through various means such as [skills](/guides/combat#skills), [party chain](/guides/combat#party-chain), [buffs](/guides/combat#buffs--debuffs), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
 
 ### Stamina
-Stamina is consumed when performing certain actions. Stamina consumption can be reduced by certain skills and Enhance Imagine [abilities](/guides/imagine#abilities-1). Max stamina can be increased by certain skills, such as Heavy Smasher's [passive skill](/classes/19/skills#stamina-up), and Enhance Imagine abilities.
+Stamina is consumed when performing certain actions. Stamina consumption can be reduced by certain skills and Enhance Imagine [abilities](/guides/imagine#abilities-1). Max stamina can be increased by certain skills, such as Heavy Smasher's [passive skill](/classes/19/skills#119501), and Enhance Imagine abilities.
 
 <StaminaConsumptionTable />
 
@@ -298,7 +298,7 @@ Most classes have a set of non-elemental skills if they wish to use their weapon
     Spell Caster's tactical skills are almost entirely elemental, thus they may not be able to utilize certain elements effectively. 
 </StickyNote>
 
-If the weapon and skill **elements do not match**, damage from resistance is calculated at a **30/70 ratio of weapon/skill**. In other words, you may only get a portion of the damage increase/decrease mentioned in the [Elemental Resistance section](/guides/combat#-elemental-resistance) based on which elements you use. Additionally, Elemental Charge is accumulated for both elements.
+If the weapon and skill **elements do not match**, damage from resistance is calculated at a **30/70 ratio of weapon/skill**. In other words, you may only get a portion of the damage increase/decrease mentioned in the [Elemental Resistance section](/guides/combat#elemental-resistance) based on which elements you use. Additionally, Elemental Charge is accumulated for both elements.
 
 <details>
     <summary style="color: purple">Formula Examples</summary>
@@ -345,7 +345,7 @@ At G3+, skills have three variations: Normal, Alpha, and Beta variants. These va
 **Beta skills** have a chance of dropping in **Survey & Advanced Survey Missions** after you reach **level 50**. Only the skills that you currently have equipped on your palette will be eligible for a beta skill drop. The drop rates are notoriously low.
 
 ## Buffs & Debuffs
-Abnormal statuses that can be applied to players or enemies. Debuffs from elemental effects can be found in the [elements](/guides/combat#-elements) section.
+Abnormal statuses that can be applied to players or enemies. Debuffs from elemental effects can be found in the [elements](/guides/combat#elements) section.
 
 <AbnormalStatusesTable />
 
@@ -359,7 +359,7 @@ When an enemy is defeated, **all players** who dealt at least 1 damage to the en
 <!-- TODO: be in range of the enemy or in range of the player who defeated it? -->
 **In order to receive rewards, players must be within a certain distance of the enemy.**
 
-EXP gain is scaled based on your [level difference](/guides/combat#-level) with the enemy. Enemies in Missions do not give EXP.
+EXP gain is scaled based on your [level difference](/guides/combat#level) with the enemy. Enemies in Missions do not give EXP.
 
 **Item drops** are determined on a **per-player** basis. Players may have differing drop rate multipliers (via consumable items and [liquid memories](/guides/liquid-memories)). Item drops go straight to the player's inventory (consumables) or storage (non-consumables). 
 

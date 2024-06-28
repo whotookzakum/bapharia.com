@@ -9,6 +9,11 @@ const config = {
 	ssr: {
 		noExternal: ['chart.js'],
 	},
+	server: {
+		fs: {
+			allow: [".."]
+		}
+	}
 };
 
 export default config;

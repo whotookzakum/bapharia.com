@@ -3,7 +3,7 @@
     import { userLocale } from "$lib/stores.js";
     import { DateTime } from "luxon";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
-    import TYPES_TEXT from "$scripts/utils/categories.json";
+    import TYPES_TEXT from "$api/utils/categories.json";
 
     export let data;
 

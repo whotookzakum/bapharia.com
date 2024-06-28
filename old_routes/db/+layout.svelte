@@ -4,7 +4,7 @@
     import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
-    import TYPES_TEXT from "$scripts/utils/categories.json";
+    import TYPES_TEXT from "$api/utils/categories.json";
     import CATEGORIES_TEXT from "./filtertext-categories.json";
     import isEqual from "lodash/isEqual";
 
