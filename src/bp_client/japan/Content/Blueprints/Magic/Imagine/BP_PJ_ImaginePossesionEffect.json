@@ -13,6 +13,19 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_Map_Keys_Keys",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "IntProperty",
+          "Name": "CallFunc_Map_Keys_Keys",
+          "Flags": "RF_Public",
+          "ElementSize": 4
+        }
+      },
+      {
         "Type": "IntProperty",
         "Name": "Temp_int_Loop_Counter_Variable",
         "Flags": "RF_Public",
@@ -20,23 +33,13 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Name": "CallFunc_Array_Length_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
       {
-        "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate",
-        "Flags": "RF_Public",
-        "ElementSize": 20,
-        "SignatureFunction": {
-          "ObjectName": "DelegateFunction'OnSystemFinished__DelegateSignature'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
         "Type": "IntProperty",
-        "Name": "Temp_int_Array_Index_Variable",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
@@ -54,29 +57,29 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "Temp_int_Array_Index_Variable_1",
+        "Name": "Temp_int_Array_Index_Variable",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
       {
-        "Type": "FloatProperty",
-        "Name": "K2Node_Event_DeltaSeconds",
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_DynamicCast_AsSBPlayer_Character",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class'SBPlayerCharacter'",
-          "ObjectPath": "/Script/SkyBlue"
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction'OnSystemFinished__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
         }
       },
       {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "K2Node_DynamicCast_bSuccess",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -85,6 +88,65 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Map_Find_Value",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'ParticleSystemComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Map_Find_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -121,98 +183,6 @@
         }
       },
       {
-        "Type": "StructProperty",
-        "Name": "CallFunc_Array_Get_Item",
-        "Flags": "RF_Public",
-        "ElementSize": 96,
-        "PropertyFlags": "ContainsInstancedReference",
-        "Struct": {
-          "ObjectName": "ScriptStruct'SBSpawnEmitterAttachedParam'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "CallFunc_GetEffectVisibleType_RetVisibleType",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESBEffectVisibleType'",
-          "ObjectPath": "/Script/SkyBlue"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Less_IntInt_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "StructProperty",
-        "Name": "K2Node_SetFieldsInStruct_StructOut",
-        "Flags": "RF_Public",
-        "ElementSize": 96,
-        "PropertyFlags": "ContainsInstancedReference",
-        "Struct": {
-          "ObjectName": "ScriptStruct'SBSpawnEmitterAttachedParam'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_SpawnEmitterAttached_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'ParticleSystemComponent'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Array_Add_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
         "Type": "BoolProperty",
         "Name": "Temp_bool_Has_Been_Initd_Variable",
         "Flags": "RF_Public",
@@ -225,83 +195,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Array_Get_Item_1",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'ParticleSystemComponent'",
-          "ObjectPath": "/Script/Engine"
-        }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue_2",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "Temp_bool_IsClosed_Variable",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "Temp_int_Loop_Counter_Variable_2",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Less_IntInt_ReturnValue_2",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Add_IntInt_ReturnValue_2",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
         "Type": "IntProperty",
         "Name": "Temp_int_Array_Index_Variable_2",
         "Flags": "RF_Public",
@@ -309,7 +202,56 @@
       },
       {
         "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_PSystem",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'ParticleSystemComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_Map_Keys_Keys_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "IntProperty",
+          "Name": "CallFunc_Map_Keys_Keys_1",
+          "Flags": "RF_Public",
+          "ElementSize": 4
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_Map_Keys_Keys_2",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "IntProperty",
+          "Name": "CallFunc_Map_Keys_Keys_2",
+          "Flags": "RF_Public",
+          "ElementSize": 4
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Get_Item_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
         "Name": "CallFunc_Array_Get_Item_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Map_Find_Value_1",
         "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyFlags": "InstancedReference",
@@ -320,29 +262,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue_2",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_Array_Get_Item_3",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class'AkAudioEvent'",
-          "ObjectPath": "/Script/AkAudio"
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Array_IsValidIndex_ReturnValue",
+        "Name": "CallFunc_Map_Find_ReturnValue_1",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -363,6 +283,53 @@
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Map_Find_Value_2",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'ParticleSystemComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Map_Find_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "IntProperty",
         "Name": "CallFunc_PostAkEventBySceneComponent_ReturnValue",
         "Flags": "RF_Public",
@@ -381,15 +348,52 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_CustomEvent_PSystem",
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
         "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'ParticleSystemComponent'",
-          "ObjectPath": "/Script/Engine"
-        }
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
@@ -604,7 +608,7 @@
         "Type": "StructProperty",
         "Name": "EmitterParam",
         "Flags": "RF_Public",
-        "ElementSize": 96,
+        "ElementSize": 104,
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | ContainsInstancedReference",
         "Struct": {
           "ObjectName": "ScriptStruct'SBSpawnEmitterAttachedParam'",
@@ -681,18 +685,80 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "ObjectProperty",
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_Map_Keys_Keys",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "IntProperty",
+          "Name": "CallFunc_Map_Keys_Keys",
+          "Flags": "RF_Public",
+          "ElementSize": 4
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
         "Name": "CallFunc_Array_Get_Item",
         "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Map_Find_Value",
+        "Flags": "RF_Public",
         "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
         "PropertyClass": {
-          "ObjectName": "Class'AkAudioEvent'",
-          "ObjectPath": "/Script/AkAudio"
+          "ObjectName": "Class'ParticleSystemComponent'",
+          "ObjectPath": "/Script/Engine"
         }
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_Array_IsValidIndex_ReturnValue",
+        "Name": "CallFunc_Map_Find_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ObjectObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -732,12 +798,141 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "CallFunc_Array_Find_ReturnValue",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 4
       }
     ],
     "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SpawnEffect",
+    "Outer": "BP_PJ_ImaginePossesionEffect_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 136,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "UserDefinedStruct'BP_PJ_ImaginePossesion_EffectCondition'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesion_EffectCondition.0"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBPlayer_Character",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerCharacter'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsAllSatisfied_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetEffectVisibleType_RetVisibleType",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESBEffectVisibleType'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_SetFieldsInStruct_StructOut",
+        "Flags": "RF_Public",
+        "ElementSize": 104,
+        "PropertyFlags": "ContainsInstancedReference",
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBSpawnEmitterAttachedParam'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_SpawnEmitterAttached_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'ParticleSystemComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "BlueprintGeneratedClass",
@@ -746,7 +941,7 @@
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_PJ_ImaginePossesionEffect_C:SimpleConstructionScript_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.18"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.19"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'BP_PJ_ImaginePossesionEffect_C:ExecuteUbergraph_BP_PJ_ImaginePossesionEffect'",
@@ -758,6 +953,10 @@
       "ObjectPath": "/Script/SkyBlue"
     },
     "Children": [
+      {
+        "ObjectName": "Function'BP_PJ_ImaginePossesionEffect_C:SpawnEffect'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.8"
+      },
       {
         "ObjectName": "Function'BP_PJ_ImaginePossesionEffect_C:StopSound'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.7"
@@ -804,24 +1003,6 @@
         }
       },
       {
-        "Type": "ArrayProperty",
-        "Name": "EffectArray",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 16,
-        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
-        "Inner": {
-          "Type": "ObjectProperty",
-          "Name": "EffectArray",
-          "Flags": "RF_Public",
-          "ElementSize": 8,
-          "PropertyFlags": "InstancedReference",
-          "PropertyClass": {
-            "ObjectName": "Class'ParticleSystemComponent'",
-            "ObjectPath": "/Script/Engine"
-          }
-        }
-      },
-      {
         "Type": "BoolProperty",
         "Name": "IsFirstEnablePossession",
         "Flags": "RF_Public | RF_LoadCompleted",
@@ -836,15 +1017,57 @@
       },
       {
         "Type": "ArrayProperty",
-        "Name": "SpawnEmitterArray",
+        "Name": "SpawnEffectSoundList",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
         "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference",
         "Inner": {
           "Type": "StructProperty",
-          "Name": "SpawnEmitterArray",
+          "Name": "SpawnEffectSoundList",
           "Flags": "RF_Public",
-          "ElementSize": 96,
+          "ElementSize": 136,
+          "PropertyFlags": "ContainsInstancedReference",
+          "Struct": {
+            "ObjectName": "UserDefinedStruct'BP_PJ_ImaginePossesion_EffectCondition'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesion_EffectCondition.0"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "SpawnParticleMap",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference | AdvancedDisplay",
+        "KeyProp": {
+          "Type": "IntProperty",
+          "Name": "SpawnParticleMap",
+          "Flags": "RF_Public",
+          "ElementSize": 4
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "SpawnParticleMap_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyFlags": "InstancedReference",
+          "PropertyClass": {
+            "ObjectName": "Class'ParticleSystemComponent'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "Del_SpawnEmitterArray",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | ContainsInstancedReference | AdvancedDisplay",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "Del_SpawnEmitterArray",
+          "Flags": "RF_Public",
+          "ElementSize": 104,
           "PropertyFlags": "ContainsInstancedReference",
           "Struct": {
             "ObjectName": "ScriptStruct'SBSpawnEmitterAttachedParam'",
@@ -854,13 +1077,13 @@
       },
       {
         "Type": "ArrayProperty",
-        "Name": "SpawnEmitterSoundArray",
+        "Name": "Del_SpawnEmitterSoundArray",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
-        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | AdvancedDisplay",
         "Inner": {
           "Type": "ObjectProperty",
-          "Name": "SpawnEmitterSoundArray",
+          "Name": "Del_SpawnEmitterSoundArray",
           "Flags": "RF_Public",
           "ElementSize": 8,
           "PropertyClass": {
@@ -871,13 +1094,13 @@
       },
       {
         "Type": "ArrayProperty",
-        "Name": "EndEmitterSoundArray",
+        "Name": "Del_EndEmitterSoundArray",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
-        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | AdvancedDisplay",
         "Inner": {
           "Type": "ObjectProperty",
-          "Name": "EndEmitterSoundArray",
+          "Name": "Del_EndEmitterSoundArray",
           "Flags": "RF_Public",
           "ElementSize": 8,
           "PropertyClass": {
@@ -919,6 +1142,10 @@
       "StopSound": {
         "ObjectName": "Function'BP_PJ_ImaginePossesionEffect_C:StopSound'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.7"
+      },
+      "SpawnEffect": {
+        "ObjectName": "Function'BP_PJ_ImaginePossesionEffect_C:SpawnEffect'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.8"
       }
     },
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
@@ -930,7 +1157,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_PJ_ImaginePossesionEffect_C'Default__BP_PJ_ImaginePossesionEffect_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.9"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.10"
     }
   },
   {
@@ -941,38 +1168,38 @@
       "UberGraphFrame": {},
       "GroundCollisionComp": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
       },
       "CollisionComp": {
         "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.11"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.12"
       },
       "AttackParamComp": {
         "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_ImaginePossesionEffect_C:AttackParamComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.11"
       },
       "EffectComp": {
         "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_ImaginePossesionEffect_C:EffectComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.13"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
       },
       "ParamComp": {
         "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_ImaginePossesionEffect_C:ParamComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.16"
       },
       "DestroyCondComp": {
         "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_ImaginePossesionEffect_C:DestroyCondComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.12"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.13"
       },
       "RootComponent": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
       },
       "OnEndPlay": {
         "InvocationList": [
           {
             "Object": {
               "ObjectName": "BP_PJ_ImaginePossesionEffect_C'Default__BP_PJ_ImaginePossesionEffect_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.9"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.10"
             },
             "FunctionName": "OnProjectileEndPlay"
           }
@@ -994,7 +1221,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
       }
     }
   },
@@ -1012,7 +1239,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
       }
     }
   },
@@ -1027,7 +1254,7 @@
           {
             "Object": {
               "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:GroundCollisionComp(ProjRoot)'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
             },
             "FunctionName": "OnGroundComponentHit"
           }
@@ -1059,7 +1286,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_PJ_ImaginePossesionEffect_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.17"
       },
       "VariableGuid": "E6500E91-4A9890AB-00590290-7BBC158B",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1073,7 +1300,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_PJ_ImaginePossesionEffect_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.17"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.18"
       }
     }
   }

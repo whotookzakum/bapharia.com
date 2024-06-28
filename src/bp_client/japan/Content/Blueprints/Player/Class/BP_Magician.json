@@ -13,6 +13,18 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
+        "Type": "BoolProperty",
+        "Name": "K2Node_Event_IsVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ByteProperty",
         "Name": "K2Node_Event_EquipType",
         "Flags": "RF_Public",
@@ -195,9 +207,43 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_8",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSetAimUIVisibility",
+    "Outer": "BP_Magician_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -494,7 +540,7 @@
         "PropertyFlags": "InstancedReference",
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_P011HUDComponent_C'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.16"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.24"
         }
       },
       {
@@ -594,24 +640,24 @@
       "ComponentTemplates": [
         {
           "ObjectName": "BP_PlayerAimHUDComponent_C'BP_Magician_C:NODE_AddBP_PlayerAimHUDComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.13"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.14"
         },
         {
           "ObjectName": "CommonBattleHudComponent_C'BP_Magician_C:NODE_AddCommonBattleHudComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.16"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.17"
         },
         {
           "ObjectName": "BP_P011HUDComponent_C'BP_Magician_C:NODE_AddBP_WizardHUDComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.12"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.13"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Magician_C:SimpleConstructionScript_1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.67"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.69"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler'BP_Magician_C:InheritableComponentHandler'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.17"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.18"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'BP_Magician_C:ExecuteUbergraph_BP_Magician'",
@@ -625,26 +671,30 @@
     "Children": [
       {
         "ObjectName": "Function'BP_Magician_C:CreateHUD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.7"
       },
       {
         "ObjectName": "Function'BP_Magician_C:OnRayHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.6"
       },
       {
         "ObjectName": "Function'BP_Magician_C:Unsheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.5"
       },
       {
         "ObjectName": "Function'BP_Magician_C:Sheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.4"
       },
       {
         "ObjectName": "Function'BP_Magician_C:OnHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.3"
       },
       {
         "ObjectName": "Function'BP_Magician_C:CreateClassHUD'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.2"
+      },
+      {
+        "ObjectName": "Function'BP_Magician_C:OnSetAimUIVisibility'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.1"
       },
       {
@@ -683,7 +733,7 @@
         "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
         "PropertyClass": {
           "ObjectName": "BlueprintGeneratedClass'BP_P011HUDComponent_C'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.16"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.24"
         }
       },
       {
@@ -714,29 +764,33 @@
         "ObjectName": "Function'BP_Magician_C:ExecuteUbergraph_BP_Magician'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.0"
       },
+      "OnSetAimUIVisibility": {
+        "ObjectName": "Function'BP_Magician_C:OnSetAimUIVisibility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.1"
+      },
       "CreateClassHUD": {
         "ObjectName": "Function'BP_Magician_C:CreateClassHUD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.1"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.2"
       },
       "OnHitForPlayerReticle": {
         "ObjectName": "Function'BP_Magician_C:OnHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.3"
       },
       "Sheathe": {
         "ObjectName": "Function'BP_Magician_C:Sheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.4"
       },
       "Unsheathe": {
         "ObjectName": "Function'BP_Magician_C:Unsheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.5"
       },
       "OnRayHitForPlayerReticle": {
         "ObjectName": "Function'BP_Magician_C:OnRayHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.6"
       },
       "CreateHUD": {
         "ObjectName": "Function'BP_Magician_C:CreateHUD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.7"
       }
     },
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
@@ -748,7 +802,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Magician_C'Default__BP_Magician_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.8"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.9"
     }
   },
   {
@@ -763,15 +817,15 @@
       "UberGraphFrame": {},
       "AnimationSamplingComp": {
         "ObjectName": "SBCharacterAnimationSamplingComponent'Default__BP_Magician_C:PlayerAnimationSamplingComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.26"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.27"
       },
       "CharacterTrackingComponent": {
         "ObjectName": "SBCharacterTrackingComponent'Default__BP_Magician_C:CharacterTrackingComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.27"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.28"
       },
       "m_pPresetEquipComponent": {
         "ObjectName": "SBPlayerPresetEquipComponent'Default__BP_Magician_C:PlayerPresetEquipComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.51"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.53"
       },
       "RoleType": "ESBRoleType::Supporter",
       "StaminaSettings": {
@@ -780,9 +834,17 @@
       "m_UnsheatheStaminaSetting": {
         "Jump": 20.0
       },
+      "m_pPlayerRaidBattleComponent": {
+        "ObjectName": "SBRaidBattleComponent'Default__BP_Magician_C:PlayerRaidBattleComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.63"
+      },
       "CliffComponent": {
         "ObjectName": "SBPlayerCliffComponent'Default__BP_Magician_C:CliffComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.47"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.48"
+      },
+      "m_pSkillMarkerComponent": {
+        "ObjectName": "SBPlayerSkillMarker'Default__BP_Magician_C:SkillMarker'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.56"
       },
       "AttackLight": {
         "HomingDashTime": 0.0,
@@ -815,44 +877,56 @@
       ],
       "m_pPlayerFishingComponent": {
         "ObjectName": "SBPlayerFishingComponent'Default__BP_Magician_C:PlayerFishingComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.49"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.51"
       },
       "ProjectileHitTargetLimitComponent": {
         "ObjectName": "SBProjectileHitTargetLimitComponent'Default__BP_Magician_C:ProjectileHitTargetLimitComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.56"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.58"
       },
       "ClassType": "ESBClassType::P011",
       "LevelSyncComponent": {
         "ObjectName": "SBPlayerCharacterLevelSyncComponent'Default__BP_Magician_C:LevelSyncComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.45"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.46"
+      },
+      "ContentActionComponent": {
+        "ObjectName": "SBPlayerContentActionComponent'Default__BP_Magician_C:ContentActionComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.49"
       },
       "VoiceComponent": {
         "ObjectName": "AkComponent'Default__BP_Magician_C:VoiceComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.11"
       },
       "FaceLODComp": {
         "ObjectName": "StaticMeshComponent'Default__BP_Magician_C:FaceLOD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.69"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.71"
       },
       "m_pPlayerCheerfulItemComponent": {
         "ObjectName": "SBPlayerCheerfulItemComponent'Default__BP_Magician_C:CheerfulItemComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.46"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.47"
       },
       "DebugComponent": {
         "ObjectName": "SBPlayerDebugComponent'Default__BP_Magician_C:DebugComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.48"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.50"
       },
       "CharaCreateComponent": {
         "ObjectName": "SBCharaCreateComponent'Default__BP_Magician_C:CharaCreate'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.25"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.26"
       },
       "FaceComp": {
         "ObjectName": "SBCharaPartsFaceComponent'Default__BP_Magician_C:FaceSlot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.30"
+      },
+      "AestheShopComp": {
+        "ObjectName": "SBAestheShopComponent'Default__BP_Magician_C:AestheShopComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.20"
+      },
+      "ColoringShopComp": {
+        "ObjectName": "SBColoringShopComponent'Default__BP_Magician_C:ColoringShopComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.34"
       },
       "PartsDamageAnimParamter": {
         "ObjectName": "SBPartsDamageAnimParamter'Default__BP_Magician_C:PartsDamageAnimParamter'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.42"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.43"
       },
       "InventoryWeapons": [
         {
@@ -899,25 +973,29 @@
       ],
       "WeaponAttachPoint": "Sheath_Spine1_RightUp",
       "WeaponAttachPoint": "Weapon_Throw",
+      "WeaponVisibilityComponent": {
+        "ObjectName": "SBWeaponVisibilityComponent'Default__BP_Magician_C:WeaponVisibilityComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.65"
+      },
       "SpawnComp": {
         "ObjectName": "SBProjectileSpawnComponent'Default__BP_Magician_C:ProjectileSpawnComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.59"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.61"
       },
       "BattleStatusComp": {
         "ObjectName": "SBBattleStatusComponent'Default__BP_Magician_C:BattleStatusComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.22"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.23"
       },
       "ProjectileShareHitComp": {
         "ObjectName": "SBProjectileShareHitComponent'Default__BP_Magician_C:ProjectileShareHitComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.58"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.60"
       },
       "SendNetDataComp": {
         "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_Magician_C:ProjectileSendNetDataComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.57"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.59"
       },
       "StateManageComp": {
         "ObjectName": "SBProjectileStateManageComponent'Default__BP_Magician_C:ProjectileStateManageComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.60"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.62"
       },
       "m_MoveSpeedSetting": [
         {
@@ -935,55 +1013,59 @@
       ],
       "AnimationControlComp": {
         "ObjectName": "SBAnimationControlComponent'Default__BP_Magician_C:AnimationControlComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.21"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.22"
       },
       "DemoParameterComp": {
         "ObjectName": "SBDemoParameterComponent'Default__BP_Magician_C:DemoParameterComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.35"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.36"
       },
       "FactionComponent": {
         "ObjectName": "AIFwFactionComponent'Default__BP_Magician_C:FactionComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.9"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.10"
       },
       "FactionInfluenceComponent": {
         "ObjectName": "SBFactionInfluenceSourceComponent'Default__BP_Magician_C:FactionInfluenceComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.38"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.39"
       },
       "AISharedInfoComponent": {
         "ObjectName": "SBAISharedInfoComponent'Default__BP_Magician_C:AISharedInfoComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.20"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.21"
       },
       "MovePredictComponent": {
         "ObjectName": "SBMovementPredictComponent'Default__BP_Magician_C:MovementPredictComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.39"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.40"
       },
       "ActorVisibilityComponent": {
         "ObjectName": "SBActorVisibilityComponent'Default__BP_Magician_C:ActorVisibilityComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.18"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.19"
+      },
+      "DebugFunctionComponent": {
+        "ObjectName": "SBDebugFunctionComponent'Default__BP_Magician_C:DebugFunctionComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.35"
       },
       "CollisionGroup": {
         "ObjectName": "SBCollisionGroupComponent'Default__BP_Magician_C:CollisionGroup'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.33"
       },
       "DamageCollision": {
         "ObjectName": "ASCollisionSphereComponent'Default__BP_Magician_C:DamageCollision'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.11"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.12"
       },
       "Mesh": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_Magician_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.28"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.29"
       },
       "CharacterMovement": {
         "ObjectName": "SBPlayerMovementComponent'Default__BP_Magician_C:CharMoveComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.50"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.52"
       },
       "CapsuleComponent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Magician_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.52"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.54"
       },
       "RootComponent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Magician_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.52"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.54"
       },
       "Tags": [
         "Player",
@@ -1013,7 +1095,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCharaPartsFaceComponent'Default__BP_Magician_C:FaceSlot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.30"
       }
     }
   },
@@ -1029,7 +1111,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCollisionGroupComponent'Default__BP_Magician_C:CollisionGroup'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.33"
       }
     }
   },
@@ -1040,7 +1122,7 @@
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.BP_P011HUDComponent_C'",
     "Template": {
       "ObjectName": "BP_P011HUDComponent_C'Default__BP_P011HUDComponent_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.17"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/ClassHUD/P011/BP_P011HUDComponent.25"
     }
   },
   {
@@ -1105,7 +1187,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SBNamePlateComponent2D'BP_Magician_C:NamePlate_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.40"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.41"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1127,7 +1209,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SphereComponent'BP_Magician_C:EnemyStepJumpCollision_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.68"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.70"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1149,7 +1231,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SBPlayerTargetingComponent'BP_Magician_C:SBPlayerTargeting_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.55"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.57"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1171,7 +1253,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BP_PlayerCameraComponent_C'BP_Magician_C:BP_PlayerCameraComponent_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.14"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.15"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1244,7 +1326,7 @@
           {
             "Object": {
               "ObjectName": "BP_Magician_C'Default__BP_Magician_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.8"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.9"
             },
             "FunctionName": "OnClientSendEffectiveBattleStatusParam"
           }
@@ -1255,7 +1337,7 @@
           {
             "Object": {
               "ObjectName": "BP_Magician_C'Default__BP_Magician_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.8"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.9"
             },
             "FunctionName": "OnClientSendImportantBattleEffective"
           }
@@ -1359,7 +1441,7 @@
       ],
       "AttachParent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Magician_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.52"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.54"
       }
     }
   },
@@ -1382,7 +1464,7 @@
       ],
       "AttachParent": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_Magician_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.28"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.29"
       }
     }
   },
@@ -1418,7 +1500,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Magician_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.52"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.54"
       }
     }
   },
@@ -1546,6 +1628,9 @@
               "PassiveArtsID": {
                 "ID": 111205
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 1,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -1558,6 +1643,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -1574,6 +1660,9 @@
               "PassiveArtsID": {
                 "ID": 111205
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 2,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -1586,6 +1675,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -1602,6 +1692,9 @@
               "PassiveArtsID": {
                 "ID": 111205
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 3,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -1614,6 +1707,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -1638,7 +1732,145 @@
           "ID": 111001
         },
         "IntValue": 4
-      }
+      },
+      "MagicStackAccumulationSec": 50.0,
+      "MagicStackNoBattleResetSec": 60.0,
+      "MagicStackTakeDamageDelaySec": 5.0,
+      "MagicStackTakeDamageDecPercentage": 25.0,
+      "ExclusionDecMagicStackAttackIDs": [
+        {
+          "AttackID": 540000041
+        },
+        {
+          "AttackID": 540000006
+        },
+        {
+          "AttackID": 540000008
+        },
+        {
+          "AttackID": 540000010
+        },
+        {
+          "AttackID": 540000012
+        },
+        {
+          "AttackID": 540000015
+        },
+        {
+          "AttackID": 540000017
+        }
+      ],
+      "MagicStackBattleStatusSettingList": [
+        {
+          "MagicStack": 1,
+          "BattleStatusHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+            },
+            "RowName": "MagicStack_1Stack"
+          }
+        },
+        {
+          "MagicStack": 2,
+          "BattleStatusHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+            },
+            "RowName": "MagicStack_2Stack"
+          }
+        },
+        {
+          "MagicStack": 3,
+          "BattleStatusHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+            },
+            "RowName": "MagicStack_3Stack"
+          }
+        }
+      ],
+      "MagicStackAccumulationSpeedUpSecByDodgeSuccess": 3.0,
+      "MagicStackAccumulationSpeedUpRateByDodgeSuccess": 800.0,
+      "MagicStackAccumulationSpeedUpSecByCastSpecialSkill": 6.0,
+      "MagicStackAccumulationSpeedUpRateByCastSpecialSkill": 1600.0,
+      "MagicStackMaxEffectList": [
+        {
+          "Particle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "NiagaraSystem": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "EffectActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "EffectActorList": [],
+          "Sound": {
+            "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Play_Magician_Evil_Stack.Play_Magician_Evil_Stack",
+            "SubPathString": ""
+          },
+          "SoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EndSound": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "EndSoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EffectTarget": "EffectTarget_ActorRoot",
+          "ParticleScale": 1.0,
+          "LocationOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "RotationOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bAttach": true,
+          "bAbsoluteRotation": false,
+          "bDetachWhenDeactivate": false,
+          "bVisibleByHiddenSourceActor": false,
+          "AttachPointName": "None",
+          "ActorParameterName": "None",
+          "bOverrideLightingChannels": false,
+          "OverrideLightingChannels": {
+            "bChannel0": true,
+            "bChannel1": false,
+            "bChannel2": false
+          },
+          "bOverrideElementType": false,
+          "ElementType": "ESBAttribute::None",
+          "VisibleType": "ESBEffectVisibleType::Default",
+          "EffectType": "ESBEffectType::Default"
+        }
+      ]
     }
   },
   {
@@ -1682,13 +1914,23 @@
     }
   },
   {
+    "Type": "SBPlayerContentActionComponent",
+    "Name": "ContentActionComponent",
+    "Outer": "Default__BP_Magician_C",
+    "Class": "UScriptClass'SBPlayerContentActionComponent'",
+    "Template": {
+      "ObjectName": "SBPlayerContentActionComponent'Default__BP_PlayerCharacter_C:ContentActionComponent'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.122"
+    }
+  },
+  {
     "Type": "SBPlayerDebugComponent",
     "Name": "DebugComponent",
     "Outer": "Default__BP_Magician_C",
     "Class": "UScriptClass'SBPlayerDebugComponent'",
     "Template": {
       "ObjectName": "SBPlayerDebugComponent'Default__BP_PlayerCharacter_C:DebugComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.122"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.123"
     }
   },
   {
@@ -1698,7 +1940,7 @@
     "Class": "UScriptClass'SBPlayerFishingComponent'",
     "Template": {
       "ObjectName": "SBPlayerFishingComponent'Default__BP_PlayerCharacter_C:PlayerFishingComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.123"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.124"
     }
   },
   {
@@ -1708,7 +1950,7 @@
     "Class": "UScriptClass'SBPlayerMovementComponent'",
     "Template": {
       "ObjectName": "SBPlayerMovementComponent'Default__BP_PlayerCharacter_C:CharMoveComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.125"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.126"
     }
   },
   {
@@ -1718,7 +1960,7 @@
     "Class": "UScriptClass'SBPlayerPresetEquipComponent'",
     "Template": {
       "ObjectName": "SBPlayerPresetEquipComponent'Default__BP_PlayerCharacter_C:PlayerPresetEquipComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.126"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.127"
     }
   },
   {
@@ -1728,7 +1970,7 @@
     "Class": "UScriptClass'SBPlayerRootCollisionComponent'",
     "Template": {
       "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_PlayerCharacter_C:CollisionCylinder'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.127"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.128"
     },
     "Properties": {
       "OnComponentBeginOverlap": {
@@ -1736,7 +1978,7 @@
           {
             "Object": {
               "ObjectName": "BP_Magician_C'Default__BP_Magician_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.8"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.9"
             },
             "FunctionName": "OnCapsuleComponentBeginOverlapCallback"
           }
@@ -1747,7 +1989,7 @@
           {
             "Object": {
               "ObjectName": "BP_Magician_C'Default__BP_Magician_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.8"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.9"
             },
             "FunctionName": "OnCapsuleComponentEndOverlapCallback"
           }
@@ -1762,7 +2004,7 @@
     "Class": "UScriptClass'SBPlayerSkillActionComponent'",
     "Template": {
       "ObjectName": "SBPlayerSkillActionComponent'Default__BP_PlayerCharacter_C:SkillActionComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.128"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.129"
     }
   },
   {
@@ -1772,7 +2014,7 @@
     "Class": "UScriptClass'SBPlayerSkillMarker'",
     "Template": {
       "ObjectName": "SBPlayerSkillMarker'Default__BP_PlayerCharacter_C:SkillMarker'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.129"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.130"
     }
   },
   {
@@ -1782,7 +2024,7 @@
     "Class": "UScriptClass'SBPlayerTargetingComponent'",
     "Template": {
       "ObjectName": "SBPlayerTargetingComponent'BP_PlayerCharacter_C:SBPlayerTargeting_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.131"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.132"
     },
     "Properties": {
       "TargetingInfo": {
@@ -1819,7 +2061,7 @@
     "Class": "UScriptClass'SBProjectileHitTargetLimitComponent'",
     "Template": {
       "ObjectName": "SBProjectileHitTargetLimitComponent'Default__BP_PlayerCharacter_C:ProjectileHitTargetLimitComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.132"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.133"
     }
   },
   {
@@ -1829,7 +2071,7 @@
     "Class": "UScriptClass'SBProjectileSendNetDataComponent'",
     "Template": {
       "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_PlayerCharacter_C:ProjectileSendNetDataComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.133"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.134"
     }
   },
   {
@@ -1839,7 +2081,7 @@
     "Class": "UScriptClass'SBProjectileShareHitComponent'",
     "Template": {
       "ObjectName": "SBProjectileShareHitComponent'Default__BP_PlayerCharacter_C:ProjectileShareHitComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.134"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.135"
     }
   },
   {
@@ -1849,7 +2091,7 @@
     "Class": "UScriptClass'SBProjectileSpawnComponent'",
     "Template": {
       "ObjectName": "SBProjectileSpawnComponent'Default__BP_PlayerCharacter_C:ProjectileSpawnComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.135"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.136"
     },
     "Properties": {
       "ProjectileBuildResource": [
@@ -1872,6 +2114,16 @@
             "ObjectName": "DataTable'CommonProjectileEffectInfo'",
             "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Common/CommonProjectileEffectInfo.0"
           }
+        },
+        {
+          "ConfigInfo": {
+            "ObjectName": "DataTable'ContentActionProjectileConfigInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/ContentAction/ContentActionProjectileConfigInfo.0"
+          },
+          "EffectInfo": {
+            "ObjectName": "DataTable'ContentActionProjectileEffectInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/ContentAction/ContentActionProjectileEffectInfo.0"
+          }
         }
       ]
     }
@@ -1883,7 +2135,7 @@
     "Class": "UScriptClass'SBProjectileStateManageComponent'",
     "Template": {
       "ObjectName": "SBProjectileStateManageComponent'Default__BP_PlayerCharacter_C:ProjectileStateManageComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.136"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.137"
     }
   },
   {
@@ -1893,7 +2145,7 @@
     "Class": "UScriptClass'SBRaidBattleComponent'",
     "Template": {
       "ObjectName": "SBRaidBattleComponent'Default__BP_PlayerCharacter_C:PlayerRaidBattleComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.137"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.138"
     }
   },
   {
@@ -1903,7 +2155,7 @@
     "Class": "UScriptClass'SBSpringArmComponent'",
     "Template": {
       "ObjectName": "SBSpringArmComponent'BP_PlayerCharacter_C:BP_PlayerCameraComponent_GEN_VARIABLE.CameraArmComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.138"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.139"
     }
   },
   {
@@ -1913,7 +2165,7 @@
     "Class": "UScriptClass'SBWeaponVisibilityComponent'",
     "Template": {
       "ObjectName": "SBWeaponVisibilityComponent'Default__BP_PlayerCharacter_C:WeaponVisibilityComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.140"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.141"
     }
   },
   {
@@ -1934,7 +2186,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Magician_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.64"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.66"
       },
       "VariableGuid": "9D9973EC-40476B83-8DCB9698-BA0583DF",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1952,7 +2204,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SBPCMagicianComponent'BP_Magician_C:SBPCMagician_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.43"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.44"
       },
       "VariableGuid": "F39F7680-42D28B1C-BBB28F8B-17D0643A",
       "InternalVariableName": "SBPCMagician"
@@ -1967,18 +2219,18 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Magician_C:SimpleConstructionScript_1.SCS_Node_4'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.66"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.68"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Magician_C:SimpleConstructionScript_1.SCS_Node_4'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.66"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.68"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Magician_C:SimpleConstructionScript_1.SCS_Node_1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.65"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.67"
       }
     }
   },
@@ -1989,7 +2241,7 @@
     "Class": "UScriptClass'SphereComponent'",
     "Template": {
       "ObjectName": "SphereComponent'BP_PlayerCharacter_C:EnemyStepJumpCollision_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.171"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.172"
     },
     "Properties": {
       "RelativeLocation": {
@@ -2006,12 +2258,12 @@
     "Class": "UScriptClass'StaticMeshComponent'",
     "Template": {
       "ObjectName": "StaticMeshComponent'Default__BP_PlayerCharacter_C:FaceLOD'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.172"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.173"
     },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_Magician_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.28"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Magician.29"
       }
     }
   }

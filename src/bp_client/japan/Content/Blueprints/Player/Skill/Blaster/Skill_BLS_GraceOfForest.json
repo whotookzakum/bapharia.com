@@ -4,7 +4,7 @@
     "Name": "Skill_BLS_GraceOfForest_C",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
     "SuperStruct": {
-      "ObjectName": "Class'SBBlasterShootSkillInfo'",
+      "ObjectName": "Class'SBBlasterMarkerShootSkill'",
       "ObjectPath": "/Script/SkyBlue"
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
@@ -24,12 +24,24 @@
     "Name": "Default__Skill_BLS_GraceOfForest_C",
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Blaster/Skill_BLS_GraceOfForest.Skill_BLS_GraceOfForest_C'",
     "Properties": {
+      "MarkerSetting": {
+        "MarkerActor": {
+          "AssetPathName": "/Game/Blueprints/Marker/BP_Marker_BLS.BP_Marker_BLS_C",
+          "SubPathString": ""
+        },
+        "MarkerRadius": 1000.0,
+        "MarkerPlaceType": "ESBSkillMarkerPlace::Ground",
+        "MarkerAimType": "ESBSkillMarkerAim::ReticleFrontDown",
+        "MarkerRangeType": "ESBSkillMarkerRange::Horizontal",
+        "RangeMax": 30.0,
+        "bStampMarkerAtLaunchProjectile": true
+      },
       "HoldArrowSettingList": [
         {
           "AnimTag": "HoldArrow",
           "Effect": {
             "Particle": {
-              "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_HealRain_Lv1_HLD.PS_BLS_HealRain_Lv1_HLD",
+              "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_GraceOfForest_HLD_A.PS_BLS_GraceOfForest_HLD_A",
               "SubPathString": ""
             },
             "NiagaraSystem": {
@@ -42,7 +54,7 @@
             },
             "EffectActorList": [],
             "Sound": {
-              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_HealRain_Charge_Loop_Skill.Play_Blaster_HealRain_Charge_Loop_Skill",
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_GraceOfForest_Charge_Loop.Play_Blaster_GraceOfForest_Charge_Loop",
               "SubPathString": ""
             },
             "SoundParam": {
@@ -57,7 +69,7 @@
               "bCanReuseAkComponent": true
             },
             "EndSound": {
-              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Stop_Blaster_HealRain_Charge_Loop_Skill.Stop_Blaster_HealRain_Charge_Loop_Skill",
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Blaster/Stop_Blaster_GraceOfForest_Charge_Loop.Stop_Blaster_GraceOfForest_Charge_Loop",
               "SubPathString": ""
             },
             "EndSoundParam": {
@@ -104,6 +116,24 @@
       ],
       "BowAnimationList": [
         {
+          "AnimTag": "BowAnimation_Start",
+          "AnimationName": "Bow_HealRain_Start",
+          "bLooping": false,
+          "PlayRate": 1.0
+        },
+        {
+          "AnimTag": "BowAnimation_Loop",
+          "AnimationName": "Bow_HealRain_Loop",
+          "bLooping": true,
+          "PlayRate": 1.0
+        },
+        {
+          "AnimTag": "BowAnimation_Shoot",
+          "AnimationName": "Bow_HealRain_Shoot",
+          "bLooping": false,
+          "PlayRate": 1.0
+        },
+        {
           "AnimTag": "BowAnimation",
           "AnimationName": "Bow_GraceOfForest",
           "bLooping": false,
@@ -123,6 +153,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 1,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -135,6 +168,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -147,17 +181,7 @@
                     "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
                     "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
                   },
-                  "RowName": "GraceofForest_ConditionReset"
-                }
-              },
-              {
-                "UseSlotIndex": 1,
-                "StatusAilmentRowHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
-                  },
-                  "RowName": "GraceofForest_ZeroElementAccumulation"
+                  "RowName": "GraceOfForest"
                 }
               }
             ]
@@ -171,6 +195,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 2,
                 "FloatValue": 0.0,
@@ -184,6 +211,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -196,17 +224,7 @@
                     "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
                     "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
                   },
-                  "RowName": "GraceofForest_ConditionReset"
-                }
-              },
-              {
-                "UseSlotIndex": 1,
-                "StatusAilmentRowHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
-                  },
-                  "RowName": "GraceofForest_ZeroElementAccumulation"
+                  "RowName": "GraceOfForest"
                 }
               }
             ]
@@ -221,6 +239,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -233,6 +254,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -245,17 +267,7 @@
                     "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
                     "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
                   },
-                  "RowName": "GraceofForest_ConditionReset"
-                }
-              },
-              {
-                "UseSlotIndex": 1,
-                "StatusAilmentRowHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
-                  },
-                  "RowName": "GraceofForest_ZeroElementAccumulation"
+                  "RowName": "GraceOfForest"
                 }
               },
               {
@@ -280,6 +292,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -292,6 +307,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -304,17 +320,7 @@
                     "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
                     "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
                   },
-                  "RowName": "GraceofForest_ConditionReset"
-                }
-              },
-              {
-                "UseSlotIndex": 1,
-                "StatusAilmentRowHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
-                  },
-                  "RowName": "GraceofForest_ZeroElementAccumulation"
+                  "RowName": "GraceOfForest"
                 }
               },
               {
@@ -350,6 +356,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 2,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -362,6 +371,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -379,6 +389,9 @@
               "PassiveArtsID": {
                 "ID": 106221
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -391,6 +404,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             },
@@ -402,6 +416,9 @@
               "PassiveArtsID": {
                 "ID": 106222
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -414,6 +431,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             }
@@ -438,6 +456,9 @@
               "PassiveArtsID": {
                 "ID": 106221
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -450,6 +471,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -460,7 +482,7 @@
                 "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
                 "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
               },
-              "RowName": "GraceOfForest_PulsResetCondition"
+              "RowName": "GraceOfForest_byGrandTarget"
             }
           ]
         },
@@ -474,6 +496,9 @@
               "PassiveArtsID": {
                 "ID": 106222
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -486,6 +511,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -497,10 +523,13 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 3,
               "FloatValue": 0.0,
               "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::Equal",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
               "BattleStatusRowHandle": {
                 "DataTable": null,
                 "RowName": "None"
@@ -509,6 +538,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -533,6 +563,9 @@
               "PassiveArtsID": {
                 "ID": 106222
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -545,6 +578,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -555,6 +589,9 @@
               },
               "PassiveArtsID": {
                 "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
               },
               "IntValue": 4,
               "FloatValue": 0.0,
@@ -568,6 +605,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }

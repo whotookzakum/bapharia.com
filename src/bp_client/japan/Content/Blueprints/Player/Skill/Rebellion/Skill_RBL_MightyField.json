@@ -25,40 +25,6 @@
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_MightyField.Skill_RBL_MightyField_C'",
     "Properties": {
       "SkillName": "MightyField",
-      "StatusAilmentPriorityTable": {
-        "PrioritySection": [
-          {
-            "ConditionList": [],
-            "PriorityDataArray": [
-              {
-                "UseSlotIndex": 0,
-                "StatusAilmentRowHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
-                  },
-                  "RowName": "MightyField_RecieveDamageDown"
-                }
-              }
-            ]
-          },
-          {
-            "ConditionList": [],
-            "PriorityDataArray": [
-              {
-                "UseSlotIndex": 0,
-                "StatusAilmentRowHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
-                  },
-                  "RowName": "MightyField_RecieveDamageDown_Lv4"
-                }
-              }
-            ]
-          }
-        ]
-      },
       "SkillStateMachine": {
         "AssetPathName": "/Game/Animations/Player/StateMachine/Common/SingleAction/SM_FFF_SingleAction.SM_FFF_SingleAction",
         "SubPathString": ""
@@ -81,6 +47,9 @@
               "PassiveArtsID": {
                 "ID": 112052
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -93,6 +62,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -104,10 +74,13 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 3,
               "FloatValue": 0.0,
               "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::Equal",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
               "BattleStatusRowHandle": {
                 "DataTable": null,
                 "RowName": "None"
@@ -116,6 +89,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -133,29 +107,6 @@
         {
           "ConditionList": [
             {
-              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
-              "ActiveArtsID": {
-                "ID": 0
-              },
-              "PassiveArtsID": {
-                "ID": 112052
-              },
-              "IntValue": 0,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": false
-            },
-            {
               "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
               "ActiveArtsID": {
                 "ID": 1205
@@ -163,41 +114,8 @@
               "PassiveArtsID": {
                 "ID": 0
               },
-              "IntValue": 4,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": false
-            }
-          ],
-          "ProjectileHandleList": [
-            {
-              "DataTable": {
-                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
-                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
-              },
-              "RowName": "MightyField_AndGiveDamageUp_Lv4"
-            }
-          ]
-        },
-        {
-          "ConditionList": [
-            {
-              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-              "ActiveArtsID": {
-                "ID": 1205
-              },
-              "PassiveArtsID": {
-                "ID": 0
+              "AttackID": {
+                "AttackID": 0
               },
               "IntValue": 2,
               "FloatValue": 0.0,
@@ -211,6 +129,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -235,6 +154,9 @@
               "PassiveArtsID": {
                 "ID": 112051
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -247,6 +169,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             },
@@ -258,6 +181,9 @@
               "PassiveArtsID": {
                 "ID": 112052
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -270,6 +196,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             },
@@ -281,10 +208,13 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 3,
               "FloatValue": 0.0,
               "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::Equal",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
               "BattleStatusRowHandle": {
                 "DataTable": null,
                 "RowName": "None"
@@ -293,6 +223,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -317,28 +248,8 @@
               "PassiveArtsID": {
                 "ID": 112051
               },
-              "IntValue": 0,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": true
-            },
-            {
-              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
-              "ActiveArtsID": {
-                "ID": 0
-              },
-              "PassiveArtsID": {
-                "ID": 112052
+              "AttackID": {
+                "AttackID": 0
               },
               "IntValue": 0,
               "FloatValue": 0.0,
@@ -352,65 +263,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": true
-            },
-            {
-              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-              "ActiveArtsID": {
-                "ID": 1205
-              },
-              "PassiveArtsID": {
-                "ID": 0
-              },
-              "IntValue": 4,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": false
-            }
-          ],
-          "ProjectileHandleList": [
-            {
-              "DataTable": {
-                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
-                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
-              },
-              "RowName": "MightyField_RecieveDamageDown_Lv4"
-            }
-          ]
-        },
-        {
-          "ConditionList": [
-            {
-              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
-              "ActiveArtsID": {
-                "ID": 0
-              },
-              "PassiveArtsID": {
-                "ID": 112051
-              },
-              "IntValue": 0,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -421,11 +274,14 @@
               },
               "PassiveArtsID": {
                 "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
               },
               "IntValue": 3,
               "FloatValue": 0.0,
               "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::Equal",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
               "BattleStatusRowHandle": {
                 "DataTable": null,
                 "RowName": "None"
@@ -434,6 +290,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -445,65 +302,6 @@
                 "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
               },
               "RowName": "MightyField_AndElementResistUp"
-            }
-          ]
-        },
-        {
-          "ConditionList": [
-            {
-              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
-              "ActiveArtsID": {
-                "ID": 0
-              },
-              "PassiveArtsID": {
-                "ID": 112051
-              },
-              "IntValue": 0,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": false
-            },
-            {
-              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-              "ActiveArtsID": {
-                "ID": 1205
-              },
-              "PassiveArtsID": {
-                "ID": 0
-              },
-              "IntValue": 4,
-              "FloatValue": 0.0,
-              "NameValue": "None",
-              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-              "BattleStatusRowHandle": {
-                "DataTable": null,
-                "RowName": "None"
-              },
-              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-              "AbilityFlagList": [],
-              "OnlyPlayerStatusList": [],
-              "ElementType": "ESBAttribute::None",
-              "ArrayLogic": "ESBArrayLogicalOperator::AND",
-              "bNot": false
-            }
-          ],
-          "ProjectileHandleList": [
-            {
-              "DataTable": {
-                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
-                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
-              },
-              "RowName": "MightyField_AndElementResistUp_Lv4"
             }
           ]
         }

@@ -3,13 +3,9 @@
     "Type": "BlueprintGeneratedClass",
     "Name": "Skill_PFM_Dodge_C",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
-    "Super": {
-      "ObjectName": "BlueprintGeneratedClass'Skill_Dodge_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Skill_Dodge.0"
-    },
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass'Skill_Dodge_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Skill_Dodge.0"
+      "ObjectName": "Class'SBPerformerDodgeSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
     "ClassWithin": {
@@ -27,13 +23,215 @@
     "Type": "Skill_PFM_Dodge_C",
     "Name": "Default__Skill_PFM_Dodge_C",
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Performer/Skill_PFM_Dodge.Skill_PFM_Dodge_C'",
-    "Template": {
-      "ObjectName": "Skill_Dodge_C'Default__Skill_Dodge_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Skill_Dodge.1"
-    },
     "Properties": {
+      "AmpExplodeVoltageGaugeAddList": [
+        {
+          "AmpExplodeProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "DodgeAttack_AmpExplode"
+            }
+          ],
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveStatusGroup",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::VoltageUpBuff",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": true
+            }
+          ],
+          "AddAmount": 0.25,
+          "IsAddDuringFeverTime": false
+        },
+        {
+          "AmpExplodeProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "DodgeAttack_AmpExplode"
+            }
+          ],
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveStatusGroup",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::VoltageUpBuff",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "AddAmount": 0.38,
+          "IsAddDuringFeverTime": false
+        },
+        {
+          "AmpExplodeProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "DodgeAttack_DodgeSucceeded_AmpExplode"
+            }
+          ],
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveStatusGroup",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::VoltageUpBuff",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": true
+            }
+          ],
+          "AddAmount": 0.38,
+          "IsAddDuringFeverTime": false
+        },
+        {
+          "AmpExplodeProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "DodgeAttack_DodgeSucceeded_AmpExplode"
+            }
+          ],
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveStatusGroup",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::VoltageUpBuff",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "AddAmount": 0.57,
+          "IsAddDuringFeverTime": false
+        }
+      ],
+      "CurveMoveSettingList": [
+        {
+          "CurveMoveName": "Dodge_Front",
+          "CurveData": {
+            "AssetPathName": "/Game/Blueprints/Player/Skill/MoveCurve_FFF_DodgeFront.MoveCurve_FFF_DodgeFront",
+            "SubPathString": ""
+          },
+          "NeedTags": [],
+          "ForbidTags": [
+            "Idle",
+            "Damage"
+          ],
+          "bMoveBackward": false,
+          "bGoAroundLockonTarget": true,
+          "bApplyXY": true,
+          "bApplyZ": false
+        },
+        {
+          "CurveMoveName": "Dodge_Back",
+          "CurveData": {
+            "AssetPathName": "/Game/Blueprints/Player/Skill/MoveCurve_FFF_DodgeBack.MoveCurve_FFF_DodgeBack",
+            "SubPathString": ""
+          },
+          "NeedTags": [],
+          "ForbidTags": [
+            "Idle",
+            "Damage"
+          ],
+          "bMoveBackward": true,
+          "bGoAroundLockonTarget": true,
+          "bApplyXY": true,
+          "bApplyZ": false
+        }
+      ],
+      "DodgeSucceededCharacterMaterial": "Warp_Threshold",
       "SkillName": "PFM_Dodge",
       "NeedParam": {
+        "NeedStamina": 20.0,
         "StaminaModifySettingList": [
           {
             "ConditionList": [
@@ -44,6 +242,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": -1,
                 "FloatValue": 0.0,
@@ -57,6 +258,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -65,6 +267,18 @@
           }
         ]
       },
+      "bIsDodge": true,
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/Dodge/SM_C000_DodgeUnsheathe.SM_C000_DodgeUnsheathe",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/Dodge/SM_C000_Dodge_AimOffset.SM_C000_Dodge_AimOffset",
+        "SubPathString": ""
+      },
+      "bCancelSameSkill": true,
+      "bLaunchSkillPreInput": true,
+      "LaunchSkillPreInputTime": 0.6,
       "CastLaunchProjectileList": [
         {
           "ConditionList": [
@@ -75,6 +289,9 @@
               },
               "PassiveArtsID": {
                 "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
               },
               "IntValue": 1,
               "FloatValue": 0.0,
@@ -88,6 +305,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -99,6 +317,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -111,6 +332,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             },
@@ -122,6 +344,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -134,6 +359,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             }
@@ -158,6 +384,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 1,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -170,6 +399,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -181,6 +411,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -193,6 +426,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -204,6 +438,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -216,6 +453,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             }
@@ -240,6 +478,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 1,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -252,6 +493,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -263,6 +505,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -275,6 +520,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             },
@@ -286,6 +532,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -298,6 +547,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -322,6 +572,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 1,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -334,6 +587,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -345,6 +599,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -357,6 +614,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             },
@@ -368,6 +626,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -380,6 +641,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -394,7 +656,8 @@
             }
           ]
         }
-      ]
+      ],
+      "bHideCastLog": true
     }
   }
 ]

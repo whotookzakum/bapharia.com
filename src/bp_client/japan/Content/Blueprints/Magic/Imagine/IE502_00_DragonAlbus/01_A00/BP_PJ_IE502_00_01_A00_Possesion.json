@@ -5,7 +5,7 @@
     "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Super": {
       "ObjectName": "BlueprintGeneratedClass'BP_PJ_ImaginePossesionEffect_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.8"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.9"
     },
     "Properties": {
       "SimpleConstructionScript": {
@@ -15,7 +15,7 @@
     },
     "SuperStruct": {
       "ObjectName": "BlueprintGeneratedClass'BP_PJ_ImaginePossesionEffect_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.8"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.9"
     },
     "ChildProperties": [
       {
@@ -59,10 +59,774 @@
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/IE502_00_DragonAlbus/01_A00/BP_PJ_IE502_00_01_A00_Possesion.BP_PJ_IE502_00_01_A00_Possesion_C'",
     "Template": {
       "ObjectName": "BP_PJ_ImaginePossesionEffect_C'Default__BP_PJ_ImaginePossesionEffect_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.9"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.10"
     },
     "Properties": {
-      "SpawnEmitterArray": [
+      "SpawnEffectSoundList": [
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "R_ForeArm_J",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_arm'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_arm.292"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": 20.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 45.0,
+                "Yaw": 45.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "L_ForeArm_J",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_arm'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_arm.292"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": 20.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": -45.0,
+                "Yaw": 45.0,
+                "Roll": 45.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "Spine3_J",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_spine'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_spine.307"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": -90.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": {
+              "ObjectName": "AkAudioEvent'Play_Imagine_possession_1shot_Loop'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Imagine_possession_1shot_Loop.1"
+            },
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": {
+              "ObjectName": "AkAudioEvent'Stop_Imagine_possession_1shot_Loop'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Stop_Imagine_possession_1shot_Loop.1"
+            }
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "L_Foot_J__Offset",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_leg'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_leg.258"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": -10.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 10.0,
+                "Yaw": -30.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "R_Foot_J__Offset",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_leg'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_leg.258"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": -10.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 5,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "R_ForeArm_J",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_arm'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_arm.292"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": 20.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 45.0,
+                "Yaw": 45.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 5,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "L_ForeArm_J",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_arm'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_arm.292"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": 20.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": -45.0,
+                "Yaw": 45.0,
+                "Roll": 45.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 5,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "Spine3_J",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_spine'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_spine.307"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": -90.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": {
+              "ObjectName": "AkAudioEvent'Play_Imagine_possession_1shot_Loop'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Imagine_possession_1shot_Loop.1"
+            },
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": {
+              "ObjectName": "AkAudioEvent'Stop_Imagine_possession_1shot_Loop'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Stop_Imagine_possession_1shot_Loop.1"
+            }
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 5,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "L_Foot_J__Offset",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_leg'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_leg.258"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": -10.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 10.0,
+                "Yaw": -30.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        },
+        {
+          "ConditionList_3_41DB9F3A4DEC2380556B92AE26D61137": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ProjectileBImaineStackBNumCache",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 5,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "SpawnEmitterParam_14_A3912A4847CBE810A40DBE88ABFFFF40": {
+            "SpawnEmitterParam_7_A3912A4847CBE810A40DBE88ABFFFF40": {
+              "AttachToComponent": null,
+              "AttachPointName": "R_Foot_J__Offset",
+              "LocationType": "EAttachLocation::KeepRelativeOffset",
+              "OverwriteSourceActor": null,
+              "EmitterTemplate": {
+                "ObjectName": "ParticleSystem'PS_IMG_PossessionAura_leg'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Imagine/Possession/PS_IMG_PossessionAura_leg.258"
+              },
+              "EffectId": "EEffectId::None",
+              "Location": {
+                "X": -10.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "Scale": {
+                "X": 1.0,
+                "Y": 1.0,
+                "Z": 1.0
+              },
+              "IsUseEffectScale": false,
+              "IsAutoDestroy": true,
+              "PoolingMethod": "EPSCPoolMethod::None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "OverrideElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "IsVisibleByHiddenSourceActor": false,
+              "EffectType": "ESBEffectType::Default"
+            },
+            "SpawnEmitterSound_11_4AA9A2774968DCE3072D51AE10BD33A2": null,
+            "EndEmitterSound_13_02CFF3334E603C87FB3B81AC02E79BBD": null
+          }
+        }
+      ],
+      "Del_SpawnEmitterArray": [
         {
           "AttachToComponent": null,
           "AttachPointName": "R_ForeArm_J",
@@ -264,7 +1028,7 @@
           "EffectType": "ESBEffectType::Default"
         }
       ],
-      "SpawnEmitterSoundArray": [
+      "Del_SpawnEmitterSoundArray": [
         null,
         null,
         {
@@ -272,7 +1036,7 @@
           "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Imagine_possession_1shot_Loop.1"
         }
       ],
-      "EndEmitterSoundArray": [
+      "Del_EndEmitterSoundArray": [
         null,
         null,
         {
@@ -328,7 +1092,7 @@
     "Class": "UScriptClass'SBProjectileAttackParamComponent'",
     "Template": {
       "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_ImaginePossesionEffect_C:AttackParamComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.10"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.11"
     }
   },
   {
@@ -338,7 +1102,7 @@
     "Class": "UScriptClass'SBProjectileCollisionComponent'",
     "Template": {
       "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:CollisionComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.11"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.12"
     },
     "Properties": {
       "AttachParent": {
@@ -354,7 +1118,7 @@
     "Class": "UScriptClass'SBProjectileDestroyConditionComponent'",
     "Template": {
       "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_ImaginePossesionEffect_C:DestroyCondComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.12"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.13"
     }
   },
   {
@@ -364,7 +1128,7 @@
     "Class": "UScriptClass'SBProjectileEffectComponent'",
     "Template": {
       "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_ImaginePossesionEffect_C:EffectComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.13"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
     },
     "Properties": {
       "AttachParent": {
@@ -380,7 +1144,7 @@
     "Class": "UScriptClass'SBProjectileGroundCollisionComponent'",
     "Template": {
       "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_ImaginePossesionEffect_C:GroundCollisionComp(ProjRoot)'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.14"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
     },
     "Properties": {
       "OnComponentHit": {
@@ -403,7 +1167,7 @@
     "Class": "UScriptClass'SBProjectileParamComponent'",
     "Template": {
       "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_ImaginePossesionEffect_C:ParamComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.15"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_PJ_ImaginePossesionEffect.16"
     }
   },
   {

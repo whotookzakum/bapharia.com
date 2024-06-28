@@ -46,6 +46,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -58,6 +61,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             }
@@ -86,6 +90,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -98,6 +105,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -112,12 +120,155 @@
           {
             "ConditionList": [
               {
-                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
                 "ActiveArtsID": {
                   "ID": 2113
                 },
                 "PassiveArtsID": {
-                  "ID": 121131
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::LessOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::PFM_FeverTime",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": true
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'PerformerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerStatusAlimentConfig.0"
+                  },
+                  "RowName": "RaiseSonic_Lv1"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2113
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::LessOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::PFM_FeverTime",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'PerformerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerStatusAlimentConfig.0"
+                  },
+                  "RowName": "RaiseSonic_FT_Lv1"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2113
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 3,
                 "FloatValue": 0.0,
@@ -131,6 +282,61 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::PFM_FeverTime",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": true
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 121131
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -145,9 +351,96 @@
                   },
                   "RowName": "RaiseSonic_Lv3"
                 }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 2113
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
               },
               {
-                "UseSlotIndex": 1,
+                "ConditionCheckType": "ESBConditionCheckType::PFM_FeverTime",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 121131
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": true
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
                 "StatusAilmentRowHandle": {
                   "DataTable": {
                     "ObjectName": "DataTable'PerformerStatusAlimentConfig'",
@@ -163,10 +456,13 @@
               {
                 "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
                 "ActiveArtsID": {
-                  "ID": 2113
+                  "ID": 2111
                 },
                 "PassiveArtsID": {
                   "ID": 121131
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 3,
                 "FloatValue": 0.0,
@@ -180,8 +476,36 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
+              },
+              {
+                "ConditionCheckType": "ESBConditionCheckType::PFM_FeverTime",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": true
               }
             ],
             "PriorityDataArray": [
@@ -194,9 +518,69 @@
                   },
                   "RowName": "RaiseSonic_ExtendBuffTime"
                 }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 2111
+                },
+                "PassiveArtsID": {
+                  "ID": 121131
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
               },
               {
-                "UseSlotIndex": 1,
+                "ConditionCheckType": "ESBConditionCheckType::PFM_FeverTime",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
                 "StatusAilmentRowHandle": {
                   "DataTable": {
                     "ObjectName": "DataTable'PerformerStatusAlimentConfig'",
@@ -234,6 +618,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 2,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -246,6 +633,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -264,6 +652,9 @@
               "PassiveArtsID": {
                 "ID": 121132
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -276,6 +667,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -294,6 +686,9 @@
               "PassiveArtsID": {
                 "ID": 121133
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -306,6 +701,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             }
@@ -337,6 +733,9 @@
               "PassiveArtsID": {
                 "ID": 121133
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -349,6 +748,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }

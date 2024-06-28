@@ -189,7 +189,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -495,6 +494,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -507,6 +509,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -515,12 +518,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -632,7 +635,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -690,7 +692,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -702,7 +704,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -748,7 +750,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -776,15 +778,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -958,6 +960,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -970,6 +975,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -978,12 +984,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -1095,7 +1101,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -1153,7 +1158,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -1165,7 +1170,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -1211,7 +1216,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -1239,15 +1244,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -1421,6 +1426,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -1433,6 +1441,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -1441,12 +1450,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -1558,7 +1567,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -1616,7 +1624,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -1628,7 +1636,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -1674,7 +1682,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -1702,15 +1710,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -1884,6 +1892,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -1896,6 +1907,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -1904,12 +1916,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -2021,7 +2033,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -2079,7 +2090,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -2091,7 +2102,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -2137,7 +2148,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -2165,15 +2176,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -2347,6 +2358,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -2359,6 +2373,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -2367,12 +2382,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -2484,7 +2499,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -2542,7 +2556,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -2554,7 +2568,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -2600,7 +2614,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -2628,15 +2642,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -2810,6 +2824,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -2822,6 +2839,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -2830,12 +2848,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -2947,7 +2965,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -3005,7 +3022,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -3017,7 +3034,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -3063,7 +3080,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -3091,15 +3108,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -3273,6 +3290,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -3285,6 +3305,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -3293,12 +3314,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -3410,7 +3431,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -3468,7 +3488,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -3480,7 +3500,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -3526,7 +3546,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -3554,15 +3574,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -3736,6 +3756,9 @@
                   "PassiveArtsID": {
                     "ID": 119203
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -3748,6 +3771,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -3756,12 +3780,12 @@
             }
           ],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 1000.0,
+          "DestroyDistance": 2000.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": false,
           "bIsEnableTotalDistance": false,
           "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": true,
+          "bIsEnableGroundHitCheck": false,
           "bIsEnableAliveAnimTag": false,
           "AliveAnimTagArray": [],
           "bIsDestroyTogeghterWithSpawner": false
@@ -3873,7 +3897,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -3931,7 +3954,7 @@
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 50.0,
+          "InitialSpeed": 500.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -3943,7 +3966,7 @@
           "bRotationFollowsVelocityOwnerYawAtBegin": false,
           "bLimitDistance": false,
           "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": false
+          "bStopMoveWhenGroundHit": true
         },
         "MoveHomingConfig": {
           "bIsHoming": false,
@@ -3989,7 +4012,7 @@
         "AlongGroundConfig": {
           "GroundOffsetHeight": 50.0,
           "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::None",
           "CheckPitchDist": 100.0,
           "CheckRollDist": 200.0,
           "AlongPitchMax": 25.0,
@@ -4017,15 +4040,15 @@
         "ChainMovementConfig": [
           {
             "ChainMovementTrigger": {
-              "ChangeLabel": "None",
+              "ChangeLabel": "Pause",
               "ElapsedTime": 0.0,
               "isChangeOnHomingTargetArrive": false,
               "ArriveDist": 10.0,
               "IncludeAnimTagArray": []
             },
             "ChainMovementParam": {
-              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle_Pause'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle_Pause.0"
             }
           }
         ],
@@ -4307,7 +4330,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -4721,7 +4743,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -5135,7 +5156,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -5444,6 +5464,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 3,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -5456,6 +5479,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -5578,7 +5602,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -5887,6 +5910,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 3,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -5899,6 +5925,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -6021,7 +6048,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -6443,7 +6469,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -6823,6 +6848,9 @@
                 "PassiveArtsID": {
                   "ID": 119005
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6835,6 +6863,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -6898,7 +6927,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -6935,6 +6963,9 @@
                       "PassiveArtsID": {
                         "ID": 119005
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -6947,6 +6978,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -7353,7 +7385,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -7772,7 +7803,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -8191,7 +8221,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -8610,7 +8639,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -9029,7 +9057,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -9448,7 +9475,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -9867,7 +9893,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -10286,7 +10311,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -10705,7 +10729,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -11124,7 +11147,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -11543,7 +11565,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -11962,7 +11983,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -12392,7 +12412,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -12822,7 +12841,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -13244,7 +13262,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -13666,7 +13683,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -14088,7 +14104,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -14109,7 +14124,7 @@
         "CollisionShape": {
           "SphereArray": [
             {
-              "Radius": 550.0,
+              "Radius": 600.0,
               "ModifyRadiusList": [],
               "Location": {
                 "X": 0.0,
@@ -14510,7 +14525,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -14531,7 +14545,7 @@
         "CollisionShape": {
           "SphereArray": [
             {
-              "Radius": 600.0,
+              "Radius": 700.0,
               "ModifyRadiusList": [],
               "Location": {
                 "X": 0.0,
@@ -14932,7 +14946,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -15182,7 +15195,7 @@
         },
         "ProjectileUniqueTag": "None"
       },
-      "BallShoot_QuickShot_ChargeLv2": {
+      "BallShoot_Regular_ChargeLv1": {
         "ProjectileType": "EProjectileType::Straight",
         "CustomProjectileTemplate": {
           "AssetPathName": "None",
@@ -15237,14 +15250,14 @@
         },
         "PostAttachConfig": {
           "bIsSameRotatorFromAttach": false,
-          "bIsCauseHitAttach": false
+          "bIsCauseHitAttach": true
         },
         "DestroyCondition": {
           "bIsEnableLifeCheck": true,
           "LifeTime": 10.0,
           "AddLifeTimeList": [],
           "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 2500.0,
+          "DestroyDistance": 1500.0,
           "DestroyDistanceAdjustList": [],
           "bIsEnableHeightCheck": true,
           "bIsEnableTotalDistance": false,
@@ -15308,7 +15321,7 @@
             "ObjectName": "DataTable'SmasherProjectileEffectInfo'",
             "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherProjectileEffectInfo.0"
           },
-          "RowName": "BallShoot_QuickShot"
+          "RowName": "BallShoot_Regular_Charge_Lv1"
         },
         "ConditionCheckEffectTableHandle": [],
         "MeshConfigList": [],
@@ -15333,7 +15346,7 @@
           "bIsEnableGroundCollision": true,
           "bIsUseBImagineCollisionPreset": false,
           "HalfHeight": 1.0,
-          "Radius": 40.0
+          "Radius": 1.0
         },
         "CollisionConfig": {
           "bEnableAttack": true,
@@ -15343,7 +15356,7 @@
           "HitSetting": {
             "bIsDisableSelfHit": true,
             "bIsOnlyTargetHit": false,
-            "bIsInfinitePierce": false,
+            "bIsInfinitePierce": true,
             "bIsEnableBlockingHitCheck": true,
             "bIsEnableHitCover": true,
             "HitCoverConfig": {
@@ -15361,7 +15374,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -15405,7 +15417,7 @@
           }
         },
         "AttackID": {
-          "AttackID": 1934002
+          "AttackID": 1901003
         },
         "ModifyAttackIDList": [],
         "DamageType": null,
@@ -15415,26 +15427,11 @@
         "bTreateFriendByParty": false,
         "bIsDisableHitTargetLimit": false,
         "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
-        "StatusAliments": [
-          {
-            "DataTable": {
-              "ObjectName": "DataTable'SmasherStatusAlimentConfig'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherStatusAlimentConfig.0"
-            },
-            "RowName": "QuickShot_FixTarget"
-          },
-          {
-            "DataTable": {
-              "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
-            },
-            "RowName": "FlashStun"
-          }
-        ],
+        "StatusAliments": [],
         "SelfStatusAliments": [],
         "OverlapStatusAlimentConfigs": [],
         "MoveBaseConfig": {
-          "InitialSpeed": 6000.0,
+          "InitialSpeed": 4000.0,
           "InitialSpeedModifyRateList": [],
           "MinSpeed": 0.0,
           "MaxSpeed": 0.0,
@@ -15592,7 +15589,7 @@
           "Switch": [],
           "AttachName": "None",
           "AutoDestroy": true,
-          "StopWhenOwnerDestroyed": true,
+          "StopWhenOwnerDestroyed": false,
           "LOD": "ESBAkEventLOD::LOD_Default",
           "RTPC": [],
           "DelayTime": 0.0,
@@ -15603,7 +15600,420 @@
           "Switch": [],
           "AttachName": "None",
           "AutoDestroy": true,
-          "StopWhenOwnerDestroyed": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "BallShoot_Regular_ChargeLv2": {
+        "ProjectileType": "EProjectileType::Straight",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::WeaponSocket",
+          "SpawnRotType": "ESpawnRotType::AttackDirection",
+          "DirectionType": "EProjectileDirection::TargetDirection",
+          "SpawnSocketName": "Hammer_J",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::ScreenViewDirection",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": true,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": true
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 10.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": true,
+          "DestroyDistance": 1500.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'SmasherProjectileEffectInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherProjectileEffectInfo.0"
+          },
+          "RowName": "BallShoot_Regular_Charge_Lv2"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": true,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 1.0,
+          "Radius": 1.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 40.0,
+              "ModifyRadiusList": [],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 1901004
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 4000.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 1000.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": false
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.1,
+          "HomingEndTime": 2.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 60.0,
+          "HomingCorrectionAngle2": 60.0,
+          "HomingEffectiveCorrectionAngle": 360.0,
+          "HomingEffectiveCorrectionAngle2": 360.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 1000.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
           "LOD": "ESBAkEventLOD::LOD_Default",
           "RTPC": [],
           "DelayTime": 0.0,
@@ -15670,7 +16080,7 @@
         },
         "DestroyCondition": {
           "bIsEnableLifeCheck": true,
-          "LifeTime": 2.0,
+          "LifeTime": 0.4,
           "AddLifeTimeList": [],
           "bIsEnableDistanceCheck": false,
           "DestroyDistance": 10000.0,
@@ -15733,11 +16143,8 @@
         },
         "OrderedChainConfigList": [],
         "EffectTableHandle": {
-          "DataTable": {
-            "ObjectName": "DataTable'SmasherProjectileEffectInfo'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherProjectileEffectInfo.0"
-          },
-          "RowName": "BallShoot_Regular_Wave"
+          "DataTable": null,
+          "RowName": "None"
         },
         "ConditionCheckEffectTableHandle": [],
         "MeshConfigList": [],
@@ -15790,7 +16197,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -15839,7 +16245,7 @@
           }
         },
         "AttackID": {
-          "AttackID": 1999006
+          "AttackID": 1901005
         },
         "ModifyAttackIDList": [],
         "DamageType": {

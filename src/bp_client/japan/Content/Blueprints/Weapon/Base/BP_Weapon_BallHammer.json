@@ -59,12 +59,58 @@
         "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_BallHammer_C:Mesh'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_BallHammer.3"
       },
-      "WeaponType": "WeaponType_BallHammer",
+      "WeaponType": "ESBWeaponType::WeaponType_BallHammer",
       "WeaponShapeType": "WeaponShapeType_Blunt",
       "ColorList": {
-        "ObjectName": "CharaPartsColorWeaponList'CL_CH_WP06_AA_00'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Player/ColorList/CL_CH_WP06_AA_00.0"
+        "ObjectName": "CharaPartsColorWeaponList'CL_CH_WP06_AG_01'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Player/ColorList/CL_CH_WP06_AG_01.0"
       },
+      "BattleScoreWeaponEffectParams": [
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Spot",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::MeshComponent",
+          "AttachSocket": "Center_J",
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 50.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "bEnableSheathe": true,
+          "bEnableUnsheathe": true
+        },
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Aura",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::MeshComponent",
+          "AttachSocket": "Center_J",
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 50.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "bEnableSheathe": false,
+          "bEnableUnsheathe": true
+        }
+      ],
       "AnimationList": [
         {
           "Animation": {
@@ -184,6 +230,27 @@
             "ObjectPath": "BLUEPROTOCOL/Content/Animations/Weapon/WP06/AS_WP06_SMA_ACT_QuickShot03End.0"
           },
           "AnimationName": "BallHammer_QuickShotEnd"
+        },
+        {
+          "Animation": {
+            "ObjectName": "AnimSequence'AS_WP06_SMA_ACT_RegularChargeShotStart01C000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Animations/Weapon/WP06/AS_WP06_SMA_ACT_RegularChargeShotStart01C000.0"
+          },
+          "AnimationName": "BallHammer_RegularChargeStart"
+        },
+        {
+          "Animation": {
+            "ObjectName": "AnimSequence'AS_WP06_SMA_ACT_RegularChargeLoop01C000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Animations/Weapon/WP06/AS_WP06_SMA_ACT_RegularChargeLoop01C000.0"
+          },
+          "AnimationName": "BallHammer_RegularChargeLoop"
+        },
+        {
+          "Animation": {
+            "ObjectName": "AnimSequence'AS_WP06_SMA_ACT_RegularChargeShotStart01C000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Animations/Weapon/WP06/AS_WP06_SMA_ACT_RegularChargeShotStart01C000.0"
+          },
+          "AnimationName": "BallHammer_RegularChargeShotStart"
         }
       ],
       "bPropagateVisibilityToAdditionalMesh": false,
@@ -220,8 +287,8 @@
     },
     "Properties": {
       "SkeletalMesh": {
-        "ObjectName": "SkeletalMesh'SK_CH_WP06_AA00'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Character/Weapon/WP/WP06/SK_CH_WP06_AA00/Model/SK_CH_WP06_AA00.0"
+        "ObjectName": "SkeletalMesh'SK_CH_WP06_AG01'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/Weapon/WP/WP06/SK_CH_WP06_AG01/Model/SK_CH_WP06_AG01.0"
       },
       "OverrideMaterials": [
         null,

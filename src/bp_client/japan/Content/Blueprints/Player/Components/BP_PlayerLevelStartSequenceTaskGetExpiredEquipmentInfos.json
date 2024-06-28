@@ -13,6 +13,17 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Owner",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
         "Type": "BoolProperty",
         "Name": "CallFunc_NotifyDeletedMountsToLogAndMessage_OutIsMessageShowed",
         "Flags": "RF_Public",
@@ -274,6 +285,19 @@
       "ObjectName": "Function'SBPlayerLevelStartSequenceTaskBase:Start'",
       "ObjectPath": "/Script/SkyBlue"
     },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Owner",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      }
+    ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
@@ -614,7 +638,7 @@
         "Type": "StructProperty",
         "Name": "CallFunc_GetWeaponMasterData_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 184,
+        "ElementSize": 208,
         "Struct": {
           "ObjectName": "ScriptStruct'SBWeaponMasterData'",
           "ObjectPath": "/Script/SkyBlue"
@@ -636,7 +660,7 @@
         "Type": "StructProperty",
         "Name": "CallFunc_GetWeaponMasterData_ReturnValue_1",
         "Flags": "RF_Public",
-        "ElementSize": 184,
+        "ElementSize": 208,
         "Struct": {
           "ObjectName": "ScriptStruct'SBWeaponMasterData'",
           "ObjectPath": "/Script/SkyBlue"
@@ -1227,7 +1251,7 @@
         "Type": "StructProperty",
         "Name": "CallFunc_FindMasterImagineData_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 176,
+        "ElementSize": 184,
         "Struct": {
           "ObjectName": "ScriptStruct'SBMasterImagine'",
           "ObjectPath": "/Script/SkyBlue"

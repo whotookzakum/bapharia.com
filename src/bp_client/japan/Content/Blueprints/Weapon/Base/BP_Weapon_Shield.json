@@ -46,8 +46,58 @@
         "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_Shield_C:Mesh'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Shield.3"
       },
-      "WeaponType": "WeaponType_Shield",
+      "WeaponType": "ESBWeaponType::WeaponType_Shield",
       "WeaponShapeType": "WeaponShapeType_Blunt",
+      "ColorList": {
+        "ObjectName": "CharaPartsColorWeaponList'CL_CH_WP09_AH_01'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Player/ColorList/CL_CH_WP09_AH_01.0"
+      },
+      "BattleScoreWeaponEffectParams": [
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Spot",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::RootComponent",
+          "AttachSocket": "None",
+          "Location": {
+            "X": 0.0,
+            "Y": -20.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 1.3,
+            "Y": 1.3,
+            "Z": 1.3
+          },
+          "bEnableSheathe": true,
+          "bEnableUnsheathe": false
+        },
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Aura",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::RootComponent",
+          "AttachSocket": "None",
+          "Location": {
+            "X": 0.0,
+            "Y": -20.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 1.3,
+            "Y": 1.3,
+            "Z": 1.3
+          },
+          "bEnableSheathe": false,
+          "bEnableUnsheathe": false
+        }
+      ],
       "RootComponent": {
         "ObjectName": "SceneComponent'Default__BP_Weapon_Shield_C:TransformComponent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Shield.6"
@@ -80,6 +130,13 @@
       "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.3"
     },
     "Properties": {
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_CH_WP09_AH00'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/Weapon/WP/WP09/SK_CH_WP09_AH00/Model/SK_CH_WP09_AH00.0"
+      },
+      "OverrideMaterials": [
+        null
+      ],
       "AttachParent": {
         "ObjectName": "SceneComponent'Default__BP_Weapon_Shield_C:TransformComponent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Shield.6"

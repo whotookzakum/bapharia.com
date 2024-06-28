@@ -27,6 +27,18 @@
         }
       },
       {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_IsClosed_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ClassProperty",
         "Name": "K2Node_ClassDynamicCast_AsSBLogin_Bonus_Window",
         "Flags": "RF_Public",
@@ -53,16 +65,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate",
-        "Flags": "RF_Public",
-        "ElementSize": 20,
-        "SignatureFunction": {
-          "ObjectName": "DelegateFunction'SBPlayerCharacterCommonComponent:OnCharacterJoinExtDelegate__DelegateSignature'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
-      },
-      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_Create_ReturnValue",
         "Flags": "RF_Public",
@@ -72,18 +74,6 @@
           "ObjectName": "Class'SBLoginBonusWindow'",
           "ObjectPath": "/Script/SkyBlue"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "Temp_bool_IsClosed_Variable",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -200,7 +190,7 @@
       },
       {
         "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
@@ -255,18 +245,6 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_IsStandalone_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
         "Name": "CallFunc_IsCityCurrentMapLevel_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
@@ -279,7 +257,7 @@
       },
       {
         "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate_2",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
@@ -438,7 +416,7 @@
       },
       {
         "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate_3",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_2",
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
@@ -482,7 +460,7 @@
       },
       {
         "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate_4",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_3",
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
@@ -555,43 +533,14 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_GetSBPlayerController_ReturnValue_5",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyClass": {
-          "ObjectName": "Class'SBPlayerController'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "K2Node_CustomEvent_InRetCode",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "ConstParm"
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "CallFunc_GetPlayerCharacterCommonComponent_ReturnValue",
+        "Name": "K2Node_Event_Owner",
         "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyFlags": "InstancedReference",
         "PropertyClass": {
-          "ObjectName": "Class'SBPlayerCharacterCommonComponent'",
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
           "ObjectPath": "/Script/SkyBlue"
         }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue_2",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -661,22 +610,6 @@
   },
   {
     "Type": "Function",
-    "Name": "OnCharacterJoinExtDelegate_イベント_0",
-    "Outer": "BP_PlayerLevelStartSequenceTaskLoginBonus_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "IntProperty",
-        "Name": "InRetCode",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm"
-      }
-    ],
-    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
     "Name": "Start",
     "Outer": "BP_PlayerLevelStartSequenceTaskLoginBonus_C",
     "Class": "UScriptClass'Function'",
@@ -684,17 +617,19 @@
       "ObjectName": "Function'SBPlayerLevelStartSequenceTaskBase:Start'",
       "ObjectPath": "/Script/SkyBlue"
     },
-    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "PreStart",
-    "Outer": "BP_PlayerLevelStartSequenceTaskLoginBonus_C",
-    "Class": "UScriptClass'Function'",
-    "SuperStruct": {
-      "ObjectName": "Function'SBPlayerLevelStartSequenceTaskBase:PreStart'",
-      "ObjectPath": "/Script/SkyBlue"
-    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Owner",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      }
+    ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
@@ -894,42 +829,34 @@
     "Children": [
       {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:Lock Loading Screen'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.11"
-      },
-      {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnLoaded_9C8A3A574D92EE195DA83A82A8920833'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.10"
-      },
-      {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:ActiveCompletefunc'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.9"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:GetDetailWork'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnLoaded_9C8A3A574D92EE195DA83A82A8920833'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.8"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:ActiveCheckRequest'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:ActiveCompletefunc'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.7"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnFinishEvent'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:GetDetailWork'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.6"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:CheckCompleteFunc'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:ActiveCheckRequest'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.5"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:PreStart'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnFinishEvent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.4"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:Start'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:CheckCompleteFunc'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.3"
       },
       {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnCharacterJoinExtDelegate_イベント_0'",
+        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:Start'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.2"
       },
       {
@@ -1037,45 +964,37 @@
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:Finish'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.1"
       },
-      "OnCharacterJoinExtDelegate_イベント_0": {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnCharacterJoinExtDelegate_イベント_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.2"
-      },
       "Start": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:Start'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.3"
-      },
-      "PreStart": {
-        "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:PreStart'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.2"
       },
       "CheckCompleteFunc": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:CheckCompleteFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.3"
       },
       "OnFinishEvent": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnFinishEvent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.4"
       },
       "ActiveCheckRequest": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:ActiveCheckRequest'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.5"
       },
       "GetDetailWork": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:GetDetailWork'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.8"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.6"
       },
       "ActiveCompletefunc": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:ActiveCompletefunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.9"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.7"
       },
       "OnLoaded_9C8A3A574D92EE195DA83A82A8920833": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:OnLoaded_9C8A3A574D92EE195DA83A82A8920833'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.8"
       },
       "Lock Loading Screen": {
         "ObjectName": "Function'BP_PlayerLevelStartSequenceTaskLoginBonus_C:Lock Loading Screen'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.11"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.9"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
@@ -1087,7 +1006,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_PlayerLevelStartSequenceTaskLoginBonus_C'Default__BP_PlayerLevelStartSequenceTaskLoginBonus_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.13"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequenceTaskLoginBonus.11"
     }
   },
   {

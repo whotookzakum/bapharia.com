@@ -266,59 +266,8 @@
                 "EffectType": "ESBEffectType::Default"
               }
             ],
-            "ProjectileHandleList": [
-              {
-                "DataTable": {
-                  "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
-                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
-                },
-                "RowName": "AmpBuildUp_LateExplode"
-              },
-              {
-                "DataTable": {
-                  "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
-                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
-                },
-                "RowName": "RegularAmp"
-              }
-            ],
-            "ProjectileChangeConditionList": [
-              {
-                "ChangeProjectileIndex": 0,
-                "ChangeConditionList": [
-                  {
-                    "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-                    "ActiveArtsID": {
-                      "ID": 2121
-                    },
-                    "PassiveArtsID": {
-                      "ID": 0
-                    },
-                    "IntValue": 4,
-                    "FloatValue": 0.0,
-                    "NameValue": "None",
-                    "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-                    "BattleStatusRowHandle": {
-                      "DataTable": null,
-                      "RowName": "None"
-                    },
-                    "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-                    "AbilityFlagList": [],
-                    "OnlyPlayerStatusList": [],
-                    "ElementType": "ESBAttribute::None",
-                    "ArrayLogic": "ESBArrayLogicalOperator::AND",
-                    "bNot": false
-                  }
-                ],
-                "ChangeProjectileHandle": {
-                  "DataTable": {
-                    "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
-                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
-                  },
-                  "RowName": "AmpBuildUp_LateExplode_Lv4"
-                }
-              }
-            ]
+            "ProjectileHandleList": [],
+            "ProjectileChangeConditionList": []
           }
         ]
       },
@@ -341,6 +290,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -353,6 +305,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": true
             }
@@ -378,6 +331,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -390,6 +346,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -426,7 +383,7 @@
                     "ObjectName": "DataTable'PerformerStatusAlimentConfig'",
                     "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerStatusAlimentConfig.0"
                   },
-                  "RowName": "AmpBuildUp_Lv4"
+                  "RowName": "AmpBuildUp_Lv3"
                 }
               }
             ]
@@ -458,6 +415,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 2,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -470,6 +430,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -477,6 +438,140 @@
         }
       ],
       "bRemoveTurnActorRequest": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 2121
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "AmpBuildUp_LateExplode"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 2121
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "AmpBuildUp_LateExplode_Lv3"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 2121
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "AmpBuildUp_LateExplode_Lv4"
+            }
+          ]
+        },
+        {
+          "ConditionList": [],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'PerformerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P021_Performer/PerformerProjectileConfigInfo.0"
+              },
+              "RowName": "RegularAmp"
+            }
+          ]
+        }
+      ],
       "InActionEffectSettingList": [
         {
           "ConditionList": [],

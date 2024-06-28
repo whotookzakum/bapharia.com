@@ -556,17 +556,6 @@
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
       {
-        "Type": "ObjectProperty",
-        "Name": "InPhotoModeImageComponent",
-        "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'SBPhotoModeImageComponent'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
-      },
-      {
         "Type": "IntProperty",
         "Name": "Temp_int_Array_Index_Variable",
         "Flags": "RF_Public",
@@ -615,26 +604,24 @@
         "ElementSize": 4
       },
       {
-        "Type": "IntProperty",
-        "Name": "Temp_int_Loop_Counter_Variable_1",
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetUploadImageContainer_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
-        "Flags": "RF_Public",
-        "ElementSize": 4
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBUploadImageContainer'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
       },
       {
         "Type": "ArrayProperty",
-        "Name": "CallFunc_GetSaveUploadImageTextureAll_ReturnValue",
+        "Name": "CallFunc_GetUploadTextureList_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 16,
         "PropertyFlags": "ReferenceParm",
         "Inner": {
           "Type": "ObjectProperty",
-          "Name": "CallFunc_GetSaveUploadImageTextureAll_ReturnValue",
+          "Name": "CallFunc_GetUploadTextureList_ReturnValue",
           "Flags": "RF_Public",
           "ElementSize": 8,
           "PropertyClass": {
@@ -673,7 +660,7 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Name": "Temp_int_Loop_Counter_Variable_1",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
@@ -688,6 +675,12 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
       },
       {
         "Type": "BoolProperty",
@@ -732,7 +725,7 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue_2",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
@@ -1280,7 +1273,7 @@
   },
   {
     "Type": "Function",
-    "Name": "Screenshot Captured Event",
+    "Name": "ScreenshotCapturedEvent",
     "Outer": "UMG_PhotoModeControll_UploadList_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -1338,7 +1331,7 @@
     },
     "Children": [
       {
-        "ObjectName": "Function'UMG_PhotoModeControll_UploadList_C:Screenshot Captured Event'",
+        "ObjectName": "Function'UMG_PhotoModeControll_UploadList_C:ScreenshotCapturedEvent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.10"
       },
       {
@@ -1429,40 +1422,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "UMG_PhotoModeControll_UploadListSlot",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "WidgetBlueprintGeneratedClass'UMG_PhotoModeControll_UploadListSlot_C'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadListSlot.4"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "UMG_PhotoModeControll_UploadListSlot_1",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "WidgetBlueprintGeneratedClass'UMG_PhotoModeControll_UploadListSlot_C'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadListSlot.4"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "UMG_PhotoModeControll_UploadListSlot_2",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
-        "PropertyClass": {
-          "ObjectName": "WidgetBlueprintGeneratedClass'UMG_PhotoModeControll_UploadListSlot_C'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadListSlot.4"
-        }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "WidgetSwitcher_80",
+        "Name": "WidgetSwitcher",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 8,
         "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
@@ -1544,17 +1504,6 @@
           "ObjectName": "Function'UMG_PhotoModeControll_UploadList_C:UploadSelectWindowClickEvent__DelegateSignature'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.0"
         }
-      },
-      {
-        "Type": "ObjectProperty",
-        "Name": "PhotoModeImageComponent",
-        "Flags": "RF_Public | RF_LoadCompleted",
-        "ElementSize": 8,
-        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'SBPhotoModeImageComponent'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
       }
     ],
     "FuncMap": {
@@ -1598,8 +1547,8 @@
         "ObjectName": "Function'UMG_PhotoModeControll_UploadList_C:SetUploadThumbnail'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.9"
       },
-      "Screenshot Captured Event": {
-        "ObjectName": "Function'UMG_PhotoModeControll_UploadList_C:Screenshot Captured Event'",
+      "ScreenshotCapturedEvent": {
+        "ObjectName": "Function'UMG_PhotoModeControll_UploadList_C:ScreenshotCapturedEvent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.10"
       }
     },
@@ -1706,7 +1655,7 @@
         }
       ],
       "Slot": {
-        "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80.WidgetSwitcherSlot_4'",
+        "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_4'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.39"
       }
     }
@@ -1724,7 +1673,7 @@
         }
       ],
       "Slot": {
-        "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80.WidgetSwitcherSlot_3'",
+        "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_3'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.38"
       }
     }
@@ -1754,7 +1703,7 @@
         }
       ],
       "Slot": {
-        "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80.WidgetSwitcherSlot_5'",
+        "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_5'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.40"
       },
       "bIsVariable": true
@@ -1802,7 +1751,7 @@
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.14"
       },
       "Content": {
-        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80'",
+        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.37"
       }
     }
@@ -2188,7 +2137,8 @@
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.CanvasPanel_UploadImage.CanvasPanelSlot_5'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.23"
-      }
+      },
+      "bIsVariable": false
     }
   },
   {
@@ -2204,7 +2154,8 @@
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.CanvasPanel_UploadImage.CanvasPanelSlot_6'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.24"
-      }
+      },
+      "bIsVariable": false
     }
   },
   {
@@ -2220,26 +2171,27 @@
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.CanvasPanel_UploadImage.CanvasPanelSlot_8'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.25"
-      }
+      },
+      "bIsVariable": false
     }
   },
   {
     "Type": "WidgetSwitcher",
-    "Name": "WidgetSwitcher_80",
+    "Name": "WidgetSwitcher",
     "Outer": "WidgetTree",
     "Class": "UScriptClass'WidgetSwitcher'",
     "Properties": {
       "Slots": [
         {
-          "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80.WidgetSwitcherSlot_4'",
+          "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_4'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.39"
         },
         {
-          "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80.WidgetSwitcherSlot_5'",
+          "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_5'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.40"
         },
         {
-          "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80.WidgetSwitcherSlot_3'",
+          "ObjectName": "WidgetSwitcherSlot'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher.WidgetSwitcherSlot_3'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.38"
         }
       ],
@@ -2252,7 +2204,7 @@
   {
     "Type": "WidgetSwitcherSlot",
     "Name": "WidgetSwitcherSlot_3",
-    "Outer": "WidgetSwitcher_80",
+    "Outer": "WidgetSwitcher",
     "Class": "UScriptClass'WidgetSwitcherSlot'",
     "Properties": {
       "Padding": {
@@ -2261,7 +2213,7 @@
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
-        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80'",
+        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.37"
       },
       "Content": {
@@ -2273,13 +2225,13 @@
   {
     "Type": "WidgetSwitcherSlot",
     "Name": "WidgetSwitcherSlot_4",
-    "Outer": "WidgetSwitcher_80",
+    "Outer": "WidgetSwitcher",
     "Class": "UScriptClass'WidgetSwitcherSlot'",
     "Properties": {
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
-        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80'",
+        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.37"
       },
       "Content": {
@@ -2291,7 +2243,7 @@
   {
     "Type": "WidgetSwitcherSlot",
     "Name": "WidgetSwitcherSlot_5",
-    "Outer": "WidgetSwitcher_80",
+    "Outer": "WidgetSwitcher",
     "Class": "UScriptClass'WidgetSwitcherSlot'",
     "Properties": {
       "Padding": {
@@ -2300,7 +2252,7 @@
       "HorizontalAlignment": "HAlign_Center",
       "VerticalAlignment": "VAlign_Center",
       "Parent": {
-        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher_80'",
+        "ObjectName": "WidgetSwitcher'UMG_PhotoModeControll_UploadList_C:WidgetTree.WidgetSwitcher'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UploadList/UMG_PhotoModeControll_UploadList.37"
       },
       "Content": {

@@ -189,7 +189,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -589,7 +588,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -926,6 +924,9 @@
               "PassiveArtsID": {
                 "ID": 106023
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 0,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -938,6 +939,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -1025,7 +1027,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -1447,7 +1448,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -1771,8 +1771,11 @@
             "RowName": "GravityGrenade"
           },
           "ProjectileConfigHandle2": {
-            "DataTable": null,
-            "RowName": "None"
+            "DataTable": {
+              "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+            },
+            "RowName": "GravityGrenade_Debaff"
           },
           "bIsGenerate": true
         },
@@ -1803,8 +1806,11 @@
             "RowName": "GravityGrenade"
           },
           "ProjectileConfigHandle2": {
-            "DataTable": null,
-            "RowName": "None"
+            "DataTable": {
+              "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
+            },
+            "RowName": "GravityGrenade_Debaff"
           },
           "bIsGenerate": true
         },
@@ -1885,7 +1891,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -2304,7 +2309,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -2560,6 +2564,432 @@
         },
         "ProjectileUniqueTag": "None"
       },
+      "GravityGrenade_Debaff": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::BySystem",
+          "SpawnRotType": "ESpawnRotType::None",
+          "DirectionType": "EProjectileDirection::AutoSetDirection",
+          "SpawnSocketName": "None",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 80.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": false,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 5.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": null,
+          "RowName": "None"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::NONE",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": false,
+            "bIsEnableHitCover": false,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 1000.0,
+              "ModifyRadiusList": [],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 32.0,
+            "BeamCollisionLength": 32.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 600024
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeLight_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/BP_DmgTypeLight.0"
+        },
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
+            },
+            "RowName": "GravityGrenade_Debaff"
+          }
+        ],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 1000.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 1000.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingAcceleration",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 0.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 0.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": false,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 1000.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_7",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Infinity",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
       "ArrowRainLv1": {
         "ProjectileType": "EProjectileType::Fix",
         "CustomProjectileTemplate": {
@@ -2631,6 +3061,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 4,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -2643,6 +3076,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -2776,7 +3210,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -2814,6 +3247,9 @@
                         "PassiveArtsID": {
                           "ID": 106015
                         },
+                        "AttackID": {
+                          "AttackID": 0
+                        },
                         "IntValue": 0,
                         "FloatValue": 0.0,
                         "NameValue": "None",
@@ -2826,11 +3262,12 @@
                         "AbilityFlagList": [],
                         "OnlyPlayerStatusList": [],
                         "ElementType": "ESBAttribute::None",
+                        "SkillType": "ESBPlayerSkillActionType::None",
                         "ArrayLogic": "ESBArrayLogicalOperator::AND",
                         "bNot": false
                       }
                     ],
-                    "FloatValue": -20.0
+                    "FloatValue": -50.0
                   }
                 ],
                 "Height": 1600.0
@@ -3138,6 +3575,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 4,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -3150,6 +3590,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -3283,7 +3724,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -3321,6 +3761,9 @@
                         "PassiveArtsID": {
                           "ID": 106015
                         },
+                        "AttackID": {
+                          "AttackID": 0
+                        },
                         "IntValue": 0,
                         "FloatValue": 0.0,
                         "NameValue": "None",
@@ -3333,11 +3776,12 @@
                         "AbilityFlagList": [],
                         "OnlyPlayerStatusList": [],
                         "ElementType": "ESBAttribute::None",
+                        "SkillType": "ESBPlayerSkillActionType::None",
                         "ArrayLogic": "ESBArrayLogicalOperator::AND",
                         "bNot": false
                       }
                     ],
-                    "FloatValue": -20.0
+                    "FloatValue": -50.0
                   }
                 ],
                 "Height": 1600.0
@@ -3640,6 +4084,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 4,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -3652,6 +4099,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -3785,7 +4233,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -3823,6 +4270,9 @@
                         "PassiveArtsID": {
                           "ID": 106015
                         },
+                        "AttackID": {
+                          "AttackID": 0
+                        },
                         "IntValue": 0,
                         "FloatValue": 0.0,
                         "NameValue": "None",
@@ -3835,11 +4285,12 @@
                         "AbilityFlagList": [],
                         "OnlyPlayerStatusList": [],
                         "ElementType": "ESBAttribute::None",
+                        "SkillType": "ESBPlayerSkillActionType::None",
                         "ArrayLogic": "ESBArrayLogicalOperator::AND",
                         "bNot": false
                       }
                     ],
-                    "FloatValue": -20.0
+                    "FloatValue": -50.0
                   }
                 ],
                 "Height": 1600.0
@@ -4250,7 +4701,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -4675,7 +5125,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -5100,7 +5549,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -5525,7 +5973,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -5956,7 +6403,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -6387,7 +6833,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -6818,7 +7263,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -7249,7 +7693,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -7631,6 +8074,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -7645,6 +8091,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -7708,7 +8155,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -7773,6 +8219,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -7785,6 +8234,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -7817,6 +8267,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -7829,11 +8282,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -8150,6 +8604,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -8164,6 +8621,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -8227,7 +8685,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -8292,6 +8749,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -8304,6 +8764,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -8336,6 +8797,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -8348,11 +8812,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -8669,6 +9134,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -8683,6 +9151,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -8746,7 +9215,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -8811,6 +9279,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -8823,6 +9294,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -8855,6 +9327,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -8867,11 +9342,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -9188,6 +9664,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -9202,6 +9681,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -9265,7 +9745,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -9330,6 +9809,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -9342,6 +9824,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -9374,6 +9857,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -9386,11 +9872,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -9713,6 +10200,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -9727,6 +10217,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -9790,7 +10281,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -10212,7 +10702,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -10631,7 +11120,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -11031,7 +11519,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -11096,6 +11583,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -11108,6 +11598,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -11140,6 +11631,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -11152,11 +11646,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -11510,7 +12005,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -11910,7 +12404,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -11975,6 +12468,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -11987,6 +12483,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -12019,6 +12516,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -12031,11 +12531,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -12389,7 +12890,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -12789,7 +13289,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -12854,6 +13353,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -12866,6 +13368,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -12898,6 +13401,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -12910,11 +13416,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -13268,7 +13775,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -13668,7 +14174,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -13733,6 +14238,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -13745,6 +14253,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -13777,6 +14286,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -13789,11 +14301,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -14147,7 +14660,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -14547,7 +15059,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -14612,6 +15123,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -14624,6 +15138,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -14656,6 +15171,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -14668,11 +15186,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -15026,7 +15545,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -15426,7 +15944,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -15491,6 +16008,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -15503,6 +16023,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -15535,6 +16056,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -15547,11 +16071,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -15905,7 +16430,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -16305,7 +16829,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -16370,6 +16893,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -16382,6 +16908,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -16414,6 +16941,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -16426,11 +16956,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -16784,7 +17315,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -17184,7 +17714,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -17249,6 +17778,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -17261,6 +17793,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -17293,6 +17826,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -17305,11 +17841,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -17663,7 +18200,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -18063,7 +18599,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -18128,6 +18663,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -18140,6 +18678,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -18172,6 +18711,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -18184,11 +18726,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -18542,7 +19085,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -18942,7 +19484,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -19007,6 +19548,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -19019,6 +19563,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -19051,6 +19596,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -19063,11 +19611,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -19421,7 +19970,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -19821,7 +20369,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -19886,6 +20433,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -19898,6 +20448,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -19930,6 +20481,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -19942,11 +20496,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -20300,7 +20855,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -20700,7 +21254,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -20765,6 +21318,9 @@
                 "PassiveArtsID": {
                   "ID": 106901
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -20777,6 +21333,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -20809,6 +21366,9 @@
                   "PassiveArtsID": {
                     "ID": 106901
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -20821,11 +21381,12 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
               ],
-              "FloatValue": 100.0
+              "FloatValue": 50.0
             }
           ],
           "MinSpeed": 0.0,
@@ -21179,7 +21740,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -21579,7 +22139,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -21998,7 +22557,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -22398,7 +22956,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -22817,7 +23374,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -23217,7 +23773,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -23531,6 +24086,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 2,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -23543,6 +24101,39 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "FloatValue": 3.0
+            },
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 106018
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -23668,7 +24259,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -24003,7 +24593,40 @@
         "DestroyCondition": {
           "bIsEnableLifeCheck": true,
           "LifeTime": 9.0,
-          "AddLifeTimeList": [],
+          "AddLifeTimeList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 106018
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "FloatValue": 3.0
+            }
+          ],
           "bIsEnableDistanceCheck": false,
           "DestroyDistance": 10000.0,
           "DestroyDistanceAdjustList": [],
@@ -24122,7 +24745,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -24463,6 +25085,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 2,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -24475,6 +25100,39 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "FloatValue": 3.0
+            },
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 106018
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -24600,7 +25258,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -24935,7 +25592,40 @@
         "DestroyCondition": {
           "bIsEnableLifeCheck": true,
           "LifeTime": 9.0,
-          "AddLifeTimeList": [],
+          "AddLifeTimeList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 106018
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "FloatValue": 3.0
+            }
+          ],
           "bIsEnableDistanceCheck": false,
           "DestroyDistance": 10000.0,
           "DestroyDistanceAdjustList": [],
@@ -25054,7 +25744,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -25395,6 +26084,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 2,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -25407,6 +26099,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -25532,7 +26225,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -25885,6 +26577,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 2,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -25897,6 +26592,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -26022,7 +26718,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -26375,6 +27070,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 2,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -26387,6 +27085,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -26512,7 +27211,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -26865,6 +27563,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 2,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -26877,6 +27578,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -27002,7 +27704,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -27463,7 +28164,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -27830,6 +28530,9 @@
               "PassiveArtsID": {
                 "ID": 0
               },
+              "AttackID": {
+                "AttackID": 0
+              },
               "IntValue": 4,
               "FloatValue": 0.0,
               "NameValue": "None",
@@ -27842,6 +28545,7 @@
               "AbilityFlagList": [],
               "OnlyPlayerStatusList": [],
               "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
               "ArrayLogic": "ESBArrayLogicalOperator::AND",
               "bNot": false
             }
@@ -27917,7 +28621,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -28350,7 +29053,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -28783,7 +29485,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -29084,7 +29785,7 @@
             "DownAngle": 0.0
           },
           "MaxSpawnNum": 16,
-          "SpawnDelayTime": 1.0,
+          "SpawnDelayTime": 0.0,
           "bIsInheritanceInstigatorScale": false
         },
         "PostAttachConfig": {
@@ -29213,7 +29914,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -29643,7 +30343,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -30065,7 +30764,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -30482,7 +31180,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -30899,7 +31596,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -31276,6 +31972,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -31288,6 +31987,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -31357,7 +32057,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -31390,6 +32089,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 4,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -31402,6 +32104,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -31768,6 +32471,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -31780,6 +32486,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -31790,6 +32497,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 106008
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -31803,6 +32513,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -31825,6 +32536,9 @@
                 "PassiveArtsID": {
                   "ID": 106008
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -31837,6 +32551,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -31847,6 +32562,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 2,
                 "FloatValue": 0.0,
@@ -31860,6 +32578,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -31882,6 +32601,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -31894,6 +32616,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -31904,6 +32627,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 106008
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -31917,6 +32643,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -31939,6 +32666,9 @@
                 "PassiveArtsID": {
                   "ID": 106008
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -31951,6 +32681,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -31961,6 +32692,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 3,
                 "FloatValue": 0.0,
@@ -31974,6 +32708,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -31995,6 +32730,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 4,
                 "FloatValue": 0.0,
@@ -32008,6 +32746,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -32018,6 +32757,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 106008
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -32031,6 +32773,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -32053,6 +32796,9 @@
                 "PassiveArtsID": {
                   "ID": 106008
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -32065,6 +32811,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -32075,6 +32822,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 4,
                 "FloatValue": 0.0,
@@ -32088,6 +32838,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -32160,7 +32911,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -32193,6 +32943,9 @@
                       "PassiveArtsID": {
                         "ID": 106008
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -32205,6 +32958,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -32220,6 +32974,9 @@
                       },
                       "PassiveArtsID": {
                         "ID": 0
+                      },
+                      "AttackID": {
+                        "AttackID": 0
                       },
                       "IntValue": 2,
                       "FloatValue": 0.0,
@@ -32233,6 +32990,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -32249,6 +33007,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 4,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -32261,6 +33022,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -32682,7 +33444,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -32993,6 +33754,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 3,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -33005,6 +33769,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -33090,6 +33855,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -33102,6 +33870,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -33165,7 +33934,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -33198,6 +33966,9 @@
                       "PassiveArtsID": {
                         "ID": 106212
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -33210,6 +33981,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -33518,6 +34290,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 3,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -33530,6 +34305,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -33652,7 +34428,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -33685,6 +34460,9 @@
                       "PassiveArtsID": {
                         "ID": 106212
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -33697,6 +34475,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -34128,7 +34907,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -34439,6 +35217,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 3,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -34451,6 +35232,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -34536,6 +35318,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -34548,6 +35333,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -34611,7 +35397,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -34644,6 +35429,9 @@
                       "PassiveArtsID": {
                         "ID": 106212
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -34656,6 +35444,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -34964,6 +35753,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 3,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -34976,6 +35768,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -35098,7 +35891,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -35131,6 +35923,9 @@
                       "PassiveArtsID": {
                         "ID": 106212
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -35143,6 +35938,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -35574,7 +36370,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -35993,7 +36788,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -36405,7 +37199,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -36821,7 +37614,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -36886,7 +37678,7 @@
               "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
             },
-            "RowName": "TwinFlash_AllyBuff"
+            "RowName": "TwinFlash_Beta_AllyBuff"
           }
         ],
         "SelfStatusAliments": [],
@@ -37250,7 +38042,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -37679,7 +38470,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -37744,7 +38534,7 @@
               "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
             },
-            "RowName": "TwinFlash_AllyBuff_Lv4"
+            "RowName": "TwinFlash_Beta_AllyBuff_Lv4"
           }
         ],
         "SelfStatusAliments": [],
@@ -38108,7 +38898,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -38432,6 +39221,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 4,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -38444,6 +39236,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -38529,6 +39322,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -38541,6 +39337,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -38563,6 +39360,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -38575,6 +39375,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -38638,7 +39439,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -38671,6 +39471,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 3,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -38683,6 +39486,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -38732,568 +39536,7 @@
               "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
             },
-            "RowName": "GraceofForest_ZeroElementAccumulation"
-          }
-        ],
-        "SelfStatusAliments": [],
-        "OverlapStatusAlimentConfigs": [],
-        "MoveBaseConfig": {
-          "InitialSpeed": 1000.0,
-          "InitialSpeedModifyRateList": [],
-          "MinSpeed": 0.0,
-          "MaxSpeed": 0.0,
-          "bIsEnableGravity": false,
-          "GravityScale": 1.0,
-          "BeginEffectiveGravityTime": 0.0,
-          "EndEffectiveGravityTime": 1000.0,
-          "bRotationFollowsVelocity": true,
-          "bRotationFollowsVelocityOwnerYawAtBegin": false,
-          "bLimitDistance": false,
-          "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": true
-        },
-        "MoveHomingConfig": {
-          "bIsHoming": false,
-          "HomingType": "EHomingType::HomingAcceleration",
-          "HomingAccelerationMagnitude": 0.0,
-          "HomingBeginTime": 0.0,
-          "HomingEndTime": 0.0,
-          "HomingOffsetPos": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "HomingCorrectionAngle": 0.0,
-          "HomingCorrectionAngle2": 0.0,
-          "HomingEffectiveCorrectionAngle": 0.0,
-          "HomingEffectiveCorrectionAngle2": 0.0,
-          "bIsCancelHomingEffectiveCorrectionAngle": false,
-          "CancelHomingBeginTime": 0.0,
-          "CancelHomingEndTime": 1000.0,
-          "bIsDisableHomingHeight": false,
-          "bIsEnableTargetStop": false
-        },
-        "ParabolaMoveConfig": {
-          "MoveType": "ESBParabolaMoveType::SpawnDirection",
-          "ShotDegree": 0.0,
-          "ReachHeight": 0.0,
-          "ReachTime": 0.0,
-          "bIsEnableChangeLandingSecond": false,
-          "ChangeLandingSecond": {
-            "Distance": 100.0,
-            "Second": 0.5,
-            "MinSecond": 0.01,
-            "MaxSecond": 0.0
-          },
-          "BoundParameter": {
-            "bShouldBounce": false,
-            "bBounceAngleAffectsFriction": false,
-            "Bounciness": 0.6,
-            "Friction": 0.2,
-            "BounceVelocityStopSimulatingThreshold": 5.0
-          }
-        },
-        "AlongGroundConfig": {
-          "GroundOffsetHeight": 50.0,
-          "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
-          "CheckPitchDist": 100.0,
-          "CheckRollDist": 200.0,
-          "AlongPitchMax": 25.0,
-          "AlongRollMax": 45.0
-        },
-        "BeamConfig": {
-          "ImpactSpawnProjectile": {
-            "RapidProjectileSelectHandle": {
-              "DataTable": null,
-              "RowName": "None",
-              "TableRowIndex": 0
-            },
-            "SimultaneousNum": 1,
-            "SimultaneousNumModifyList": [],
-            "RapidNum": 1,
-            "bIsInfiniteRapidNum": false,
-            "RapidInterval": 1.0,
-            "bIsDestroyWhenCantLaunch": true,
-            "DestroyWhenCantLaunchDelayTime": 0.0,
-            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
-            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
-          },
-          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
-        },
-        "ChainMovementConfig": [],
-        "RapidConfig": {
-          "RapidProjectileSelectHandle": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          },
-          "SimultaneousNum": 1,
-          "SimultaneousNumModifyList": [],
-          "RapidNum": 1,
-          "bIsInfiniteRapidNum": false,
-          "RapidInterval": 1.0,
-          "bIsDestroyWhenCantLaunch": true,
-          "DestroyWhenCantLaunchDelayTime": 0.0,
-          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
-          "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
-        },
-        "WideShotConfig": {
-          "RapidConfig": {
-            "RapidProjectileSelectHandle": {
-              "DataTable": null,
-              "RowName": "None",
-              "TableRowIndex": 0
-            },
-            "SimultaneousNum": 1,
-            "SimultaneousNumModifyList": [],
-            "RapidNum": 1,
-            "bIsInfiniteRapidNum": false,
-            "RapidInterval": 1.0,
-            "bIsDestroyWhenCantLaunch": true,
-            "DestroyWhenCantLaunchDelayTime": 0.0,
-            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
-            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
-          },
-          "WideRange": 0.0
-        },
-        "AreaAttackConfig": {
-          "RapidProjectileSelectHandle": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          },
-          "RapidNum": 0,
-          "RapidInterval": 1.0,
-          "EffectiveRadius": 32.0,
-          "bIsUpperSphere": false,
-          "bIsAdjustGround": false,
-          "Order": "EProjectileAreaAttackSpawnOrder::Random",
-          "bIsDestroyWhenCantLaunch": false
-        },
-        "ForecastConfig": {
-          "ForecastDelayTime": 0.0,
-          "ForecastSelectProjectile": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          },
-          "DelayTime": 0.0,
-          "MainSelectProjectile": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          }
-        },
-        "PartyShotConfig": {
-          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
-          "bIsIncludeInstantParty": true,
-          "TargetPartyNum": 6,
-          "TargetPartyDistanceLimit": 0.0
-        },
-        "AkEventConfig": {
-          "Event": null,
-          "Switch": [],
-          "AttachName": "None",
-          "AutoDestroy": true,
-          "StopWhenOwnerDestroyed": true,
-          "LOD": "ESBAkEventLOD::LOD_Default",
-          "RTPC": [],
-          "DelayTime": 0.0,
-          "bCanReuseAkComponent": true
-        },
-        "EndAkEventConfig": {
-          "Event": null,
-          "Switch": [],
-          "AttachName": "None",
-          "AutoDestroy": true,
-          "StopWhenOwnerDestroyed": true,
-          "LOD": "ESBAkEventLOD::LOD_Default",
-          "RTPC": [],
-          "DelayTime": 0.0,
-          "bCanReuseAkComponent": true
-        },
-        "ProjectileUniqueTag": "None"
-      },
-      "GraceOfForest_PulsResetCondition": {
-        "ProjectileType": "EProjectileType::Fix",
-        "CustomProjectileTemplate": {
-          "AssetPathName": "None",
-          "SubPathString": ""
-        },
-        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
-        "SpawnInfo": {
-          "SpawnType": "ESpawnType::ActorSocket",
-          "SpawnRotType": "ESpawnRotType::None",
-          "DirectionType": "EProjectileDirection::ProjectileDirection",
-          "SpawnSocketName": "Rot_J",
-          "SpawnOffset": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "SpawnRotOffset": {
-            "Pitch": 0.0,
-            "Yaw": 0.0,
-            "Roll": 0.0
-          },
-          "SpawnTargetOffset": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "bIsAttach": false,
-          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
-          "NonTargetSpawnDistanceFront": 2000.0,
-          "bIsPenetrateInObstacle": false,
-          "bIsDestroyInObstacle": false,
-          "isObstaclePushedBackToSpawner": false,
-          "bIsCheckGround": false,
-          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
-          "isOnNaviMeshConnedtedFromOwner": false,
-          "bIsReacquireSpawnTransformOnLocal": false,
-          "Stability": {
-            "HorizontalHalfAngle": 0.0,
-            "VerticalHalfAngle": 0.0,
-            "bVerticalUpOnly": false
-          },
-          "ShotAngleLimit": {
-            "bIsEnable": false,
-            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
-            "HalfAngle": 0.0,
-            "UpAngle": 0.0,
-            "DownAngle": 0.0
-          },
-          "MaxSpawnNum": 16,
-          "SpawnDelayTime": 0.0,
-          "bIsInheritanceInstigatorScale": false
-        },
-        "PostAttachConfig": {
-          "bIsSameRotatorFromAttach": false,
-          "bIsCauseHitAttach": false
-        },
-        "DestroyCondition": {
-          "bIsEnableLifeCheck": true,
-          "LifeTime": 1.0,
-          "AddLifeTimeList": [
-            {
-              "ConditionList": [
-                {
-                  "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-                  "ActiveArtsID": {
-                    "ID": 622
-                  },
-                  "PassiveArtsID": {
-                    "ID": 0
-                  },
-                  "IntValue": 4,
-                  "FloatValue": 0.0,
-                  "NameValue": "None",
-                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-                  "BattleStatusRowHandle": {
-                    "DataTable": null,
-                    "RowName": "None"
-                  },
-                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-                  "AbilityFlagList": [],
-                  "OnlyPlayerStatusList": [],
-                  "ElementType": "ESBAttribute::None",
-                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
-                  "bNot": false
-                }
-              ],
-              "FloatValue": 6.0
-            }
-          ],
-          "bIsEnableDistanceCheck": false,
-          "DestroyDistance": 10000.0,
-          "DestroyDistanceAdjustList": [],
-          "bIsEnableHeightCheck": true,
-          "bIsEnableTotalDistance": false,
-          "DestroyTotalDistance": 0.0,
-          "bIsEnableGroundHitCheck": false,
-          "bIsEnableAliveAnimTag": false,
-          "AliveAnimTagArray": [],
-          "bIsDestroyTogeghterWithSpawner": false
-        },
-        "HealthConditionConfig": {
-          "HitPoint": 0.0,
-          "bIsChangeHitPoint": true
-        },
-        "IsTargetable": false,
-        "TargetClass": "ESBClassType::None",
-        "bIsTargetInstigatorPlayerOnly": false,
-        "bIsContinuousUpdateTargetInfo": false,
-        "SelfDeadChainConfig": {
-          "ProjectileConfigHandle1": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "ProjectileConfigHandle2": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "bIsGenerate": false
-        },
-        "HitChainConfig": {
-          "bIsGenerateAttackHit": true,
-          "bIsOnlyGenerateSBCharacterHit": false,
-          "bIsGenerateGroundHit": false,
-          "bIsGenerateBattleAreaWall": true,
-          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
-          "SpawnPosOffset": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "bIsAdjustGroundPos": false,
-          "SpawnRotType": "EHitEffectSpawnRotType::None",
-          "bIsReverseRotation": false,
-          "bIsExcludeHitFromChainHitActor": false,
-          "bIsRepeatChainOnAttackHit": false,
-          "PermitConditionList": [],
-          "HitActorSocketName": "None",
-          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
-          "ProjectileConfigHandle1": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "ProjectileConfigHandle2": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "bIsGenerate": false
-        },
-        "OrderedChainConfigList": [],
-        "EffectTableHandle": {
-          "DataTable": {
-            "ObjectName": "DataTable'BlasterProjectileEffectInfo'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileEffectInfo.0"
-          },
-          "RowName": "GraceOfForest"
-        },
-        "ConditionCheckEffectTableHandle": [
-          {
-            "ConditionList": [
-              {
-                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-                "ActiveArtsID": {
-                  "ID": 622
-                },
-                "PassiveArtsID": {
-                  "ID": 0
-                },
-                "IntValue": 3,
-                "FloatValue": 0.0,
-                "NameValue": "None",
-                "Relation": "ESBMagnitudeRelation::LessOrEqual",
-                "BattleStatusRowHandle": {
-                  "DataTable": null,
-                  "RowName": "None"
-                },
-                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-                "AbilityFlagList": [],
-                "OnlyPlayerStatusList": [],
-                "ElementType": "ESBAttribute::None",
-                "ArrayLogic": "ESBArrayLogicalOperator::AND",
-                "bNot": false
-              }
-            ],
-            "EffectTableHandle": {
-              "DataTable": {
-                "ObjectName": "DataTable'BlasterProjectileEffectInfo'",
-                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileEffectInfo.0"
-              },
-              "RowName": "GraceOfForest"
-            }
-          },
-          {
-            "ConditionList": [
-              {
-                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-                "ActiveArtsID": {
-                  "ID": 622
-                },
-                "PassiveArtsID": {
-                  "ID": 0
-                },
-                "IntValue": 4,
-                "FloatValue": 0.0,
-                "NameValue": "None",
-                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-                "BattleStatusRowHandle": {
-                  "DataTable": null,
-                  "RowName": "None"
-                },
-                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-                "AbilityFlagList": [],
-                "OnlyPlayerStatusList": [],
-                "ElementType": "ESBAttribute::None",
-                "ArrayLogic": "ESBArrayLogicalOperator::AND",
-                "bNot": false
-              }
-            ],
-            "EffectTableHandle": {
-              "DataTable": {
-                "ObjectName": "DataTable'BlasterProjectileEffectInfo'",
-                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileEffectInfo.0"
-              },
-              "RowName": "GraceOfForest_Lv4"
-            }
-          }
-        ],
-        "MeshConfigList": [],
-        "SummonImagineConfig": {
-          "SummonImagineCharacter": {
-            "AssetPathName": "None",
-            "SubPathString": ""
-          },
-          "ImagineCharacterOffsetPos": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "SummonImagineCCD": null
-        },
-        "SplashSize": "ESBProjectileSplashSize::NONE",
-        "NamePlateWidget": null,
-        "CameraShakeList": [],
-        "CameraShakeLimitDistance": 0.0,
-        "bIsCameraShakeAllPlayer": false,
-        "GroundCollisionConfig": {
-          "bIsEnableGroundCollision": false,
-          "bIsUseBImagineCollisionPreset": false,
-          "HalfHeight": 32.0,
-          "Radius": 32.0
-        },
-        "CollisionConfig": {
-          "bEnableAttack": true,
-          "bEnableDamaged": false,
-          "bIsUseDamagedCollisionAsBlocking": false,
-          "bDisablePartsHit": false,
-          "HitSetting": {
-            "bIsDisableSelfHit": false,
-            "bIsOnlyTargetHit": false,
-            "bIsInfinitePierce": true,
-            "bIsEnableBlockingHitCheck": false,
-            "bIsEnableHitCover": false,
-            "HitCoverConfig": {
-              "bIsExclusiveSpawner": false
-            },
-            "bIsHitTargetLimitOnlyOverlap": false,
-            "bIsDisableReHitDelay": false,
-            "bIsShareHit": false,
-            "ShareHitConfig": {
-              "ShareHitTime": 0.1,
-              "ShareGroup": "EProjectileShareGroup::None",
-              "bIsIndependentBySpawner": false
-            },
-            "bIsEnableHitForCharacterGround": false,
-            "bIsEnableHitFromGroundDist": false,
-            "EnableHitFromGroundDist": 0.0,
-            "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
-            "bIsEnableWeakPointHit": false
-          },
-          "CollisionScaleVector": {
-            "X": 1.0,
-            "Y": 1.0,
-            "Z": 1.0
-          },
-          "ScaleVectorFromZero": false,
-          "CollisionScaleCurve": null,
-          "CollisionOnOffDataList": [
-            {
-              "time": 0.0,
-              "OnOff": "ECollisionOnOff::On"
-            }
-          ],
-          "bIsUseImpactPointExecAttackHit": false
-        },
-        "CollisionShape": {
-          "SphereArray": [
-            {
-              "Radius": 300.0,
-              "ModifyRadiusList": [
-                {
-                  "ConditionList": [
-                    {
-                      "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
-                      "ActiveArtsID": {
-                        "ID": 622
-                      },
-                      "PassiveArtsID": {
-                        "ID": 0
-                      },
-                      "IntValue": 3,
-                      "FloatValue": 0.0,
-                      "NameValue": "None",
-                      "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
-                      "BattleStatusRowHandle": {
-                        "DataTable": null,
-                        "RowName": "None"
-                      },
-                      "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
-                      "AbilityFlagList": [],
-                      "OnlyPlayerStatusList": [],
-                      "ElementType": "ESBAttribute::None",
-                      "ArrayLogic": "ESBArrayLogicalOperator::AND",
-                      "bNot": false
-                    }
-                  ],
-                  "FloatValue": 50.0
-                }
-              ],
-              "Location": {
-                "X": 0.0,
-                "Y": 0.0,
-                "Z": 0.0
-              },
-              "Rotation": {
-                "Pitch": 0.0,
-                "Yaw": 0.0,
-                "Roll": 0.0
-              },
-              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
-              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
-            }
-          ],
-          "CapsuleArray": [],
-          "BoxArray": [],
-          "MeshArray": [],
-          "BeamCollision": {
-            "BeamCollisionRadius": 32.0,
-            "BeamCollisionLength": 32.0,
-            "bDontExpandBeam": true,
-            "BeamCollisionExpandSpeed": 1000.0,
-            "OverrideSectionData": []
-          }
-        },
-        "AttackID": {
-          "AttackID": 622001
-        },
-        "ModifyAttackIDList": [],
-        "DamageType": null,
-        "LimitDamage": 0.0,
-        "bIsForceLimitDamage": false,
-        "DamageSideInfo": "EDamageSide::OnlyFriend",
-        "bTreateFriendByParty": true,
-        "bIsDisableHitTargetLimit": false,
-        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
-        "StatusAliments": [
-          {
-            "DataTable": {
-              "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
-            },
-            "RowName": "GraceofForest_ZeroElementAccumulation"
-          },
-          {
-            "DataTable": {
-              "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
-            },
-            "RowName": "GraceofForest_ConditionReset"
+            "RowName": "GraceOfForest"
           }
         ],
         "SelfStatusAliments": [],
@@ -39547,6 +39790,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 4,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -39559,6 +39805,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -39644,6 +39891,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -39656,6 +39906,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -39678,6 +39929,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -39690,6 +39944,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -39753,7 +40008,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -39786,6 +40040,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 3,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -39798,6 +40055,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -39847,7 +40105,7 @@
               "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
             },
-            "RowName": "GraceofForest_ZeroElementAccumulation"
+            "RowName": "GraceOfForest"
           },
           {
             "DataTable": {
@@ -40108,6 +40366,9 @@
                   "PassiveArtsID": {
                     "ID": 0
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 4,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -40120,6 +40381,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -40205,6 +40467,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -40217,6 +40482,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -40239,6 +40505,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -40251,6 +40520,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -40314,7 +40584,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -40347,6 +40616,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 3,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -40359,6 +40631,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -40408,7 +40681,7 @@
               "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
             },
-            "RowName": "GraceofForest_ZeroElementAccumulation"
+            "RowName": "GraceOfForest"
           },
           {
             "DataTable": {
@@ -40416,6 +40689,498 @@
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
             },
             "RowName": "GraceOfForest_HPRegen_Lv4"
+          }
+        ],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 1000.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 1000.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingAcceleration",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 0.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 0.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": false,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 1000.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "GraceOfForest_byGrandTarget": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::TargetPoint",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::ProjectileDirection",
+          "SpawnSocketName": "None",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": false,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 1.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 1.0,
+          "AddLifeTimeList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                  "ActiveArtsID": {
+                    "ID": 622
+                  },
+                  "PassiveArtsID": {
+                    "ID": 0
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 4,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "FloatValue": 6.0
+            }
+          ],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": false,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'BlasterProjectileEffectInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileEffectInfo.0"
+          },
+          "RowName": "GraceOfForest_byGrandTarget"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::NONE",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": false,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": false,
+            "bIsEnableHitCover": false,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 300.0,
+              "ModifyRadiusList": [
+                {
+                  "ConditionList": [
+                    {
+                      "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                      "ActiveArtsID": {
+                        "ID": 622
+                      },
+                      "PassiveArtsID": {
+                        "ID": 0
+                      },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
+                      "IntValue": 3,
+                      "FloatValue": 0.0,
+                      "NameValue": "None",
+                      "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                      "BattleStatusRowHandle": {
+                        "DataTable": null,
+                        "RowName": "None"
+                      },
+                      "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                      "AbilityFlagList": [],
+                      "OnlyPlayerStatusList": [],
+                      "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
+                      "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                      "bNot": false
+                    }
+                  ],
+                  "FloatValue": 50.0
+                }
+              ],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 32.0,
+            "BeamCollisionLength": 32.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 622001
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyFriend",
+        "bTreateFriendByParty": true,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'BlasterStatusAlimentConfig'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterStatusAlimentConfig.0"
+            },
+            "RowName": "GraceOfForest"
           }
         ],
         "SelfStatusAliments": [],
@@ -40669,6 +41434,9 @@
                   "PassiveArtsID": {
                     "ID": 106231
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -40681,6 +41449,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -40806,7 +41575,6 @@
             "bIsEnableHitFromGroundDist": true,
             "EnableHitFromGroundDist": 50.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -41136,6 +41904,9 @@
                   "PassiveArtsID": {
                     "ID": 106231
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -41148,6 +41919,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -41273,7 +42045,6 @@
             "bIsEnableHitFromGroundDist": true,
             "EnableHitFromGroundDist": 50.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -41603,6 +42374,9 @@
                   "PassiveArtsID": {
                     "ID": 106231
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -41615,6 +42389,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -41740,7 +42515,6 @@
             "bIsEnableHitFromGroundDist": true,
             "EnableHitFromGroundDist": 50.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -42070,6 +42844,9 @@
                   "PassiveArtsID": {
                     "ID": 106231
                   },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
                   "IntValue": 0,
                   "FloatValue": 0.0,
                   "NameValue": "None",
@@ -42082,6 +42859,7 @@
                   "AbilityFlagList": [],
                   "OnlyPlayerStatusList": [],
                   "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
                   "ArrayLogic": "ESBArrayLogicalOperator::AND",
                   "bNot": false
                 }
@@ -42204,7 +42982,6 @@
             "bIsEnableHitFromGroundDist": true,
             "EnableHitFromGroundDist": 50.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -42644,7 +43421,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -42677,6 +43453,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -42691,6 +43470,7 @@
                         "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
                       ],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     },
@@ -42701,6 +43481,9 @@
                       },
                       "PassiveArtsID": {
                         "ID": 106091
+                      },
+                      "AttackID": {
+                        "AttackID": 0
                       },
                       "IntValue": 0,
                       "FloatValue": 0.0,
@@ -42714,6 +43497,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -43123,7 +43907,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -43156,6 +43939,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -43170,6 +43956,7 @@
                         "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
                       ],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     },
@@ -43180,6 +43967,9 @@
                       },
                       "PassiveArtsID": {
                         "ID": 106091
+                      },
+                      "AttackID": {
+                        "AttackID": 0
                       },
                       "IntValue": 0,
                       "FloatValue": 0.0,
@@ -43193,6 +43983,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -43602,7 +44393,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -43635,6 +44425,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -43649,6 +44442,7 @@
                         "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
                       ],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     },
@@ -43659,6 +44453,9 @@
                       },
                       "PassiveArtsID": {
                         "ID": 106091
+                      },
+                      "AttackID": {
+                        "AttackID": 0
                       },
                       "IntValue": 0,
                       "FloatValue": 0.0,
@@ -43672,6 +44469,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -44081,7 +44879,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -44114,6 +44911,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -44128,6 +44928,7 @@
                         "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
                       ],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     },
@@ -44138,6 +44939,9 @@
                       },
                       "PassiveArtsID": {
                         "ID": 106091
+                      },
+                      "AttackID": {
+                        "AttackID": 0
                       },
                       "IntValue": 0,
                       "FloatValue": 0.0,
@@ -44151,6 +44955,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -44184,7 +44989,7 @@
           }
         },
         "AttackID": {
-          "AttackID": 624003
+          "AttackID": 624001
         },
         "ModifyAttackIDList": [],
         "DamageType": null,
@@ -44562,7 +45367,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -44595,6 +45399,9 @@
                       "PassiveArtsID": {
                         "ID": 0
                       },
+                      "AttackID": {
+                        "AttackID": 0
+                      },
                       "IntValue": 0,
                       "FloatValue": 0.0,
                       "NameValue": "None",
@@ -44609,6 +45416,7 @@
                         "ESBAbilityOnlyPlayerStatus::BSK_FireUp"
                       ],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     },
@@ -44619,6 +45427,9 @@
                       },
                       "PassiveArtsID": {
                         "ID": 106091
+                      },
+                      "AttackID": {
+                        "AttackID": 0
                       },
                       "IntValue": 0,
                       "FloatValue": 0.0,
@@ -44632,6 +45443,7 @@
                       "AbilityFlagList": [],
                       "OnlyPlayerStatusList": [],
                       "ElementType": "ESBAttribute::None",
+                      "SkillType": "ESBPlayerSkillActionType::None",
                       "ArrayLogic": "ESBArrayLogicalOperator::AND",
                       "bNot": false
                     }
@@ -45041,7 +45853,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -45463,7 +46274,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -45885,7 +46695,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -46304,7 +47113,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -46726,7 +47534,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -47108,6 +47915,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -47122,6 +47932,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -47185,7 +47996,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -47604,7 +48414,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -48004,7 +48813,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": true
           },
           "CollisionScaleVector": {
@@ -48392,6 +49200,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -48406,6 +49217,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -48469,7 +49281,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -48888,7 +49699,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -49109,437 +49919,6 @@
         },
         "ProjectileUniqueTag": "None"
       },
-      "CorePoison": {
-        "ProjectileType": "EProjectileType::Parabola",
-        "CustomProjectileTemplate": {
-          "AssetPathName": "None",
-          "SubPathString": ""
-        },
-        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
-        "SpawnInfo": {
-          "SpawnType": "ESpawnType::WeaponSocketL",
-          "SpawnRotType": "ESpawnRotType::FaceTarget",
-          "DirectionType": "EProjectileDirection::TargetDirection",
-          "SpawnSocketName": "Projectile_Shoot",
-          "SpawnOffset": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "SpawnRotOffset": {
-            "Pitch": 0.0,
-            "Yaw": 0.0,
-            "Roll": 0.0
-          },
-          "SpawnTargetOffset": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "bIsAttach": false,
-          "NonTargetAction": "EProjectileNonTargetAction::ScreenViewDirection",
-          "NonTargetSpawnDistanceFront": 2000.0,
-          "bIsPenetrateInObstacle": true,
-          "bIsDestroyInObstacle": true,
-          "isObstaclePushedBackToSpawner": false,
-          "bIsCheckGround": false,
-          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
-          "isOnNaviMeshConnedtedFromOwner": false,
-          "bIsReacquireSpawnTransformOnLocal": false,
-          "Stability": {
-            "HorizontalHalfAngle": 0.0,
-            "VerticalHalfAngle": 0.0,
-            "bVerticalUpOnly": false
-          },
-          "ShotAngleLimit": {
-            "bIsEnable": false,
-            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
-            "HalfAngle": 0.0,
-            "UpAngle": 0.0,
-            "DownAngle": 0.0
-          },
-          "MaxSpawnNum": 16,
-          "SpawnDelayTime": 0.0,
-          "bIsInheritanceInstigatorScale": false
-        },
-        "PostAttachConfig": {
-          "bIsSameRotatorFromAttach": false,
-          "bIsCauseHitAttach": false
-        },
-        "DestroyCondition": {
-          "bIsEnableLifeCheck": true,
-          "LifeTime": 0.5,
-          "AddLifeTimeList": [],
-          "bIsEnableDistanceCheck": true,
-          "DestroyDistance": 2725.0,
-          "DestroyDistanceAdjustList": [],
-          "bIsEnableHeightCheck": false,
-          "bIsEnableTotalDistance": false,
-          "DestroyTotalDistance": 2780.0,
-          "bIsEnableGroundHitCheck": true,
-          "bIsEnableAliveAnimTag": false,
-          "AliveAnimTagArray": [],
-          "bIsDestroyTogeghterWithSpawner": false
-        },
-        "HealthConditionConfig": {
-          "HitPoint": 0.0,
-          "bIsChangeHitPoint": true
-        },
-        "IsTargetable": false,
-        "TargetClass": "ESBClassType::None",
-        "bIsTargetInstigatorPlayerOnly": false,
-        "bIsContinuousUpdateTargetInfo": false,
-        "SelfDeadChainConfig": {
-          "ProjectileConfigHandle1": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "ProjectileConfigHandle2": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "bIsGenerate": false
-        },
-        "HitChainConfig": {
-          "bIsGenerateAttackHit": true,
-          "bIsOnlyGenerateSBCharacterHit": false,
-          "bIsGenerateGroundHit": false,
-          "bIsGenerateBattleAreaWall": true,
-          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
-          "SpawnPosOffset": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "bIsAdjustGroundPos": false,
-          "SpawnRotType": "EHitEffectSpawnRotType::None",
-          "bIsReverseRotation": false,
-          "bIsExcludeHitFromChainHitActor": false,
-          "bIsRepeatChainOnAttackHit": false,
-          "PermitConditionList": [],
-          "HitActorSocketName": "None",
-          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
-          "ProjectileConfigHandle1": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "ProjectileConfigHandle2": {
-            "DataTable": null,
-            "RowName": "None"
-          },
-          "bIsGenerate": false
-        },
-        "OrderedChainConfigList": [],
-        "EffectTableHandle": {
-          "DataTable": {
-            "ObjectName": "DataTable'BlasterProjectileEffectInfo'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileEffectInfo.0"
-          },
-          "RowName": "CorePoison"
-        },
-        "ConditionCheckEffectTableHandle": [],
-        "MeshConfigList": [],
-        "SummonImagineConfig": {
-          "SummonImagineCharacter": {
-            "AssetPathName": "None",
-            "SubPathString": ""
-          },
-          "ImagineCharacterOffsetPos": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "SummonImagineCCD": null
-        },
-        "SplashSize": "ESBProjectileSplashSize::Small",
-        "NamePlateWidget": null,
-        "CameraShakeList": [
-          {
-            "Time": 0.05,
-            "ShakeClass": {
-              "ObjectName": "BlueprintGeneratedClass'BP_CameraShake_AttackHit_Light_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Camera/CameraShake/BP_CameraShake_AttackHit_Light.0"
-            },
-            "Scale": 0.7
-          }
-        ],
-        "CameraShakeLimitDistance": 0.0,
-        "bIsCameraShakeAllPlayer": false,
-        "GroundCollisionConfig": {
-          "bIsEnableGroundCollision": true,
-          "bIsUseBImagineCollisionPreset": false,
-          "HalfHeight": 1.0,
-          "Radius": 1.0
-        },
-        "CollisionConfig": {
-          "bEnableAttack": true,
-          "bEnableDamaged": false,
-          "bIsUseDamagedCollisionAsBlocking": false,
-          "bDisablePartsHit": false,
-          "HitSetting": {
-            "bIsDisableSelfHit": true,
-            "bIsOnlyTargetHit": false,
-            "bIsInfinitePierce": false,
-            "bIsEnableBlockingHitCheck": true,
-            "bIsEnableHitCover": true,
-            "HitCoverConfig": {
-              "bIsExclusiveSpawner": false
-            },
-            "bIsHitTargetLimitOnlyOverlap": false,
-            "bIsDisableReHitDelay": false,
-            "bIsShareHit": false,
-            "ShareHitConfig": {
-              "ShareHitTime": 0.1,
-              "ShareGroup": "EProjectileShareGroup::None",
-              "bIsIndependentBySpawner": false
-            },
-            "bIsEnableHitForCharacterGround": false,
-            "bIsEnableHitFromGroundDist": false,
-            "EnableHitFromGroundDist": 0.0,
-            "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
-            "bIsEnableWeakPointHit": true
-          },
-          "CollisionScaleVector": {
-            "X": 1.0,
-            "Y": 1.0,
-            "Z": 1.0
-          },
-          "ScaleVectorFromZero": false,
-          "CollisionScaleCurve": null,
-          "CollisionOnOffDataList": [
-            {
-              "time": 0.0,
-              "OnOff": "ECollisionOnOff::On"
-            }
-          ],
-          "bIsUseImpactPointExecAttackHit": false
-        },
-        "CollisionShape": {
-          "SphereArray": [
-            {
-              "Radius": 64.0,
-              "ModifyRadiusList": [],
-              "Location": {
-                "X": 0.0,
-                "Y": 0.0,
-                "Z": 0.0
-              },
-              "Rotation": {
-                "Pitch": 0.0,
-                "Yaw": 0.0,
-                "Roll": 0.0
-              },
-              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
-              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
-            }
-          ],
-          "CapsuleArray": [],
-          "BoxArray": [],
-          "MeshArray": [],
-          "BeamCollision": {
-            "BeamCollisionRadius": 32.0,
-            "BeamCollisionLength": 32.0,
-            "bDontExpandBeam": true,
-            "BeamCollisionExpandSpeed": 1000.0,
-            "OverrideSectionData": []
-          }
-        },
-        "AttackID": {
-          "AttackID": 653001
-        },
-        "ModifyAttackIDList": [],
-        "DamageType": {
-          "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeDownMiddle_C'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/BP_DmgTypeDownMiddle.0"
-        },
-        "LimitDamage": 0.0,
-        "bIsForceLimitDamage": false,
-        "DamageSideInfo": "EDamageSide::OnlyHostile",
-        "bTreateFriendByParty": false,
-        "bIsDisableHitTargetLimit": false,
-        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
-        "StatusAliments": [],
-        "SelfStatusAliments": [],
-        "OverlapStatusAlimentConfigs": [],
-        "MoveBaseConfig": {
-          "InitialSpeed": 10000.0,
-          "InitialSpeedModifyRateList": [],
-          "MinSpeed": 0.0,
-          "MaxSpeed": 0.0,
-          "bIsEnableGravity": true,
-          "GravityScale": 1.0,
-          "BeginEffectiveGravityTime": 0.0,
-          "EndEffectiveGravityTime": 1000.0,
-          "bRotationFollowsVelocity": true,
-          "bRotationFollowsVelocityOwnerYawAtBegin": false,
-          "bLimitDistance": false,
-          "LimitTotalDistance": 0.0,
-          "bStopMoveWhenGroundHit": true
-        },
-        "MoveHomingConfig": {
-          "bIsHoming": false,
-          "HomingType": "EHomingType::HomingAcceleration",
-          "HomingAccelerationMagnitude": 0.0,
-          "HomingBeginTime": 0.0,
-          "HomingEndTime": 0.0,
-          "HomingOffsetPos": {
-            "X": 0.0,
-            "Y": 0.0,
-            "Z": 0.0
-          },
-          "HomingCorrectionAngle": 0.0,
-          "HomingCorrectionAngle2": 0.0,
-          "HomingEffectiveCorrectionAngle": 0.0,
-          "HomingEffectiveCorrectionAngle2": 0.0,
-          "bIsCancelHomingEffectiveCorrectionAngle": false,
-          "CancelHomingBeginTime": 0.0,
-          "CancelHomingEndTime": 1000.0,
-          "bIsDisableHomingHeight": false,
-          "bIsEnableTargetStop": false
-        },
-        "ParabolaMoveConfig": {
-          "MoveType": "ESBParabolaMoveType::DirectionDegree",
-          "ShotDegree": 1.0,
-          "ReachHeight": 0.0,
-          "ReachTime": 0.0,
-          "bIsEnableChangeLandingSecond": false,
-          "ChangeLandingSecond": {
-            "Distance": 100.0,
-            "Second": 0.5,
-            "MinSecond": 0.01,
-            "MaxSecond": 0.0
-          },
-          "BoundParameter": {
-            "bShouldBounce": false,
-            "bBounceAngleAffectsFriction": true,
-            "Bounciness": 1.0,
-            "Friction": 0.2,
-            "BounceVelocityStopSimulatingThreshold": 0.0
-          }
-        },
-        "AlongGroundConfig": {
-          "GroundOffsetHeight": 50.0,
-          "DisappearFallHeight": 250.0,
-          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
-          "CheckPitchDist": 100.0,
-          "CheckRollDist": 200.0,
-          "AlongPitchMax": 25.0,
-          "AlongRollMax": 45.0
-        },
-        "BeamConfig": {
-          "ImpactSpawnProjectile": {
-            "RapidProjectileSelectHandle": {
-              "DataTable": null,
-              "RowName": "None",
-              "TableRowIndex": 0
-            },
-            "SimultaneousNum": 1,
-            "SimultaneousNumModifyList": [],
-            "RapidNum": 1,
-            "bIsInfiniteRapidNum": false,
-            "RapidInterval": 1.0,
-            "bIsDestroyWhenCantLaunch": true,
-            "DestroyWhenCantLaunchDelayTime": 0.0,
-            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
-            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
-          },
-          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
-        },
-        "ChainMovementConfig": [],
-        "RapidConfig": {
-          "RapidProjectileSelectHandle": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          },
-          "SimultaneousNum": 1,
-          "SimultaneousNumModifyList": [],
-          "RapidNum": 1,
-          "bIsInfiniteRapidNum": false,
-          "RapidInterval": 1.0,
-          "bIsDestroyWhenCantLaunch": true,
-          "DestroyWhenCantLaunchDelayTime": 0.0,
-          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
-          "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
-        },
-        "WideShotConfig": {
-          "RapidConfig": {
-            "RapidProjectileSelectHandle": {
-              "DataTable": null,
-              "RowName": "None",
-              "TableRowIndex": 0
-            },
-            "SimultaneousNum": 1,
-            "SimultaneousNumModifyList": [],
-            "RapidNum": 1,
-            "bIsInfiniteRapidNum": false,
-            "RapidInterval": 1.0,
-            "bIsDestroyWhenCantLaunch": true,
-            "DestroyWhenCantLaunchDelayTime": 0.0,
-            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
-            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
-          },
-          "WideRange": 0.0
-        },
-        "AreaAttackConfig": {
-          "RapidProjectileSelectHandle": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          },
-          "RapidNum": 0,
-          "RapidInterval": 1.0,
-          "EffectiveRadius": 32.0,
-          "bIsUpperSphere": false,
-          "bIsAdjustGround": false,
-          "Order": "EProjectileAreaAttackSpawnOrder::Random",
-          "bIsDestroyWhenCantLaunch": false
-        },
-        "ForecastConfig": {
-          "ForecastDelayTime": 0.0,
-          "ForecastSelectProjectile": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          },
-          "DelayTime": 0.0,
-          "MainSelectProjectile": {
-            "DataTable": null,
-            "RowName": "None",
-            "TableRowIndex": 0
-          }
-        },
-        "PartyShotConfig": {
-          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
-          "bIsIncludeInstantParty": true,
-          "TargetPartyNum": 6,
-          "TargetPartyDistanceLimit": 0.0
-        },
-        "AkEventConfig": {
-          "Event": null,
-          "Switch": [],
-          "AttachName": "L_Hand_J",
-          "AutoDestroy": true,
-          "StopWhenOwnerDestroyed": false,
-          "LOD": "ESBAkEventLOD::LOD_Default",
-          "RTPC": [],
-          "DelayTime": 0.0,
-          "bCanReuseAkComponent": true
-        },
-        "EndAkEventConfig": {
-          "Event": null,
-          "Switch": [],
-          "AttachName": "None",
-          "AutoDestroy": true,
-          "StopWhenOwnerDestroyed": true,
-          "LOD": "ESBAkEventLOD::LOD_Default",
-          "RTPC": [],
-          "DelayTime": 0.0,
-          "bCanReuseAkComponent": true
-        },
-        "ProjectileUniqueTag": "None"
-      },
       "ComboShot_Earth_5Way_Launcher": {
         "ProjectileType": "EProjectileType::WideShot",
         "CustomProjectileTemplate": {
@@ -49719,7 +50098,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -49746,7 +50124,7 @@
           }
         },
         "AttackID": {
-          "AttackID": 2000001
+          "AttackID": 699999
         },
         "ModifyAttackIDList": [],
         "DamageType": null,
@@ -50026,7 +50404,7 @@
               "ObjectName": "DataTable'BlasterProjectileConfigInfo'",
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P006_Blaster/BlasterProjectileConfigInfo.0"
             },
-            "RowName": "ComboShot_Earth_Explode"
+            "RowName": "ComboShot_Earth_5Way_Explode"
           },
           "ProjectileConfigHandle2": {
             "DataTable": null,
@@ -50085,6 +50463,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -50099,6 +50480,7 @@
                   "ESBAbilityOnlyPlayerStatus::BLS_HatTrick"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -50162,7 +50544,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {
@@ -50574,7 +50955,7 @@
             },
             "bIsHitTargetLimitOnlyOverlap": false,
             "bIsDisableReHitDelay": false,
-            "bIsShareHit": true,
+            "bIsShareHit": false,
             "ShareHitConfig": {
               "ShareHitTime": 0.0,
               "ShareGroup": "EProjectileShareGroup::None",
@@ -50584,7 +50965,6 @@
             "bIsEnableHitFromGroundDist": false,
             "EnableHitFromGroundDist": 0.0,
             "bIsHitOnlyFirstFrame": false,
-            "bIsEnableSelfHitSlow": false,
             "bIsEnableWeakPointHit": false
           },
           "CollisionScaleVector": {

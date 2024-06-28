@@ -571,7 +571,7 @@
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Smasher_C:SimpleConstructionScript_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.66"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.67"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler'BP_Smasher_C:InheritableComponentHandler'",
@@ -735,7 +735,7 @@
       },
       "m_pPresetEquipComponent": {
         "ObjectName": "SBPlayerPresetEquipComponent'Default__BP_Smasher_C:PlayerPresetEquipComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.50"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.51"
       },
       "StaminaSettings": {
         "Jump": 20.0
@@ -743,9 +743,17 @@
       "m_UnsheatheStaminaSetting": {
         "Jump": 20.0
       },
+      "m_pPlayerRaidBattleComponent": {
+        "ObjectName": "SBRaidBattleComponent'Default__BP_Smasher_C:PlayerRaidBattleComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.61"
+      },
       "CliffComponent": {
         "ObjectName": "SBPlayerCliffComponent'Default__BP_Smasher_C:CliffComponent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.46"
+      },
+      "m_pSkillMarkerComponent": {
+        "ObjectName": "SBPlayerSkillMarker'Default__BP_Smasher_C:SkillMarker'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.54"
       },
       "AnimationSetMale": {
         "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/AST_M000_SMA.AST_M000_SMA",
@@ -763,16 +771,20 @@
       ],
       "m_pPlayerFishingComponent": {
         "ObjectName": "SBPlayerFishingComponent'Default__BP_Smasher_C:PlayerFishingComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.48"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.49"
       },
       "ProjectileHitTargetLimitComponent": {
         "ObjectName": "SBProjectileHitTargetLimitComponent'Default__BP_Smasher_C:ProjectileHitTargetLimitComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.55"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.56"
       },
       "ClassType": "ESBClassType::P019",
       "LevelSyncComponent": {
         "ObjectName": "SBPlayerCharacterLevelSyncComponent'Default__BP_Smasher_C:LevelSyncComponent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.44"
+      },
+      "ContentActionComponent": {
+        "ObjectName": "SBPlayerContentActionComponent'Default__BP_Smasher_C:ContentActionComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.47"
       },
       "VoiceComponent": {
         "ObjectName": "AkComponent'Default__BP_Smasher_C:VoiceComponent'",
@@ -780,7 +792,7 @@
       },
       "FaceLODComp": {
         "ObjectName": "StaticMeshComponent'Default__BP_Smasher_C:FaceLOD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.68"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.69"
       },
       "m_pPlayerCheerfulItemComponent": {
         "ObjectName": "SBPlayerCheerfulItemComponent'Default__BP_Smasher_C:CheerfulItemComponent'",
@@ -788,7 +800,7 @@
       },
       "DebugComponent": {
         "ObjectName": "SBPlayerDebugComponent'Default__BP_Smasher_C:DebugComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.47"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.48"
       },
       "CharaCreateParameter": {
         "BodyType": "ECharaPartsBody::M000",
@@ -822,6 +834,14 @@
       "FaceComp": {
         "ObjectName": "SBCharaPartsFaceComponent'Default__BP_Smasher_C:FaceSlot'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.29"
+      },
+      "AestheShopComp": {
+        "ObjectName": "SBAestheShopComponent'Default__BP_Smasher_C:AestheShopComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.19"
+      },
+      "ColoringShopComp": {
+        "ObjectName": "SBColoringShopComponent'Default__BP_Smasher_C:ColoringShopComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.33"
       },
       "PartsDamageAnimParamter": {
         "ObjectName": "SBPartsDamageAnimParamter'Default__BP_Smasher_C:PartsDamageAnimParamter'",
@@ -871,12 +891,92 @@
         }
       ],
       "WeaponAttachPoint": "Sheath_Spine1_RightDown",
+      "WeaponVisibilityComponent": {
+        "ObjectName": "SBWeaponVisibilityComponent'Default__BP_Smasher_C:WeaponVisibilityComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.63"
+      },
       "m_SpecialHitEffectList": [
         {
           "EffectName": "BallShotHit",
           "Effect": {
             "Particle": {
               "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Hit.PS_SMA_SmashBall_Hit",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_Hit_Damage.Play_Smasher_BallShot_Hit_Damage",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Battle_Production",
+            "EffectType": "ESBEffectType::Default"
+          }
+        },
+        {
+          "EffectName": "RegularChargeLv2Hit",
+          "Effect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_RegularCharge_Lv2_Hit.PS_SMA_RegularCharge_Lv2_Hit",
               "SubPathString": ""
             },
             "NiagaraSystem": {
@@ -1175,11 +1275,163 @@
             "VisibleType": "ESBEffectVisibleType::Battle_Production",
             "EffectType": "ESBEffectType::Default"
           }
+        },
+        {
+          "EffectName": "RegularChargeShotLv1",
+          "Effect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_RegularCharge_Lv1_LastHit_Wave.PS_SMA_RegularCharge_Lv1_LastHit_Wave",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RegularCharge_SpecialHit_Lv1.Play_Smasher_RegularCharge_SpecialHit_Lv1",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
+        },
+        {
+          "EffectName": "RegularChargeShotLv2",
+          "Effect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_RegularCharge_Lv2_LastHit.PS_SMA_RegularCharge_Lv2_LastHit",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RegularCharge_SpecialHit_Lv2.Play_Smasher_RegularCharge_SpecialHit_Lv2",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
         }
       ],
       "SpawnComp": {
         "ObjectName": "SBProjectileSpawnComponent'Default__BP_Smasher_C:ProjectileSpawnComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.58"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.59"
       },
       "BattleStatusComp": {
         "ObjectName": "SBBattleStatusComponent'Default__BP_Smasher_C:BattleStatusComp'",
@@ -1187,15 +1439,15 @@
       },
       "ProjectileShareHitComp": {
         "ObjectName": "SBProjectileShareHitComponent'Default__BP_Smasher_C:ProjectileShareHitComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.57"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.58"
       },
       "SendNetDataComp": {
         "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_Smasher_C:ProjectileSendNetDataComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.56"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.57"
       },
       "StateManageComp": {
         "ObjectName": "SBProjectileStateManageComponent'Default__BP_Smasher_C:ProjectileStateManageComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.59"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.60"
       },
       "m_MoveSpeedSetting": [
         {
@@ -1239,6 +1491,10 @@
         "ObjectName": "SBActorVisibilityComponent'Default__BP_Smasher_C:ActorVisibilityComponent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.18"
       },
+      "DebugFunctionComponent": {
+        "ObjectName": "SBDebugFunctionComponent'Default__BP_Smasher_C:DebugFunctionComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.34"
+      },
       "CollisionGroup": {
         "ObjectName": "SBCollisionGroupComponent'Default__BP_Smasher_C:CollisionGroup'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.32"
@@ -1253,16 +1509,16 @@
       },
       "CharacterMovement": {
         "ObjectName": "SBPlayerMovementComponent'Default__BP_Smasher_C:CharMoveComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.49"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.50"
       },
       "CapsuleComponent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Smasher_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.51"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.52"
       },
       "bHidden": false,
       "RootComponent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Smasher_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.51"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.52"
       }
     }
   },
@@ -1402,7 +1658,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SBPlayerTargetingComponent'BP_Smasher_C:SBPlayerTargeting_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.54"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.55"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1424,7 +1680,7 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SphereComponent'BP_Smasher_C:EnemyStepJumpCollision_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.67"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.68"
           },
           "ComponentKey": {
             "OwnerClass": {
@@ -1618,7 +1874,7 @@
       },
       "AttachParent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Smasher_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.51"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.52"
       }
     }
   },
@@ -1684,7 +1940,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Smasher_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.51"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.52"
       }
     }
   },
@@ -1849,13 +2105,23 @@
     }
   },
   {
+    "Type": "SBPlayerContentActionComponent",
+    "Name": "ContentActionComponent",
+    "Outer": "Default__BP_Smasher_C",
+    "Class": "UScriptClass'SBPlayerContentActionComponent'",
+    "Template": {
+      "ObjectName": "SBPlayerContentActionComponent'Default__BP_PlayerCharacter_C:ContentActionComponent'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.122"
+    }
+  },
+  {
     "Type": "SBPlayerDebugComponent",
     "Name": "DebugComponent",
     "Outer": "Default__BP_Smasher_C",
     "Class": "UScriptClass'SBPlayerDebugComponent'",
     "Template": {
       "ObjectName": "SBPlayerDebugComponent'Default__BP_PlayerCharacter_C:DebugComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.122"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.123"
     }
   },
   {
@@ -1865,7 +2131,7 @@
     "Class": "UScriptClass'SBPlayerFishingComponent'",
     "Template": {
       "ObjectName": "SBPlayerFishingComponent'Default__BP_PlayerCharacter_C:PlayerFishingComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.123"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.124"
     }
   },
   {
@@ -1875,7 +2141,7 @@
     "Class": "UScriptClass'SBPlayerMovementComponent'",
     "Template": {
       "ObjectName": "SBPlayerMovementComponent'Default__BP_PlayerCharacter_C:CharMoveComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.125"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.126"
     }
   },
   {
@@ -1885,7 +2151,7 @@
     "Class": "UScriptClass'SBPlayerPresetEquipComponent'",
     "Template": {
       "ObjectName": "SBPlayerPresetEquipComponent'Default__BP_PlayerCharacter_C:PlayerPresetEquipComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.126"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.127"
     }
   },
   {
@@ -1895,7 +2161,7 @@
     "Class": "UScriptClass'SBPlayerRootCollisionComponent'",
     "Template": {
       "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_PlayerCharacter_C:CollisionCylinder'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.127"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.128"
     },
     "Properties": {
       "OnComponentBeginOverlap": {
@@ -1929,7 +2195,7 @@
     "Class": "UScriptClass'SBPlayerSkillActionComponent'",
     "Template": {
       "ObjectName": "SBPlayerSkillActionComponent'Default__BP_PlayerCharacter_C:SkillActionComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.128"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.129"
     }
   },
   {
@@ -1939,7 +2205,7 @@
     "Class": "UScriptClass'SBPlayerSkillMarker'",
     "Template": {
       "ObjectName": "SBPlayerSkillMarker'Default__BP_PlayerCharacter_C:SkillMarker'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.129"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.130"
     }
   },
   {
@@ -1949,7 +2215,7 @@
     "Class": "UScriptClass'SBPlayerTargetingComponent'",
     "Template": {
       "ObjectName": "SBPlayerTargetingComponent'BP_PlayerCharacter_C:SBPlayerTargeting_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.131"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.132"
     },
     "Properties": {
       "TargetingInfo": {
@@ -1985,7 +2251,7 @@
     "Class": "UScriptClass'SBProjectileHitTargetLimitComponent'",
     "Template": {
       "ObjectName": "SBProjectileHitTargetLimitComponent'Default__BP_PlayerCharacter_C:ProjectileHitTargetLimitComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.132"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.133"
     }
   },
   {
@@ -1995,7 +2261,7 @@
     "Class": "UScriptClass'SBProjectileSendNetDataComponent'",
     "Template": {
       "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_PlayerCharacter_C:ProjectileSendNetDataComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.133"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.134"
     }
   },
   {
@@ -2005,7 +2271,7 @@
     "Class": "UScriptClass'SBProjectileShareHitComponent'",
     "Template": {
       "ObjectName": "SBProjectileShareHitComponent'Default__BP_PlayerCharacter_C:ProjectileShareHitComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.134"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.135"
     }
   },
   {
@@ -2015,7 +2281,7 @@
     "Class": "UScriptClass'SBProjectileSpawnComponent'",
     "Template": {
       "ObjectName": "SBProjectileSpawnComponent'Default__BP_PlayerCharacter_C:ProjectileSpawnComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.135"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.136"
     },
     "Properties": {
       "ProjectileBuildResource": [
@@ -2038,6 +2304,16 @@
             "ObjectName": "DataTable'CommonProjectileEffectInfo'",
             "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Common/CommonProjectileEffectInfo.0"
           }
+        },
+        {
+          "ConfigInfo": {
+            "ObjectName": "DataTable'ContentActionProjectileConfigInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/ContentAction/ContentActionProjectileConfigInfo.0"
+          },
+          "EffectInfo": {
+            "ObjectName": "DataTable'ContentActionProjectileEffectInfo'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/ContentAction/ContentActionProjectileEffectInfo.0"
+          }
         }
       ]
     }
@@ -2049,7 +2325,7 @@
     "Class": "UScriptClass'SBProjectileStateManageComponent'",
     "Template": {
       "ObjectName": "SBProjectileStateManageComponent'Default__BP_PlayerCharacter_C:ProjectileStateManageComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.136"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.137"
     }
   },
   {
@@ -2059,7 +2335,7 @@
     "Class": "UScriptClass'SBRaidBattleComponent'",
     "Template": {
       "ObjectName": "SBRaidBattleComponent'Default__BP_PlayerCharacter_C:PlayerRaidBattleComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.137"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.138"
     }
   },
   {
@@ -2069,7 +2345,7 @@
     "Class": "UScriptClass'SBSpringArmComponent'",
     "Template": {
       "ObjectName": "SBSpringArmComponent'BP_PlayerCharacter_C:BP_PlayerCameraComponent_GEN_VARIABLE.CameraArmComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.138"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.139"
     }
   },
   {
@@ -2079,7 +2355,7 @@
     "Class": "UScriptClass'SBWeaponVisibilityComponent'",
     "Template": {
       "ObjectName": "SBWeaponVisibilityComponent'Default__BP_PlayerCharacter_C:WeaponVisibilityComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.140"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.141"
     }
   },
   {
@@ -2100,7 +2376,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Smasher_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.63"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.64"
       },
       "VariableGuid": "E3A7CD4E-426FBA4F-93A133BA-91BADC31",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2133,18 +2409,18 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Smasher_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.65"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.66"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Smasher_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.65"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.66"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Smasher_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.64"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Smasher.65"
       }
     }
   },
@@ -2155,7 +2431,7 @@
     "Class": "UScriptClass'SphereComponent'",
     "Template": {
       "ObjectName": "SphereComponent'BP_PlayerCharacter_C:EnemyStepJumpCollision_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.171"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.172"
     },
     "Properties": {
       "RelativeLocation": {
@@ -2172,7 +2448,7 @@
     "Class": "UScriptClass'StaticMeshComponent'",
     "Template": {
       "ObjectName": "StaticMeshComponent'Default__BP_PlayerCharacter_C:FaceLOD'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.172"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.173"
     },
     "Properties": {
       "AttachParent": {

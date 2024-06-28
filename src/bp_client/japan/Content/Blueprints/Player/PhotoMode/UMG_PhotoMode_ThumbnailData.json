@@ -1,7 +1,7 @@
 [
   {
     "Type": "Function",
-    "Name": "ThumbnailBtnClickEvent__DelegateSignature",
+    "Name": "OnClickedViewerButton__DelegateSignature",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -17,7 +17,7 @@
   },
   {
     "Type": "Function",
-    "Name": "SelectFrameImageClickEvent__DelegateSignature",
+    "Name": "OnClickedFrameButton__DelegateSignature",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -45,6 +45,30 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidThumbnail_bIsValid",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable",
         "Flags": "RF_Public",
@@ -64,120 +88,6 @@
       {
         "Type": "EnumProperty",
         "Name": "Temp_byte_Variable_1",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_2",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_3",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_4",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_5",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "Temp_bool_Variable",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_6",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
-      },
-      {
-        "Type": "EnumProperty",
-        "Name": "Temp_byte_Variable_7",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
@@ -223,24 +133,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetActiveWidgetIndex_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "EnumProperty",
         "Name": "K2Node_Select_Default",
         "Flags": "RF_Public",
@@ -258,38 +150,28 @@
         }
       },
       {
-        "Type": "EnumProperty",
-        "Name": "CallFunc_GetVisibility_ReturnValue",
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsSelect_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
-        "Type": "EnumProperty",
-        "Name": "K2Node_Select_Default_1",
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
-        "Enum": {
-          "ObjectName": "Enum'ESlateVisibility'",
-          "ObjectPath": "/Script/UMG"
-        },
-        "UnderlyingProp": {
-          "Type": "ByteProperty",
-          "Name": "UnderlyingType",
-          "Flags": "RF_Public",
-          "ElementSize": 1,
-          "Enum": null
-        }
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
@@ -310,7 +192,7 @@
   },
   {
     "Type": "Function",
-    "Name": "SetIsEnableBtn",
+    "Name": "SetIsEnableButton",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -332,7 +214,7 @@
   },
   {
     "Type": "Function",
-    "Name": "SetViewerBtn",
+    "Name": "ResetButton",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
     "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
@@ -389,6 +271,58 @@
       }
     ],
     "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "IsValidThumbnail",
+    "Outer": "UMG_PhotoMode_ThumbnailData_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bIsValid",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetActiveWidgetIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure | FUNC_Const"
   },
   {
     "Type": "Function",
@@ -481,28 +415,6 @@
   },
   {
     "Type": "Function",
-    "Name": "GetActiveWidgetIndex",
-    "Outer": "UMG_PhotoMode_ThumbnailData_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
-        "Type": "IntProperty",
-        "Name": "outActiveWidgetIndex",
-        "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "Parm | OutParm"
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetActiveWidgetIndex_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
-  },
-  {
-    "Type": "Function",
     "Name": "GetImage_PNGData",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
@@ -540,7 +452,7 @@
   },
   {
     "Type": "Function",
-    "Name": "GetSlateBrush",
+    "Name": "Get Slate Brush",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -569,6 +481,18 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidThumbnail_bIsValid",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "ObjectProperty",
         "Name": "CallFunc_GetActiveWidget_ReturnValue",
         "Flags": "RF_Public",
@@ -578,12 +502,6 @@
           "ObjectName": "Class'Widget'",
           "ObjectPath": "/Script/UMG"
         }
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_GetActiveWidgetIndex_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
       },
       {
         "Type": "ObjectProperty",
@@ -607,25 +525,13 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
   },
   {
     "Type": "Function",
-    "Name": "IsSelectFrame",
+    "Name": "IsSelect",
     "Outer": "UMG_PhotoMode_ThumbnailData_C",
     "Class": "UScriptClass'Function'",
     "ChildProperties": [
@@ -643,8 +549,54 @@
         "bIsNativeBool": true
       },
       {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsVisible_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetSelect",
+    "Outer": "UMG_PhotoMode_ThumbnailData_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bSelect",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "Temp_bool_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
         "Type": "EnumProperty",
-        "Name": "CallFunc_GetVisibility_ReturnValue",
+        "Name": "Temp_byte_Variable",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "Enum": {
@@ -660,32 +612,10 @@
         }
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent | FUNC_BlueprintPure"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetFrameImageVisibility",
-    "Outer": "UMG_PhotoMode_ThumbnailData_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
-      {
         "Type": "EnumProperty",
-        "Name": "InVisibility",
+        "Name": "Temp_byte_Variable_1",
         "Flags": "RF_Public",
         "ElementSize": 1,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
         "Enum": {
           "ObjectName": "Enum'ESlateVisibility'",
           "ObjectPath": "/Script/UMG"
@@ -697,22 +627,23 @@
           "ElementSize": 1,
           "Enum": null
         }
-      }
-    ],
-    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
-  },
-  {
-    "Type": "Function",
-    "Name": "SetThumbnailNo",
-    "Outer": "UMG_PhotoMode_ThumbnailData_C",
-    "Class": "UScriptClass'Function'",
-    "ChildProperties": [
+      },
       {
-        "Type": "IntProperty",
-        "Name": "ThumbnailNo",
+        "Type": "EnumProperty",
+        "Name": "K2Node_Select_Default",
         "Flags": "RF_Public",
-        "ElementSize": 4,
-        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
       }
     ],
     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
@@ -944,13 +875,13 @@
     "Properties": {
       "WidgetTree": {
         "ObjectName": "WidgetTree'UMG_PhotoMode_ThumbnailData_C:WidgetTree'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.46"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.43"
       },
       "bClassRequiresNativeTick": true,
       "DynamicBindingObjects": [
         {
           "ObjectName": "ComponentDelegateBinding'UMG_PhotoMode_ThumbnailData_C:ComponentDelegateBinding_0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.38"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.36"
         }
       ],
       "UberGraphFunction": {
@@ -965,42 +896,38 @@
     "Children": [
       {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetImagePNGData_Bp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.25"
-      },
-      {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetIsUpload_Bp'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.24"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailTexture_Bp'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetIsUpload_Bp'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.23"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetThumbnailTexture_Bp'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailTexture_Bp'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.22"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsUpload'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetThumbnailTexture_Bp'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.21"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetIsUpload'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsUpload'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.20"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailNo'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetIsUpload'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.19"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetFrameImageVisibility'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetSelect'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.18"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:IsSelectFrame'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:IsSelect'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.17"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetSlateBrush'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:Get Slate Brush'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.16"
       },
       {
@@ -1016,15 +943,15 @@
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.13"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetActiveWidgetIndex'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetThumbnailTexture'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.12"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetThumbnailTexture'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailTexture'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.11"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailTexture'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:IsValidThumbnail'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.10"
       },
       {
@@ -1040,11 +967,11 @@
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.7"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetViewerBtn'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:ResetButton'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.6"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsEnableBtn'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsEnableButton'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.5"
       },
       {
@@ -1060,11 +987,11 @@
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.2"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SelectFrameImageClickEvent__DelegateSignature'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:OnClickedFrameButton__DelegateSignature'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.1"
       },
       {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:ThumbnailBtnClickEvent__DelegateSignature'",
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:OnClickedViewerButton__DelegateSignature'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.0"
       }
     ],
@@ -1133,12 +1060,12 @@
       },
       {
         "Type": "MulticastInlineDelegateProperty",
-        "Name": "ThumbnailBtnClickEvent",
+        "Name": "OnClickedViewerButton",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
         "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | BlueprintAssignable | BlueprintCallable",
         "SignatureFunction": {
-          "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:ThumbnailBtnClickEvent__DelegateSignature'",
+          "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:OnClickedViewerButton__DelegateSignature'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.0"
         }
       },
@@ -1158,12 +1085,12 @@
       },
       {
         "Type": "MulticastInlineDelegateProperty",
-        "Name": "SelectFrameImageClickEvent",
+        "Name": "OnClickedFrameButton",
         "Flags": "RF_Public | RF_LoadCompleted",
         "ElementSize": 16,
         "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance | BlueprintAssignable | BlueprintCallable",
         "SignatureFunction": {
-          "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SelectFrameImageClickEvent__DelegateSignature'",
+          "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:OnClickedFrameButton__DelegateSignature'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.1"
         }
       },
@@ -1182,12 +1109,12 @@
       }
     ],
     "FuncMap": {
-      "ThumbnailBtnClickEvent__DelegateSignature": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:ThumbnailBtnClickEvent__DelegateSignature'",
+      "OnClickedViewerButton__DelegateSignature": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:OnClickedViewerButton__DelegateSignature'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.0"
       },
-      "SelectFrameImageClickEvent__DelegateSignature": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SelectFrameImageClickEvent__DelegateSignature'",
+      "OnClickedFrameButton__DelegateSignature": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:OnClickedFrameButton__DelegateSignature'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.1"
       },
       "ExecuteUbergraph_UMG_PhotoMode_ThumbnailData": {
@@ -1202,12 +1129,12 @@
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:BndEvt__UMG_PhotoMode_ThumbnailData_ThumbnailBtn_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.4"
       },
-      "SetIsEnableBtn": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsEnableBtn'",
+      "SetIsEnableButton": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsEnableButton'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.5"
       },
-      "SetViewerBtn": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetViewerBtn'",
+      "ResetButton": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:ResetButton'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.6"
       },
       "Init": {
@@ -1222,16 +1149,16 @@
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsUpload_Bp'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.9"
       },
+      "IsValidThumbnail": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:IsValidThumbnail'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.10"
+      },
       "SetThumbnailTexture": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailTexture'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.11"
       },
       "GetThumbnailTexture": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetThumbnailTexture'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.11"
-      },
-      "GetActiveWidgetIndex": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetActiveWidgetIndex'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.12"
       },
       "GetImage_PNGData": {
@@ -1246,45 +1173,41 @@
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:Reset'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.15"
       },
-      "GetSlateBrush": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetSlateBrush'",
+      "Get Slate Brush": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:Get Slate Brush'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.16"
       },
-      "IsSelectFrame": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:IsSelectFrame'",
+      "IsSelect": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:IsSelect'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.17"
       },
-      "SetFrameImageVisibility": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetFrameImageVisibility'",
+      "SetSelect": {
+        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetSelect'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.18"
-      },
-      "SetThumbnailNo": {
-        "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailNo'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.19"
       },
       "GetIsUpload": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetIsUpload'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.20"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.19"
       },
       "SetIsUpload": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetIsUpload'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.21"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.20"
       },
       "GetThumbnailTexture_Bp": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetThumbnailTexture_Bp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.22"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.21"
       },
       "SetThumbnailTexture_Bp": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:SetThumbnailTexture_Bp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.23"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.22"
       },
       "GetIsUpload_Bp": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetIsUpload_Bp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.24"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.23"
       },
       "GetImagePNGData_Bp": {
         "ObjectName": "Function'UMG_PhotoMode_ThumbnailData_C:GetImagePNGData_Bp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.25"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.24"
       }
     },
     "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
@@ -1296,7 +1219,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "UMG_PhotoMode_ThumbnailData_C'Default__UMG_PhotoMode_ThumbnailData_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.27"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.26"
     }
   },
   {
@@ -1324,7 +1247,7 @@
       },
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_4'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.36"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.34"
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
@@ -1367,37 +1290,9 @@
           }
         }
       },
-      "Slots": [
-        {
-          "ObjectName": "ButtonSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ViewerBtn.ButtonSlot_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
-        }
-      ],
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.34"
-      }
-    }
-  },
-  {
-    "Type": "ButtonSlot",
-    "Name": "ButtonSlot_1",
-    "Outer": "ViewerBtn",
-    "Class": "UScriptClass'ButtonSlot'",
-    "Properties": {
-      "Padding": {
-        "Left": 0.0,
-        "Top": 0.0,
-        "Right": 0.0,
-        "Bottom": 0.0
-      },
-      "Parent": {
-        "ObjectName": "Button'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ViewerBtn'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.29"
-      },
-      "Content": {
-        "ObjectName": "SBRuntimeTextBlock'UMG_PhotoMode_ThumbnailData_C:WidgetTree.SBRuntimeTextBlock_131'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.42"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
       }
     }
   },
@@ -1410,7 +1305,7 @@
       "Slots": [
         {
           "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.33"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.31"
         }
       ]
     }
@@ -1424,24 +1319,24 @@
       "Slots": [
         {
           "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_3'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.35"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.33"
         },
         {
           "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_7'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.37"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.35"
         },
         {
           "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_4'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.36"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.34"
         },
         {
           "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.34"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
         }
       ],
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.CanvasPanel_0.CanvasPanelSlot_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.33"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.31"
       }
     }
   },
@@ -1473,11 +1368,11 @@
       },
       "Parent": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.CanvasPanel_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.31"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.29"
       },
       "Content": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
       }
     }
   },
@@ -1511,11 +1406,11 @@
       },
       "Parent": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
       },
       "Content": {
         "ObjectName": "Button'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ViewerBtn'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.28"
       }
     }
   },
@@ -1535,11 +1430,11 @@
       },
       "Parent": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
       },
       "Content": {
         "ObjectName": "Image'UMG_PhotoMode_ThumbnailData_C:WidgetTree.SelectFrameImage'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.39"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.37"
       }
     }
   },
@@ -1571,11 +1466,11 @@
       },
       "Parent": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
       },
       "Content": {
         "ObjectName": "Button'UMG_PhotoMode_ThumbnailData_C:WidgetTree.SelectFrameButton'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.28"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.27"
       }
     }
   },
@@ -1607,11 +1502,11 @@
       },
       "Parent": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
       },
       "Content": {
         "ObjectName": "WidgetSwitcher'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.43"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.40"
       }
     }
   },
@@ -1650,7 +1545,7 @@
       },
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_3'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.35"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.33"
       },
       "Visibility": "ESlateVisibility::Collapsed"
     }
@@ -1663,7 +1558,7 @@
     "Properties": {
       "Slot": {
         "ObjectName": "WidgetSwitcherSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher.WidgetSwitcherSlot_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.44"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.41"
       }
     }
   },
@@ -1685,28 +1580,9 @@
       },
       "Slot": {
         "ObjectName": "WidgetSwitcherSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher.WidgetSwitcherSlot_1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.45"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.42"
       },
       "bIsVariable": false
-    }
-  },
-  {
-    "Type": "SBRuntimeTextBlock",
-    "Name": "SBRuntimeTextBlock_131",
-    "Outer": "WidgetTree",
-    "Class": "UScriptClass'SBRuntimeTextBlock'",
-    "Properties": {
-      "Text": {
-        "Namespace": "",
-        "Key": "8CC375384DEE0B590AEF3F89030AE75F",
-        "SourceString": "拡大",
-        "LocalizedString": "拡大"
-      },
-      "Slot": {
-        "ObjectName": "ButtonSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ViewerBtn.ButtonSlot_1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.30"
-      },
-      "Visibility": "ESlateVisibility::Collapsed"
     }
   },
   {
@@ -1719,16 +1595,16 @@
       "Slots": [
         {
           "ObjectName": "WidgetSwitcherSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher.WidgetSwitcherSlot_0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.44"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.41"
         },
         {
           "ObjectName": "WidgetSwitcherSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher.WidgetSwitcherSlot_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.45"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.42"
         }
       ],
       "Slot": {
         "ObjectName": "CanvasPanelSlot'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailPanel.CanvasPanelSlot_7'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.37"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.35"
       }
     }
   },
@@ -1740,11 +1616,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetSwitcher'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.43"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.40"
       },
       "Content": {
         "ObjectName": "Image'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailImage'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.40"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.38"
       }
     }
   },
@@ -1756,11 +1632,11 @@
     "Properties": {
       "Parent": {
         "ObjectName": "WidgetSwitcher'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailWidgetSwitcher'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.43"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.40"
       },
       "Content": {
         "ObjectName": "Image'UMG_PhotoMode_ThumbnailData_C:WidgetTree.ThumbnailNoImage'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.41"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.39"
       }
     }
   },
@@ -1772,7 +1648,7 @@
     "Properties": {
       "RootWidget": {
         "ObjectName": "CanvasPanel'UMG_PhotoMode_ThumbnailData_C:WidgetTree.CanvasPanel_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.31"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PhotoMode/UMG_PhotoMode_ThumbnailData.29"
       }
     }
   }

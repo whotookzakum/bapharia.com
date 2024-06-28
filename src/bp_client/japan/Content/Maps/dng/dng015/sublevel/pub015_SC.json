@@ -1,5 +1,24 @@
 [
   {
+    "Type": "AkComponent",
+    "Name": "Ak",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'AkComponent'",
+    "Template": {
+      "ObjectName": "AkComponent'BP_WarpPointBase_C:Ak_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_WarpPointBase.31"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
     "Type": "BoxComponent",
     "Name": "CollisionComp",
     "Outer": "PlayerStart_Resppub015_1",
@@ -12,7 +31,7 @@
       },
       "AttachParent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.7"
       }
     }
   },
@@ -29,7 +48,7 @@
       },
       "AttachParent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.8"
       }
     }
   },
@@ -69,13 +88,114 @@
       },
       "AttachParent": {
         "ObjectName": "BoxComponent'pub015_SC:PersistentLevel.SBFieldTravelTrigger1.CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.3"
       },
       "RelativeLocation": {
         "X": 0.0,
         "Y": -1000.0,
         "Z": 0.0
       }
+    }
+  },
+  {
+    "Type": "BP_NaturalWarpPoint_C",
+    "Name": "BP_NaturalWarpPoint_2",
+    "Outer": "PersistentLevel",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.BP_NaturalWarpPoint_C'",
+    "Template": {
+      "ObjectName": "BP_NaturalWarpPoint_C'Default__BP_NaturalWarpPoint_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.3"
+    },
+    "Properties": {
+      "Decal": {
+        "ObjectName": "DecalComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.Decal'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.9"
+      },
+      "SBParticleSystem": {
+        "ObjectName": "SBParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.SBParticleSystem'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.22"
+      },
+      "Ak": {
+        "ObjectName": "AkComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.Ak'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.0"
+      },
+      "ParticleSystem(Startup)": {
+        "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleSystem(Startup)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.13"
+      },
+      "ParticleSystem(Tower-Inactive)": {
+        "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleSystem(Tower-Inactive)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.15"
+      },
+      "ParticleSystem(Tower-Active)": {
+        "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleSystem(Tower-Active)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.14"
+      },
+      "PlayerStartPoint": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.PlayerStartPoint'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.26"
+      },
+      "ArrivalAtRotation": {
+        "Pitch": 0.0,
+        "Yaw": 12.0,
+        "Roll": 0.0
+      },
+      "ArrivalAtCameraRotation": {
+        "Pitch": 0.0,
+        "Yaw": 12.0,
+        "Roll": 0.0
+      },
+      "WarpPointId": "pub015",
+      "ParticleComp": {
+        "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.12"
+      },
+      "InteractionTargetComponent": {
+        "ObjectName": "SBInteractionTargetComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.InteractionTargetComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.20"
+      },
+      "RootComp": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "GroundComp": {
+        "ObjectName": "SBGroundComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.GroundComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.19"
+      },
+      "RootComponent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "BlueprintCreatedComponents": [
+        {
+          "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.PlayerStartPoint'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.26"
+        },
+        {
+          "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleSystem(Tower-Active)'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.14"
+        },
+        {
+          "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleSystem(Tower-Inactive)'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.15"
+        },
+        {
+          "ObjectName": "ParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.ParticleSystem(Startup)'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.13"
+        },
+        {
+          "ObjectName": "AkComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.Ak'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.0"
+        },
+        {
+          "ObjectName": "SBParticleSystemComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.SBParticleSystem'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.22"
+        },
+        {
+          "ObjectName": "DecalComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.Decal'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.9"
+        }
+      ]
     }
   },
   {
@@ -90,89 +210,89 @@
     "Properties": {
       "Spline": {
         "ObjectName": "SplineComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.Spline'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.17"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.29"
       },
       "DefaultSceneRoot": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "OtherArea": true,
       "RootComponent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "BlueprintCreatedComponents": [
         {
           "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
-        },
-        {
-          "ObjectName": "SplineComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.Spline'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.17"
-        },
-        {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.18"
-        },
-        {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.19"
-        },
-        {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.20"
-        },
-        {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_2'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.26"
-        },
-        {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_3'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
-        },
-        {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_4'",
           "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
         },
         {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_5'",
+          "ObjectName": "SplineComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.Spline'",
           "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.29"
         },
         {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_6'",
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0'",
           "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.30"
         },
         {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_7'",
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_0'",
           "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.31"
         },
         {
-          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_8'",
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_1'",
           "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.32"
         },
         {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.38"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.39"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.40"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.41"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_6'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.42"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.43"
+        },
+        {
+          "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_8'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.44"
+        },
+        {
           "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_9'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.33"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.45"
         },
         {
           "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_10'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.21"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.33"
         },
         {
           "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_11'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.22"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.34"
         },
         {
           "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_12'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.23"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.35"
         },
         {
           "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_13'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.24"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.36"
         },
         {
           "ObjectName": "StaticMeshComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.NODE_AddStaticMeshComponent-0_14'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.25"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.37"
         }
       ]
     }
@@ -214,6 +334,25 @@
     }
   },
   {
+    "Type": "DecalComponent",
+    "Name": "Decal",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'DecalComponent'",
+    "Template": {
+      "ObjectName": "DecalComponent'BP_NaturalWarpPoint_C:Decal_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.4"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBGroundComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.GroundComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.19"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
     "Type": "Level",
     "Name": "PersistentLevel",
     "Outer": "pub015_SC",
@@ -221,35 +360,39 @@
     "Properties": {
       "Model": {
         "ObjectName": "Model'pub015_SC:PersistentLevel.Model_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.8"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.11"
       },
       "LevelBuildDataId": "20ACEEB9-4DFAEA90-459708A4-CF4B097E",
       "WorldSettings": {
         "ObjectName": "SBWorldSettings'pub015_SC:PersistentLevel.SBWorldSettings'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.15"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.25"
       }
     },
     "Actors": [
       {
         "ObjectName": "SBWorldSettings'pub015_SC:PersistentLevel.SBWorldSettings'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.15"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.25"
       },
       null,
       {
         "ObjectName": "SBPlayerStart'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.13"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.23"
       },
       {
         "ObjectName": "SBPlayerStart'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.24"
       },
       {
         "ObjectName": "BP_SplineAreaLimit_C'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.6"
+      },
+      {
+        "ObjectName": "BP_NaturalWarpPoint_C'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.5"
       },
       {
         "ObjectName": "SBFieldTravelTrigger'pub015_SC:PersistentLevel.SBFieldTravelTrigger1'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.11"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.18"
       }
     ],
     "URL": {
@@ -263,7 +406,7 @@
     },
     "Model": {
       "ObjectName": "Model'pub015_SC:PersistentLevel.Model_0'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.8"
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.11"
     },
     "ModelComponents": [],
     "LevelScriptActor": null,
@@ -327,8 +470,81 @@
     "VertexBuffer": {
       "Vertices": []
     },
-    "LightingGuid": "3EDEA2AD-4C509A57-6C088B9C-C32F5DA8",
+    "LightingGuid": "2BD0580A-4C659B5F-A80101B1-EC7ED458",
     "LightmassSettings": []
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "ParticleComp",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'ParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "ParticleSystemComponent'Default__BP_NaturalWarpPoint_C:ParticleComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.9"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      }
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "ParticleSystem(Startup)",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'ParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "ParticleSystemComponent'BP_NaturalWarpPoint_C:ParticleSystem(Startup)_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.6"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "ParticleSystem(Tower-Active)",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'ParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "ParticleSystemComponent'BP_NaturalWarpPoint_C:ParticleSystem(Tower-Active)_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.7"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "ParticleSystemComponent",
+    "Name": "ParticleSystem(Tower-Inactive)",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'ParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "ParticleSystemComponent'BP_NaturalWarpPoint_C:ParticleSystem(Tower-Inactive)_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.8"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
   },
   {
     "Type": "SBCollisionBoxComponent",
@@ -390,7 +606,7 @@
       },
       "AttachParent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.7"
       },
       "RelativeLocation": {
         "X": -0.00010681152,
@@ -466,7 +682,7 @@
       },
       "AttachParent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.8"
       },
       "RelativeLocation": {
         "X": -662.24677,
@@ -495,18 +711,50 @@
     "Properties": {
       "PreloadCollisionComponent": {
         "ObjectName": "BoxComponent'pub015_SC:PersistentLevel.SBFieldTravelTrigger1.PreloadCollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.4"
       },
       "TravelFieldId": "fld004_C",
       "TravelFieldMapName": "fld004_Top",
       "SpawnPortal": "dng015_Exit",
       "CollisionComponent": {
         "ObjectName": "BoxComponent'pub015_SC:PersistentLevel.SBFieldTravelTrigger1.CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.3"
       },
       "RootComponent": {
         "ObjectName": "BoxComponent'pub015_SC:PersistentLevel.SBFieldTravelTrigger1.CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.3"
+      }
+    }
+  },
+  {
+    "Type": "SBGroundComponent",
+    "Name": "GroundComp",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'SBGroundComponent'",
+    "Template": {
+      "ObjectName": "SBGroundComponent'Default__BP_NaturalWarpPoint_C:GroundComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.10"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      }
+    }
+  },
+  {
+    "Type": "SBInteractionTargetComponent",
+    "Name": "InteractionTargetComponent",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'SBInteractionTargetComponent'",
+    "Template": {
+      "ObjectName": "SBInteractionTargetComponent'Default__BP_NaturalWarpPoint_C:InteractionTargetComponent'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.11"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
       }
     }
   },
@@ -521,6 +769,25 @@
     }
   },
   {
+    "Type": "SBParticleSystemComponent",
+    "Name": "SBParticleSystem",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'SBParticleSystemComponent'",
+    "Template": {
+      "ObjectName": "SBParticleSystemComponent'BP_WarpPointBase_C:SBParticleSystem_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_WarpPointBase.40"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
     "Type": "SBPlayerStart",
     "Name": "PlayerStart_Resppub015_1",
     "Outer": "PersistentLevel",
@@ -530,24 +797,24 @@
       "Type": "ESBPlayerStartType::FieldMove",
       "CollisionComponent": {
         "ObjectName": "BoxComponent'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1.CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.0"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.1"
       },
       "PlayerStartTag": "pub015_Start",
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.7"
       },
       "GoodSprite": null,
       "BadSprite": null,
       "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
       "RootComponent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.7"
       },
       "InstanceComponents": [
         {
           "ObjectName": "SBCollisionBoxComponent'pub015_SC:PersistentLevel.PlayerStart_Resppub015_1.RespawnUpdateBox0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.9"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
         }
       ]
     }
@@ -561,23 +828,23 @@
       "bIsAvailableForSearchStartPoint": true,
       "CollisionComponent": {
         "ObjectName": "BoxComponent'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2.CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.1"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.2"
       },
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.8"
       },
       "GoodSprite": null,
       "BadSprite": null,
       "SpawnCollisionHandlingMethod": "ESpawnActorCollisionHandlingMethod::AlwaysSpawn",
       "RootComponent": {
         "ObjectName": "CapsuleComponent'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2.CollisionCapsule'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.8"
       },
       "InstanceComponents": [
         {
           "ObjectName": "SBCollisionBoxComponent'pub015_SC:PersistentLevel.PlayerStart_RespPub015_2.RespawnUpdateBox0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.10"
+          "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.17"
         }
       ]
     }
@@ -590,7 +857,7 @@
     "Properties": {
       "NavigationSystemConfig": {
         "ObjectName": "SBNavigationSystemConfig'pub015_SC:PersistentLevel.SBWorldSettings.SBNavigationSystemConfig_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.12"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.21"
       },
       "BookmarkArray": [
         null,
@@ -604,6 +871,42 @@
         null,
         null
       ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "PlayerStartPoint",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'BP_WarpPointBase_C:PlayerStartPoint_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_WarpPointBase.42"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_NaturalWarpPoint_2.RootComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.27"
+      },
+      "UCSSerializationIndex": 0,
+      "bNetAddressable": true,
+      "CreationMethod": "EComponentCreationMethod::SimpleConstructionScript"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "RootComp",
+    "Outer": "BP_NaturalWarpPoint_2",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_NaturalWarpPoint_C:RootComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Field/Warp/BP_NaturalWarpPoint.13"
+    },
+    "Properties": {
+      "RelativeLocation": {
+        "X": -12334.0,
+        "Y": -1506.0,
+        "Z": 10370.0
+      }
     }
   },
   {
@@ -1034,7 +1337,7 @@
       "bSplineHasBeenEdited": true,
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "UCSSerializationIndex": 0,
       "bNetAddressable": true,
@@ -1071,7 +1374,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": -20.0001,
@@ -1104,7 +1407,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 19.806892,
@@ -1137,7 +1440,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 59.553738,
@@ -1170,7 +1473,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 418.19363,
@@ -1203,7 +1506,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 457.84808,
@@ -1236,7 +1539,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 497.4567,
@@ -1269,7 +1572,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 537.0626,
@@ -1302,7 +1605,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 576.7233,
@@ -1335,7 +1638,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 99.274994,
@@ -1368,7 +1671,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 139.01367,
@@ -1401,7 +1704,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 178.81198,
@@ -1434,7 +1737,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 218.68872,
@@ -1467,7 +1770,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 258.6434,
@@ -1500,7 +1803,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 298.63364,
@@ -1533,7 +1836,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 338.5844,
@@ -1566,7 +1869,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SceneComponent'pub015_SC:PersistentLevel.BP_SplineAreaLimit_2.DefaultSceneRoot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.16"
+        "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.28"
       },
       "RelativeLocation": {
         "X": 378.44583,
@@ -1593,7 +1896,7 @@
     "Class": "UScriptClass'World'",
     "PersistentLevel": {
       "ObjectName": "Level'pub015_SC:PersistentLevel'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.7"
+      "ObjectPath": "BLUEPROTOCOL/Content/Maps/dng/dng015/sublevel/pub015_SC.10"
     },
     "ExtraReferencedObjects": [],
     "StreamingLevels": []

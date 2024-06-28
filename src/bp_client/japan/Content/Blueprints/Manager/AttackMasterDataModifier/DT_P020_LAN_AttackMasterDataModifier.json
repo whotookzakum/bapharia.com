@@ -14,6 +14,121 @@
         "AttackID": {
           "AttackID": 2000005
         },
+        "ModiryParamList": [],
+        "ModiryParamRowHandleList": [
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_P020_LAN_AttackMasterDataModifier'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/AttackMasterDataModifier/DT_P020_LAN_AttackMasterDataModifier.0"
+            },
+            "RowName": "LAN_MainAttack_4_Common"
+          }
+        ]
+      },
+      "LAN_MainAttack_4_AddMark": {
+        "AttackID": {
+          "AttackID": 2000010
+        },
+        "ModiryParamList": [
+          {
+            "ConditionList": [],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 0,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [
+              {
+                "RowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'LancerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/LancerStatusAlimentConfig.0"
+                  },
+                  "RowName": "LancerMark_AddAllMarkAttack"
+                },
+                "AdjustParam": {}
+              }
+            ],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          }
+        ],
+        "ModiryParamRowHandleList": [
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_P020_LAN_AttackMasterDataModifier'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/AttackMasterDataModifier/DT_P020_LAN_AttackMasterDataModifier.0"
+            },
+            "RowName": "LAN_LancerMark"
+          },
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_P020_LAN_AttackMasterDataModifier'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/AttackMasterDataModifier/DT_P020_LAN_AttackMasterDataModifier.0"
+            },
+            "RowName": "LAN_MainAttack_4_Common"
+          }
+        ]
+      },
+      "LAN_MainAttack_4_Common": {
+        "AttackID": {
+          "AttackID": 0
+        },
         "ModiryParamList": [
           {
             "ConditionList": [],
@@ -110,6 +225,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -122,6 +240,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -218,6 +337,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -230,6 +352,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -326,6 +449,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -340,6 +466,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_ThrowingStyle"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -350,6 +477,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120172
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -363,6 +493,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -451,6 +582,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -463,6 +597,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -541,6 +676,9 @@
                 "PassiveArtsID": {
                   "ID": 120605
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -553,6 +691,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -631,6 +770,9 @@
                 "PassiveArtsID": {
                   "ID": 120605
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -643,6 +785,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -652,6 +795,194 @@
             "HitInterval": 9999.0,
             "DamageModifyRate": 0.0,
             "AttackScaleModifyRate": 9,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120605
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 4,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 12,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120605
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 5,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 15,
             "bModifyDamageValue1": false,
             "DamageValue1": 0.0,
             "bModifyDownAttackScale": false,
@@ -737,6 +1068,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -749,6 +1083,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -827,6 +1162,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -841,6 +1179,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_ThrowingStyle"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -851,6 +1190,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120172
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -864,6 +1206,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -952,6 +1295,9 @@
                 "PassiveArtsID": {
                   "ID": 120605
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -964,6 +1310,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1042,6 +1389,9 @@
                 "PassiveArtsID": {
                   "ID": 120605
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1054,6 +1404,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1125,12 +1476,203 @@
           {
             "ConditionList": [
               {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120605
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 4,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 12,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120605
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 5,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 15,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          },
+          {
+            "ConditionList": [
+              {
                 "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
                 "ActiveArtsID": {
                   "ID": 2001
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 4,
                 "FloatValue": 0.0,
@@ -1144,6 +1686,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1271,6 +1814,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1283,6 +1829,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1394,6 +1941,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1406,6 +1956,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1494,6 +2045,9 @@
                 "PassiveArtsID": {
                   "ID": 120101
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1506,6 +2060,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1607,6 +2162,9 @@
                 "PassiveArtsID": {
                   "ID": 120102
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1619,6 +2177,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1705,6 +2264,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1717,6 +2279,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1803,6 +2366,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1815,6 +2381,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -1893,6 +2460,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -1905,6 +2475,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2016,6 +2587,9 @@
                 "PassiveArtsID": {
                   "ID": 120111
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2028,6 +2602,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2127,6 +2702,9 @@
                 "PassiveArtsID": {
                   "ID": 120112
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2139,6 +2717,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2236,6 +2815,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2248,6 +2830,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2364,6 +2947,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2376,6 +2962,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2464,6 +3051,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2476,6 +3066,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2564,6 +3155,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2576,6 +3170,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2654,6 +3249,9 @@
                 "PassiveArtsID": {
                   "ID": 120122
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2666,6 +3264,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -2676,6 +3275,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -2689,6 +3291,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2790,6 +3393,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2802,6 +3408,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -2932,6 +3539,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -2944,6 +3554,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3040,6 +3651,9 @@
                 "PassiveArtsID": {
                   "ID": 120151
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3052,6 +3666,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -3062,6 +3677,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 3,
                 "FloatValue": 0.0,
@@ -3075,6 +3693,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3202,6 +3821,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3214,6 +3836,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3321,6 +3944,9 @@
                 "PassiveArtsID": {
                   "ID": 120172
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3333,6 +3959,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3437,6 +4064,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3449,6 +4079,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -3459,6 +4090,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -3474,6 +4108,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_ThrowingStyle"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3570,6 +4205,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3582,6 +4220,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3675,6 +4314,13 @@
               "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/AttackMasterDataModifier/DT_P020_LAN_AttackMasterDataModifier.0"
             },
             "RowName": "LAN_LancerMark"
+          },
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_P020_LAN_AttackMasterDataModifier'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/AttackMasterDataModifier/DT_P020_LAN_AttackMasterDataModifier.0"
+            },
+            "RowName": "LAN_LightningAssault_Beta_DamageUp"
           }
         ]
       },
@@ -3693,6 +4339,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3705,6 +4354,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3809,6 +4459,9 @@
                 "PassiveArtsID": {
                   "ID": 120181
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3821,6 +4474,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -3903,6 +4557,108 @@
         ],
         "ModiryParamRowHandleList": []
       },
+      "LAN_LightningAssault_Beta_DamageUp": {
+        "AttackID": {
+          "AttackID": 0
+        },
+        "ModiryParamList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120181
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 50,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          }
+        ],
+        "ModiryParamRowHandleList": []
+      },
       "LAN_ThunderThrust_Charge1": {
         "AttackID": {
           "AttackID": 2019001
@@ -3918,6 +4674,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -3930,6 +4689,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4026,6 +4786,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4038,6 +4801,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4134,6 +4898,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4146,6 +4913,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4234,6 +5002,9 @@
                 "PassiveArtsID": {
                   "ID": 120192
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4246,6 +5017,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4353,6 +5125,9 @@
                 "PassiveArtsID": {
                   "ID": 120191
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4365,6 +5140,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4462,6 +5238,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4474,6 +5253,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4570,6 +5350,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4582,6 +5365,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4670,6 +5454,9 @@
                 "PassiveArtsID": {
                   "ID": 120201
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4682,6 +5469,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4770,6 +5558,9 @@
                 "PassiveArtsID": {
                   "ID": 120202
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4782,6 +5573,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -4871,6 +5663,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 4,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -4883,6 +5678,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5003,6 +5799,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5015,6 +5814,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5114,6 +5914,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5126,6 +5929,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5197,6 +6001,21 @@
         ],
         "ModiryParamRowHandleList": []
       },
+      "LAN_AerialMode_Landing": {
+        "AttackID": {
+          "AttackID": 2053002
+        },
+        "ModiryParamList": [],
+        "ModiryParamRowHandleList": [
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'DT_P020_LAN_AttackMasterDataModifier'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/AttackMasterDataModifier/DT_P020_LAN_AttackMasterDataModifier.0"
+            },
+            "RowName": "LAN_LancerMark"
+          }
+        ]
+      },
       "LAN_LancerMark": {
         "AttackID": {
           "AttackID": 0
@@ -5212,6 +6031,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5227,6 +6049,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5305,6 +6128,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5320,6 +6146,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -5330,6 +6157,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -5345,6 +6175,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5423,6 +6254,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5438,6 +6272,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -5448,6 +6283,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120602
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 1,
                 "FloatValue": 0.0,
@@ -5461,6 +6299,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5539,6 +6378,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5554,6 +6396,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -5564,6 +6407,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120602
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 2,
                 "FloatValue": 0.0,
@@ -5577,6 +6423,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5655,6 +6502,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5670,6 +6520,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -5680,6 +6531,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120602
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 3,
                 "FloatValue": 0.0,
@@ -5693,6 +6547,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -5771,6 +6626,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5786,6 +6644,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -5796,6 +6655,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -5811,6 +6673,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -5900,6 +6763,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -5915,6 +6781,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -5925,6 +6792,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -5940,6 +6810,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -6040,6 +6911,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6055,6 +6929,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6065,6 +6940,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6080,6 +6958,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -6169,6 +7048,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6184,6 +7066,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6194,6 +7077,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6209,6 +7095,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -6309,6 +7196,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6321,6 +7211,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6331,6 +7222,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6346,6 +7240,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -6435,6 +7330,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6447,6 +7345,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6457,6 +7356,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6472,6 +7374,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6482,6 +7385,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120211
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6495,6 +7401,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -6587,6 +7494,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6599,6 +7509,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6609,6 +7520,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6624,6 +7538,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6634,6 +7549,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 120212
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6647,6 +7565,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -6736,6 +7655,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6748,6 +7670,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -6831,6 +7754,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6843,6 +7769,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6853,6 +7780,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6868,6 +7798,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": true
               }
@@ -6957,6 +7888,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -6969,6 +7903,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -6979,6 +7914,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -6994,6 +7932,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -7083,6 +8022,9 @@
                 "PassiveArtsID": {
                   "ID": 0
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 0,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -7095,6 +8037,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               },
@@ -7105,6 +8048,9 @@
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -7120,6 +8066,7 @@
                   "ESBAbilityOnlyPlayerStatus::LAN_WeaknessStance"
                 ],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -7217,6 +8164,9 @@
                 "PassiveArtsID": {
                   "ID": 120603
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 2,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -7229,6 +8179,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -7307,6 +8258,9 @@
                 "PassiveArtsID": {
                   "ID": 120603
                 },
+                "AttackID": {
+                  "AttackID": 0
+                },
                 "IntValue": 3,
                 "FloatValue": 0.0,
                 "NameValue": "None",
@@ -7319,6 +8273,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }
@@ -7390,12 +8345,203 @@
           {
             "ConditionList": [
               {
-                "ConditionCheckType": "ESBConditionCheckType::LastSetupSkill",
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120603
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 4,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 25,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkillLevel",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 120603
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 5,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "bOverride": false,
+            "bModifyHitInterval": false,
+            "HitInterval": 9999.0,
+            "DamageModifyRate": 0.0,
+            "AttackScaleModifyRate": 30,
+            "bModifyDamageValue1": false,
+            "DamageValue1": 0.0,
+            "bModifyDownAttackScale": false,
+            "DownAttackScale": 1.0,
+            "bModifyBadConditionAttackScale": false,
+            "BadConditionAttackScale": 1.0,
+            "ShieldDamageModifyRate": 0.0,
+            "bModifyAttackDirection": false,
+            "AttackDirectionSetting": {
+              "AttackDirectionOrigin": "ESBAttackDirectionOrigin::Collision",
+              "AttackDirection": "ESBAttackDirectionType::OtherCollision",
+              "DirectionYaw": 0,
+              "bEnableBackAttackTrigger": false,
+              "bSpecifyGuardDirection": false,
+              "AttackDirectionOriginForGuard": "ESBAttackDirectionOrigin::Owner",
+              "AttackDirectionForGuard": "ESBAttackDirectionType::Forward"
+            },
+            "bModifyAttackThroughConfig": false,
+            "AttackThroughConfig": {
+              "AttackType": "ESBDamageAttackType::MeleeAttack",
+              "ThroughType": "ESBAttackThroughType::None",
+              "AttributeBitMask": 0
+            },
+            "bModifyStunDirection": false,
+            "StunDirection": "ESBStunDirection::Down",
+            "ElementDamageModifySettingList": [],
+            "bModifyHitStop": false,
+            "HitStop": {
+              "AttackHitStopTime": 0.0,
+              "DamageHitStopTime": 0.0,
+              "HitSlomoPower": "ESBHitSlomoPower::None",
+              "bSlomoAttackActor": true,
+              "bSlomoDamageActor": true,
+              "DamageHitStopType": "ESBHitSlomoType::None"
+            },
+            "bModifyHitKnockBack": false,
+            "HitKnockBack": {
+              "KnockBackPowerType": "ESBHitKnockBackPower::None",
+              "bOverrideKnockBackPower": false,
+              "OverrideKnockBackPower": 0.0,
+              "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+              "bOverrideKnockBackTime": false,
+              "OverrideKnockBackTime": 0.0,
+              "bNoAttackerKnockBack": false,
+              "bReverseKnockBackDirection": false,
+              "bNeedGiveStunToKnockBack": false,
+              "CapsuleSpace": 0.0
+            },
+            "bModifyHateScale": false,
+            "HateScale": 0.0,
+            "bModifySpecialHitEffectName": false,
+            "SpecialHitEffectName": "None",
+            "GiveStatusAilmentList": [],
+            "GaveDamageSelfStatusAilmentList": [],
+            "GaveHitSelfStatusAilmentList": [],
+            "GaveWeakPointHitSelfStatusAilmentList": [],
+            "DeactiveStatusHandleList": [],
+            "DeactiveStatusGroupList": []
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::TargetLastDamageAttackID",
                 "ActiveArtsID": {
                   "ID": 2012
                 },
                 "PassiveArtsID": {
                   "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 2012003
                 },
                 "IntValue": 0,
                 "FloatValue": 0.0,
@@ -7409,6 +8555,7 @@
                 "AbilityFlagList": [],
                 "OnlyPlayerStatusList": [],
                 "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
                 "ArrayLogic": "ESBArrayLogicalOperator::AND",
                 "bNot": false
               }

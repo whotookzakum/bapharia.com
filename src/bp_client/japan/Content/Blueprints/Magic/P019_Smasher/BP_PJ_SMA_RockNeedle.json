@@ -1,21 +1,182 @@
 [
   {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_PJ_SMA_RockNeedle",
+    "Outer": "BP_PJ_SMA_RockNeedle_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_InHitSelfComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_InOtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_InOtherComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_Event_InHitCheckPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "Struct": {
+          "ObjectName": "ScriptStruct'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ChangeMovementByLabel_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ProjectileNotifyOnAttackHit",
+    "Outer": "BP_PJ_SMA_RockNeedle_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBRangedProjectile:ProjectileNotifyOnAttackHit'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "InHitSelfComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SceneComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InOtherActor",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Actor'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "InOtherComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'PrimitiveComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "InHitCheckPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 12,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "Struct": {
+          "ObjectName": "ScriptStruct'Vector'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_PJ_SMA_RockNeedle_C",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
-    "Super": {
-      "ObjectName": "BlueprintGeneratedClass'BP_PJ_TemplateFallAlongGround_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.4"
-    },
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_PJ_SMA_RockNeedle_C:SimpleConstructionScript_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.11"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.13"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_PJ_SMA_RockNeedle_C:ExecuteUbergraph_BP_PJ_SMA_RockNeedle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.0"
       }
     },
     "SuperStruct": {
-      "ObjectName": "BlueprintGeneratedClass'BP_PJ_TemplateFallAlongGround_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.4"
+      "ObjectName": "Class'SBProjectile_AlongGround'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_PJ_SMA_RockNeedle_C:ProjectileNotifyOnAttackHit'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.1"
+      },
+      {
+        "ObjectName": "Function'BP_PJ_SMA_RockNeedle_C:ExecuteUbergraph_BP_PJ_SMA_RockNeedle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_PJ_SMA_RockNeedle": {
+        "ObjectName": "Function'BP_PJ_SMA_RockNeedle_C:ExecuteUbergraph_BP_PJ_SMA_RockNeedle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.0"
+      },
+      "ProjectileNotifyOnAttackHit": {
+        "ObjectName": "Function'BP_PJ_SMA_RockNeedle_C:ProjectileNotifyOnAttackHit'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.1"
+      }
     },
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
     "ClassWithin": {
@@ -26,56 +187,50 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_PJ_SMA_RockNeedle_C'Default__BP_PJ_SMA_RockNeedle_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.1"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.3"
     }
   },
   {
     "Type": "BP_PJ_SMA_RockNeedle_C",
     "Name": "Default__BP_PJ_SMA_RockNeedle_C",
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.BP_PJ_SMA_RockNeedle_C'",
-    "Template": {
-      "ObjectName": "BP_PJ_TemplateFallAlongGround_C'Default__BP_PJ_TemplateFallAlongGround_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.5"
-    },
     "Properties": {
-      "MoveComp": {
-        "ObjectName": "SBParabolaMovementComponent'Default__BP_PJ_SMA_RockNeedle_C:MoveComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.2"
-      },
+      "UberGraphFrame": {},
+      "MoveComp": null,
       "GroundCollisionComp": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_SMA_RockNeedle_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.9"
       },
       "CollisionComp": {
         "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_SMA_RockNeedle_C:CollisionComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.6"
       },
       "AttackParamComp": {
         "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_SMA_RockNeedle_C:AttackParamComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.5"
       },
       "EffectComp": {
         "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_SMA_RockNeedle_C:EffectComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.8"
       },
       "ParamComp": {
         "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_SMA_RockNeedle_C:ParamComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.8"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.10"
       },
       "DestroyCondComp": {
         "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_SMA_RockNeedle_C:DestroyCondComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.7"
       },
       "RootComponent": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_SMA_RockNeedle_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.9"
       },
       "OnEndPlay": {
         "InvocationList": [
           {
             "Object": {
               "ObjectName": "BP_PJ_SMA_RockNeedle_C'Default__BP_PJ_SMA_RockNeedle_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.1"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.3"
             },
             "FunctionName": "OnProjectileEndPlay"
           }
@@ -84,38 +239,26 @@
     }
   },
   {
-    "Type": "SBParabolaMovementComponent",
-    "Name": "MoveComp",
+    "Type": "SBAlongGroundMovementComponent",
+    "Name": "MoveCompAlongGround",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
-    "Class": "UScriptClass'SBParabolaMovementComponent'",
-    "Template": {
-      "ObjectName": "SBParabolaMovementComponent'Default__BP_PJ_TemplateFallAlongGround_C:MoveComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.6"
-    }
+    "Class": "UScriptClass'SBAlongGroundMovementComponent'"
   },
   {
     "Type": "SBProjectileAttackParamComponent",
     "Name": "AttackParamComp",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
-    "Class": "UScriptClass'SBProjectileAttackParamComponent'",
-    "Template": {
-      "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_TemplateFallAlongGround_C:AttackParamComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.7"
-    }
+    "Class": "UScriptClass'SBProjectileAttackParamComponent'"
   },
   {
     "Type": "SBProjectileCollisionComponent",
     "Name": "CollisionComp",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
     "Class": "UScriptClass'SBProjectileCollisionComponent'",
-    "Template": {
-      "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_TemplateFallAlongGround_C:CollisionComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.8"
-    },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_SMA_RockNeedle_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.9"
       }
     }
   },
@@ -123,25 +266,17 @@
     "Type": "SBProjectileDestroyConditionComponent",
     "Name": "DestroyCondComp",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
-    "Class": "UScriptClass'SBProjectileDestroyConditionComponent'",
-    "Template": {
-      "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_TemplateFallAlongGround_C:DestroyCondComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.9"
-    }
+    "Class": "UScriptClass'SBProjectileDestroyConditionComponent'"
   },
   {
     "Type": "SBProjectileEffectComponent",
     "Name": "EffectComp",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
     "Class": "UScriptClass'SBProjectileEffectComponent'",
-    "Template": {
-      "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_TemplateFallAlongGround_C:EffectComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.10"
-    },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_SMA_RockNeedle_C:GroundCollisionComp(ProjRoot)'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.9"
       }
     }
   },
@@ -150,17 +285,13 @@
     "Name": "GroundCollisionComp(ProjRoot)",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
     "Class": "UScriptClass'SBProjectileGroundCollisionComponent'",
-    "Template": {
-      "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_TemplateFallAlongGround_C:GroundCollisionComp(ProjRoot)'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.11"
-    },
     "Properties": {
       "OnComponentHit": {
         "InvocationList": [
           {
             "Object": {
               "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_SMA_RockNeedle_C:GroundCollisionComp(ProjRoot)'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.7"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.9"
             },
             "FunctionName": "OnGroundComponentHit"
           }
@@ -172,11 +303,7 @@
     "Type": "SBProjectileParamComponent",
     "Name": "ParamComp",
     "Outer": "Default__BP_PJ_SMA_RockNeedle_C",
-    "Class": "UScriptClass'SBProjectileParamComponent'",
-    "Template": {
-      "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_TemplateFallAlongGround_C:ParamComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateFallAlongGround.12"
-    }
+    "Class": "UScriptClass'SBProjectileParamComponent'"
   },
   {
     "Type": "SceneComponent",
@@ -196,7 +323,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_PJ_SMA_RockNeedle_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.9"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.11"
       },
       "VariableGuid": "61BA126C-4BF9243E-C3104A8D-BE35EDB5",
       "InternalVariableName": "DefaultSceneRoot"
@@ -210,7 +337,7 @@
     "Properties": {
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_PJ_SMA_RockNeedle_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.12"
       }
     }
   }

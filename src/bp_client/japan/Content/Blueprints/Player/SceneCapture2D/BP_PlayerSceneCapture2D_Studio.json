@@ -3888,13 +3888,35 @@
     "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
+    "Type": "Function",
+    "Name": "IsStudioVisible",
+    "Outer": "BP_PlayerSceneCapture2D_Studio_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "bOutIsVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Parm | OutParm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
     "Type": "BlueprintGeneratedClass",
     "Name": "BP_PlayerSceneCapture2D_Studio_C",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Properties": {
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.110"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.111"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'BP_PlayerSceneCapture2D_Studio_C:ExecuteUbergraph_BP_PlayerSceneCapture2D_Studio'",
@@ -3906,6 +3928,10 @@
       "ObjectPath": "/Script/Engine"
     },
     "Children": [
+      {
+        "ObjectName": "Function'BP_PlayerSceneCapture2D_Studio_C:IsStudioVisible'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.60"
+      },
       {
         "ObjectName": "Function'BP_PlayerSceneCapture2D_Studio_C:SetFaceCaptureVisibility'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.59"
@@ -4899,6 +4925,10 @@
       "SetFaceCaptureVisibility": {
         "ObjectName": "Function'BP_PlayerSceneCapture2D_Studio_C:SetFaceCaptureVisibility'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.59"
+      },
+      "IsStudioVisible": {
+        "ObjectName": "Function'BP_PlayerSceneCapture2D_Studio_C:IsStudioVisible'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.60"
       }
     },
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
@@ -4910,7 +4940,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_PlayerSceneCapture2D_Studio_C'Default__BP_PlayerSceneCapture2D_Studio_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.61"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.62"
     }
   },
   {
@@ -4987,7 +5017,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCollisionGroupComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CollisionGroup'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.82"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.83"
       }
     }
   },
@@ -5003,75 +5033,87 @@
     "Properties": {
       "CharaCreateComponent": {
         "ObjectName": "SBCharaCreateComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CharaCreate'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.77"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.78"
       },
       "FaceComp": {
         "ObjectName": "SBCharaPartsFaceComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.FaceSlot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.79"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.80"
+      },
+      "AestheShopComp": {
+        "ObjectName": "SBAestheShopComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.AestheShopComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.72"
+      },
+      "ColoringShopComp": {
+        "ObjectName": "SBColoringShopComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.ColoringShopComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.84"
+      },
+      "WeaponVisibilityComponent": {
+        "ObjectName": "SBWeaponVisibilityComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.WeaponVisibilityComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.96"
       },
       "SpawnComp": {
         "ObjectName": "SBProjectileSpawnComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.ProjectileSpawnComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.93"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.94"
       },
       "BattleStatusComp": {
         "ObjectName": "SBBattleStatusComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.BattleStatusComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.74"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.75"
       },
       "ProjectileShareHitComp": {
         "ObjectName": "SBProjectileShareHitComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.ProjectileShareHitComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.92"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.93"
       },
       "SendNetDataComp": {
         "ObjectName": "SBProjectileSendNetDataComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.ProjectileSendNetDataComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.91"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.92"
       },
       "StateManageComp": {
         "ObjectName": "SBProjectileStateManageComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.ProjectileStateManageComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.94"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.95"
       },
       "AnimationControlComp": {
         "ObjectName": "SBAnimationControlComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.AnimationControlComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.73"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.74"
       },
       "DemoParameterComp": {
         "ObjectName": "SBDemoParameterComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.DemoParameterComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.85"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.86"
       },
       "FactionComponent": {
         "ObjectName": "AIFwFactionComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.FactionComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.62"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.63"
       },
       "FactionInfluenceComponent": {
         "ObjectName": "SBFactionInfluenceSourceComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.FactionInfluenceComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.87"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.88"
       },
       "MovePredictComponent": {
         "ObjectName": "SBMovementPredictComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.MovementPredictComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.88"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.89"
       },
       "CollisionGroup": {
         "ObjectName": "SBCollisionGroupComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CollisionGroup'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.82"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.83"
       },
       "DamageCollision": {
         "ObjectName": "ASCollisionSphereComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.DamageCollision'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.64"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.65"
       },
       "Mesh": {
         "ObjectName": "SBCharaPartsBodyComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.78"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.79"
       },
       "CharacterMovement": {
         "ObjectName": "SBPlayerMovementComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CharMoveComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.90"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.91"
       },
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.67"
       },
       "RootComponent": {
         "ObjectName": "CapsuleComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.67"
       }
     }
   },
@@ -5097,7 +5139,7 @@
       },
       "ChildActorTemplate": {
         "ObjectName": "BP_PlayerSceneCapture2D_C'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.65"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
       }
     }
   },
@@ -5227,7 +5269,7 @@
           {
             "Object": {
               "ObjectName": "BP_PlayerSceneCapture2D_C'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.65"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
             },
             "FunctionName": "OnClientSendEffectiveBattleStatusParam"
           }
@@ -5238,7 +5280,7 @@
           {
             "Object": {
               "ObjectName": "BP_PlayerSceneCapture2D_C'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.65"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
             },
             "FunctionName": "OnClientSendImportantBattleEffective"
           }
@@ -5288,7 +5330,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "CapsuleComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.67"
       }
     }
   },
@@ -5304,7 +5346,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCharaPartsBodyComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.78"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.79"
       }
     }
   },
@@ -5340,7 +5382,7 @@
     "Properties": {
       "AttachParent": {
         "ObjectName": "CapsuleComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE.ChildActor_GEN_VARIABLE_BP_PlayerSceneCapture2D_C_CAT.CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.66"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.67"
       }
     }
   },
@@ -6084,36 +6126,36 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_PlayerSceneCapture2D_Studio_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.100"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.101"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.108"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_9'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.109"
         },
         {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.103"
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.110"
         },
         {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_10'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.104"
         },
         {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_2'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.105"
         },
         {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_3'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.106"
         },
         {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_4'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.107"
+        },
+        {
           "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.102"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.103"
         }
       ],
       "VariableGuid": "0C084CCB-4BCC67EE-077045BF-DC2D66BB",
@@ -6132,7 +6174,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ArrowComponent'BP_PlayerSceneCapture2D_Studio_C:EmptyComponent_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.63"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.64"
       },
       "VariableGuid": "AE424875-45E9FAB4-D2792280-541D905C",
       "InternalVariableName": "EmptyComponent"
@@ -6150,7 +6192,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DirectionalLightComponent'BP_PlayerSceneCapture2D_Studio_C:DirectionalLight_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.68"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.69"
       },
       "VariableGuid": "F8226162-411A708B-43482CB5-CA71CD64",
       "InternalVariableName": "DirectionalLight"
@@ -6168,7 +6210,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneCaptureComponent2D'BP_PlayerSceneCapture2D_Studio_C:SceneCaptureComponent2D_BodyImage_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.96"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.97"
       },
       "VariableGuid": "24C60A88-4B8D4009-BE8F6098-5077FA3A",
       "InternalVariableName": "SceneCaptureComponent2D_BodyImage"
@@ -6186,7 +6228,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneCaptureComponent2D'BP_PlayerSceneCapture2D_Studio_C:SceneCaptureComponent2D_BustUpImage_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.97"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.98"
       },
       "VariableGuid": "B11475CC-490C9D20-7FAB068B-4F738C9D",
       "InternalVariableName": "SceneCaptureComponent2D_BustUpImage"
@@ -6204,7 +6246,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneCaptureComponent2D'BP_PlayerSceneCapture2D_Studio_C:SceneCaptureComponent2D_FaceImage_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.98"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.99"
       },
       "VariableGuid": "734FAD61-44A0C3CA-5FD4D5A8-F2F2D4B4",
       "InternalVariableName": "SceneCaptureComponent2D_FaceImage"
@@ -6222,7 +6264,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "DirectionalLightComponent'BP_PlayerSceneCapture2D_Studio_C:SkyLight_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.69"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.70"
       },
       "VariableGuid": "54689CE7-4FAC1536-6EE931A2-FCD855B1",
       "InternalVariableName": "SkyLight"
@@ -6240,7 +6282,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "ChildActorComponent'BP_PlayerSceneCapture2D_Studio_C:PlayerAvatar_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.67"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.68"
       },
       "VariableGuid": "094C4B3A-4927372E-F35F12B8-F76BF15E",
       "InternalVariableName": "PlayerAvatar"
@@ -6258,12 +6300,12 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneCaptureComponent2D'BP_PlayerSceneCapture2D_Studio_C:SceneCaptureComponent2D_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.99"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.100"
       },
       "ChildNodes": [
         {
           "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_5'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.107"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.108"
         }
       ],
       "VariableGuid": "B4B481E2-40058850-8CE0E79B-A36FAE8C",
@@ -6279,50 +6321,50 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.101"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.102"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.101"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_7'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.108"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_9'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.109"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_10'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.103"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.104"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_3'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.105"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_4'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.106"
-        },
-        {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_1'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.102"
         },
         {
-          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_7'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.109"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_9'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.110"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_10'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.104"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.105"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_3'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.106"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_4'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.107"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.103"
+        },
+        {
+          "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_5'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.108"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_PlayerSceneCapture2D_Studio_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.101"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/SceneCapture2D/BP_PlayerSceneCapture2D_Studio.102"
       }
     }
   }
