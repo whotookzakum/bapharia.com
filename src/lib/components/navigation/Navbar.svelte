@@ -11,20 +11,19 @@
 		SUPPORTED_PUBLISHERS,
 		userLocale,
 	} from "$lib/stores";
-    import Link from "../Link.svelte";
-    import SiteVersionLink from "./SiteVersionLink.svelte";
-    import LangLink from "./LangLink.svelte";
+	import Link from "../Link.svelte";
+	import PublisherLink from "./PublisherLink.svelte";
+	import LangLink from "./LangLink.svelte";
 	// import { browser } from "$app/environment";
 
 	// export let publisher;
 	// export let lang;
 
 	// $: if (browser) {
-		
 
 	// 	console.log(`/${publisher}/${lang}`)
 	// 	// const p = `/${path}/${href}`.replace(/\/+/g, '/')
-    // 	// return p?.slice(-1) === "/" ? p.slice(0, -1) : p
+	// 	// return p?.slice(-1) === "/" ? p.slice(0, -1) : p
 	// 	for (let a of document.querySelectorAll("a:not(.static-link)")) {
 	// 		// a.href = linkPrefix + a.getAttribute("href")
 	// 		let href = `/${publisher}/${lang}` + a.getAttribute("href")
@@ -125,21 +124,33 @@
 
 				<div class="grid">
 					<span class="mini-header">Version</span>
-					<SiteVersionLink publisherLink href="/bno" class="styled-link static-link"
-						>Bandai Namco Online</SiteVersionLink
+					<PublisherLink href="/bno" class="styled-link static-link"
+						>BNO</PublisherLink
 					>
-					<SiteVersionLink publisherLink href="/ags" class="styled-link static-link"
-						>Amazon Games</SiteVersionLink
+					<PublisherLink href="/ags" class="styled-link static-link"
+						>AGS</PublisherLink
 					>
 				</div>
 				<div class="grid">
 					<span class="mini-header">Language</span>
-					<LangLink href="/ja" class="styled-link static-link">日本語</LangLink>
-					<LangLink href="/en" class="styled-link static-link">English</LangLink>
-					<LangLink href="/fr" class="styled-link static-link">Français</LangLink>
-					<LangLink href="/de" class="styled-link static-link">Deutsch</LangLink>
-					<LangLink href="/es" class="styled-link static-link">Español</LangLink>
-					<LangLink href="/pt" class="styled-link static-link">Português</LangLink>
+					<LangLink href="/ja" class="styled-link static-link"
+						>日本語</LangLink
+					>
+					<LangLink href="/en" class="styled-link static-link"
+						>English</LangLink
+					>
+					<LangLink href="/fr" class="styled-link static-link"
+						>Français</LangLink
+					>
+					<LangLink href="/de" class="styled-link static-link"
+						>Deutsch</LangLink
+					>
+					<LangLink href="/es" class="styled-link static-link"
+						>Español</LangLink
+					>
+					<LangLink href="/pt" class="styled-link static-link"
+						>Português</LangLink
+					>
 				</div>
 				<div class="grid">
 					<span class="mini-header">Time Zone</span>
