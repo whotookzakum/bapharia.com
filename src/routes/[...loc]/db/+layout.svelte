@@ -7,7 +7,7 @@
     import TYPES_TEXT from "$api/utils/categories.json";
     import CATEGORIES_TEXT from "./filtertext-categories.json";
     import isEqual from "lodash/isEqual";
-    import SkillIcon from "../../routes/classes/[classId]/skills/SkillIcon.svelte"
+    import Skill from "$lib/components/Skill"
 
     export let data;
     // TODO save and cache preferences: filters
@@ -504,7 +504,7 @@
                         class:board={item.category === "board"}
                     />
                 {:else if item.category === "Skill"}
-                    <SkillIcon skill={{
+                    <Skill.Icon skill={{
                         skill_type: item.type,
                         assets: {
                             icon: item.icon,
@@ -546,7 +546,7 @@
             </div>
         {/each}
     </div>
-    <article class="overflow-y-auto px-8">
+    <article class="overflow-y-auto px-8 main-pane" style="grid-template-columns: 1fr;">
         <slot />
     </article>
 </div>

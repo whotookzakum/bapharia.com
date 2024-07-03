@@ -1,7 +1,7 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import Icon from "@iconify/svelte";
-    import Skill from "./Skill.svelte";
+    import Skill from "$lib/components/Skill";
 
     export let data;
     $: ({ metadata } = data);

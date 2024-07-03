@@ -8,7 +8,7 @@
     import SeasonPassesTable from "$lib/components/db/SeasonPassesTable.svelte";
     import SeasonPointsCalculator from "$lib/components/db/SeasonPointsCalculator.svelte";
     import SeasonPointsStore from "$lib/components/db/SeasonPointsStore.svelte";
-    import Skill from "../../../classes/[classId]/skills/Skill.svelte";
+    import Skill from "$lib/components/Skill";
     import { page } from "$app/stores";
 
     export let data;
@@ -36,9 +36,11 @@
         {/if}
 
         {#if data.resolveType === "Skill"}
-            <div class="mt-4">
-                <Skill skill={data} />
-            </div>
+            <section class="skill" style="font-size: var(--step-1)">
+                <Skill.Description skill={data} />
+                <Skill.Notes skill={data} />
+                <Skill.AnimationCancels skill={data} />
+            </section>
         {/if}
 
         {#if data.stats}

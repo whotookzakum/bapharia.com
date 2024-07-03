@@ -21,3 +21,8 @@ export function updateSearchParams(param, newValue) {
         });
     }
 }
+
+export function getSkillNotes(skillId) {
+    const allNotesFiles = import.meta.glob("../../routes/\\[...loc\\]/classes/\\[classId\\]/skills/*.md", { eager: true, import: "default" })
+    return allNotesFiles[`../../routes/[...loc]/classes/[classId]/skills/${skillId}.md`]
+}

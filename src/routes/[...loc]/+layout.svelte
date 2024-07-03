@@ -4,10 +4,13 @@
     import { GoogleAnalytics } from "@beyonk/svelte-google-analytics";
     import PageFooter from "$lib/components/navigation/PageFooter.svelte";
     import { page } from "$app/stores";
+
+    export let data;
+    $: ({ publisher, lang } = data)
 </script>
 
 <GoogleAnalytics properties={["G-WFYTLGB8B9"]} />
-<Navbar />
+<Navbar {publisher} {lang} />
 
 <main id="main" class="layout" tabindex="-1">
     <slot />

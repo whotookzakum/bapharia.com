@@ -6,7 +6,35 @@
 	import TimeInJapan from "./TimeInJapan.svelte";
 	import links from "./links.json";
 	import randomMessages from "./randomMessages.json";
-	import { userLocale } from "$lib/stores";
+	import {
+		SUPPORTED_LANGS,
+		SUPPORTED_PUBLISHERS,
+		userLocale,
+	} from "$lib/stores";
+	import { browser } from "$app/environment";
+
+	export let publisher;
+	export let lang;
+
+	$: if (browser) {
+		
+
+		console.log(`/${publisher}/${lang}`)
+		// const p = `/${path}/${href}`.replace(/\/+/g, '/')
+    	// return p?.slice(-1) === "/" ? p.slice(0, -1) : p
+		for (let a of document.querySelectorAll("a:not(.static-link)")) {
+			// a.href = linkPrefix + a.getAttribute("href")
+			let href = `/${publisher}/${lang}` + a.getAttribute("href")
+			SUPPORTED_PUBLISHERS.forEach(supported => {
+				href = href.replace(`/${supported}/`, `/${publisher}/`)
+			})
+			SUPPORTED_LANGS.forEach(supported => {
+				href = href.replace(`/${supported}/`, `/${lang}/`)
+			})
+			console.log(href)
+			a.href = href
+		}
+	}
 
 	let isMobileExpanded = false;
 
@@ -32,11 +60,7 @@
 	Skip to main content and focus
 </a>
 <nav class="navbar flex gap-2" class:opaque-bg={isMobileExpanded}>
-	<a
-		href="/"
-		class="home-btn"
-		on:click={() => isMobileExpanded = false}
-	>
+	<a href="/" class="home-btn" on:click={() => (isMobileExpanded = false)}>
 		<img
 			class="transition-shrink flex"
 			src="/images/logo.png"
@@ -62,19 +86,75 @@
 	<div class="nav-contents gap-2" style="align-items: center; flex: 1;">
 		<input type="search" placeholder="Search" name="" id="" />
 		{#each links as link}
-			<!-- <a
+			<a
 				href={link.href}
 				class="styled-link hover-surface1 p-3 rounded-full"
 				class:active={$page.url.pathname.includes(link.href)}
-				on:click={() => isMobileExpanded = false}
+				on:click={() => (isMobileExpanded = false)}
 			>
 				{link.name[$userLocale]}
-			</a> -->
+			</a>
 		{/each}
 		<div class="extras flex items-center">
-			<TimeInJapan />
+			<!-- <button class="hover-surface1 p-4">
+				{publisher}
+				{lang}
+				{$userLocale}
+			</button>
+
+			<div
+				class="absolute grid gap-4 z-10 top-16 right-0 p-4 rounded-2xl surface2 w-64"
+			>
+				<label>
+					<input
+						type="radio"
+						bind:group={$userLocale}
+						value="en_US"
+					/> en_US
+				</label>
+				<label>
+					<input
+						type="radio"
+						bind:group={$userLocale}
+						value="ja_JP"
+					/> ja_JP
+				</label>
+
+				<div class="grid">
+					<span class="mini-header">Version</span>
+					<a href="/bno" class="styled-link static-link"
+						>Bandai Namco Online</a
+					>
+					<a href="/ags" class="styled-link static-link"
+						>Amazon Games</a
+					>
+				</div>
+				<div class="grid">
+					<span class="mini-header">Language</span>
+					<a href="/ja" class="styled-link static-link">日本語</a>
+					<a href="/en" class="styled-link static-link">English</a>
+					<a href="/fr" class="styled-link static-link">Français</a>
+					<a href="/de" class="styled-link static-link">Deutsch</a>
+					<a href="/es" class="styled-link static-link">Español</a>
+					<a href="/pt" class="styled-link static-link">Português</a>
+				</div>
+				<div class="grid">
+					<span class="mini-header">Time Zone</span>
+					<label>
+						<input type="radio" name="" id="" /> Local Time
+					</label>
+					<label>
+						<input type="radio" name="" id="" /> UTC
+					</label>
+					<label>
+						<input type="radio" name="" id="" /> JST
+					</label>
+				</div>
+			</div> -->
+
+			<!-- <TimeInJapan />
 			<LocaleSelector />
-			<ThemeToggle />
+			<ThemeToggle /> -->
 		</div>
 	</div>
 </nav>
@@ -130,7 +210,7 @@
 	}
 
 	#drawerToggle:focus-visible + .drawer-label,
-	.drawer-label:hover { 
+	.drawer-label:hover {
 		background: var(--surface1);
 	}
 

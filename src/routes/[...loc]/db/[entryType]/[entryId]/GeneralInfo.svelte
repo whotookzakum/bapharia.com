@@ -1,5 +1,5 @@
 <script>
-    import SkillIcon from "../../../../routes/classes/[classId]/skills/SkillIcon.svelte"
+    import Skill from "$lib/components/Skill"
     import { userLocale } from "$lib/stores";
     export let data = {};
     let imgSrc; // = "/UI/Icon/ItemL/UI_Icon_NoData.png";
@@ -65,7 +65,7 @@
     >
         {#if data.skill_type}
             <div slot="poster" class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
-                <SkillIcon skill={data} />
+                <Skill.Icon skill={data} />
             </div>
             {:else}
             <img

@@ -2,7 +2,7 @@
     import InputNumber from "$lib/components/InputNumber.svelte";
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
-    import Tooltip from "../../../../lib/components/FloatingUI/Tooltip.svelte";
+    import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import TYPES_TEXT from "$api/utils/categories.json";
 
     // TODO: Figure out Enemy EXP curve
