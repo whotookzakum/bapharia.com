@@ -11,30 +11,33 @@
 		SUPPORTED_PUBLISHERS,
 		userLocale,
 	} from "$lib/stores";
-	import { browser } from "$app/environment";
+    import Link from "../Link.svelte";
+    import SiteVersionLink from "./SiteVersionLink.svelte";
+    import LangLink from "./LangLink.svelte";
+	// import { browser } from "$app/environment";
 
-	export let publisher;
-	export let lang;
+	// export let publisher;
+	// export let lang;
 
-	$: if (browser) {
+	// $: if (browser) {
 		
 
-		console.log(`/${publisher}/${lang}`)
-		// const p = `/${path}/${href}`.replace(/\/+/g, '/')
-    	// return p?.slice(-1) === "/" ? p.slice(0, -1) : p
-		for (let a of document.querySelectorAll("a:not(.static-link)")) {
-			// a.href = linkPrefix + a.getAttribute("href")
-			let href = `/${publisher}/${lang}` + a.getAttribute("href")
-			SUPPORTED_PUBLISHERS.forEach(supported => {
-				href = href.replace(`/${supported}/`, `/${publisher}/`)
-			})
-			SUPPORTED_LANGS.forEach(supported => {
-				href = href.replace(`/${supported}/`, `/${lang}/`)
-			})
-			console.log(href)
-			a.href = href
-		}
-	}
+	// 	console.log(`/${publisher}/${lang}`)
+	// 	// const p = `/${path}/${href}`.replace(/\/+/g, '/')
+    // 	// return p?.slice(-1) === "/" ? p.slice(0, -1) : p
+	// 	for (let a of document.querySelectorAll("a:not(.static-link)")) {
+	// 		// a.href = linkPrefix + a.getAttribute("href")
+	// 		let href = `/${publisher}/${lang}` + a.getAttribute("href")
+	// 		SUPPORTED_PUBLISHERS.forEach(supported => {
+	// 			href = href.replace(`/${supported}/`, `/${publisher}/`)
+	// 		})
+	// 		SUPPORTED_LANGS.forEach(supported => {
+	// 			href = href.replace(`/${supported}/`, `/${lang}/`)
+	// 		})
+	// 		console.log(href)
+	// 		a.href = href
+	// 	}
+	// }
 
 	let isMobileExpanded = false;
 
@@ -96,9 +99,9 @@
 			</a>
 		{/each}
 		<div class="extras flex items-center">
-			<!-- <button class="hover-surface1 p-4">
-				{publisher}
-				{lang}
+			<button class="hover-surface1 p-4">
+				{$page.data.publisher}
+				{$page.data.lang}
 				{$userLocale}
 			</button>
 
@@ -122,21 +125,21 @@
 
 				<div class="grid">
 					<span class="mini-header">Version</span>
-					<a href="/bno" class="styled-link static-link"
-						>Bandai Namco Online</a
+					<SiteVersionLink publisherLink href="/bno" class="styled-link static-link"
+						>Bandai Namco Online</SiteVersionLink
 					>
-					<a href="/ags" class="styled-link static-link"
-						>Amazon Games</a
+					<SiteVersionLink publisherLink href="/ags" class="styled-link static-link"
+						>Amazon Games</SiteVersionLink
 					>
 				</div>
 				<div class="grid">
 					<span class="mini-header">Language</span>
-					<a href="/ja" class="styled-link static-link">日本語</a>
-					<a href="/en" class="styled-link static-link">English</a>
-					<a href="/fr" class="styled-link static-link">Français</a>
-					<a href="/de" class="styled-link static-link">Deutsch</a>
-					<a href="/es" class="styled-link static-link">Español</a>
-					<a href="/pt" class="styled-link static-link">Português</a>
+					<LangLink href="/ja" class="styled-link static-link">日本語</LangLink>
+					<LangLink href="/en" class="styled-link static-link">English</LangLink>
+					<LangLink href="/fr" class="styled-link static-link">Français</LangLink>
+					<LangLink href="/de" class="styled-link static-link">Deutsch</LangLink>
+					<LangLink href="/es" class="styled-link static-link">Español</LangLink>
+					<LangLink href="/pt" class="styled-link static-link">Português</LangLink>
 				</div>
 				<div class="grid">
 					<span class="mini-header">Time Zone</span>
@@ -150,7 +153,7 @@
 						<input type="radio" name="" id="" /> JST
 					</label>
 				</div>
-			</div> -->
+			</div>
 
 			<!-- <TimeInJapan />
 			<LocaleSelector />
