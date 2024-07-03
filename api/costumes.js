@@ -1,12 +1,12 @@
-import costumesData from "$bp_api/japan/costume.json";
-import { getSources, getText } from "./utils";
+import COSTUME from "$bp_api/japan/costume.json";
+import { getSources, getText, getAssets } from "./utils";
 
 // TODO BPP buy/sell price
 // TODO 3d models
 // TODO Is dyable 
 // TODO Class, gender, level support
 
-const costumes = (lang) => costumesData.map(costume => {
+const costumes = (lang) => COSTUME.map(costume => {
     const name = getText("costume_text", costume.name, lang)
     const desc = getText("costume_text", costume.desc, lang)
     const costumeType = getCostumeType(costume)
@@ -128,5 +128,19 @@ function getSubcategory(type) {
             return { ja_JP: "コスチューム", en_US: "Costume" }
     }
 }
+
+export const getSummaries = (lang) => COSTUME.map(costume => {
+    const { icon, iconL } = getAssets("costume", costume.id)
+    return {
+        href: `/db/costumes/${costume.id}`,
+        name: getText("costume_text", costume.name, lang),
+        jpName: getText("costume_text", costume.name, "ja_JP"),
+        icon,
+        iconL,
+        category: "Costume",
+        type: getCostumeType(costume),
+        gender: costume.equipable_gender
+    }
+})
 
 export default costumes

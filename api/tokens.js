@@ -29,6 +29,18 @@ export function getEntry(id, lang) {
     return processToken(TOKEN.find(tok => tok.id == id), lang)
 }
 
+export const getSummaries = (lang) => TOKEN.map(token => {
+    const { icon, iconL } = getAssets("token", token.id)
+    return {
+        href: `/db/tokens/${token.id}`,
+        name: getText("master_token_text", token.name, lang),
+        jpName: getText("master_token_text", token.name, "ja_JP"),
+        icon,
+        iconL,
+        category: "Token"
+    }
+})
+
 const tokens = (lang) => TOKEN.map(tok => processToken(tok, lang))
 
 export default tokens;

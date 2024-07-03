@@ -41,6 +41,18 @@ export function getEntry(id, lang) {
     return processAchievement(ACHIEVEMENTS.find(ach => ach.id == id), lang)
 }
 
+export const getSummaries = (lang) => ACHIEVEMENTS.map(achievement => {
+    const { icon, iconL } = getAssets("achievement", achievement.rank)
+    return {
+        href: `/db/achievements/${achievement.id}`,
+        name: getText("achievements_text", achievement.desc, lang),
+        jpName: getText("achievements_text", achievement.desc, "ja_JP"),
+        icon,
+        iconL,
+        category: "Achievement"
+    }
+})
+
 const achievements = (lang) => ACHIEVEMENTS.map(ach => processAchievement(ach, lang))
 
 export default achievements;

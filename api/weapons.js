@@ -48,7 +48,7 @@ export function getEntry(id, lang) {
     return processWeapon(WEAPONS.find(weapon => weapon.id == id), lang)
 }
 
-export const getWeaponSummaries = (lang) => WEAPONS.map(weapon => {
+export const getSummaries = (lang) => WEAPONS.map(weapon => {
     const { icon, iconL } = getAssets("weapon", weapon.id)
     return {
         href: `/db/weapons/${weapon.id}`,
@@ -62,6 +62,7 @@ export const getWeaponSummaries = (lang) => WEAPONS.map(weapon => {
         class: weapon.equip_class,
         element: mapElement(weapon.attribute)
         // adventure rank from crafting?
+        // TODO: sale price?
     }
 })
 

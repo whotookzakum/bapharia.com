@@ -1,6 +1,8 @@
 import { getText, getCategory, getAssets } from "./utils";
 import MASTER_STAMP_CATEGORY from "$bp_api/japan/master_stamp_category.json";
 
+// TODO: add an array that contains the set that the stamp belongs to, i.e. "set_name" and "set_stamps"
+
 // Note: stamp sets have a "term_id", indicating that they might expire, but it currently appears unused
 // Note: en_US names are wrong as of Apr 23 2024
 function processStamp(stamp, lang) {
@@ -25,6 +27,7 @@ function processStamp(stamp, lang) {
         },
         assets,
         resolveType: "Stamp",
+        name_id: stamp.name // required for getSummaries to get jpName
     }
 }
 
@@ -36,5 +39,17 @@ export function getEntry(id, lang) {
 }
 
 const stamps = (lang) => MASTER_STAMP_CATEGORY.flatMap(cat => cat.stamp_data.map(stamp => getEntry(stamp.stamp_id, lang)))
+
+export const getSummaries = (lang) => stamps(lang).map(stamp => {
+    const { assets, text } = stamp
+    return {
+        href: `/db/stamps/${stamp.stamp_id}`,
+        name: text.name,
+        jpName: getText("stamp_text", stamp.name_id, "ja_JP"),
+        icon: assets.icon,
+        iconL: assets.iconL,
+        category: "Stamp"
+    }
+})
 
 export default stamps;

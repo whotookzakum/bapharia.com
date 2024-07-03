@@ -15,7 +15,7 @@ import { getEntry as getItemEntry, getItemSummaries } from "./items";
 function processSeason(season, lang) {
     const name = getText("master_season_text", season.season_name, lang)
     const passes = getSeasonPasses(season, lang)
-    const rewards = getSeasonRewards(season, lang)
+    // const rewards = getSeasonRewards(season, lang)
     const shop = getSeasonStore(season, lang)
 
     return {
@@ -25,7 +25,7 @@ function processSeason(season, lang) {
         },
         resolveType: "Season",
         passes,
-        rewards,
+        // rewards,
         shop,
         ...season,
     }
@@ -125,7 +125,7 @@ export function getEntry(id, lang) {
     return processSeason(MASTER_SEASON.find(season => season.id == id), lang)
 }
 
-export const getSeasonSummaries = (lang) => MASTER_SEASON.map(season => {
+export const getSummaries = (lang) => MASTER_SEASON.map(season => {
     return {
         href: `/db/seasons/${season.id}`,
         name: getText("master_season_text", season.season_name, lang),

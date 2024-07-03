@@ -33,6 +33,8 @@
         height: 88px;
         // main circle is 64x64, so -24px (1.5rem) total, or 0.75rem on each side
         margin: -0.75rem;
+        display: grid;
+        place-items: center;
         // margin-right: -1.25rem;
     }
 

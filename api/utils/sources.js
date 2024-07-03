@@ -398,7 +398,7 @@ function getEnemyDropSources(item, lang, rewardTypes) {
 }
 
 // Source: Treasures (gathering points; chests that yield the raw item (non-RNG); chests that drop from enemies)
-const overworldGatheringAndChestsFiles = import.meta.glob("/src/bp_client/japan/Content/Maps/**/*_PU.json", { import: "default", eager: true })
+const overworldGatheringAndChestsFiles = import.meta.glob("../bp_client/japan/Content/Maps/**/*_PU.json", { import: "default", eager: true })
 function getTreasureSources(item, lang, rewardTypes) {
     // Filtered the lot_rate down to only have the item that was requested
     const treasuresContainingItem = TREASURES.reduce((acc, treasure) => {
@@ -713,6 +713,7 @@ function getGachaSources(item, lang, rewardTypes) {
 }
 
 export function getSources(item, lang, rewardTypes) {
+    return []
     return [
         ...getCraftingSources(item, lang, rewardTypes),
         ...getRewardSources(item, lang, rewardTypes),

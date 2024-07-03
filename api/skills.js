@@ -12,6 +12,7 @@ import { getAssets, getCategory, getFile, getText } from "./utils";
 // TODO: add status ailments
 // TODO: connect attackID to attack_data.json
 // TODO: add master_attack_modifier_data.json for skill damage
+// TODO: skill_type 14 is PFMスキル中断ステップ "SkillCancelStep"; also add to categories.json
 
 // Put all class status ailments into one object
 const StatusAilmentDTs = Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+StatusAlimentConfig\.json', { import: "default", eager: true }))
@@ -322,6 +323,8 @@ async function processSkill(skill, lang) {
             },
             skillLevels,
             hiddenSkillData,
+            ElementType, // required for getSummaries to get proper element
+            resolveType: "Skill",
             SkillInfo
         }
     }
@@ -612,8 +615,6 @@ function getSkillLevelData(SkillInfo, conditionParams) {
                         })
                     }
                 })
-            
-            if (conditionParams.level === 4) console.log(buffs)
 
             data.statusAilments = { ...data.statusAilments, ...buffs }
         })
@@ -1017,6 +1018,32 @@ const skills = async (lang) => {
         if (skillData) processedSkills.push(skillData)
     }
     return processedSkills
+}
+
+export const getSummaries = async (lang) => {
+    const skills = []
+    for (const skill of SKILL_DATA) {
+        const data = await processSkill(skill, lang)
+        if (data) {
+            skills.push({
+                href: `/db/skills/${skill.skill_id}`,
+                name: getText("master_skill_data_text", skill.skill_name, lang),
+                jpName: getText("master_skill_data_text", skill.skill_name, "ja_JP"),
+                icon: data.assets.icon,
+                iconL: data.assets.iconL,
+                bgIcon: data.assets.bgIcon,
+                frameIcon: data.assets.frameIcon,
+                elementIcon: data.assets.elementIcon,
+                category: "Skill",
+                type: skill.skill_type === 8 ? `${skill.skill_type}_${skill.ability_type}` : skill.skill_type,
+                class: skill.class_type,
+                element: data.ElementType ? { None: 0, Fire: 1, Thunder: 2, Ice: 3, Earth: 4, Light: 5, Darkness: 6 }[data.ElementType.split("::").pop()] : 0,
+                level: data.skillLevels[0] ? data.skillLevels[0][0].classLevel : undefined
+                
+            })
+        }
+    }
+    return skills
 }
 
 export default skills

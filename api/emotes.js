@@ -21,6 +21,18 @@ export function getEntry(id, lang) {
     return processEmote(EMOTES.find(emote => emote.emote_id == id), lang)
 }
 
+export const getSummaries = (lang) => EMOTES.map((emote) => {
+    const { icon, iconL } = getAssets("emote", emote.emote_id)
+    return {
+        href: `/db/emotes/${emote.emote_id}`,
+        name: getText("master_emote_text", emote.name, lang),
+        jpName: getText("master_emote_text", emote.name, "ja_JP"),
+        icon,
+        iconL,
+        category: "Emote"
+    }
+})
+
 const emotes = (lang) => EMOTES.map(emote => processEmote(emote, lang))
 
 export default emotes;

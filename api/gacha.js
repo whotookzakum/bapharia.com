@@ -27,12 +27,23 @@ function processBanner(banner, lang) {
         url: "https://blue-protocol.com/gasha/" + banner.urlPageName,
         gashaCostumeList
     }
-
 }
 
 export function getEntry(id, lang) {
     return processBanner(GACHAS_RAW.find(banner => banner.gashaId == id), lang)
 }
+
+export const getSummaries = (lang) => GACHAS_RAW.map(banner => {
+    const data = processBanner(banner, lang)
+    return {
+        href: `/db/gacha/${data.gashaId}`,
+        name: data.gashaName,
+        jpName: data.gashaName,
+        // icon,
+        // iconL,
+        category: "Gacha"
+    }
+})
 
 const gachas = (lang) => GACHAS_RAW.map(banner => processBanner(banner, lang))
 

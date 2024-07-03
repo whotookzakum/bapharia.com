@@ -23,6 +23,18 @@ export function getEntry(id, lang) {
     return processStamp(MOUNT.find(mount => mount.id === id), lang)
 }
 
+export const getSummaries = (lang) => MOUNT.map(mount => {
+    const { icon, iconL } = getAssets("mountimagine", mount.id)
+    return {
+        href: `/db/mounts/${mount.id}`,
+        name: getText("master_mount_imagine_text", mount.mount_name_text_id, lang),
+        jpName: getText("master_mount_imagine_text", mount.mount_name_text_id, "ja_JP"),
+        icon,
+        iconL,
+        category: "Mount"
+    }
+})
+
 const mounts = (lang) => MOUNT.map(mount => processMount(mount, lang))
 
 export default mounts;

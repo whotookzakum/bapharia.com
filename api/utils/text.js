@@ -29,8 +29,6 @@ Object.entries(allTextsFiles)
         }
     })
 
-export const allText = langs
-
 export function getText(ns, id, lang) {
     // TEMP: Manual translations
     lang ??= "ja_JP"
@@ -42,3 +40,5 @@ export function getCategory(ns, id, lang) {
     if (categories[lang][ns]) return categories[lang][ns][id] || categories[lang][ns].default
     return categories.ja_JP[ns][id] || categories.ja_JP[ns].default
 }
+
+export default langs

@@ -111,7 +111,7 @@ export function getEntry(id, lang) {
     return processItem(ITEMS.find(item => item.id == id), lang)
 }
 
-export const getItemSummaries = (lang) => ITEMS.map(item => {
+export const getSummaries = (lang) => ITEMS.map(item => {
     const { icon, iconL } = getAssets("item", item.id)
     return {
         href: `/db/items/${item.id}`,
@@ -124,7 +124,8 @@ export const getItemSummaries = (lang) => ITEMS.map(item => {
         level: item.item_level,
         rank: item.adventurer_rank,
         class: item.limit_class,
-        // element from consumable effect?
+        // TODO: element from consumable effect?
+        // TODO: price?
     }
 })
 

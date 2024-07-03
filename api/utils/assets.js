@@ -11,11 +11,11 @@ const ASSETS_URL = ""
 const icons = {}
 
 console.log("Preparing icon paths...")
-const allIconsFiles = import.meta.glob("./bp_client/japan/Content/Blueprints/UI/Icon/*.json", { import: "default" })
+const allIconsFiles = import.meta.glob("../bp_client/japan/Content/Blueprints/UI/Icon/*.json", { import: "default", eager: true })
 Object.entries(allIconsFiles)
     .forEach(async ([key, value]) => {
         const ns = key.split("/").pop().replace("DB.json", "").replace("Icon", "").replace("DT_", "").toLowerCase()
-        const data = await value()
+        const data = value
         icons[ns] =
             Object.entries(data[0].Rows)
                 .reduce((acc, [rowId, rowData]) => {
@@ -88,7 +88,6 @@ Object.entries(BufIconDataTable[0].Rows)
             icons.buff[iconType] = { icon, iconL }
         }
     })
-// console.log(icons.buff.Restraint)
 
 // 3D models
 const models = {}
@@ -145,4 +144,9 @@ export function getAssets(ns, id) {
         slotIcon,
         // TODO: 3d models, etc (sound effects?)
     }
+}
+
+export default {
+    icons,
+    models
 }

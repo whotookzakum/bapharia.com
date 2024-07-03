@@ -82,6 +82,16 @@ export function getEntry(id, lang) {
     return processLiqMem(LIQUID_MEMORY.find(lm => lm.id == id), lang)
 }
 
+export const getSummaries = (lang) => LIQUID_MEMORY.map(lm => {
+    return {
+        href: `/db/liquidmemories/${lm.id}`,
+        name: getText("master_liquid_memory_text", lm.efficacy_name, lang),
+        jpName: getText("master_liquid_memory_text", lm.efficacy_name, "ja_JP"),
+        icon: getIcon(lm.id),
+        category: "LiquidMemory"
+    }
+})
+
 const liquidMemories = (lang) => LIQUID_MEMORY.map(lm => processLiqMem(lm, lang))
 
 export default liquidMemories;

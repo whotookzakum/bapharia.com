@@ -14,6 +14,8 @@ export function getAbilities(tableId, lang) {
         .map(perkOption => {
 
             const weaponPerk = WEAPONPERKS.find(obj => obj.id === perkOption.imagine_perk_id || obj.id === perkOption.perk_id) // The ability line, "ストラテジストG3"
+            if (!weaponPerk) return {} // TODO: Fix v1.06.000 stats
+
             const name = getText("weapon_perk_text", weaponPerk.name, lang)
             const perk = PERKS.find(obj => obj.id === weaponPerk.perk_id) // The stats provided by the ability, "耐久力アップ +13" "知力アップ +13"
 
