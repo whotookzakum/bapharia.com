@@ -1,5 +1,7 @@
 export async function load({ params, data }) {
-    const post = await import(`../../${params.slug}.md`)
+    // For some reason single file import isn't working with [...loc]
+    const allPosts = import.meta.glob("../../*.md", { eager: true })
+    const post = allPosts[`../../${params.slug}.md`]
     return {
         metadata: {
             ...post.metadata,

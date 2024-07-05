@@ -1,6 +1,8 @@
 export async function load({ params }) {
-    const guide = await import(`../${params.slug}.md`)
-    const readingTime = Math.ceil(guide.default.render().html.replace(/<\/?[^>]+>/g, "").split(/[\s.!?—-]+/).length / 200)
+    // For some reason single file import isn't working with [...loc]
+    const allGuides = import.meta.glob("../*.md", { import: "default", eager: true })
+    const guide = allGuides[`../${params.slug}.md`]
+    const readingTime = Math.ceil(guide.render().html.replace(/<\/?[^>]+>/g, "").split(/[\s.!?—-]+/).length / 200)
     return {
         readingTime,
     }
