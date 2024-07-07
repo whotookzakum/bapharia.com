@@ -25,9 +25,9 @@
                 .join("/")
                 // Prevent the default lang from being added as it is unnecessary
                 .replace(`/${SUPPORTED_LANGS[0]}`, "");
-    }
 
-    $: console.log($page.data.publisher)
+        if (newHref.length < 1) newHref = "/"
+    }
 </script>
 
 <a

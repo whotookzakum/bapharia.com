@@ -19,7 +19,7 @@
 	</hgroup>
 
 	<small style="font-size: var(--step-0); color: var(--accent2)"
-		>More guides are available in our <a href="/discord">Discord</a>,
+		>Additional guides are available in our <a href="/discord">Discord</a>,
 		covering more nuanced content.</small
 	>
 	

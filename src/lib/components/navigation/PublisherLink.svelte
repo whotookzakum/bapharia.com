@@ -6,7 +6,7 @@
     export let href = "";
 
     let newHref;
-    let publisherFragment = href;
+    let publisherFragment = `/${href.replace(SUPPORTED_PUBLISHERS[0], "")}`;
     let langFragment = `/${$page.data.lang.replace(SUPPORTED_LANGS[0], "")}`;
 
     $: {
@@ -21,16 +21,17 @@
 
         newHref =
             // Remove duplicates such as /bno/fr/bno/fr
-            uniq(path.split("/"))
-                .join("/")
-                // Prevent the default lang from being added as it is unnecessary
-                .replace(`/${SUPPORTED_PUBLISHERS[0]}`, "");
+            uniq(path.split("/")).join("/");
 
-        // newHref = href + 
+        if (newHref.length < 1) newHref = "/"
     }
 </script>
 
-<a href={newHref} class:active={newHref === $page.url.pathname.split("#")[0]} {...$$restProps}>
+<a
+    href={newHref}
+    class:active={newHref === $page.url.pathname.split("#")[0]}
+    {...$$restProps}
+>
     {newHref}
     <slot />
 </a>
