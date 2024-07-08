@@ -32,6 +32,5 @@
     class:active={newHref === $page.url.pathname.split("#")[0]}
     {...$$restProps}
 >
-    {newHref}
     <slot />
 </a>

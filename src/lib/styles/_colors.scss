@@ -5,6 +5,8 @@
     --text1-dark: hsl(220, 7%, 12%);
     --text2-dark: hsl(220, 7%, 23%);
     --text3-dark: hsl(220, 7%, 44%);
+    --outline-light: white;
+    --outline-dark: black;
 
     // BP colors
     --color-Attack: #d10000;
@@ -16,7 +18,7 @@
 
 @mixin text-light {
     color-scheme: dark;
-    --outline-color: white;
+    --outline-color: var(--outline-light);
     --text1: var(--text1-light);
     --text2: var(--text2-light);
     --text3: var(--text3-light);
@@ -31,7 +33,7 @@
 
 @mixin text-dark {
     color-scheme: light;
-    --outline-color: black;
+    --outline-color: var(--outline-dark);
     --text1: var(--text1-dark);
     --text2: var(--text2-dark);
     --text3: var(--text3-dark);

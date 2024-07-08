@@ -35,6 +35,5 @@
     class:active={`/${$page.data.lang}` === href}
     {...$$restProps}
 >
-    {newHref}
     <slot />
 </a>

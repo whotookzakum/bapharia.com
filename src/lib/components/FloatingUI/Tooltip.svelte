@@ -31,6 +31,10 @@
     export let tooltipStyle = ""
     export let wrapperStyle = ""
     export let describedByTooltip = false // when tooltip is a description to be read in addition to target element's label
+    export let showTooltipOn = ["mouseenter", "focus", "focusin"]
+    export let hideTooltipOn = ["mouseleave", "blur", "focusout", "click"]
+    export let tooltipRole = "tooltip";
+    export let tooltipAriaHidden = "true";
 
     let targetElement,
         tooltipElement,
@@ -119,13 +123,15 @@
             show = false;
         };
 
-        targetElement.addEventListener("mouseenter", showTooltip);
-        targetElement.addEventListener("mouseleave", hideTooltip);
-        targetElement.addEventListener("focus", () => (show = true));
-        targetElement.addEventListener("blur", hideTooltip);
-        targetElement.addEventListener("focusin", () => (show = true));
-        targetElement.addEventListener("focusout", hideTooltip);
-        targetElement.addEventListener("click", hideTooltip);
+        showTooltipOn.forEach(event => {
+            if (event.includes("tooltip:")) tooltipElement.addEventListener(event.split(":").pop(), showTooltip)
+            else targetElement.addEventListener(event, showTooltip)
+        })
+
+        hideTooltipOn.forEach(event => {
+            if (event.includes("tooltip:")) tooltipElement.addEventListener(event.split(":").pop(), hideTooltip)
+            else targetElement.addEventListener(event, hideTooltip)
+        })
     });
 
     onDestroy(() => {
@@ -146,14 +152,13 @@
     <svelte:element
         this={wrapperElementTag}
         id={tooltipId}
-        role="tooltip"
+        role={tooltipRole}
         bind:this={tooltipElement}
-        aria-hidden="true"
+        aria-hidden={tooltipAriaHidden}
         class="tooltip {animationClass}"
         class:animate-in={animateIn}
         class:animate-out={animateOut}
         style={tooltipStyle}
-        
     >
         <slot name="tooltip">
             {targetElementName}
@@ -176,12 +181,9 @@
         translate: unset !important;
     }
 
-    .tooltip {
-        --tooltip-bg: rgba(0, 0, 0, 1);
+    :global(.tooltip-style) {
+        --outline-color: var(--outline-light);
         width: fit-content;
-        position: absolute;
-        visibility: hidden;
-        opacity: 0;
         background: var(--tooltip-bg);
         padding: 0.5rem 0.75rem; // 0.4rem 0.65rem, 0.5rem 0.75rem, 0.5rem 1rem
         border-radius: 0.5rem;
@@ -193,6 +195,14 @@
         max-inline-size: 40ch;
         line-height: 1.3;
         margin: 0;
+    }
+
+    .tooltip {
+        @apply tooltip-style;
+        --tooltip-bg: rgba(0, 0, 0, 1);
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
         z-index: 4;
 
         .arrow {

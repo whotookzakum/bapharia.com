@@ -12,8 +12,8 @@
 		userLocale,
 	} from "$lib/stores";
 	import Link from "../Link.svelte";
-	import PublisherLink from "./PublisherLink.svelte";
-	import LangLink from "./LangLink.svelte";
+	
+    import SiteSettings from "./SiteSettings.svelte";
 	// import { browser } from "$app/environment";
 
 	// export let publisher;
@@ -98,74 +98,7 @@
 			</a>
 		{/each}
 		<div class="extras flex items-center">
-			<button class="hover-surface1 p-4">
-				{$page.data.publisher}
-				{$page.data.lang}
-				{$userLocale}
-			</button>
-
-			<div
-				class="absolute grid gap-4 z-10 top-16 right-0 p-4 rounded-2xl surface2 w-64"
-			>
-				<label>
-					<input
-						type="radio"
-						bind:group={$userLocale}
-						value="en_US"
-					/> en_US
-				</label>
-				<label>
-					<input
-						type="radio"
-						bind:group={$userLocale}
-						value="ja_JP"
-					/> ja_JP
-				</label>
-
-				<div class="grid">
-					<span class="mini-header">Version</span>
-					<PublisherLink href="/bno" class="styled-link static-link"
-						>BNO</PublisherLink
-					>
-					<PublisherLink href="/ags" class="styled-link static-link"
-						>AGS</PublisherLink
-					>
-				</div>
-				<div class="grid">
-					<span class="mini-header">Language</span>
-					<LangLink href="/ja" class="styled-link static-link"
-						>日本語</LangLink
-					>
-					<LangLink href="/en" class="styled-link static-link"
-						>English</LangLink
-					>
-					<LangLink href="/fr" class="styled-link static-link"
-						>Français</LangLink
-					>
-					<LangLink href="/de" class="styled-link static-link"
-						>Deutsch</LangLink
-					>
-					<LangLink href="/es" class="styled-link static-link"
-						>Español</LangLink
-					>
-					<LangLink href="/pt" class="styled-link static-link"
-						>Português</LangLink
-					>
-				</div>
-				<div class="grid">
-					<span class="mini-header">Time Zone</span>
-					<label>
-						<input type="radio" name="" id="" /> Local Time
-					</label>
-					<label>
-						<input type="radio" name="" id="" /> UTC
-					</label>
-					<label>
-						<input type="radio" name="" id="" /> JST
-					</label>
-				</div>
-			</div>
-
+			<SiteSettings />
 			<!-- <TimeInJapan />
 			<LocaleSelector />
 			<ThemeToggle /> -->
