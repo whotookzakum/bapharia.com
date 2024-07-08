@@ -1,11 +1,19 @@
 <script>
-	export let title;
 	export let id = "";
 </script>
 
 <iframe
-	class="youtube-video"
-	title="Video showcasing {title}"
-	src="https://www.youtube.com/embed/{id}"
-	allow="fullscreen"
+	title="YouTube video player"
+	src="https://www.youtube-nocookie.com/embed/{id}"
+	frameborder="0"
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+	referrerpolicy="strict-origin-when-cross-origin"
+	allowfullscreen
 />
+
+<style>
+	iframe {
+		width: 100%;
+		aspect-ratio: 16/9;
+	}
+</style>

@@ -6,13 +6,17 @@
     import LangLink from "./LangLink.svelte";
     import { browser } from "$app/environment";
     import { onMount } from "svelte";
+    import { SUPPORTED_PUBLISHERS, SUPPORTED_LANGS } from "$lib/stores";
+
+    // Alternatively, a right side offcanvas could be used for a settings drawer
+    // If (open) then clicking an option will not close the modal, as users may like to edit multiple options without having to reopen the modal
 
     // TODO: esc to close; allow <Tooltip> to be a <dialog> ?
-    // if (open) then clicking an option will not close the modal, as users may like to edit multiple options without having to reopen the modal
+    // TODO: set and cache userLocale from [...loc]
+    // TODO:
 
     let show = false;
     let open = false;
-
     let theme = browser && localStorage.getItem("theme-preference");
     let systemTheme;
 
@@ -28,6 +32,16 @@
             .addEventListener("change", (event) => {
                 systemTheme = event.matches ? "dark" : "light";
             });
+
+        // Sync theme across tabs (went with localStorage method since we're already using it to store theme)
+        // https://blog.bitsrc.io/4-ways-to-communicate-across-browser-tabs-in-realtime-e4f5f6cbedca
+        window.addEventListener("storage", (event) => {
+            if (event.storageArea != localStorage) return;
+            if (event.key === "theme-preference") {
+                theme = event.newValue
+                applyTheme(theme)
+            }
+        });
     });
 
     function updateTheme(e) {
@@ -44,6 +58,52 @@
         }
         localStorage.setItem("theme-preference", theme);
     }
+
+    const langNames = {
+        en: {
+            href: "/en",
+            name: "English",
+        },
+        ja: {
+            href: "/ja",
+            name: "日本語",
+        },
+        fr: {
+            href: "/fr",
+            name: "Français",
+        },
+        de: {
+            href: "/de",
+            name: "Deutsch",
+        },
+        es: {
+            href: "/es",
+            name: "Español",
+        },
+        pt: {
+            href: "/pt",
+            name: "Português",
+        },
+    };
+
+    const publisherNames = {
+        bno: {
+            href: "/bno",
+            name: "Bandai Namco Online",
+        },
+        ags: {
+            href: "/ags",
+            name: "Amazon Games",
+        },
+        sg: {
+            href: "/sg",
+            name: "Smilegate",
+        },
+        ct: {
+            href: "/ct",
+            name: "Cayenne Tech",
+        },
+    };
 </script>
 
 <svelte:head>
@@ -101,83 +161,72 @@
                     if (!open) show = false;
                 }}
             >
-                <div class="grid gap-4 tooltip-style" style="min-width: 180px;">
+                <div class="grid gap-3 tooltip-style" style="min-width: 180px;">
                     <div class="grid gap-1 justify-items-start">
                         <span class="mini-header">Theme</span>
-                        <label class:accent1={theme === "light"}>
+                        <label
+                            class="hover:underline"
+                            class:active={theme === "light"}
+                        >
                             <input
                                 type="radio"
                                 value="light"
+                                class="visually-hidden"
                                 bind:group={theme}
                                 on:input={(e) => updateTheme(e)}
                             />
                             Light
                         </label>
-                        <label class:accent1={theme === "dark"}>
+                        <label
+                            class="hover:underline"
+                            class:active={theme === "dark"}
+                        >
                             <input
                                 type="radio"
                                 value="dark"
+                                class="visually-hidden"
                                 bind:group={theme}
                                 on:input={(e) => updateTheme(e)}
                             />
                             Dark
                         </label>
-                        <label class:accent1={theme === "system"}>
+                        <label
+                            class="hover:underline"
+                            class:active={theme === "system"}
+                        >
                             <input
                                 type="radio"
                                 value="system"
+                                class="visually-hidden"
                                 bind:group={theme}
                                 on:input={(e) => updateTheme(e)}
                             />
                             System
                         </label>
                     </div>
+                    <hr />
                     <div class="grid gap-1 justify-items-start">
                         <span class="mini-header">Publisher</span>
-                        <PublisherLink
-                            href="/bno"
-                            class="styled-link static-link whitespace-nowrap"
-                            >Bandai Namco Online</PublisherLink
-                        >
-                        <PublisherLink
-                            href="/ags"
-                            class="styled-link static-link whitespace-nowrap"
-                            >Amazon Games</PublisherLink
-                        >
+                        {#each SUPPORTED_PUBLISHERS as pub}
+                            <PublisherLink
+                                href={publisherNames[pub].href}
+                                class="styled-link static-link whitespace-nowrap"
+                                >{publisherNames[pub].name}</PublisherLink
+                            >
+                        {/each}
                     </div>
+                    <hr />
                     <div class="grid gap-1 justify-items-start">
                         <span class="mini-header">Language</span>
-                        <LangLink
-                            href="/en"
-                            class="styled-link static-link whitespace-nowrap"
-                            >English</LangLink
-                        >
-                        <LangLink
-                            href="/ja"
-                            class="styled-link static-link whitespace-nowrap"
-                            >日本語</LangLink
-                        >
-                        <LangLink
-                            href="/fr"
-                            class="styled-link static-link whitespace-nowrap"
-                            >Français</LangLink
-                        >
-                        <LangLink
-                            href="/de"
-                            class="styled-link static-link whitespace-nowrap"
-                            >Deutsch</LangLink
-                        >
-                        <LangLink
-                            href="/es"
-                            class="styled-link static-link whitespace-nowrap"
-                            >Español</LangLink
-                        >
-                        <LangLink
-                            href="/pt"
-                            class="styled-link static-link whitespace-nowrap"
-                            >Português</LangLink
-                        >
+                        {#each SUPPORTED_LANGS as lang}
+                            <LangLink
+                                href={langNames[lang].href}
+                                class="styled-link static-link whitespace-nowrap"
+                                >{langNames[lang].name}</LangLink
+                            >
+                        {/each}
                     </div>
+                    <hr />
                     <div class="grid gap-1 justify-items-start">
                         <span class="mini-header">Time Zone</span>
                         <label>
@@ -197,4 +246,16 @@
 </div>
 
 <style lang="scss">
+    hr {
+        background: white;
+        opacity: 0.2;
+        height: 1px;
+        border: none;
+    }
+
+    .mini-header {
+        color: white;
+        opacity: 0.6;
+        font-size: var(--step--2);
+    }
 </style>
