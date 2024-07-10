@@ -552,7 +552,7 @@
 <style lang="scss">
     .db-layout {
         display: grid;
-        grid-template-columns: calc(var(--sidepane-width) + 4rem) 1fr 1fr;
+        grid-template-columns: calc(var(--sidepane-width) + 4rem) 1fr 590px;
     }
 
     @media (max-width: 1150px) {
