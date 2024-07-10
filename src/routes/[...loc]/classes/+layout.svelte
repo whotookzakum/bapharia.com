@@ -36,10 +36,7 @@
             <ul>
                 {#each data.allClasses as { href, title, isNew }}
                     <li>
-                        <details
-                            use:detailsRef
-                            data-href={href}
-                        >
+                        <details use:detailsRef data-href={href}>
                             <summary class="arrow-discreet">
                                 {title}
                                 {#if isNew}

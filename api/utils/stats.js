@@ -1,10 +1,10 @@
-import MASTER_WEAPON_PERK_PICKS from "$bp_api/japan/master_weapon_perk_picks.json";
-import WEAPONPERKS from "$bp_api/japan/weaponperks.json";
-import PERKS from "$bp_api/japan/perks.json"
-import PERK_PICK from "$bp_api/japan/imagine/perk_pick.json";
-import WEAPON_STATUS_LEVELS from "$bp_api/japan/weapon_status_levels.json";
-import IMAGINE_PARAM_LEVEL from "$bp_api/japan/imagine/param_level.json";
-import MASTER_WEAPON_STATUSADD_BYSTACKBOOSTS from "$bp_api/japan/master_weapon_statusadd_bystackboosts.json";
+import MASTER_WEAPON_PERK_PICKS from "../bp_api/japan/master_weapon_perk_picks.json";
+import WEAPONPERKS from "../bp_api/japan/weaponperks.json";
+import PERKS from "../bp_api/japan/perks.json"
+import PERK_PICK from "../bp_api/japan/imagine/perk_pick.json";
+import WEAPON_STATUS_LEVELS from "../bp_api/japan/weapon_status_levels.json";
+import IMAGINE_PARAM_LEVEL from "../bp_api/japan/imagine/param_level.json";
+import MASTER_WEAPON_STATUSADD_BYSTACKBOOSTS from "../bp_api/japan/master_weapon_statusadd_bystackboosts.json";
 import { getText } from "./index"
 
 export function getAbilities(tableId, lang) {

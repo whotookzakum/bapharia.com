@@ -1,4 +1,4 @@
-import AESTHEPARTS from "$bp_api/japan/aestheParts.json";
+import AESTHEPARTS from "./bp_api/japan/aestheParts.json";
 import { getCategory, getAssets } from "./utils"
 
 // TODO 3d models

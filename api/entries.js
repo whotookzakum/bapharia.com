@@ -1,4 +1,4 @@
-import { getSummaries as imagines } from "./old/imagines";
+// import { getSummaries as imagines } from "../api_old/imagines";
 import { getSummaries as items } from "./items";
 import { getSummaries as seasons } from "./seasons";
 import { getSummaries as weapons } from "./weapons";

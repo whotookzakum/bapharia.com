@@ -5,9 +5,9 @@
 // TODO Search quests by description and return boards
 
 import { getText, icons } from "../utils"
-import boardData from "$bp_api/japan/master_adventure_board.json"
-import boardPanelsData from "$bp_api/japan/master_adventure_board_panel.json"
-import boardQuestsData from "$bp_api/japan/master_adventure_board_quest.json"
+import boardData from "./bp_api/japan/master_adventure_board.json"
+import boardPanelsData from "./bp_api/japan/master_adventure_board_panel.json"
+import boardQuestsData from "./bp_api/japan/master_adventure_board_quest.json"
 
 const adventureboards = () => boardData.map(board => {
     const name = getText("master_adventure_boards_text", board.name)

@@ -1,5 +1,5 @@
-import buffNamesData from "$bp_client/japan/Content/Text/StatusAlimentNotify.json"
-import buffIconsData from "$bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json"
+import buffNamesData from "./bp_client/japan/Content/Text/StatusAlimentNotify.json"
+import buffIconsData from "./bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json"
 
 // TODO used by enemy/npc/class (skill)
 // Note: A "buff" in this case is an object inside the BufIconDataTable file

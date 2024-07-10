@@ -7,7 +7,6 @@
 
     // TODO: Figure out Enemy EXP curve
     export let data = {};
-    export let style = "";
 
     const stats = data.stats;
     const maxLevel =

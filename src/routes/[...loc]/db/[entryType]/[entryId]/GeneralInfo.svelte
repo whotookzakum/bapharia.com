@@ -186,27 +186,4 @@
             margin-top: 0;
         }
     }
-
-    blockquote {
-        line-height: 1.75;
-        margin: 0;
-        // color: var(--text2);
-        // font-style: italic;
-        // background: var(--bg);
-        // padding: 1rem;
-    }
-
-    // Model viewer
-
-    #lazy-load-poster {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background-image: url("../../assets/poster-damagedhelmet.webp");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
 </style>

@@ -6,37 +6,10 @@
 	import TimeInJapan from "./TimeInJapan.svelte";
 	import links from "./links.json";
 	import randomMessages from "./randomMessages.json";
-	import {
-		SUPPORTED_LANGS,
-		SUPPORTED_PUBLISHERS,
-		userLocale,
-	} from "$lib/stores";
+	import { userLocale } from "$lib/stores";
 	import Link from "../Link.svelte";
-	
-    import SiteSettings from "./SiteSettings.svelte";
-	// import { browser } from "$app/environment";
 
-	// export let publisher;
-	// export let lang;
-
-	// $: if (browser) {
-
-	// 	console.log(`/${publisher}/${lang}`)
-	// 	// const p = `/${path}/${href}`.replace(/\/+/g, '/')
-	// 	// return p?.slice(-1) === "/" ? p.slice(0, -1) : p
-	// 	for (let a of document.querySelectorAll("a:not(.static-link)")) {
-	// 		// a.href = linkPrefix + a.getAttribute("href")
-	// 		let href = `/${publisher}/${lang}` + a.getAttribute("href")
-	// 		SUPPORTED_PUBLISHERS.forEach(supported => {
-	// 			href = href.replace(`/${supported}/`, `/${publisher}/`)
-	// 		})
-	// 		SUPPORTED_LANGS.forEach(supported => {
-	// 			href = href.replace(`/${supported}/`, `/${lang}/`)
-	// 		})
-	// 		console.log(href)
-	// 		a.href = href
-	// 	}
-	// }
+	import SiteSettings from "./SiteSettings.svelte";
 
 	let isMobileExpanded = false;
 

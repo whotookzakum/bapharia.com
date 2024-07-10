@@ -1,5 +1,5 @@
-import WEAPONS from "$bp_api/japan/weapons.json";
-import ITEMS from "$bp_api/japan/items.json";
+import WEAPONS from "./bp_api/japan/weapons.json";
+import ITEMS from "./bp_api/japan/items.json";
 import { getAssets, getText, getSources, getEquipmentStats, getCategory, getLimitBreakStats } from "./utils";
 
 function processWeapon(weapon, lang) {

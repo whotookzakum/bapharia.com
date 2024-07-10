@@ -37,18 +37,3 @@
         </p>
     </section>
 </article>
-
-<style lang="scss">
-    ul.card-grid {
-        display: grid;
-        justify-content: center;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: var(--space-s-m);
-        margin: var(--space-s-m) 0;
-        max-width: 100%;
-
-        li {
-            max-inline-size: none;
-        }
-    }
-</style>

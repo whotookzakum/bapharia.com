@@ -36,7 +36,7 @@
         {/if}
 
         {#if data.resolveType === "Skill"}
-            <section class="skill" style="font-size: var(--step-1)">
+            <section class="skill db-skill" style="font-size: var(--step-1)">
                 <Skill.Description skill={data} />
                 <Skill.Notes skill={data} />
                 <Skill.AnimationCancels skill={data} />

@@ -1,6 +1,6 @@
 <script>
-    import MetaTags from "$lib/components/MetaTags.svelte";
-    export let data
+    // import MetaTags from "$lib/components/MetaTags.svelte";
+    // export let data
 </script>
 
 <!-- <MetaTags

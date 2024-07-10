@@ -6,7 +6,7 @@
     import LangLink from "./LangLink.svelte";
     import { browser } from "$app/environment";
     import { onMount } from "svelte";
-    import { SUPPORTED_PUBLISHERS, SUPPORTED_LANGS } from "$lib/stores";
+    import { SUPPORTED_PUBLISHERS, SUPPORTED_LANGS } from "$lib/constants";
 
     // Alternatively, a right side offcanvas could be used for a settings drawer
     // If (open) then clicking an option will not close the modal, as users may like to edit multiple options without having to reopen the modal

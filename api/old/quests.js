@@ -1,13 +1,13 @@
-import questsData from "$bp_api/japan/quests.json"
-import enemiesData from "$bp_api/japan/enemyparams.json"
-import itemsData from "$bp_api/japan/items.json"
-import rewardsData from "$bp_api/japan/rewards.json"
-import adventureBoardsData from "$bp_api/japan/master_adventure_board.json"
-import mountsData from "$bp_api/japan/mount.json"
-import achievementsData from "$bp_api/japan/achievements.json";
-import craftingRecipesData from "$bp_api/japan/craft.json";
-import craftingRecipeSetsData from "$bp_api/japan/master_craft_recipe_sets.json";
-import warehouseAbilitiesData from "$bp_api/japan/master_warehouse_storing_abilities.json"
+import questsData from "./bp_api/japan/quests.json"
+import enemiesData from "./bp_api/japan/enemyparams.json"
+import itemsData from "./bp_api/japan/items.json"
+import rewardsData from "./bp_api/japan/rewards.json"
+import adventureBoardsData from "./bp_api/japan/master_adventure_board.json"
+import mountsData from "./bp_api/japan/mount.json"
+import achievementsData from "./bp_api/japan/achievements.json";
+import craftingRecipesData from "./bp_api/japan/craft.json";
+import craftingRecipeSetsData from "./bp_api/japan/master_craft_recipe_sets.json";
+import warehouseAbilitiesData from "./bp_api/japan/master_warehouse_storing_abilities.json"
 
 import { getText } from '../utils';
 import weapons from "../weapons";

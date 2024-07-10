@@ -174,10 +174,6 @@
 		}
 	}
 
-	.left-col {
-		align-items: start;
-	}
-
 	.footer-bottom {
 		font-size: var(--step--1);
 		flex-basis: 100% !important;
@@ -194,23 +190,23 @@
 		}
 	}
 
-	.kofi {
-		position: relative;
+	// .kofi {
+	// 	position: relative;
 
-		&::before {
-			content: "";
-			z-index: 1;
-			top: 6px;
-			left: 3px;
-			width: 16px;
-			height: 16px;
-			position: absolute;
-			background: #ff5e5b;
-		}
-	}
+	// 	&::before {
+	// 		content: "";
+	// 		z-index: 1;
+	// 		top: 6px;
+	// 		left: 3px;
+	// 		width: 16px;
+	// 		height: 16px;
+	// 		position: absolute;
+	// 		background: #ff5e5b;
+	// 	}
+	// }
 
-	.kofi svg {
-		position: relative;
-		z-index: 2;
-	}
+	// .kofi svg {
+	// 	position: relative;
+	// 	z-index: 2;
+	// }
 </style>

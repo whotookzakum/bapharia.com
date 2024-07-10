@@ -1,9 +1,9 @@
-import itemsData from "$bp_api/japan/items.json";
-import treasuresData from "$bp_api/japan/treasures.json";
-import enemiesData from "$bp_api/japan/enemyparams.json";
-import imagineData from "$bp_api/japan/imagine.json";
-import adventureBoardsData from "$bp_api/japan/master_adventure_board.json"
-import liquidMemoriesData from "$bp_api/japan/liquid_memory.json";
+import itemsData from "./bp_api/japan/items.json";
+import treasuresData from "./bp_api/japan/treasures.json";
+import enemiesData from "./bp_api/japan/enemyparams.json";
+import imagineData from "./bp_api/japan/imagine.json";
+import adventureBoardsData from "./bp_api/japan/master_adventure_board.json"
+import liquidMemoriesData from "./bp_api/japan/liquid_memory.json";
 
 // TODO 3d models
 // TODO: attack_data_override.json ? add enemy attacks

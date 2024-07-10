@@ -1,10 +1,10 @@
-import SKILL_DATA from "$bp_api/japan/skill_data.json";
-import AnimationCancels from "$bp_client/skill_animation_cancels.json";
-import BP_BattleStatusManager from "$bp_client/japan/Content/Blueprints/Manager/BP_BattleStatusManager.json" // connects BattleEffectiveGroup to buff icon types
-import DT_AbilityDB from "$bp_client/japan/Content/Blueprints/Manager/DT_AbilityDB.json" // connects buff id strings to icons
-import BufIconDataTable from "$bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json" // contains id strings for buff text
-import StatusAlimentNotify from "$bp_client/japan/Content/Text/StatusAlimentNotify.json"
-import DT_AttackMasterDataModifierDB from "$bp_client/japan/Content/Blueprints/Manager/DT_AttackMasterDataModifierDB.json" // contains debuffs applied on attack hit (i.e. Celeste Pillar G4)
+import SKILL_DATA from "./bp_api/japan/skill_data.json";
+import AnimationCancels from "./bp_client/skill_animation_cancels.json";
+import BP_BattleStatusManager from "./bp_client/japan/Content/Blueprints/Manager/BP_BattleStatusManager.json" // connects BattleEffectiveGroup to buff icon types
+import DT_AbilityDB from "./bp_client/japan/Content/Blueprints/Manager/DT_AbilityDB.json" // connects buff id strings to icons
+import BufIconDataTable from "./bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json" // contains id strings for buff text
+import StatusAlimentNotify from "./bp_client/japan/Content/Text/StatusAlimentNotify.json"
+import DT_AttackMasterDataModifierDB from "./bp_client/japan/Content/Blueprints/Manager/DT_AttackMasterDataModifierDB.json" // contains debuffs applied on attack hit (i.e. Celeste Pillar G4)
 import { getAssets, getCategory, getFile, getText } from "./utils";
 
 // TODO skill videos (might be in Blueprints/UI/SkillTree/MediaPlayer/DT_SkillTreeImageData.uasset ?)

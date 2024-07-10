@@ -1,5 +1,5 @@
 import categories from "./categories.json"
-import en_US_override from "$bp_api/en_US_override.json"
+import en_US_override from "../bp_api/en_US_override.json"
 
 const langs = {}
 
@@ -30,13 +30,14 @@ Object.entries(allTextsFiles)
     })
 
 export function getText(ns, id, lang) {
-    // TEMP: Manual translations
     lang ??= "ja_JP"
+    if (!lang.includes("_")) lang = { en: "en_US", ja: "ja_JP" }[lang]
     return langs[lang][ns][id] || langs.ja_JP[ns][id] || ""
 }
 
 export function getCategory(ns, id, lang) {
     lang ??= "ja_JP"
+    if (!lang.includes("_")) lang = { en: "en_US", ja: "ja_JP" }[lang]
     if (categories[lang][ns]) return categories[lang][ns][id] || categories[lang][ns].default
     return categories.ja_JP[ns][id] || categories.ja_JP[ns].default
 }

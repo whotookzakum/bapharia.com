@@ -137,8 +137,6 @@
         filters = filters;
     }
 
-    $: console.log(filters);
-
     function toggleCategoryVisibility(category) {
         filters.extras[`show${category}`] = !filters.extras[`show${category}`];
     }

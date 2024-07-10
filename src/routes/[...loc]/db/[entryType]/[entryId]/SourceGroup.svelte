@@ -86,14 +86,6 @@
 </div>
 
 <style lang="scss">
-
-    .summary {
-        align-items: center;
-        position: relative;
-        z-index: 1;
-        padding: 0.5rem;
-    }
-
     .category-img-wrapper {
         width: 64px;
         height: 64px;

@@ -1,8 +1,7 @@
-import { getSkillNotes } from '$lib/utils/index.js'
+import { getSkillNotes, getApi } from '$lib/utils.js'
 
 export const load = async ({ params, fetch }) => {
-    const res = await fetch("/api/skills?lang=en_US")
-    const skills = await res.json()
+    const skills = await getApi("skills", params)
     const skillsForClass = skills
         .filter(skill => skill.class_type == params.classId)
         .map((skill) => {

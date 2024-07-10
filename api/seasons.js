@@ -1,12 +1,12 @@
-import MASTER_SEASON from "$bp_api/japan/master_season.json";
-import MASTER_SEASON_PASS from "$bp_api/japan/master_season_pass.json";
-import MASTER_SEASON_PASS_SHOPS from "$bp_api/japan/master_season_pass_shops.json";
-import MASTER_SEASON_PASS_SHOP_PURCHASE_LIMITS from "$bp_api/japan/master_season_pass_shop_purchase_limits.json";
-import SHOP_ITEM_SET from "$bp_api/japan/shop_item_set.json";
-import MASTER_SEASON_PASS_REWARD from "$bp_api/japan/master_season_pass_reward.json";
-import MASTER_QUEST_DAILY from "$bp_api/japan/master_quest_daily.json";
-import MASTER_QUEST_WEEKLY from "$bp_api/japan/master_quest_weekly.json";
-import MASTER_QUEST_SEASON from "$bp_api/japan/master_quest_season.json";
+import MASTER_SEASON from "./bp_api/japan/master_season.json";
+import MASTER_SEASON_PASS from "./bp_api/japan/master_season_pass.json";
+import MASTER_SEASON_PASS_SHOPS from "./bp_api/japan/master_season_pass_shops.json";
+import MASTER_SEASON_PASS_SHOP_PURCHASE_LIMITS from "./bp_api/japan/master_season_pass_shop_purchase_limits.json";
+import SHOP_ITEM_SET from "./bp_api/japan/shop_item_set.json";
+import MASTER_SEASON_PASS_REWARD from "./bp_api/japan/master_season_pass_reward.json";
+import MASTER_QUEST_DAILY from "./bp_api/japan/master_quest_daily.json";
+import MASTER_QUEST_WEEKLY from "./bp_api/japan/master_quest_weekly.json";
+import MASTER_QUEST_SEASON from "./bp_api/japan/master_quest_season.json";
 import { getText, getAssets, getSources, getCategory, getRewardItemBrief, getReward } from "./utils";
 import { getEntry as getItemEntry, getItemSummaries } from "./items";
 

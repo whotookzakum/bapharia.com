@@ -1,4 +1,4 @@
-import COSTUME from "$bp_api/japan/costume.json";
+import COSTUME from "./bp_api/japan/costume.json";
 import { getSources, getText, getAssets } from "./utils";
 
 // TODO BPP buy/sell price
