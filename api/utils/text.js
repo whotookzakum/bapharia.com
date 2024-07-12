@@ -20,8 +20,8 @@ for (const { publisher, locales } of SUPPORTED_VERSIONS) {
                 if (isUnofficialTranslation) {
                     // Use the manual translation if available. The key is the original Japanese text, so that changes/additions to translations don't go unnoticed.
                     if (en_US_override[name]) {
-                        if (en_US_override[name][id]) {
-                            acc[id] = en_US_override[name][id]
+                        if (en_US_override[name][text]) {
+                            acc[id] = en_US_override[name][text]
                         }
                         // If the namespace exists in the override file, it's likely intended to be manually translated. However, if the entry is missing (the original JP text was modified or newly added), warn the user and fallback to the machine translation.
                         // MountainDewritos' script can sometimes unintentionally delete some keys, so if they are missing, fallback to the original JP text.
@@ -30,6 +30,7 @@ for (const { publisher, locales } of SUPPORTED_VERSIONS) {
                             const machineTranslation = en_machine_translated.find(obj => obj.name === name).texts.find(obj => obj.id === id)?.text
                             if (typeof machineTranslation === "undefined") console.log("Machine translation missing:", langCode, name, id)
                             acc[id] = machineTranslation || text
+                            acc[id] = text // TEMP
                         }
                     }
                     // Otherwise use the machine translation

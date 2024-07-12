@@ -1028,7 +1028,7 @@ export const getSummaries = async (lang) => {
             skills.push({
                 href: `/db/skills/${skill.skill_id}`,
                 name: getText("master_skill_data_text", skill.skill_name, lang),
-                jpName: getText("master_skill_data_text", skill.skill_name, "ja_JP"),
+                jpName: getText("master_skill_data_text", skill.skill_name, "ja"),
                 icon: data.assets.icon,
                 iconL: data.assets.iconL,
                 bgIcon: data.assets.bgIcon,
