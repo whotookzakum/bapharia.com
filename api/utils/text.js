@@ -1,55 +1,65 @@
 import categories from "./categories.json"
-import en_US_override from "../bp_api/en_US_override.json"
+import { SUPPORTED_VERSIONS, LANG_CODES } from "../../src/lib/constants"
+import en_US_override from "../bp_api/text_overrides/en_US.json"
 
-const overrides = {
-    en_US: en_US_override
-}
 const langs = {}
-// TODO: Rewrite to use English patch en_US file
-const allTextsFiles = import.meta.glob(".././bp_api/**/texts/*.json", { import: "default" })
+const allTextFiles = import.meta.glob("../bp_api/**/texts/*.json", { import: "default" })
+const res = await fetch("https://raw.githubusercontent.com/mountaindewritos/BPTranslateFiles/main/loc.json")
+const en_machine_translated = await res.json()
 
-console.log("Loading localizations...")
-Object.entries(allTextsFiles)
-    .filter(([key, value]) => key.match(/^(?!.*ja_JP).*global.*/) || key.match(/^(?=.*japan)(?=.*ja_JP).*$/))
-    .forEach(async ([key, value]) => {
-        const langCode = key.split("/").pop().replace(".json", "")
-        const data = await value()
-        langs[langCode] = data.reduce((acc, obj) => {
-            acc[obj.name] = obj.texts.reduce((a, c) => {
-                a[c.id] = c.text
-                return a
-            }, {})
-            return acc
-        }, {})
+// Create { "bno": { "ja_JP": {}, "en_US": {} }, ... } 
+for (const { publisher, locales } of SUPPORTED_VERSIONS) {
+    langs[publisher] = {};
+    for (const locale of locales) {
+        const langCode = LANG_CODES[locale]; // "en" → "en_US"
+        const isUnofficialTranslation = publisher === "bno" && locale === "en"
+        const fileName = isUnofficialTranslation ? "ja_JP" : langCode
+        const textFile = await allTextFiles[`../bp_api/${publisher}/texts/${fileName}.json`]();
+        langs[publisher][langCode] = textFile.reduce((result, { name, texts }) => {
+            result[name] = texts.reduce((acc, { id, text }) => {
+                if (isUnofficialTranslation) {
+                    // Use the manual translation if available. The key is the original Japanese text, so that changes/additions to translations don't go unnoticed.
+                    if (en_US_override[name]) {
+                        if (en_US_override[name][id]) {
+                            acc[id] = en_US_override[name][id]
+                        }
+                        // If the namespace exists in the override file, it's likely intended to be manually translated. However, if the entry is missing (the original JP text was modified or newly added), warn the user and fallback to the machine translation.
+                        // MountainDewritos' script can sometimes unintentionally delete some keys, so if they are missing, fallback to the original JP text.
+                        else {
+                            console.log("Manual translation missing:", langCode, name, id)
+                            const machineTranslation = en_machine_translated.find(obj => obj.name === name).texts.find(obj => obj.id === id)?.text
+                            if (typeof machineTranslation === "undefined") console.log("Machine translation missing:", langCode, name, id)
+                            acc[id] = machineTranslation || text
+                        }
+                    }
+                    // Otherwise use the machine translation
+                    else {
+                        const machineTranslation = en_machine_translated.find(obj => obj.name === name).texts.find(obj => obj.id === id)?.text
+                        if (typeof machineTranslation === "undefined") console.log("Machine translation missing:", langCode, name, id)
+                        acc[id] = machineTranslation || text
+                    }
+                }
+                else {
+                    acc[id] = text;
+                }
+                return acc;
+            }, {});
+            return result;
+        }, {});
+    }
+}
 
-
-        // For other languages, use ja_JP as base.
-        // TODO: Rewrite to accept 'publisher' param. There is an edge case where JP description is updated by EN is unchanged, causing a mismatch. For example, a skill description might be updated in BNO en_US, but not in AGS en_US.
-        if (langCode !== "ja_JP") {
-            const jpTextFile = await allTextsFiles["../bp_api/global/texts/ja_JP.json"]()
-            console.log(jpTextFile.length)
-            // Object.entries(jpTextFile.default).forEach(([ns, valuesObj]) => {
-            //     console.log(ns)
-            // })
-            Object.entries(en_US_override).forEach(([ns, valuesObj]) => {
-                Object.entries(valuesObj).forEach(([key, value]) => {
-                    langs.en_US[ns][key] = value
-                })
-            })
-        }
-    })
-
-export function getText(ns, id, lang) {
-    lang ??= "ja_JP"
-    if (!lang.includes("_")) lang = { en: "en_US", ja: "ja_JP" }[lang]
-    return langs[lang][ns][id] || langs.ja_JP[ns][id] || ""
+export function getText(ns, id, lang, publisher) {
+    publisher ??= SUPPORTED_VERSIONS[0].publisher
+    lang ??= SUPPORTED_VERSIONS[0].locales[0]
+    const langCode = LANG_CODES[lang]
+    return langs[publisher][langCode][ns][id]
 }
 
 export function getCategory(ns, id, lang) {
-    lang ??= "ja_JP"
-    if (!lang.includes("_")) lang = { en: "en_US", ja: "ja_JP" }[lang]
-    if (categories[lang][ns]) return categories[lang][ns][id] || categories[lang][ns].default
-    return categories.ja_JP[ns][id] || categories.ja_JP[ns].default
+    lang ??= SUPPORTED_VERSIONS[0].locales[0]
+    const langCode = LANG_CODES[lang]
+    return categories[langCode][ns][id] || categories[langCode][ns].default
 }
 
 export default langs
