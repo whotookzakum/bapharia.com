@@ -1,9 +1,9 @@
-import itemsData from "./bp_api/japan/items.json";
-import treasuresData from "./bp_api/japan/treasures.json";
-import enemiesData from "./bp_api/japan/enemyparams.json";
-import imagineData from "./bp_api/japan/imagine.json";
-import adventureBoardsData from "./bp_api/japan/master_adventure_board.json"
-import liquidMemoriesData from "./bp_api/japan/liquid_memory.json";
+import itemsData from "./bp_api/bno/items.json";
+import treasuresData from "./bp_api/bno/treasures.json";
+import enemiesData from "./bp_api/bno/enemyparams.json";
+import imagineData from "./bp_api/bno/imagine.json";
+import adventureBoardsData from "./bp_api/bno/master_adventure_board.json"
+import liquidMemoriesData from "./bp_api/bno/liquid_memory.json";
 
 // TODO 3d models
 // TODO: attack_data_override.json ? add enemy attacks
@@ -127,7 +127,7 @@ const resolveFileImportPromises = async (files) => {
 
 // Return ALL enemy habitats (contains enemy sets, respawn time, density)
 async function getAllEnemyHabitats() {
-    const allMapFiles = import.meta.glob('../bp_client/japan/Content/Maps/**/**/sublevel/*_EN.json')
+    const allMapFiles = import.meta.glob('../bp_client/bno/Content/Maps/**/**/sublevel/*_EN.json')
     const mapsData = await resolveFileImportPromises(Object.values(allMapFiles))
     const enemyHabitats = mapsData.filter(obj => obj.Type === "SBEnemyHabitat")
     return enemyHabitats
@@ -135,7 +135,7 @@ async function getAllEnemyHabitats() {
 
 // Return ALL enemy sets (contains enemies, their level,
 async function getAllEnemySets() {
-    const allEnemySetFiles = import.meta.glob('../bp_client/japan/Content/Blueprints/Manager/EnemySet/*.json')
+    const allEnemySetFiles = import.meta.glob('../bp_client/bno/Content/Blueprints/Manager/EnemySet/*.json')
     // [EnemySet_arena, EnemySet_common, EnemySet_dungeon, EnemySet_extra, EnemySet_field]
     const enemySetsData = await resolveFileImportPromises(Object.values(allEnemySetFiles))
     // Only the EnemySets, no file metadata

@@ -1,14 +1,14 @@
-import ITEMS from "../bp_api/japan/items.json";
+import ITEMS from "../bp_api/bno/items.json";
 import { getText, getAssets } from "./index";
-import REWARDS from "../bp_api/japan/rewards.json"
-import RECEPI from "../bp_api/japan/imagine/recepi.json"
-import IMAGINE from "../bp_api/japan/imagine.json"
-import WEAPONS from "../bp_api/japan/weapons.json"
-import COSTUME from "../bp_api/japan/costume.json"
-import MOUNT from "../bp_api/japan/mount.json"
-import EMOTES from "../bp_api/japan/emotes.json"
-import TOKEN from "../bp_api/japan/token.json"
-import MASTER_STAMP_CATEGORY from "../bp_api/japan/master_stamp_category.json"
+import REWARDS from "../bp_api/bno/rewards.json"
+import RECEPI from "../bp_api/bno/imagine/recepi.json"
+import IMAGINE from "../bp_api/bno/imagine.json"
+import WEAPONS from "../bp_api/bno/weapons.json"
+import COSTUME from "../bp_api/bno/costume.json"
+import MOUNT from "../bp_api/bno/mount.json"
+import EMOTES from "../bp_api/bno/emotes.json"
+import TOKEN from "../bp_api/bno/token.json"
+import MASTER_STAMP_CATEGORY from "../bp_api/bno/master_stamp_category.json"
 
 // TODO: Finish cases, such as type 36 (badges) rewarded from achievements
 

@@ -1,5 +1,5 @@
-import ACHIEVEMENTS from "./bp_api/japan/achievements.json";
-import REWARDS from "./bp_api/japan/rewards.json";
+import ACHIEVEMENTS from "./bp_api/bno/achievements.json";
+import REWARDS from "./bp_api/bno/rewards.json";
 import { getText, getAssets, getSources, getCategory, getRewardItemBrief } from "./utils";
 
 // TODO: Get the achievement categories from in game

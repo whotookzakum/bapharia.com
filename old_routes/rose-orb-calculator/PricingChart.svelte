@@ -1,5 +1,5 @@
 <script>
-    import shopData from "$bp_api/japan/shop_realmoney_item.json";
+    import shopData from "$bp_api/bno/shop_realmoney_item.json";
     import { currency, platformId } from "./stores";
     import Icon from "@iconify/svelte";
     import InputText from "$lib/components/InputText.svelte";

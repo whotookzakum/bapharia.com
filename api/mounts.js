@@ -1,5 +1,5 @@
 import { getText, getCategory, getAssets, getSources } from "./utils";
-import MOUNT from "./bp_api/japan/mount.json";
+import MOUNT from "./bp_api/bno/mount.json";
 
 function processMount(mount, lang) {
     const name = getText("master_mount_imagine_text", mount.mount_name_text_id, lang)

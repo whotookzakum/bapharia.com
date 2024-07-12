@@ -1,5 +1,5 @@
-import TOKEN from "./bp_api/japan/token.json";
-import TOKEN_USE from "./bp_api/japan/token_use.json";
+import TOKEN from "./bp_api/bno/token.json";
+import TOKEN_USE from "./bp_api/bno/token_use.json";
 import { getAssets, getText, getFile, getCategory, getSources } from "./utils";
 
 // Note: term_id doesn't seem to correspond to anything at this time. doesn't matter too much because the sources of items have shopSources which have end dates of sales.

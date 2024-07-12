@@ -1,4 +1,4 @@
-import EMOTES from "./bp_api/japan/emotes.json";
+import EMOTES from "./bp_api/bno/emotes.json";
 import { getText, getAssets, getCategory, getSources } from "./utils";
 
 function processEmote(emote, lang) {

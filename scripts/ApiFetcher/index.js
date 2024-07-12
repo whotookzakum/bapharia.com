@@ -1,5 +1,5 @@
 const start = performance.now();
-const outputDir = "../src/bp_api/japan/"
+const outputDir = "../src/bp_api/bno/"
 
 const crypto = require('crypto');
 const fs = require('fs');

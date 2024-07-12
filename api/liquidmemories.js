@@ -1,5 +1,5 @@
-import LIQUID_MEMORY from "./bp_api/japan/liquid_memory.json";
-import LIQUID_MEMORY_ACCUMULATE_LOTTERY_TABLE from "./bp_api/japan/liquid_memory_accumulate_lottery_table.json";
+import LIQUID_MEMORY from "./bp_api/bno/liquid_memory.json";
+import LIQUID_MEMORY_ACCUMULATE_LOTTERY_TABLE from "./bp_api/bno/liquid_memory_accumulate_lottery_table.json";
 import { getCategory, getSources, getText } from "./utils";
 
 function processLiqMem(lm, lang) {

@@ -1,6 +1,6 @@
 <script>
-    import player_statuses from "$bp_api/japan/player_statuses.json";
-    import class_params from "$bp_api/japan/player_statuses_common_params.json";
+    import player_statuses from "$bp_api/bno/player_statuses.json";
+    import class_params from "$bp_api/bno/player_statuses_common_params.json";
     import { onMount } from "svelte";
     import {
         Chart,

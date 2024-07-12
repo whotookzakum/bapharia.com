@@ -1,12 +1,12 @@
-import IMAGINE from "./bp_api/japan/imagine.json";
-import PARAM_LEVEL from "./bp_api/japan/imagine/param_level.json";
-import PERK_PICK from "./bp_api/japan/imagine/perk_pick.json";
-import WEAPONPERKS from "./bp_api/japan/WEAPONPERKS.json";
-import PERKS from "./bp_api/japan/perks.json";
-import ImagineArtsName from "./bp_client/japan/Content/Text/ImagineArtsName.json"
+import IMAGINE from "./bp_api/bno/imagine.json";
+import PARAM_LEVEL from "./bp_api/bno/imagine/param_level.json";
+import PERK_PICK from "./bp_api/bno/imagine/perk_pick.json";
+import WEAPONPERKS from "./bp_api/bno/WEAPONPERKS.json";
+import PERKS from "./bp_api/bno/perks.json";
+import ImagineArtsName from "./bp_client/bno/Content/Text/ImagineArtsName.json"
 import { getText, getAssets, getSources, fetchDTs, getCategory, getAbilities } from "./utils";
-import ImagineEffectType from "./bp_client/japan/Content/Text/ImagineEffectType.json"
-import ATTACK_DATA from "./bp_api/japan/attack_data.json"
+import ImagineEffectType from "./bp_client/bno/Content/Text/ImagineEffectType.json"
+import ATTACK_DATA from "./bp_api/bno/attack_data.json"
 
 // TODO: 3d models
 // TODO: Mount imagine
@@ -14,12 +14,12 @@ import ATTACK_DATA from "./bp_api/japan/attack_data.json"
 
 // Collection of DataTables from client
 const DTList_Skills = await fetchDTs({
-    ...import.meta.glob('./bp_client/japan/Content/Blueprints/Player/Skill/*/*.json'),
-    ...import.meta.glob('./bp_client/japan/Content/Blueprints/Player/Skill/*/*/*.json')
+    ...import.meta.glob('./bp_client/bno/Content/Blueprints/Player/Skill/*/*.json'),
+    ...import.meta.glob('./bp_client/bno/Content/Blueprints/Player/Skill/*/*/*.json')
 })
 
 const DTList_Projectiles = await fetchDTs(
-    import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/Imagine/*/*/*.json'))
+    import.meta.glob('./bp_client/bno/Content/Blueprints/Magic/Imagine/*/*/*.json'))
 
 const DT_ImagineTable = DTList_Skills.find(obj => obj.Name === "ImagineTable")
 

@@ -2,15 +2,15 @@ import markerIcons from "./bp_client/markerIcons.json"
 import markerNames from "./bp_client/markerNames.json"
 import markerCategories from "./bp_client/markerCategories.json"
 import mapsDataManual from "./bp_client/maps.json"
-import mapsData from "./bp_client/japan/Content/Blueprints/Manager/DT_ZoneDB.json"
-import JP_LocationNames from "./bp_client/japan/Content/Text/LocationName.json"
+import mapsData from "./bp_client/bno/Content/Blueprints/Manager/DT_ZoneDB.json"
+import JP_LocationNames from "./bp_client/bno/Content/Text/LocationName.json"
 import JP_ZoneNames from "./bp_client/JP_ZoneNames.json" // Manual file because I included some names from CBT
 import EN_ZoneNames from "./bp_client/EN_ZoneNames.json"
 import EN_LocationNames from "./bp_client/EN_LocationNames.json"
-import itemsData from "./bp_api/japan/items.json"
-import lotteriesData from "./bp_api/japan/master_reward_lottery_groups.json"
-import dungeonRewardsData from "./bp_api/japan/dungeon_rewards.json";
-import rewardsData from "./bp_api/japan/rewards.json"
+import itemsData from "./bp_api/bno/items.json"
+import lotteriesData from "./bp_api/bno/master_reward_lottery_groups.json"
+import dungeonRewardsData from "./bp_api/bno/dungeon_rewards.json";
+import rewardsData from "./bp_api/bno/rewards.json"
 import { getText } from "../utils";
 
 // Client's ZoneShortName.json seems bugged, 3030100 comes up as Arena but it should be Gunnetower Ruins
@@ -179,7 +179,7 @@ function getItemNameById(id) {
 
 
 // INTERACTIVE MAP FUNCTIONS ========================================================================================
-const allMapFiles = import.meta.glob("../bp_client/japan/Content/Maps/**/**/sublevel/*.json")
+const allMapFiles = import.meta.glob("../bp_client/bno/Content/Maps/**/**/sublevel/*.json")
 
 export async function getMapWithMarkers(mapId) {
     const mapIdShort = mapId.toLowerCase().replace("cty00", "cty0") // from Cty001 to cty01 to match file names

@@ -1,5 +1,5 @@
 import { getText, getCategory, getAssets } from "./utils";
-import MASTER_STAMP_CATEGORY from "./bp_api/japan/master_stamp_category.json";
+import MASTER_STAMP_CATEGORY from "./bp_api/bno/master_stamp_category.json";
 
 // TODO: add an array that contains the set that the stamp belongs to, i.e. "set_name" and "set_stamps"
 

@@ -1,8 +1,11 @@
 import categories from "./categories.json"
 import en_US_override from "../bp_api/en_US_override.json"
 
+const overrides = {
+    en_US: en_US_override
+}
 const langs = {}
-
+// TODO: Rewrite to use English patch en_US file
 const allTextsFiles = import.meta.glob(".././bp_api/**/texts/*.json", { import: "default" })
 
 console.log("Loading localizations...")
@@ -19,8 +22,15 @@ Object.entries(allTextsFiles)
             return acc
         }, {})
 
-        // Manual translation overrides
-        if (langCode === "en_US") {
+
+        // For other languages, use ja_JP as base.
+        // TODO: Rewrite to accept 'publisher' param. There is an edge case where JP description is updated by EN is unchanged, causing a mismatch. For example, a skill description might be updated in BNO en_US, but not in AGS en_US.
+        if (langCode !== "ja_JP") {
+            const jpTextFile = await allTextsFiles["../bp_api/global/texts/ja_JP.json"]()
+            console.log(jpTextFile.length)
+            // Object.entries(jpTextFile.default).forEach(([ns, valuesObj]) => {
+            //     console.log(ns)
+            // })
             Object.entries(en_US_override).forEach(([ns, valuesObj]) => {
                 Object.entries(valuesObj).forEach(([key, value]) => {
                     langs.en_US[ns][key] = value

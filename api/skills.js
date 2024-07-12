@@ -1,10 +1,10 @@
-import SKILL_DATA from "./bp_api/japan/skill_data.json";
+import SKILL_DATA from "./bp_api/bno/skill_data.json";
 import AnimationCancels from "./bp_client/skill_animation_cancels.json";
-import BP_BattleStatusManager from "./bp_client/japan/Content/Blueprints/Manager/BP_BattleStatusManager.json" // connects BattleEffectiveGroup to buff icon types
-import DT_AbilityDB from "./bp_client/japan/Content/Blueprints/Manager/DT_AbilityDB.json" // connects buff id strings to icons
-import BufIconDataTable from "./bp_client/japan/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json" // contains id strings for buff text
-import StatusAlimentNotify from "./bp_client/japan/Content/Text/StatusAlimentNotify.json"
-import DT_AttackMasterDataModifierDB from "./bp_client/japan/Content/Blueprints/Manager/DT_AttackMasterDataModifierDB.json" // contains debuffs applied on attack hit (i.e. Celeste Pillar G4)
+import BP_BattleStatusManager from "./bp_client/bno/Content/Blueprints/Manager/BP_BattleStatusManager.json" // connects BattleEffectiveGroup to buff icon types
+import DT_AbilityDB from "./bp_client/bno/Content/Blueprints/Manager/DT_AbilityDB.json" // connects buff id strings to icons
+import BufIconDataTable from "./bp_client/bno/Content/Blueprints/UI/FocusTarget/SubWIdget/BufIconDataTable.json" // contains id strings for buff text
+import StatusAlimentNotify from "./bp_client/bno/Content/Text/StatusAlimentNotify.json"
+import DT_AttackMasterDataModifierDB from "./bp_client/bno/Content/Blueprints/Manager/DT_AttackMasterDataModifierDB.json" // contains debuffs applied on attack hit (i.e. Celeste Pillar G4)
 import { getAssets, getCategory, getFile, getText } from "./utils";
 
 // TODO skill videos (might be in Blueprints/UI/SkillTree/MediaPlayer/DT_SkillTreeImageData.uasset ?)
@@ -15,7 +15,7 @@ import { getAssets, getCategory, getFile, getText } from "./utils";
 // TODO: skill_type 14 is PFMスキル中断ステップ "SkillCancelStep"; also add to categories.json
 
 // Put all class status ailments into one object
-const StatusAilmentDTs = Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+StatusAlimentConfig\.json', { import: "default", eager: true }))
+const StatusAilmentDTs = Object.values(import.meta.glob('./bp_client/bno/Content/Blueprints/Magic/P[^/]+/[^/]+StatusAlimentConfig\.json', { import: "default", eager: true }))
     .flat()
     .reduce((acc, configFile) => {
         acc = { ...acc, ...configFile.Rows }
@@ -24,7 +24,7 @@ const StatusAilmentDTs = Object.values(import.meta.glob('./bp_client/japan/Conte
 
 // Put all classes projectile configs into one object
 const ProjectileDTs =
-    Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Magic/P[^/]+/[^/]+ProjectileConfigInfo\.json', { import: "default", eager: true }))
+    Object.values(import.meta.glob('./bp_client/bno/Content/Blueprints/Magic/P[^/]+/[^/]+ProjectileConfigInfo\.json', { import: "default", eager: true }))
         .flat()
         .reduce((acc, configFile) => {
             // Add additional data such as status ailments and projectile effects
@@ -61,7 +61,7 @@ async function getSkillDTs() {
     const result = {}
 
     // First, get the generic Class Skills DTS (contains the paths for individual skill DTs for the class)
-    const files = Object.values(import.meta.glob('./bp_client/japan/Content/Blueprints/Player/(Skill|PassiveSkill)/*/DT_*.json', { import: "default", eager: true })).flat()
+    const files = Object.values(import.meta.glob('./bp_client/bno/Content/Blueprints/Player/(Skill|PassiveSkill)/*/DT_*.json', { import: "default", eager: true })).flat()
 
     // Next, map through every skill in every class file and append the skill-specific DTs
     await Promise.all(files.map(async (file) => {

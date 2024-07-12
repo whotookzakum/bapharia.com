@@ -1,37 +1,37 @@
-import ITEMS from "../bp_api/japan/items.json";
-import MASTERRECIPERELEASECONDITION from "../bp_api/japan/masterrecipereleasecondition.json"
-import REWARDS from "../bp_api/japan/rewards.json"
-import MASTER_CRAFT_RECIPE_SETS from "../bp_api/japan/master_craft_recipe_sets.json"
-import DUNGEON_REWARDS from "../bp_api/japan/dungeon_rewards"
-import DUNGEON_RANKED_REWARDS from "../bp_api/japan/dungeon_ranked_rewards"
-import QUESTS from "../bp_api/japan/quests.json"
-import MASTER_ADVENTURE_BOARD_PANEL from "../bp_api/japan/master_adventure_board_panel.json"
-import MASTER_ADVENTURE_BOARD from "../bp_api/japan/master_adventure_board.json"
-import MASTER_SEASON_PASS_REWARD from "../bp_api/japan/master_season_pass_reward.json"
-import MASTER_QUEST_BONUS from "../bp_api/japan/master_quest_bonus.json"
-import MASTER_MERCHANDISE_COMMODITY from "../bp_api/japan/master_merchandise_commodity.json"
-import MASTER_MERCHANDISE_ITEM_SET from "../bp_api/japan/master_merchandise_item_set.json"
-import MASTER_MERCHANDISE_COUNTER from "../bp_api/japan/master_merchandise_counter.json"
-import MASTER_REWARD_EXTRA_ATTRIBUTES from "../bp_api/japan/master_reward_extra_attributes.json"
-import MASTER_REWARD_LOTTERY_GROUPS from "../bp_api/japan/master_reward_lottery_groups.json";
-import TREASURES from "../bp_api/japan/treasures.json";
-import ENEMYPARAMS from "../bp_api/japan/enemyparams.json";
-import TOKEN from "../bp_api/japan/token.json";
-import SHOP_ITEM_SET from "../bp_api/japan/shop_item_set.json";
-import MASTER_SEASON_PASS_SHOPS from "../bp_api/japan/master_season_pass_shops.json";
-import MASTER_SEASON from "../bp_api/japan/master_season.json";
-import MASTER_SEASON_PASS_SHOP_PURCHASE_LIMITS from "../bp_api/japan/master_season_pass_shop_purchase_limits.json";
-import CURRENCY_SHOP from "../bp_api/japan/currency_shop.json";
-import CURRENCY_SHOP_PURCHASE_LIMIT from "../bp_api/japan/currency_shop_purchase_limit.json";
-import COIN_SHOP from "../bp_api/japan/coin_shop.json";
-import COIN_SHOP_PURCHASE_LIMIT from "../bp_api/japan/coin_shop_purchase_limit.json";
-import SHOP_REALMONEY_ITEM from "../bp_api/japan/shop_realmoney_item.json";
-import ITEM_BOX from "../bp_api/japan/item_box.json";
-import MASTER_RANKING_REWARDS from "../bp_api/japan/master_ranking_rewards.json";
-import CRAFT from "../bp_api/japan/craft.json"
-import RECEPI from "../bp_api/japan/imagine/recepi.json"
-import ACHIEVEMENTS from "../bp_api/japan/achievements.json"
-import COUPON from "../bp_api/japan/coupon.json"
+import ITEMS from "../bp_api/bno/items.json";
+import MASTERRECIPERELEASECONDITION from "../bp_api/bno/masterrecipereleasecondition.json"
+import REWARDS from "../bp_api/bno/rewards.json"
+import MASTER_CRAFT_RECIPE_SETS from "../bp_api/bno/master_craft_recipe_sets.json"
+import DUNGEON_REWARDS from "../bp_api/bno/dungeon_rewards"
+import DUNGEON_RANKED_REWARDS from "../bp_api/bno/dungeon_ranked_rewards"
+import QUESTS from "../bp_api/bno/quests.json"
+import MASTER_ADVENTURE_BOARD_PANEL from "../bp_api/bno/master_adventure_board_panel.json"
+import MASTER_ADVENTURE_BOARD from "../bp_api/bno/master_adventure_board.json"
+import MASTER_SEASON_PASS_REWARD from "../bp_api/bno/master_season_pass_reward.json"
+import MASTER_QUEST_BONUS from "../bp_api/bno/master_quest_bonus.json"
+import MASTER_MERCHANDISE_COMMODITY from "../bp_api/bno/master_merchandise_commodity.json"
+import MASTER_MERCHANDISE_ITEM_SET from "../bp_api/bno/master_merchandise_item_set.json"
+import MASTER_MERCHANDISE_COUNTER from "../bp_api/bno/master_merchandise_counter.json"
+import MASTER_REWARD_EXTRA_ATTRIBUTES from "../bp_api/bno/master_reward_extra_attributes.json"
+import MASTER_REWARD_LOTTERY_GROUPS from "../bp_api/bno/master_reward_lottery_groups.json";
+import TREASURES from "../bp_api/bno/treasures.json";
+import ENEMYPARAMS from "../bp_api/bno/enemyparams.json";
+import TOKEN from "../bp_api/bno/token.json";
+import SHOP_ITEM_SET from "../bp_api/bno/shop_item_set.json";
+import MASTER_SEASON_PASS_SHOPS from "../bp_api/bno/master_season_pass_shops.json";
+import MASTER_SEASON from "../bp_api/bno/master_season.json";
+import MASTER_SEASON_PASS_SHOP_PURCHASE_LIMITS from "../bp_api/bno/master_season_pass_shop_purchase_limits.json";
+import CURRENCY_SHOP from "../bp_api/bno/currency_shop.json";
+import CURRENCY_SHOP_PURCHASE_LIMIT from "../bp_api/bno/currency_shop_purchase_limit.json";
+import COIN_SHOP from "../bp_api/bno/coin_shop.json";
+import COIN_SHOP_PURCHASE_LIMIT from "../bp_api/bno/coin_shop_purchase_limit.json";
+import SHOP_REALMONEY_ITEM from "../bp_api/bno/shop_realmoney_item.json";
+import ITEM_BOX from "../bp_api/bno/item_box.json";
+import MASTER_RANKING_REWARDS from "../bp_api/bno/master_ranking_rewards.json";
+import CRAFT from "../bp_api/bno/craft.json"
+import RECEPI from "../bp_api/bno/imagine/recepi.json"
+import ACHIEVEMENTS from "../bp_api/bno/achievements.json"
+import COUPON from "../bp_api/bno/coupon.json"
 import uniqBy from "lodash/uniqBy";
 import { getAbilities, getText, getAssets, getRewardItemBrief } from "./index";
 import gacha from "../gacha";
@@ -398,7 +398,7 @@ function getEnemyDropSources(item, lang, rewardTypes) {
 }
 
 // Source: Treasures (gathering points; chests that yield the raw item (non-RNG); chests that drop from enemies)
-const overworldGatheringAndChestsFiles = import.meta.glob("../bp_client/japan/Content/Maps/**/*_PU.json", { import: "default", eager: true })
+const overworldGatheringAndChestsFiles = import.meta.glob("../bp_client/bno/Content/Maps/**/*_PU.json", { import: "default", eager: true })
 function getTreasureSources(item, lang, rewardTypes) {
     // Filtered the lot_rate down to only have the item that was requested
     const treasuresContainingItem = TREASURES.reduce((acc, treasure) => {
