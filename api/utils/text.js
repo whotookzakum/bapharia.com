@@ -1,11 +1,10 @@
 import categories from "./categories.json"
 import { SUPPORTED_VERSIONS, LANG_CODES } from "../../src/lib/constants"
-import en_US_override from "../bp_api/text_overrides/en_US.json"
+import en_manual_translated from "../bp_api/text_overrides/en_US.json"
+import en_machine_translated from "../../bptranslatefiles/loc.json"
 
 const langs = {}
 const allTextFiles = import.meta.glob("../bp_api/**/texts/*.json", { import: "default" })
-const res = await fetch("https://raw.githubusercontent.com/mountaindewritos/BPTranslateFiles/main/loc.json")
-const en_machine_translated = await res.json()
 
 // Create { "bno": { "ja_JP": {}, "en_US": {} }, ... } 
 for (const { publisher, locales } of SUPPORTED_VERSIONS) {
@@ -19,9 +18,9 @@ for (const { publisher, locales } of SUPPORTED_VERSIONS) {
             result[name] = texts.reduce((acc, { id, text }) => {
                 if (isUnofficialTranslation) {
                     // Use the manual translation if available. The key is the original Japanese text, so that changes/additions to translations don't go unnoticed.
-                    if (en_US_override[name]) {
-                        if (en_US_override[name][text]) {
-                            acc[id] = en_US_override[name][text]
+                    if (en_manual_translated[name]) {
+                        if (en_manual_translated[name][text]) {
+                            acc[id] = en_manual_translated[name][text]
                         }
                         // If the namespace exists in the override file, it's likely intended to be manually translated. However, if the entry is missing (the original JP text was modified or newly added), warn the user and fallback to the machine translation.
                         // MountainDewritos' script can sometimes unintentionally delete some keys, so if they are missing, fallback to the original JP text.

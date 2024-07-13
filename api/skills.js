@@ -333,13 +333,21 @@ async function processSkill(skill, lang) {
 // Returns each skill grade and variant, including the description, required level, debuffs, etc.
 async function getSkillLevels(skill, SkillInfo, lang) {
 
+    function getSkillDesc(id) {
+        const str = getText("master_skill_data_text", id, lang)
+        if (["α", "β", "γ"].includes(str.charAt(0))) {
+            return str.split("\nG1")[0].replace(/G[1-9]:\s*|G[1-9]：|β:\s*|β：|α:\s*|α：/g, '')
+        }
+        return str.replaceAll(/G[1-9]:\s*|G[1-9]：|β:\s*|β：|α:\s*|α：/g, '$').split("$").pop()
+    }
+
     const variants = await Promise.all(SKILL_DATA
         .filter(s => s.condition_skill_id_1 === skill.skill_id || s.condition_skill_id_2 === skill.skill_id)
         // Order by alpha, beta, gamma...
         .sort((a, b) => a.ability_type - b.ability_type)
         .map(async (variant) => {
             const { skill_desc_array, ability_type } = variant
-            const desc = getText("master_skill_data_text", skill_desc_array[skill_desc_array.length - 1].desc, lang).split("\n")[0].split("：").pop().split(":").pop()
+            const desc = getSkillDesc(skill_desc_array[skill_desc_array.length - 1].desc)
 
             return {
                 skill_id: variant.skill_id,
@@ -370,8 +378,7 @@ async function getSkillLevels(skill, SkillInfo, lang) {
     return await Promise.all(
         skill.skill_mastery_param.flatMap(async (gradeObj, index) => {
             const { level, condition_class_level } = gradeObj
-            const fullDescArr = getText("master_skill_data_text", skill.skill_desc_array[index].desc, lang).split("\n")
-            const desc = fullDescArr[fullDescArr.length - 1].split("：").pop().split(":").pop()
+            const desc = getSkillDesc(skill.skill_desc_array[index].desc)
             const skillLevelData = getSkillLevelData(SkillInfo, { level, skillId: skill.skill_id })
             const ModifyValue = Array.isArray(SkillInfo) ? simplifyModifyValue(SkillInfo.find(obj => obj.SkillLevel === level).ModifyValue) : undefined
             let variants = level >= 3 ? await getVariantsForLevel(level, condition_class_level) : []
