@@ -1,3 +1,13 @@
+1. `npm run updateAll`
+2. Push submodule `bp assets`
+3. Pull submodule `bptranslatefiles` 
+4. Visit `/api/skilltext` to check for updates in skill strings.
+5. Visit `/api/create` to output api routes
+6. Move `api` folder out of `routes`
+7. `npm run build`
+8. Deploy via wrangler
+
+
 ## Update checklist
 1. **Fetch and decrypt API**
 2. Update cloudflare KV
