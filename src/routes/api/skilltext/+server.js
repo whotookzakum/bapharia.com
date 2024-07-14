@@ -6,16 +6,15 @@ import fs from "fs"
 export const GET = async ({ params, url }) => {
     const data = await import(`../../../../api/utils/text.js`)
     const overrideFile = await import(`../../../../api/bp_api/text_overrides/en_US.json`)
+    const skills_translation = overrideFile.default.master_skill_data_text
 
-    // Get all possible strings from JP and assign them as keys, with the values being the manual translation, if it exists.
-    const translation = Object.values(data.default.bno.ja_JP.master_skill_data_text).reduce((acc, key) => {
-        const manualTranslation = overrideFile.default.master_skill_data_text[key]
-        acc[key] = manualTranslation ?? ""
-        return acc
-    }, {})
+    // If JP string has no manual translation, add it as a key to the translation file.
+    Object.values(data.default.bno.ja_JP.master_skill_data_text).forEach(text => {
+        if (!skills_translation[text]) skills_translation[text] = ""
+    })
 
     // Sort so that blank strings come first
-    const sorted = Object.entries(translation)
+    const sorted = Object.entries(skills_translation)
         .sort(([_, valueA], [__, valueB]) => {
             if (valueA === '' && valueB !== '') return -1;
             if (valueA !== '' && valueB === '') return 1;
@@ -27,7 +26,7 @@ export const GET = async ({ params, url }) => {
         }, {})
 
     // Overwrite existing en_US override file with the new one, adding any missing Japanese keys.
-    fs.writeFileSync(`./api/bp_api/text_overrides/en_US.json`, JSON.stringify({ ...overrideFile.default, master_skill_data_text: translation }, null, 4))
+    fs.writeFileSync(`./api/bp_api/text_overrides/en_US.json`, JSON.stringify({ ...overrideFile.default, master_skill_data_text: skills_translation }, null, 4))
 
     return json(sorted)
 }
