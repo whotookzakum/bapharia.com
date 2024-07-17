@@ -1,9 +1,9 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-// import { isoImport } from 'vite-plugin-iso-import'
+import { isoImport } from 'vite-plugin-iso-import'
 
 const config = {
 	plugins: [
-		// isoImport(), 
+		isoImport(), 
 		sveltekit()
 	],
 	ssr: {

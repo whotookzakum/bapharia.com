@@ -5,9 +5,9 @@ cd scripts\UnrealExporter
 UnrealExporter.exe config
 robocopy .\output\BLUEPROTOCOL\Content\UI ..\..\static\UI /E /MOV
 rm -rf .\output\BLUEPROTOCOL\Content\UI
-robocopy .\output\BLUEPROTOCOL ..\..\src\bp_client\japan /E /MOV 
+robocopy .\output\BLUEPROTOCOL ..\..\api\bp_client\bno /E /MOV 
 rm -rf .\output
-echo Finished exporting client to /src/bp_client/japan
+echo Finished exporting client to /api/bp_client/bno
 
 @REM UE Viewer to export 3d models
 cd ..

@@ -1,4 +1,4 @@
 @echo off
 cd scripts
 node ApiFetcher
-echo Finished downloading apiext to /src/bp_api/japan
+echo Finished downloading apiext to /api/bp_api/bno

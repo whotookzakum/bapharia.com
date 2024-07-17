@@ -1,5 +1,5 @@
 const start = performance.now();
-const outputDir = "../src/bp_api/bno/"
+const outputDir = "../api/bp_api/bno/"
 
 const crypto = require('crypto');
 const fs = require('fs');

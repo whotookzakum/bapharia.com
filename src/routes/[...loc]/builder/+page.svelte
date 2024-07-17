@@ -1,12 +1,300 @@
 <script>
     import RangeSlider from "svelte-range-slider-pips";
+    import Icon from "@iconify/svelte";
 
     let searchCategory = "all";
     let level = [0, 100];
+
+    let hoveredStar = 0;
+    let checkedStar = 0;
 </script>
 
+<div class="panes">
+    <aside class="side-pane">Search</aside>
+
+    <article class="main-pane">
+        <section class="grid gap-4">
+            <div class="surface1 rounded-2xl p-4 grid gap-2">
+                <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
+
+                <!-- <div>
+                        <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
+                        <span class="">Pyroclastic Bow</span>
+                        <span class="mini-header">Battle Score: 780</span>
+                    </div> -->
+            </div>
+
+            <div
+                class="surface1 rounded-2xl p-4 grid gap-2 content-start"
+                style="grid-template-columns: 1fr 1fr"
+            >
+                <img
+                    src="/UI/Icon/Imagine/Battle/UI_Icon_120000400.png"
+                    alt=""
+                />
+                <img
+                    src="/UI/Icon/Imagine/Battle/UI_Icon_131001200.png"
+                    alt=""
+                />
+            </div>
+
+            <div
+                class="flex-1 surface1 rounded-2xl p-4 grid gap-2"
+                style="grid-template-columns: 1fr 1fr"
+            >
+                <img
+                    src="/UI/Icon/Imagine/Picture/UI_Icon_111002500.png"
+                    alt=""
+                />
+                <img
+                    src="/UI/Icon/Imagine/Picture/UI_Icon_112001600.png"
+                    alt=""
+                />
+                <img
+                    src="/UI/Icon/Imagine/Picture/UI_Icon_113000800.png"
+                    alt=""
+                />
+                <img
+                    src="/UI/Icon/Imagine/Picture/UI_Icon_114002300.png"
+                    alt=""
+                />
+                <img
+                    src="/UI/Icon/Imagine/Picture/UI_Icon_115002400.png"
+                    alt=""
+                />
+            </div>
+
+            <div class="surface1 rounded-2xl p-4">
+                <table class="text-right">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Class</th>
+                            <th>STR</th>
+                            <th>VIT</th>
+                            <th>DEX</th>
+                            <th>INT</th>
+                            <th>MND</th>
+                            <th>Max HP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <div class="flex items-center gap-2">
+                                    <img
+                                        src="/UI/Icon/Class/UI_IconClass_21.png"
+                                        alt="Beat Performer"
+                                        width="32"
+                                        height="32"
+                                    />
+                                    <span
+                                        class="mini-header"
+                                        style="color: inherit"
+                                        >Beat Performer</span
+                                    >
+                                    <div
+                                        class="flex items-center stars ml-auto"
+                                    >
+                                        <label
+                                            class="star-wrapper text3"
+                                            style="margin: 0"
+                                            class:hover-accent1={checkedStar >
+                                                0}
+                                            on:focus={() => (hoveredStar = 0)}
+                                            on:mouseover={() =>
+                                                (hoveredStar = 0)}
+                                        >
+                                            <input
+                                                type="radio"
+                                                class="visually-hidden"
+                                                value={0}
+                                                bind:group={checkedStar}
+                                                on:change={() =>
+                                                    (checkedStar = 0)}
+                                            />
+                                            <span class="visually-hidden"
+                                                >0</span
+                                            >
+                                            <Icon
+                                                icon="ic:baseline-close"
+                                                style="display: flex;"
+                                            />
+                                        </label>
+                                        {#each [1, 2, 3, 4] as star}
+                                            <label
+                                                class="star-wrapper"
+                                                on:focus={() =>
+                                                    (hoveredStar = star)}
+                                                on:mouseover={() =>
+                                                    (hoveredStar = star)}
+                                                on:mouseleave={() =>
+                                                    (hoveredStar = 0)}
+                                                class:lit={hoveredStar >= star}
+                                                class:glow={checkedStar >= star}
+                                            >
+                                                <input
+                                                    type="radio"
+                                                    class="visually-hidden"
+                                                    value={star}
+                                                    bind:group={checkedStar}
+                                                    on:change={() =>
+                                                        (checkedStar = star)}
+                                                />
+                                                <span class="visually-hidden"
+                                                    >{star}</span
+                                                >
+                                                <img
+                                                    class="star-yellow"
+                                                    src="/UI/TelopManager/UI_TelopManager_Star_1.png"
+                                                    alt=""
+                                                    width="24"
+                                                    height="24"
+                                                />
+                                                <img
+                                                    class="star-black"
+                                                    src="/UI/TelopManager/UI_TelopManager_Star_0.png"
+                                                    alt=""
+                                                    width="24"
+                                                    height="24"
+                                                />
+                                            </label>
+                                        {/each}
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="toc grid gap-2">
+            <span class="mini-header visually-hidden">Stats</span>
+            <dl>
+                <div
+                    class="mb-2"
+                    style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
+                >
+                    <dt>Battle Score</dt>
+                    <dd>16575</dd>
+                </div>
+                <div>
+                    <dt>Health</dt>
+                    <dd>4873</dd>
+                </div>
+                <div
+                    class="mb-2"
+                    style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
+                >
+                    <dt>Stamina</dt>
+                    <dd>145</dd>
+                </div>
+                <div>
+                    <dt>Attack</dt>
+                    <dd>5423</dd>
+                </div>
+                <div>
+                    <dt>Crit Rate</dt>
+                    <dd>18%</dd>
+                </div>
+                <div>
+                    <dt>Crit Damage</dt>
+                    <dd>51%</dd>
+                </div>
+                <div>
+                    <dt>Strength</dt>
+                    <dd>590</dd>
+                </div>
+                <div>
+                    <dt>Vitality</dt>
+                    <dd>437</dd>
+                </div>
+                <div>
+                    <dt>Dexterity</dt>
+                    <dd>542</dd>
+                </div>
+                <div>
+                    <dt>Intelligence</dt>
+                    <dd>378</dd>
+                </div>
+                <div
+                    class="mb-2"
+                    style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
+                >
+                    <dt>Spirit</dt>
+                    <dd>489</dd>
+                </div>
+                <div>
+                    <dt>Defense</dt>
+                    <dd>1108</dd>
+                </div>
+                <div>
+                    <dt>Recovery</dt>
+                    <dd>1227</dd>
+                </div>
+                <div class="flex-wrap">
+                    <dt>Elemental Resistance</dt>
+                    <div
+                        class="w-full grid mt-1 justify-items-end"
+                        style="grid-template-columns: 1fr 1fr 1fr;"
+                    >
+                        <span class="flex items-center gap-1">
+                            <img
+                                src="/UI/Icon/Attribute/UI_IconAttribute_1.png"
+                                alt="Fire"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src="/UI/Icon/Attribute/UI_IconAttribute_2.png"
+                                alt="Thunder"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src="/UI/Icon/Attribute/UI_IconAttribute_3.png"
+                                alt="Ice"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src="/UI/Icon/Attribute/UI_IconAttribute_4.png"
+                                alt="Earth"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src="/UI/Icon/Attribute/UI_IconAttribute_5.png"
+                                alt="Light"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src="/UI/Icon/Attribute/UI_IconAttribute_6.png"
+                                alt="Dark"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                    </div>
+                </div>
+            </dl>
+        </div>
+    </article>
+</div>
+
 <div
-    class="surface1 rounded-2xl p-4 grid gap-2 w-full"
+    class="surface1 rounded-2xl p-4 grid gap-2 w-full hidden"
     style="max-width: 1200px; margin-inline: auto;"
 >
     <div class="flex gap-4">
@@ -94,182 +382,43 @@
     </div>
 </div>
 
-<div class="w-full mt-8" style="max-width: 1200px; margin-inline: auto;">
-    <!-- <span class="mini-header">Class</span>
-    <ul class="flex surface1 rounded-2xl p-4" style="grid-column: 1;">
-        <li>
-            <img
-                src="/UI/Icon/Class/UI_IconClass_12.png"
-                alt=""
-                width="64"
-                height="64"
-            />
-        </li>
-        <li>
-            <img
-                src="/UI/Icon/Class/UI_IconClass_06.png"
-                alt=""
-                width="64"
-                height="64"
-            />
-        </li>
-        <li>
-            <img
-                src="/UI/Icon/Class/UI_IconClass_20.png"
-                alt=""
-                width="64"
-                height="64"
-            />
-        </li>
-        <li>
-            <img
-                src="/UI/Icon/Class/UI_IconClass_19.png"
-                alt=""
-                width="64"
-                height="64"
-            />
-        </li>
-        <li>
-            <img
-                src="/UI/Icon/Class/UI_IconClass_11.png"
-                alt=""
-                width="64"
-                height="64"
-            />
-        </li>
-        <li>
-            <img
-                src="/UI/Icon/Class/UI_IconClass_07.png"
-                alt=""
-                width="64"
-                height="64"
-            />
-        </li>
-    </ul> -->
-    <div class="flex gap-4 items-start">
-        <div class="flex-1 grid gap-4">
-            <div class="surface1 rounded-2xl p-4 grid gap-2">
-                <div>
-                    <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
-                    <span class="">Pyroclastic Bow</span>
-                    <span class="mini-header">Battle Score: 780</span>
-                </div>
-            </div>
-            <div class="surface1 rounded-2xl p-4 grid gap-2 content-start">
-                <img
-                    src="/UI/Icon/Imagine/Battle/UI_Icon_120000400.png"
-                    alt=""
-                />
-                <img
-                    src="/UI/Icon/Imagine/Battle/UI_Icon_131001200.png"
-                    alt=""
-                />
-            </div>
-        </div>
-        <div class="flex-1 surface1 rounded-2xl p-4 grid gap-2">
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_111002500.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_112001600.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_113000800.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_114002300.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_115002400.png" alt="" />
-        </div>
-    </div>
-</div>
-
-<span class="mini-header mt-4">Stats</span>
-<div class="surface1 rounded-2xl p-4" style="grid-column: 1">
-    <dl>
-        <div
-            class="mb-2"
-            style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
-        >
-            <dt>Battle Score</dt>
-            <dd>16575</dd>
-        </div>
-        <div>
-            <dt>Health</dt>
-            <dd>4873</dd>
-        </div>
-        <div
-            class="mb-2"
-            style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
-        >
-            <dt>Stamina</dt>
-            <dd>145</dd>
-        </div>
-        <div>
-            <dt>Attack</dt>
-            <dd>5423</dd>
-        </div>
-        <div>
-            <dt>Crit Rate</dt>
-            <dd>18%</dd>
-        </div>
-        <div>
-            <dt>Crit Damage</dt>
-            <dd>51%</dd>
-        </div>
-        <div>
-            <dt>Strength</dt>
-            <dd>590</dd>
-        </div>
-        <div>
-            <dt>Vitality</dt>
-            <dd>437</dd>
-        </div>
-        <div>
-            <dt>Dexterity</dt>
-            <dd>542</dd>
-        </div>
-        <div>
-            <dt>Intelligence</dt>
-            <dd>378</dd>
-        </div>
-        <div
-            class="mb-2"
-            style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
-        >
-            <dt>Spirit</dt>
-            <dd>489</dd>
-        </div>
-        <div>
-            <dt>Defense</dt>
-            <dd>1108</dd>
-        </div>
-        <div>
-            <dt>Recovery</dt>
-            <dd>1227</dd>
-        </div>
-        <div>
-            <dt>Fire Resistance</dt>
-            <dd>50</dd>
-        </div>
-        <div>
-            <dt>Thunder Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Ice Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Earth Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Light Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Dark Resistance</dt>
-            <dd>0</dd>
-        </div>
-    </dl>
-</div>
-
-<style>
+<style lang="scss">
     dl > div {
         display: flex;
         justify-content: space-between;
+    }
+
+    .star-wrapper {
+        position: relative;
+        background-position: 50% 50%;
+        background-size: 48px 48px;
+        background-repeat: no-repeat;
+        padding: 4px;
+        margin: -4px;
+
+        .star-yellow {
+            opacity: 0;
+            position: absolute;
+        }
+    }
+
+    // Glow applies to the selected level and lower
+    .glow {
+        background-image: url("/UI/TelopManager/UI_TelopManager_Star_Glow.png");
+
+        .star-yellow {
+            opacity: 1;
+        }
+    }
+
+    // Lit applies to the hovered level and lower
+    .stars:where(:hover, :has(:focus-visible)) {
+        .star-yellow {
+            opacity: 0;
+        }
+
+        .lit .star-yellow {
+            opacity: 1;
+        }
     }
 </style>

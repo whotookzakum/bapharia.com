@@ -20,5 +20,5 @@ export const GET = async ({ params, url }) => {
 
     const data = await import(`../../../../api/${params.type}.js`)
     const lang = url.searchParams.get("lang")
-    return json(await data.default({ en: "en_US", ja: "ja_JP" }[lang]))
+    return json(await data.default())
 }
