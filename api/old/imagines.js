@@ -1,12 +1,12 @@
-import IMAGINE from "./bp_api/bno/imagine.json";
-import PARAM_LEVEL from "./bp_api/bno/imagine/param_level.json";
-import PERK_PICK from "./bp_api/bno/imagine/perk_pick.json";
-import WEAPONPERKS from "./bp_api/bno/WEAPONPERKS.json";
-import PERKS from "./bp_api/bno/perks.json";
-import ImagineArtsName from "./bp_client/bno/Content/Text/ImagineArtsName.json"
-import { getText, getAssets, getSources, fetchDTs, getCategory, getAbilities } from "./utils";
-import ImagineEffectType from "./bp_client/bno/Content/Text/ImagineEffectType.json"
-import ATTACK_DATA from "./bp_api/bno/attack_data.json"
+import IMAGINE from "../bp_api/bno/imagine.json";
+import PARAM_LEVEL from "../bp_api/bno/imagine/param_level.json";
+import PERK_PICK from "../bp_api/bno/imagine/perk_pick.json";
+import WEAPONPERKS from "../bp_api/bno/WEAPONPERKS.json";
+import PERKS from "../bp_api/bno/perks.json";
+import ImagineArtsName from "../bp_client/bno/Content/Text/ImagineArtsName.json"
+import { getText, getAssets, getSources, fetchDTs, getCategory, getAbilities } from "../utils";
+import ImagineEffectType from "../bp_client/bno/Content/Text/ImagineEffectType.json"
+import ATTACK_DATA from "../bp_api/bno/attack_data.json"
 
 // TODO: 3d models
 // TODO: Mount imagine
