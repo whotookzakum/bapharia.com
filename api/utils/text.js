@@ -29,7 +29,6 @@ for (const { publisher, locales } of SUPPORTED_VERSIONS) {
                             const machineTranslation = en_machine_translated.find(obj => obj.name === name).texts.find(obj => obj.id === id)?.text
                             if (typeof machineTranslation === "undefined") console.log("Machine translation missing:", langCode, name, id)
                             acc[id] = machineTranslation || text
-                            acc[id] = text // TEMP
                         }
                     }
                     // Otherwise use the machine translation
