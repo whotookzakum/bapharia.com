@@ -1,0 +1,167 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_LAN_CruelThrust_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBLancerSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_LAN_CruelThrust_C'Default__Skill_LAN_CruelThrust_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/Skill_LAN_CruelThrust.1"
+    }
+  },
+  {
+    "Type": "Skill_LAN_CruelThrust_C",
+    "Name": "Default__Skill_LAN_CruelThrust_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/Skill_LAN_CruelThrust.Skill_LAN_CruelThrust_C'",
+    "Properties": {
+      "bCorrespondToPrepareStyle": true,
+      "SkillName": "CruelThrust",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Lancer/CruelThrust/SM_LAN_CruelThrust.SM_LAN_CruelThrust",
+        "SubPathString": ""
+      },
+      "RecastTime": 25.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -3.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 2011
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 120111
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": true
+            }
+          ]
+        },
+        {
+          "ModifyValue": 2.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 120111
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        },
+        {
+          "ModifyValue": -5.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 120112
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

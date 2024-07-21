@@ -1,0 +1,1843 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "E302_02_Effect",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBProjectileInfo'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "GunShot": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_BLT.PS_EPRJ_PRB_Arrow_00_Thunder_BLT",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": false,
+            "bIsLinkDestroy": false,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Gobrin_Magic_ElecArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Play_Gobrin_Magic_ElecArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Straight/PS_EPRJ_STR_Sniper_00_Thunder_MZL.PS_EPRJ_STR_Sniper_00_Thunder_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 0.9,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_ZSniper_Gun_Shot_Elec'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E302_00_ZElite/Play_ZSniper_Gun_Shot_Elec.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": true,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Gobrin_Magic_ElecArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Stop_Gobrin_Magic_ElecArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_HIT.PS_EPRJ_PRB_Arrow_00_Thunder_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Common_Elec_Hit'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Elec_Hit.1"
+            },
+            "Switch": [
+              {
+                "SwitchGroup": "Weapon_Hit_Damage",
+                "SwitchState": "Normal"
+              },
+              {
+                "SwitchGroup": "",
+                "SwitchState": ""
+              }
+            ],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_HIT.PS_EPRJ_PRB_Arrow_00_Thunder_HIT",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Common_Elec_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Elec_Hit.1"
+                },
+                "Switch": [
+                  {
+                    "SwitchGroup": "Floortype",
+                    "SwitchState": ""
+                  }
+                ],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "GunShotLong": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_BLT.PS_EPRJ_PRB_Arrow_00_Thunder_BLT",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": false,
+            "bIsLinkDestroy": false,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Gobrin_Magic_ElecArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Play_Gobrin_Magic_ElecArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Straight/PS_EPRJ_STR_Sniper_00_Thunder_MZL.PS_EPRJ_STR_Sniper_00_Thunder_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 0.9,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_ZSniper_Gun_Shot_Elec'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E302_00_ZElite/Play_ZSniper_Gun_Shot_Elec.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Gobrin_Magic_ElecArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Stop_Gobrin_Magic_ElecArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_HIT.PS_EPRJ_PRB_Arrow_00_Thunder_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Common_Elec_Hit'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Elec_Hit.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_HIT.PS_EPRJ_PRB_Arrow_00_Thunder_HIT",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Common_Elec_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Elec_Hit.1"
+                },
+                "Switch": [],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "GunShotWide_Bullet": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_BLT.PS_EPRJ_PRB_Arrow_00_Thunder_BLT",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Gobrin_Magic_ElecArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Play_Gobrin_Magic_ElecArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Straight/PS_EPRJ_STR_Sniper_00_Thunder_MZL.PS_EPRJ_STR_Sniper_00_Thunder_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 0.9,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_ZSniper_Gun_Shot_Elec'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E302_00_ZElite/Play_ZSniper_Gun_Shot_Elec.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Gobrin_Magic_ElecArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Stop_Gobrin_Magic_ElecArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_HIT.PS_EPRJ_PRB_Arrow_00_Thunder_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Common_Elec_Hit'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Elec_Hit.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Thunder_HIT.PS_EPRJ_PRB_Arrow_00_Thunder_HIT",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Common_Elec_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Elec_Hit.1"
+                },
+                "Switch": [],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "IceGunShot": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_BLT.PS_EPRJ_PRB_Arrow_00_Ice_BLT",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": false,
+            "bIsLinkDestroy": false,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Gobrin_Magic_IceArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Play_Gobrin_Magic_IceArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Straight/PS_EPRJ_STR_Sniper_00_Ice_MZL.PS_EPRJ_STR_Sniper_00_Ice_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 0.9,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_DarkEye_Shot_Ice'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E009_00_DarkEye/Play_DarkEye_Shot_Ice.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Gobrin_Magic_IceArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Stop_Gobrin_Magic_IceArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_HIT.PS_EPRJ_PRB_Arrow_00_Ice_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Common_Ice_Hit'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Ice_Hit.1"
+            },
+            "Switch": [
+              {
+                "SwitchGroup": "Weapon_Hit_Damage",
+                "SwitchState": "Normal"
+              },
+              {
+                "SwitchGroup": "",
+                "SwitchState": ""
+              }
+            ],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_HIT.PS_EPRJ_PRB_Arrow_00_Ice_HIT",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Common_Ice_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Ice_Hit.1"
+                },
+                "Switch": [
+                  {
+                    "SwitchGroup": "Floortype",
+                    "SwitchState": ""
+                  }
+                ],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "IceGunShotLong": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_BLT.PS_EPRJ_PRB_Arrow_00_Ice_BLT",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": false,
+            "bIsLinkDestroy": false,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Gobrin_Magic_IceArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Play_Gobrin_Magic_IceArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Straight/PS_EPRJ_STR_Sniper_00_Ice_MZL.PS_EPRJ_STR_Sniper_00_Ice_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 0.9,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_DarkEye_Shot_Ice'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E009_00_DarkEye/Play_DarkEye_Shot_Ice.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": false,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": true,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Gobrin_Magic_IceArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Stop_Gobrin_Magic_IceArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_HIT.PS_EPRJ_PRB_Arrow_00_Ice_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Common_Ice_Hit'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Ice_Hit.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_HIT.PS_EPRJ_PRB_Arrow_00_Ice_HIT",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Common_Ice_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Ice_Hit.1"
+                },
+                "Switch": [],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "IceGunShotWide_Bullet": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_BLT.PS_EPRJ_PRB_Arrow_00_Ice_BLT",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Gobrin_Magic_IceArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Play_Gobrin_Magic_IceArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Straight/PS_EPRJ_STR_Sniper_00_Ice_MZL.PS_EPRJ_STR_Sniper_00_Ice_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 0.9,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_DarkEye_Shot_Ice'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E009_00_DarkEye/Play_DarkEye_Shot_Ice.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Gobrin_Magic_IceArea_Proj_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Enemy/E000_00_Goblin/Goblin/Stop_Gobrin_Magic_IceArea_Proj_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_HIT.PS_EPRJ_PRB_Arrow_00_Ice_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Common_Ice_Hit'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Ice_Hit.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Projectile/Enemy/Parabola/PS_EPRJ_PRB_Arrow_00_Ice_HIT.PS_EPRJ_PRB_Arrow_00_Ice_HIT",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Common_Ice_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Common_Ice_Hit.1"
+                },
+                "Switch": [],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      }
+    }
+  }
+]

@@ -1,0 +1,303 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_PJ_HyperEnergyShot",
+    "Outer": "BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "K2Node_Event_DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBProjectile_Ground_Collision_Component",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBProjectileGroundCollisionComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveTick",
+    "Outer": "BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveTick'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "DeltaSeconds",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "ReceiveBeginPlay",
+    "Outer": "BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'Actor:ReceiveBeginPlay'",
+      "ObjectPath": "/Script/Engine"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Protected | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_PJ_HyperEnergyShot_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.14"
+      },
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ExecuteUbergraph_BP_PJ_HyperEnergyShot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SBProjectile_Straight'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.2"
+      },
+      {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ReceiveTick'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.1"
+      },
+      {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ExecuteUbergraph_BP_PJ_HyperEnergyShot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_PJ_HyperEnergyShot": {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ExecuteUbergraph_BP_PJ_HyperEnergyShot'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.0"
+      },
+      "ReceiveTick": {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ReceiveTick'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.1"
+      },
+      "ReceiveBeginPlay": {
+        "ObjectName": "Function'BP_PJ_HyperEnergyShot_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.2"
+      }
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PJ_HyperEnergyShot_C'Default__BP_PJ_HyperEnergyShot_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.4"
+    }
+  },
+  {
+    "Type": "BP_PJ_HyperEnergyShot_C",
+    "Name": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.BP_PJ_HyperEnergyShot_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "MoveComp": {
+        "ObjectName": "SBStraightMovementComponent'Default__BP_PJ_HyperEnergyShot_C:MoveComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.11"
+      },
+      "GroundCollisionComp": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_HyperEnergyShot_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.9"
+      },
+      "CollisionComp": {
+        "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_HyperEnergyShot_C:CollisionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.6"
+      },
+      "AttackParamComp": {
+        "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_HyperEnergyShot_C:AttackParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.5"
+      },
+      "EffectComp": {
+        "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_HyperEnergyShot_C:EffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.8"
+      },
+      "ParamComp": {
+        "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_HyperEnergyShot_C:ParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.10"
+      },
+      "DestroyCondComp": {
+        "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_HyperEnergyShot_C:DestroyCondComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.7"
+      },
+      "RootComponent": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_HyperEnergyShot_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.9"
+      },
+      "OnEndPlay": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_PJ_HyperEnergyShot_C'Default__BP_PJ_HyperEnergyShot_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.4"
+            },
+            "FunctionName": "OnProjectileEndPlay"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileAttackParamComponent",
+    "Name": "AttackParamComp",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBProjectileAttackParamComponent'"
+  },
+  {
+    "Type": "SBProjectileCollisionComponent",
+    "Name": "CollisionComp",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBProjectileCollisionComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_HyperEnergyShot_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.9"
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileDestroyConditionComponent",
+    "Name": "DestroyCondComp",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBProjectileDestroyConditionComponent'"
+  },
+  {
+    "Type": "SBProjectileEffectComponent",
+    "Name": "EffectComp",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBProjectileEffectComponent'",
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_HyperEnergyShot_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.9"
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileGroundCollisionComponent",
+    "Name": "GroundCollisionComp(ProjRoot)",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBProjectileGroundCollisionComponent'",
+    "Properties": {
+      "OnComponentHit": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "SBProjectileGroundCollisionComponent'Default__BP_PJ_HyperEnergyShot_C:GroundCollisionComp(ProjRoot)'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.9"
+            },
+            "FunctionName": "OnGroundComponentHit"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileParamComponent",
+    "Name": "ParamComp",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBProjectileParamComponent'"
+  },
+  {
+    "Type": "SBStraightMovementComponent",
+    "Name": "MoveComp",
+    "Outer": "Default__BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SBStraightMovementComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_PJ_HyperEnergyShot_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.12"
+      },
+      "VariableGuid": "B58D09D4-40F7CD7D-B08E4B98-C7ABE311",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_PJ_HyperEnergyShot_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_PJ_HyperEnergyShot_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E500_00_GadoruGolem/BP_PJ_HyperEnergyShot.13"
+      }
+    }
+  }
+]

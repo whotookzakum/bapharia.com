@@ -1,0 +1,303 @@
+// ======================================================================
+// BASE ELEMENTS
+// ======================================================================
+
+html {
+    font-family: "Figtree", sans-serif, system-ui;
+    color: var(--text1);
+}
+
+sup,
+sub,
+small,
+figcaption,
+caption,
+.caption {
+    font-size: var(--step--1);
+}
+
+figcaption,
+caption,
+.caption {
+    color: var(--text2);
+    margin-block: 0.5rem;
+}
+
+figure {
+    margin-block: 1rem;
+}
+
+figure img {
+    margin: 0;
+}
+
+svg.iconify {
+    display: initial;
+}
+
+blockquote {
+    font-size: var(--step-2);
+    max-inline-size: var(--text-length);
+    @apply surface1 rounded-2xl p-4;
+
+    p {
+        margin: 0 !important;
+        line-height: 1.5 !important;
+    }
+
+    footer {
+        margin-top: 0.5rem;
+        color: var(--text3);
+        font-size: var(--step-0);
+    }
+}
+
+// ======================================================================
+// FUNCTIONAL ELEMENTS
+// ======================================================================
+
+a {
+    color: var(--accent1);
+    text-decoration: underline;
+}
+
+a.styled-link {
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+
+    &:not(.mini-header) {
+        color: inherit;
+    }
+}
+
+a.active,
+label.active {
+    color: var(--accent1) !important;
+    font-weight: bold;
+}
+
+details[open]>summary {
+    font-weight: bold;
+}
+
+summary {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    user-select: none;
+}
+
+input,
+button,
+select {
+    color: inherit;
+    font: inherit;
+    caret-color: currentColor;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+::placeholder {
+    color: inherit !important;
+    opacity: 0.8 !important;
+}
+
+// ======================================================================
+// HEADERS 
+// ======================================================================
+
+.mini-header,
+.attribution {
+    font-weight: 600;
+    font-size: var(--step--1);
+    letter-spacing: 0.0625em;
+    color: var(--text2);
+}
+
+.mini-header {
+    text-transform: uppercase;
+    color: var(--text3);
+}
+
+.attribution {
+    margin: 0.5rem 0;
+
+    p {
+        font: inherit !important;
+        color: inherit;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-block: var(--h-size, 1rem) 0;
+    font-size: var(--h-size, 1rem);
+    font-weight: 700;
+    letter-spacing: .05em;
+    line-height: 1.75;
+}
+
+h1 {
+    margin: 0;
+}
+
+h1 {
+    --h-size: var(--step-6);
+}
+
+h2 {
+    --h-size: var(--step-5);
+}
+
+h3 {
+    --h-size: var(--step-4);
+}
+
+h4 {
+    --h-size: var(--step-3);
+}
+
+h5 {
+    --h-size: var(--step-2);
+}
+
+h6 {
+    --h-size: var(--step-1);
+}
+
+// article table {
+//     background: var(--surface1);
+//     border-radius: 1rem;
+//     caption-side: bottom;
+//     text-align: left;
+//     border-collapse: collapse;
+
+//     thead th {
+//         color: var(--text2);
+//         font-weight: 500;
+//     }
+
+//     th,
+//     td {
+//         padding: 1rem;
+//     }
+// }
+
+hgroup {
+    * {
+        line-height: normal;
+    }
+
+    p {
+        font-size: var(--step-2);
+        color: var(--text3);
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+// ======================================================================
+// LISTS
+// ======================================================================
+
+::marker {
+    color: var(--accent1);
+}
+
+// ======================================================================
+// TABLES
+// ======================================================================
+
+table {
+    text-align: left;
+    width: 100%;
+}
+
+th,
+td {
+    padding-block: 0.5rem;
+    padding-inline: 0.5rem; // 0.5rem or 1rem
+}
+
+// Brings elements to the edge
+table.cut-padding tr {
+    *:first-child {
+        padding-left: 0;
+    }
+
+    *:last-child {
+        padding-right: 0;
+    }
+}
+
+// Separator lines default
+table.lines tbody tr {
+    border-top: 1px solid var(--surface2);
+}
+
+// Stripes default
+table.stripes tbody tr:nth-of-type(2n + 1)>* {
+    background: var(--surface1);
+}
+
+@for $i from 1 through 3 {
+
+    // Separator lines auto adjust to a higher surface color than the background
+    :is(table.surface#{$i}.lines, .surface#{$i} table.lines) tbody tr {
+        border-top: 1px solid var(--surface#{$i+2});
+    }
+
+    // Stripes auto adjust
+    :is(table.surface#{$i}.stripes, .surface#{$i} table.stripes) tbody tr:nth-of-type(2n + 1)>* {
+        background: var(--surface#{$i+1});
+    }
+
+    // Instead of BG on table, apply BG to td & th
+    table.surface#{$i} {
+        background: unset;
+
+        td,
+        th {
+            background: var(--surface#{$i});
+        }
+    }
+}
+
+table.rounded {
+    border-radius: unset !important;
+
+    thead tr>*:first-child,
+    thead.visually-hidden+tbody tr:first-of-type>*:first-child {
+        border-top-left-radius: 1rem;
+    }
+
+    thead tr *:last-child,
+    thead.visually-hidden+tbody tr:first-of-type>*:last-child {
+        border-top-right-radius: 1rem;
+    }
+
+    tbody tr:last-of-type>*:first-child {
+        border-bottom-left-radius: 1rem;
+    }
+
+    tbody tr:last-of-type>*:last-child {
+        border-bottom-right-radius: 1rem;
+    }
+}

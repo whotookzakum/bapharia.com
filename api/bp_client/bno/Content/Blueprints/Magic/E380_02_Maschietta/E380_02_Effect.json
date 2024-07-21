@@ -1,0 +1,1956 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "E380_02_Effect",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBProjectileInfo'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "BallShoot_Regular": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Vaper.PS_SMA_SmashBall_Vaper",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": false,
+            "bIsLinkDestroy": false,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": false,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_MZL.PS_SMA_SmashBall_MZL",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_BallShot_Shot'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_Shot.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Smasher_BallShot_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_BallShot_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_BallShot_Hit_Start'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_Hit_Start.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Hit.PS_SMA_SmashBall_Hit",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Smasher_BallShot_Ground_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_Ground_Hit.1"
+                },
+                "Switch": [],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Hit.PS_SMA_SmashBall_Hit",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "JudgementHammer_GroundRaise": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": false,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_JudgementHammer_Groundhit.PS_SMA_JudgementHammer_Groundhit",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "Root_J",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/BPC_EF_SMA_JudgementHammer.BPC_EF_SMA_JudgementHammer_C",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "Root_J",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": true
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "BallShoot_GraivtyDive": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_GravityDive_Ball.PS_SMA_GravityDive_Ball",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": false,
+            "bIsLinkDestroy": false,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": false,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_BallShot_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_GravityDive_MZL2.PS_SMA_GravityDive_MZL2",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::Inventory0",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_GravityDive_BallShot'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_GravityDive_BallShot.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Stop_Smasher_BallShot_LOOP'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_BallShot_LOOP.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Hit.PS_SMA_SmashBall_Hit",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::HitActorNormal",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [
+            {
+              "SurfaceType": "SurfaceType_Default",
+              "HitParticle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Hit.PS_SMA_SmashBall_Hit",
+                "SubPathString": ""
+              },
+              "HitActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "AkEventSwitch": {
+                "Event": {
+                  "ObjectName": "AkAudioEvent'Play_Smasher_BallShot_Ground_Hit'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_Ground_Hit.1"
+                },
+                "Switch": [],
+                "LOD": "ESBAkEventLOD::LOD_Infinity",
+                "DelayTime": 0.0
+              }
+            }
+          ],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_SmashBall_Hit.PS_SMA_SmashBall_Hit",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "None",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "HealBullet": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": false,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_HealBullet_Smoke.PS_SMA_HealBullet_Smoke",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/BPC_EF_SMA_HealBullet.BPC_EF_SMA_HealBullet_C",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_HealBullet_Shot_EFF'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_HealBullet_Shot_EFF.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_HealRain_HIT.PS_BLS_HealRain_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::SocketPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "TAG_Beam",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "EarthQuake_GroundRaise": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": false,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Demo/SEQ_MAV101_010_010_bc020/PS_DEM_DustSmoke_B_02.PS_DEM_DustSmoke_B_02",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/BPC_EF_SMA_EatrthQuake.BPC_EF_SMA_EatrthQuake_C",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Summon_Meteo_Impact'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Magician/Play_Summon_Meteo_Impact.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_EarthQuake_Hit04_Explo'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_EarthQuake_Hit04_Explo.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_HealRain_HIT.PS_BLS_HealRain_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::SocketPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "TAG_Beam",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "EarthQuake_StonePebbles": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": false,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Demo/SEQ_MAV101_010_010_bc020/PS_DEM_DustSmoke_B_02.PS_DEM_DustSmoke_B_02",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/BPC_EF_SMA_EatrthQuake_StonePebbles.BPC_EF_SMA_EatrthQuake_StonePebbles_C",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "/Game/Effect/Particle/Player/Blaster/PS_BLS_HealRain_HIT.PS_BLS_HealRain_HIT",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::SocketPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "TAG_Beam",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      },
+      "RockNeedle": {
+        "MainEffectConfig": {
+          "DelayTime": 0.0,
+          "ParticleParam": {
+            "bIsEnable": true,
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_RockNeddle_Blt.PS_SMA_RockNeddle_Blt",
+              "SubPathString": ""
+            },
+            "SimulatedParticle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": true,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "Root_J",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsAutoDestroy": true,
+            "bIsLinkDestroy": true,
+            "bIsDisableAutoDestroyWhenProjectileDestroy": false,
+            "InitialScale": 1.0,
+            "bIsNotInheritanceScale": false,
+            "OverrideEColor": "ESBEColorOverride::None"
+          },
+          "EffectActorParam": {
+            "bIsEnable": true,
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "bIsAttach": false,
+            "AttachTargetType": "EProjectileEffectAttachTargetType::Owner",
+            "AttachPointName": "None",
+            "Offset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsLinkDestroyOnAttached": true,
+            "bIsLinkDestroy": false
+          },
+          "bIsNotifyWhenGroundHit": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ShapeEffectParam": {
+            "ShapeSoundType": "ESBShapeSoundType::None",
+            "CircleEffectParam": {
+              "CircleRadius": 0.0,
+              "CircleSoundOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              }
+            }
+          }
+        },
+        "MuzzleEffectConfig": {
+          "bIsGenerateMuzzleEffect": true,
+          "MuzzleEffect": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsAttach": false,
+          "SpawnType": "EMuzzleEffectSpawnPosType::SpawnPos",
+          "SpawnRotType": "EMuzzleEffectSpawnRotType::ProjectileDir",
+          "SocketName": "None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": {
+              "ObjectName": "AkAudioEvent'Play_Smasher_RockNeedle_Muzzle'",
+              "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RockNeedle_Muzzle.1"
+            },
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SelfDeadEffectConfig": {
+          "bIsGenerateSelfDeadEffect": true,
+          "SelfDeadParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateDurabilityZeroEffect": false,
+          "DurabilityZeroParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnRotType": "ESelfDeadEffectSpawnRotType::ProjectileDir",
+          "RotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsReverseRotation": false,
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "HitEffectConfig": {
+          "bIsGenerateHitEffect": true,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "SpawnType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "HitEffectOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsEnableHitPositionGround": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "HitActorParameterName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "GroundHitEffectConfig": {
+          "bIsGenerateGroundHitEffect": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "bIsReverseRotation": false,
+          "HitActorSocketName": "None",
+          "InitialScale": 1.0,
+          "bIsNotInheritanceScale": true,
+          "SwitchEffect": [],
+          "bIsNotExistPlayDefault": true
+        },
+        "ShieldHitEffectConfig": {
+          "bIsGenerateHitEffect": false,
+          "HitParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "InitialScale": 0.0,
+          "bIsNotInheritanceScale": false,
+          "AkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "SpawnFoliageReactions": [],
+        "BeamEffectConfig": {
+          "BeamType": "ESBProjectileBeamDirectingType::BeamModule",
+          "TargetVectorName": "TAG_Beam",
+          "BeamParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "BeamEndParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsGenerateImpactPointParticle": false,
+          "ImpactPointParticle": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImpactPointActor": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "bIsDeactivateImpactPointParticle": false,
+          "ImpactStartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "ImpactEndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "BeamImpactTrailConfig": {
+            "bIsTrailDecal": false,
+            "DecalMaterial": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "PaintDecalLength": 50.0,
+            "PaintDecalOffsetRot": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "PaintDecalSize": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "PaintDecalLifeTime": 5.0
+          },
+          "StartAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          },
+          "EndAkEventSwitch": {
+            "Event": null,
+            "Switch": [],
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "DelayTime": 0.0
+          }
+        },
+        "ProjectileVisibleType": "ESBProjectileEffectVisibleType::Battle_Projectile",
+        "bIsChangeLightingChannel": false
+      }
+    }
+  }
+]

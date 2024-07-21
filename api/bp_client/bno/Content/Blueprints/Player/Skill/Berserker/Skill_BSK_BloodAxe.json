@@ -1,0 +1,377 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BSK_BloodAxe_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBerserkerBloodAxeSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BSK_BloodAxe_C'Default__Skill_BSK_BloodAxe_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_BloodAxe.1"
+    }
+  },
+  {
+    "Type": "Skill_BSK_BloodAxe_C",
+    "Name": "Default__Skill_BSK_BloodAxe_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_BloodAxe.Skill_BSK_BloodAxe_C'",
+    "Properties": {
+      "StatusRowHandle": {
+        "DataTable": {
+          "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+        },
+        "RowName": "BloodAxe_Self"
+      },
+      "DamageUpSettingList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 723
+              },
+              "PassiveArtsID": {
+                "ID": 107023
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::RemainHitPointRate",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 100.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": 110.0
+        }
+      ],
+      "SkillName": "BloodAxe",
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 723
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+                  },
+                  "RowName": "BloodAxe_Self"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 723
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+                  },
+                  "RowName": "BloodAxe_Self"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 723
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+                  },
+                  "RowName": "BloodAxe_Self"
+                }
+              },
+              {
+                "UseSlotIndex": 1,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+                  },
+                  "RowName": "BloodAxe_HpHeal"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/SingleAction/SM_FFF_SingleAction.SM_FFF_SingleAction",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Berserker/BloodAxe/AST_BSK_BloodAxe.AST_BSK_BloodAxe",
+        "SubPathString": ""
+      },
+      "RecastTime": 35.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -5.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 723
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "StatusAlimentHandleList": [
+        {
+          "DataTable": {
+            "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+          },
+          "RowName": "BloodAxe_Self"
+        }
+      ],
+      "CastApplyStatusAlimentIndexList": [
+        0
+      ],
+      "StatusAilmentEffectiveTimeModifyList": [
+        {
+          "StatusAilmentIndex": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 723
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ModifyRate": 25
+        }
+      ],
+      "CastApplyStatusAilmentList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 723
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+              },
+              "RowName": "BloodAxe_HpHeal"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        }
+      ]
+    }
+  }
+]

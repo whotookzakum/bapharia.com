@@ -1,0 +1,851 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_BP_PlayerLevelStartSequence_CheckEndExpedition",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Owner",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_CustomEvent_Loaded",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction'SBPlayerExpeditionComponent:OnCompleted_EndCheck__DelegateSignature'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "Temp_object_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetSBPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerController'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetFang_expeditionComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerExpeditionComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsCityCurrentMapLevel_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_GetCurrentMapLevelInfo_OutMapLevelInfo",
+        "Flags": "RF_Public",
+        "ElementSize": 128,
+        "Struct": {
+          "ObjectName": "ScriptStruct'SBMapLevelInfo'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetCurrentMapLevelInfo_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsStandalone_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanOR_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_CustomEvent_WasSuccessful",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_ErrorCode",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "K2Node_CustomEvent_IdCount",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_BooleanAND_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Conv_SoftObjectReferenceToObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValidSoftObjectReference_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBText_Table_Asset",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBTextTableAsset'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction'KismetSystemLibrary:OnAssetLoaded__DelegateSignature'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "Start",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBPlayerLevelStartSequenceTaskBase:Start'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Owner",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "CompleteWork",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "WasSuccessful",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "ErrorCode",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "IdCount",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "FinishSequence",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnLoaded_D99C7E054941241745424DB27741E175",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "Loaded",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "GetDescription",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBPlayerLevelStartSequenceTaskBase:GetDescription'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ChildProperties": [
+      {
+        "Type": "StrProperty",
+        "Name": "ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "Parm | OutParm | ReturnParm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetMessage",
+    "Outer": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "ExpeditionComponent",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerExpeditionComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TableObject",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "PropertyClass": {
+          "ObjectName": "Class'SBTextTableAsset'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "HUD",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnTemplate",
+        "PropertyClass": {
+          "ObjectName": "Class'HUD'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Loop_Counter_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Add_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "Temp_int_Array_Index_Variable",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetTextFromAsset_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetTextFromAsset_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Conv_SoftObjectReferenceToObject_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "K2Node_DynamicCast_AsSBText_Table_Asset",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBTextTableAsset'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "InterfaceProperty",
+        "Name": "K2Node_DynamicCast_AsSBNotify_Message_Interface",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "InterfaceClass": {
+          "ObjectName": "Class'SBNotifyMessageInterface'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_DynamicCast_bSuccess_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetSBPlayerController_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerController'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetSBPlayerController_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerController'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetFang_expeditionComponent_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerExpeditionComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetFang_expeditionComponent_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerExpeditionComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetEndCheckData_IdList",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StrProperty",
+          "Name": "CallFunc_GetEndCheckData_IdList",
+          "Flags": "RF_Public",
+          "ElementSize": 16
+        }
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "CallFunc_GetEndCheckData_NameList",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StrProperty",
+          "Name": "CallFunc_GetEndCheckData_NameList",
+          "Flags": "RF_Public",
+          "ElementSize": 16
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetHUD_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'HUD'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Array_Get_Item",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_Replace_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "K2Node_MakeStruct_FormatArgumentData",
+        "Flags": "RF_Public",
+        "ElementSize": 64,
+        "Struct": {
+          "ObjectName": "ScriptStruct'FormatArgumentData'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue_2",
+        "Flags": "RF_Public",
+        "ElementSize": 24
+      },
+      {
+        "Type": "ArrayProperty",
+        "Name": "K2Node_MakeArray_Array",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ReferenceParm",
+        "Inner": {
+          "Type": "StructProperty",
+          "Name": "K2Node_MakeArray_Array",
+          "Flags": "RF_Public",
+          "ElementSize": 64,
+          "Struct": {
+            "ObjectName": "ScriptStruct'FormatArgumentData'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Format_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Properties": {
+      "UberGraphFunction": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:ExecuteUbergraph_BP_PlayerLevelStartSequence_CheckEndExpedition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'SBPlayerLevelStartSequenceTaskBase'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:SetMessage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.6"
+      },
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:GetDescription'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.5"
+      },
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:OnLoaded_D99C7E054941241745424DB27741E175'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.4"
+      },
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:FinishSequence'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.3"
+      },
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:CompleteWork'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.2"
+      },
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:Start'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.1"
+      },
+      {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:ExecuteUbergraph_BP_PlayerLevelStartSequence_CheckEndExpedition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "Remain Time",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "Struct": {
+          "ObjectName": "ScriptStruct'Timespan'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      },
+      {
+        "Type": "SoftObjectProperty",
+        "Name": "TextTable",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 48,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'SBTextTableAsset'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "TempObject",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "Edit | BlueprintVisible | DisableEditOnInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Object'",
+          "ObjectPath": "/Script/CoreUObject"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_BP_PlayerLevelStartSequence_CheckEndExpedition": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:ExecuteUbergraph_BP_PlayerLevelStartSequence_CheckEndExpedition'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.0"
+      },
+      "Start": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:Start'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.1"
+      },
+      "CompleteWork": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:CompleteWork'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.2"
+      },
+      "FinishSequence": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:FinishSequence'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.3"
+      },
+      "OnLoaded_D99C7E054941241745424DB27741E175": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:OnLoaded_D99C7E054941241745424DB27741E175'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.4"
+      },
+      "GetDescription": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:GetDescription'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.5"
+      },
+      "SetMessage": {
+        "ObjectName": "Function'BP_PlayerLevelStartSequence_CheckEndExpedition_C:SetMessage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.6"
+      }
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PlayerLevelStartSequence_CheckEndExpedition_C'Default__BP_PlayerLevelStartSequence_CheckEndExpedition_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.8"
+    }
+  },
+  {
+    "Type": "BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Name": "Default__BP_PlayerLevelStartSequence_CheckEndExpedition_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerLevelStartSequence_CheckEndExpedition.BP_PlayerLevelStartSequence_CheckEndExpedition_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "Remain Time": {
+        "Ticks": 0
+      },
+      "TextTable": {
+        "AssetPathName": "/Game/Text/Fang_expedition.Fang_expedition",
+        "SubPathString": ""
+      }
+    }
+  }
+]

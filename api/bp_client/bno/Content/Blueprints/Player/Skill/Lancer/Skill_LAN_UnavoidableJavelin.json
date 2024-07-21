@@ -1,0 +1,95 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_LAN_UnavoidableJavelin_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBLancerSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_LAN_UnavoidableJavelin_C'Default__Skill_LAN_UnavoidableJavelin_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/Skill_LAN_UnavoidableJavelin.1"
+    }
+  },
+  {
+    "Type": "Skill_LAN_UnavoidableJavelin_C",
+    "Name": "Default__Skill_LAN_UnavoidableJavelin_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/Skill_LAN_UnavoidableJavelin.Skill_LAN_UnavoidableJavelin_C'",
+    "Properties": {
+      "bHideSpearByLaunchProjectile": true,
+      "SkillName": "UnavoidableJavelin",
+      "bIsSpecial": true,
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Lancer/UnavoidableJavelin/SM_LAN_UnavoidableJavelin.SM_LAN_UnavoidableJavelin",
+        "SubPathString": ""
+      },
+      "RecastTime": 160.0,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillCastCount",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'LancerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/LancerProjectileConfigInfo.0"
+              },
+              "RowName": "UnavoidableJavelin_Javelin"
+            }
+          ]
+        }
+      ],
+      "CastApplyStatusAilmentList": [
+        {
+          "ConditionList": [],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'LancerStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/LancerStatusAlimentConfig.0"
+              },
+              "RowName": "UnavoidableJavelinBaff"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        }
+      ]
+    }
+  }
+]

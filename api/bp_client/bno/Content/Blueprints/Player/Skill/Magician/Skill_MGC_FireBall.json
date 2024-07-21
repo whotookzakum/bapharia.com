@@ -1,0 +1,977 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_MGC_FireBall_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBMagicianFireBallSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_MGC_FireBall_C'Default__Skill_MGC_FireBall_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_FireBall.1"
+    }
+  },
+  {
+    "Type": "Skill_MGC_FireBall_C",
+    "Name": "Default__Skill_MGC_FireBall_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_FireBall.Skill_MGC_FireBall_C'",
+    "Properties": {
+      "ChargeSkillSetting": {
+        "LevelSettingList": [
+          {
+            "ChargeTime": 0.0,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1103
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_1a_FireBall_Lv1_CHG.PS_MGC_1a_FireBall_Lv1_CHG",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Play_Magician_SKL_A_Fire01_Ready.Play_Magician_SKL_A_Fire01_Ready",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Projectile_Shoot",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [
+              {
+                "DataTable": {
+                  "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+                },
+                "RowName": "Fireball"
+              }
+            ],
+            "ProjectileChangeConditionList": [
+              {
+                "ChangeProjectileIndex": 0,
+                "ChangeConditionList": [
+                  {
+                    "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                    "ActiveArtsID": {
+                      "ID": 0
+                    },
+                    "PassiveArtsID": {
+                      "ID": 111031
+                    },
+                    "AttackID": {
+                      "AttackID": 0
+                    },
+                    "IntValue": 0,
+                    "FloatValue": 0.0,
+                    "NameValue": "None",
+                    "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                    "BattleStatusRowHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                    "AbilityFlagList": [],
+                    "OnlyPlayerStatusList": [],
+                    "ElementType": "ESBAttribute::None",
+                    "SkillType": "ESBPlayerSkillActionType::None",
+                    "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                    "bNot": false
+                  }
+                ],
+                "ChangeProjectileHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+                  },
+                  "RowName": "Fireball_HitStop"
+                }
+              }
+            ]
+          },
+          {
+            "ChargeTime": 0.6,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1103
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_1a_FireBall_Lv2_CHG.PS_MGC_1a_FireBall_Lv2_CHG",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Play_Magician_SKL_A_Fire01_Ready_Loop.Play_Magician_SKL_A_Fire01_Ready_Loop",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Stop_Magician_SKL_A_Fire01_Ready_Loop.Stop_Magician_SKL_A_Fire01_Ready_Loop",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Projectile_Shoot",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [
+              {
+                "DataTable": {
+                  "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+                },
+                "RowName": "FireballLv2"
+              }
+            ],
+            "ProjectileChangeConditionList": [
+              {
+                "ChangeProjectileIndex": 0,
+                "ChangeConditionList": [
+                  {
+                    "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                    "ActiveArtsID": {
+                      "ID": 0
+                    },
+                    "PassiveArtsID": {
+                      "ID": 111031
+                    },
+                    "AttackID": {
+                      "AttackID": 0
+                    },
+                    "IntValue": 0,
+                    "FloatValue": 0.0,
+                    "NameValue": "None",
+                    "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                    "BattleStatusRowHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                    "AbilityFlagList": [],
+                    "OnlyPlayerStatusList": [],
+                    "ElementType": "ESBAttribute::None",
+                    "SkillType": "ESBPlayerSkillActionType::None",
+                    "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                    "bNot": false
+                  }
+                ],
+                "ChangeProjectileHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+                  },
+                  "RowName": "Fireball_HitStopLv2"
+                }
+              }
+            ]
+          },
+          {
+            "ChargeTime": 0.8,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1103
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_1a_FireBall_Lv3_CHG.PS_MGC_1a_FireBall_Lv3_CHG",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Play_Magician_SKL_A_Fire01_Ready_L_Loop.Play_Magician_SKL_A_Fire01_Ready_L_Loop",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Stop_Magician_SKL_A_Fire01_Ready_L_Loop.Stop_Magician_SKL_A_Fire01_Ready_L_Loop",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Projectile_Shoot",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [
+              {
+                "DataTable": {
+                  "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+                },
+                "RowName": "FireballLv3"
+              }
+            ],
+            "ProjectileChangeConditionList": [
+              {
+                "ChangeProjectileIndex": 0,
+                "ChangeConditionList": [
+                  {
+                    "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                    "ActiveArtsID": {
+                      "ID": 0
+                    },
+                    "PassiveArtsID": {
+                      "ID": 111031
+                    },
+                    "AttackID": {
+                      "AttackID": 0
+                    },
+                    "IntValue": 0,
+                    "FloatValue": 0.0,
+                    "NameValue": "None",
+                    "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                    "BattleStatusRowHandle": {
+                      "DataTable": null,
+                      "RowName": "None"
+                    },
+                    "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                    "AbilityFlagList": [],
+                    "OnlyPlayerStatusList": [],
+                    "ElementType": "ESBAttribute::None",
+                    "SkillType": "ESBPlayerSkillActionType::None",
+                    "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                    "bNot": false
+                  }
+                ],
+                "ChangeProjectileHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+                  },
+                  "RowName": "Fireball_HitStopLv3"
+                }
+              }
+            ]
+          }
+        ],
+        "ChargeSpeedModifyList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1103
+                },
+                "PassiveArtsID": {
+                  "ID": 111013
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "IntValue": 20
+          }
+        ]
+      },
+      "MagicPoint": 25.0,
+      "MPCostModifyAmountSettingList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 111032
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": -5.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillChargeLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1103
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::LessOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": -10.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillChargeLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1103
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": -10.0
+        }
+      ],
+      "EnableElementAmp": true,
+      "SkillName": "MagicianFireBall",
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1103
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+                  },
+                  "RowName": "FireBall_ShortCharge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Magician/ChargeAction/SM_MGC_ChargeAction.SM_MGC_ChargeAction",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Magician/FireBall/AST_MGC_FireBall.AST_MGC_FireBall",
+        "SubPathString": ""
+      },
+      "bCancelSameSkill": true,
+      "bLaunchSkillPreInput": true,
+      "LaunchSkillPreInputTime": 0.3,
+      "RecastTime": 0.0001,
+      "bRemoveTurnActorRequest": true,
+      "CastApplyStatusAilmentList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1103
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillChargeLevel",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'MagicianStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianStatusAlimentConfig.0"
+              },
+              "RowName": "FireBall_ShortCharge"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        }
+      ],
+      "InActionEffectSettingList": [
+        {
+          "ConditionList": [],
+          "InActionEffectList": [
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_FireBall_Aura.PS_MGC_FireBall_Aura",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Magician/Play_Magician_Fire_ATK_Ready.Play_Magician_Fire_ATK_Ready",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorMesh",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "BoneSocketActor",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            },
+            {
+              "Particle": {
+                "AssetPathName": "/Game/Effect/Particle/Player/Magician/PS_MGC_CastCharge_Fire.PS_MGC_CastCharge_Fire",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorMesh",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": true,
+              "bDetachWhenDeactivate": true,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Battle_Production",
+              "EffectType": "ESBEffectType::Default"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

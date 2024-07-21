@@ -1,0 +1,144 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_RBL_GlitterMode_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBRebellionGlitterModeSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_RBL_GlitterMode_C'Default__Skill_RBL_GlitterMode_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_GlitterMode.1"
+    }
+  },
+  {
+    "Type": "Skill_RBL_GlitterMode_C",
+    "Name": "Default__Skill_RBL_GlitterMode_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_GlitterMode.Skill_RBL_GlitterMode_C'",
+    "Properties": {
+      "GlitterModeStatus": {
+        "DataTable": {
+          "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+        },
+        "RowName": "GlitterMode"
+      },
+      "EnergyAmoountMax": 10.0,
+      "GaugeBuffList": [
+        {
+          "DataTable": {
+            "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+          },
+          "RowName": "GlitterMode_GaugeBuff_1"
+        },
+        {
+          "DataTable": {
+            "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+          },
+          "RowName": "GlitterMode_GaugeBuff_2"
+        },
+        {
+          "DataTable": {
+            "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+          },
+          "RowName": "GlitterMode_GaugeBuff_3"
+        }
+      ],
+      "CastShieldDurabilityList": [
+        {
+          "ConditionList": [],
+          "FloatValue": 100.0
+        }
+      ],
+      "SkillName": "GlitterMode",
+      "bIsSpecial": true,
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1208
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+                  },
+                  "RowName": "GlitterMode_GaugeBuff_1"
+                }
+              },
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+                  },
+                  "RowName": "GlitterMode_GaugeBuff_2"
+                }
+              },
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+                  },
+                  "RowName": "GlitterMode_GaugeBuff_3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/SingleAction/SM_FFF_SingleAction.SM_FFF_SingleAction",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Rebellion/GlitterMode/AST_RBL_GlitterMode.AST_RBL_GlitterMode",
+        "SubPathString": ""
+      },
+      "RecastTime": 190.0
+    }
+  }
+]

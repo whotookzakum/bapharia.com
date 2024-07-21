@@ -1,0 +1,71 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BSK_RoundBlow_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBerserkerRoundBlowSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BSK_RoundBlow_C'Default__Skill_BSK_RoundBlow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_RoundBlow.1"
+    }
+  },
+  {
+    "Type": "Skill_BSK_RoundBlow_C",
+    "Name": "Default__Skill_BSK_RoundBlow_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_RoundBlow.Skill_BSK_RoundBlow_C'",
+    "Properties": {
+      "LoopStamina": 12.0,
+      "LoopStaminaModifyList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 711
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": -17.0
+        }
+      ],
+      "ConsumeComboAttackConsumeTiming": "ESBBerserkerConsumeComboTiming::StartSkill",
+      "SkillName": "RoundBlow",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Berserker/RoundBlow/SM_BSK_RoundBlow.SM_BSK_RoundBlow",
+        "SubPathString": ""
+      },
+      "RecastTime": 15.0
+    }
+  }
+]

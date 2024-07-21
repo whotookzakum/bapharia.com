@@ -1,0 +1,193 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Weapon_Staff_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Weapon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.0"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Weapon_Staff_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.8"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Weapon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.0"
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Weapon_Staff_C'Default__BP_Weapon_Staff_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.1"
+    }
+  },
+  {
+    "Type": "BP_Weapon_Staff_C",
+    "Name": "Default__BP_Weapon_Staff_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.BP_Weapon_Staff_C'",
+    "Template": {
+      "ObjectName": "BP_Weapon_C'Default__BP_Weapon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.1"
+    },
+    "Properties": {
+      "Collision": {
+        "ObjectName": "ASCollisionGroupComponent'Default__BP_Weapon_Staff_C:Collision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.2"
+      },
+      "Mesh": {
+        "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_Staff_C:Mesh'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.3"
+      },
+      "WeaponType": "ESBWeaponType::WeaponType_Staff",
+      "BattleScoreWeaponEffectParams": [
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Spot",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::RootComponent",
+          "AttachSocket": "None",
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 40.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 0.75,
+            "Y": 0.75,
+            "Z": 0.75
+          },
+          "bEnableSheathe": true,
+          "bEnableUnsheathe": true
+        },
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Aura",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::RootComponent",
+          "AttachSocket": "None",
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 40.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 0.75,
+            "Y": 0.75,
+            "Z": 0.75
+          },
+          "bEnableSheathe": false,
+          "bEnableUnsheathe": true
+        }
+      ],
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_Weapon_Staff_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.6"
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionGroupComponent",
+    "Name": "Collision",
+    "Outer": "Default__BP_Weapon_Staff_C",
+    "Class": "UScriptClass'ASCollisionGroupComponent'",
+    "Template": {
+      "ObjectName": "ASCollisionGroupComponent'Default__BP_Weapon_C:Collision'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.2"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Weapon_Staff_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.6"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsComponent",
+    "Name": "Mesh",
+    "Outer": "Default__BP_Weapon_Staff_C",
+    "Class": "UScriptClass'SBCharaPartsComponent'",
+    "Template": {
+      "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_C:Mesh'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.3"
+    },
+    "Properties": {
+      "BodyInstance": {
+        "MassInKgOverride": 44.672306
+      },
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Weapon_Staff_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.6"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "Mesh",
+    "Class": "UScriptClass'SBCharaPartsMaterial'",
+    "Template": {
+      "ObjectName": "SBCharaPartsMaterial'Default__BP_Weapon_C:Mesh.CharaPartsMaterial'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.4"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent_0",
+    "Outer": "BP_Weapon_Staff_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "TransformComponent",
+    "Outer": "Default__BP_Weapon_Staff_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_Weapon_C:TransformComponent'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.6"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Weapon_Staff_C:SceneComponent_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.5"
+      },
+      "VariableGuid": "96A44572-49C645E2-8BCC029B-B5F39564",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Weapon_Staff_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Weapon_Staff_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Staff.7"
+      }
+    }
+  }
+]

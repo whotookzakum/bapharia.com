@@ -1,0 +1,167 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PassiveSkill_BSK_InTheZone_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBerserkerInTheZonePassiveSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PassiveSkill_BSK_InTheZone_C'Default__PassiveSkill_BSK_InTheZone_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Berserker/PassiveSkill_BSK_InTheZone.1"
+    }
+  },
+  {
+    "Type": "PassiveSkill_BSK_InTheZone_C",
+    "Name": "Default__PassiveSkill_BSK_InTheZone_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/PassiveSkill/Berserker/PassiveSkill_BSK_InTheZone.PassiveSkill_BSK_InTheZone_C'",
+    "Properties": {
+      "EffectTime": 40.0,
+      "SettingList": [
+        {
+          "SkillLevel": 1,
+          "AddComboGaugeAmountRate": 4.0,
+          "AddMaxGaugeAmount": 20.0
+        },
+        {
+          "SkillLevel": 2,
+          "AddComboGaugeAmountRate": 8.0,
+          "AddMaxGaugeAmount": 40.0
+        },
+        {
+          "SkillLevel": 3,
+          "AddComboGaugeAmountRate": 12.0,
+          "AddMaxGaugeAmount": 60.0
+        },
+        {
+          "SkillLevel": 4,
+          "AddComboGaugeAmountRate": 16.0,
+          "AddMaxGaugeAmount": 80.0
+        },
+        {
+          "SkillLevel": 5,
+          "AddComboGaugeAmountRate": 20.0,
+          "AddMaxGaugeAmount": 100.0
+        }
+      ],
+      "AddGaugeAmountSkillPositionMap": [
+        {
+          "ESkillActionPosition::SAP_Skill1": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill2": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill3": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill4": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Special": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill5": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill6": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill7": 5.0
+        },
+        {
+          "ESkillActionPosition::SAP_Skill8": 5.0
+        }
+      ],
+      "EffectSettingList": [
+        {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_BSK_PassiveSkill_InTheZone'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Berserker/PS_BSK_PassiveSkill_InTheZone.279"
+          },
+          "NiagaraSystem": null,
+          "EffectActor": null,
+          "EffectActorList": [],
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Berserker_ClassAbility_InTheZone_Start'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserker_ClassAbility_InTheZone_Start.1"
+          },
+          "SoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EndSound": {
+            "ObjectName": "AkAudioEvent'Play_Berserker_ClassAbility_InTheZone_End'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserker_ClassAbility_InTheZone_End.1"
+          },
+          "EndSoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Infinity",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "CauserPlayerVoice": null,
+          "CauserPlayerVoiceParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EffectTarget": "EffectTarget_PlayerFaceMesh",
+          "ParticleScale": 1.0,
+          "LocationOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "RotationOffset": {
+            "Pitch": -90.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bAttach": true,
+          "bAbsoluteRotation": false,
+          "bDetachWhenDeactivate": false,
+          "bVisibleByHiddenSourceActor": false,
+          "AttachPointName": "L_eye_root",
+          "ActorParameterName": "bsk01",
+          "bOverrideLightingChannels": false,
+          "OverrideLightingChannels": {
+            "bChannel0": true,
+            "bChannel1": false,
+            "bChannel2": false
+          },
+          "bOverrideElementType": false,
+          "ElementType": "ESBAttribute::None",
+          "VisibleType": "ESBEffectVisibleType::Battle_ULTProduction",
+          "EffectType": "ESBEffectType::Default"
+        }
+      ]
+    }
+  }
+]

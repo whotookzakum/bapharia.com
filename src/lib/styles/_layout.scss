@@ -1,0 +1,252 @@
+main {
+    display: grid;
+    min-height: calc(100vh - var(--nav-height) - 345px);
+    min-height: calc(100dvh - var(--nav-height) - 345px);
+}
+
+.fullpage {
+    min-height: 100dvh;
+    margin-top: calc(var(--nav-height) * -1);
+    place-content: center;
+}
+
+.panes {
+    --gutter-y: 5rem;
+    --gutter-x: 2rem;
+    --text-length: 60ch;
+    --pane-column-gap: clamp(1rem, 2.8vw, 3rem);
+    width: 100%;
+    max-width: calc(var(--max-content-width) + var(--gutter-x) * 2);
+    display: grid;
+    grid-template-columns: var(--sidepane-width) auto;
+    padding: var(--gutter-y) var(--gutter-x);
+    margin-inline: auto;
+    column-gap: var(--pane-column-gap);
+}
+
+.side-pane,
+.toc {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--gutter-y));
+    font-size: var(--step-1);
+    letter-spacing: 0.02em;
+    align-self: start;
+
+    :is(a:not(.mini-header), summary):not(:hover) {
+        color: var(--text2);
+    }
+
+    nav,
+    nav ul,
+    ol {
+        display: grid;
+        gap: 0.5rem;
+    }
+
+    ul::before {
+        @extend .mini-header;
+    }
+
+    ol::before {
+        @extend .mini-header;
+        content: "Contents";
+    }
+
+    details[open]>summary {
+        color: var(--text1) !important;
+    }
+
+    details *:not(summary) {
+        font-size: var(--step-0);
+    }
+
+    nav a {
+        width: fit-content;
+    }
+}
+
+.toc {
+    grid-column: 2;
+    grid-row: 1/-1;
+}
+
+.main-pane {
+    display: grid;
+    grid-template-columns: 1fr var(--sidepane-width);
+    grid-template-rows: auto auto;
+    column-gap: var(--pane-column-gap) !important;
+    align-content: start;
+    font-size: var(--step-2);
+
+    &>*:not(.toc, .col-2) {
+        grid-column: 1;
+    }
+
+    hgroup {
+        margin-bottom: 2rem;
+
+        &>p:not(:first-of-type, .attribution) {
+            margin-block: 0.5rem 1rem;
+        }
+    }
+
+    hgroup .mini-header {
+        order: 1;
+        color: var(--accent2);
+        line-height: unset;
+        margin-bottom: 2px;
+    }
+
+    // TODO: Should I re-order the markup so h1 comes before p.mini-header?
+
+    hgroup>*:not(.mini-header) {
+        order: 2;
+    }
+
+    p:not(.mini-header, .attribution) {
+        line-height: 1.75;
+        font-size: inherit;
+        letter-spacing: 0.02em;
+        max-inline-size: var(--text-length);
+        text-wrap: pretty;
+    }
+
+    section p {
+        margin-block: 1em;
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+
+    section>img,
+    figure img,
+    video,
+    iframe {
+        margin-top: 1rem;
+        border-radius: 1rem;
+    }
+
+    table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1150px) {
+    .main-pane {
+        grid-template-columns: 1fr;
+
+        * {
+            order: 3;
+        }
+
+        hgroup {
+            order: 1;
+        }
+    }
+
+    .side-pane,
+    .toc {
+        align-self: unset;
+    }
+
+    .toc {
+        grid-column: 1;
+        grid-row: unset;
+        order: 2;
+        position: unset;
+        margin-block: 1rem;
+
+        ol {
+            gap: 0;
+            margin-top: -1rem;
+        }
+
+        ol::before {
+            margin-bottom: 0.5rem;
+        }
+
+        li {
+            display: flex;
+        }
+
+        a {
+            padding-left: 1rem;
+            line-height: 1.75;
+            border-left: 2px solid var(--surface1);
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .panes {
+        grid-template-columns: 1fr;
+        --gutter-x: 1rem;
+    }
+
+    .main-pane,
+    .side-pane,
+    .toc {
+        font-size: var(--step-0);
+    }
+
+    // Shrink element icons on classes
+    hgroup img {
+        width: 30px;
+        height: auto;
+    }
+
+    .side-pane {
+        position: unset;
+        margin-bottom: var(--gutter-x);
+
+        nav>a::before {
+            content: "← Back to ";
+        }
+
+        nav ul {
+            display: none;
+        }
+    }
+}
+
+
+.ambience {
+    // Blob style
+    background: radial-gradient(140% 173% at 70% 65%,
+            rgba(20, 161, 255, 0.055),
+            transparent 30%),
+        radial-gradient(100% 140% at 30% 45%,
+            rgba(255, 20, 145, 0.035),
+            transparent 30%),
+        radial-gradient(180% 140% at 52.3% 31%,
+            rgba(0, 162, 255, 0.033),
+            transparent 30%),
+        radial-gradient(180% 140% at 52.3% 31%,
+            rgba(20, 255, 118, 0.035),
+            transparent 30%);
+
+    // Ambient spotlight
+    background: radial-gradient(140% 173% at 70% 65%,
+            hsla(308, 57%, 19%, 0.5),
+            transparent 30%),
+        radial-gradient(100% 140% at 30% 45%,
+            hsla(269, 45%, 23%, 0.5),
+            transparent 30%),
+        radial-gradient(180% 140% at 100% 100%,
+            hsla(248, 46%, 27%, 0.5),
+            transparent 30%),
+        radial-gradient(180% 140% at 0% 0%,
+            hsla(227, 61%, 26%, 0.5),
+            transparent 30%);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: 2.4s ease 1 forwards fadein;
+}

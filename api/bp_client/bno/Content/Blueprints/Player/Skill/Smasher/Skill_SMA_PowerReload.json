@@ -1,0 +1,333 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_SMA_PowerReload_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBSmasherPowerReloadSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_SMA_PowerReload_C'Default__Skill_SMA_PowerReload_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_PowerReload.1"
+    }
+  },
+  {
+    "Type": "Skill_SMA_PowerReload_C",
+    "Name": "Default__Skill_SMA_PowerReload_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_PowerReload.Skill_SMA_PowerReload_C'",
+    "Properties": {
+      "DamageUpRate": 35,
+      "DamageUpRateModifyConditionSettingList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1913
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "DamageUpRate": 5
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 119020
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "DamageUpRate": 30
+        }
+      ],
+      "ReloadSetting": {
+        "QuickReloadSettingList": [
+          {
+            "ConditionList": [],
+            "ReloadAddAmount": 2.0
+          }
+        ]
+      },
+      "DecreaseConsumeBoostCartridgeSetting": {
+        "ConditionList": [
+          {
+            "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+            "ActiveArtsID": {
+              "ID": 1913
+            },
+            "PassiveArtsID": {
+              "ID": 0
+            },
+            "AttackID": {
+              "AttackID": 0
+            },
+            "IntValue": 4,
+            "FloatValue": 0.0,
+            "NameValue": "None",
+            "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+            "BattleStatusRowHandle": {
+              "DataTable": null,
+              "RowName": "None"
+            },
+            "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+            "AbilityFlagList": [],
+            "OnlyPlayerStatusList": [],
+            "ElementType": "ESBAttribute::None",
+            "SkillType": "ESBPlayerSkillActionType::None",
+            "ArrayLogic": "ESBArrayLogicalOperator::AND",
+            "bNot": false
+          }
+        ],
+        "DecreaseConsumption": 1.0
+      },
+      "EffectOnWeaponBallSetting": {
+        "Particle": {
+          "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_PowerReload_Ball_B_loop.PS_SMA_PowerReload_Ball_B_loop",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_WeaponR_AdditionalMesh_0",
+        "VisibleType": "ESBEffectVisibleType::Battle_Production"
+      },
+      "SkillName": "SMA_PowerReload",
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1913
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'SmasherStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherStatusAlimentConfig.0"
+                  },
+                  "RowName": "PowerReload"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1913
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'SmasherStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherStatusAlimentConfig.0"
+                  },
+                  "RowName": "PowerReload"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1913
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'SmasherStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherStatusAlimentConfig.0"
+                  },
+                  "RowName": "PowerReload"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/PowerReload/SM_SMA_PowerReload.SM_SMA_PowerReload",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 60.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -20.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 119019
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "StatusAlimentHandleList": [
+        {
+          "DataTable": {
+            "ObjectName": "DataTable'SmasherStatusAlimentConfig'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherStatusAlimentConfig.0"
+          },
+          "RowName": "PowerReload"
+        }
+      ],
+      "CastApplyStatusAlimentIndexList": [
+        0
+      ],
+      "bHideCastLog": true
+    }
+  }
+]

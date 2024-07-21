@@ -1,0 +1,159 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_LAN_LightningAssault_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBLancerSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_LAN_LightningAssault_C'Default__Skill_LAN_LightningAssault_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/Skill_LAN_LightningAssault.1"
+    }
+  },
+  {
+    "Type": "Skill_LAN_LightningAssault_C",
+    "Name": "Default__Skill_LAN_LightningAssault_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Lancer/Skill_LAN_LightningAssault.Skill_LAN_LightningAssault_C'",
+    "Properties": {
+      "bCorrespondToPrepareStyle": true,
+      "SkillName": "LightningAssault",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Lancer/GloryAssault/SM_LAN_GloryAssault.SM_LAN_GloryAssault",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Lancer/LightningAssault/AST_LAN_LightningAssault.AST_LAN_LightningAssault",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 13.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -3.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 2018
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::LastSkillCastIndex",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'LancerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/LancerProjectileConfigInfo.0"
+              },
+              "RowName": "LightningAssault_AreaAttack"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::LastSkillCastIndex",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'LancerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P020_Lancer/LancerProjectileConfigInfo.0"
+              },
+              "RowName": "LightningAssault_RemainAttack"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

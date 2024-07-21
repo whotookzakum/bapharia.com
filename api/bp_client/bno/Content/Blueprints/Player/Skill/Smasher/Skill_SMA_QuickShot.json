@@ -1,0 +1,243 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_SMA_QuickShot_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBSmasherQuickShotSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_SMA_QuickShot_C'Default__Skill_SMA_QuickShot_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_QuickShot.1"
+    }
+  },
+  {
+    "Type": "Skill_SMA_QuickShot_C",
+    "Name": "Default__Skill_SMA_QuickShot_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_QuickShot.Skill_SMA_QuickShot_C'",
+    "Properties": {
+      "QuickShotChargeSetting": {
+        "LevelSettingList": [
+          {
+            "ChargeTime": 0.0,
+            "ChargeConditionList": [],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_QuickShot_Charge_LV1.PS_SMA_QuickShot_Charge_LV1",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_WeaponMesh_R",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Hammer_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [
+              {
+                "DataTable": {
+                  "ObjectName": "DataTable'SmasherProjectileConfigInfo'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherProjectileConfigInfo.0"
+                },
+                "RowName": "BallShoot_QuickShot_ChargeLv1"
+              }
+            ],
+            "ProjectileChangeConditionList": []
+          }
+        ]
+      },
+      "ApplySelfBuffChargeSectionAnimTag": "None",
+      "BallShootReturnMoveSpeed": 100000.0,
+      "bShowReturnBallEffect": false,
+      "ReturnBallEffectSetting": {
+        "VisibleType": "ESBEffectVisibleType::Battle_Production"
+      },
+      "bShowBallReturnTimingEffect": true,
+      "BallReturnTimingEffectSetting": {
+        "Particle": {
+          "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_QuickShot_BallSpawn.PS_SMA_QuickShot_BallSpawn",
+          "SubPathString": ""
+        },
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_END.Play_Smasher_BallShot_END",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_WeaponMesh_R",
+        "AttachPointName": "Hammer_J",
+        "VisibleType": "ESBEffectVisibleType::Battle_Weapon"
+      },
+      "BoostCartridgeAmountRequiredForCastSkillSettingList": [
+        {
+          "RequiredAmount": 3.0,
+          "ModifySettingList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 119341
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "RequiredAmount": 1.0
+            }
+          ]
+        }
+      ],
+      "SkillConsumeBoostCartridgeSettingList": [
+        {
+          "bAmountSetting": true,
+          "bRateSetting": false,
+          "ConsumptionAmount": 3.0,
+          "ConsumptionRate": 0.0,
+          "ModifySettingList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 119341
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "bAmountSetting": true,
+              "bRateSetting": false,
+              "ConsumptionAmount": 1.0,
+              "ConsumptionRate": 0.0
+            }
+          ]
+        }
+      ],
+      "bPlayShortageCartridgeSound": true,
+      "ShortageCartridgeSound": {
+        "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_NoCartridge.Play_Smasher_NoCartridge",
+        "SubPathString": ""
+      },
+      "SkillName": "SMA_QuickShot",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/QuickShot/SM_SMA_QuickShot.SM_SMA_QuickShot",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/QuickShot/SM_SMA_QuickShot_AimOffset.SM_SMA_QuickShot_AimOffset",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 13.0,
+      "bHideCastLog": true
+    }
+  }
+]

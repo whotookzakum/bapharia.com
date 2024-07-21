@@ -1,0 +1,75 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_AbsoluteDefenseCommonBase_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBAbsoluteDefenseSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_AbsoluteDefenseCommonBase_C'Default__Skill_AbsoluteDefenseCommonBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/ContentAction/Skill_AbsoluteDefenseCommonBase.1"
+    }
+  },
+  {
+    "Type": "Skill_AbsoluteDefenseCommonBase_C",
+    "Name": "Default__Skill_AbsoluteDefenseCommonBase_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/ContentAction/Skill_AbsoluteDefenseCommonBase.Skill_AbsoluteDefenseCommonBase_C'",
+    "Properties": {
+      "AddGaugeAmountOnHate": 0.2,
+      "AddGaugeAmountOnGiveDamagePercent": 0.003,
+      "AddGaugeAmountOnHealPercent": 0.05,
+      "AddGaugeAmountOnSucceededDodgeAttackHit": 1.0,
+      "AddGaugeAmountOnBreakActionSuccess": [
+        20.0,
+        10.0,
+        8.0,
+        6.0,
+        4.0,
+        2.0
+      ],
+      "SuccessEffect": {
+        "Particle": {
+          "AssetPathName": "/Game/Effect/Particle/Player/ContentAction/PS_CNT_ADef_Hit.PS_CNT_ADef_Hit",
+          "SubPathString": ""
+        },
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/Play_Just_Escape.Play_Just_Escape",
+          "SubPathString": ""
+        },
+        "SoundParam": {
+          "StopWhenOwnerDestroyed": false
+        },
+        "EndSoundParam": {
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Infinity"
+        },
+        "ParticleScale": 0.7,
+        "ActorParameterName": "BoneSocketActor",
+        "VisibleType": "ESBEffectVisibleType::Battle_Production"
+      },
+      "SkillName": "AbsoluteDefense",
+      "NeedParam": {
+        "bWalkingOnly": true,
+        "bNotifyWalkingOnly": false
+      },
+      "bImmediateStart": true,
+      "ImmediateStartForbidTags": [
+        "SheatheDodge",
+        "UnSheatheDodge"
+      ],
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/ContentAction/AbsoluteDefense/SM_C000_AbsoluteDefense.SM_C000_AbsoluteDefense",
+        "SubPathString": ""
+      }
+    }
+  }
+]

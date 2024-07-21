@@ -1,0 +1,4333 @@
+[
+  {
+    "Type": "DataTable",
+    "Name": "E380_02_Config",
+    "Class": "UScriptClass'DataTable'",
+    "Properties": {
+      "RowStruct": {
+        "ObjectName": "ScriptStruct'SBProjectileConfigInfo'",
+        "ObjectPath": "/Script/SkyBlue"
+      }
+    },
+    "Rows": {
+      "BallShoot_Regular": {
+        "ProjectileType": "EProjectileType::Straight",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorRoot",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::TargetDirection",
+          "SpawnSocketName": "Hammer_J",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::ScreenViewDirection",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": true,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": true,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 15.0,
+            "UpAngle": 15.0,
+            "DownAngle": 15.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 10.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": true,
+          "DestroyDistance": 1500.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": {
+              "ObjectName": "DataTable'E380_02_Config'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Config.0"
+            },
+            "RowName": "BallShoot_Finish"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": true
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "BallShoot_Regular"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [
+          {
+            "SetMesh": {
+              "AssetPathName": "/Game/Character/Weapon/WP/WP06/SK_CH_WP06_AA01/Model/SK_CH_WP06_AA01_ball.SK_CH_WP06_AA01_ball",
+              "SubPathString": ""
+            },
+            "Location": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "Rotation": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "Scale": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 1.0
+            },
+            "RotateSpeed": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bIsUseInstigatorActiveWeapon": false,
+            "bIsUseWeaponIndex": false
+          }
+        ],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": true,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 1.0,
+          "Radius": 1.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": false,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 40.0,
+              "ModifyRadiusList": [],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002005
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 4000.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 1000.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": false
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.1,
+          "HomingEndTime": 2.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 60.0,
+          "HomingCorrectionAngle2": 60.0,
+          "HomingEffectiveCorrectionAngle": 360.0,
+          "HomingEffectiveCorrectionAngle2": 360.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 1000.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "BallShoot_Finish": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::BySystem",
+          "SpawnRotType": "ESpawnRotType::None",
+          "DirectionType": "EProjectileDirection::BySystem",
+          "SpawnSocketName": "None",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": true,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.5,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 0.1,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": false,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": false,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": null,
+          "RowName": "None"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            },
+            {
+              "time": 1.0,
+              "OnOff": "ECollisionOnOff::Off"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 40.0,
+              "ModifyRadiusList": [],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 32.0,
+            "BeamCollisionLength": 32.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002006
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [
+          {
+            "DataTable": {
+              "ObjectName": "DataTable'E380_02_StatusAlimentConfig'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_StatusAlimentConfig.0"
+            },
+            "RowName": "GravityShot_Stun"
+          }
+        ],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 1000.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 1000.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingAcceleration",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 0.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 0.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": false,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 1000.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::NoTargetChange"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "JudgementHammer_GroundRaise_Lv1_2": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorSocket",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::TargetDirection",
+          "SpawnSocketName": "Hammer_J",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": true,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 2.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "JudgementHammer_GroundRaise"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": false,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": true,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            },
+            {
+              "time": 0.3,
+              "OnOff": "ECollisionOnOff::Off"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 250.0,
+              "ModifyRadiusList": [],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002008
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeHighRelative_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/BP_DmgTypeHighRelative.0"
+        },
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 0.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Play_Smasher_jumping_Hummer_Impact'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_jumping_Hummer_Impact.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "JudgementHammer_GroundRaise_Lv3": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorSocket",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::TargetDirection",
+          "SpawnSocketName": "Hammer_J",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": true,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 2.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": false,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "JudgementHammer_GroundRaise"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": false,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": true,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            },
+            {
+              "time": 0.3,
+              "OnOff": "ECollisionOnOff::Off"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [
+            {
+              "Radius": 300.0,
+              "ModifyRadiusList": [],
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002008
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeHighRelative_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/BP_DmgTypeHighRelative.0"
+        },
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 0.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Play_Smasher_jumping_Hummer_Impact'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_jumping_Hummer_Impact.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "EarthQuake_GroundRaise": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorSocket",
+          "SpawnRotType": "ESpawnRotType::None",
+          "DirectionType": "EProjectileDirection::TargetDirection",
+          "SpawnSocketName": "Root_J",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": false,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 0.25,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "EarthQuake_GroundRaise"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": false,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [
+            {
+              "MeshType": "ESBProjectileMeshCollisionType::Cylinder",
+              "CylinderSetting": {
+                "Radius": 1000.0,
+                "ModifyRadiusList": [],
+                "Height": 400.0
+              },
+              "CustomMeshCollision": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002014
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeHighRelative_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/BP_DmgTypeHighRelative.0"
+        },
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 0.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "EarthQuake_StonePebbles": {
+        "ProjectileType": "EProjectileType::Fix",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "None",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorSocket",
+          "SpawnRotType": "ESpawnRotType::None",
+          "DirectionType": "EProjectileDirection::TargetDirection",
+          "SpawnSocketName": "Root_J",
+          "SpawnOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 2000.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": false,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 3.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": false,
+          "DestroyDistance": 10000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": true,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "EarthQuake_StonePebbles"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": false,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 32.0,
+          "Radius": 32.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": false,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [
+            {
+              "time": 0.0,
+              "OnOff": "ECollisionOnOff::On"
+            }
+          ],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [],
+          "CapsuleArray": [],
+          "BoxArray": [],
+          "MeshArray": [
+            {
+              "MeshType": "ESBProjectileMeshCollisionType::Cylinder",
+              "CylinderSetting": {
+                "Radius": 1000.0,
+                "ModifyRadiusList": [],
+                "Height": 400.0
+              },
+              "CustomMeshCollision": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002015
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": {
+          "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeHighRelative_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/BP_DmgTypeHighRelative.0"
+        },
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 0.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": true
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 0.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": null,
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": true,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "RockNeedle_Right1": {
+        "ProjectileType": "EProjectileType::Straight",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "/Game/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.BP_PJ_SMA_RockNeedle_C",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorRoot",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::ProjectileDirection",
+          "SpawnSocketName": "Rot_J",
+          "SpawnOffset": {
+            "X": 75.0,
+            "Y": 225.0,
+            "Z": -80.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 500.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 10.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": true,
+          "DestroyDistance": 1000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": false,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "RockNeedle"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": true,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 1.0,
+          "Radius": 1.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [],
+          "CapsuleArray": [
+            {
+              "Radius": 75.0,
+              "Height": 250.0,
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 100.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002016
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 50.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": false
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 35.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [
+          {
+            "ChainMovementTrigger": {
+              "ChangeLabel": "None",
+              "ElapsedTime": 0.0,
+              "isChangeOnHomingTargetArrive": false,
+              "ArriveDist": 10.0,
+              "IncludeAnimTagArray": []
+            },
+            "ChainMovementParam": {
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+            }
+          }
+        ],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Play_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Stop_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Infinity",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "RockNeedle_Right2": {
+        "ProjectileType": "EProjectileType::Straight",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "/Game/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.BP_PJ_SMA_RockNeedle_C",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorRoot",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::ProjectileDirection",
+          "SpawnSocketName": "Rot_J",
+          "SpawnOffset": {
+            "X": 150.0,
+            "Y": 75.0,
+            "Z": -80.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 500.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 10.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": true,
+          "DestroyDistance": 1000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": false,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "RockNeedle"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": true,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 1.0,
+          "Radius": 1.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [],
+          "CapsuleArray": [
+            {
+              "Radius": 75.0,
+              "Height": 250.0,
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 100.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002016
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 50.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": false
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 35.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [
+          {
+            "ChainMovementTrigger": {
+              "ChangeLabel": "None",
+              "ElapsedTime": 0.0,
+              "isChangeOnHomingTargetArrive": false,
+              "ArriveDist": 10.0,
+              "IncludeAnimTagArray": []
+            },
+            "ChainMovementParam": {
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+            }
+          }
+        ],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Play_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Stop_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Infinity",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "RockNeedle_Left1": {
+        "ProjectileType": "EProjectileType::Straight",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "/Game/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.BP_PJ_SMA_RockNeedle_C",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorRoot",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::ProjectileDirection",
+          "SpawnSocketName": "Rot_J",
+          "SpawnOffset": {
+            "X": 75.0,
+            "Y": -225.0,
+            "Z": -80.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 500.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 10.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": true,
+          "DestroyDistance": 1000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": false,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "RockNeedle"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": true,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 1.0,
+          "Radius": 1.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [],
+          "CapsuleArray": [
+            {
+              "Radius": 75.0,
+              "Height": 250.0,
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 100.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002016
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 50.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": false
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 35.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [
+          {
+            "ChainMovementTrigger": {
+              "ChangeLabel": "None",
+              "ElapsedTime": 0.0,
+              "isChangeOnHomingTargetArrive": false,
+              "ArriveDist": 10.0,
+              "IncludeAnimTagArray": []
+            },
+            "ChainMovementParam": {
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+            }
+          }
+        ],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Play_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Stop_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Infinity",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      },
+      "RockNeedle_Left2": {
+        "ProjectileType": "EProjectileType::Straight",
+        "CustomProjectileTemplate": {
+          "AssetPathName": "/Game/Blueprints/Magic/P019_Smasher/BP_PJ_SMA_RockNeedle.BP_PJ_SMA_RockNeedle_C",
+          "SubPathString": ""
+        },
+        "NetworkSpawnType": "EProjectileNetworkSpawnType::AutoSetting",
+        "SpawnInfo": {
+          "SpawnType": "ESpawnType::ActorRoot",
+          "SpawnRotType": "ESpawnRotType::SameOwner",
+          "DirectionType": "EProjectileDirection::ProjectileDirection",
+          "SpawnSocketName": "Rot_J",
+          "SpawnOffset": {
+            "X": 150.0,
+            "Y": -75.0,
+            "Z": -80.0
+          },
+          "SpawnRotOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "SpawnTargetOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAttach": false,
+          "NonTargetAction": "EProjectileNonTargetAction::InvokerFront",
+          "NonTargetSpawnDistanceFront": 500.0,
+          "bIsPenetrateInObstacle": false,
+          "bIsDestroyInObstacle": false,
+          "isObstaclePushedBackToSpawner": true,
+          "bIsCheckGround": false,
+          "isDisalbeScreenViewDirectionObstacleAttackHit": false,
+          "isOnNaviMeshConnedtedFromOwner": false,
+          "bIsReacquireSpawnTransformOnLocal": false,
+          "Stability": {
+            "HorizontalHalfAngle": 0.0,
+            "VerticalHalfAngle": 0.0,
+            "bVerticalUpOnly": false
+          },
+          "ShotAngleLimit": {
+            "bIsEnable": false,
+            "BaseDirType": "EProjectileBaseDir::OwnerRotation",
+            "HalfAngle": 0.0,
+            "UpAngle": 0.0,
+            "DownAngle": 0.0
+          },
+          "MaxSpawnNum": 16,
+          "SpawnDelayTime": 0.0,
+          "bIsInheritanceInstigatorScale": false
+        },
+        "PostAttachConfig": {
+          "bIsSameRotatorFromAttach": false,
+          "bIsCauseHitAttach": false
+        },
+        "DestroyCondition": {
+          "bIsEnableLifeCheck": true,
+          "LifeTime": 10.0,
+          "AddLifeTimeList": [],
+          "bIsEnableDistanceCheck": true,
+          "DestroyDistance": 1000.0,
+          "DestroyDistanceAdjustList": [],
+          "bIsEnableHeightCheck": false,
+          "bIsEnableTotalDistance": false,
+          "DestroyTotalDistance": 0.0,
+          "bIsEnableGroundHitCheck": true,
+          "bIsEnableAliveAnimTag": false,
+          "AliveAnimTagArray": [],
+          "bIsDestroyTogeghterWithSpawner": false
+        },
+        "HealthConditionConfig": {
+          "HitPoint": 0.0,
+          "bIsChangeHitPoint": true
+        },
+        "IsTargetable": false,
+        "TargetClass": "ESBClassType::None",
+        "bIsTargetInstigatorPlayerOnly": false,
+        "bIsContinuousUpdateTargetInfo": false,
+        "SelfDeadChainConfig": {
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "HitChainConfig": {
+          "bIsGenerateAttackHit": true,
+          "bIsOnlyGenerateSBCharacterHit": false,
+          "bIsGenerateGroundHit": false,
+          "bIsGenerateBattleAreaWall": true,
+          "SpawnPosType": "EHitEffectSpawnPosType::HitPosition",
+          "SpawnPosOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "bIsAdjustGroundPos": false,
+          "SpawnRotType": "EHitEffectSpawnRotType::None",
+          "bIsReverseRotation": false,
+          "bIsExcludeHitFromChainHitActor": false,
+          "bIsRepeatChainOnAttackHit": false,
+          "PermitConditionList": [],
+          "HitActorSocketName": "None",
+          "TargetSelectRule": "EProjectileHitChainChangeTarget::InheritanceTarget",
+          "ProjectileConfigHandle1": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "ProjectileConfigHandle2": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "bIsGenerate": false
+        },
+        "OrderedChainConfigList": [],
+        "EffectTableHandle": {
+          "DataTable": {
+            "ObjectName": "DataTable'E380_02_Effect'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E380_02_Maschietta/E380_02_Effect.0"
+          },
+          "RowName": "RockNeedle"
+        },
+        "ConditionCheckEffectTableHandle": [],
+        "MeshConfigList": [],
+        "SummonImagineConfig": {
+          "SummonImagineCharacter": {
+            "AssetPathName": "None",
+            "SubPathString": ""
+          },
+          "ImagineCharacterOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "SummonImagineCCD": null
+        },
+        "SplashSize": "ESBProjectileSplashSize::Small",
+        "NamePlateWidget": null,
+        "CameraShakeList": [],
+        "CameraShakeLimitDistance": 0.0,
+        "bIsCameraShakeAllPlayer": false,
+        "GroundCollisionConfig": {
+          "bIsEnableGroundCollision": true,
+          "bIsUseBImagineCollisionPreset": false,
+          "HalfHeight": 1.0,
+          "Radius": 1.0
+        },
+        "CollisionConfig": {
+          "bEnableAttack": true,
+          "bEnableDamaged": false,
+          "bIsUseDamagedCollisionAsBlocking": false,
+          "bDisablePartsHit": false,
+          "HitSetting": {
+            "bIsDisableSelfHit": true,
+            "bIsOnlyTargetHit": false,
+            "bIsInfinitePierce": true,
+            "bIsEnableBlockingHitCheck": true,
+            "bIsEnableHitCover": true,
+            "HitCoverConfig": {
+              "bIsExclusiveSpawner": false
+            },
+            "bIsHitTargetLimitOnlyOverlap": false,
+            "bIsDisableReHitDelay": false,
+            "bIsShareHit": false,
+            "ShareHitConfig": {
+              "ShareHitTime": 0.1,
+              "ShareGroup": "EProjectileShareGroup::None",
+              "bIsIndependentBySpawner": false
+            },
+            "bIsEnableHitForCharacterGround": false,
+            "bIsEnableHitFromGroundDist": false,
+            "EnableHitFromGroundDist": 0.0,
+            "bIsHitOnlyFirstFrame": false,
+            "bIsEnableWeakPointHit": false
+          },
+          "CollisionScaleVector": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "ScaleVectorFromZero": false,
+          "CollisionScaleCurve": null,
+          "CollisionOnOffDataList": [],
+          "bIsUseImpactPointExecAttackHit": false
+        },
+        "CollisionShape": {
+          "SphereArray": [],
+          "CapsuleArray": [
+            {
+              "Radius": 75.0,
+              "Height": 250.0,
+              "Location": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 100.0
+              },
+              "Rotation": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "SpecificUseType": "ESBProjectileCollisionSpecificUseType::Default",
+              "SpecificGroup": "ESBProjectileCollisionSpecificGroup::None"
+            }
+          ],
+          "BoxArray": [],
+          "MeshArray": [],
+          "BeamCollision": {
+            "BeamCollisionRadius": 0.0,
+            "BeamCollisionLength": 1000.0,
+            "bDontExpandBeam": true,
+            "BeamCollisionExpandSpeed": 1000.0,
+            "OverrideSectionData": []
+          }
+        },
+        "AttackID": {
+          "AttackID": 138002016
+        },
+        "ModifyAttackIDList": [],
+        "DamageType": null,
+        "LimitDamage": 0.0,
+        "bIsForceLimitDamage": false,
+        "DamageSideInfo": "EDamageSide::OnlyHostile",
+        "bTreateFriendByParty": false,
+        "bIsDisableHitTargetLimit": false,
+        "ReceiveDamageSideInfo": "EReceiveDamageSide::None",
+        "StatusAliments": [],
+        "SelfStatusAliments": [],
+        "OverlapStatusAlimentConfigs": [],
+        "MoveBaseConfig": {
+          "InitialSpeed": 50.0,
+          "InitialSpeedModifyRateList": [],
+          "MinSpeed": 0.0,
+          "MaxSpeed": 0.0,
+          "bIsEnableGravity": false,
+          "GravityScale": 1.0,
+          "BeginEffectiveGravityTime": 0.0,
+          "EndEffectiveGravityTime": 0.0,
+          "bRotationFollowsVelocity": true,
+          "bRotationFollowsVelocityOwnerYawAtBegin": false,
+          "bLimitDistance": false,
+          "LimitTotalDistance": 0.0,
+          "bStopMoveWhenGroundHit": false
+        },
+        "MoveHomingConfig": {
+          "bIsHoming": false,
+          "HomingType": "EHomingType::HomingCorrectionAngle",
+          "HomingAccelerationMagnitude": 0.0,
+          "HomingBeginTime": 0.0,
+          "HomingEndTime": 0.0,
+          "HomingOffsetPos": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "HomingCorrectionAngle": 180.0,
+          "HomingCorrectionAngle2": 0.0,
+          "HomingEffectiveCorrectionAngle": 20.0,
+          "HomingEffectiveCorrectionAngle2": 0.0,
+          "bIsCancelHomingEffectiveCorrectionAngle": true,
+          "CancelHomingBeginTime": 0.0,
+          "CancelHomingEndTime": 0.0,
+          "bIsDisableHomingHeight": false,
+          "bIsEnableTargetStop": false
+        },
+        "ParabolaMoveConfig": {
+          "MoveType": "ESBParabolaMoveType::SpawnDirection",
+          "ShotDegree": 0.0,
+          "ReachHeight": 35.0,
+          "ReachTime": 0.0,
+          "bIsEnableChangeLandingSecond": false,
+          "ChangeLandingSecond": {
+            "Distance": 100.0,
+            "Second": 0.5,
+            "MinSecond": 0.01,
+            "MaxSecond": 0.0
+          },
+          "BoundParameter": {
+            "bShouldBounce": false,
+            "bBounceAngleAffectsFriction": false,
+            "Bounciness": 0.6,
+            "Friction": 0.2,
+            "BounceVelocityStopSimulatingThreshold": 5.0
+          }
+        },
+        "AlongGroundConfig": {
+          "GroundOffsetHeight": 50.0,
+          "DisappearFallHeight": 250.0,
+          "FollowSlopeRotType": "EProjectileFollowSlopeRotType::FollowPitchOnly",
+          "CheckPitchDist": 100.0,
+          "CheckRollDist": 200.0,
+          "AlongPitchMax": 25.0,
+          "AlongRollMax": 45.0
+        },
+        "BeamConfig": {
+          "ImpactSpawnProjectile": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "BeamDirectionType": "FProjectileBeamDirection::ActorRotation"
+        },
+        "ChainMovementConfig": [
+          {
+            "ChainMovementTrigger": {
+              "ChangeLabel": "None",
+              "ElapsedTime": 0.0,
+              "isChangeOnHomingTargetArrive": false,
+              "ArriveDist": 10.0,
+              "IncludeAnimTagArray": []
+            },
+            "ChainMovementParam": {
+              "ObjectName": "SBProjectileChainMovementParamAlongGround'DA_PJ_SMA_RockNeedle'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/DA_PJ_SMA_RockNeedle.0"
+            }
+          }
+        ],
+        "RapidConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "SimultaneousNum": 1,
+          "SimultaneousNumModifyList": [],
+          "RapidNum": 1,
+          "bIsInfiniteRapidNum": false,
+          "RapidInterval": 1.0,
+          "bIsDestroyWhenCantLaunch": true,
+          "DestroyWhenCantLaunchDelayTime": 0.0,
+          "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+          "TargetChangeRule": "ESBTargetChangRule::Sequence"
+        },
+        "WideShotConfig": {
+          "RapidConfig": {
+            "RapidProjectileSelectHandle": {
+              "DataTable": null,
+              "RowName": "None",
+              "TableRowIndex": 0
+            },
+            "SimultaneousNum": 1,
+            "SimultaneousNumModifyList": [],
+            "RapidNum": 1,
+            "bIsInfiniteRapidNum": false,
+            "RapidInterval": 1.0,
+            "bIsDestroyWhenCantLaunch": true,
+            "DestroyWhenCantLaunchDelayTime": 0.0,
+            "TargetSelectRule": "ESBTargetSelectRule::OnlyFirstTarget",
+            "TargetChangeRule": "ESBTargetChangRule::Sequence"
+          },
+          "WideRange": 0.0
+        },
+        "AreaAttackConfig": {
+          "RapidProjectileSelectHandle": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "RapidNum": 0,
+          "RapidInterval": 1.0,
+          "EffectiveRadius": 32.0,
+          "bIsUpperSphere": false,
+          "bIsAdjustGround": false,
+          "Order": "EProjectileAreaAttackSpawnOrder::Random",
+          "bIsDestroyWhenCantLaunch": false
+        },
+        "ForecastConfig": {
+          "ForecastDelayTime": 0.0,
+          "ForecastSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          },
+          "DelayTime": 0.0,
+          "MainSelectProjectile": {
+            "DataTable": null,
+            "RowName": "None",
+            "TableRowIndex": 0
+          }
+        },
+        "PartyShotConfig": {
+          "TargetPartyType": "FProjectilePartyShotTargetType::AllPartyMember",
+          "bIsIncludeInstantParty": true,
+          "TargetPartyNum": 6,
+          "TargetPartyDistanceLimit": 0.0
+        },
+        "AkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Play_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Default",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "EndAkEventConfig": {
+          "Event": {
+            "ObjectName": "AkAudioEvent'Stop_Smasher_RockNeedle_Twister'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Smasher/Stop_Smasher_RockNeedle_Twister.1"
+          },
+          "Switch": [],
+          "AttachName": "None",
+          "AutoDestroy": true,
+          "StopWhenOwnerDestroyed": false,
+          "LOD": "ESBAkEventLOD::LOD_Infinity",
+          "RTPC": [],
+          "DelayTime": 0.0,
+          "bCanReuseAkComponent": true
+        },
+        "ProjectileUniqueTag": "None"
+      }
+    }
+  }
+]

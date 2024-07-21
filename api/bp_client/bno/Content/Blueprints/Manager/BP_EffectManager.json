@@ -1,0 +1,1455 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_EffectManager_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBEffectManager'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_EffectManager_C'Default__BP_EffectManager_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/BP_EffectManager.1"
+    }
+  },
+  {
+    "Type": "BP_EffectManager_C",
+    "Name": "Default__BP_EffectManager_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Manager/BP_EffectManager.BP_EffectManager_C'",
+    "Properties": {
+      "DamageHitSettings_Slash": {
+        "Normal": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Slash_000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Slash_000.268"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Slash_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Slash_M.1"
+          }
+        },
+        "Low": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Slash_000_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Slash_000_Light.137"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Slash_S'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Slash_S.1"
+          }
+        },
+        "High": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Slash_000_Hi'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Slash_000_Hi.339"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Slash_L'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Slash_L.1"
+          }
+        },
+        "StepJump": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_StepKickWave_Inclined'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/PS_StepKickWave_Inclined.212"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Enemy_Step_Kick'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Enemy_Step_Kick.1"
+          }
+        }
+      },
+      "DamageHitSettings_Blow": {
+        "Normal": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Blow_000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Blow_000.167"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Strike_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Strike_M.1"
+          }
+        },
+        "Low": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Blow_000_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Blow_000_Light.109"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Strike_S'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Strike_S.1"
+          }
+        },
+        "High": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Blow_000_Hi'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Blow_000_Hi.171"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Strike_L'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Strike_L.1"
+          }
+        },
+        "StepJump": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_StepKickWave_Inclined'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/PS_StepKickWave_Inclined.212"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Enemy_Step_Kick'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Enemy_Step_Kick.1"
+          }
+        }
+      },
+      "DamageHitSettings_Thrust": {
+        "Normal": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Thrust_000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Thrust_000.309"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Stab_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Stab_M.1"
+          }
+        },
+        "Low": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Thrust_000_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Thrust_000_Light.114"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Stab_S'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Stab_S.1"
+          }
+        },
+        "High": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Thrust_000_Hi'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Thrust_000_Hi.415"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Stab_L'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Stab_L.1"
+          }
+        },
+        "StepJump": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_StepKickWave_Inclined'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/PS_StepKickWave_Inclined.212"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Enemy_Step_Kick'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Enemy_Step_Kick.1"
+          }
+        }
+      },
+      "DamageHitSettings_Claw": {
+        "Normal": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Claw_000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Claw_000.201"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Fang_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Fang_M.1"
+          }
+        },
+        "Low": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Claw_000_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Claw_000_Light.142"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Fang'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Fang.1"
+          }
+        },
+        "High": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Claw_000_Hi'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Claw_000_Hi.291"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Slash_L'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Slash_L.1"
+          }
+        },
+        "StepJump": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_StepKickWave_Inclined'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/PS_StepKickWave_Inclined.212"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Enemy_Step_Kick'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Enemy_Step_Kick.1"
+          }
+        }
+      },
+      "DamageHitSettings_Fang": {
+        "Normal": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Fang_000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Fang_000.182"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Fang_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Fang_M.1"
+          }
+        },
+        "Low": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Fang_000_light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Fang_000_light.191"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Fang'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Fang.1"
+          }
+        },
+        "High": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_Fang_000_Hi'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_Fang_000_Hi.265"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Fang_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Fang_M.1"
+          }
+        },
+        "StepJump": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_StepKickWave_Inclined'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/PS_StepKickWave_Inclined.212"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Enemy_Step_Kick'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Enemy_Step_Kick.1"
+          }
+        }
+      },
+      "DamageHitSettings_Guitar": {
+        "Normal": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_String_000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_String_000.206"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Strike_GTR_M'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Strike_GTR_M.1"
+          }
+        },
+        "Low": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_String_000_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_String_000_Light.147"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Strike_GTR_S'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Strike_GTR_S.1"
+          }
+        },
+        "High": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_Hit_String_000_Hi'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_String_000_Hi.210"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Hit_Strike_GTR_L'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Hit_Strike_GTR_L.1"
+          }
+        }
+      },
+      "ElementEffectSetting_Earth": {
+        "Hit": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_HIT_Element_Stone'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Element_Stone.358"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Stone'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Stone.1"
+          },
+          "SoundParam": {
+            "Switch": [
+              {
+                "SwitchGroup": "Player",
+                "SwitchState": "AUTO"
+              }
+            ]
+          },
+          "bAttach": false
+        },
+        "Melt": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_Stone_Melt'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_Stone_Melt.67"
+          }
+        },
+        "Break": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_StoneBurst_Tearoff'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_StoneBurst_Tearoff.28"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Stone'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Stone.1"
+          }
+        }
+      },
+      "ElementEffectSetting_Fire": {
+        "Hit": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_HIT_Element_Fire'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Element_Fire.161"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Fire'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Fire.1"
+          },
+          "SoundParam": {
+            "Switch": [
+              {
+                "SwitchGroup": "Player",
+                "SwitchState": "AUTO"
+              }
+            ]
+          },
+          "bAttach": false
+        },
+        "Melt": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_Fire_Melt'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_Fire_Melt.61"
+          }
+        }
+      },
+      "ElementEffectSetting_Ice": {
+        "Hit": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_HIT_Element_Ice'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Element_Ice.195"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Ice'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Ice.1"
+          },
+          "SoundParam": {
+            "Switch": [
+              {
+                "SwitchGroup": "Player",
+                "SwitchState": "AUTO"
+              }
+            ]
+          },
+          "bAttach": false
+        },
+        "Melt": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_Ice_Melt'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_Ice_Melt.63"
+          }
+        },
+        "Break": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_IceBurst_Tearoff'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_IceBurst_Tearoff.28"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Ice'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Ice.1"
+          }
+        }
+      },
+      "ElementEffectSetting_Thunder": {
+        "Hit": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_HIT_Element_Thunder'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Element_THunder.92"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Thunder'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Thunder.1"
+          },
+          "SoundParam": {
+            "Switch": [
+              {
+                "SwitchGroup": "Player",
+                "SwitchState": "AUTO"
+              }
+            ]
+          },
+          "bAttach": false
+        },
+        "Melt": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_Thunder_Melt'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_Thunder_Melt.58"
+          }
+        }
+      },
+      "ElementEffectSetting_Light": {
+        "Hit": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_HIT_Element_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Element_Light.264"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_Element_Hit_Light.1"
+          },
+          "SoundParam": {
+            "Switch": [
+              {
+                "SwitchGroup": "Player",
+                "SwitchState": "AUTO"
+              }
+            ]
+          },
+          "bAttach": false
+        },
+        "Melt": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_Holy_Melt'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_Holy_Melt.49"
+          }
+        }
+      },
+      "ElementEffectSetting_Darkness": {
+        "Hit": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_GAM_HIT_Element_Darkness'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Element_Darkness.209"
+          },
+          "Sound": {
+            "ObjectName": "AkAudioEvent'Play_Element_Hit_Dark'",
+            "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Element_Hit_Dark.1"
+          },
+          "SoundParam": {
+            "Switch": [
+              {
+                "SwitchGroup": "Player",
+                "SwitchState": "AUTO"
+              }
+            ]
+          },
+          "bAttach": false
+        },
+        "Melt": {
+          "Particle": {
+            "ObjectName": "ParticleSystem'PS_STS_Darkness_Melt'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Burst/PS_STS_Darkness_Melt.61"
+          }
+        }
+      },
+      "ElementHitGlitterMode": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_GAM_HIT_Glitter'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/Elemental/PS_GAM_HIT_Glitter.172"
+        },
+        "bAttach": false
+      },
+      "GeneralEffectiveHit": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_GAM_Hit_WeakCritical'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_WeakCritical.134"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Critical'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Critical.1"
+        },
+        "SoundParam": {
+          "Switch": [
+            {
+              "SwitchGroup": "Player",
+              "SwitchState": "AUTO"
+            }
+          ]
+        }
+      },
+      "SuperArmorHit": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_GAM_SuperArmor_Y'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Guard/PS_GAM_SuperArmor_Y.116"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_SuperArmor_Def_EFF'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/CommonEff_Elem/Play_SuperArmor_Def_EFF.1"
+        }
+      },
+      "BackAttackrHit": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_GAM_Hit_WeakCritical'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/HitEffect/PS_GAM_Hit_WeakCritical.134"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Critical'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Critical.1"
+        },
+        "SoundParam": {
+          "Switch": [
+            {
+              "SwitchGroup": "Player",
+              "SwitchState": "AUTO"
+            }
+          ]
+        }
+      },
+      "ElementSpread": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_BLS_2c_ElementSpread_LinkHit'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Blaster/PS_BLS_2c_ElementSpread_LinkHit.204"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Blaster_Elem_Spread_Child'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Weapon_Class/Blaster/Play_Blaster_Elem_Spread_Child.1"
+        }
+      },
+      "ProjectileInWater": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_ANM_JumpEndsmoke1_Water'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/GroundReaction/PS_ANM_JumpEndsmoke1_Water.86"
+        }
+      },
+      "HitCameraShakeList": [
+        {
+          "ShakeType": "ESBHitCameraShake::Vertical_S",
+          "CameraShake": {
+            "ObjectName": "BlueprintGeneratedClass'BP_CameraShake_Min_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Camera/CameraShake/BP_CameraShake_Min.0"
+          },
+          "ShakeScale": 0.2
+        },
+        {
+          "ShakeType": "ESBHitCameraShake::Vertical_L",
+          "CameraShake": {
+            "ObjectName": "BlueprintGeneratedClass'BP_CannonBall_Explode_CameraShake_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/Cannon/BP_CannonBall_Explode_CameraShake.0"
+          },
+          "ShakeScale": 0.5
+        },
+        {
+          "ShakeType": "ESBHitCameraShake::Horizontal_S",
+          "CameraShake": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Cannon_Shoot_CameraShake_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/Cannon/BP_Cannon_Shoot_CameraShake.0"
+          },
+          "ShakeScale": 0.5
+        },
+        {
+          "ShakeType": "ESBHitCameraShake::Horizontal_L",
+          "CameraShake": {
+            "ObjectName": "BlueprintGeneratedClass'BP_Cannon_Shoot_CameraShake_C'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Dungeon/Develop/Cannon/BP_Cannon_Shoot_CameraShake.0"
+          },
+          "ShakeScale": 1.5
+        }
+      ],
+      "RollDodgeSuccessEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_ANM_dodge_success'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Particle/PS_ANM_dodge_success.236"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Just_Escape'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Just_Escape.1"
+        },
+        "SoundParam": {
+          "StopWhenOwnerDestroyed": false
+        },
+        "EndSoundParam": {
+          "StopWhenOwnerDestroyed": false
+        },
+        "ActorParameterName": "BoneSocketActor"
+      },
+      "StepDodgeSuccessEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_ANM_dodge_success'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Particle/PS_ANM_dodge_success.236"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Aerial_StartEff'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Aerial_StartEff.1"
+        },
+        "ActorParameterName": "BoneSocketActor"
+      },
+      "DodgeAttackAfterDodgeSucceeded": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_ANM_dodge_success_attack'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Particle/PS_ANM_dodge_success_attack.412"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Aerial_StartEff'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Aerial_StartEff.1"
+        },
+        "bAbsoluteRotation": true
+      },
+      "DodgeSuccessMaterialCurve": {
+        "ObjectName": "CurveFloat'CV_FFF_Dodge_MaterialValue'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_FFF_Dodge_MaterialValue.0"
+      },
+      "Resurrection": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_Resuscitation2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Death/PS_Resuscitation2.155"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Sosei_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Sosei_Start.1"
+        },
+        "EndSound": {
+          "ObjectName": "AkAudioEvent'Stop_Sosei_Loop'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Stop_Sosei_Loop.1"
+        },
+        "EffectTarget": "EffectTarget_ActorMesh",
+        "ActorParameterName": "VertSurfaceActor"
+      },
+      "ResurrectionComp": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_ResuscitationComp2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/Death/PS_ResuscitationComp2.107"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Sosei_OK'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Sosei_OK.1"
+        }
+      },
+      "BuffAuraATKEffect": {
+        "EffectTarget": "EffectTarget_ActorMesh"
+      },
+      "EnemySpawnEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_EnemySpawn'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Spawn/PS_EnemySpawn.100"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Enemy_Appear'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/Play_Enemy_Appear.1"
+        }
+      },
+      "AerialAttackBonusEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_GAM_AerialAttackAura'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/AerialAttack/PS_GAM_AerialAttackAura.179"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Aerial_StartEff'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Aerial_StartEff.1"
+        },
+        "bAbsoluteRotation": true,
+        "ActorParameterName": "BoneSocketActor"
+      },
+      "m_ClassLevelUpEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_CHR_ClassLvUP'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/LevelUP/PS_CHR_ClassLVUP.107"
+        },
+        "EffectActor": {
+          "ObjectName": "BlueprintGeneratedClass'BP_EF_ClassLvup_C'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/LevelUP/BP_EF_ClassLvup.0"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_sys_levelup'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_sys_levelup.1"
+        },
+        "EffectTarget": "EffectTarget_ActorMesh",
+        "AttachPointName": "Root_J"
+      },
+      "m_AdventurerRankUpEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_CHR_AdventureRankUP'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/LevelUP/PS_CHR_AdventureRankUP.292"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_sys_rankup_effect'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_sys_rankup_effect.1"
+        },
+        "EffectTarget": "EffectTarget_ActorMesh",
+        "AttachPointName": "Root_J"
+      },
+      "BattleScoreWeaponEffectMap": [
+        {
+          "ESBWeaponType::WeaponType_HandAxe": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R2_Spot.105"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R3_Spot.102"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R3_Aura.37"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R4_Spot.108"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R4_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R5_Spot.108"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R5_Aura.52"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R6_Spot.187"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandAxe_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandAxe_R6_Aura.183"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_HandSword": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R1_Spot.74"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R2_Spot.100"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R3_Spot.97"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R3_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R4_Spot.122"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R4_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R5_Spot.103"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R5_Aura.52"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R6_Spot.187"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_HandSword_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_HandSword_R6_Aura.185"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_Spear": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R2_Spot.105"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R3_Spot.102"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R3_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R4_Spot.115"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R4_Aura.31"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R5_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R5_Aura.47"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R6_Spot.188"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Spear_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Spear_R6_Aura.92"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_Bow": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R2_Spot.105"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R3_Spot.102"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R3_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R4_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R4_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R5_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R5_Aura.65"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R6_Spot.187"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Bow_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Bow_R6_Aura.118"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_Staff": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R2_Spot.105"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R3_Spot.102"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R3_Aura.38"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R4_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R4_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R5_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R5_Aura.54"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R6_Spot.187"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Staff_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Staff_R6_Aura.90"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_Shield": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Shield_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Shield_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Shield_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Shield_R2_Spot.120"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Shield_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Shield_R3_Spot.114"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Shield_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Shield_R4_Spot.119"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Shield_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Shield_R5_Spot.108"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Shield_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Shield_R6_Spot.187"
+                },
+                "AuraEffect": null
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_BallHammer": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R2_Spot.105"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R3_Spot.100"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R3_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R4_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R4_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R5_Spot.108"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R5_Aura.54"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R6_Spot.187"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_BallHummer_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_BallHummer_R6_Aura.90"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "ESBWeaponType::WeaponType_Guitar": {
+            "Effect": [
+              {
+                "SpotEffect": null,
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R1_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R1_Spot.80"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R2_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R2_Spot.105"
+                },
+                "AuraEffect": null
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R3_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R3_Spot.102"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R3_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R3_Aura.36"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R4_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R4_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R4_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R4_Aura.31"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R5_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R5_Spot.114"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R5_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R5_Aura.52"
+                }
+              },
+              {
+                "SpotEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R6_Spot'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R6_Spot.187"
+                },
+                "AuraEffect": {
+                  "ObjectName": "ParticleSystem'PS_BSWA_Guiter_R6_Aura'",
+                  "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Player/WeaponAura/PS_BSWA_Guiter_R6_Aura.83"
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "AttributeSlashDiskList": {
+        "ObjectName": "BlueprintGeneratedClass'SD_Common_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Blueprint/SlashDisk/SD_Common.0"
+      },
+      "SlashDiskParticle_None": {
+        "ObjectName": "ParticleSystem'PS_Slash_None'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_None.44"
+      },
+      "SlashDiskParticle_Earth": {
+        "ObjectName": "ParticleSystem'PS_Slash_Stone'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_Stone.28"
+      },
+      "SlashDiskParticle_Fire": {
+        "ObjectName": "ParticleSystem'PS_Slash_Fire'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_Fire.29"
+      },
+      "SlashDiskParticle_Ice": {
+        "ObjectName": "ParticleSystem'PS_Slash_Ice'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_Ice.28"
+      },
+      "SlashDiskParticle_Thunder": {
+        "ObjectName": "ParticleSystem'PS_Slash_Thunder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_Thunder.28"
+      },
+      "SlashDiskParticle_Light": {
+        "ObjectName": "ParticleSystem'PS_Slash_Light'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_Light.28"
+      },
+      "SlashDiskParticle_Darkness": {
+        "ObjectName": "ParticleSystem'PS_Slash_Dark'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_Dark.28"
+      },
+      "SlashDiskParticle_GlitterMode": {
+        "ObjectName": "ParticleSystem'PS_Slash_GlitterMode'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/00_Common/Slash/PS_Slash_GlitterMode.29"
+      },
+      "SpecialGaugeFull": {
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Sys_max'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_Sys_max.1"
+        },
+        "CauserPlayerVoice": {
+          "ObjectName": "AkAudioEvent'Play_avt_vo_Ultmax'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Voice/avt_voice_Battle_Common/Play_avt_vo_Ultmax.0"
+        }
+      },
+      "ImagineGaugeFull": {
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Sys_max_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_Sys_max_2.1"
+        }
+      },
+      "m_WarpInEffect": {
+        "RaySpawnDelay": 1.0,
+        "SphereLifeTime": 1.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_End'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_End.0"
+        },
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_CHR_WarpDevice_Out'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_CHR_WarpDevice_Out.122"
+        },
+        "AdditionalEffectSpawnDelay": 0.5,
+        "MaterialParamDelay": 0.7,
+        "MaterialParamTime": 0.3,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Warp_Startup'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Warp_Startup.1"
+        },
+        "WarpSoundDelay": 0.5,
+        "VisibleType": "ESBEffectVisibleType::UI"
+      },
+      "m_RespawnInEffect": {
+        "RayEmitter": {
+          "ObjectName": "ParticleSystem'PS_WarpOut'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_WarpOut.24"
+        },
+        "RaySpawnDelay": 1.0,
+        "RaySpawnCount": 30,
+        "SphereEmitter": {
+          "ObjectName": "ParticleSystem'PS_WarpSphere_Stop'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_WarpSphere_Stop.134"
+        },
+        "SphereLifeTime": 1.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_End'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_End.0"
+        },
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_DeathWarp_End_GPU'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_DeathWarp_End_GPU.47"
+        },
+        "AdditionalEffectSpawnDelay": 1.0,
+        "MaterialParamDelay": 1.5,
+        "MaterialParamTime": 1.0,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Fld_respawn_comeback'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_Fld_respawn_comeback.1"
+        }
+      },
+      "m_EngramCannonGetOffEffect": {
+        "RaySpawnDelay": 1.0,
+        "SphereLifeTime": 1.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_End'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_End.0"
+        },
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_GMC_ECannon_WarpOut'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Gimmick/EngarmCannon/PS_GMC_ECannon_WarpOut.122"
+        },
+        "AdditionalEffectSpawnDelay": 0.5,
+        "MaterialParamDelay": 0.7,
+        "MaterialParamTime": 0.3,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Warp_Out'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Warp_Out.1"
+        },
+        "WarpSoundDelay": 0.5
+      },
+      "m_WarpOutEffect": {
+        "RaySpawnCount": 1,
+        "SpherePosition": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 50.0
+        },
+        "SphereSpawnDelay": 0.25,
+        "SphereLifeTime": 2.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_Start.0"
+        },
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_CHR_WarpDevice_StartUp'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_CHR_WarpDevice_StartUp.116"
+        },
+        "MaterialParamDelay": 0.2,
+        "MaterialParamTime": 0.3,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Warp_Out'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Warp_Out.1"
+        },
+        "VisibleType": "ESBEffectVisibleType::UI"
+      },
+      "m_DeathOutEffect": {
+        "RayEmitter": {
+          "ObjectName": "ParticleSystem'PS_DeathWarp_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_DeathWarp_Start.33"
+        },
+        "RaySpawnCount": 30,
+        "SphereEmitter": {
+          "ObjectName": "ParticleSystem'PS_WarpSphere_Stop'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_WarpSphere_Stop.134"
+        },
+        "SpherePosition": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 100.0
+        },
+        "SphereSpawnDelay": 0.75,
+        "SphereLifeTime": 2.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_Start.0"
+        },
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_DeathWarp_Start_GPU'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_DeathWarp_Start_GPU.12"
+        },
+        "MaterialParamTime": 1.0,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Fld_respawn'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_Fld_respawn.1"
+        },
+        "SoundParam": {
+          "LOD": "ESBAkEventLOD::LOD_Infinity"
+        }
+      },
+      "m_FallDeathOutEffect": {
+        "RayEmitter": {
+          "ObjectName": "ParticleSystem'PS_DeathWarp_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_DeathWarp_Start.33"
+        },
+        "RaySpawnCount": 30,
+        "SphereEmitter": {
+          "ObjectName": "ParticleSystem'PS_WarpSphere_Stop'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_WarpSphere_Stop.134"
+        },
+        "SpherePosition": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 100.0
+        },
+        "SphereSpawnDelay": 0.75,
+        "SphereLifeTime": 2.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_Start.0"
+        },
+        "SphereMoveScale": 10000.0,
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_DeathWarp_Start_GPU'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_DeathWarp_Start_GPU.12"
+        },
+        "MaterialParamTime": 1.0,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Fld_respawn'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_Fld_respawn.1"
+        }
+      },
+      "m_EngramCannonGetOnEffect": {
+        "RaySpawnCount": 1,
+        "SpherePosition": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 50.0
+        },
+        "SphereSpawnDelay": 0.25,
+        "SphereLifeTime": 2.0,
+        "SphereMoveCurve": {
+          "ObjectName": "CurveFloat'SphereMoveCurve_Start'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/SphereMoveCurve_Start.0"
+        },
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_GMC_ECannon_WarpIn'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Gimmick/EngarmCannon/PS_GMC_Ecannon_WarpIn.140"
+        },
+        "MaterialParamDelay": 0.2,
+        "MaterialParamTime": 0.3,
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Warp_Startup'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/SE/Action_Common/Play_Warp_Startup.1"
+        }
+      },
+      "m_WarpShowEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_CHR_WarpDevice_ActivationStandby'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_CHR_WarpDevice_ActivationStandby.100"
+        },
+        "EffectTarget": "EffectTarget_ActorMesh",
+        "LocationOffset": {
+          "X": 0.0,
+          "Y": -10.0,
+          "Z": 0.0
+        },
+        "AttachPointName": "R_Grip_J"
+      },
+      "m_WarpShowEffectDeactivateDelayTime": 0.5,
+      "m_BattleNPCWarpInEffect": {
+        "AdditionalEffect": {
+          "ObjectName": "ParticleSystem'PS_DeathWarp_End_GPU'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/Status/Warp/PS_DeathWarp_End_GPU.47"
+        },
+        "Sound": {
+          "ObjectName": "AkAudioEvent'Play_Fld_respawn_comeback_Nodelay'",
+          "ObjectPath": "BLUEPROTOCOL/Content/WwiseAudio/Events/Default_Work_Unit/System_UI/UI/Play_Fld_respawn_comeback_Nodelay.1"
+        }
+      },
+      "m_FootprintDecalOpaictyCurve": {
+        "ObjectName": "CurveFloat'FootPrint_End'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Effect/Blueprint/Notify/FootPrint/FootPrint_End.0"
+      },
+      "m_PlayerFootprintParticleLOD": 3,
+      "m_NPCFootprintParticleLOD": 3,
+      "m_EnemyFootprintParticleLOD": 4,
+      "m_DefaultFootprintParticleLOD": 2,
+      "CullDistanceDefault": 10000.0,
+      "DebugAxisEffect": {
+        "Particle": {
+          "ObjectName": "ParticleSystem'PS_ZZZ_TestAxis'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Effect/Particle/PS_ZZZ_TestAxis.14"
+        }
+      }
+    }
+  }
+]

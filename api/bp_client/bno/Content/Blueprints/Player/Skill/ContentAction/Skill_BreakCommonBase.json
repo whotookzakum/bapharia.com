@@ -1,0 +1,54 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BreakCommonBase_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBreakSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BreakCommonBase_C'Default__Skill_BreakCommonBase_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/ContentAction/Skill_BreakCommonBase.1"
+    }
+  },
+  {
+    "Type": "Skill_BreakCommonBase_C",
+    "Name": "Default__Skill_BreakCommonBase_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/ContentAction/Skill_BreakCommonBase.Skill_BreakCommonBase_C'",
+    "Properties": {
+      "ElementDamageScaleOnBreakActionSuccess": 200.0,
+      "SuccessEffect": {
+        "Particle": {
+          "AssetPathName": "/Game/Effect/Particle/Player/ContentAction/PS_CNT_Break_Success.PS_CNT_Break_Success",
+          "SubPathString": ""
+        },
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/ContentAction/Play_ContentAction_Break_Success_Player.Play_ContentAction_Break_Success_Player",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_ActorMesh",
+        "AttachPointName": "Rot_J",
+        "ActorParameterName": "BoneSocketActor"
+      },
+      "SkillName": "Break",
+      "NeedParam": {
+        "bWalkingOnly": true,
+        "bNotifyWalkingOnly": false
+      },
+      "bImmediateStart": true,
+      "ImmediateStartForbidTags": [
+        "SheatheDodge",
+        "UnSheatheDodge"
+      ],
+      "RecastTime": 15.0
+    }
+  }
+]

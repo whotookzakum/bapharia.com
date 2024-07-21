@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './colors';
+@import './typography';
+@import './variables';
+@import './layout';
+@import './animations';
+@import './components';
+
+html {
+    scroll-padding-top: 5rem; // For Article anchor links
+    // scroll-behavior: smooth;
+    accent-color: var(--accent1);
+    background-color: var(--bg);
+}
+
+* {
+    cursor: url('/images/cursor.png'), default !important;
+}
+
+// ======================================================================
+// OUTLINES
+// ======================================================================
+
+:where(*:focus-visible,
+    input.visually-hidden:focus-visible+label,
+    /* dependent on :has() */
+    .outline-focus-within:has(:focus-visible),
+    label:has(input:where(.visually-hidden, [type="text"], [type="number"]):focus-visible)) {
+    outline: 2px solid var(--outline-color) !important;
+}
+
+.outline-focus-within a,
+label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) {
+    outline: none !important;
+}
+
+@supports not selector(:has(*)) {
+
+    .outline-focus-within:focus-within,
+    label:focus-within {
+        outline: 2px solid var(--outline-color) !important;
+    }
+}
+
+.invalid {
+    outline: 2px solid var(--danger) !important;
+}
+
+.invalid-text {
+    color: var(--danger) !important;
+}
+
+// ======================================================================
+// SCROLLBARS
+// ======================================================================
+
+// * {
+//     scrollbar-color: transparent transparent;
+
+//     &:hover,
+//     &:focus-within {
+//         scrollbar-color: var(--surface4) var(--surface1);
+//     }
+// }
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-thumb {
+    // border-radius: 1rem;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+*::-webkit-scrollbar-track {
+    background-color: var(--surface1);
+    // margin: 0.5rem;
+    // margin-top: var(--nav-height);
+
+    // &:hover {
+    //     background-color: var(--surface2);
+    // }
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--surface3); // or text3-dark
+
+    &:hover {
+        background-color: var(--surface4);
+    }
+}
+
+// ======================================================================
+// UTILITY
+// ======================================================================
+
+.visually-hidden,
+.skip-and-focus:not(:focus-visible) {
+    @apply sr-only;
+    clip-path: inset(50%);
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+@for $i from 1 through 3 {
+    .surface#{$i},
+    .hover-surface#{$i}:hover,
+    .focus-surface#{$i}:focus-visible,
+    .active-surface#{$i}:active {
+        background-color: var(--surface#{$i});
+    }
+
+    .text#{$i},
+    .hover-text#{$i}:hover,
+    .focus-text#{$i}:focus-visible,
+    .active-text#{$i}:active {
+        color: var(--text#{$i});
+    }
+
+    .accent#{$i},
+    .hover-accent#{$i}:hover,
+    .focus-accent#{$i}:focus-visible,
+    .active-accent#{$i}:active {
+        color: var(--accent#{$i});
+    }
+}
+
+@media (max-width: 850px) {
+    .hide-on-phone {
+        display: none;
+    }
+}
+
+.nav-button {
+    width: 44px;
+    height: 44px;
+    pointer-events: auto;
+    border-radius: 50%;
+    font-size: var(--step-4);
+    @apply flex items-center justify-center text3 hover-text2 focus-text2 active-text3 hover-surface1 focus-surface1 transition-bob-down;
+}
+
+a.area-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.area-link-wrapper:has(.area-link) {
+    @extend .outline-focus-within;   
+}
+
+.h-pane {
+    max-height: calc(100vh - var(--nav-height) - var(--gutter-y) * 2);
+}
+
+.h-main {
+    height: calc(100vh - var(--nav-height));
+    height: calc(100dvh - var(--nav-height));
+}
+
+// Collapsible arrow markers
+.arrow,
+.arrow-discreet,
+.arrow-faded {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.arrow::after,
+.arrow-discreet:where(:hover, :focus-visible)::after,
+.arrow-faded::after {
+    content: "";
+    display: block;
+    width: 0.4em;
+    height: 0.4em;
+    border-bottom: 0.125em solid currentColor;
+    border-right: 0.125em solid currentColor;
+    margin-left: auto;
+    margin-right: 2px;
+    transform: rotate(45deg);
+}
+
+[open] .arrow::after,
+[open] .arrow-discreet:where(:hover, :focus-visible)::after {
+    transform: rotate(225deg);
+    margin-top: 0.3em;
+    border-bottom: 0.1875em solid currentColor;
+    border-right: 0.1875em solid currentColor;
+}
+
+.arrow-faded::after {
+    border-color: var(--text3);
+    width: 0.5em;
+    height: 0.5em;
+    margin-bottom: 0.2em;
+}
+
+.arrow-faded:where(:hover, :focus-visible)::after {
+    border-color: var(--text3);
+}
+
+[aria-pressed="true"].arrow-faded::after {
+    border-color: currentColor !important;
+    transform: rotate(225deg);
+    margin-top: 0.5em;
+}

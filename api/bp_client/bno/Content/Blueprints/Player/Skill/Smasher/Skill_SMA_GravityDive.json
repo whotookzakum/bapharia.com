@@ -1,0 +1,179 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_SMA_GravityDive_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBSmasherGravityDiveSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_SMA_GravityDive_C'Default__Skill_SMA_GravityDive_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_GravityDive.1"
+    }
+  },
+  {
+    "Type": "Skill_SMA_GravityDive_C",
+    "Name": "Default__Skill_SMA_GravityDive_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_GravityDive.Skill_SMA_GravityDive_C'",
+    "Properties": {
+      "DiveMoveSpeed": 2600.0,
+      "DiveMoveEndDistanceThreshold": 300.0,
+      "CheckAdditionalInputTimeToDiveMove": 1.5,
+      "IgnoreAdditionalInputTimeFromDiveMoveStart": 0.1,
+      "AdditionalInputCommandList": [
+        "SMA_GravityDivePress"
+      ],
+      "ReturnBallEffectSetting": {
+        "Particle": {
+          "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_GravityDive_Ball_back.PS_SMA_GravityDive_Ball_back",
+          "SubPathString": ""
+        },
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_GravityDive_Return_EFF.Play_Smasher_GravityDive_Return_EFF",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_WeaponR_AdditionalMesh_0",
+        "VisibleType": "ESBEffectVisibleType::Battle_Production"
+      },
+      "bShowBeamEffectToBall": true,
+      "BeamEmitterTemplateToBall": {
+        "AssetPathName": "/Game/Effect/Particle/Player/Smasher/PS_SMA_GravityWire.PS_SMA_GravityWire",
+        "SubPathString": ""
+      },
+      "BeamStartSocketName": "Hammer_J",
+      "bShowBallReturnTimingEffect": true,
+      "BallReturnTimingEffectSetting": {
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_BallShot_END.Play_Smasher_BallShot_END",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_WeaponMesh_R",
+        "VisibleType": "ESBEffectVisibleType::Battle_Weapon"
+      },
+      "BoostCartridgeAmountRequiredForCastSkillSettingList": [
+        {
+          "RequiredAmount": 2.0,
+          "ModifySettingList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 119010
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "RequiredAmount": 1.0
+            }
+          ]
+        }
+      ],
+      "SkillConsumeBoostCartridgeSettingList": [
+        {
+          "bAmountSetting": true,
+          "bRateSetting": false,
+          "ConsumptionAmount": 2.0,
+          "ConsumptionRate": 0.0,
+          "ModifySettingList": [
+            {
+              "ConditionList": [
+                {
+                  "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                  "ActiveArtsID": {
+                    "ID": 0
+                  },
+                  "PassiveArtsID": {
+                    "ID": 119010
+                  },
+                  "AttackID": {
+                    "AttackID": 0
+                  },
+                  "IntValue": 0,
+                  "FloatValue": 0.0,
+                  "NameValue": "None",
+                  "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                  "BattleStatusRowHandle": {
+                    "DataTable": null,
+                    "RowName": "None"
+                  },
+                  "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                  "AbilityFlagList": [],
+                  "OnlyPlayerStatusList": [],
+                  "ElementType": "ESBAttribute::None",
+                  "SkillType": "ESBPlayerSkillActionType::None",
+                  "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                  "bNot": false
+                }
+              ],
+              "bAmountSetting": true,
+              "bRateSetting": false,
+              "ConsumptionAmount": 1.0,
+              "ConsumptionRate": 0.0
+            }
+          ]
+        }
+      ],
+      "bPlayShortageCartridgeSound": true,
+      "ShortageCartridgeSound": {
+        "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_NoCartridge.Play_Smasher_NoCartridge",
+        "SubPathString": ""
+      },
+      "SkillName": "SMA_GravityDive",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/GravityDive/SM_SMA_GravityDive.SM_SMA_GravityDive",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/GravityDive/SM_SMA_GravityDive_AimOffset.SM_SMA_GravityDive_AimOffset",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 11.0,
+      "bRemoveTurnActorRequest": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'SmasherProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P019_Smasher/SmasherProjectileConfigInfo.0"
+              },
+              "RowName": "BallShoot_GravityDive"
+            }
+          ]
+        }
+      ],
+      "bHideCastLog": true
+    }
+  }
+]

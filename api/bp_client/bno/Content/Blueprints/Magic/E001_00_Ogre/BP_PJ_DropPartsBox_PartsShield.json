@@ -1,0 +1,293 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PJ_TemplateDropPartsBox_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.0"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_PJ_DropPartsBox_PartsShield_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.12"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_PJ_TemplateDropPartsBox_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.0"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "SK_CH_WE05_01_05",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SkeletalMeshComponent'",
+          "ObjectPath": "/Script/Engine"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_PJ_DropPartsBox_PartsShield_C'Default__BP_PJ_DropPartsBox_PartsShield_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.1"
+    }
+  },
+  {
+    "Type": "BP_PJ_DropPartsBox_PartsShield_C",
+    "Name": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.BP_PJ_DropPartsBox_PartsShield_C'",
+    "Template": {
+      "ObjectName": "BP_PJ_TemplateDropPartsBox_C'Default__BP_PJ_TemplateDropPartsBox_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.1"
+    },
+    "Properties": {
+      "MoveComp": {
+        "ObjectName": "SBStraightMovementComponent'Default__BP_PJ_DropPartsBox_PartsShield_C:MoveComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.8"
+      },
+      "GroundCollisionComp": {
+        "ObjectName": "SBProjectileGroundCollisionBox'Default__BP_PJ_DropPartsBox_PartsShield_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.6"
+      },
+      "CollisionComp": {
+        "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_DropPartsBox_PartsShield_C:CollisionComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.3"
+      },
+      "AttackParamComp": {
+        "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_DropPartsBox_PartsShield_C:AttackParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.2"
+      },
+      "EffectComp": {
+        "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_DropPartsBox_PartsShield_C:EffectComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.5"
+      },
+      "ParamComp": {
+        "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_DropPartsBox_PartsShield_C:ParamComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.7"
+      },
+      "DestroyCondComp": {
+        "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_DropPartsBox_PartsShield_C:DestroyCondComp'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.4"
+      },
+      "RootComponent": {
+        "ObjectName": "SBProjectileGroundCollisionBox'Default__BP_PJ_DropPartsBox_PartsShield_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.6"
+      },
+      "OnEndPlay": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "BP_PJ_DropPartsBox_PartsShield_C'Default__BP_PJ_DropPartsBox_PartsShield_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.1"
+            },
+            "FunctionName": "OnProjectileEndPlay"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileAttackParamComponent",
+    "Name": "AttackParamComp",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBProjectileAttackParamComponent'",
+    "Template": {
+      "ObjectName": "SBProjectileAttackParamComponent'Default__BP_PJ_TemplateDropPartsBox_C:AttackParamComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.2"
+    }
+  },
+  {
+    "Type": "SBProjectileCollisionComponent",
+    "Name": "CollisionComp",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBProjectileCollisionComponent'",
+    "Template": {
+      "ObjectName": "SBProjectileCollisionComponent'Default__BP_PJ_TemplateDropPartsBox_C:CollisionComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.3"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBProjectileGroundCollisionBox'Default__BP_PJ_DropPartsBox_PartsShield_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.6"
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileDestroyConditionComponent",
+    "Name": "DestroyCondComp",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBProjectileDestroyConditionComponent'",
+    "Template": {
+      "ObjectName": "SBProjectileDestroyConditionComponent'Default__BP_PJ_TemplateDropPartsBox_C:DestroyCondComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.4"
+    }
+  },
+  {
+    "Type": "SBProjectileEffectComponent",
+    "Name": "EffectComp",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBProjectileEffectComponent'",
+    "Template": {
+      "ObjectName": "SBProjectileEffectComponent'Default__BP_PJ_TemplateDropPartsBox_C:EffectComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.5"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SBProjectileGroundCollisionBox'Default__BP_PJ_DropPartsBox_PartsShield_C:GroundCollisionComp(ProjRoot)'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.6"
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileGroundCollisionBox",
+    "Name": "GroundCollisionComp(ProjRoot)",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBProjectileGroundCollisionBox'",
+    "Template": {
+      "ObjectName": "SBProjectileGroundCollisionBox'Default__BP_PJ_TemplateDropPartsBox_C:GroundCollisionComp(ProjRoot)'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.6"
+    },
+    "Properties": {
+      "BoxExtent": {
+        "X": 150.0,
+        "Y": 75.0,
+        "Z": 12.0
+      },
+      "OnComponentHit": {
+        "InvocationList": [
+          {
+            "Object": {
+              "ObjectName": "SBProjectileGroundCollisionBox'Default__BP_PJ_DropPartsBox_PartsShield_C:GroundCollisionComp(ProjRoot)'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.6"
+            },
+            "FunctionName": "OnGroundComponentHit"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "Type": "SBProjectileParamComponent",
+    "Name": "ParamComp",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBProjectileParamComponent'",
+    "Template": {
+      "ObjectName": "SBProjectileParamComponent'Default__BP_PJ_TemplateDropPartsBox_C:ParamComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.7"
+    }
+  },
+  {
+    "Type": "SBStraightMovementComponent",
+    "Name": "MoveComp",
+    "Outer": "Default__BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SBStraightMovementComponent'",
+    "Template": {
+      "ObjectName": "SBStraightMovementComponent'Default__BP_PJ_TemplateDropPartsBox_C:MoveComp'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/CustomBP/BP_PJ_TemplateDropPartsBox.8"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_PJ_DropPartsBox_PartsShield_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.9"
+      },
+      "VariableGuid": "CC124A2B-47FE1A8B-80F5AEB1-A368C2AC",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_1",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SkeletalMeshComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SkeletalMeshComponent'BP_PJ_DropPartsBox_PartsShield_C:SK_CH_WE05_01_05_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.13"
+      },
+      "ParentComponentOrVariableName": "GroundCollisionComp(ProjRoot)",
+      "bIsParentComponentNative": true,
+      "VariableGuid": "DA80D760-4842EB2C-3E65E39D-CA3A8423",
+      "InternalVariableName": "SK_CH_WE05_01_05"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PJ_DropPartsBox_PartsShield_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.11"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_PJ_DropPartsBox_PartsShield_C:SimpleConstructionScript_0.SCS_Node_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.11"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_PJ_DropPartsBox_PartsShield_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/E001_00_Ogre/BP_PJ_DropPartsBox_PartsShield.10"
+      }
+    }
+  },
+  {
+    "Type": "SkeletalMeshComponent",
+    "Name": "SK_CH_WE05_01_05_GEN_VARIABLE",
+    "Outer": "BP_PJ_DropPartsBox_PartsShield_C",
+    "Class": "UScriptClass'SkeletalMeshComponent'",
+    "Properties": {
+      "ClothingSimulationFactory": {
+        "ObjectName": "Class'ClothingSimulationFactoryNv'",
+        "ObjectPath": "/Script/ClothingSystemRuntimeNv"
+      },
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_CH_WE05_01_05'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/Weapon/WE/SK_CH_WE05_01_05/Model/SK_CH_WE05_01_05.0"
+      },
+      "RelativeLocation": {
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": -30.0
+      },
+      "RelativeRotation": {
+        "Pitch": 0.0,
+        "Yaw": 0.0,
+        "Roll": 90.0
+      }
+    }
+  }
+]

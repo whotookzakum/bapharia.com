@@ -1,0 +1,456 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BSK_BerserkMode_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBerserkerBerserkModeSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BSK_BerserkMode_C'Default__Skill_BSK_BerserkMode_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_BerserkMode.1"
+    }
+  },
+  {
+    "Type": "Skill_BSK_BerserkMode_C",
+    "Name": "Default__Skill_BSK_BerserkMode_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_BerserkMode.Skill_BSK_BerserkMode_C'",
+    "Properties": {
+      "ActiveArtsList": [
+        {
+          "ID": 710
+        },
+        {
+          "ID": 711
+        },
+        {
+          "ID": 712
+        },
+        {
+          "ID": 714
+        },
+        {
+          "ID": 715
+        },
+        {
+          "ID": 721
+        },
+        {
+          "ID": 730
+        },
+        {
+          "ID": 731
+        },
+        {
+          "ID": 732
+        },
+        {
+          "ID": 734
+        }
+      ],
+      "ComboGaugeModifyDamageUpSettingList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 716
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ConsumeComboGaugeAllAndModeEnd": false,
+          "DamageUpScaleCurve": null,
+          "ConsumeComboGaugeRate": 40.0,
+          "DamageUpRate": 20.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 716
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ConsumeComboGaugeAllAndModeEnd": false,
+          "DamageUpScaleCurve": null,
+          "ConsumeComboGaugeRate": 30.0,
+          "DamageUpRate": 20.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 716
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 107162
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": true
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 107161
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": true
+            }
+          ],
+          "ConsumeComboGaugeAllAndModeEnd": false,
+          "DamageUpScaleCurve": null,
+          "ConsumeComboGaugeRate": 30.0,
+          "DamageUpRate": 30.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 107162
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 716
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ConsumeComboGaugeAllAndModeEnd": true,
+          "DamageUpScaleCurve": {
+            "ObjectName": "CurveFloat'CV_BSK_BerserkModeDamageUpRate'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/CV_BSK_BerserkModeDamageUpRate.0"
+          },
+          "ConsumeComboGaugeRate": 0.0,
+          "DamageUpRate": 0.0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 716
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 107161
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ConsumeComboGaugeAllAndModeEnd": false,
+          "DamageUpScaleCurve": null,
+          "ConsumeComboGaugeRate": 15.0,
+          "DamageUpRate": 30.0
+        }
+      ],
+      "SkillName": "BerserkMode",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/SingleAction/SM_FFF_SingleAction.SM_FFF_SingleAction",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Berserker/BerserkMode/AST_BSK_BerserkMode.AST_BSK_BerserkMode",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 25.0,
+      "CastApplyStatusAilmentList": [
+        {
+          "ConditionList": [],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BerserkerStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerStatusAlimentConfig.0"
+              },
+              "RowName": "BerserkMode"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        }
+      ],
+      "InActionEffectSettingList": [
+        {
+          "ConditionList": [],
+          "InActionEffectList": [
+            {
+              "Particle": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "NiagaraSystem": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActor": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EffectActorList": [],
+              "Sound": {
+                "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserker_BerserkMode.Play_Berserker_BerserkMode",
+                "SubPathString": ""
+              },
+              "SoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EndSound": {
+                "AssetPathName": "None",
+                "SubPathString": ""
+              },
+              "EndSoundParam": {
+                "Event": null,
+                "Switch": [],
+                "AttachName": "None",
+                "AutoDestroy": true,
+                "StopWhenOwnerDestroyed": true,
+                "LOD": "ESBAkEventLOD::LOD_Default",
+                "RTPC": [],
+                "DelayTime": 0.0,
+                "bCanReuseAkComponent": true
+              },
+              "EffectTarget": "EffectTarget_ActorRoot",
+              "ParticleScale": 1.0,
+              "LocationOffset": {
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0
+              },
+              "RotationOffset": {
+                "Pitch": 0.0,
+                "Yaw": 0.0,
+                "Roll": 0.0
+              },
+              "bAttach": true,
+              "bAbsoluteRotation": false,
+              "bDetachWhenDeactivate": false,
+              "bVisibleByHiddenSourceActor": false,
+              "AttachPointName": "None",
+              "ActorParameterName": "None",
+              "bOverrideLightingChannels": false,
+              "OverrideLightingChannels": {
+                "bChannel0": true,
+                "bChannel1": false,
+                "bChannel2": false
+              },
+              "bOverrideElementType": false,
+              "ElementType": "ESBAttribute::None",
+              "VisibleType": "ESBEffectVisibleType::Default",
+              "EffectType": "ESBEffectType::Default"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

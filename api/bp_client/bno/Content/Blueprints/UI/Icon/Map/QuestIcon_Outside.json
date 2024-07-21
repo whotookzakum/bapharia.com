@@ -1,0 +1,2158 @@
+[
+  {
+    "Type": "Function",
+    "Name": "ExecuteUbergraph_QuestIcon_Outside",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "EntryPoint",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      }
+    ],
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "Construct",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'UserWidget:Construct'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "FunctionFlags": "FUNC_BlueprintCosmetic | FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetIconZOrder",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "MapProperty",
+        "Name": "IconTypeList",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "IconTypeList",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "IconTypeList_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Status",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ByteProperty",
+        "Name": "CallFunc_Map_Find_Value",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESBMiniMapIconType'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Map_Find_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_GetMiniMapIconZOrder_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_setZOrder_CheckLog_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetIconTexture",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "MapProperty",
+        "Name": "TextureList",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "TextureList",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "TextureList_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "Key",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "ConstParm | BlueprintVisible | BlueprintReadOnly | Parm | OutParm | ReferenceParm",
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_Map_Find_Value",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'Texture2D'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Map_Find_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Private | FUNC_HasOutParms | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetQuestIcon",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "IntProperty",
+        "Name": "QuestID",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "TmpQuestStatus",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "TmpQuestID",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "Edit | BlueprintVisible"
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "ReleaseFunctionsQuestIconType",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "ReleaseFunctionsQuestIconType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "ReleaseFunctionsQuestIconType_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "ClassQuestIconType",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "ClassQuestIconType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "ClassQuestIconType_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "ExtraQuestIconType",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "ExtraQuestIconType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "ExtraQuestIconType_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "SubQuestIconType",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "SubQuestIconType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "SubQuestIconType_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "MainQuestIconType",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "MainQuestIconType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "MainQuestIconType_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "ReleaseFunctionsQuestIcons",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "ReleaseFunctionsQuestIcons",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "ReleaseFunctionsQuestIcons_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "ClassQuestIcons",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "ClassQuestIcons",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "ClassQuestIcons_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "ExtraQuestIcons",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "ExtraQuestIcons",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "ExtraQuestIcons_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "SubQuestIcons",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "SubQuestIcons",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "SubQuestIcons_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "MainQuestIcons",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "PropertyFlags": "Edit | BlueprintVisible",
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "MainQuestIcons",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "MainQuestIcons_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_1",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_1",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_2",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_2",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_3",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_3",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_4",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_4",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_5",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_5",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_6",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_6",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ObjectProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 8,
+          "PropertyClass": {
+            "ObjectName": "Class'Texture2D'",
+            "ObjectPath": "/Script/Engine"
+          }
+        }
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_7",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_7",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "StructProperty",
+        "Name": "CallFunc_FindQuestMasterData_QuestMasterData",
+        "Flags": "RF_Public",
+        "ElementSize": 312,
+        "Struct": {
+          "ObjectName": "ScriptStruct'QuestMasterData'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_FindQuestMasterData_Exist",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetQuestStatus_QuestStatus",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'EQuestStatus'",
+          "ObjectPath": "/Script/SkyBlue"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Greater_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_GetNetworkDataCache_IsValid",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_GetNetworkDataCache_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'SBNetworkDataCache'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_CheckPreconditionByIndex_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Not_PreBool_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_8",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_8",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetVisibility_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "MapProperty",
+        "Name": "K2Node_MakeVariable_MakeVariableOutput_9",
+        "Flags": "RF_Public",
+        "ElementSize": 80,
+        "KeyProp": {
+          "Type": "EnumProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_9",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'EQuestStatus'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "UnderlyingProp": {
+            "Type": "ByteProperty",
+            "Name": "UnderlyingType",
+            "Flags": "RF_Public",
+            "ElementSize": 1,
+            "Enum": null
+          }
+        },
+        "ValueProp": {
+          "Type": "ByteProperty",
+          "Name": "K2Node_MakeVariable_MakeVariableOutput_Value",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": {
+            "ObjectName": "Enum'ESBMiniMapIconType'",
+            "ObjectPath": "/Script/SkyBlue"
+          }
+        }
+      },
+      {
+        "Type": "EnumProperty",
+        "Name": "CallFunc_GetVisibility_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "Enum": {
+          "ObjectName": "Enum'ESlateVisibility'",
+          "ObjectPath": "/Script/UMG"
+        },
+        "UnderlyingProp": {
+          "Type": "ByteProperty",
+          "Name": "UnderlyingType",
+          "Flags": "RF_Public",
+          "ElementSize": 1,
+          "Enum": null
+        }
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_NotEqual_ByteByte_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_HasDefaults | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetQuestIconClosed",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PlayAnim",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "StartAtTime",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "FloatProperty",
+        "Name": "PlaybackSpeed",
+        "Flags": "RF_Public",
+        "ElementSize": 4,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CallFunc_PlayAnimation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 8,
+        "PropertyClass": {
+          "ObjectName": "Class'UMGSequencePlayer'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "Function",
+    "Name": "PauseAnim",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'Function'",
+    "ChildProperties": [
+      {
+        "Type": "FloatProperty",
+        "Name": "CallFunc_PauseAnimation_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
+  },
+  {
+    "Type": "WidgetBlueprintGeneratedClass",
+    "Name": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'WidgetBlueprintGeneratedClass'",
+    "Properties": {
+      "WidgetTree": {
+        "ObjectName": "WidgetTree'QuestIcon_Outside_C:WidgetTree'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.26"
+      },
+      "Animations": [
+        {
+          "ObjectName": "WidgetAnimation'QuestIcon_Outside_C:AnimCircle_INST'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.25"
+        }
+      ],
+      "UberGraphFunction": {
+        "ObjectName": "Function'QuestIcon_Outside_C:ExecuteUbergraph_QuestIcon_Outside'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.0"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "Class'UserWidget'",
+      "ObjectPath": "/Script/UMG"
+    },
+    "Children": [
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:PauseAnim'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.7"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:PlayAnim'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.6"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetQuestIconClosed'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.5"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetQuestIcon'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.4"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetIconTexture'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.3"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetIconZOrder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.2"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.1"
+      },
+      {
+        "ObjectName": "Function'QuestIcon_Outside_C:ExecuteUbergraph_QuestIcon_Outside'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.0"
+      }
+    ],
+    "ChildProperties": [
+      {
+        "Type": "StructProperty",
+        "Name": "UberGraphFrame",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 16,
+        "PropertyFlags": "Transient | DuplicateTransient",
+        "Struct": {
+          "ObjectName": "ScriptStruct'PointerToUberGraphFrame'",
+          "ObjectPath": "/Script/Engine"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "AnimCircle",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Transient | RepSkip",
+        "PropertyClass": {
+          "ObjectName": "Class'WidgetAnimation'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "CircleAnim",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      },
+      {
+        "Type": "ObjectProperty",
+        "Name": "IconImage",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | ExportObject | InstancedReference | RepSkip | PersistentInstance",
+        "PropertyClass": {
+          "ObjectName": "Class'Image'",
+          "ObjectPath": "/Script/UMG"
+        }
+      }
+    ],
+    "FuncMap": {
+      "ExecuteUbergraph_QuestIcon_Outside": {
+        "ObjectName": "Function'QuestIcon_Outside_C:ExecuteUbergraph_QuestIcon_Outside'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.0"
+      },
+      "Construct": {
+        "ObjectName": "Function'QuestIcon_Outside_C:Construct'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.1"
+      },
+      "SetIconZOrder": {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetIconZOrder'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.2"
+      },
+      "SetIconTexture": {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetIconTexture'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.3"
+      },
+      "SetQuestIcon": {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetQuestIcon'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.4"
+      },
+      "SetQuestIconClosed": {
+        "ObjectName": "Function'QuestIcon_Outside_C:SetQuestIconClosed'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.5"
+      },
+      "PlayAnim": {
+        "ObjectName": "Function'QuestIcon_Outside_C:PlayAnim'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.6"
+      },
+      "PauseAnim": {
+        "ObjectName": "Function'QuestIcon_Outside_C:PauseAnim'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.7"
+      }
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_EditInlineNew | CLASS_CompiledFromBlueprint | CLASS_DefaultToInstanced | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "QuestIcon_Outside_C'Default__QuestIcon_Outside_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.9"
+    }
+  },
+  {
+    "Type": "QuestIcon_Outside_C",
+    "Name": "Default__QuestIcon_Outside_C",
+    "Class": "WidgetBlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.QuestIcon_Outside_C'",
+    "Properties": {
+      "UberGraphFrame": {},
+      "bHasScriptImplementedTick": false,
+      "bHasScriptImplementedPaint": false
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "CircleAnim",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 40.0,
+          "Y": 40.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_MiniMapCircleAnim1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/MiniMap/UI_MiniMapCircleAnim1.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'QuestIcon_Outside_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.24"
+      }
+    }
+  },
+  {
+    "Type": "Image",
+    "Name": "IconImage",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Image'",
+    "Properties": {
+      "Brush": {
+        "ImageSize": {
+          "X": 64.0,
+          "Y": 64.0
+        },
+        "ResourceObject": {
+          "ObjectName": "Texture2D'UI_Map_29'",
+          "ObjectPath": "BLUEPROTOCOL/Content/UI/Icon/Map/UI_Map_29.0"
+        }
+      },
+      "Slot": {
+        "ObjectName": "OverlaySlot'QuestIcon_Outside_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.23"
+      }
+    }
+  },
+  {
+    "Type": "MovieScene",
+    "Name": "AnimCircle",
+    "Outer": "AnimCircle_INST",
+    "Class": "UScriptClass'MovieScene'",
+    "Properties": {
+      "Possessables": [
+        {
+          "Tags": [],
+          "Guid": "99DABF5B-4204D8EF-47944CB1-4D162B7A",
+          "Name": "CircleAnim",
+          "PossessedObjectClass": {
+            "ObjectName": "Class'Image'",
+            "ObjectPath": "/Script/UMG"
+          },
+          "ParentGuid": "00000000-00000000-00000000-00000000"
+        }
+      ],
+      "ObjectBindings": [
+        {
+          "ObjectGuid": "99DABF5B-4204D8EF-47944CB1-4D162B7A",
+          "BindingName": "CircleAnim",
+          "Tracks": [
+            {
+              "ObjectName": "MovieSceneColorTrack'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieSceneColorTrack_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.20"
+            },
+            {
+              "ObjectName": "MovieScene2DTransformTrack'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieScene2DTransformTrack_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.14"
+            }
+          ]
+        }
+      ],
+      "PlaybackRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 15
+            }
+          }
+        }
+      },
+      "TickResolution": {
+        "Numerator": 30
+      },
+      "DisplayRate": {
+        "Numerator": 30
+      },
+      "Signature": "F845B455-4DB791CD-D1389F99-E59DC66D"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformSection",
+    "Name": "MovieScene2DTransformSection_0",
+    "Outer": "MovieScene2DTransformTrack_0",
+    "Class": "UScriptClass'MovieScene2DTransformSection'",
+    "Properties": {
+      "TransformMask": {
+        "Mask": 24
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Translation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Rotation": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 6
+          },
+          {
+            "Value": 15
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.625,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.93,
+            "Tangent": {
+              "ArriveTangent": 0.025,
+              "LeaveTangent": 0.025,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Scale": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 6
+          },
+          {
+            "Value": 15
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.625,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.93,
+            "Tangent": {
+              "ArriveTangent": 0.025,
+              "LeaveTangent": 0.025,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "Shear": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "EvalOptions": {
+        "CompletionMode": "EMovieSceneCompletionMode::KeepState"
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseInFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.15"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0.EaseOutFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.16"
+        }
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 15
+            }
+          }
+        }
+      },
+      "Signature": "0CC0A3BD-4F560908-302B9688-88A622BA"
+    }
+  },
+  {
+    "Type": "MovieScene2DTransformTrack",
+    "Name": "MovieScene2DTransformTrack_0",
+    "Outer": "AnimCircle",
+    "Class": "UScriptClass'MovieScene2DTransformTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "RenderTransform",
+        "PropertyPath": "RenderTransform",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieScene2DTransformSection'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.13"
+        }
+      ],
+      "EvaluationFieldGuid": "EFD82C1D-48EBB2B8-0B5A0EAA-D529E843",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieScene2DTransformSection'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.13"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 15
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "EFD82C1D-48EBB2B8-0B5A0EAA-D529E843"
+    }
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieScene2DTransformSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseInFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneBuiltInEasingFunction",
+    "Name": "EaseOutFunction",
+    "Outer": "MovieSceneColorSection_0",
+    "Class": "UScriptClass'MovieSceneBuiltInEasingFunction'"
+  },
+  {
+    "Type": "MovieSceneColorSection",
+    "Name": "MovieSceneColorSection_0",
+    "Outer": "MovieSceneColorTrack_0",
+    "Class": "UScriptClass'MovieSceneColorSection'",
+    "Properties": {
+      "RedCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "GreenCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "BlueCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [],
+        "Values": [],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "AlphaCurve": {
+        "PreInfinityExtrap": "RCCE_Constant",
+        "PostInfinityExtrap": "RCCE_Constant",
+        "Times": [
+          {
+            "Value": 0
+          },
+          {
+            "Value": 3
+          },
+          {
+            "Value": 6
+          },
+          {
+            "Value": 15
+          }
+        ],
+        "Values": [
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 1.0,
+            "Tangent": {
+              "ArriveTangent": 0.13333334,
+              "LeaveTangent": 0.13333334,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.8,
+            "Tangent": {
+              "ArriveTangent": -0.083333336,
+              "LeaveTangent": -0.083333336,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          },
+          {
+            "Value": 0.0,
+            "Tangent": {
+              "ArriveTangent": 0.0,
+              "LeaveTangent": 0.0,
+              "ArriveTangentWeight": 0.0,
+              "LeaveTangentWeight": 0.0,
+              "TangentWeightMode": 0
+            },
+            "InterpMode": 2,
+            "TangentMode": 0,
+            "PaddingByte": 0
+          }
+        ],
+        "DefaultValue": 0.0,
+        "bHasDefaultValue": false,
+        "TickResolution": {
+          "Numerator": 30,
+          "Denominator": 1
+        },
+        "bShowCurve": false
+      },
+      "EvalOptions": {
+        "CompletionMode": "EMovieSceneCompletionMode::KeepState"
+      },
+      "Easing": {
+        "EaseIn": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseInFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.17"
+        },
+        "EaseOut": {
+          "ObjectName": "MovieSceneBuiltInEasingFunction'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieSceneColorTrack_0.MovieSceneColorSection_0.EaseOutFunction'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.18"
+        },
+        "bManualEaseOut": true,
+        "ManualEaseOutDuration": 1
+      },
+      "SectionRange": {
+        "Value": {
+          "LowerBound": {
+            "Type": 1,
+            "Value": {
+              "Value": 0
+            }
+          },
+          "UpperBound": {
+            "Type": 0,
+            "Value": {
+              "Value": 15
+            }
+          }
+        }
+      },
+      "Signature": "12A67C53-4B13A1A0-9852D0B0-3AAA72A4"
+    }
+  },
+  {
+    "Type": "MovieSceneColorTrack",
+    "Name": "MovieSceneColorTrack_0",
+    "Outer": "AnimCircle",
+    "Class": "UScriptClass'MovieSceneColorTrack'",
+    "Properties": {
+      "PropertyBinding": {
+        "PropertyName": "ColorAndOpacity",
+        "PropertyPath": "ColorAndOpacity",
+        "bCanUseClassLookup": true
+      },
+      "Sections": [
+        {
+          "ObjectName": "MovieSceneColorSection'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.19"
+        }
+      ],
+      "EvaluationFieldGuid": "E41C6D21-48C6ECDE-089F308D-B4F6330D",
+      "EvaluationField": {
+        "Entries": [
+          {
+            "Section": {
+              "ObjectName": "MovieSceneColorSection'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.19"
+            },
+            "Range": {
+              "LowerBound": {
+                "Type": "ERangeBoundTypes::Inclusive",
+                "Value": {
+                  "Value": 0
+                }
+              },
+              "UpperBound": {
+                "Type": "ERangeBoundTypes::Exclusive",
+                "Value": {
+                  "Value": 15
+                }
+              }
+            },
+            "ForcedTime": {
+              "Value": -2147483648
+            },
+            "Flags": "ESectionEvaluationFlags::None",
+            "LegacySortOrder": 0
+          }
+        ]
+      },
+      "Signature": "E41C6D21-48C6ECDE-089F308D-B4F6330D"
+    }
+  },
+  {
+    "Type": "MovieSceneCompiledData",
+    "Name": "CompiledData",
+    "Outer": "AnimCircle_INST",
+    "Class": "UScriptClass'MovieSceneCompiledData'",
+    "Properties": {
+      "EntityComponentField": {
+        "PersistentEntityTree": {
+          "SerializedData": {
+            "Data": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 2,
+                  "Capacity": 2
+                }
+              ],
+              "Items": [
+                {
+                  "EntityIndex": 0,
+                  "MetaDataIndex": -1
+                },
+                {
+                  "EntityIndex": 1,
+                  "MetaDataIndex": -1
+                }
+              ]
+            },
+            "RootNode": {
+              "Range": {
+                "LowerBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                },
+                "UpperBound": {
+                  "Type": 2,
+                  "Value": {
+                    "Value": 0
+                  }
+                }
+              },
+              "Parent": {
+                "ChildrenHandle": {
+                  "EntryIndex": -1
+                },
+                "Index": -1
+              },
+              "ChildrenID": {
+                "EntryIndex": 0
+              },
+              "DataID": {
+                "EntryIndex": -1
+              }
+            },
+            "ChildNodes": {
+              "Entries": [
+                {
+                  "StartIndex": 0,
+                  "Size": 1,
+                  "Capacity": 1
+                }
+              ],
+              "Items": [
+                {
+                  "Range": {
+                    "LowerBound": {
+                      "Type": 1,
+                      "Value": {
+                        "Value": 0
+                      }
+                    },
+                    "UpperBound": {
+                      "Type": 0,
+                      "Value": {
+                        "Value": 15
+                      }
+                    }
+                  },
+                  "Parent": {
+                    "ChildrenHandle": {
+                      "EntryIndex": -1
+                    },
+                    "Index": 0
+                  },
+                  "ChildrenID": {
+                    "EntryIndex": -1
+                  },
+                  "DataID": {
+                    "EntryIndex": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "Entities": [
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieSceneColorSection'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieSceneColorTrack_0.MovieSceneColorSection_0'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.19"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 0
+          },
+          {
+            "Key": {
+              "EntityOwner": {
+                "ObjectName": "MovieScene2DTransformSection'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle.MovieScene2DTransformTrack_0.MovieScene2DTransformSection_0'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.13"
+              },
+              "EntityID": 0
+            },
+            "SharedMetaDataIndex": 1
+          }
+        ],
+        "SharedMetaData": [
+          {
+            "ObjectBindingID": "99DABF5B-4204D8EF-47944CB1-4D162B7A"
+          },
+          {
+            "ObjectBindingID": "99DABF5B-4204D8EF-47944CB1-4D162B7A"
+          }
+        ]
+      },
+      "DeterminismFences": [
+        {
+          "FrameNumber": {
+            "Value": 15
+          },
+          "SubFrame": 0.0
+        }
+      ],
+      "CompiledSignature": "9104D70E-434DF0C6-0BC720B9-7417FDD8",
+      "CompilerVersion": "7D4B9809-2FAC4A6B-964ECF72-D8279EF8",
+      "AccumulatedMask": {
+        "bEntityComponentField": true
+      },
+      "AllocatedMask": {
+        "bEntityComponentField": true
+      }
+    }
+  },
+  {
+    "Type": "Overlay",
+    "Name": "Overlay_0",
+    "Outer": "WidgetTree",
+    "Class": "UScriptClass'Overlay'",
+    "Properties": {
+      "Slots": [
+        {
+          "ObjectName": "OverlaySlot'QuestIcon_Outside_C:WidgetTree.Overlay_0.OverlaySlot_0'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.23"
+        },
+        {
+          "ObjectName": "OverlaySlot'QuestIcon_Outside_C:WidgetTree.Overlay_0.OverlaySlot_1'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.24"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_0",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "Parent": {
+        "ObjectName": "Overlay'QuestIcon_Outside_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.22"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestIcon_Outside_C:WidgetTree.IconImage'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.11"
+      }
+    }
+  },
+  {
+    "Type": "OverlaySlot",
+    "Name": "OverlaySlot_1",
+    "Outer": "Overlay_0",
+    "Class": "UScriptClass'OverlaySlot'",
+    "Properties": {
+      "HorizontalAlignment": "HAlign_Center",
+      "VerticalAlignment": "VAlign_Center",
+      "Parent": {
+        "ObjectName": "Overlay'QuestIcon_Outside_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.22"
+      },
+      "Content": {
+        "ObjectName": "Image'QuestIcon_Outside_C:WidgetTree.CircleAnim'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.10"
+      }
+    }
+  },
+  {
+    "Type": "WidgetAnimation",
+    "Name": "AnimCircle_INST",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'WidgetAnimation'",
+    "Properties": {
+      "MovieScene": {
+        "ObjectName": "MovieScene'QuestIcon_Outside_C:AnimCircle_INST.AnimCircle'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.12"
+      },
+      "AnimationBindings": [
+        {
+          "WidgetName": "CircleAnim",
+          "SlotWidgetName": "None",
+          "AnimationGuid": "99DABF5B-4204D8EF-47944CB1-4D162B7A",
+          "bIsRootWidget": false
+        }
+      ],
+      "CompiledData": {
+        "ObjectName": "MovieSceneCompiledData'QuestIcon_Outside_C:AnimCircle_INST.CompiledData'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.21"
+      },
+      "Signature": "9104D70E-434DF0C6-0BC720B9-7417FDD8"
+    }
+  },
+  {
+    "Type": "WidgetTree",
+    "Name": "WidgetTree",
+    "Outer": "QuestIcon_Outside_C",
+    "Class": "UScriptClass'WidgetTree'",
+    "Properties": {
+      "RootWidget": {
+        "ObjectName": "Overlay'QuestIcon_Outside_C:WidgetTree.Overlay_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/UI/Icon/Map/QuestIcon_Outside.22"
+      }
+    }
+  }
+]

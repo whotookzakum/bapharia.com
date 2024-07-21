@@ -1,0 +1,92 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_SMA_BoostSmash_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBSmasherBoostSmashSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_SMA_BoostSmash_C'Default__Skill_SMA_BoostSmash_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_BoostSmash.1"
+    }
+  },
+  {
+    "Type": "Skill_SMA_BoostSmash_C",
+    "Name": "Default__Skill_SMA_BoostSmash_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Smasher/Skill_SMA_BoostSmash.Skill_SMA_BoostSmash_C'",
+    "Properties": {
+      "BoostCartridgeAmountRequiredForCastSkillSettingList": [
+        {
+          "RequiredAmount": 1.0,
+          "ModifySettingList": []
+        }
+      ],
+      "SkillConsumeBoostCartridgeSettingList": [
+        {
+          "bAmountSetting": true,
+          "bRateSetting": false,
+          "ConsumptionAmount": 1.0,
+          "ConsumptionRate": 0.0,
+          "ModifySettingList": []
+        }
+      ],
+      "bPlayShortageCartridgeSound": true,
+      "ShortageCartridgeSound": {
+        "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Smasher/Play_Smasher_NoCartridge.Play_Smasher_NoCartridge",
+        "SubPathString": ""
+      },
+      "SkillName": "SMA_BoostSmash",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Smasher/BoostSmash/SM_SMA_BoostSmash.SM_SMA_BoostSmash",
+        "SubPathString": ""
+      },
+      "RecastTime": 11.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -3.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1912
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "bHideCastLog": true
+    }
+  }
+]

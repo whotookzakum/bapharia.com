@@ -1,0 +1,282 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_MGC_Dodge_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBMagicianDodgeSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_MGC_Dodge_C'Default__Skill_MGC_Dodge_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_Dodge.1"
+    }
+  },
+  {
+    "Type": "Skill_MGC_Dodge_C",
+    "Name": "Default__Skill_MGC_Dodge_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Magician/Skill_MGC_Dodge.Skill_MGC_Dodge_C'",
+    "Properties": {
+      "CastMPChangeList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::LastSkillCastIndex",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": 10.0
+        }
+      ],
+      "CurveMoveSettingList": [
+        {
+          "CurveMoveName": "Dodge_Front",
+          "CurveData": {
+            "AssetPathName": "/Game/Blueprints/Player/Skill/MoveCurve_FFF_DodgeFront.MoveCurve_FFF_DodgeFront",
+            "SubPathString": ""
+          },
+          "NeedTags": [],
+          "ForbidTags": [
+            "Idle",
+            "Damage"
+          ],
+          "bMoveBackward": false,
+          "bGoAroundLockonTarget": true,
+          "bApplyXY": true,
+          "bApplyZ": false
+        },
+        {
+          "CurveMoveName": "Dodge_Back",
+          "CurveData": {
+            "AssetPathName": "/Game/Blueprints/Player/Skill/MoveCurve_FFF_DodgeBack.MoveCurve_FFF_DodgeBack",
+            "SubPathString": ""
+          },
+          "NeedTags": [],
+          "ForbidTags": [
+            "Idle",
+            "Damage"
+          ],
+          "bMoveBackward": true,
+          "bGoAroundLockonTarget": true,
+          "bApplyXY": true,
+          "bApplyZ": false
+        }
+      ],
+      "SkillName": "MGCDodge",
+      "NeedParam": {
+        "NeedStamina": 15.0,
+        "StaminaModifySettingList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::LastSkillCastIndex",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": -1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::NotEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "FloatValue": -100.0
+          }
+        ]
+      },
+      "bIsDodge": true,
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/Dodge/SM_C000_DodgeUnsheathe.SM_C000_DodgeUnsheathe",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/Dodge/SM_C000_Dodge_AimOffset.SM_C000_Dodge_AimOffset",
+        "SubPathString": ""
+      },
+      "bCancelSameSkill": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::LastSkillCastIndex",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::DodgeSucceeded",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": true
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+              },
+              "RowName": "DodgeAttack"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::LastSkillCastIndex",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::DodgeSucceeded",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'MagicianProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P011_Magician/MagicianProjectileConfigInfo.0"
+              },
+              "RowName": "DodgeAttack_DodgeSucceeded"
+            }
+          ]
+        }
+      ],
+      "bHideCastLog": true
+    }
+  }
+]

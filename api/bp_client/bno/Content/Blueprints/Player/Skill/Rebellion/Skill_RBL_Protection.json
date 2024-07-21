@@ -1,0 +1,461 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_RBL_Protection_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBRebellionProtectionSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_RBL_Protection_C'Default__Skill_RBL_Protection_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_Protection.1"
+    }
+  },
+  {
+    "Type": "Skill_RBL_Protection_C",
+    "Name": "Default__Skill_RBL_Protection_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_Protection.Skill_RBL_Protection_C'",
+    "Properties": {
+      "GuardSuccessEffect": {
+        "Particle": {
+          "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_Guard_Protection.PS_RBL_Guard_Protection",
+          "SubPathString": ""
+        },
+        "Sound": {
+          "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Play_Phalanx_GuardProtction_Succes.Play_Phalanx_GuardProtction_Succes",
+          "SubPathString": ""
+        },
+        "EffectTarget": "EffectTarget_Inventory_1",
+        "bAttach": false,
+        "AttachPointName": "Center_J",
+        "VisibleType": "ESBEffectVisibleType::Battle_Production"
+      },
+      "GuardLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveOnlyPlayerStatus",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [
+                "ESBAbilityOnlyPlayerStatus::RBL_Protection"
+              ],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 112022
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "RowHandle": {
+            "DataTable": {
+              "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
+            },
+            "RowName": "Protection_GuardAttack"
+          }
+        }
+      ],
+      "GuardLaunchProjectileSpawnSocketName": "Root_J",
+      "GuardLaunchProjectileOffsetFromOwner": {
+        "X": 100.0,
+        "Y": 0.0,
+        "Z": 100.0
+      },
+      "GuardLaunchProjectileOffsetFromLargeShield": {
+        "X": 0.0,
+        "Y": 100.0,
+        "Z": 150.0
+      },
+      "GuardLaunchProjectileCoolDown": 0.1,
+      "bNeedShield": true,
+      "NotNeedShieldConditionList": [
+        {
+          "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+          "ActiveArtsID": {
+            "ID": 1223
+          },
+          "PassiveArtsID": {
+            "ID": 0
+          },
+          "AttackID": {
+            "AttackID": 0
+          },
+          "IntValue": 4,
+          "FloatValue": 0.0,
+          "NameValue": "None",
+          "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+          "BattleStatusRowHandle": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+          "AbilityFlagList": [],
+          "OnlyPlayerStatusList": [],
+          "ElementType": "ESBAttribute::None",
+          "SkillType": "ESBPlayerSkillActionType::None",
+          "ArrayLogic": "ESBArrayLogicalOperator::AND",
+          "bNot": false
+        }
+      ],
+      "CastShieldDurabilityList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1223
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "FloatValue": 50.0
+        }
+      ],
+      "SkillName": "Protection",
+      "StatusAilmentPriorityTable": {
+        "PrioritySection": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1223
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 1,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+                  },
+                  "RowName": "Protection_Lv1"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1223
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 2,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+                  },
+                  "RowName": "Protection_Lv2"
+                }
+              }
+            ]
+          },
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 1223
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::Equal",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "PriorityDataArray": [
+              {
+                "UseSlotIndex": 0,
+                "StatusAilmentRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+                  },
+                  "RowName": "Protection_Lv3"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/SingleAction/SM_FFF_SingleAction.SM_FFF_SingleAction",
+        "SubPathString": ""
+      },
+      "OverrideAnimationSetForMainSM": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Rebellion/Protection/AST_RBL_Protection.AST_RBL_Protection",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 30.0,
+      "CastApplyStatusAilmentList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1223
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 1,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+              },
+              "RowName": "Protection_Lv1"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1223
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::Equal",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+              },
+              "RowName": "Protection_Lv2"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1223
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "StatusAlimentHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+              },
+              "RowName": "Protection_Lv3"
+            }
+          ],
+          "TimeModifyConditionList": [],
+          "TimeModifyRate": 0
+        }
+      ],
+      "bHideCastLog": true
+    }
+  }
+]

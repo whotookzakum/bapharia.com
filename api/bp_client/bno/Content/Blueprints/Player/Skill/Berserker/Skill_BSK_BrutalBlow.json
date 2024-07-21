@@ -1,0 +1,853 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_BSK_BrutalBlow_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBerserkerBrutalBlowSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_BSK_BrutalBlow_C'Default__Skill_BSK_BrutalBlow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_BrutalBlow.1"
+    }
+  },
+  {
+    "Type": "Skill_BSK_BrutalBlow_C",
+    "Name": "Default__Skill_BSK_BrutalBlow_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Berserker/Skill_BSK_BrutalBlow.Skill_BSK_BrutalBlow_C'",
+    "Properties": {
+      "ChargeSkillSetting": {
+        "LevelSettingList": [
+          {
+            "ChargeTime": 0.0,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 710
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_SkillCharge_Weapon_Lv1.PS_BSK_SkillCharge_Weapon_Lv1",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserk_RoundBlow_Start.Play_Berserk_RoundBlow_Start",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Center_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_SkillCharge_Weapon_Lv1.PS_BSK_SkillCharge_Weapon_Lv1",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_1",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Center_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_1_Blow_ChargeAura.PS_BSK_1_Blow_ChargeAura",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserk_RoundBlow_Loop.Play_Berserk_RoundBlow_Loop",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Stop_Berserk_RoundBlow_Loop.Stop_Berserk_RoundBlow_Loop",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_ActorRoot",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "None",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_Charge_ground.PS_BSK_Charge_ground",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_ActorMesh",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Root_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [],
+            "ProjectileChangeConditionList": []
+          },
+          {
+            "ChargeTime": 0.4,
+            "ChargeConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+                "ActiveArtsID": {
+                  "ID": 710
+                },
+                "PassiveArtsID": {
+                  "ID": 0
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 3,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "ChargeEffectList": [
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_SkillCharge_Weapon_Lv2.PS_BSK_SkillCharge_Weapon_Lv2",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserk_RoundBlow_Charge1.Play_Berserk_RoundBlow_Charge1",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_0",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Center_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_SkillCharge_Weapon_Lv2.PS_BSK_SkillCharge_Weapon_Lv2",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_Inventory_1",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "None",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_1_Blow_ChargeAura.PS_BSK_1_Blow_ChargeAura",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Play_Berserker_BrutalBlow_Charge_Loop_Lv2.Play_Berserker_BrutalBlow_Charge_Loop_Lv2",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Berserker/Stop_Berserker_BrutalBlow_Charge_Loop_Lv2.Stop_Berserker_BrutalBlow_Charge_Loop_Lv2",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_ActorRoot",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "None",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              },
+              {
+                "Particle": {
+                  "AssetPathName": "/Game/Effect/Particle/Player/Berserker/PS_BSK_Charge_ground.PS_BSK_Charge_ground",
+                  "SubPathString": ""
+                },
+                "NiagaraSystem": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActor": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EffectActorList": [],
+                "Sound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "SoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EndSound": {
+                  "AssetPathName": "None",
+                  "SubPathString": ""
+                },
+                "EndSoundParam": {
+                  "Event": null,
+                  "Switch": [],
+                  "AttachName": "None",
+                  "AutoDestroy": true,
+                  "StopWhenOwnerDestroyed": true,
+                  "LOD": "ESBAkEventLOD::LOD_Default",
+                  "RTPC": [],
+                  "DelayTime": 0.0,
+                  "bCanReuseAkComponent": true
+                },
+                "EffectTarget": "EffectTarget_ActorMesh",
+                "ParticleScale": 1.0,
+                "LocationOffset": {
+                  "X": 0.0,
+                  "Y": 0.0,
+                  "Z": 0.0
+                },
+                "RotationOffset": {
+                  "Pitch": 0.0,
+                  "Yaw": 0.0,
+                  "Roll": 0.0
+                },
+                "bAttach": true,
+                "bAbsoluteRotation": false,
+                "bDetachWhenDeactivate": false,
+                "bVisibleByHiddenSourceActor": false,
+                "AttachPointName": "Root_J",
+                "ActorParameterName": "None",
+                "bOverrideLightingChannels": false,
+                "OverrideLightingChannels": {
+                  "bChannel0": true,
+                  "bChannel1": false,
+                  "bChannel2": false
+                },
+                "bOverrideElementType": false,
+                "ElementType": "ESBAttribute::None",
+                "VisibleType": "ESBEffectVisibleType::Battle_Production",
+                "EffectType": "ESBEffectType::Default"
+              }
+            ],
+            "ProjectileHandleList": [],
+            "ProjectileChangeConditionList": []
+          }
+        ],
+        "ChargeSpeedModifyList": [
+          {
+            "ConditionList": [
+              {
+                "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+                "ActiveArtsID": {
+                  "ID": 0
+                },
+                "PassiveArtsID": {
+                  "ID": 107001
+                },
+                "AttackID": {
+                  "AttackID": 0
+                },
+                "IntValue": 0,
+                "FloatValue": 0.0,
+                "NameValue": "None",
+                "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+                "BattleStatusRowHandle": {
+                  "DataTable": null,
+                  "RowName": "None"
+                },
+                "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+                "AbilityFlagList": [],
+                "OnlyPlayerStatusList": [],
+                "ElementType": "ESBAttribute::None",
+                "SkillType": "ESBPlayerSkillActionType::None",
+                "ArrayLogic": "ESBArrayLogicalOperator::AND",
+                "bNot": false
+              }
+            ],
+            "IntValue": -60
+          }
+        ]
+      },
+      "ConsumeComboAttackConsumeTiming": "ESBBerserkerConsumeComboTiming::StartSkill",
+      "SkillName": "BrutalBlow",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Berserker/BrutalBlow/SM_BSK_Action_BrutalBlow.SM_BSK_Action_BrutalBlow",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 10.0,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::AnimTag",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "BrutalBlowLevel1",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BerserkerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerProjectileConfigInfo.0"
+              },
+              "RowName": "BrutalBlowLv1"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::AnimTag",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "BrutalBlowLevel2",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BerserkerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerProjectileConfigInfo.0"
+              },
+              "RowName": "BrutalBlowLv2"
+            }
+          ]
+        },
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::AnimTag",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "BrutalBlowLevel3",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'BerserkerProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P007_Berserker/BerserkerProjectileConfigInfo.0"
+              },
+              "RowName": "BrutalBlowLv3"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

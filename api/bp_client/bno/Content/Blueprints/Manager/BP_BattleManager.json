@@ -1,0 +1,949 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_BattleManager_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBBattleManager'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_BattleManager_C'Default__BP_BattleManager_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/BP_BattleManager.1"
+    }
+  },
+  {
+    "Type": "BP_BattleManager_C",
+    "Name": "Default__BP_BattleManager_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Manager/BP_BattleManager.BP_BattleManager_C'",
+    "Properties": {
+      "m_DefaultDamageType": {
+        "ObjectName": "BlueprintGeneratedClass'BP_DmgTypeNone_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/Event/BP_DmgTypeNone.0"
+      },
+      "m_DefaultDamageTypeCache": {
+        "ObjectName": "BP_DmgTypeNone_C'Default__BP_DmgTypeNone_C'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/Event/BP_DmgTypeNone.1"
+      },
+      "LevelCoefficientDamageModifyCurve": {
+        "ObjectName": "CurveFloat'CV_DamageRate_LevelCoefficient'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_DamageRate_LevelCoefficient.0"
+      },
+      "m_StunLevelList": [
+        100,
+        300,
+        600,
+        1000
+      ],
+      "BackHitStunPercentCurve": {
+        "ObjectName": "CurveFloat'CV_BackHitStunPercent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_BackHitStunPercent.0"
+      },
+      "ElementResistanceDamageRateCurve": {
+        "ObjectName": "CurveFloat'CV_ElementResistanceDamageRate'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_ElementResistanceDamageRate.0"
+      },
+      "ElementResistanceElementAccumulationRateCurve": {
+        "ObjectName": "CurveFloat'CV_ElementResistanceElementAccumulationRate'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_ElementResistanceElementAccumulationRate.0"
+      },
+      "PlayerElementBurstBonusTimeList": [
+        {
+          "ESBAttribute::Ice": 10.0
+        },
+        {
+          "ESBAttribute::Earth": 10.0
+        }
+      ],
+      "EnemyElementBurstBonusTimeList": [
+        {
+          "ESBAttribute::Earth": 10.0
+        },
+        {
+          "ESBAttribute::Fire": 10.0
+        },
+        {
+          "ESBAttribute::Ice": 10.0
+        },
+        {
+          "ESBAttribute::Thunder": 10.0
+        },
+        {
+          "ESBAttribute::Light": 10.0
+        },
+        {
+          "ESBAttribute::Darkness": 10.0
+        }
+      ],
+      "PlayerElementalBurstBonusLevelList": [
+        {
+          "BonusLevel": 1,
+          "NeedAccumAmount": 0.0,
+          "BurstEndDamageModifyRateList": [
+            {
+              "ESBAttribute::Earth": 0.0
+            },
+            {
+              "ESBAttribute::Fire": 20.0
+            },
+            {
+              "ESBAttribute::Ice": 0.0
+            },
+            {
+              "ESBAttribute::Thunder": 2.5
+            },
+            {
+              "ESBAttribute::Light": 2.5
+            },
+            {
+              "ESBAttribute::Darkness": 2.5
+            }
+          ]
+        }
+      ],
+      "EnemyElementalBurstBonusLevelList": [
+        {
+          "BonusLevel": 1,
+          "NeedAccumAmount": 0.0,
+          "BurstEndDamageModifyRateList": [
+            {
+              "ESBAttribute::Earth": 6.0
+            },
+            {
+              "ESBAttribute::Fire": 5.0
+            },
+            {
+              "ESBAttribute::Ice": 6.0
+            },
+            {
+              "ESBAttribute::Thunder": 5.0
+            },
+            {
+              "ESBAttribute::Light": 5.0
+            },
+            {
+              "ESBAttribute::Darkness": 5.0
+            }
+          ]
+        },
+        {
+          "BonusLevel": 2,
+          "NeedAccumAmount": 30.0,
+          "BurstEndDamageModifyRateList": [
+            {
+              "ESBAttribute::Earth": 9.0
+            },
+            {
+              "ESBAttribute::Fire": 7.0
+            },
+            {
+              "ESBAttribute::Ice": 9.0
+            },
+            {
+              "ESBAttribute::Thunder": 7.0
+            },
+            {
+              "ESBAttribute::Light": 7.0
+            },
+            {
+              "ESBAttribute::Darkness": 7.0
+            }
+          ]
+        },
+        {
+          "BonusLevel": 3,
+          "NeedAccumAmount": 60.0,
+          "BurstEndDamageModifyRateList": [
+            {
+              "ESBAttribute::Earth": 13.0
+            },
+            {
+              "ESBAttribute::Fire": 10.0
+            },
+            {
+              "ESBAttribute::Ice": 13.0
+            },
+            {
+              "ESBAttribute::Thunder": 10.0
+            },
+            {
+              "ESBAttribute::Light": 10.0
+            },
+            {
+              "ESBAttribute::Darkness": 10.0
+            }
+          ]
+        },
+        {
+          "BonusLevel": 4,
+          "NeedAccumAmount": 100.0,
+          "BurstEndDamageModifyRateList": [
+            {
+              "ESBAttribute::Earth": 19.0
+            },
+            {
+              "ESBAttribute::Fire": 15.0
+            },
+            {
+              "ESBAttribute::Ice": 19.0
+            },
+            {
+              "ESBAttribute::Thunder": 15.0
+            },
+            {
+              "ESBAttribute::Light": 15.0
+            },
+            {
+              "ESBAttribute::Darkness": 15.0
+            }
+          ]
+        },
+        {
+          "BonusLevel": 5,
+          "NeedAccumAmount": 140.0,
+          "BurstEndDamageModifyRateList": [
+            {
+              "ESBAttribute::Earth": 25.0
+            },
+            {
+              "ESBAttribute::Fire": 20.0
+            },
+            {
+              "ESBAttribute::Ice": 25.0
+            },
+            {
+              "ESBAttribute::Thunder": 20.0
+            },
+            {
+              "ESBAttribute::Light": 20.0
+            },
+            {
+              "ESBAttribute::Darkness": 20.0
+            }
+          ]
+        }
+      ],
+      "AttackAttributeTypeResistanceDamageRateCurve": {
+        "ObjectName": "CurveFloat'CV_AttackAttributeTypeResistanceDamageRate'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_AttackAttributeTypeResistanceDamageRate.0"
+      },
+      "KnockBackBaseDistance": 10.0,
+      "KnockBackPowerList": [
+        {
+          "ESBHitKnockBackPower::Small": 10.0
+        },
+        {
+          "ESBHitKnockBackPower::Large": 20.0
+        }
+      ],
+      "KnockBackTimeList": [
+        {
+          "ESBHitKnockBackTime::Short": 0.2
+        }
+      ],
+      "KnockBackWeightClassList": [
+        {
+          "WeightClass": "ESBKnockBackWeightClass::KnockBackMoveReceiverEmphasisSuper",
+          "DamageReactionType": "ESBEnemyReactionType::Default",
+          "KnockBackDistanceRatio": 3.0
+        },
+        {
+          "WeightClass": "ESBKnockBackWeightClass::KnockBackMoveReceiverEmphasis",
+          "DamageReactionType": "ESBEnemyReactionType::Middle",
+          "KnockBackDistanceRatio": 2.0
+        },
+        {
+          "WeightClass": "ESBKnockBackWeightClass::KnockBackMoveFare",
+          "DamageReactionType": "ESBEnemyReactionType::Heavy",
+          "KnockBackDistanceRatio": 1.0
+        },
+        {
+          "WeightClass": "ESBKnockBackWeightClass::KnockBackMoveAttackerOnly",
+          "DamageReactionType": "ESBEnemyReactionType::SuperHeavy",
+          "KnockBackDistanceRatio": 0.0
+        },
+        {
+          "WeightClass": "ESBKnockBackWeightClass::KnockBackMoveReceiverEmphasisSuper",
+          "DamageReactionType": "ESBEnemyReactionType::PlayerType",
+          "KnockBackDistanceRatio": 3.0
+        }
+      ],
+      "KnockBackDistanceFloatScale": 2.0,
+      "m_KnockBackCurve": {
+        "ObjectName": "CurveFloat'CV_KnockBack'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/CV_KnockBack.0"
+      },
+      "GuardKnockBackSettingList": [
+        {
+          "ShieldDamageRate": 2.0,
+          "GuardKnockBackPower": "ESBGuardKnockBackPower::Mid",
+          "KnockBackPowerType": "ESBHitKnockBackPower::None",
+          "bOverrideKnockBackPower": true,
+          "OverrideKnockBackPower": 20.0,
+          "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+          "bOverrideKnockBackTime": false,
+          "OverrideKnockBackTime": 0.0,
+          "bNoAttackerKnockBack": false,
+          "bReverseKnockBackDirection": false,
+          "bNeedGiveStunToKnockBack": false,
+          "CapsuleSpace": 0.0
+        },
+        {
+          "ShieldDamageRate": 5.0,
+          "GuardKnockBackPower": "ESBGuardKnockBackPower::Mid",
+          "KnockBackPowerType": "ESBHitKnockBackPower::None",
+          "bOverrideKnockBackPower": true,
+          "OverrideKnockBackPower": 30.0,
+          "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+          "bOverrideKnockBackTime": true,
+          "OverrideKnockBackTime": 0.3,
+          "bNoAttackerKnockBack": false,
+          "bReverseKnockBackDirection": false,
+          "bNeedGiveStunToKnockBack": false,
+          "CapsuleSpace": 0.0
+        },
+        {
+          "ShieldDamageRate": 10.0,
+          "GuardKnockBackPower": "ESBGuardKnockBackPower::Large",
+          "KnockBackPowerType": "ESBHitKnockBackPower::None",
+          "bOverrideKnockBackPower": true,
+          "OverrideKnockBackPower": 50.0,
+          "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+          "bOverrideKnockBackTime": true,
+          "OverrideKnockBackTime": 0.4,
+          "bNoAttackerKnockBack": false,
+          "bReverseKnockBackDirection": false,
+          "bNeedGiveStunToKnockBack": false,
+          "CapsuleSpace": 0.0
+        },
+        {
+          "ShieldDamageRate": 15.0,
+          "GuardKnockBackPower": "ESBGuardKnockBackPower::Large",
+          "KnockBackPowerType": "ESBHitKnockBackPower::None",
+          "bOverrideKnockBackPower": true,
+          "OverrideKnockBackPower": 80.0,
+          "KnockBackTimeType": "ESBHitKnockBackTime::Short",
+          "bOverrideKnockBackTime": true,
+          "OverrideKnockBackTime": 0.6,
+          "bNoAttackerKnockBack": false,
+          "bReverseKnockBackDirection": false,
+          "bNeedGiveStunToKnockBack": false,
+          "CapsuleSpace": 0.0
+        }
+      ],
+      "HitSlomoSettingList": [
+        {
+          "HitSlomoPower": "ESBHitSlomoPower::Light",
+          "CurveData": {
+            "ObjectName": "CurveFloat'CV_HitSlomo_Light'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/HitSlomo/CV_HitSlomo_Light.0"
+          }
+        },
+        {
+          "HitSlomoPower": "ESBHitSlomoPower::Middle",
+          "CurveData": {
+            "ObjectName": "CurveFloat'CV_HitSlomo_Middle'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/HitSlomo/CV_HitSlomo_Middle.0"
+          }
+        },
+        {
+          "HitSlomoPower": "ESBHitSlomoPower::Heavy",
+          "CurveData": {
+            "ObjectName": "CurveFloat'CV_HitSlomo_Heavy'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/HitSlomo/CV_HitSlomo_Heavy.0"
+          }
+        },
+        {
+          "HitSlomoPower": "ESBHitSlomoPower::StormRush",
+          "CurveData": {
+            "ObjectName": "CurveFloat'CV_HitSlomo_StormRush'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/DamageType/HitSlomo/CV_HitSlomo_StormRush.0"
+          }
+        }
+      ],
+      "SplitDamageUISettingList": [
+        {
+          "AttackID": {
+            "AttackID": 1119001
+          },
+          "SplitNum": 3
+        }
+      ],
+      "PartyChainSettingMap": [
+        {
+          "ESBPartyChainSettingType::Default": {
+            "PartyChainComboLimitTimeSettingList": [
+              {
+                "ComboCount": 0,
+                "LimitTime": 1.5
+              },
+              {
+                "ComboCount": 100,
+                "LimitTime": 1.4
+              },
+              {
+                "ComboCount": 200,
+                "LimitTime": 1.3
+              },
+              {
+                "ComboCount": 300,
+                "LimitTime": 1.2
+              },
+              {
+                "ComboCount": 400,
+                "LimitTime": 1.1
+              },
+              {
+                "ComboCount": 500,
+                "LimitTime": 1.0
+              },
+              {
+                "ComboCount": 600,
+                "LimitTime": 0.8
+              },
+              {
+                "ComboCount": 700,
+                "LimitTime": 0.6
+              },
+              {
+                "ComboCount": 800,
+                "LimitTime": 0.4
+              },
+              {
+                "ComboCount": 900,
+                "LimitTime": 0.3
+              }
+            ],
+            "PartyChainComboCountOccurCoolTime": 50,
+            "PartyChainComboCoolTime": 10.0,
+            "PartyChainComboLimitDistance": 7000.0,
+            "PartyChainMaxComboCount": 999,
+            "PartyChainBonusDamageSettingList": [
+              {
+                "NeedComboCount": 0,
+                "DamageModifyRate": 0.0
+              },
+              {
+                "NeedComboCount": 50,
+                "DamageModifyRate": 1.0
+              },
+              {
+                "NeedComboCount": 150,
+                "DamageModifyRate": 2.0
+              },
+              {
+                "NeedComboCount": 250,
+                "DamageModifyRate": 3.0
+              },
+              {
+                "NeedComboCount": 350,
+                "DamageModifyRate": 4.0
+              },
+              {
+                "NeedComboCount": 450,
+                "DamageModifyRate": 5.0
+              },
+              {
+                "NeedComboCount": 550,
+                "DamageModifyRate": 6.0
+              },
+              {
+                "NeedComboCount": 650,
+                "DamageModifyRate": 7.0
+              },
+              {
+                "NeedComboCount": 750,
+                "DamageModifyRate": 8.0
+              },
+              {
+                "NeedComboCount": 850,
+                "DamageModifyRate": 9.0
+              },
+              {
+                "NeedComboCount": 950,
+                "DamageModifyRate": 10.0
+              }
+            ],
+            "PartyChainBonusStatusSettingList": [
+              {
+                "NeedComboCount": 50,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_50"
+                }
+              },
+              {
+                "NeedComboCount": 150,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_150"
+                }
+              },
+              {
+                "NeedComboCount": 250,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_250"
+                }
+              },
+              {
+                "NeedComboCount": 350,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_350"
+                }
+              },
+              {
+                "NeedComboCount": 450,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_450"
+                }
+              },
+              {
+                "NeedComboCount": 550,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_550"
+                }
+              },
+              {
+                "NeedComboCount": 650,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_650"
+                }
+              },
+              {
+                "NeedComboCount": 750,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_750"
+                }
+              },
+              {
+                "NeedComboCount": 850,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_850"
+                }
+              },
+              {
+                "NeedComboCount": 999,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_999"
+                }
+              }
+            ],
+            "PartyChainComboCountLogSettingList": [
+              {
+                "NeedComboCount": 50,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_DotHeal"
+              },
+              {
+                "NeedComboCount": 150,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_ReceiveDamageDown"
+              },
+              {
+                "NeedComboCount": 250,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_SuperArmor"
+              },
+              {
+                "NeedComboCount": 350,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_DotHeal"
+              },
+              {
+                "NeedComboCount": 450,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_ReceiveDamageDown"
+              },
+              {
+                "NeedComboCount": 550,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_SuperArmor"
+              },
+              {
+                "NeedComboCount": 650,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_DotHeal"
+              },
+              {
+                "NeedComboCount": 750,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_ReceiveDamageDown"
+              },
+              {
+                "NeedComboCount": 850,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_SuperArmor"
+              },
+              {
+                "NeedComboCount": 999,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_RecastReductionULT"
+              }
+            ]
+          }
+        },
+        {
+          "ESBPartyChainSettingType::RaidBattle": {
+            "PartyChainComboLimitTimeSettingList": [
+              {
+                "ComboCount": 0,
+                "LimitTime": 1.5
+              },
+              {
+                "ComboCount": 100,
+                "LimitTime": 1.4
+              },
+              {
+                "ComboCount": 200,
+                "LimitTime": 1.3
+              },
+              {
+                "ComboCount": 300,
+                "LimitTime": 1.2
+              },
+              {
+                "ComboCount": 400,
+                "LimitTime": 1.1
+              },
+              {
+                "ComboCount": 500,
+                "LimitTime": 1.0
+              },
+              {
+                "ComboCount": 600,
+                "LimitTime": 0.8
+              },
+              {
+                "ComboCount": 700,
+                "LimitTime": 0.6
+              },
+              {
+                "ComboCount": 800,
+                "LimitTime": 0.4
+              },
+              {
+                "ComboCount": 900,
+                "LimitTime": 0.3
+              }
+            ],
+            "PartyChainComboCountOccurCoolTime": 250,
+            "PartyChainComboCoolTime": 30.0,
+            "PartyChainComboLimitDistance": 7000.0,
+            "PartyChainMaxComboCount": 999,
+            "PartyChainBonusDamageSettingList": [
+              {
+                "NeedComboCount": 0,
+                "DamageModifyRate": 0.0
+              },
+              {
+                "NeedComboCount": 50,
+                "DamageModifyRate": 1.0
+              },
+              {
+                "NeedComboCount": 150,
+                "DamageModifyRate": 2.0
+              },
+              {
+                "NeedComboCount": 250,
+                "DamageModifyRate": 3.0
+              },
+              {
+                "NeedComboCount": 350,
+                "DamageModifyRate": 4.0
+              },
+              {
+                "NeedComboCount": 450,
+                "DamageModifyRate": 5.0
+              },
+              {
+                "NeedComboCount": 550,
+                "DamageModifyRate": 6.0
+              },
+              {
+                "NeedComboCount": 650,
+                "DamageModifyRate": 7.0
+              },
+              {
+                "NeedComboCount": 750,
+                "DamageModifyRate": 8.0
+              },
+              {
+                "NeedComboCount": 850,
+                "DamageModifyRate": 9.0
+              },
+              {
+                "NeedComboCount": 950,
+                "DamageModifyRate": 10.0
+              }
+            ],
+            "PartyChainBonusStatusSettingList": [
+              {
+                "NeedComboCount": 250,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_350"
+                }
+              },
+              {
+                "NeedComboCount": 550,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_450"
+                }
+              },
+              {
+                "NeedComboCount": 850,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_550"
+                }
+              },
+              {
+                "NeedComboCount": 999,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_999"
+                }
+              }
+            ],
+            "PartyChainComboCountLogSettingList": [
+              {
+                "NeedComboCount": 250,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_DotHeal"
+              },
+              {
+                "NeedComboCount": 550,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_ReceiveDamageDown"
+              },
+              {
+                "NeedComboCount": 850,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_SuperArmor"
+              },
+              {
+                "NeedComboCount": 999,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_RecastReductionULT"
+              }
+            ]
+          }
+        },
+        {
+          "ESBPartyChainSettingType::DxBattle": {
+            "PartyChainComboLimitTimeSettingList": [
+              {
+                "ComboCount": 0,
+                "LimitTime": 1.5
+              },
+              {
+                "ComboCount": 100,
+                "LimitTime": 1.4
+              },
+              {
+                "ComboCount": 200,
+                "LimitTime": 1.3
+              },
+              {
+                "ComboCount": 300,
+                "LimitTime": 1.2
+              },
+              {
+                "ComboCount": 400,
+                "LimitTime": 1.1
+              },
+              {
+                "ComboCount": 500,
+                "LimitTime": 1.0
+              },
+              {
+                "ComboCount": 600,
+                "LimitTime": 0.8
+              },
+              {
+                "ComboCount": 700,
+                "LimitTime": 0.6
+              },
+              {
+                "ComboCount": 800,
+                "LimitTime": 0.4
+              },
+              {
+                "ComboCount": 900,
+                "LimitTime": 0.3
+              }
+            ],
+            "PartyChainComboCountOccurCoolTime": 150,
+            "PartyChainComboCoolTime": 30.0,
+            "PartyChainComboLimitDistance": 35000.0,
+            "PartyChainMaxComboCount": 999,
+            "PartyChainBonusDamageSettingList": [
+              {
+                "NeedComboCount": 0,
+                "DamageModifyRate": 0.0
+              },
+              {
+                "NeedComboCount": 50,
+                "DamageModifyRate": 1.0
+              },
+              {
+                "NeedComboCount": 150,
+                "DamageModifyRate": 2.0
+              },
+              {
+                "NeedComboCount": 250,
+                "DamageModifyRate": 3.0
+              },
+              {
+                "NeedComboCount": 350,
+                "DamageModifyRate": 4.0
+              },
+              {
+                "NeedComboCount": 450,
+                "DamageModifyRate": 5.0
+              },
+              {
+                "NeedComboCount": 550,
+                "DamageModifyRate": 6.0
+              },
+              {
+                "NeedComboCount": 650,
+                "DamageModifyRate": 7.0
+              },
+              {
+                "NeedComboCount": 750,
+                "DamageModifyRate": 8.0
+              },
+              {
+                "NeedComboCount": 850,
+                "DamageModifyRate": 9.0
+              },
+              {
+                "NeedComboCount": 950,
+                "DamageModifyRate": 10.0
+              }
+            ],
+            "PartyChainBonusStatusSettingList": [
+              {
+                "NeedComboCount": 150,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_350"
+                }
+              },
+              {
+                "NeedComboCount": 350,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_150"
+                }
+              },
+              {
+                "NeedComboCount": 550,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_550"
+                }
+              },
+              {
+                "NeedComboCount": 750,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_350"
+                }
+              },
+              {
+                "NeedComboCount": 999,
+                "StatusRowHandle": {
+                  "DataTable": {
+                    "ObjectName": "DataTable'DT_CommonStatusAilmentDB'",
+                    "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Manager/DT_CommonStatusAilmentDB.0"
+                  },
+                  "RowName": "PartyChainBonus_999"
+                }
+              }
+            ],
+            "PartyChainComboCountLogSettingList": [
+              {
+                "NeedComboCount": 150,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_DotHeal"
+              },
+              {
+                "NeedComboCount": 350,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_ReceiveDamageDown"
+              },
+              {
+                "NeedComboCount": 550,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_SuperArmor"
+              },
+              {
+                "NeedComboCount": 750,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_DotHeal"
+              },
+              {
+                "NeedComboCount": 999,
+                "ShowLogType": "ESBPartyChainComboCountLogType::BonusStatus_RecastReductionULT"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

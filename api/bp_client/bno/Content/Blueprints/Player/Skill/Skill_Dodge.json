@@ -1,0 +1,81 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_Dodge_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBDodgeSkillInfo'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_Dodge_C'Default__Skill_Dodge_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Skill_Dodge.1"
+    }
+  },
+  {
+    "Type": "Skill_Dodge_C",
+    "Name": "Default__Skill_Dodge_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Skill_Dodge.Skill_Dodge_C'",
+    "Properties": {
+      "CurveMoveSettingList": [
+        {
+          "CurveMoveName": "Dodge_Front",
+          "CurveData": {
+            "AssetPathName": "/Game/Blueprints/Player/Skill/MoveCurve_FFF_DodgeFront.MoveCurve_FFF_DodgeFront",
+            "SubPathString": ""
+          },
+          "NeedTags": [],
+          "ForbidTags": [
+            "Idle",
+            "Damage"
+          ],
+          "bMoveBackward": false,
+          "bGoAroundLockonTarget": true,
+          "bApplyXY": true,
+          "bApplyZ": false
+        },
+        {
+          "CurveMoveName": "Dodge_Back",
+          "CurveData": {
+            "AssetPathName": "/Game/Blueprints/Player/Skill/MoveCurve_FFF_DodgeBack.MoveCurve_FFF_DodgeBack",
+            "SubPathString": ""
+          },
+          "NeedTags": [],
+          "ForbidTags": [
+            "Idle",
+            "Damage"
+          ],
+          "bMoveBackward": true,
+          "bGoAroundLockonTarget": true,
+          "bApplyXY": true,
+          "bApplyZ": false
+        }
+      ],
+      "DodgeSucceededCharacterMaterial": "Warp_Threshold",
+      "SkillName": "Dodge",
+      "NeedParam": {
+        "NeedStamina": 20.0
+      },
+      "bIsDodge": true,
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/Dodge/SM_C000_DodgeUnsheathe.SM_C000_DodgeUnsheathe",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Common/Dodge/SM_C000_Dodge_AimOffset.SM_C000_Dodge_AimOffset",
+        "SubPathString": ""
+      },
+      "bCancelSameSkill": true,
+      "bLaunchSkillPreInput": true,
+      "LaunchSkillPreInputTime": 0.6,
+      "bHideCastLog": true
+    }
+  }
+]

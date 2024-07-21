@@ -1,0 +1,135 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_RBL_Guard_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBRebellionGuardSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_RBL_Guard_C'Default__Skill_RBL_Guard_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_Guard.1"
+    }
+  },
+  {
+    "Type": "Skill_RBL_Guard_C",
+    "Name": "Default__Skill_RBL_Guard_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_Guard.Skill_RBL_Guard_C'",
+    "Properties": {
+      "CounterCost": 0,
+      "GreatGuardCostSettingList": [
+        {
+          "ConditionList": [],
+          "BaseCost": 1000.0,
+          "BattleEffectiveCostMultiplier": 500.0
+        }
+      ],
+      "bNeedShield": true,
+      "SkillName": "Guard",
+      "NeedParam": {
+        "ForbidTags": [
+          "Dodge",
+          "RBL_MainAttack01"
+        ]
+      },
+      "bImmediateStart": true,
+      "bImmediateStartOnlyTrigger": true,
+      "ImmediateStartForbidTags": [
+        "Act_Dodge",
+        "DodgeAttack",
+        "Act_Aerial",
+        "Act_Sub"
+      ],
+      "AimBodyStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Rebellion/Guard/SM_RBL_Guard_AimBody.SM_RBL_Guard_AimBody",
+        "SubPathString": ""
+      },
+      "AimOffsetStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Rebellion/Guard/SM_RBL_Guard_AimOffset.SM_RBL_Guard_AimOffset",
+        "SubPathString": ""
+      },
+      "LeadStateMachine": "EPlayerStateMachine::AimOffset",
+      "bCancelSameSkill": true,
+      "bRepeatInput": true,
+      "CastLaunchProjectileList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::ActiveOnlyPlayerStatus",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [
+                "ESBAbilityOnlyPlayerStatus::RBL_Protection"
+              ],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            },
+            {
+              "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+              "ActiveArtsID": {
+                "ID": 0
+              },
+              "PassiveArtsID": {
+                "ID": 112231
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 0,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
+              },
+              "RowName": "Protection_SwordCutter"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

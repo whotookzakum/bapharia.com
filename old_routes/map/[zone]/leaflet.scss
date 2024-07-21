@@ -1,0 +1,182 @@
+.leaflet-container {
+    height: 100%;
+    background-color: transparent;
+    background-image: url("/images/map/mapbg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    cursor: inherit !important;
+    outline: none !important;
+    position: relative;
+    font-family: "Public Sans", "Open Sans", "Helvetica", "Helvetica", sans-serif, system-ui;
+    height: calc(100vh - var(--nav-height)) !important;
+    grid-column: 1/-1;
+}
+
+.leaflet-control-container .leaflet-top.leaflet-left {
+    position: absolute;
+    left: auto;
+    top: 1rem;
+    right: 1rem;
+
+    .leaflet-control {
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 1150px) {
+    .leaflet-container {
+        height: 100vh !important;
+    }
+
+    .leaflet-control-container .leaflet-top.leaflet-left {
+        top: calc(var(--nav-height));
+    }
+}
+
+@media (max-width: 850px) {
+    .leaflet-control-container .leaflet-top.leaflet-left {
+        display: none;
+    }
+}
+
+.leaflet-bar {
+    border: 1px solid var(--surface3) !important;
+    box-shadow: 0 2px 2px var(--surface-shadow) !important;
+
+    a {
+        color: var(--text2);
+    }
+
+    a,
+    a:hover,
+    a:focus-visible {
+        background: var(--surface1);
+        border-color: var(--surface2);
+    }
+
+    a:hover,
+    a:focus-visible {
+        color: var(--text1);
+    }
+
+    a.leaflet-disabled {
+        color: gray !important;
+        background: var(--bg) !important;
+    }
+}
+
+$icon-size: 64px;
+$icon-size-clipped: 48px;
+$margin-offset: calc(($icon-size - $icon-size-clipped) / 2);
+
+.leaflet-marker-icon:not([src*="Gather"]),
+.marker-icon:not([src*="Gather"]) {
+    width: $icon-size-clipped !important;
+    height: $icon-size-clipped !important;
+    object-fit: none;
+    object-position: 50%;
+}
+
+.leaflet-marker-icon[src*="Gather"] {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+.leaflet-marker-icon {
+    margin-top: calc(-32px + $margin-offset) !important;
+    margin-left: calc(-32px + $margin-offset) !important;
+    cursor: inherit !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+
+    &:hover,
+    &:focus {
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5)) brightness(0.85);
+    }
+
+    &[src*="UI_Map_12."]:hover,
+    &[src*="UI_Map_12."]:focus {
+        filter: hue-rotate(240deg) drop-shadow(0 0 4px #baff00) brightness(1.05);
+    }
+}
+
+.leaflet-popup {
+    padding: 0 !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    // background: none;
+    // background: var(--surface1);
+    background: rgba(0, 0, 0, 0.95);
+    color: white !important;
+    font-size: var(--step--1);
+    padding: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.8);
+}
+
+.leaflet-popup-tip {
+    display: none !important;
+}
+
+.leaflet-popup-content {
+    border-left: 20px solid #baff00;
+    margin: 0 !important;
+    padding: 1rem 20px;
+}
+
+.leaflet-popup-close-button {
+    color: white !important;
+}
+
+.map-zone-label {
+    background: unset !important;
+    color: #f2e0c1 !important;
+    font-weight: 700 !important;
+    font-size: var(--step-2) !important;
+    border-color: transparent !important;
+    width: 25ch;
+    text-align: center;
+    text-shadow: 
+        1px 0 2px rgba(0, 0, 0, 0.8), 
+        0 1px 2px rgba(0, 0, 0, 0.8), 
+        -1px 0 2px rgba(0, 0, 0, 0.8), 
+        0 -1px 2px rgba(0, 0, 0, 0.8);
+    box-shadow: unset !important;
+    margin: 0 !important;
+
+    &::before {
+        content: unset !important;
+        border: unset !important;
+    }
+
+    &.mini {
+        font-size: var(--step-0);
+    }
+}
+
+.leaflet-control-attribution {
+    display: none;
+}
+
+.sidebar-contents .category-header {
+    margin-block: var(--step-4) var(--space-3xs);
+    align-items: baseline;
+    justify-content: space-between;
+
+    &:first-of-type {
+        margin-block: var(--space-3xs);
+    }
+
+    span {
+        text-transform: capitalize;
+        font-size: var(--step-1);
+    }
+
+    button {
+        font-size: var(--step--1);
+        padding: 0.25rem;
+        border-radius: 3px;
+    }
+}

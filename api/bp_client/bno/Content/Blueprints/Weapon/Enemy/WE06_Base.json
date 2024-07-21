@@ -1,0 +1,356 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "WE06_Base_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Weapon_Bow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.0"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'WE06_Base_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.10"
+      },
+      "InheritableComponentHandler": {
+        "ObjectName": "InheritableComponentHandler'WE06_Base_C:InheritableComponentHandler'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.3"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Weapon_Bow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.0"
+    },
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "WE06_Base_C'Default__WE06_Base_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.1"
+    }
+  },
+  {
+    "Type": "WE06_Base_C",
+    "Name": "Default__WE06_Base_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.WE06_Base_C'",
+    "Template": {
+      "ObjectName": "BP_Weapon_Bow_C'Default__BP_Weapon_Bow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.1"
+    },
+    "Properties": {
+      "Collision": {
+        "ObjectName": "ASCollisionGroupComponent'Default__WE06_Base_C:Collision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.2"
+      },
+      "Mesh": {
+        "ObjectName": "SBCharaPartsComponent'Default__WE06_Base_C:Mesh'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.4"
+      },
+      "AnimationList": [
+        {
+          "Animation": {
+            "ObjectName": "AnimSequence'AS_WE06_ARH_ACT_Start000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Animations/Weapon/WE06/AS_WE06_ARH_ACT_Start000.1"
+          },
+          "AnimationName": "Start"
+        },
+        {
+          "Animation": {
+            "ObjectName": "AnimSequence'AS_WE06_ARH_ACT_End000'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Animations/Weapon/WE06/AS_WE06_ARH_ACT_End000.1"
+          },
+          "AnimationName": "End"
+        }
+      ],
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__WE06_Base_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.7"
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionGroupComponent",
+    "Name": "Collision",
+    "Outer": "Default__WE06_Base_C",
+    "Class": "UScriptClass'ASCollisionGroupComponent'",
+    "Template": {
+      "ObjectName": "ASCollisionGroupComponent'Default__BP_Weapon_Bow_C:Collision'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.2"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__WE06_Base_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.7"
+      }
+    }
+  },
+  {
+    "Type": "InheritableComponentHandler",
+    "Name": "InheritableComponentHandler",
+    "Outer": "WE06_Base_C",
+    "Class": "UScriptClass'InheritableComponentHandler'",
+    "Properties": {
+      "Records": [
+        {
+          "ComponentClass": {
+            "ObjectName": "Class'SBWeaponBowComponent'",
+            "ObjectPath": "/Script/SkyBlue"
+          },
+          "ComponentTemplate": {
+            "ObjectName": "SBWeaponBowComponent'WE06_Base_C:SBWeaponBow_GEN_VARIABLE'",
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.6"
+          },
+          "ComponentKey": {
+            "OwnerClass": {
+              "ObjectName": "BlueprintGeneratedClass'BP_Weapon_Bow_C'",
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.0"
+            },
+            "SCSVariableName": "SBWeaponBow",
+            "AssociatedGuid": "1D468171-4E211807-99BBC7A4-7E8A566C"
+          },
+          "CookedComponentInstancingData": {
+            "ChangedPropertyList": [],
+            "bHasValidCookedData": false
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SBCharaPartsComponent",
+    "Name": "Mesh",
+    "Outer": "Default__WE06_Base_C",
+    "Class": "UScriptClass'SBCharaPartsComponent'",
+    "Template": {
+      "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_Bow_C:Mesh'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.3"
+    },
+    "Properties": {
+      "SkeletalMesh": {
+        "ObjectName": "SkeletalMesh'SK_CH_WE06_01_01'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Character/Weapon/WE/SK_CH_WE06_01_01/Model/SK_CH_WE06_01_01.0"
+      },
+      "LDMaxDrawDistance": 0.0,
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__WE06_Base_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.7"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "Mesh",
+    "Class": "UScriptClass'SBCharaPartsMaterial'",
+    "Template": {
+      "ObjectName": "SBCharaPartsMaterial'Default__BP_Weapon_Bow_C:Mesh.CharaPartsMaterial'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.4"
+    }
+  },
+  {
+    "Type": "SBWeaponBowComponent",
+    "Name": "SBWeaponBow_GEN_VARIABLE",
+    "Outer": "WE06_Base_C",
+    "Class": "UScriptClass'SBWeaponBowComponent'",
+    "Template": {
+      "ObjectName": "SBWeaponBowComponent'BP_Weapon_Bow_C:SBWeaponBow_GEN_VARIABLE'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.5"
+    },
+    "Properties": {
+      "m_BowStringEffectUpperList": [
+        {
+          "Particle": null,
+          "NiagaraSystem": null,
+          "EffectActor": null,
+          "EffectActorList": [],
+          "Sound": null,
+          "SoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EndSound": null,
+          "EndSoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "CauserPlayerVoice": null,
+          "CauserPlayerVoiceParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EffectTarget": "EffectTarget_Inventory_0",
+          "ParticleScale": 1.0,
+          "LocationOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "RotationOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bAttach": true,
+          "bAbsoluteRotation": false,
+          "bDetachWhenDeactivate": false,
+          "bVisibleByHiddenSourceActor": false,
+          "AttachPointName": "R_Cable02_J",
+          "ActorParameterName": "None",
+          "bOverrideLightingChannels": false,
+          "OverrideLightingChannels": {
+            "bChannel0": true,
+            "bChannel1": false,
+            "bChannel2": false
+          },
+          "bOverrideElementType": false,
+          "ElementType": "ESBAttribute::None",
+          "VisibleType": "ESBEffectVisibleType::Default",
+          "EffectType": "ESBEffectType::Default"
+        }
+      ],
+      "m_BowStringEffectLowerList": [
+        {
+          "Particle": null,
+          "NiagaraSystem": null,
+          "EffectActor": null,
+          "EffectActorList": [],
+          "Sound": null,
+          "SoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EndSound": null,
+          "EndSoundParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "CauserPlayerVoice": null,
+          "CauserPlayerVoiceParam": {
+            "Event": null,
+            "Switch": [],
+            "AttachName": "None",
+            "AutoDestroy": true,
+            "StopWhenOwnerDestroyed": true,
+            "LOD": "ESBAkEventLOD::LOD_Default",
+            "RTPC": [],
+            "DelayTime": 0.0,
+            "bCanReuseAkComponent": true
+          },
+          "EffectTarget": "EffectTarget_Inventory_0",
+          "ParticleScale": 1.0,
+          "LocationOffset": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "RotationOffset": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "bAttach": true,
+          "bAbsoluteRotation": false,
+          "bDetachWhenDeactivate": false,
+          "bVisibleByHiddenSourceActor": false,
+          "AttachPointName": "L_Cable02_J",
+          "ActorParameterName": "None",
+          "bOverrideLightingChannels": false,
+          "OverrideLightingChannels": {
+            "bChannel0": true,
+            "bChannel1": false,
+            "bChannel2": false
+          },
+          "bOverrideElementType": false,
+          "ElementType": "ESBAttribute::None",
+          "VisibleType": "ESBEffectVisibleType::Default",
+          "EffectType": "ESBEffectType::Default"
+        }
+      ]
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "TransformComponent",
+    "Outer": "Default__WE06_Base_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_Weapon_Bow_C:TransformComponent'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.7"
+    }
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "SceneComponent_0",
+    "Outer": "WE06_Base_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'WE06_Base_C:SceneComponent_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.8"
+      },
+      "VariableGuid": "96A44572-49C645E2-8BCC029B-B5F39564",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "WE06_Base_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'WE06_Base_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Enemy/WE06_Base.9"
+      }
+    }
+  }
+]

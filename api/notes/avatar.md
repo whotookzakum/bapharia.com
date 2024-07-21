@@ -1,0 +1,33 @@
+enum class ESBAestheShopCharaPartsAndParamEditType {
+    CharaCreateOnly = 0,
+    AestheShopOnly = 1,
+    BothAvailable = 2,
+    Max = 3,
+};
+
+enum class ESBAestheShopCharaPartsIconType {
+    FaceType = 0,
+    Hair = 1,
+    FaceLine = 2,
+    EyeBrow = 3,
+    Eye = 4,
+    Iris = 5,
+    Nose = 6,
+    Mouth = 7,
+    Beard = 8,
+    Lip = 9,
+    SkinBase = 10,
+    Paint = 11,
+    CostumeSet = 12,
+    Preset = 13,
+    Hat = 14,
+    Upper = 15,
+    Gloves = 16,
+    Lower = 17,
+    Shoes = 18,
+    Underwear = 19,
+    Eyelash = 20,
+    Tooth = 21,
+    GradationType = 22,
+    Max = 23,
+};

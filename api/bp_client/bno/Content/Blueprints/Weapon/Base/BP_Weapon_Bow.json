@@ -1,0 +1,239 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "BP_Weapon_Bow_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Super": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Weapon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.0"
+    },
+    "Properties": {
+      "SimpleConstructionScript": {
+        "ObjectName": "SimpleConstructionScript'BP_Weapon_Bow_C:SimpleConstructionScript_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.10"
+      }
+    },
+    "SuperStruct": {
+      "ObjectName": "BlueprintGeneratedClass'BP_Weapon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.0"
+    },
+    "ChildProperties": [
+      {
+        "Type": "ObjectProperty",
+        "Name": "SBWeaponBow",
+        "Flags": "RF_Public | RF_LoadCompleted",
+        "ElementSize": 8,
+        "PropertyFlags": "BlueprintVisible | InstancedReference | NonTransactional",
+        "PropertyClass": {
+          "ObjectName": "Class'SBWeaponBowComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      }
+    ],
+    "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "BP_Weapon_Bow_C'Default__BP_Weapon_Bow_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.1"
+    }
+  },
+  {
+    "Type": "BP_Weapon_Bow_C",
+    "Name": "Default__BP_Weapon_Bow_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.BP_Weapon_Bow_C'",
+    "Template": {
+      "ObjectName": "BP_Weapon_C'Default__BP_Weapon_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.1"
+    },
+    "Properties": {
+      "Collision": {
+        "ObjectName": "ASCollisionGroupComponent'Default__BP_Weapon_Bow_C:Collision'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.2"
+      },
+      "Mesh": {
+        "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_Bow_C:Mesh'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.3"
+      },
+      "WeaponType": "ESBWeaponType::WeaponType_Bow",
+      "BattleScoreWeaponEffectParams": [
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Spot",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::RootComponent",
+          "AttachSocket": "None",
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 0.8,
+            "Y": 0.8,
+            "Z": 0.8
+          },
+          "bEnableSheathe": true,
+          "bEnableUnsheathe": true
+        },
+        {
+          "Type": "ESBBattleScoreWeaponEffectType::Aura",
+          "AttachType": "ESBBattleScoreWeaponEffectAttachType::RootComponent",
+          "AttachSocket": "None",
+          "Location": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "Rotation": {
+            "Pitch": 0.0,
+            "Yaw": 0.0,
+            "Roll": 0.0
+          },
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "bEnableSheathe": false,
+          "bEnableUnsheathe": true
+        }
+      ],
+      "RootComponent": {
+        "ObjectName": "SceneComponent'Default__BP_Weapon_Bow_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.7"
+      }
+    }
+  },
+  {
+    "Type": "ASCollisionGroupComponent",
+    "Name": "Collision",
+    "Outer": "Default__BP_Weapon_Bow_C",
+    "Class": "UScriptClass'ASCollisionGroupComponent'",
+    "Template": {
+      "ObjectName": "ASCollisionGroupComponent'Default__BP_Weapon_C:Collision'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.2"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Weapon_Bow_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.7"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsComponent",
+    "Name": "Mesh",
+    "Outer": "Default__BP_Weapon_Bow_C",
+    "Class": "UScriptClass'SBCharaPartsComponent'",
+    "Template": {
+      "ObjectName": "SBCharaPartsComponent'Default__BP_Weapon_C:Mesh'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.3"
+    },
+    "Properties": {
+      "AttachParent": {
+        "ObjectName": "SceneComponent'Default__BP_Weapon_Bow_C:TransformComponent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.7"
+      }
+    }
+  },
+  {
+    "Type": "SBCharaPartsMaterial",
+    "Name": "CharaPartsMaterial",
+    "Outer": "Mesh",
+    "Class": "UScriptClass'SBCharaPartsMaterial'",
+    "Template": {
+      "ObjectName": "SBCharaPartsMaterial'Default__BP_Weapon_C:Mesh.CharaPartsMaterial'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.4"
+    }
+  },
+  {
+    "Type": "SBWeaponBowComponent",
+    "Name": "SBWeaponBow_GEN_VARIABLE",
+    "Outer": "BP_Weapon_Bow_C",
+    "Class": "UScriptClass'SBWeaponBowComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "DefaultSceneRoot_GEN_VARIABLE",
+    "Outer": "BP_Weapon_Bow_C",
+    "Class": "UScriptClass'SceneComponent'"
+  },
+  {
+    "Type": "SceneComponent",
+    "Name": "TransformComponent",
+    "Outer": "Default__BP_Weapon_Bow_C",
+    "Class": "UScriptClass'SceneComponent'",
+    "Template": {
+      "ObjectName": "SceneComponent'Default__BP_Weapon_C:TransformComponent'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon.6"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_0",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SceneComponent'",
+        "ObjectPath": "/Script/Engine"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SceneComponent'BP_Weapon_Bow_C:DefaultSceneRoot_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.6"
+      },
+      "VariableGuid": "2F6A66A2-455DEA4A-908B3681-5EA20CC9",
+      "InternalVariableName": "DefaultSceneRoot"
+    }
+  },
+  {
+    "Type": "SCS_Node",
+    "Name": "SCS_Node_2",
+    "Outer": "SimpleConstructionScript_0",
+    "Class": "UScriptClass'SCS_Node'",
+    "Properties": {
+      "ComponentClass": {
+        "ObjectName": "Class'SBWeaponBowComponent'",
+        "ObjectPath": "/Script/SkyBlue"
+      },
+      "ComponentTemplate": {
+        "ObjectName": "SBWeaponBowComponent'BP_Weapon_Bow_C:SBWeaponBow_GEN_VARIABLE'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.5"
+      },
+      "VariableGuid": "1D468171-4E211807-99BBC7A4-7E8A566C",
+      "InternalVariableName": "SBWeaponBow"
+    }
+  },
+  {
+    "Type": "SimpleConstructionScript",
+    "Name": "SimpleConstructionScript_0",
+    "Outer": "BP_Weapon_Bow_C",
+    "Class": "UScriptClass'SimpleConstructionScript'",
+    "Properties": {
+      "RootNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Weapon_Bow_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.9"
+        }
+      ],
+      "AllNodes": [
+        {
+          "ObjectName": "SCS_Node'BP_Weapon_Bow_C:SimpleConstructionScript_0.SCS_Node_2'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.9"
+        }
+      ],
+      "DefaultSceneRootNode": {
+        "ObjectName": "SCS_Node'BP_Weapon_Bow_C:SimpleConstructionScript_0.SCS_Node_0'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Weapon/Base/BP_Weapon_Bow.8"
+      }
+    }
+  }
+]

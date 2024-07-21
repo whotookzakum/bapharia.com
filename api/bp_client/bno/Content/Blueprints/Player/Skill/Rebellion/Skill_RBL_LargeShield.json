@@ -1,0 +1,1059 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "Skill_RBL_LargeShield_C",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "SuperStruct": {
+      "ObjectName": "Class'SBRebellionLargeShieldSkill'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "ClassFlags": "CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_Const | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "Skill_RBL_LargeShield_C'Default__Skill_RBL_LargeShield_C'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_LargeShield.1"
+    }
+  },
+  {
+    "Type": "Skill_RBL_LargeShield_C",
+    "Name": "Default__Skill_RBL_LargeShield_C",
+    "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Skill/Rebellion/Skill_RBL_LargeShield.Skill_RBL_LargeShield_C'",
+    "Properties": {
+      "RelativeLocation": {
+        "X": 50.0,
+        "Y": 0.0,
+        "Z": 0.0
+      },
+      "MaxShieldTime": 5.0,
+      "AdjustTimeConditionList": [
+        {
+          "AddTimeSec": 5.0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1206
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 3,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "NoShieldDamageStatusAilment": {
+        "DataTable": {
+          "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+        },
+        "RowName": "LargeShield_NoShieldDamage"
+      },
+      "LargeShieldGuardConfig": {
+        "GuardBitMask": 3,
+        "GuardableAngle": 180.0
+      },
+      "OverlapAttackProjectile": {
+        "DataTable": {
+          "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
+        },
+        "RowName": "LargeShield_OverlapAttack"
+      },
+      "MeleePushBackAttack": {
+        "AttackID": 1206001
+      },
+      "ChargeSettingList": [
+        {
+          "NeedEnergy": 0.0,
+          "ShieldEffect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_LargeShield_Lv1B.PS_RBL_LargeShield_Lv1B",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Default_Work_Unit/Play_Aegesfighter_LargeShield_Eff_Loop.Play_Aegesfighter_LargeShield_Eff_Loop",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Stop_Aegesfighter_LargeShield_Eff_Loop.Stop_Aegesfighter_LargeShield_Eff_Loop",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "ShieldEffectEnd": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_LargeShield_Lv1_End.PS_RBL_LargeShield_Lv1_End",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Play_Aegesfighter_LargeShield_End.Play_Aegesfighter_LargeShield_End",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": false,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
+              },
+              "RowName": "LargeShield_EnergyAttack_Lv1"
+            }
+          ],
+          "GuardEffectSettingList": []
+        },
+        {
+          "NeedEnergy": 1.0,
+          "ShieldEffect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_LargeShield_Lv2.PS_RBL_LargeShield_Lv2",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Play_Aegesfighter_LargeShield_Eff_Loop_Lv2.Play_Aegesfighter_LargeShield_Eff_Loop_Lv2",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Stop_Aegesfighter_LargeShield_Eff_Loop_Lv2.Stop_Aegesfighter_LargeShield_Eff_Loop_Lv2",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "ShieldEffectEnd": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_LargeShield_Lv2_End.PS_RBL_LargeShield_Lv2_End",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
+              },
+              "RowName": "LargeShield_EnergyAttack_Lv2"
+            }
+          ],
+          "GuardEffectSettingList": []
+        },
+        {
+          "NeedEnergy": 2.5,
+          "ShieldEffect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_LargeShield_Lv3.PS_RBL_LargeShield_Lv3",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Play_Aegesfighter_LargeShield_Eff_Loop_Lv3.Play_Aegesfighter_LargeShield_Eff_Loop_Lv3",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Stop_Aegesfighter_LargeShield_Eff_Loop_Lv3.Stop_Aegesfighter_LargeShield_Eff_Loop_Lv3",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "ShieldEffectEnd": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_LargeShield_Lv3_End.PS_RBL_LargeShield_Lv3_End",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "ProjectileHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionProjectileConfigInfo'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionProjectileConfigInfo.0"
+              },
+              "RowName": "LargeShield_EnergyAttack_Lv3"
+            }
+          ],
+          "GuardEffectSettingList": []
+        }
+      ],
+      "GuardEffectSettingList": [
+        {
+          "NeedDurabilityRate": 0.0,
+          "GuardActiveEffect": {
+            "Particle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "GuardSuccessEffect": {
+            "Particle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Play_Aegesfighter_LargeShield_EnergyAttack_LV1.Play_Aegesfighter_LargeShield_EnergyAttack_LV1",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "GuardBreakEffect": {
+            "Particle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          },
+          "GuardEndEffect": {
+            "Particle": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
+        }
+      ],
+      "ShockWaveConditionList": [
+        {
+          "ConditionCheckType": "ESBConditionCheckType::EquippedPassiveSkill",
+          "ActiveArtsID": {
+            "ID": 0
+          },
+          "PassiveArtsID": {
+            "ID": 112065
+          },
+          "AttackID": {
+            "AttackID": 0
+          },
+          "IntValue": 0,
+          "FloatValue": 0.0,
+          "NameValue": "None",
+          "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+          "BattleStatusRowHandle": {
+            "DataTable": null,
+            "RowName": "None"
+          },
+          "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+          "AbilityFlagList": [],
+          "OnlyPlayerStatusList": [],
+          "ElementType": "ESBAttribute::None",
+          "SkillType": "ESBPlayerSkillActionType::None",
+          "ArrayLogic": "ESBArrayLogicalOperator::AND",
+          "bNot": false
+        }
+      ],
+      "GuardSucceededSelfStatusAilmentList": [
+        {
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1206
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 4,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ],
+          "RowHandleList": [
+            {
+              "DataTable": {
+                "ObjectName": "DataTable'RebellionStatusAlimentConfig'",
+                "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/P012_Rebellion/RebellionStatusAlimentConfig.0"
+              },
+              "RowName": "LargeShield_GuardSucceededDamageUp"
+            }
+          ]
+        }
+      ],
+      "bNeedShield": true,
+      "SkillName": "LargeShield",
+      "SkillStateMachine": {
+        "AssetPathName": "/Game/Animations/Player/StateMachine/Rebellion/LargeShield/SM_RBL_LargeShield.SM_RBL_LargeShield",
+        "SubPathString": ""
+      },
+      "bLaunchSkillPreInput": true,
+      "RecastTime": 20.0,
+      "RecastTimeModifyList": [
+        {
+          "ModifyValue": -5.0,
+          "ModifyTimeRate": 0.0,
+          "ModifyRate": 0,
+          "ConditionList": [
+            {
+              "ConditionCheckType": "ESBConditionCheckType::SkillLevel",
+              "ActiveArtsID": {
+                "ID": 1206
+              },
+              "PassiveArtsID": {
+                "ID": 0
+              },
+              "AttackID": {
+                "AttackID": 0
+              },
+              "IntValue": 2,
+              "FloatValue": 0.0,
+              "NameValue": "None",
+              "Relation": "ESBMagnitudeRelation::GreaterOrEqual",
+              "BattleStatusRowHandle": {
+                "DataTable": null,
+                "RowName": "None"
+              },
+              "BattleEffectiveGroup": "ESBBattleEffectiveGroup::None",
+              "AbilityFlagList": [],
+              "OnlyPlayerStatusList": [],
+              "ElementType": "ESBAttribute::None",
+              "SkillType": "ESBPlayerSkillActionType::None",
+              "ArrayLogic": "ESBArrayLogicalOperator::AND",
+              "bNot": false
+            }
+          ]
+        }
+      ],
+      "SpecialHitEffectList": [
+        {
+          "EffectName": "LargeShield_OverlapAttack",
+          "Effect": {
+            "Particle": {
+              "AssetPathName": "/Game/Effect/Particle/Player/Rebellion/PS_RBL_Guard_LargeShield.PS_RBL_Guard_LargeShield",
+              "SubPathString": ""
+            },
+            "NiagaraSystem": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActor": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EffectActorList": [],
+            "Sound": {
+              "AssetPathName": "/Game/WwiseAudio/Events/Weapon_Class/Rebellion/Play_Aegesfighter_LargeShield_EnergyAttack_LV3.Play_Aegesfighter_LargeShield_EnergyAttack_LV3",
+              "SubPathString": ""
+            },
+            "SoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EndSound": {
+              "AssetPathName": "None",
+              "SubPathString": ""
+            },
+            "EndSoundParam": {
+              "Event": null,
+              "Switch": [],
+              "AttachName": "None",
+              "AutoDestroy": true,
+              "StopWhenOwnerDestroyed": true,
+              "LOD": "ESBAkEventLOD::LOD_Default",
+              "RTPC": [],
+              "DelayTime": 0.0,
+              "bCanReuseAkComponent": true
+            },
+            "EffectTarget": "EffectTarget_ActorRoot",
+            "ParticleScale": 1.0,
+            "LocationOffset": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            },
+            "RotationOffset": {
+              "Pitch": 0.0,
+              "Yaw": 0.0,
+              "Roll": 0.0
+            },
+            "bAttach": true,
+            "bAbsoluteRotation": false,
+            "bDetachWhenDeactivate": false,
+            "bVisibleByHiddenSourceActor": false,
+            "AttachPointName": "None",
+            "ActorParameterName": "None",
+            "bOverrideLightingChannels": false,
+            "OverrideLightingChannels": {
+              "bChannel0": true,
+              "bChannel1": false,
+              "bChannel2": false
+            },
+            "bOverrideElementType": false,
+            "ElementType": "ESBAttribute::None",
+            "VisibleType": "ESBEffectVisibleType::Default",
+            "EffectType": "ESBEffectType::Default"
+          }
+        }
+      ]
+    }
+  }
+]
