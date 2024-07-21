@@ -1,234 +1,419 @@
 <script>
+    import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
+    import { assetUrl } from "$lib/utils"
+
+    let searchCategory = "all";
+    let level = [0, 100];
+
+    let hoveredStar = 0;
+    let checkedStar = 0;
 </script>
 
-<h1>Builder</h1>
+<div class="panes">
+    <aside class="side-pane">Search</aside>
 
-<main class="surface1 p-2 grid gap-2" style="margin: 4rem; max-width: 800px;">
-    <header class="flex gap-4">
-        <img src="/bs.png" alt="" width="128" height="128" />
-        <div class="grid content-start flex-1">
-            <hgroup>
-                <p class="mini-header">From a distant future</p>
-                <h2 class="m-0">Zakum</h2>
-            </hgroup>
-            <p class="flex items-center gap-1">
-                <Icon icon="mdi:crown" style="font-size: var(--step-2)" />
-                <span>Bapharia</span>
-            </p>
-            <p class="flex items-center gap-1">
-                <Icon icon="mdi:chat" style="font-size: var(--step-2)" />
-                <span>EX SPパーティ募集中！</span>
-            </p>
-            <p class="flex items-center gap-1">
-                <Icon icon="mdi:home" style="font-size: var(--step-2)" />
-                <span>My Home</span>
-            </p>
-        </div>
-        <div
-            class="flex gap-2"
-            style="flex-direction: column; align-items: end"
-        >
-            <div class="flex items-start">
+    <article class="main-pane">
+        <section class="grid gap-4">
+            <div class="surface1 rounded-2xl p-4 grid gap-2">
+                <img src={assetUrl("/UI/Icon/Weapon/UI_Icon_106001201.png")} alt="" />
+            </div>
+
+            <div
+                class="surface1 rounded-2xl p-4 grid gap-2 content-start"
+                style="grid-template-columns: 1fr 1fr"
+            >
                 <img
-                    src="/UI/Icon/Award/UI_Icon_100000083.png"
+                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_120000400.png")}
                     alt=""
-                    width="48"
-                    height="48"
-                    style="margin-bottom: auto"
                 />
                 <img
-                    src="/UI/Icon/Award/UI_Icon_100000102.png"
+                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_131001200.png")}
                     alt=""
-                    width="48"
-                    height="48"
-                    style="margin-bottom: auto"
-                />
-                <img
-                    src="/UI/Icon/Award/UI_icon_110000041.png"
-                    alt=""
-                    width="48"
-                    height="48"
-                    style="margin-bottom: auto"
-                />
-                <img
-                    src="/UI/Icon/Award/UI_Icon_120000011.png"
-                    alt=""
-                    width="48"
-                    height="48"
-                    style="margin-bottom: auto"
-                />
-                <img
-                    src="/UI/Icon/Award/UI_Icon_110000022.png"
-                    alt=""
-                    width="48"
-                    height="48"
-                    style="margin-bottom: auto"
                 />
             </div>
-            <span class="flex items-center gap-1">
-                <img
-                    src="/UI/Icon/Achievement/UI_AchievementIcon_1.png"
-                    alt=""
-                    width="32"
-                    height="32"
-                    style="display: inline"
-                />
-                <b style="font-size: var(--step-2)">173</b>
-            </span>
-            <span class="flex items-center gap-2">
-                <img
-                    src="/UI/PlayerProfile/UI_PlayerProfile_LikeBtn_Pressed.png"
-                    alt=""
-                    width="24"
-                    height="24"
-                    style="display: inline"
-                />
-                <b style="font-size: var(--step-2)">11,932</b>
-            </span>
-        </div>
-        <div
-            class="p-4 grid place-items-center"
-            style="background: var(--bg); aspect-ratio: 1/1; width: 128px; height: 128px;"
-        >
-            <small class="font-semibold">Blast Archer</small>
-            <img
-                src="/UI/Icon/Class128/UI_IconClass128_06.png"
-                alt=""
-                width="48"
-                height="48"
-            />
-            <h3 class="m-0" style="line-height: 1">Lv. 70</h3>
-        </div>
-    </header>
-    <div class="p-2 flex gap-1" style="background: var(--surface3); flex-direction: column;">
-        <div>
-            <ul class="tabs flex gap-1">
-                <li>Gear</li>
-                <li>Skills</li>
-                <li>Outfit</li>
-                <li>Album</li>
-            </ul>
-        </div>
 
-        <div
-            class="grid flex-1"
-            style="grid-template-rows: 1fr 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr; align-items: center;"
-        >
-            <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_111002500.png" alt="" style="justify-self: end;" />
-            <img src="/UI/Icon/Imagine/Battle/UI_Icon_120000400.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_112001600.png" alt="" style="justify-self: end;" />
-            <img src="/UI/Icon/Imagine/Battle/UI_Icon_131001200.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_113000800.png" alt="" style="justify-self: end;" />
-            <div></div>
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_114002300.png" alt="" style="justify-self: end;" />
-            <div></div>
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_115002400.png" alt="" style="justify-self: end;" />
-            
-            
+            <div
+                class="flex-1 surface1 rounded-2xl p-4 grid gap-2"
+                style="grid-template-columns: 1fr 1fr"
+            >
+                <img
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_111002500.png")}
+                    alt=""
+                />
+                <img
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_112001600.png")}
+                    alt=""
+                />
+                <img
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_113000800.png")}
+                    alt=""
+                />
+                <img
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_114002300.png")}
+                    alt=""
+                />
+                <img
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_115002400.png")}
+                    alt=""
+                />
+            </div>
+
+            <div class="surface1 rounded-2xl p-4">
+                <table class="text-right">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Class</th>
+                            <th>STR</th>
+                            <th>VIT</th>
+                            <th>DEX</th>
+                            <th>INT</th>
+                            <th>MND</th>
+                            <th>Max HP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <div class="flex items-center gap-2">
+                                    <img
+                                        src={assetUrl("/UI/Icon/Class/UI_IconClass_21.png")}
+                                        alt="Beat Performer"
+                                        width="32"
+                                        height="32"
+                                    />
+                                    <span
+                                        class="mini-header"
+                                        style="color: inherit"
+                                        >Beat Performer</span
+                                    >
+                                    <div
+                                        class="flex items-center stars ml-auto"
+                                    >
+                                        <label
+                                            class="star-wrapper text3"
+                                            style="margin: 0"
+                                            class:hover-accent1={checkedStar >
+                                                0}
+                                            on:focus={() => (hoveredStar = 0)}
+                                            on:mouseover={() =>
+                                                (hoveredStar = 0)}
+                                        >
+                                            <input
+                                                type="radio"
+                                                class="visually-hidden"
+                                                value={0}
+                                                bind:group={checkedStar}
+                                                on:change={() =>
+                                                    (checkedStar = 0)}
+                                            />
+                                            <span class="visually-hidden"
+                                                >0</span
+                                            >
+                                            <Icon
+                                                icon="ic:baseline-close"
+                                                style="display: flex;"
+                                            />
+                                        </label>
+                                        {#each [1, 2, 3, 4] as star}
+                                            <label
+                                                class="star-wrapper"
+                                                on:focus={() =>
+                                                    (hoveredStar = star)}
+                                                on:mouseover={() =>
+                                                    (hoveredStar = star)}
+                                                on:mouseleave={() =>
+                                                    (hoveredStar = 0)}
+                                                class:lit={hoveredStar >= star}
+                                                class:glow={checkedStar >= star}
+                                            >
+                                                <input
+                                                    type="radio"
+                                                    class="visually-hidden"
+                                                    value={star}
+                                                    bind:group={checkedStar}
+                                                    on:change={() =>
+                                                        (checkedStar = star)}
+                                                />
+                                                <span class="visually-hidden"
+                                                    >{star}</span
+                                                >
+                                                <img
+                                                    class="star-yellow"
+                                                    src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_1.png")}
+                                                    alt=""
+                                                    width="24"
+                                                    height="24"
+                                                />
+                                                <img
+                                                    class="star-black"
+                                                    src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_0.png")}
+                                                    alt=""
+                                                    width="24"
+                                                    height="24"
+                                                />
+                                            </label>
+                                        {/each}
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="toc grid gap-2">
+            <span class="mini-header visually-hidden">Stats</span>
+            <dl>
+                <div
+                    class="mb-2"
+                    style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
+                >
+                    <dt>Battle Score</dt>
+                    <dd>16575</dd>
+                </div>
+                <div>
+                    <dt>Health</dt>
+                    <dd>4873</dd>
+                </div>
+                <div
+                    class="mb-2"
+                    style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
+                >
+                    <dt>Stamina</dt>
+                    <dd>145</dd>
+                </div>
+                <div>
+                    <dt>Attack</dt>
+                    <dd>5423</dd>
+                </div>
+                <div>
+                    <dt>Crit Rate</dt>
+                    <dd>18%</dd>
+                </div>
+                <div>
+                    <dt>Crit Damage</dt>
+                    <dd>51%</dd>
+                </div>
+                <div>
+                    <dt>Strength</dt>
+                    <dd>590</dd>
+                </div>
+                <div>
+                    <dt>Vitality</dt>
+                    <dd>437</dd>
+                </div>
+                <div>
+                    <dt>Dexterity</dt>
+                    <dd>542</dd>
+                </div>
+                <div>
+                    <dt>Intelligence</dt>
+                    <dd>378</dd>
+                </div>
+                <div
+                    class="mb-2"
+                    style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
+                >
+                    <dt>Spirit</dt>
+                    <dd>489</dd>
+                </div>
+                <div>
+                    <dt>Defense</dt>
+                    <dd>1108</dd>
+                </div>
+                <div>
+                    <dt>Recovery</dt>
+                    <dd>1227</dd>
+                </div>
+                <div class="flex-wrap">
+                    <dt>Elemental Resistance</dt>
+                    <div
+                        class="w-full grid mt-1 justify-items-end"
+                        style="grid-template-columns: 1fr 1fr 1fr;"
+                    >
+                        <span class="flex items-center gap-1">
+                            <img
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_1.png")}
+                                alt="Fire"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_2.png")}
+                                alt="Thunder"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.png")}
+                                alt="Ice"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_4.png")}
+                                alt="Earth"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_5.png")}
+                                alt="Light"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <img
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_6.png")}
+                                alt="Dark"
+                                width="24"
+                                height="24"
+                            /> 0
+                        </span>
+                    </div>
+                </div>
+            </dl>
         </div>
+    </article>
+</div>
+
+<div
+    class="surface1 rounded-2xl p-4 grid gap-2 w-full hidden"
+    style="max-width: 1200px; margin-inline: auto;"
+>
+    <div class="flex gap-4">
+        <label
+            class="mini-header select-none"
+            class:active={searchCategory === "all"}
+        >
+            <input
+                type="radio"
+                class="visually-hidden"
+                value="all"
+                bind:group={searchCategory}
+            />
+            All
+        </label>
+        <label
+            class="mini-header select-none"
+            class:active={searchCategory === "weapons"}
+        >
+            <input
+                type="radio"
+                class="visually-hidden"
+                value="weapons"
+                bind:group={searchCategory}
+            />
+            Weapons
+        </label>
+        <label
+            class="mini-header select-none"
+            class:active={searchCategory === "bImagine"}
+        >
+            <input
+                type="radio"
+                class="visually-hidden"
+                value="bImagine"
+                bind:group={searchCategory}
+            />
+            Battle Imagine
+        </label>
+        <label
+            class="mini-header select-none"
+            class:active={searchCategory === "eImagine"}
+        >
+            <input
+                type="radio"
+                class="visually-hidden"
+                value="eImagine"
+                bind:group={searchCategory}
+            />
+            Enhance Imagine
+        </label>
+        <label
+            class="mini-header select-none"
+            class:active={searchCategory === "skills"}
+        >
+            <input
+                type="radio"
+                class="visually-hidden"
+                value="skills"
+                bind:group={searchCategory}
+            />
+            Skills
+        </label>
     </div>
-    <dl class="stats p-2 grid gap-1" style="background: var(--bg)">
-        <div>
-            <dt>Battle Score</dt>
-            <dd>4750</dd>
-        </div>
-        <div>
-            <dt>Health</dt>
-            <dd>2142</dd>
-        </div>
-        <div
-            class="mb-2"
-            style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
-        >
-            <dt>Stamina</dt>
-            <dd>130</dd>
-        </div>
-        <div>
-            <dt>Attack</dt>
-            <dd>851</dd>
-        </div>
-        <div>
-            <dt>Crit Rate</dt>
-            <dd>9%</dd>
-        </div>
-        <div
-            class="mb-2"
-            style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
-        >
-            <dt>Crit Damage</dt>
-            <dd>35%</dd>
-        </div>
-        <div>
-            <dt>Defense</dt>
-            <dd>558</dd>
-        </div>
-        <div>
-            <dt>Recovery</dt>
-            <dd>617</dd>
-        </div>
-        <div>
-            <dt>Fire Resistance</dt>
-            <dd>50</dd>
-        </div>
-        <div>
-            <dt>Thunder Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Ice Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Earth Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Light Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div
-            class="mb-2"
-            style="border-bottom: 1px solid var(--surface2); padding-bottom: 0.5rem"
-        >
-            <dt>Dark Resistance</dt>
-            <dd>0</dd>
-        </div>
-        <div>
-            <dt>Strength</dt>
-            <dd>366</dd>
-        </div>
-        <div>
-            <dt>Vitality</dt>
-            <dd>302</dd>
-        </div>
-        <div>
-            <dt>Dexterity</dt>
-            <dd>251</dd>
-        </div>
-        <div>
-            <dt>Intelligence</dt>
-            <dd>283</dd>
-        </div>
-        <div>
-            <dt>Spirit</dt>
-            <dd>279</dd>
-        </div>
-    </dl>
-</main>
+    <div class="fle gap-4">
+        <input type="text" placeholder="Search" />
+        <span>level</span>
+        <span>ability</span>
+        <span>rarity</span>
+        <span>element</span>
+        <span></span>
+        <RangeSlider
+            bind:values={level}
+            min={0}
+            max={100}
+            step={1}
+            range
+            pushy
+            float
+            pips
+            pipstep={100 / 10}
+            first="label"
+            last="label"
+        />
+    </div>
+</div>
 
 <style lang="scss">
-    main {
-        grid-template-columns: 2fr 1fr;
-    }
-
-    header {
-        grid-column: 1/-1;
-    }
-
     dl > div {
         display: flex;
         justify-content: space-between;
+    }
+
+    .star-wrapper {
+        position: relative;
+        background-position: 50% 50%;
+        background-size: 48px 48px;
+        background-repeat: no-repeat;
+        padding: 4px;
+        margin: -4px;
+
+        .star-yellow {
+            opacity: 0;
+            position: absolute;
+        }
+    }
+
+    // Glow applies to the selected level and lower
+    .glow {
+        background-image: url("/UI/TelopManager/UI_TelopManager_Star_Glow.png");
+
+        .star-yellow {
+            opacity: 1;
+        }
+    }
+
+    // Lit applies to the hovered level and lower
+    .stars:where(:hover, :has(:focus-visible)) {
+        .star-yellow {
+            opacity: 0;
+        }
+
+        .lit .star-yellow {
+            opacity: 1;
+        }
     }
 </style>

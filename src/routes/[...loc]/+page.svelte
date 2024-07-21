@@ -1,6 +1,5 @@
 <script>
 	import MetaTags from "$lib/components/MetaTags.svelte";
-    import Link from "../../lib/components/Link.svelte";
 </script>
 
 <MetaTags
@@ -15,8 +14,6 @@
 		<!-- <img src="/images/logo.png" alt="" width="96" height="96" /> -->
 		<h1><span>The premier knowledge base for</span><mark>Blue Protocol</mark></h1>
 		<p>Learn about the game with comprehensive guides and enhance your experience with our interactive tools.</p>
-		<a href="/bno">/bno</a>
-		<Link href="/db" class="styled-link"></Link>
 	</hgroup>
 </div>
 
