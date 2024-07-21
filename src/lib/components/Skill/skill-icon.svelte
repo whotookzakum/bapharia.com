@@ -1,23 +1,24 @@
 <script>
+    import { assetUrl } from "$lib/utils"
     export let skill;
 </script>
 
 <div
     class="skill-icon-wrapper skill-type-{skill.skill_type}"
-    style:background-image="url('{skill.assets?.frameIcon ?? ""}')"
+    style:background-image="url({assetUrl(skill.assets?.frameIcon) ?? ""})"
 >
     <img
         class="skill-icon"
-        src={skill.assets.icon}
+        src={assetUrl(skill.assets.icon)}
         alt=""
-        style:background-image={skill.assets.bgIcon ? `url('${skill.assets.bgIcon}')` : ""}
+        style:background-image={skill.assets.bgIcon ? `url(${assetUrl(skill.assets.bgIcon)})` : ""}
         width="48"
         height="48"
     />
     {#if skill.assets.elementIcon}
         <img
             class="element-icon"
-            src={skill.assets.elementIcon}
+            src={assetUrl(skill.assets.elementIcon)}
             alt=""
             width="24"
             height="24"

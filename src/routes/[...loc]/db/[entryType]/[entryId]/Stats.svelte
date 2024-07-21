@@ -1,6 +1,7 @@
 <script>
     import InputNumber from "$lib/components/InputNumber.svelte";
     import { userLocale } from "$lib/stores";
+    import { assetUrl } from "$lib/utils"
     import Icon from "@iconify/svelte";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import TYPES_TEXT from "$api/utils/categories.json";
@@ -347,7 +348,7 @@
                             <span>{stat.name}</span>
                             <Tooltip tooltipStyle="width: max-content">
                                 <img
-                                    src="/UI/Icon/Attribute/UI_IconAttribute_{data.element}.png"
+                                    src={assetUrl(`/UI/Icon/Attribute/UI_IconAttribute_${data.element}.png`)}
                                     alt=""
                                     width="24"
                                     height="24"

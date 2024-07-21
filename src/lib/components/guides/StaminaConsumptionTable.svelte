@@ -1,3 +1,7 @@
+<script>
+    import { assetUrl } from "$lib/utils"
+</script>
+
 <table>
     <thead>
         <tr>
@@ -23,19 +27,19 @@
             <th>
                 <div class="flex gap-1">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_07.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_07.png")}
                         alt="Twin Striker"
                         width="32"
                         height="32"
                     />
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_11.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_11.png")}
                         alt="Spell Caster"
                         width="32"
                         height="32"
                     />
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_20.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_20.png")}
                         alt="Blitz Lancer"
                         width="32"
                         height="32"
@@ -45,20 +49,20 @@
             <th>
                 <div class="flex gap-1">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_06.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_06.png")}
                         alt="Blast Archer"
                         width="32"
                         height="32"
                     />
 
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_12.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_12.png")}
                         alt="Aegis Fighter"
                         width="32"
                         height="32"
                     />
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_19.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_19.png")}
                         alt="Heavy Smasher"
                         width="32"
                         height="32"

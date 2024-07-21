@@ -58,3 +58,8 @@ export function getLocFromParams(params) {
 
     return { publisher, lang, loc: params.loc }
 }
+
+// Transform an asset path to a remote asset url
+export function assetUrl(path) {
+    return "https://raw.githubusercontent.com/whotookzakum/bpassets/main" + path
+}

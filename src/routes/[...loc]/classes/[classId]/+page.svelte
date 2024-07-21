@@ -3,6 +3,7 @@
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import TYPES_TEXT from "$api/utils/categories.json";
     import { userLocale } from "$lib/stores"
+    import { assetUrl } from "$lib/utils"
 
     export let data;
     $: ({ metadata, html } = data);
@@ -27,7 +28,7 @@
                     <!-- "/images/elements/UI_IconAttribute_{element}.png" -->
                     <Tooltip inline>
                         <img
-                            src="/UI/Icon/Attribute/UI_IconAttribute_{element}.png"
+                            src={assetUrl(`/UI/Icon/Attribute/UI_IconAttribute_${element}.png`)}
                             alt={TYPES_TEXT[$userLocale].Element[element]}
                             width="48"
                             height="48"

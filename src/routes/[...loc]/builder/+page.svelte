@@ -1,6 +1,7 @@
 <script>
     import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
+    import { assetUrl } from "$lib/utils"
 
     let searchCategory = "all";
     let level = [0, 100];
@@ -15,13 +16,7 @@
     <article class="main-pane">
         <section class="grid gap-4">
             <div class="surface1 rounded-2xl p-4 grid gap-2">
-                <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
-
-                <!-- <div>
-                        <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
-                        <span class="">Pyroclastic Bow</span>
-                        <span class="mini-header">Battle Score: 780</span>
-                    </div> -->
+                <img src={assetUrl("/UI/Icon/Weapon/UI_Icon_106001201.png")} alt="" />
             </div>
 
             <div
@@ -29,11 +24,11 @@
                 style="grid-template-columns: 1fr 1fr"
             >
                 <img
-                    src="/UI/Icon/Imagine/Battle/UI_Icon_120000400.png"
+                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_120000400.png")}
                     alt=""
                 />
                 <img
-                    src="/UI/Icon/Imagine/Battle/UI_Icon_131001200.png"
+                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_131001200.png")}
                     alt=""
                 />
             </div>
@@ -43,23 +38,23 @@
                 style="grid-template-columns: 1fr 1fr"
             >
                 <img
-                    src="/UI/Icon/Imagine/Picture/UI_Icon_111002500.png"
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_111002500.png")}
                     alt=""
                 />
                 <img
-                    src="/UI/Icon/Imagine/Picture/UI_Icon_112001600.png"
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_112001600.png")}
                     alt=""
                 />
                 <img
-                    src="/UI/Icon/Imagine/Picture/UI_Icon_113000800.png"
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_113000800.png")}
                     alt=""
                 />
                 <img
-                    src="/UI/Icon/Imagine/Picture/UI_Icon_114002300.png"
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_114002300.png")}
                     alt=""
                 />
                 <img
-                    src="/UI/Icon/Imagine/Picture/UI_Icon_115002400.png"
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_115002400.png")}
                     alt=""
                 />
             </div>
@@ -82,7 +77,7 @@
                             <th>
                                 <div class="flex items-center gap-2">
                                     <img
-                                        src="/UI/Icon/Class/UI_IconClass_21.png"
+                                        src={assetUrl("/UI/Icon/Class/UI_IconClass_21.png")}
                                         alt="Beat Performer"
                                         width="32"
                                         height="32"
@@ -145,14 +140,14 @@
                                                 >
                                                 <img
                                                     class="star-yellow"
-                                                    src="/UI/TelopManager/UI_TelopManager_Star_1.png"
+                                                    src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_1.png")}
                                                     alt=""
                                                     width="24"
                                                     height="24"
                                                 />
                                                 <img
                                                     class="star-black"
-                                                    src="/UI/TelopManager/UI_TelopManager_Star_0.png"
+                                                    src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_0.png")}
                                                     alt=""
                                                     width="24"
                                                     height="24"
@@ -240,7 +235,7 @@
                     >
                         <span class="flex items-center gap-1">
                             <img
-                                src="/UI/Icon/Attribute/UI_IconAttribute_1.png"
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_1.png")}
                                 alt="Fire"
                                 width="24"
                                 height="24"
@@ -248,7 +243,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src="/UI/Icon/Attribute/UI_IconAttribute_2.png"
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_2.png")}
                                 alt="Thunder"
                                 width="24"
                                 height="24"
@@ -256,7 +251,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src="/UI/Icon/Attribute/UI_IconAttribute_3.png"
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.png")}
                                 alt="Ice"
                                 width="24"
                                 height="24"
@@ -264,7 +259,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src="/UI/Icon/Attribute/UI_IconAttribute_4.png"
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_4.png")}
                                 alt="Earth"
                                 width="24"
                                 height="24"
@@ -272,7 +267,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src="/UI/Icon/Attribute/UI_IconAttribute_5.png"
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_5.png")}
                                 alt="Light"
                                 width="24"
                                 height="24"
@@ -280,7 +275,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src="/UI/Icon/Attribute/UI_IconAttribute_6.png"
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_6.png")}
                                 alt="Dark"
                                 width="24"
                                 height="24"

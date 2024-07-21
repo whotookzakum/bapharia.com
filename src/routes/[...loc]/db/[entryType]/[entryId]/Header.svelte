@@ -1,6 +1,7 @@
 <script>
     import Tag from "$lib/components/Tag.svelte";
     import { userLocale } from "$lib/stores.js";
+    import { assetUrl } from "$lib/utils";
     import { DateTime } from "luxon";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import TYPES_TEXT from "$api/utils/categories.json";
@@ -78,7 +79,9 @@
         {#if data.element}
             <Tag>
                 <img
-                    src="/UI/Icon/Attribute/UI_IconAttribute_{data.element}.png"
+                    src={assetUrl(
+                        `/UI/Icon/Attribute/UI_IconAttribute_${data.element}.png`,
+                    )}
                     alt=""
                     width="24"
                     height="24"
@@ -91,11 +94,13 @@
         {#if data.equip_class || data.class_type}
             <Tag>
                 <img
-                    src="/UI/Icon/Class/UI_IconClass_{(
-                        data.equip_class || data.class_type
-                    )
-                        .toString()
-                        .padStart(2, '0')}.png"
+                    src={assetUrl(
+                        `/UI/Icon/Class/UI_IconClass_${(
+                            data.equip_class || data.class_type
+                        )
+                            .toString()
+                            .padStart(2, "0")}.png`,
+                    )}
                     alt=""
                     width="24"
                     height="24"

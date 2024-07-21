@@ -1,5 +1,6 @@
 <script>
     import Item from "./Item.svelte";
+    import { assetUrl } from "$lib/utils"
     export let recipe;
 </script>
 
@@ -52,7 +53,7 @@
     {#if recipe.great_success_tokens}
         <div class="flex align-center gap-1">
             <img
-                src="/UI/Icon/Token/UI_Icon_140000200.png"
+                src={assetUrl("/UI/Icon/Token/UI_Icon_140000200.png")}
                 alt="Great success ticket"
                 width="32"
                 height="32"

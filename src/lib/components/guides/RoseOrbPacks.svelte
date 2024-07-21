@@ -1,6 +1,7 @@
 <script>
     import _ from "lodash";
     import { platformId, currency } from "$lib/stores";
+    import { assetUrl } from "$lib/utils"
 
     export let releaseSales = false;
 
@@ -103,7 +104,7 @@
         <div class="box">
             <div class="amount flex gap-2">
                 <img
-                    src="/UI/Gasha/UI_GashaBtnIconRoseOrb.png"
+                    src={assetUrl("/UI/Gasha/UI_GashaBtnIconRoseOrb.png")}
                     alt="Rose Orb"
                     width="24"
                     height="24"

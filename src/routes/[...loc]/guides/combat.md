@@ -18,6 +18,7 @@ thumbImg: "/guides/combat/thumb.jpg"
     import PartyChainTable from "$lib/components/guides/PartyChainTable.svelte";
     import ElementsTable from "$lib/components/guides/ElementsTable.svelte";
     import EleResistDamageTable from "$lib/components/guides/EleResistDamageTable.svelte";
+    import { assetUrl } from "$lib/utils";
 </script>
 
 BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action.
@@ -26,7 +27,7 @@ BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced ac
 
 The UI has an aggro icon whose color indicates <span style="color: orange">when enemies have sensed your presence</span> and <span style="color: red">when they are actively engaging you</span>.
 
-<div><img src="/UI/HateAlert/UI_HateAlertIcon1.png" alt="aggro indicator" width="80" height="40"></div>
+<div><img src={assetUrl("/UI/HateAlert/UI_HateAlertIcon1.png")} alt="aggro indicator" width="80" height="40"></div>
 
 For the purposes of this guide, **being in combat** will refer to when a player has their weapon out (unsheathed and in a combatative stance), and **being targeted** will refer to either scenario that you have aggro. 
 
@@ -176,11 +177,42 @@ At level 1 and 2, a debuff is applied, with level 2 being a stronger version. Le
 ### Burst Bonus Time
 Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**. Players and Battle Imagine will deal increased elemental damage, and Level 2 elemental effects are removed. The damage boost is determined by the element of the attack (prioritizing skill element).
 
-| Elements | Player Damage Increase | Battle Imagine Damage Increase |
-|----------|------------------------|--------------------------------|
-| <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png" alt="Fire" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_2.png" alt="Thunder" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_5.png" alt="Light" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.png" alt="Dark" width="36" height="36"> | 15% | 20% |
-| <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png" alt="Ice" width="36" height="36"> <img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_4.png" alt="Earth" width="36" height="36"> | 10% | 15% |
-| <img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="No element" width="36" height="36"> | 0% | 10% |
+<table>
+    <thead>
+        <tr>
+            <th>Elements</th>
+            <th>Player Damage</th>
+            <th>Battle Imagine Damage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png")} alt="Fire" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_2.png")} alt="Thunder" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_5.png")} alt="Light" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.png")} alt="Dark" width="36" height="36">
+            </td>
+            <td>+15%</td>
+            <td>+20%</td>
+        </tr>
+        <tr>
+            <td>
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png")} alt="Ice" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_4.png")} alt="Earth" width="36" height="36">
+            </td>
+            <td>+10%</td>
+            <td>+15%</td>
+        </tr>
+        <tr>
+            <td>
+                <img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="No element" width="36" height="36">
+            </td>
+            <td>+0%</td>
+            <td>+10%</td>
+        </tr>
+    </tbody>
+</table>
 
 <small>Burst Bonus Time is part of the buff/debuff category in the damage formula.</small>
 
@@ -196,18 +228,18 @@ Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**
         </thead>
         <tbody>
             <tr>
-                <td><img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png" alt="Ice" width="36" height="36"></td>
-                <td><img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png" alt="Fire" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png")} alt="Ice" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png")} alt="Fire" width="36" height="36"></td>
                 <td>15%</td>
             </tr>
             <tr>
-                <td><img src="/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png" alt="Ice" width="36" height="36"></td>
-                <td><img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="Non-elemental" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png")} alt="Ice" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="Non-elemental" width="36" height="36"></td>
                 <td>10%</td>
             </tr>
             <tr>
-                <td><img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="Non-elemental" width="36" height="36"></td>
-                <td><img src="/UI/Icon/Attribute/UI_IconAttribute_Empty.png" alt="Non-elemental" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="Non-elemental" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="Non-elemental" width="36" height="36"></td>
                 <td>0%</td>
             </tr>
         </tbody>
@@ -267,9 +299,9 @@ Debuffs that reduce Elemental Resistance are additive to the target's elemental 
 Chevron icons next to your damage number indicate that the enemy is weak against an element (affected by debuffs as well).
 
 <div class="flex">
-    <img src="/UI/DamageUI/UI_DamageUIWeakness1.png" alt="Weakness 1" width="48" height="84" />
-    <img src="/UI/DamageUI/UI_DamageUIWeakness2.png" alt="Weakness 2" width="48" height="84" /> 
-    <img src="/UI/DamageUI/UI_DamageUIWeakness3.png" alt="Weakness 3" width="48" height="84" /> 
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness1.png")} alt="Weakness 1" width="48" height="84" />
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness2.png")} alt="Weakness 2" width="48" height="84" /> 
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness3.png")} alt="Weakness 3" width="48" height="84" /> 
 </div>
 
 <details>

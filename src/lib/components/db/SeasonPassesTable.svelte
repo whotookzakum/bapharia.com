@@ -1,4 +1,6 @@
 <script>
+    import { assetUrl } from "$lib/utils"
+
     export let data;
 </script>
 
@@ -22,7 +24,7 @@
                             >{pass.need_free}</span
                         >
                         <img
-                            src="/UI/Icon/Currency/UI_Icon_Currency_03.png"
+                            src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.png")}
                             alt="Rose Orbs"
                             height="24"
                             width="24"
@@ -42,7 +44,7 @@
                             >{pass.need_paid}</span
                         >
                         <img
-                            src="/UI/Icon/Currency/UI_Icon_Currency_03.png"
+                            src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.png")}
                             alt="Rose Orbs"
                             height="24"
                             width="24"
@@ -83,7 +85,7 @@
             <td colspan="3">
                 {data.rankup_point} points / {data.rankup_free} orbs
                 <img
-                    src="/UI/Icon/Currency/UI_Icon_Currency_03.png"
+                    src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.png")}
                     alt="Rose Orbs"
                     height="24"
                     width="24"

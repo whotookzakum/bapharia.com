@@ -1,6 +1,7 @@
 <script>
     import MetaTags from "$lib/components/MetaTags.svelte";
     import Tag from "$lib/components/Tag.svelte";
+    import { assetUrl } from "$lib/utils"
 
     export let data;
     const { html, allClasses } = data;
@@ -27,10 +28,10 @@
         {#each allClasses as { href, title, weapon, isNew }}
             <li class="grid box hover outline-focus-within">
                 <img
-                    src="/UI/Icon/ClassXL/UI_IconClassXL_{href
+                    src={assetUrl(`/UI/Icon/ClassXL/UI_IconClassXL_${href
                         .split('/')
                         .pop()
-                        .padStart(2, '0')}.png"
+                        .padStart(2, '0')}.png`)}
                     alt=""
                     width="96"
                     height="96"

@@ -400,11 +400,6 @@
                                 <span> 480% damage </span>
                             </dd> -->
                     </div>
-                    <!-- <div class="mt-2">
-                            <div class="flex items-center gap-2">
-                                <img src="/UI/Icon/StatusAilment/UI_StatusAilment_4039.png" alt=""> Increase damage taken (28%)
-                            </div>
-                        </div> -->
                 </div>
             {/each}
         </div>

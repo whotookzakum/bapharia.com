@@ -3,6 +3,7 @@
     import Abilities from "./Abilities.svelte";
     import Item from "$lib/components/db/Item.svelte";
     import Sockets from "./Sockets.svelte";
+    import { assetUrl } from "$lib/utils"
 
     export let sources;
 
@@ -46,7 +47,7 @@
                         (100% with <b class="accent1">4</b>
                         <a href="/db/tokens/140000200" class="text-inherit"
                             >tickets<img
-                                src="/UI/Icon/TokenL/UI_Icon_140000200.png"
+                                src={assetUrl("/UI/Icon/TokenL/UI_Icon_140000200.png")}
                                 alt=""
                                 width="24"
                                 height="24"

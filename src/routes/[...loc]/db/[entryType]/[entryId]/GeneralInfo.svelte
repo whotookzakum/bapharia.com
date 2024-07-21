@@ -1,6 +1,7 @@
 <script>
     import Skill from "$lib/components/Skill"
     import { userLocale } from "$lib/stores";
+    import { assetUrl } from "$lib/utils"
     export let data = {};
     let imgSrc; // = "/UI/Icon/ItemL/UI_Icon_NoData.png";
     let width = 256,
@@ -141,7 +142,7 @@
         <p>
             Buy for {data.price_player_buys.toLocaleString()}
             <img
-                src="/UI/Common/UI_CmnMoney1.png"
+                src={assetUrl("/UI/Common/UI_CmnMoney1.png")}
                 alt="Luno"
                 width="24"
                 height="24"
@@ -154,7 +155,7 @@
         <p>
             Sells for {data.price_player_sells.toLocaleString()}
             <img
-                src="/UI/Common/UI_CmnMoney1.png"
+                src={assetUrl("/UI/Common/UI_CmnMoney1.png")}
                 alt="Luno"
                 width="24"
                 height="24"
