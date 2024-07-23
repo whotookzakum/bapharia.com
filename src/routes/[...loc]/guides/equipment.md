@@ -11,6 +11,7 @@ thumbImg: "/guides/weapons/thumb.webp"
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
+    import Formula from '$lib/components/guides/Formula.svelte';
 </script>
 
 <!-- <YouTube 
@@ -19,8 +20,34 @@ thumbImg: "/guides/weapons/thumb.webp"
     bleed
 /> -->
 
+## Overview
+Equipment in BLUE PROTOCOL comes in three distinct forms—weapons, Battle Imagine (skills), and Enhance Imagine (armor). All items can be equipped at any level but will <b style="color: var(--color-levelsync)">Level Sync</b> if your class level is lower than the item level, reducing its stats. Passive lines and Battle Imagine skills are unaffected by Level Sync.
+
+### Limit Break
+Limit Breaking equipment involves consuming duplicate copies of an item for a chance to enhance its stats. The higher the Limit Break level, the more materials needed and the lower the chance. Failing a Limit Break attempt **will not consume the duplicate copies of the item**, but will consume Luno and Fusion Materia (a generic material for Limit Breaking).
+
+As of v1.06.100, the maximum Limit Break level is +5, which requires 1 base copy plus 11 duplicates. The only exception are the *EX Battle Imagine*, which are Battle Imagine of the story characters (such as Feste and Tyris), which require only 1 base copy plus 5 duplicates.
+
+You can transfer passive lines and ability plugs through the Limit Break system, effectively letting you Limit Break now and optimize later. For example, if I had a 9% damage line on a weapon but later found one with 12% damage, I can simply transfer the 12% line over to my main weapon. Weapons will automatically take the highest socket count out of all of the duplicates and the base copy. 
+
+Additionally, a max Limit Break item can still be fed duplicate copies to transfer passives, plugs, and sockets. Since it is already max Limit Break, the success rate is 100%.
+
+<StickyNote type="tip">
+    Attach Ability Plugs on your duplicate weapons and transfer them to your main weapon through Limit Break to avoid having to spend Plug Removal Tickets!
+</StickyNote>
+
+Weapons, Battle Imagine, and Enhance Imagine all have tickets that can be used to substitute one copy of the item when Limit Breaking, mainly obtained through gacha, events, the Rose Orb Store, and Season Passes.
+
+<StickyNote type="note">
+    Limit Breaking a Battle Imagine to +5 increases the effectiveness and duration of any buffs and debuffs it provides to 1.5 times. This only applies at +5 and is multiplied AFTER the Imagine's Max Level Bonus (explanation below).
+</StickyNote>
+
+<StickyNote type="caution">
+    Locked items are still be eligible to use as a Limit Break material. You will receive a warning message if you select an item that is locked.
+</StickyNote>
+
 ## Weapons
-Weapons provide stats and often have an element. Switching weapon types will automatically change your class (once you have completed the Class Master's [quest](/db/quest/SQ101_001)). Base weapons for each class can be purchased from the vendor in Asterleeds.
+Weapons provide stats and often have an element. Switching weapon types will automatically change your class (after completing the Class Master's [quest](/db/quest/SQ101_001)). Base weapons for each class can be purchased from the vendor in Asterleeds.
 
 ### Obtaining Weapons
 Weapons can be obtained from treasure chests dropped by enemies inside of dungeons. You must successfully clear the entire dungeon to get treasure chest rewards. Specific drop rate information can be found on the [database](/db).
@@ -29,7 +56,7 @@ Weapons can be obtained from treasure chests dropped by enemies inside of dungeo
     <summary class="arrow accent2">Pre-Beyond: Crafting & Great Success</summary>
     <small class="text3 font-semibold">The following section applies to weapons added to the game before the Beyond update (v1.06.000).</small>
     <p>
-        Weapons can be crafted at the Crafting Machine found in town. Their recipes can be acquired through quests and <a href="/guides/adventure-boards">Adventure Boards</a>. 
+        Weapons can also be crafted at the Crafting Machine found in town. Their recipes can be acquired through quests and <a href="/guides/adventure-boards">Adventure Boards</a>. 
     </p>
     <p>
         When obtaining a weapon, either through crafting or from a chest, there is a chance of it being a <strong>Great Success</strong>, granting more plug sockets and higher special effect values. When crafting, there are tickets that can boost the Great Success rate. There are also tickets that can guarantee a Great Success, though the amount needed will vary based on the weapon.
@@ -37,18 +64,34 @@ Weapons can be obtained from treasure chests dropped by enemies inside of dungeo
 </details>
 
 ### Weapon Stats
-Weapons can have an [element](/guides/combat#elements), so you can generate elemental charge even when using non-elemental skills. You will also do bonus damage to enemies that are weak against that element. When your weapon element and skill element are the same, the Elemental Attack stat is added to your attack when calculating damage. Both weapon element and skill element are [factors when determining damage](/guides/combat#weapon-skill-interaction).
+Weapons can have an [element](/guides/combat#elements), so you can generate elemental charge even when using non-elemental skills. Both weapon element and skill element are [factors when determining damage](/guides/combat#weapon-skill-interaction). When your weapon element and skill element are the same, the Elemental Attack stat is added to your attack when calculating damage. 
 
-Weapon Battle Score is determined by Special Effect (both rarity and values) and Limit Break. Formula TBD.
+Weapon **Battle Score** can be represented as the following formula:
+
+<Formula
+    formula={`
+        \\text{Weapon Battle Score} = 
+        (60 \\times \\text{Item Level}) + 
+        (120 \\times \\text{Limit Break Level}) + 
+        \\text{Battle Score Modifier} + 
+        (\\text{Rarity Coefficient} \\times \\text{Special Effect I Tier}) + 
+        (\\text{Rarity Coefficient} \\times \\text{Special Effect II Tier}) + 
+        (200 \\times \\text{Limit Break Effect Tier}) + 
+        \\text{Plug Battle Score}
+    `}
+    demo="WeaponBattleScore"
+/>
 
 <details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
     <summary class="arrow accent2">Pre-Beyond: Battle Score & Special Effects</summary>
     <small class="text3 font-semibold">The following section applies to weapons added to the game before the Beyond update (v1.06.000).</small>
+    <Formula
+        inline
+        class="block mt-4 text-center"
+        formula={`\\text{Weapon Battle Score} = (60 \\times \\text{Item Level}) + (120 \\times \\text{Limit Break Level})`}
+    />
     <p>
-        Weapons provide <strong>50 &times; (Item Level)</strong> Battle Score, and they will level sync if their max item level is higher than your current class level.
-    </p>
-    <p>
-        Special Effects provide bonus damage to a classification of enemies. For example, a highly sought-after line is Grand Killer G1 (Ground Killer) which deals 11% bonus damage to all enemies that stand on the ground. The Special Effect on a weapon is randomly determined between a few weapon-specific options and cannot be changed. The bonus damage is randomly determined within a range.
+        Special Effects provide bonus damage to a classification of enemies. For example, a highly sought-after line is Ground Killer G1 which deals 11% bonus damage to all enemies that stand on the ground. The Special Effect on a weapon is randomly determined between a few weapon-specific options and cannot be changed. The bonus damage is randomly determined within a range.
     </p>
     <table>
         <caption style="caption-side: bottom;">
@@ -86,27 +129,32 @@ Weapon Battle Score is determined by Special Effect (both rarity and values) and
     <p>
         There are also some Special Effects that only appear on weapons obtained from dungeon treasure chests. For the weapon above, it is a Boar Killer line.
     </p>
+    <p>
+        Before the Limit Break system was introduced, weapons gave <Formula inline formula={`(50 \\times \\text{Item Level})`} /> Battle Score.
+    </p>
 </details>
 
+### Ability Plugs
+Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) or strengthen specific skills (cooldown reduction, skill damage, etc.). They can be obtained through dungeons, events, Mount Caravan, quests and Adventure Boards.
+
 <StickyNote type="tip">
-    You can use the Limit Break system to transfer Special Effects from one weapon to another copy of the same weapon.
+    The value of attack plugs has diminished considerably since the v1.06.000 update introduced weapons with very high attack. Skill plugs can be efficiently obtained through Rush Battle 3 (G1), Rush Battle 5 (G2), and Rush Battle 7 (G3).
 </StickyNote>
 
-### Ability Plugs
-Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) and strengthen specific skills (cooldown reduction, skill damage, etc.). Speak to the [Weapon Reconstructor](/map) to attach plugs to empty sockets by using [Union Paste](/db/items/175100000). The number of empty sockets is determined by probability.
+Speak to the [Weapon Reconstructor](/map) to attach plugs to empty sockets by using [Union Paste](/db/items/175100000). The number of empty sockets is determined by probability when obtaining the weapon, and can be increased through Socket Expansion Tickets or Limit Breaking.
 
 | Sockets  | Probability |
 |----------|-------------|
-| 1        | 0%         |
-| 2        | 0%         | 
-| 3        | 0%         | 
-| 4        | 0%         |
+| 1        | 75.000%     |
+| 2        | 3.750%      | 
+| 3        | 12.500%     | 
+| 4        | 8.750%      |
 
-<details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
+<details class="surface1 p-4 rounded-2xl mt-4" style="max-inline-size: var(--text-length)">
     <summary class="arrow accent2">Pre-Beyond: Socket Probability</summary>
     <small class="text3 font-semibold">The following section applies to weapons added to the game before the Beyond update (v1.06.000).</small>
     <p>
-        The number of empty sockets will be determined by whether the weapon was a Success or a Great Success. Socket Expansion tickets can be used to open more sockets on a weapon with less than 4 sockets.
+        The number of empty sockets will be determined by whether the weapon was a Success or a Great Success. Since a Great Success is typically (if not always) 25%, the rates are identical.
     </p>
     <table>
         <caption style="caption-side: bottom">
@@ -144,7 +192,7 @@ Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, 
     </table>
 </details>
 
-A plug will randomly be assigned a **1~5★** value when attached, indicating the strength of its effect. [Tuning Tickets](/db/tokens/140000300) randomize the values of all inserted plugs—use [Ability Value Preservation Tickets](/db/tokens/140000400) to lock plugs you don't want to reroll. The number of tickets needed will vary based on the weapon.
+A plug's effectiveness is based on its grade (G1, G2, etc.) and its precision (1~5★, randomly assigned when attached). [Tuning Tickets](/db/tokens/140000300) randomize the precision of all inserted plugs and [Ability Value Preservation Tickets](/db/tokens/140000400) lock plugs you don't want to reroll. The number of tickets needed will vary based on the weapon.
 
 | Precision | Probability |
 |-----------|-------------|
@@ -154,12 +202,8 @@ A plug will randomly be assigned a **1~5★** value when attached, indicating th
 | 2★        | 30%         | 
 | 1★        | 30%         | 
 
-Plugs can be removed using [Plug Removal Tickets](/db/tokens/140000700), though if you wish to keep the plug, you will need [Plug Retrieval Tickets](/db/tokens/140000900). The number of tickets needed will vary based on the weapon. 
-
-<StickyNote type="tip">
-    You can use the Limit Break system to transfer plugs from one weapon to another copy of the same weapon (this removes the need to consume tickets when re-plugging).
+<StickyNote type="note">
+    You cannot attach multiple copies of the same plug into a weapon—they must be different plugs or a different grade, i.e. Desperado G3 and Desperado G2.
 </StickyNote>
 
-~~Plugs do not increase your Battle Score.~~
-
-### Weapon Limit Break
+Plugs can be removed using [Plug Removal Tickets](/db/tokens/140000700), though if you wish to keep the plug, you will need [Plug Retrieval Tickets](/db/tokens/140000900). The number of tickets needed will vary based on the weapon. 

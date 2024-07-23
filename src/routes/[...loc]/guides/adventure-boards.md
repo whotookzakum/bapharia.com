@@ -1,7 +1,7 @@
 ---
 title: 'Adventure Boards'
 author: 'Zakum'
-date: '2024-5-15'
+date: '2024-7-22'
 category: 'Game Systems'
 caption: 'A guide to Adventure Boards, a progression mechanic that provides equipment and Adventurer Ranks.'
 bannerImg: "/guides/adventure-boards/board.webp"
@@ -11,7 +11,6 @@ thumbImg: "/guides/adventure-boards/thumb.webp"
 <script>
     import StickyNote from '$lib/components/StickyNote.svelte';
 </script>
-
 
 An Adventure Board is a series of tasks, with rewards for each individual task, and a final reward for completing the entire board. For information on specific boards, refer to the [database](/db).
 
@@ -63,17 +62,24 @@ Note that **some nodes still require the board to be enabled to count progress**
 Adventure Boards can be obtained from treasure chests, dungeons, and completing quests--mainly Key Character Quests, indicated by a quest icon with horns. After unlocking a board, you can accept it from the Quests menu, in the Adventure Boards tab.
 
 ### Class Boards
-To get these boards, you must complete a quest chain given by your respective class instructor NPC. Below are links to the **final** quest in the quest chain—you can follow the prerequisites backwards to find where to start.
+To get these boards, you must complete a quest chain given by your respective class instructor NPC.
 
-- [Blast Archer](/db/quests/SQ103_235)
-- [Twin Striker](/db/quests/SQ103_234)
-- [Spell Caster](/db/quests/SQ103_236)
-- [Aegis Fighter](/db/quests/SQ103_233)
-- [Heavy Smasher](/db/quests/SQ103_237)
-- [Blitz Lancer](/db/quests/SQ103_238)
+![Class NPC locations](https://i.imgur.com/GwhHCvn.png)
+
+- Aegis Fighter: [Quest 1](/db/quest/CQ101_001)・[Quest 2](/db/quest/CQ101_002)・[Quest 3](/db/quest/CQ101_003)・[Quest 4](/db/quest/CQ101_004)・[Quest 5](/db/quest/CQ101_005)・[Quest 6](/db/quest/SQ103_233)
+- Blast Archer: [Quest 1](/db/quest/CQ103_001)・[Quest 2](/db/quest/CQ103_002)・[Quest 3](/db/quest/CQ103_003)・[Quest 4](/db/quest/CQ103_004)・[Quest 5](/db/quest/CQ103_005)・[Quest 6](/db/quest/SQ103_235)
+- Blitz Lancer: [Quest 1](/db/quest/CQ106_001)・[Quest 2](/db/quest/CQ106_002)・[Quest 3](/db/quest/CQ106_003)・[Quest 4](/db/quest/CQ106_004)・[Quest 5](/db/quest/CQ106_005)・[Quest 6](/db/quest/SQ103_238)
+- Heavy Smasher: [Quest 1](/db/quest/CQ105_001)・[Quest 2](/db/quest/CQ105_002)・[Quest 3](/db/quest/CQ105_003)・[Quest 4](/db/quest/CQ105_004)・[Quest 5](/db/quest/CQ105_005)・[Quest 6](/db/quest/SQ103_237)
+- Spell Caster: [Quest 1](/db/quest/CQ104_001)・[Quest 2](/db/quest/CQ104_002)・[Quest 3](/db/quest/CQ104_003)・[Quest 4](/db/quest/CQ104_004)・[Quest 5](/db/quest/CQ104_005)・[Quest 6](/db/quest/SQ103_236)
+- Twin Striker: [Quest 1](/db/quest/CQ102_001)・[Quest 2](/db/quest/CQ102_002)・[Quest 3](/db/quest/CQ102_003)・[Quest 4](/db/quest/CQ102_004)・[Quest 5](/db/quest/CQ102_005)・[Quest 6](/db/quest/SQ103_234)
 
 Class boards give class talismans, which can be used to purchase [Alpha skills](/guides/combat#skill-variants). While you can only make progress towards the board of **the class you are currently playing**, the talismans can be used on **any** class once obtained.
 
 <StickyNote type="tip">
-    It's recommended to get the class boards as soon as possible (at level 45). Class boards take the longest to complete, with tasks such as gather 3,000 times and slay 12,000 enemies.
+    It's recommended to get the class boards as soon as possible at level 45, because they take the longest to complete with tasks such as gather 3,000 times and slay 12,000 enemies.
 </StickyNote>
+
+The talismans can be spent at the Class Master's shop, which can be unlocked by completing the following quests: 
+1. [Quest 1](/db/quest/SQ101_001)
+2. [Quest 2](/db/quest/SQ101_146)
+3. [Quest 3](/db/quest/SQ101_145)

@@ -23,8 +23,6 @@
     $: resetBtnEnabled = initialValue && value !== initialValue;
 </script>
 
-<div></div>
-
 <label
     class="input-wrapper"
     {style}

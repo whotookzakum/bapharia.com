@@ -2,12 +2,12 @@
     import RangeSlider from "svelte-range-slider-pips";
     import Icon from "@iconify/svelte";
     import { assetUrl } from "$lib/utils"
+    import StarSelector from "../../../lib/components/StarSelector.svelte";
 
     let searchCategory = "all";
     let level = [0, 100];
 
-    let hoveredStar = 0;
-    let checkedStar = 0;
+    let starCount = 3
 </script>
 
 <div class="panes">
@@ -85,76 +85,9 @@
                                     <span
                                         class="mini-header"
                                         style="color: inherit"
-                                        >Beat Performer</span
+                                        >Beat Performer {starCount}</span
                                     >
-                                    <div
-                                        class="flex items-center stars ml-auto"
-                                    >
-                                        <label
-                                            class="star-wrapper text3"
-                                            style="margin: 0"
-                                            class:hover-accent1={checkedStar >
-                                                0}
-                                            on:focus={() => (hoveredStar = 0)}
-                                            on:mouseover={() =>
-                                                (hoveredStar = 0)}
-                                        >
-                                            <input
-                                                type="radio"
-                                                class="visually-hidden"
-                                                value={0}
-                                                bind:group={checkedStar}
-                                                on:change={() =>
-                                                    (checkedStar = 0)}
-                                            />
-                                            <span class="visually-hidden"
-                                                >0</span
-                                            >
-                                            <Icon
-                                                icon="ic:baseline-close"
-                                                style="display: flex;"
-                                            />
-                                        </label>
-                                        {#each [1, 2, 3, 4] as star}
-                                            <label
-                                                class="star-wrapper"
-                                                on:focus={() =>
-                                                    (hoveredStar = star)}
-                                                on:mouseover={() =>
-                                                    (hoveredStar = star)}
-                                                on:mouseleave={() =>
-                                                    (hoveredStar = 0)}
-                                                class:lit={hoveredStar >= star}
-                                                class:glow={checkedStar >= star}
-                                            >
-                                                <input
-                                                    type="radio"
-                                                    class="visually-hidden"
-                                                    value={star}
-                                                    bind:group={checkedStar}
-                                                    on:change={() =>
-                                                        (checkedStar = star)}
-                                                />
-                                                <span class="visually-hidden"
-                                                    >{star}</span
-                                                >
-                                                <img
-                                                    class="star-yellow"
-                                                    src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_1.png")}
-                                                    alt=""
-                                                    width="24"
-                                                    height="24"
-                                                />
-                                                <img
-                                                    class="star-black"
-                                                    src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_0.png")}
-                                                    alt=""
-                                                    width="24"
-                                                    height="24"
-                                                />
-                                            </label>
-                                        {/each}
-                                    </div>
+                                    <StarSelector max={4} bind:value={starCount} xButton />
                                 </div>
                             </th>
                         </tr>
@@ -383,37 +316,5 @@
         justify-content: space-between;
     }
 
-    .star-wrapper {
-        position: relative;
-        background-position: 50% 50%;
-        background-size: 48px 48px;
-        background-repeat: no-repeat;
-        padding: 4px;
-        margin: -4px;
-
-        .star-yellow {
-            opacity: 0;
-            position: absolute;
-        }
-    }
-
-    // Glow applies to the selected level and lower
-    .glow {
-        background-image: url("/UI/TelopManager/UI_TelopManager_Star_Glow.png");
-
-        .star-yellow {
-            opacity: 1;
-        }
-    }
-
-    // Lit applies to the hovered level and lower
-    .stars:where(:hover, :has(:focus-visible)) {
-        .star-yellow {
-            opacity: 0;
-        }
-
-        .lit .star-yellow {
-            opacity: 1;
-        }
-    }
+    
 </style>

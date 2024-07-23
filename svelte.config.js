@@ -8,6 +8,9 @@ import rehypeSlug from 'rehype-slug';
 import rehypeToc from "@jsdevtools/rehype-toc";
 import rehypeSectionize from "@hbsnow/rehype-sectionize";
 import { SUPPORTED_PUBLISHERS, SUPPORTED_LANGS } from "./src/lib/constants.js"
+import remarkMath from "remark-math";
+import rehypeKatexSvelte from 'rehype-katex-svelte';
+import rehypeRaw from "rehype-raw";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -22,7 +25,11 @@ const config = {
 		preprocess(),
 		mdsvex({
 			extensions: ['.md', '.mdx', '.svx'],
+			remarkPlugins: [
+				remarkMath
+			],
 			rehypePlugins: [
+				// rehypeRaw,
 				rehypeSlug,
 				[
 					rehypeAutolinkHeadings,
@@ -37,7 +44,8 @@ const config = {
 					}
 				],
 				rehypeSectionize,
-			]
+				rehypeKatexSvelte
+			],
 		})
 	],
 	kit: {

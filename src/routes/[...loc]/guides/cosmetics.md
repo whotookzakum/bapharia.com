@@ -1,7 +1,7 @@
 ---
 title: 'Cosmetics'
 author: "Zakum"
-date: '2024-5-15'
+date: '2024-7-22'
 category: 'Game Systems'
 caption: "All about customizing your character's appearance!"
 bannerImg: "/guides/cosmetics/banner.webp"
@@ -58,6 +58,10 @@ Cosmetic items can be explored in the [database](/db) and include:
 - Outfits (hat, top, gloves, bottom, shoes)
 - Underwear
 - Accessories (head, ears, eyes, cheeks, hands, upper back, lower back)
+
+Weapons also have an aura that indicate how much battle score your current gear gives. This can be toggled off in the settings.
+
+![Weapon auras](/guides/cosmetics/weaponauras.jpg)
 
 ## Dying
 <img class="full-bleed" src="/guides/cosmetics/dyes.png" alt="Dye shop example">
