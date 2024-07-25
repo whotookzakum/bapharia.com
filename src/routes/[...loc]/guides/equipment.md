@@ -12,6 +12,7 @@ thumbImg: "/guides/weapons/thumb.webp"
     import StickyNote from '$lib/components/StickyNote.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import Formula from '$lib/components/guides/Formula.svelte';
+    import { assetUrl } from "$lib/utils";
 </script>
 
 <!-- <YouTube 
@@ -66,30 +67,18 @@ Weapons can be obtained from treasure chests dropped by enemies inside of dungeo
 ### Weapon Stats
 Weapons can have an [element](/guides/combat#elements), so you can generate elemental charge even when using non-elemental skills. Both weapon element and skill element are [factors when determining damage](/guides/combat#weapon-skill-interaction). When your weapon element and skill element are the same, the Elemental Attack stat is added to your attack when calculating damage. 
 
-Weapon **Battle Score** can be represented as the following formula:
+#### Legendary weapons and Special Effects
+Weapons come with a Normal, Rare, or Legendary rarity that determines which Special Effects it can have. Normal Special Effects are typically stat increases, while Rare introduces some unique mechanics such as perfect dodging to generate a healing AoE. Legendary Special Effects are class-specific bonuses, such as Twin Striker's Moving Master which reduces Stamina consumption when dodging and jumping by up to 100%.
 
-<Formula
-    formula={`
-        \\text{Weapon Battle Score} = 
-        (60 \\times \\text{Item Level}) + 
-        (120 \\times \\text{Limit Break Level}) + 
-        \\text{Battle Score Modifier} + 
-        (\\text{Rarity Coefficient} \\times \\text{Special Effect I Tier}) + 
-        (\\text{Rarity Coefficient} \\times \\text{Special Effect II Tier}) + 
-        (200 \\times \\text{Limit Break Effect Tier}) + 
-        \\text{Plug Battle Score}
-    `}
-    demo="WeaponBattleScore"
-/>
+<p>
+    A Special Effect typically has two values, though some Normal weapons have one. On Legendary weapons, <img src={assetUrl("/UI/Common/UI_CmnSpecileMain_Num1.png")} alt="value I" width="16" height="20" class="inline" /> is the effectiveness of whatever bonus the Special Effect gives (i.e. Moving Master), and <img src={assetUrl("/UI/Common/UI_CmnSpecileMain_Num2.png")} alt="value II" width="16" height="20" class="inline" /> is an attack bonus. Each value is randomly selected from a range of five tiers, such as 60%/70%/80%/90%/100% and 26%/27%/28%/29%/30%, respectively.
+</p>
+
+As of v1.06.000, each Legendary line has a 1% chance of dropping, and there are two lines per weapon type. Furthermore, the probability to get a double max roll is 1%. There exist tickets that reroll the Special Effect; tickets that reroll the Special Effect but guarantee the same rarity or higher; tickets that reroll only the values; and tickets that raise both values by 1 tier. 
 
 <details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
-    <summary class="arrow accent2">Pre-Beyond: Battle Score & Special Effects</summary>
+    <summary class="arrow accent2">Pre-Beyond: Special Effects</summary>
     <small class="text3 font-semibold">The following section applies to weapons added to the game before the Beyond update (v1.06.000).</small>
-    <Formula
-        inline
-        class="block mt-4 text-center"
-        formula={`\\text{Weapon Battle Score} = (60 \\times \\text{Item Level}) + (120 \\times \\text{Limit Break Level})`}
-    />
     <p>
         Special Effects provide bonus damage to a classification of enemies. For example, a highly sought-after line is Ground Killer G1 which deals 11% bonus damage to all enemies that stand on the ground. The Special Effect on a weapon is randomly determined between a few weapon-specific options and cannot be changed. The bonus damage is randomly determined within a range.
     </p>
@@ -129,6 +118,36 @@ Weapon **Battle Score** can be represented as the following formula:
     <p>
         There are also some Special Effects that only appear on weapons obtained from dungeon treasure chests. For the weapon above, it is a Boar Killer line.
     </p>
+</details>
+
+#### Limit Break Effect
+At max Limit Break, weapons gain a Limit Break Effect which is simply an attack bonus. The value is randomly selected from a range of five tiers: 100/250/400/550/700. Both the Limit Break Effect and Special Effect can be transferred to another weapon via Limit Break.
+
+#### Weapon Battle Score
+Weapon **Battle Score** can be represented as the following formula:
+
+<Formula
+    formula={`
+        \\text{Weapon Battle Score} = 
+        (60 \\times \\text{Item Level}) + 
+        (120 \\times \\text{Limit Break Level}) + 
+        \\text{Battle Score Modifier} + 
+        (\\text{Rarity Coefficient} \\times \\text{Special Effect I Tier}) + 
+        (\\text{Rarity Coefficient} \\times \\text{Special Effect II Tier}) + 
+        (200 \\times \\text{Limit Break Effect Tier}) + 
+        \\text{Plug Battle Score}
+    `}
+    demo="WeaponBattleScore"
+/>
+
+<details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
+    <summary class="arrow accent2">Pre-Beyond: Battle Score</summary>
+    <small class="text3 font-semibold">The following section applies to weapons added to the game before the Beyond update (v1.06.000).</small>
+    <Formula
+        inline
+        class="block mt-4 text-center"
+        formula={`\\text{Weapon Battle Score} = (60 \\times \\text{Item Level}) + (120 \\times \\text{Limit Break Level})`}
+    />
     <p>
         Before the Limit Break system was introduced, weapons gave <Formula inline formula={`(50 \\times \\text{Item Level})`} /> Battle Score.
     </p>
@@ -154,7 +173,7 @@ Speak to the [Weapon Reconstructor](/map) to attach plugs to empty sockets by us
     <summary class="arrow accent2">Pre-Beyond: Socket Probability</summary>
     <small class="text3 font-semibold">The following section applies to weapons added to the game before the Beyond update (v1.06.000).</small>
     <p>
-        The number of empty sockets will be determined by whether the weapon was a Success or a Great Success. Since a Great Success is typically (if not always) 25%, the rates are identical.
+        The number of empty sockets will be determined by whether the weapon was a Success or a Great Success. Since a Great Success is typically (if not always) 25%, the rates are mostly identical.
     </p>
     <table>
         <caption style="caption-side: bottom">
