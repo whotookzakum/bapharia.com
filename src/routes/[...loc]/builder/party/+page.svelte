@@ -18,36 +18,42 @@
 
     let players = [
         {
+            name: "Player 1",
             class: 12,
             checked: data.bImagines.map((i) => false),
             buffs1: [],
             buffs2: [],
         },
         {
+            name: "Player 2",
             class: 6,
             checked: data.bImagines.map((i) => false),
             buffs1: [],
             buffs2: [],
         },
         {
+            name: "Player 3",
             class: 21,
             checked: data.bImagines.map((i) => false),
             buffs1: [],
             buffs2: [],
         },
         {
+            name: "Player 4",
             class: 7,
             checked: data.bImagines.map((i) => false),
             buffs1: [],
             buffs2: [],
         },
         {
+            name: "Player 5",
             class: 11,
             checked: data.bImagines.map((i) => false),
             buffs1: [],
             buffs2: [],
         },
         {
+            name: "Player 6",
             class: 19,
             checked: data.bImagines.map((i) => false),
             buffs1: [],
@@ -69,11 +75,6 @@
         });
     });
 
-    let buffs = {
-        buffs1: [],
-        buffs2: [],
-    };
-
     function createSortable(ul) {
         new Sortable(ul, {
             group: {
@@ -82,73 +83,100 @@
             direction: "horizontal",
             animation: 150,
             onAdd: (e) => {
+                // When dragged in, add the imagine id to the appropriate player and array
                 const playerIndex = ul.getAttribute("player-index");
                 const player = players[playerIndex];
                 const imagineId = e.item.getAttribute("imagine-id");
                 const buffTimeSlot = ul.classList[0]; // "buffs1" or "buffs2"
                 player[buffTimeSlot].push(imagineId);
 
-                const playerDuplicateBuff =
-                    [...player.buffs1, ...player.buffs2].filter(
-                        (buff) => buff === imagineId,
-                    ).length > 1;
-                const playerExceedMaxBuffs =
-                    player.buffs1.length + player.buffs2.length > 2;
+                const playerBuffs1Ul =
+                    document.querySelectorAll(`.buffs1`)[playerIndex];
+                const playerBuffs2Ul =
+                    document.querySelectorAll(`.buffs2`)[playerIndex];
 
-                console.log(playerDuplicateBuff);
-
-                document
-                    .querySelectorAll(`.${buffTimeSlot}`)
-                    .forEach((node) => {
-                        const ulContainsDuplicateId = [...node.children].some(
-                            (child) =>
-                                child.getAttribute("imagine-id") === imagineId,
-                        );
-                        if (
-                            ulContainsDuplicateId &&
-                            ![...ul.classList].includes("danger")
-                        )
-                            ul.classList.add("danger");
-
-                        // if (node.getAttribute("imagine-id") === imagineId) node.
-                        // console.log()
-                    });
-
-                if (playerDuplicateBuff || playerExceedMaxBuffs) {
+                // Check if player has more than 2 imagine
+                if (player.buffs1.length > 2)
+                    playerBuffs1Ul.classList.add("danger");
+                else if (player.buffs2.length > 2)
+                    playerBuffs2Ul.classList.add("danger");
+                else if (player.buffs1.length + player.buffs2.length > 2) {
+                    playerBuffs1Ul.classList.add("danger");
+                    playerBuffs2Ul.classList.add("danger");
                 }
 
-                // const allBuffsInTimeSlot = players.flatMap(player => player[buffTimeSlot])
-                // if (allBuffsInTimeSlot.includes(imagineId))
+                // Check if player already has this imagine
+                // https://stackoverflow.com/a/32122760
+                const playerDuplicateImagine = [
+                    ...player.buffs1,
+                    ...player.buffs2,
+                ].filter((e, i, a) => a.indexOf(e) !== i);
+                if (playerDuplicateImagine.length > 0) {
+                    if (
+                        [...playerBuffs1Ul.children].some((li) =>
+                            playerDuplicateImagine.includes(
+                                li.getAttribute("imagine-id"),
+                            ),
+                        )
+                    ) {
+                        playerBuffs1Ul.classList.add("danger");
+                    }
 
-                // const duplicatesInTimeSlot = allBuffsInTimeSlot.filter((val, i) => allBuffsInTimeSlot.includes(val, i + 1))
+                    if (
+                        [...playerBuffs2Ul.children].some((li) =>
+                            playerDuplicateImagine.includes(
+                                li.getAttribute("imagine-id"),
+                            ),
+                        )
+                    ) {
+                        playerBuffs2Ul.classList.add("danger");
+                    }
+                }
 
-                // if (duplicatesInTimeSlot.length > 0 && duplicatesInTimeSlot.some(dupe => playerBuffsInTimeSlot.includes(dupe))) {
+                // Check if another player has this imagine in the same time slot
+                const teamOverlappingImagine = players
+                    .flatMap((p) => p[buffTimeSlot])
+                    .filter((e, i, a) => a.indexOf(e) !== i);
+                if (teamOverlappingImagine.length > 0) {
+                    document.querySelectorAll(".buffs1").forEach((ul) => {
+                        if (
+                            [...ul.children].some((li) =>
+                                teamOverlappingImagine.includes(
+                                    li.getAttribute("imagine-id"),
+                                ),
+                            )
+                        ) {
+                            ul.classList.add("danger");
+                        }
+                    });
 
-                // }
-
-                // console.log(node)
-
-                // console.log(node.classList[0])
-
-                // buffs1 = document.querySelectorAll(".buffs1 li")
-                // if (new Set([...buffs1].map(node => node.getAttribute("imagine-id"))).size !== buffs1.length) {
-                //     console.log(document.querySelectorAll(".buffs1"))
-                // }
-
-                // console.log(new Set([...buffs1].map(node => node.getAttribute("imagine-id"))).size === buffs1.length)
+                    document.querySelectorAll(".buffs2").forEach((ul) => {
+                        if (
+                            [...ul.children].some((li) =>
+                                teamOverlappingImagine.includes(
+                                    li.getAttribute("imagine-id"),
+                                ),
+                            )
+                        ) {
+                            ul.classList.add("danger");
+                        }
+                    });
+                }
 
                 players = players;
-                // console.log(node.getAttribute("player-index"), players[node.getAttribute("player-index")].selected)
             },
             onRemove: (e) => {
-                const playerIndex = ul.getAttribute("player-index");
-                const player = players[playerIndex];
-                const imagineId = e.item.getAttribute("imagine-id");
-                const buffTimeSlot = ul.classList[0]; // "buffs1" or "buffs2"
-                player[buffTimeSlot].splice(
-                    player[buffTimeSlot].indexOf(imagineId),
-                    1,
-                );
+                // const playerIndex = ul.getAttribute("player-index");
+                // const player = players[playerIndex];
+                // const imagineId = e.item.getAttribute("imagine-id");
+                // const buffTimeSlot = ul.classList[0]; // "buffs1" or "buffs2"
+                // player[buffTimeSlot].splice(
+                //     player[buffTimeSlot].indexOf(imagineId),
+                //     1,
+                // );
+            },
+            onEnd: (e) => {
+                console.log(e);
             },
         });
     }
@@ -166,8 +194,19 @@
 </script>
 
 <div class="panes">
-    <article class="main-pane gap-8" style="grid-column: 1/-1">
-        <section style="grid-column: 1/-1">
+    <aside class="side-pane"></aside>
+
+    <article class="main-pane gap-8">
+        <hgroup>
+            <p class="mini-header">Tools</p>
+            <h1>Battle Imagine Scheduler</h1>
+            <p>
+                A tool to organize your party's Battle Imagine rotation.
+                Includes the most important Battle Imagine for group content.
+            </p>
+        </hgroup>
+
+        <section>
             <ul class="flex flex-wrap gap-4" bind:this={bImagineList}>
                 {#each data.bImagines as imagine}
                     <li
@@ -220,23 +259,25 @@
             </ul>
         </section>
 
-        <section style="grid-column: 1/-1">
+        <section>
             <div class="surface1 stripes rounded-2xl">
-                <table
-                    class="stripes"
-                    style="font-size: var(--step-0); table-layout: fixed;"
-                >
+                <table class="stripes" style="font-size: var(--step-0); ">
                     <thead>
-                        <tr style="font-size: var(--step-3)">
+                        <tr>
                             <th></th>
-                            <th>0s</th>
-                            <th>30s</th>
+                            <th style="width: 176px; font-size: var(--step-3)">
+                                <InputText value="0s" />
+                            </th>
+                            <th style="width: 176px; font-size: var(--step-3)">
+                                <InputText value="30s" />
+                            </th>
+                            <th class="text-center">Cooldown<br>Reduction</th>
                         </tr>
                     </thead>
                     <tbody>
                         {#each players as player, index}
                             <tr>
-                                <td style="max-width: 150px">
+                                <td>
                                     <div
                                         class="flex gap-2 items-center relative"
                                     >
@@ -285,81 +326,28 @@
                                             style="flex: 1"
                                         />
                                     </div>
-                                    {player.buffs1}
                                 </td>
-                                <td style="padding: 0">
+                                <td style="padding: 0; width: 176px">
                                     <ul
-                                        class="buffs1 flex items-center flex-wrap gap-4 min-h-[100px] px-4 py-2"
+                                        class="buffs1 flex items-center gap-4 min-h-[100px] px-4 py-2"
                                         player-index={index}
                                         buff-timing={0}
                                         use:createSortable
-                                    >
-                                        {#each buffs.buffs1 as _}
-                                            <li
-                                                class="text-center rounded-lg select-none relative"
-                                                style="max-width: calc(64px + 0rem); line-height: 1;"
-                                                imagine-id={data.bImagines[0].id}
-                                            >
-                                                <div class="relative">
-                                                    <img
-                                                        src={assetUrl(
-                                                            data.bImagines.assets.icon,
-                                                        )}
-                                                        alt=""
-                                                        width="64"
-                                                        height="64"
-                                                    />
-                                                    {#if elemental[data.bImagines[0].id]}
-                                                        <img
-                                                            src={elemental[
-                                                                data.bImagines[0].id
-                                                            ]}
-                                                            alt=""
-                                                            width="24"
-                                                            height="24"
-                                                            class="absolute"
-                                                            style="bottom: -0.5rem; right: -0.5rem;"
-                                                        />
-                                                    {/if}
-                                                </div>
-                                                <div
-                                                    style="overflow: hidden; width: 100%; text-overflow: ellipsis; white-space: nowrap;"
-                                                >
-                                                    <small
-                                                        style="font-size: var(--step--2); "
-                                                        >{imagine.text.name
-                                                            .replace("B-", "")
-                                                            .replace(
-                                                                "B - ",
-                                                                "",
-                                                            )}</small
-                                                    >
-                                                </div>
-                                                <button
-                                                    class="x absolute h-6 w-6 grid place-content-center rounded-full"
-                                                    style="color: var(--danger); line-height: 0; top: -0.25rem; left: -0.25rem; visibility: hidden; background: var(--bg)"
-                                                    on:click={(e) => {
-                                                        console.log(
-                                                            e.currentTarget,
-                                                        );
-                                                        e.currentTarget.parentElement.remove();
-                                                    }}
-                                                >
-                                                    <Icon
-                                                        icon="carbon:close-filled"
-                                                        style="font-size: var(--step-3);"
-                                                    />
-                                                </button>
-                                            </li>
-                                        {/each}
-                                    </ul>
+                                    />
                                 </td>
-                                <td style="padding: 0">
+                                <td style="padding: 0; width: 176px">
                                     <ul
-                                        class="buffs2 flex items-center flex-wrap gap-4 min-h-[100px] px-4 py-2"
+                                        class="buffs2 flex items-center gap-4 min-h-[100px] px-4 py-2 w-full"
                                         player-index={index}
                                         buff-timing={30}
                                         use:createSortable
+                                    />
+                                </td>
+                                <td>
+                                    <input
+                                        type="checkbox"
+                                        bind:checked={player.cdReduction}
+                                        class="flex m-auto w-6 h-6"
                                     />
                                 </td>
                             </tr>
