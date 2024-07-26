@@ -222,7 +222,7 @@
 </div>
 
 <div
-    class="surface1 rounded-2xl p-4 grid gap-2 w-full hidden"
+    class="surface1 rounded-2xl p-4 grid gap-2 w-full hidde"
     style="max-width: 1200px; margin-inline: auto;"
 >
     <div class="flex gap-4">

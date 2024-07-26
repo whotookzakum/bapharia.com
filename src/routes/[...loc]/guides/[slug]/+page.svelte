@@ -12,7 +12,7 @@
     bigImage
 />
 
-<article class="main-pane">
+<article class="main-pane reset-lists">
     <hgroup>
         <p class="mini-header">{metadata.category}</p>
         <h1>{metadata.title}</h1>

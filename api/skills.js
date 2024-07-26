@@ -549,11 +549,12 @@ function getSkillLevelData(SkillInfo, conditionParams) {
             .filter(projectile => passesConditions(projectile.ConditionList, conditionParams))
             .reduce((acc, projectileWrapper) => {
                 projectileWrapper.ProjectileHandleList.forEach(projectile => {
+                    if (!projectile.projectileData) return acc
 
                     // Add buffs from projectileData
                     const { StatusAliments, SelfStatusAliments, OverlapStatusAlimentConfigs, HitChainConfig } = projectile.projectileData;
 
-                    const OverlapStatusAliments = OverlapStatusAlimentConfigs.flatMap(obj => obj.OverlapStatusAliments);
+                    const OverlapStatusAliments = OverlapStatusAlimentConfigs?.flatMap(obj => obj.OverlapStatusAliments);
 
                     [...StatusAliments, ...SelfStatusAliments, ...OverlapStatusAliments].forEach(buffGroup => {
                         acc = { ...acc, ...getBuffGroupData(buffGroup) }
