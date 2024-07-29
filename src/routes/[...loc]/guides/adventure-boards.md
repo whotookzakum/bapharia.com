@@ -66,12 +66,12 @@ To get these boards, you must complete a quest chain given by your respective cl
 
 ![Class NPC locations](https://i.imgur.com/GwhHCvn.png)
 
-- Aegis Fighter: [Quest 1](/db/quest/CQ101_001)・[Quest 2](/db/quest/CQ101_002)・[Quest 3](/db/quest/CQ101_003)・[Quest 4](/db/quest/CQ101_004)・[Quest 5](/db/quest/CQ101_005)・[Quest 6](/db/quest/SQ103_233)
-- Blast Archer: [Quest 1](/db/quest/CQ103_001)・[Quest 2](/db/quest/CQ103_002)・[Quest 3](/db/quest/CQ103_003)・[Quest 4](/db/quest/CQ103_004)・[Quest 5](/db/quest/CQ103_005)・[Quest 6](/db/quest/SQ103_235)
-- Blitz Lancer: [Quest 1](/db/quest/CQ106_001)・[Quest 2](/db/quest/CQ106_002)・[Quest 3](/db/quest/CQ106_003)・[Quest 4](/db/quest/CQ106_004)・[Quest 5](/db/quest/CQ106_005)・[Quest 6](/db/quest/SQ103_238)
-- Heavy Smasher: [Quest 1](/db/quest/CQ105_001)・[Quest 2](/db/quest/CQ105_002)・[Quest 3](/db/quest/CQ105_003)・[Quest 4](/db/quest/CQ105_004)・[Quest 5](/db/quest/CQ105_005)・[Quest 6](/db/quest/SQ103_237)
-- Spell Caster: [Quest 1](/db/quest/CQ104_001)・[Quest 2](/db/quest/CQ104_002)・[Quest 3](/db/quest/CQ104_003)・[Quest 4](/db/quest/CQ104_004)・[Quest 5](/db/quest/CQ104_005)・[Quest 6](/db/quest/SQ103_236)
-- Twin Striker: [Quest 1](/db/quest/CQ102_001)・[Quest 2](/db/quest/CQ102_002)・[Quest 3](/db/quest/CQ102_003)・[Quest 4](/db/quest/CQ102_004)・[Quest 5](/db/quest/CQ102_005)・[Quest 6](/db/quest/SQ103_234)
+- Aegis Fighter: [Quest 1](/db/quests/CQ101_001)・[Quest 2](/db/quests/CQ101_002)・[Quest 3](/db/quests/CQ101_003)・[Quest 4](/db/quests/CQ101_004)・[Quest 5](/db/quests/CQ101_005)・[Quest 6](/db/quests/SQ103_233)
+- Blast Archer: [Quest 1](/db/quests/CQ103_001)・[Quest 2](/db/quests/CQ103_002)・[Quest 3](/db/quests/CQ103_003)・[Quest 4](/db/quests/CQ103_004)・[Quest 5](/db/quests/CQ103_005)・[Quest 6](/db/quests/SQ103_235)
+- Blitz Lancer: [Quest 1](/db/quests/CQ106_001)・[Quest 2](/db/quests/CQ106_002)・[Quest 3](/db/quests/CQ106_003)・[Quest 4](/db/quests/CQ106_004)・[Quest 5](/db/quests/CQ106_005)・[Quest 6](/db/quests/SQ103_238)
+- Heavy Smasher: [Quest 1](/db/quests/CQ105_001)・[Quest 2](/db/quests/CQ105_002)・[Quest 3](/db/quests/CQ105_003)・[Quest 4](/db/quests/CQ105_004)・[Quest 5](/db/quests/CQ105_005)・[Quest 6](/db/quests/SQ103_237)
+- Spell Caster: [Quest 1](/db/quests/CQ104_001)・[Quest 2](/db/quests/CQ104_002)・[Quest 3](/db/quests/CQ104_003)・[Quest 4](/db/quests/CQ104_004)・[Quest 5](/db/quests/CQ104_005)・[Quest 6](/db/quests/SQ103_236)
+- Twin Striker: [Quest 1](/db/quests/CQ102_001)・[Quest 2](/db/quests/CQ102_002)・[Quest 3](/db/quests/CQ102_003)・[Quest 4](/db/quests/CQ102_004)・[Quest 5](/db/quests/CQ102_005)・[Quest 6](/db/quests/SQ103_234)
 
 Class boards give class talismans, which can be used to purchase [Alpha skills](/guides/combat#skill-variants). While you can only make progress towards the board of **the class you are currently playing**, the talismans can be used on **any** class once obtained.
 
@@ -80,6 +80,6 @@ Class boards give class talismans, which can be used to purchase [Alpha skills](
 </StickyNote>
 
 The talismans can be spent at the Class Master's shop, which can be unlocked by completing the following quests: 
-1. [Quest 1](/db/quest/SQ101_001)
-2. [Quest 2](/db/quest/SQ101_146)
-3. [Quest 3](/db/quest/SQ101_145)
+1. [Quest 1](/db/quests/SQ101_001)
+2. [Quest 2](/db/quests/SQ101_146)
+3. [Quest 3](/db/quests/SQ101_145)

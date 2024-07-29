@@ -12,7 +12,7 @@
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 	<meta property="og:image" content={image} />
-	<meta name="theme-color" content="#fff" />
+	<meta name="theme-color" content="#ffffff" />
 	<link rel="canonical" href={`https://bapharia.com${$page.url.pathname}`} />
 	<meta name="twitter:card" content="summary_large_image" key="misc-card" />
 	{#if readingTime}
