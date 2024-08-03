@@ -1,5 +1,9 @@
 # Enemy-related files
 
+`EnemyWave_common.uasset` contains wave info, with enemy sets and their spawn conditions inside
+`EnemySet_common.uasset` contains the enemies that spawn in that enemy set
+`_common` can be replaced with arena/dungeon/field/extra etc.
+
 ## Client
 - Models: `/Content/Character/Enemy`
 - Spawn locations, respawn time: `/Content/Maps/*/*/sublevel/*_EN.umap`

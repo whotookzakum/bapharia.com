@@ -105,7 +105,10 @@
             top: 50%;
             translate: -50% calc(-50% + 4px);
             opacity: 0;
-            white-space: nowrap;
+            width: 100%;
+            text-align: center;
+            // line-clamp: 2;
+            // text-overflow: ellipsis;
             transition: all 0.2s var(--timing1);
             font-weight: 600;
         }
