@@ -27,43 +27,43 @@
             name: "Player 1",
             class: 12,
             checked: data.bImagines.map((i) => false),
-            buffs1: [],
-            buffs2: [],
+            col1: [],
+            col2: [],
         },
         {
             name: "Player 2",
             class: 6,
             checked: data.bImagines.map((i) => false),
-            buffs1: [],
-            buffs2: [],
+            col1: [],
+            col2: [],
         },
         {
             name: "Player 3",
             class: 21,
             checked: data.bImagines.map((i) => false),
-            buffs1: [],
-            buffs2: [],
+            col1: [],
+            col2: [],
         },
         {
             name: "Player 4",
             class: 7,
             checked: data.bImagines.map((i) => false),
-            buffs1: [],
-            buffs2: [],
+            col1: [],
+            col2: [],
         },
         {
             name: "Player 5",
             class: 11,
             checked: data.bImagines.map((i) => false),
-            buffs1: [],
-            buffs2: [],
+            col1: [],
+            col2: [],
         },
         {
             name: "Player 6",
             class: 19,
             checked: data.bImagines.map((i) => false),
-            buffs1: [],
-            buffs2: [],
+            col1: [],
+            col2: [],
         },
     ];
 
@@ -79,6 +79,18 @@
             },
             sort: false,
             animation: 150,
+            onChoose: (e) => {
+                [...document.querySelectorAll("ul.drop-zone")].forEach((ul) => {
+                    ul.classList.add("border-accent1"); // can add show-caption here to only show it while dragging an imagine
+                    ul.style.setProperty("--caption-color", "var(--accent1)");
+                });
+            },
+            onUnchoose: (e) => {
+                [...document.querySelectorAll("ul.drop-zone")].forEach((ul) => {
+                    ul.classList.remove("border-accent1");
+                    ul.style.setProperty("--caption-color", "");
+                });
+            },
         });
     });
 </script>
@@ -148,19 +160,16 @@
     </section>
 
     <section class="surface1 rounded-2xl">
-        <ul class="player-list grid">
+        <ul class="player-list">
             {#each players as player, index}
                 <li
-                    class="flex gap-4 pl-2 pr-4"
+                    class="player-row flex gap-4 pl-2 pr-4"
                     class:pt-4={index === 0}
                     class:pb-4={index === players.length - 1}
+                    style="min-height: calc(84px + {index === 0 || index === players.length - 1 ? "3rem" : "2rem"} + 5px);"
+                    player-index={index}
                 >
-                    <div
-                        class="player-section grid gap-1 flex-1"
-                        class:mt-2={index !== 0}
-                        class:mb-2={index !== players.length - 1}
-                        style="align-content: start; place-items: stretch;"
-                    >
+                    <div class="player-section grid gap-1 flex-1 my-2">
                         <div class="flex gap-2 items-center self-start">
                             <ClassSelector
                                 bind:classId={player.class}
@@ -172,9 +181,9 @@
                             />
                         </div>
                         <DropZone
-                            style="border: none; border-radius: 0.5rem; width: 100%; min-height: 56px; height: 100%;"
+                            style="border: none; border-radius: 0.5rem; width: 100%; min-height: 40px; height: 100%; background: none"
                             class="imagine-bank drop-zone flex flex-wrap gap-2 py-1 px-2"
-                            imagineBank
+                            caption="Drop here for player inventory"
                             removeOnSpill
                             groupName="player{index}Groups"
                             put={["shared", `player${index}Groups`]}
@@ -182,14 +191,20 @@
                     </div>
 
                     <DropZone
+                        col={1}
                         removeOnSpill
                         groupName="player{index}Groups"
                         put={["shared", `player${index}Groups`]}
+                        bind:itemIds={player.col1}
+                        playerIndex={index}
                     />
                     <DropZone
+                        col={2}
                         removeOnSpill
                         groupName="player{index}Groups"
                         put={["shared", `player${index}Groups`]}
+                        bind:itemIds={player.col2}
+                        playerIndex={index}
                     />
                 </li>
             {/each}
@@ -200,15 +215,6 @@
 <style lang="scss">
     ul {
         list-style: none !important;
-    }
-
-    // Button event stops being attached after pressing x one time per imagine. No plans to fix for now.
-    // tbody ul li .x {
-    //     visibility: visible !important;
-    // }
-
-    :global(.buffs1.danger, .buffs2.danger) {
-        outline: 2px solid var(--danger);
     }
 
     img {

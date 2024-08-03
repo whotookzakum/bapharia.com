@@ -7,8 +7,16 @@
     export let revertOnSpill = false;
     export let sort = true;
     export let caption = ""; // "Drop here to add to the player's Imagine list"
+    export let itemIds = [];
+    export let danger = false;
+    export let col = null;
+    export let playerIndex = 0;
+
+    let showCaption = Boolean(caption);
 
     function createSortable(ul) {
+        let player_index = playerIndex;
+
         new Sortable(ul, {
             group: {
                 name: groupName,
@@ -20,160 +28,44 @@
             revertOnSpill,
             sort,
             onAdd: (e) => {
-                caption = ""
-
-                // // When dragged in, add the imagine id to the appropriate player and array
-                // const playerIndex = ul.getAttribute("player-index");
-                // const player = players[playerIndex];
-                // const imagineId = e.item.getAttribute("imagine-id");
-                // const buffTimeSlot = ul.classList[0]; // "buffs1" or "buffs2"
-                // player[buffTimeSlot].push(imagineId);
-
-                // const playerBuffs1Ul =
-                //     document.querySelectorAll(`.buffs1`)[playerIndex];
-                // const playerBuffs2Ul =
-                //     document.querySelectorAll(`.buffs2`)[playerIndex];
-
-                // // Check if player has more than 2 imagine
-                // if (player.buffs1.length > 2)
-                //     playerBuffs1Ul.classList.add("danger");
-                // else if (player.buffs2.length > 2)
-                //     playerBuffs2Ul.classList.add("danger");
-                // else if (player.buffs1.length + player.buffs2.length > 2) {
-                //     playerBuffs1Ul.classList.add("danger");
-                //     playerBuffs2Ul.classList.add("danger");
-                // }
-
-                // // Check if player already has this imagine
-                // // https://stackoverflow.com/a/32122760
-                // const playerDuplicateImagine = [
-                //     ...player.buffs1,
-                //     ...player.buffs2,
-                // ].filter((e, i, a) => a.indexOf(e) !== i);
-                // if (playerDuplicateImagine.length > 0) {
-                //     if (
-                //         [...playerBuffs1Ul.children].some((li) =>
-                //             playerDuplicateImagine.includes(
-                //                 li.getAttribute("imagine-id"),
-                //             ),
-                //         )
-                //     ) {
-                //         playerBuffs1Ul.classList.add("danger");
-                //     }
-
-                //     if (
-                //         [...playerBuffs2Ul.children].some((li) =>
-                //             playerDuplicateImagine.includes(
-                //                 li.getAttribute("imagine-id"),
-                //             ),
-                //         )
-                //     ) {
-                //         playerBuffs2Ul.classList.add("danger");
-                //     }
-                // }
-
-                // // Check if another player has this imagine in the same time slot
-                // // Self-buff imagine can be duplicated
-                // if (!soloImagine.some((id) => id == imagineId)) {
-                //     const teamOverlappingImagine = players
-                //         .flatMap((p) => p[buffTimeSlot])
-                //         .filter((e, i, a) => a.indexOf(e) !== i);
-
-                //     if (teamOverlappingImagine.length > 0) {
-                //         document.querySelectorAll(".buffs1").forEach((ul) => {
-                //             if (
-                //                 [...ul.children].some((li) =>
-                //                     teamOverlappingImagine.includes(
-                //                         li.getAttribute("imagine-id"),
-                //                     ),
-                //                 )
-                //             ) {
-                //                 ul.classList.add("danger");
-                //             }
-                //         });
-
-                //         document.querySelectorAll(".buffs2").forEach((ul) => {
-                //             if (
-                //                 [...ul.children].some((li) =>
-                //                     teamOverlappingImagine.includes(
-                //                         li.getAttribute("imagine-id"),
-                //                     ),
-                //                 )
-                //             ) {
-                //                 ul.classList.add("danger");
-                //             }
-                //         });
-                //     }
-                // }
-
-                // players = players;
+                itemIds = [...ul.children].map((li) =>
+                    parseInt(li.getAttribute("imagine-id")),
+                );
+                console.log(
+                    `Added ${e.item.getAttribute("imagine-id")}`,
+                    itemIds,
+                );
+                showCaption = false;
             },
-            // onRemove: (e) => {
-            //     // When dragged out, remove the imagine id from the appropriate player and array
-            //     const playerIndex = ul.getAttribute("player-index");
-            //     const player = players[playerIndex];
-            //     const imagineId = e.item.getAttribute("imagine-id");
-            //     const buffTimeSlot = ul.classList[0];
-
-            //     player[buffTimeSlot].splice(
-            //         player[buffTimeSlot].indexOf(imagineId),
-            //     );
-
-            //     players = players;
-            // },
-            // onSpill: (e) => {
-            //     console.log(e);
-
-            //     // When dragged out, remove the imagine id from the appropriate player and array
-            //     const playerIndex = ul.getAttribute("player-index");
-            //     const player = players[playerIndex];
-            //     const imagineId = e.item.getAttribute("imagine-id");
-            //     const buffTimeSlot = ul.classList[0]; // "buffs1" or "buffs2"
-
-            //     // Check if any other player had this imagine
-            //     [...document.querySelectorAll(`.${buffTimeSlot}`)].forEach(
-            //         (otherPlayerUl, index) => {
-            //             const containsDuplicateChild = [
-            //                 ...otherPlayerUl.children,
-            //             ].some(
-            //                 (child) =>
-            //                     child.getAttribute("imagine-id") == imagineId,
-            //             );
-            //             const isDanger =
-            //                 otherPlayerUl.classList.contains("danger");
-            //             if (isDanger && containsDuplicateChild) {
-            //                 otherPlayerUl.classList.remove("danger");
-            //             }
-            //         },
-            //     );
-
-            //     player[buffTimeSlot].splice(
-            //         player[buffTimeSlot].indexOf(imagineId),
-            //     );
-
-            //     const playerBuffs1Ul =
-            //         document.querySelectorAll(`.buffs1`)[playerIndex];
-            //     const playerBuffs2Ul =
-            //         document.querySelectorAll(`.buffs2`)[playerIndex];
-
-            //     // Check if player has up to 2 imagine
-            //     if (player.buffs1.length + player.buffs2.length < 3) {
-            //         playerBuffs1Ul.classList.remove("danger");
-            //         playerBuffs2Ul.classList.remove("danger");
-            //     } else if (player.buffs1.length < 3)
-            //         playerBuffs1Ul.classList.remove("danger");
-            //     else if (player.buffs2.length < 3)
-            //         playerBuffs2Ul.classList.remove("danger");
-
-            //     players = players;
-            // },
+            onRemove: (e) => {
+                itemIds = [...ul.children].map((li) =>
+                    parseInt(li.getAttribute("imagine-id")),
+                );
+                console.log(
+                    `Removed ${e.item.getAttribute("imagine-id")}`,
+                    itemIds,
+                );
+                if (itemIds.length < 1) showCaption = true;
+            },
+            onSpill: (e) => {
+                itemIds.splice(e.oldIndex, 1);
+                itemIds = itemIds;
+                console.log(
+                    `Spilled ${e.item.getAttribute("imagine-id")}`,
+                    itemIds,
+                );
+                if (itemIds.length < 1) showCaption = true;
+            },
         });
     }
 </script>
 
 <ul
-    class="drop-zone flex flex-wrap gap-4 p-4"
+    class="drop-zone flex flex-wrap items-center gap-4 p-4"
+    class:danger
+    class:show-caption={showCaption}
     data-caption={caption}
+    data-col={col}
     use:createSortable
     {...$$restProps}
 />
@@ -184,22 +76,36 @@
         --border: 5px dashed var(--surface4);
         // background: var(--surface2);
         border-inline: var(--border);
-        transition: border-color 0.2s ease;
+        transition: border-color 0.2s var(--timing1);
         width: calc(128px + 3rem + 10px);
-        min-height: calc(84px + 2rem);
-        height: 100%;
         position: relative;
 
         &::before {
             content: attr(data-caption);
-            color: var(--text3);
+            color: var(--caption-color, var(--text3));
             font-size: var(--step--1);
             position: absolute;
             left: 50%;
             top: 50%;
-            translate: -50% -50%;
+            translate: -50% calc(-50% + 4px);
+            opacity: 0;
             white-space: nowrap;
+            transition: all 0.2s var(--timing1);
+            font-weight: 600;
         }
+
+        &.show-caption::before {
+            opacity: 1;
+            translate: -50% -50%;
+        }
+    }
+
+    :global(.border-accent1) {
+        border-color: var(--accent1) !important;
+    }
+
+    .danger {
+        border-color: var(--danger) !important;
     }
 
     :global(ul:has(.drop-zone) li:last-of-type .drop-zone) {
@@ -215,9 +121,15 @@
     }
 
     :global(
-            ul:has(.drop-zone:last-of-type:hover) .drop-zone:last-of-type,
-            ul:has(.drop-zone:first-of-type:hover) .drop-zone:first-of-type
+            ul:has(.drop-zone:last-of-type:not(.imagine-bank):hover)
+                .drop-zone:last-of-type,
+            ul:has(.drop-zone:first-of-type:not(.imagine-bank):hover)
+                .drop-zone:first-of-type
         ) {
-        border-color: var(--accent1) !important;
+    }
+
+    // Apply row-specific styles only when dragging from player inventory
+    :global([player-index]:has(.imagine-bank li:active) .drop-zone) {
+        border-color: var(--accent1);
     }
 </style>
