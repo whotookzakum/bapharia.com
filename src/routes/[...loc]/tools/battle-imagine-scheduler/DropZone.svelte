@@ -10,13 +10,12 @@
     export let itemIds = [];
     export let danger = false;
     export let col = null;
-    export let playerIndex = 0;
 
     let showCaption = Boolean(caption);
 
-    function createSortable(ul) {
-        let player_index = playerIndex;
+    // Note: more complex functionality can be added, such as tracking which nodes were added to a player's inventory. That way, INVENTORY items cannot be moved to other players after being placed in a column. Not planned for now.
 
+    function createSortable(ul) {
         new Sortable(ul, {
             group: {
                 name: groupName,
@@ -56,6 +55,25 @@
                 );
                 if (itemIds.length < 1) showCaption = true;
             },
+            onChoose: (e) => {
+                let selector = "ul.drop-zone"
+
+                // When dragging specifically from a player's inventory, only light up the columns for that player
+                if ([...ul.classList].includes("imagine-bank")) {
+                    selector = "[player-index]:has(.imagine-bank li:hover) .drop-zone"
+                }
+
+                [...document.querySelectorAll(selector)].forEach((ul) => {
+                    ul.classList.add("border-accent1"); // Add "show-caption" so the caption only shows when dragging an item
+                    ul.style.setProperty("--caption-color", "var(--accent1)");
+                });
+            },
+            onUnchoose: (e) => {
+                [...document.querySelectorAll("ul.drop-zone")].forEach((ul) => {
+                    ul.classList.remove("border-accent1");
+                    ul.style.setProperty("--caption-color", "");
+                });
+            },
         });
     }
 </script>
@@ -74,10 +92,8 @@
     ul.drop-zone {
         border-color: var(--surface4);
         --border: 5px dashed var(--surface4);
-        // background: var(--surface2);
         border-inline: var(--border);
         transition: border-color 0.2s var(--timing1);
-        width: calc(128px + 3rem + 10px);
         position: relative;
 
         &::before {
@@ -118,18 +134,5 @@
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
         border-top: var(--border);
-    }
-
-    :global(
-            ul:has(.drop-zone:last-of-type:not(.imagine-bank):hover)
-                .drop-zone:last-of-type,
-            ul:has(.drop-zone:first-of-type:not(.imagine-bank):hover)
-                .drop-zone:first-of-type
-        ) {
-    }
-
-    // Apply row-specific styles only when dragging from player inventory
-    :global([player-index]:has(.imagine-bank li:active) .drop-zone) {
-        border-color: var(--accent1);
     }
 </style>

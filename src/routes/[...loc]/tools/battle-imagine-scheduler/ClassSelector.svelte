@@ -3,7 +3,6 @@
     import { userLocale } from "$lib/stores";
     import Tooltip from "$lib/components/FloatingUI/Tooltip.svelte";
     import IconMask from "$lib/components/IconMask.svelte";
-    import { assetUrl } from "$lib/utils";
 
     export let classId = 12;
     export let index = 0;
