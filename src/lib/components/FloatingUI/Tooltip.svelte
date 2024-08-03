@@ -17,6 +17,7 @@
     // Uses CSS to toggle tooltip visibility instead of creating and removing DOM nodes.
 
     // TODO: implement autoUpdate to update on screen size changes
+    // TODO: Bug fix hideTooltipOn=["tooltip:focusout"]. When tabbing forwards, the tooltip correctly hides, but when tabbing forwards it skips the tooltip contents and goes straight to the button, so the tooltip doesn't hide. As seen on <ClassSelector />
 
     export let inline = false;
     export let show = false;

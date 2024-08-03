@@ -1,7 +1,7 @@
 <script>
     export let min = 1;
     export let max = 1;
-    export let step;
+    export let step = null;
     export let id = null;
     export let style = null;
     export let value = null;
@@ -13,7 +13,7 @@
     export let suffix = "";
     export let textAlign = "left";
     export let placeholder = "";
-    export let inputFunction;
+    export let inputFunction = null;
 </script>
 
 <label class="input-wrapper" {style} class:disabled class:invalid>
