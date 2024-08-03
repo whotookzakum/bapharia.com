@@ -17,7 +17,12 @@ export const GET = async ({ params, url }) => {
                     if (!fs.existsSync(`./api/json/${publisher}/${lang}`)){
                         fs.mkdirSync(`./api/json/${publisher}/${lang}`, { recursive: true });
                     }
-                    fs.writeFileSync(`./api/json/${publisher}/${lang}/${fileName}.json`, JSON.stringify(await resolver(lang)))
+                    let data = await resolver(lang)
+                    if (fileName === "skills") data = data.map(obj => {
+                        delete obj.SkillInfo
+                        return obj
+                    })
+                    fs.writeFileSync(`./api/json/${publisher}/${lang}/${fileName}.json`, JSON.stringify(data))
                 })
             })
         })

@@ -28,7 +28,7 @@
             <Icon icon="ic:baseline-close" style="display: flex;" />
         </label>
     {/if}
-    {#each Array.from({length: max}, (_, i) => i + 1) as star}
+    {#each Array.from({ length: max }, (_, i) => i + 1) as star}
         <label
             class="star-wrapper"
             on:focus={() => (hoveredStar = star)}
@@ -36,6 +36,9 @@
             on:mouseleave={() => (hoveredStar = 0)}
             class:lit={hoveredStar >= star}
             class:glow={value >= star}
+            style:background-image={assetUrl(
+                "/UI/TelopManager/UI_TelopManager_Star_Glow.png",
+            )}
         >
             <input
                 type="radio"
@@ -79,12 +82,8 @@
     }
 
     // Glow applies to the selected level and lower
-    .glow {
-        background-image: url("/UI/TelopManager/UI_TelopManager_Star_Glow.png");
-
-        .star-yellow {
-            opacity: 1;
-        }
+    .glow .star-yellow {
+        opacity: 1;
     }
 
     // Lit applies to the hovered level and lower

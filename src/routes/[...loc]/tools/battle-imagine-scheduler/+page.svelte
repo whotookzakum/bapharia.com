@@ -133,7 +133,7 @@
 
 <article class="main-pane gap-8">
     <hgroup>
-        <p class="mini-header">Tools</p>
+        <p class="mini-header">Bapharia</p>
         <h1>Battle Imagine Scheduler</h1>
         <p>
             A drag-and-drop tool to organize your party's Battle Imagine

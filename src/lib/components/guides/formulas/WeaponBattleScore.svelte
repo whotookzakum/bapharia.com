@@ -8,7 +8,7 @@
 
     let itemLevel = 80;
     let limitBreakLevel = 5;
-    let bsModifier = 1800;
+    let bsModifier = 3000;
     let specialEffectI = 5;
     let specialEffectII = 5;
     let limitBreakEffect = 5;

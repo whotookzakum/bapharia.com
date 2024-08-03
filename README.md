@@ -7,6 +7,7 @@
 7. `npm run build`
 8. Deploy via wrangler
 
+In the `/api/create`, I delete SkillInfo from skills, as it's not needed in the final .json and takes a lot of data. This fixed running out of memory when building. May be needed for other jsons as well.
 
 ## Update checklist
 1. **Fetch and decrypt API**
