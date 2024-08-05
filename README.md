@@ -77,3 +77,9 @@ In the `/api/create`, I delete SkillInfo from skills, as it's not needed in the 
 If possible have links show a preview of content on hover, i.e. hover a map name -> show map image; hover an item name -> show the header content with thumbnail and whatnot
 
 Search parameters i.e. `location:minster hills` or `drops:goblin staff` and show results that have those
+
+
+## Architecture
+1. Detect user location & redirect to BNO or AGS version
+2. Detect user locale & redirect to EN/JA/FR etc.
+3. Load content and listen to changes in publisher or locale. Store as cookie.

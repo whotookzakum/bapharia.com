@@ -71,10 +71,8 @@
 			</a>
 		{/each}
 		<div class="extras flex items-center">
+			<TimeInJapan />
 			<SiteSettings />
-			<!-- <TimeInJapan />
-			<LocaleSelector />
-			<ThemeToggle /> -->
 		</div>
 	</div>
 </nav>
