@@ -10,7 +10,7 @@ def convert(file: Path):
     file.unlink()
 
 
-def loader(path: str = '../static/Hotta/Content'):
+def loader(path: str = '../UnrealExporter/bno'):
     with ThreadPoolExecutor() as thread:
         for file in Path(path).iterdir():
             if file.is_dir():

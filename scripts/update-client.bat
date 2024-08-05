@@ -10,15 +10,21 @@ UnrealExporter.exe config
 @REM Copy assets to /bpassets (main)
 cd ..\..\bpassets
 git checkout main
-robocopy ..\scripts\UnrealExporter\bno\BLUEPROTOCOL\Content . /e
+robocopy ..\scripts\UnrealExporter\bno\BLUEPROTOCOL\Content\UI .\UI /e
 robocopy ..\scripts\UnrealExporter\bno . /e /xd BLUEPROTOCOL
 git add .
 git commit -m "Updated via script"
 git push
 
+@REM Convert assets to webp
+cd ..\scripts\WebP
+pip install -r requirements.txt
+python main.py
+
 @REM Copy assets to /bpassets (webp)
+cd ..\..\bpassets
 git checkout webp
-robocopy ..\scripts\UnrealExporter\bno\BLUEPROTOCOL\Content . /e /mov
+robocopy ..\scripts\UnrealExporter\bno\BLUEPROTOCOL\Content\UI .\UI /e /mov
 robocopy ..\scripts\UnrealExporter\bno . /e /xd BLUEPROTOCOL
 git add .
 git commit -m "Updated via script"
