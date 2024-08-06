@@ -5,6 +5,7 @@
     import MapSearchBar from "./MapSearchBar.svelte";
     import { fly } from "svelte/transition";
     import MapListStrip from "./MapListStrip.svelte";
+    import { assetUrl } from "$lib/utils"
 
     export let markers;
 </script>
@@ -26,14 +27,14 @@
         <div class="decals-wrapper">
             <img
                 class="decal-top"
-                src="/UI/CommandMenu/UI_CommandMenuBgCorner.png"
+                src={assetUrl("/UI/CommandMenu/UI_CommandMenuBgCorner.webp")}
                 alt=""
                 width="390"
                 height="200"
             />
             <img
                 class="decal-bottom"
-                src="/UI/CommandMenu/UI_CommandMenuBgCorner.png"
+                src={assetUrl("/UI/CommandMenu/UI_CommandMenuBgCorner.webp")}
                 alt=""
                 width="390"
                 height="200"

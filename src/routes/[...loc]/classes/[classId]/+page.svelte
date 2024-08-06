@@ -25,10 +25,9 @@
             <h1>{metadata.title}</h1>
             <div>
                 {#each JSON.parse(metadata.elements) as element (element)}
-                    <!-- "/images/elements/UI_IconAttribute_{element}.png" -->
                     <Tooltip inline>
                         <img
-                            src={assetUrl(`/UI/Icon/Attribute/UI_IconAttribute_${element}.png`)}
+                            src={assetUrl(`/UI/Icon/Attribute/UI_IconAttribute_${element}.webp`)}
                             alt={TYPES_TEXT[$userLocale].Element[element]}
                             width="48"
                             height="48"

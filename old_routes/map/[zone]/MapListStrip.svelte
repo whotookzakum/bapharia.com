@@ -6,6 +6,7 @@
     import uniqBy from "lodash/uniqBy";
     import { page } from "$app/stores";
     import Icon from "@iconify/svelte";
+    import { assetUrl } from "$lib/utils"
 
     // TODO: Collapsible accordion with each section stacked stickying?
     // // Cities ⌄
@@ -32,7 +33,7 @@
                 en_US: "All",
                 ja_JP: "全部",
             },
-            iconSrc: "/UI/Map/UI_MapBtnSubIcon_HomeTown.png",
+            iconSrc: "/UI/Map/UI_MapBtnSubIcon_HomeTown.webp",
         },
         {
             singular: {
@@ -43,7 +44,7 @@
                 en_US: "Cities",
                 ja_JP: "街",
             },
-            iconSrc: "/UI/Map/UI_MapBtnSubIcon_HomeTown.png",
+            iconSrc: "/UI/Map/UI_MapBtnSubIcon_HomeTown.webp",
         },
         {
             singular: {
@@ -54,7 +55,7 @@
                 en_US: "Fields",
                 ja_JP: "フィールド",
             },
-            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
+            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.webp",
         },
         {
             singular: {
@@ -65,7 +66,7 @@
                 en_US: "Exploration",
                 ja_JP: "自由探索",
             },
-            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
+            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.webp",
         },
         {
             singular: {
@@ -76,7 +77,7 @@
                 en_US: "Dungeons",
                 ja_JP: "ダンジョン",
             },
-            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.png",
+            iconSrc: "/UI/Map/UI_MapBtnSubIcon_Other.webp",
         },
     ];
 
@@ -115,8 +116,7 @@
                     <i
                         class="icon"
                         aria-hidden="true"
-                        style:mask-image="url('{category.iconSrc}')"
-                        style:-webkit-mask-image="url('{category.iconSrc}')"
+                        style:mask-image="url('{assetUrl(category.iconSrc)}')"
                     />
                     {category.name[$userLocale]}
                 </span>
@@ -161,7 +161,7 @@
                             {#if $page.params.zone === map.map_id}
                                 <img
                                     class="pin"
-                                    src="/UI/Map/UI_MapPin3Normal.png"
+                                    src="/UI/Map/UI_MapPin3Normal.webp"
                                     alt="You are here"
                                     width="32"
                                     height="44"
@@ -206,7 +206,7 @@
         </nav>
         <img
             class="decal-right"
-            src="/UI/ShopCommon/UI_ShopCommon_CraftHeaderBGRight.png"
+            src="/UI/ShopCommon/UI_ShopCommon_CraftHeaderBGRight.webp"
             alt=""
             width="650"
             height="130"

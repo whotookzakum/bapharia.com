@@ -3,6 +3,7 @@
     import timeAttacksRaw from "./time-attack.json";
     import { userLocale } from "$lib/stores";
     import Icon from "@iconify/svelte";
+    import { assetUrl } from "$lib/utils"
 
     // TODO: get EN name from the map names file that I translated
     const timeAttacks = timeAttacksRaw.filter((ta) => !ta.rerun);
@@ -62,7 +63,7 @@
             <th>
                 <div class="flex gap-1 align-items-center">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_12.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_12.webp")}
                         alt=""
                         width="24"
                         height="24"
@@ -73,7 +74,7 @@
             <th>
                 <div class="flex gap-1 align-items-center">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_06.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_06.webp")}
                         alt=""
                         width="24"
                         height="24"
@@ -84,7 +85,7 @@
             <th>
                 <div class="flex gap-1 align-items-center">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_20.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_20.webp")}
                         alt=""
                         width="24"
                         height="24"
@@ -95,7 +96,7 @@
             <th>
                 <div class="flex gap-1 align-items-center">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_19.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_19.webp")}
                         alt=""
                         width="24"
                         height="24"
@@ -107,7 +108,7 @@
             <th>
                 <div class="flex gap-1 align-items-center">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_11.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_11.webp")}
                         alt=""
                         width="24"
                         height="24"
@@ -118,7 +119,7 @@
             <th>
                 <div class="flex gap-1 align-items-center">
                     <img
-                        src="/UI/Icon/Class/UI_IconClass_07.png"
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_07.webp")}
                         alt=""
                         width="24"
                         height="24"

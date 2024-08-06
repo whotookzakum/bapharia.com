@@ -80,7 +80,7 @@
             <Tag>
                 <img
                     src={assetUrl(
-                        `/UI/Icon/Attribute/UI_IconAttribute_${data.element}.png`,
+                        `/UI/Icon/Attribute/UI_IconAttribute_${data.element}.webp`,
                     )}
                     alt=""
                     width="24"
@@ -99,7 +99,7 @@
                             data.equip_class || data.class_type
                         )
                             .toString()
-                            .padStart(2, "0")}.png`,
+                            .padStart(2, "0")}.webp`,
                     )}
                     alt=""
                     width="24"
@@ -118,7 +118,7 @@
                 <img src={data.slotImg} alt="" width="46" height="46" />
                 <span
                     >{IMAGINE_SLOTS[
-                        data.slotImg.split("Icon2_").pop().split(".png")[0]
+                        data.slotImg.split("Icon2_").pop().split(".webp")[0]
                     ][$userLocale]}</span
                 >
             </div>

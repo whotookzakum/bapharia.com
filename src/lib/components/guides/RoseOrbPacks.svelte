@@ -104,7 +104,7 @@
         <div class="box">
             <div class="amount flex gap-2">
                 <img
-                    src={assetUrl("/UI/Gasha/UI_GashaBtnIconRoseOrb.png")}
+                    src={assetUrl("/UI/Gasha/UI_GashaBtnIconRoseOrb.webp")}
                     alt="Rose Orb"
                     width="24"
                     height="24"

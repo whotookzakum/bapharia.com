@@ -27,7 +27,7 @@ BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced ac
 
 The UI has an aggro icon whose color indicates <span style="color: orange">when enemies have sensed your presence</span> and <span style="color: red">when they are actively engaging you</span>.
 
-<div><img src={assetUrl("/UI/HateAlert/UI_HateAlertIcon1.png")} alt="aggro indicator" width="80" height="40"></div>
+<div><img src={assetUrl("/UI/HateAlert/UI_HateAlertIcon1.webp")} alt="aggro indicator" width="80" height="40"></div>
 
 For the purposes of this guide, **being in combat** will refer to when a player has their weapon out (unsheathed and in a combatative stance), and **being targeted** will refer to either scenario that you have aggro. 
 
@@ -188,25 +188,25 @@ Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**
     <tbody>
         <tr>
             <td>
-                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png")} alt="Fire" width="36" height="36">
-                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_2.png")} alt="Thunder" width="36" height="36">
-                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_5.png")} alt="Light" width="36" height="36">
-                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.png")} alt="Dark" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.webp")} alt="Fire" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_2.webp")} alt="Thunder" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_5.webp")} alt="Light" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_6.webp")} alt="Dark" width="36" height="36">
             </td>
             <td>+15%</td>
             <td>+20%</td>
         </tr>
         <tr>
             <td>
-                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png")} alt="Ice" width="36" height="36">
-                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_4.png")} alt="Earth" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.webp")} alt="Ice" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_4.webp")} alt="Earth" width="36" height="36">
             </td>
             <td>+10%</td>
             <td>+15%</td>
         </tr>
         <tr>
             <td>
-                <img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="No element" width="36" height="36">
+                <img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.webp")} alt="No element" width="36" height="36">
             </td>
             <td>+0%</td>
             <td>+10%</td>
@@ -228,18 +228,18 @@ Activating an Elemental Burst will trigger *Burst Bonus Time* for **10 seconds**
         </thead>
         <tbody>
             <tr>
-                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png")} alt="Ice" width="36" height="36"></td>
-                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.png")} alt="Fire" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.webp")} alt="Ice" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_1.webp")} alt="Fire" width="36" height="36"></td>
                 <td>15%</td>
             </tr>
             <tr>
-                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.png")} alt="Ice" width="36" height="36"></td>
-                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="Non-elemental" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/PlayerSkill/Attribute/UI_PlayerSkillAttribute_3.webp")} alt="Ice" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.webp")} alt="Non-elemental" width="36" height="36"></td>
                 <td>10%</td>
             </tr>
             <tr>
-                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="Non-elemental" width="36" height="36"></td>
-                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.png")} alt="Non-elemental" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.webp")} alt="Non-elemental" width="36" height="36"></td>
+                <td><img src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_Empty.webp")} alt="Non-elemental" width="36" height="36"></td>
                 <td>0%</td>
             </tr>
         </tbody>
@@ -299,9 +299,9 @@ Debuffs that reduce Elemental Resistance are additive to the target's elemental 
 Chevron icons next to your damage number indicate that the enemy is weak against an element (affected by debuffs as well).
 
 <div class="flex">
-    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness1.png")} alt="Weakness 1" width="48" height="84" />
-    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness2.png")} alt="Weakness 2" width="48" height="84" /> 
-    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness3.png")} alt="Weakness 3" width="48" height="84" /> 
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness1.webp")} alt="Weakness 1" width="48" height="84" />
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness2.webp")} alt="Weakness 2" width="48" height="84" /> 
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness3.webp")} alt="Weakness 3" width="48" height="84" /> 
 </div>
 
 <details>

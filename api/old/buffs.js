@@ -9,7 +9,7 @@ function processBuff([idString, buff], lang) {
 
     const assets = textureKeys.reduce((acc, key) => {
         if (!buff[key]) console.log(idString)
-        const iconPath = buff[key] ? buff[key].ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png" : undefined
+        const iconPath = buff[key] ? buff[key].ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".webp" : undefined
         acc[key.split("_")[0].replace("Texture", "icon")] = iconPath
         return acc
     }, {})

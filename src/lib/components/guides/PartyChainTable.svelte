@@ -41,7 +41,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -65,7 +65,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -88,7 +88,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -103,7 +103,7 @@
             <td rowspan="6">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -127,7 +127,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -151,7 +151,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -174,7 +174,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -189,7 +189,7 @@
             <td rowspan="6">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -212,7 +212,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -236,7 +236,7 @@
             <td rowspan="2">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -259,7 +259,7 @@
             <td rowspan="3">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
                         alt=""
                         width="26"
                         height="30"
@@ -274,7 +274,7 @@
             <td rowspan="3">
                 <div class="flex gap-2">
                     <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.png")}
+                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
                         alt=""
                         width="26"
                         height="30"

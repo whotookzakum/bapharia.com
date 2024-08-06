@@ -61,5 +61,5 @@ export function getLocFromParams(params) {
 
 // Transform an asset path to a remote asset url
 export function assetUrl(path) {
-    return "https://raw.githubusercontent.com/whotookzakum/bpassets/main" + path
+    return "https://raw.githubusercontent.com/whotookzakum/bpassets/webp" + path?.replace(".png", ".webp")
 }

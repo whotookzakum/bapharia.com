@@ -27,19 +27,19 @@
             <th>
                 <div class="flex gap-1">
                     <img
-                        src={assetUrl("/UI/Icon/Class/UI_IconClass_07.png")}
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_07.webp")}
                         alt="Twin Striker"
                         width="32"
                         height="32"
                     />
                     <img
-                        src={assetUrl("/UI/Icon/Class/UI_IconClass_11.png")}
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_11.webp")}
                         alt="Spell Caster"
                         width="32"
                         height="32"
                     />
                     <img
-                        src={assetUrl("/UI/Icon/Class/UI_IconClass_20.png")}
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_20.webp")}
                         alt="Blitz Lancer"
                         width="32"
                         height="32"
@@ -49,20 +49,20 @@
             <th>
                 <div class="flex gap-1">
                     <img
-                        src={assetUrl("/UI/Icon/Class/UI_IconClass_06.png")}
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_06.webp")}
                         alt="Blast Archer"
                         width="32"
                         height="32"
                     />
 
                     <img
-                        src={assetUrl("/UI/Icon/Class/UI_IconClass_12.png")}
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_12.webp")}
                         alt="Aegis Fighter"
                         width="32"
                         height="32"
                     />
                     <img
-                        src={assetUrl("/UI/Icon/Class/UI_IconClass_19.png")}
+                        src={assetUrl("/UI/Icon/Class/UI_IconClass_19.webp")}
                         alt="Heavy Smasher"
                         width="32"
                         height="32"

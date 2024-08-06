@@ -123,11 +123,11 @@ function getCraftingSources(item, lang, rewardTypes) {
 
         let assets = {}
         // Imagine
-        if (rewardTypes.includes(6)) assets.icon = "/UI/Icon/Reward/UI_Icon_11.png"
+        if (rewardTypes.includes(6)) assets.icon = "/UI/Icon/Reward/UI_Icon_11.webp"
         // Item
-        else if (rewardTypes.includes(3)) assets.icon = "/UI/Icon/Reward/UI_Icon_20.png"
+        else if (rewardTypes.includes(3)) assets.icon = "/UI/Icon/Reward/UI_Icon_20.webp"
         // Weapon (guaranteed to be a recipe set?)
-        else if (rewardTypes.includes(4)) assets.icon = "/UI/Icon/Reward/UI_Icon_27.png"
+        else if (rewardTypes.includes(4)) assets.icon = "/UI/Icon/Reward/UI_Icon_27.webp"
 
         return {
             sourceType: "crafting",
@@ -586,8 +586,8 @@ function getShopSources(item, lang, rewardTypes) {
                         name: sale.token_id === 0 ? getText("Common", 4, lang) : getText("master_token_text", TOKEN.find(t => t.id === sale.token_id)?.name, lang)
                     },
                     assets: sale.token_id === 0 ? {
-                        icon: "/UI/Icon/Currency/UI_Icon_Currency_01.png",
-                        iconL: "/UI/Icon/Reward/UI_Icon_0.png"
+                        icon: "/UI/Icon/Currency/UI_Icon_Currency_01.webp",
+                        iconL: "/UI/Icon/Reward/UI_Icon_0.webp"
                     } : getAssets("token", sale.token_id)
                 }
                 // shop,

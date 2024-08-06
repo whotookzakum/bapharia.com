@@ -131,7 +131,7 @@
                     bind:group={rarity}
                 />
                 <img
-                    src={assetUrl("/UI/Common/UI_CmnSpecialMain_Rare1.png")}
+                    src={assetUrl("/UI/Common/UI_CmnSpecialMain_Rare1.webp")}
                     alt="Normal"
                     width="16"
                     height="24"
@@ -148,7 +148,7 @@
                     bind:group={rarity}
                 />
                 <img
-                    src={assetUrl("/UI/Common/UI_CmnSpecialMain_Rare2.png")}
+                    src={assetUrl("/UI/Common/UI_CmnSpecialMain_Rare2.webp")}
                     alt="Rare"
                     width="16"
                     height="24"
@@ -165,7 +165,7 @@
                     bind:group={rarity}
                 />
                 <img
-                    src={assetUrl("/UI/Common/UI_CmnSpecialMain_Rare3.png")}
+                    src={assetUrl("/UI/Common/UI_CmnSpecialMain_Rare3.webp")}
                     alt="Legendary"
                     width="16"
                     height="24"
@@ -180,7 +180,7 @@
     >
         <span>Special Effect</span>
         <img
-            src={assetUrl("/UI/Common/UI_CmnSpecileMain_Num1.png")}
+            src={assetUrl("/UI/Common/UI_CmnSpecileMain_Num1.webp")}
             alt="I"
             width="16"
             height="20"
@@ -194,7 +194,7 @@
     >
         <span>Special Effect</span>
         <img
-            src={assetUrl("/UI/Common/UI_CmnSpecileMain_Num2.png")}
+            src={assetUrl("/UI/Common/UI_CmnSpecileMain_Num2.webp")}
             alt="II"
             width="16"
             height="20"

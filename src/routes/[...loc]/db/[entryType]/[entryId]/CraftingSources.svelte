@@ -47,7 +47,7 @@
                         (100% with <b class="accent1">4</b>
                         <a href="/db/tokens/140000200" class="text-inherit"
                             >tickets<img
-                                src={assetUrl("/UI/Icon/TokenL/UI_Icon_140000200.png")}
+                                src={assetUrl("/UI/Icon/TokenL/UI_Icon_140000200.webp")}
                                 alt=""
                                 width="24"
                                 height="24"

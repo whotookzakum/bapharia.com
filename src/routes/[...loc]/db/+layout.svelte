@@ -7,7 +7,8 @@
     import TYPES_TEXT from "$api/utils/categories.json";
     import CATEGORIES_TEXT from "./filtertext-categories.json";
     import isEqual from "lodash/isEqual";
-    import Skill from "$lib/components/Skill"
+    import Skill from "$lib/components/Skill";
+    import { assetUrl } from "$lib/utils";
 
     export let data;
     // TODO save and cache preferences: filters
@@ -43,7 +44,7 @@
         filters.ar.values[1] < filters.ar.default[1];
 
     // Check if a category or subcategory (type) checkbox has been selected.
-    // Class and Element are included in the categories object, so omit those. 
+    // Class and Element are included in the categories object, so omit those.
     // We only want to know whether any of the checkbox filters have been selected, and consequently filter out entries that aren't of the checked subcategory.
     $: filters.hasCheckboxSelection = Object.entries(filters.categories).reduce(
         (acc, [key, value]) => {
@@ -360,14 +361,12 @@
                             <span
                                 class="masked"
                                 aria-hidden="true"
-                                style:mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
-                                    2,
-                                    "0",
-                                )}.png')"
-                                style:-webkit-mask-image="url('/UI/Icon/Class/UI_IconClass_{type.padStart(
-                                    2,
-                                    "0",
-                                )}.png')"
+                                style:mask-image="url(${assetUrl(
+                                    `/UI/Icon/Class/UI_IconClass_${type.padStart(
+                                        2,
+                                        "0",
+                                    )}.webp`,
+                                )})"
                             />
                         </label>
                         <svelte:fragment slot="tooltip">{text}</svelte:fragment>
@@ -397,14 +396,16 @@
                             {#if type === "0"}
                                 <span
                                     class="masked"
-                                    style:mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
-                                    style:-webkit-mask-image="url('/UI/Icon/Attribute/UI_IconAttribute_Empty.png')"
+                                    style:mask-image="url({assetUrl(
+                                        `/UI/Icon/Attribute/UI_IconAttribute_Empty.webp`,
+                                    )})"
                                 />
                             {:else}
                                 <span
                                     class="masked"
-                                    style:mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
-                                    style:-webkit-mask-image="url('/images/elements/UI_IconAttribute_{type}.png')"
+                                    style:mask-image="url({assetUrl(
+                                        `/images/elements/UI_IconAttribute_${type}.webp`,
+                                    )})"
                                 />
                             {/if}
                         </label>
@@ -494,7 +495,9 @@
                 {#if resultsDisplayMode === "grid"}
                     <img
                         src={item.iconL ??
-                            "/UI/Icon/Item/UI_Icon_UnidentifiedItem.png"}
+                            assetUrl(
+                                "/UI/Icon/Item/UI_Icon_UnidentifiedItem.webp",
+                            )}
                         alt=""
                         width={item.category === "board" ? "208" : "128"}
                         height="128"
@@ -502,20 +505,22 @@
                         class:board={item.category === "board"}
                     />
                 {:else if item.category === "Skill"}
-                    <Skill.Icon skill={{
-                        skill_type: item.type,
-                        assets: {
-                            icon: item.icon,
-                            iconL: item.iconL,
-                            bgIcon: item.bgIcon,
-                            frameIcon: item.frameIcon,
-                            elementIcon: item.elementIcon,
-                        }
-                    }} />
+                    <Skill.Icon
+                        skill={{
+                            skill_type: item.type,
+                            assets: {
+                                icon: item.icon,
+                                iconL: item.iconL,
+                                bgIcon: item.bgIcon,
+                                frameIcon: item.frameIcon,
+                                elementIcon: item.elementIcon,
+                            },
+                        }}
+                    />
                 {:else}
                     <img
                         src={item.icon ??
-                            "/UI/Icon/Item/UI_Icon_UnidentifiedItem.png"}
+                            assetUrl("/UI/Icon/Item/UI_Icon_UnidentifiedItem.webp")}
                         alt=""
                         width="64"
                         height="64"
@@ -544,7 +549,10 @@
             </div>
         {/each}
     </div>
-    <article class="overflow-y-auto px-8 main-pane" style="grid-template-columns: 1fr;">
+    <article
+        class="overflow-y-auto px-8 main-pane"
+        style="grid-template-columns: 1fr;"
+    >
         <slot />
     </article>
 </div>

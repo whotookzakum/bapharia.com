@@ -21,7 +21,7 @@ Object.entries(allIconsFiles)
                 .reduce((acc, [rowId, rowData]) => {
                     acc[rowId] = {}
                     const assetPaths = Object.values(rowData)
-                        .map(obj => ASSETS_URL + obj.AssetPathName?.replace("/Game", "").split(".")[0] + ".png")
+                        .map(obj => ASSETS_URL + obj.AssetPathName?.replace("/Game", "").split(".")[0] + ".webp")
 
                     acc[rowId].icon = assetPaths.find(path => path.includes("/UI_Icon"))
                     acc[rowId].iconL = assetPaths.find(path => path.includes("L/") || path.includes("/UI/Icon/Adventureboard"))
@@ -34,8 +34,8 @@ icons.stamp = {}
 Object.values(DT_StampDataDB[0].Rows)
     .forEach(obj => {
         icons.stamp[obj.Id] = {
-            icon: ASSETS_URL + obj.IconTexture.AssetPathName?.replace("/Game", "").split(".")[0] + ".png",
-            iconL: ASSETS_URL + obj.Texture.AssetPathName?.replace("/Game", "").split(".")[0] + ".png",
+            icon: ASSETS_URL + obj.IconTexture.AssetPathName?.replace("/Game", "").split(".")[0] + ".webp",
+            iconL: ASSETS_URL + obj.Texture.AssetPathName?.replace("/Game", "").split(".")[0] + ".webp",
         }
     })
 
@@ -43,25 +43,25 @@ icons.stampcategory = {}
 Object.values(DT_StampCategoryDataDB[0].Rows)
     .forEach(obj => {
         icons.stampcategory[obj.CategoryId] = {
-            icon: ASSETS_URL + obj.IconTexture.AssetPathName?.replace("/Game", "").split(".")[0] + ".png",
+            icon: ASSETS_URL + obj.IconTexture.AssetPathName?.replace("/Game", "").split(".")[0] + ".webp",
         }
     })
 
 icons.achievement = {
     "0": {
-        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_5.png"
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_5.webp"
     },
     "1": {
-        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_4.png"
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_4.webp"
     },
     "2": {
-        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_3.png"
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_3.webp"
     },
     "3": {
-        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_2.png"
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_2.webp"
     },
     "4": {
-        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_1.png"
+        icon: ASSETS_URL + "/UI/Icon/Achievement/UI_AchievementIcon_1.webp"
     }
 }
 
@@ -69,7 +69,7 @@ icons.emote = {}
 Object.values(DT_EmotionDB[0].Rows)
     .forEach(obj => {
         icons.emote[obj.Id] = {
-            icon: ASSETS_URL + obj.IconTexture?.ObjectPath?.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
+            icon: ASSETS_URL + obj.IconTexture?.ObjectPath?.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".webp"
         }
     })
 
@@ -80,8 +80,8 @@ Object.entries(BufIconDataTable[0].Rows)
         let iconType, icon, iconL;
         Object.entries(obj).forEach(([key, value]) => {
             if (key.includes("IconType_")) iconType = value.split("::").pop() // "Drained", "Restraint" etc.
-            if (key.includes("Texture_")) icon = value?.ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
-            if (key.includes("TextureL_")) iconL = value?.ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".png"
+            if (key.includes("Texture_")) icon = value?.ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".webp"
+            if (key.includes("TextureL_")) iconL = value?.ObjectPath.replace("BLUEPROTOCOL/Content", "").split(".")[0] + ".webp"
         })
         icons.buff[id] = { icon, iconL }
         if (iconType) {
@@ -109,13 +109,13 @@ export function getAssets(ns, id) {
     if (ns === "item") {
         // Crown boxes
         if ([185076200, 185076300, 185076600, 185076700].includes(id)) return {
-            icon: "/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.png",
-            iconL: "/UI/Icon/ItemL/Consumption/UI_Icon_Itembox_Select.png"
+            icon: "/UI/Icon/Item/Consumption/UI_Icon_Itembox_Select.webp",
+            iconL: "/UI/Icon/ItemL/Consumption/UI_Icon_Itembox_Select.webp"
         }
         // Random box for gacha banner outfits and mounts
         if ([185070401, 185069901, 185070001, 185070101, 185070201, 185070301, 185070401].includes(id)) return {
-            icon: "/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichRandom.png",
-            iconL: "/UI/Icon/ItemL/Consumption/UI_Icon_gashabox_RichRandom.png"
+            icon: "/UI/Icon/Item/Consumption/UI_Icon_gashabox_RichRandom.webp",
+            iconL: "/UI/Icon/ItemL/Consumption/UI_Icon_gashabox_RichRandom.webp"
         }
     }
 
@@ -128,7 +128,7 @@ export function getAssets(ns, id) {
                 .forEach(key => {
                     if (imagine[key] === 1) {
                         let slotId = key.split("equip_position")[1] // Could probably be simplified to id.charAt[2]
-                        slotIcon = `/UI/MyCharaMenu/UI_MyCharaMenuImagineIcon2_${slotId}.png`
+                        slotIcon = `/UI/MyCharaMenu/UI_MyCharaMenuImagineIcon2_${slotId}.webp`
                     }
                 })
         }

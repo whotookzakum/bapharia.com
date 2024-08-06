@@ -4,40 +4,40 @@
     import CraftingSources from "./CraftingSources.svelte";
 
     export let category, sources;
-    let src = "/UI/Icon/Item/UI_Icon_UnidentifiedItem.png",
+    let src = "/UI/Icon/Item/UI_Icon_UnidentifiedItem.webp",
         categoryName = category,
         checked = false;
 
     switch (category) {
         case "crafting":
-            src = "/UI/Icon/Reward/UI_Icon_11.png";
+            src = "/UI/Icon/Reward/UI_Icon_11.webp";
             categoryName = "Crafting";
             break;
         case "bonus quest":
             src =
-                "/UI/SeasonPass/SeasonPassQuest/UI_SeasonPassQuestImg_Bonus.png";
+                "/UI/SeasonPass/SeasonPassQuest/UI_SeasonPassQuestImg_Bonus.webp";
             categoryName = "Bonus Quests";
             break;
         case "achievement":
-            src = "/UI/Icon/Achievement/UI_AchievementIcon_1.png";
+            src = "/UI/Icon/Achievement/UI_AchievementIcon_1.webp";
             categoryName = "Achievements";
             break;
         case "board completion":
             src =
-                "/UI/AdventureBoard/UI_AdventureBoardCompleteRewardBtnNormal.png";
+                "/UI/AdventureBoard/UI_AdventureBoardCompleteRewardBtnNormal.webp";
             categoryName = "Adventure Board Completion";
             break;
         case "coupon":
-            src = "/UI/RMShop/UI_RMShopCoupon_S.png";
+            src = "/UI/RMShop/UI_RMShopCoupon_S.webp";
             categoryName = "Connect Coupon Usage";
             break;
         case "season pass":
             src =
-                "/UI/SeasonPass/SeasonPassQuest/UI_SeasonPassQuestImg_Season.png";
+                "/UI/SeasonPass/SeasonPassQuest/UI_SeasonPassQuestImg_Season.webp";
             categoryName = "Season Passes";
             break;
         case "item box":
-            src = "/UI/Icon/ItemL/Consumption/UI_Icon_Itembox_Set.png";
+            src = "/UI/Icon/ItemL/Consumption/UI_Icon_Itembox_Set.webp";
             categoryName = "Item Boxes";
             break;
         case "dungeon":

@@ -6,162 +6,162 @@
         debuffs: [
             {
                 name: "ATK Down",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4002.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4002.webp"],
                 desc: "Reduces damage dealt",
             },
             {
                 name: "DEF Down",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4004.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4004.webp"],
                 desc: "Increases damage received",
             },
             {
                 name: "Slow Charge",
-                icons: ["/images/StatusAilment/UI_StatusAilment_4010.png"],
+                icons: ["/images/StatusAilment/UI_StatusAilment_4010.webp"],
                 desc: "Increases charge time for skills that can be charged",
             },
             {
                 name: "Slow Interval",
-                icons: ["/images/StatusAilment/UI_StatusAilment_4012.png"],
+                icons: ["/images/StatusAilment/UI_StatusAilment_4012.webp"],
                 desc: "Increases skill cooldowns",
             },
             {
                 name: "Speed Down",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4018.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4018.webp"],
                 desc: "Reduces movement speed",
             },
             {
                 name: "ST Slow Regen",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4051.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4051.webp"],
                 desc: "Decreases the speed of stamina recovery", //
             },
             {
                 name: "HP Leak", // Drained
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2018.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2018.webp"],
                 desc: "When attacked, the attacker recovers HP",
             },
             {
                 name: "Fatigue",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2012.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2012.webp"],
                 desc: "Stamina is reduced to 0",
             },
 
             {
                 name: "Stun",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2001.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2001.webp"],
                 desc: "Become stunned for a few sections (actions are disabled)",
             },
             {
                 name: "Sleep",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2003.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2003.webp"],
                 desc: "Sleep for a short period (actions are disabled)",
             },
             {
                 name: "Poison",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2005.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2005.webp"],
                 desc: "HP is continuously deducted over time",
             },
             {
                 name: "Taunted", // Provoked, Taunted, "Targeted"
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2006.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2006.webp"],
                 desc: "Specifically become the target for enemy attacks. Increases damage taken by 10%?",
             },
             {
                 name: "Fear",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2008.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2008.webp"],
                 desc: "Become immobilized and attempt to separate from the target",
             },
             {
                 name: "Blind",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2010.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2010.webp"],
                 desc: "Attacks have a chance of missing",
             },
             {
                 name: "Skill Locked",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2011.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2011.webp"],
                 desc: "Skills cannot be used",
             },
             {
                 name: "Item Locked",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2013.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2013.webp"],
                 desc: "Items cannot be used",
             },
             {
                 name: "Nappo",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2014.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2014.webp"],
                 desc: "Transform into a Nappo (unable to do anything but move)",
             },
             {
                 name: "Bind",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2016.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2016.webp"],
                 desc: "Immobilized (actions are not disabled)",
             },
             {
                 name: "Paralyzed",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2017.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_2017.webp"],
                 desc: "Actions are interrupted at regular intervals",
             },
 
             {
                 name: "Weak",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_3002.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_3002.webp"],
                 desc: "Reduces Max HP and movement speed",
             },
             // {
             //
             //     name: "Damage Immune",
-            //     icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_.png"],
+            //     icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_.webp"],
             //     desc: "",
             // },
         ],
         buffs: [
             {
                 name: "ATK Up",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4001.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4001.webp"],
                 desc: "Increases damage dealt",
             },
             {
                 name: "DEF Up",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4003.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp"],
                 desc: "Reduces damage received",
             },
             {
                 name: "Quick Charge",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4009.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4009.webp"],
                 desc: "Reduces charge time for skills that can be charged",
             },
             {
                 name: "Quick Interval",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4011.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4011.webp"],
                 desc: "Reduces skill cooldowns",
             },
             {
                 name: "Speed Up",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4017.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4017.webp"],
                 desc: "Increases movement speed",
             },
             {
                 name: "ST Quick Regen",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4050.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4050.webp"],
                 desc: "Increases the speed of stamina recovery",
             },
             {
                 name: "Drain",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4005.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4005.webp"],
                 desc: "Restores a portion of damage dealt as HP",
             },
             {
                 name: "ST Save",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4058.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4058.webp"],
                 desc: "Reduces the amount of stamina consumed",
             },
             {
                 name: "SP Armor", // Super Armor
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4006.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp"],
                 desc: "Become immune to flinching when hit",
             },
             {
                 name: "HP Regen",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4007.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp"],
                 desc: "Regenerates HP over time",
             },
             {
@@ -180,94 +180,94 @@
             },
             {
                 name: "Bad Status Immune",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4062.png"], // not sure, but based on BA's refresh area
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4062.webp"], // not sure, but based on BA's refresh area
                 desc: "Become immune to abnormal status effects",
             },
 
             {
                 name: "Full Heal",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4064.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4064.webp"],
                 desc: "Heals party members' health to full", // from Suppliers
             },
             {
                 name: "Critical Rate Up",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4063.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4063.webp"],
                 desc: "Increases the chance of critical hits",
             },
             {
                 name: "Points Up",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4065.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4065.webp"],
                 desc: "Increases the amount of points gained in Score Attack", // Increases point multiplier
             },
             {
                 name: "Posession", // 憑依状態
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_3004.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_3004.webp"],
                 desc: "Provides various buffs (differs per Battle Imagine)", // Increases point multiplier
             },
             {
                 asterisk: 1,
                 name: "Stun Immunity",
-                icons: ["/images/StatusAilment/UI_StatusAilment_2002.png"],
+                icons: ["/images/StatusAilment/UI_StatusAilment_2002.webp"],
                 desc: "Immunity to stun",
             },
             {
                 asterisk: 1,
                 name: "Invincibility",
-                icons: ["/images/StatusAilment/UI_StatusAilment_3003.png"],
+                icons: ["/images/StatusAilment/UI_StatusAilment_3003.webp"],
                 desc: "Take no damage",
             },
             // {
             //
             //     name: "Immune",
-            //     icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_40.png"],
+            //     icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_40.webp"],
             //     desc: "",
             // },
             // {
             //
             //     name: "Resist",
-            //     icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_40.png"],
+            //     icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_40.webp"],
             //     desc: "",
             // },
         ],
         classBuffs: [
             {
                 name: "Hunter's Spirit",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4067.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4067.webp"],
                 desc: "Increases the rate at which the Buff Charge gauge accumulates",
             },
             {
                 name: "Ignition",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4066.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4066.webp"],
                 desc: "While this skill is active, consume combo gauge to boost the damage of other skills",
             },
             {
                 name: "EP Regen",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4008.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4008.webp"],
                 desc: "Regenerates EP over time",
             },
             {
                 name: "Follow Bullet",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4021.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4021.webp"],
                 desc: "Summon two hovering bullets to attack alongside you",
             },
             {
                 name: "Shield Save",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4019.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4019.webp"],
                 desc: "Shield gauge is not consumed by skills",
             },
             {
                 name: "Taunt Mode",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4054.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4054.webp"],
                 desc: "Applies Taunt to some attacks", // 一部の攻撃に状態異常『挑発』を\n付与します
             },
             {
                 name: "Rock Body",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4056.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4056.webp"],
                 desc: "Gain Super Armor and negate a portion of damage",
             },
             {
                 name: "Cure Cartridge",
-                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4061.png"],
+                icons: ["/UI/Icon/StatusAilment/UI_StatusAilment_4061.webp"],
                 desc: "Recover HP when using a cartridge",
             },
         ],
@@ -275,24 +275,24 @@
             {
                 name: "(Element) DMG Dealt Up",
                 icons: [
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4026.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4027.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4028.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4029.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4030.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4031.png",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4026.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4027.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4028.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4029.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4030.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4031.webp",
                 ],
                 desc: "Increases (Element) damage and elemental charge accumulation",
             },
             {
                 name: "(Element) DMG Dealt Down",
                 // icons: [
-                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4032.png",
-                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4033.png",
-                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4034.png",
-                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4035.png",
-                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4036.png",
-                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4037.png",
+                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4032.webp",
+                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4033.webp",
+                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4034.webp",
+                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4035.webp",
+                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4036.webp",
+                //     "/UI/Icon/StatusAilment/UI_StatusAilment_4037.webp",
                 // ],
                 icons: [],
                 desc: "Reduces (Element) damage and elemental charge accumulation",
@@ -300,24 +300,24 @@
             {
                 name: "(Element) Resist Up",
                 icons: [
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4038.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4039.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4040.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4041.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4042.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4043.png",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4038.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4039.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4040.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4041.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4042.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4043.webp",
                 ],
                 desc: "Reduces (Element) damage and elemental charge accumulation received",
             },
             {
                 name: "(Element) Resist Down",
                 icons: [
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4044.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4045.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4046.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4047.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4048.png",
-                    "/UI/Icon/StatusAilment/UI_StatusAilment_4049.png",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4044.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4045.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4046.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4047.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4048.webp",
+                    "/UI/Icon/StatusAilment/UI_StatusAilment_4049.webp",
                 ],
                 desc: "Increases (Element) damage and elemental charge accumulation received",
             },

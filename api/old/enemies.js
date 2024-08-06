@@ -288,7 +288,7 @@ const enemies = () => enemiesGroupedByNameAndType.map(enemyGroup => {
         ...enemyGroup,
         enemyVariants,
         assets: {
-            icon: `/UI/Icon/Class/UI_IconClass_Nodata.png`,
+            icon: `/UI/Icon/Class/UI_IconClass_Nodata.webp`,
         },
         thumb: getThumbnail(),
         // entryTypes: ["Enemy"]

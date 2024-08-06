@@ -1,4 +1,5 @@
 <script>
+    import { assetUrl } from "$lib/utils"
     import Icon from "@iconify/svelte";
 </script>
 
@@ -31,35 +32,35 @@
         >
             <div class="flex items-start">
                 <img
-                    src="/UI/Icon/Award/UI_Icon_100000083.png"
+                    src={assetUrl("/UI/Icon/Award/UI_Icon_100000083.webp")}
                     alt=""
                     width="48"
                     height="48"
                     style="margin-bottom: auto"
                 />
                 <img
-                    src="/UI/Icon/Award/UI_Icon_100000102.png"
+                    src={assetUrl("/UI/Icon/Award/UI_Icon_100000102.webp")}
                     alt=""
                     width="48"
                     height="48"
                     style="margin-bottom: auto"
                 />
                 <img
-                    src="/UI/Icon/Award/UI_icon_110000041.png"
+                    src={assetUrl("/UI/Icon/Award/UI_icon_110000041.webp")}
                     alt=""
                     width="48"
                     height="48"
                     style="margin-bottom: auto"
                 />
                 <img
-                    src="/UI/Icon/Award/UI_Icon_120000011.png"
+                    src={assetUrl("/UI/Icon/Award/UI_Icon_120000011.webp")}
                     alt=""
                     width="48"
                     height="48"
                     style="margin-bottom: auto"
                 />
                 <img
-                    src="/UI/Icon/Award/UI_Icon_110000022.png"
+                    src={assetUrl("/UI/Icon/Award/UI_Icon_110000022.webp")}
                     alt=""
                     width="48"
                     height="48"
@@ -68,7 +69,7 @@
             </div>
             <span class="flex items-center gap-1">
                 <img
-                    src="/UI/Icon/Achievement/UI_AchievementIcon_1.png"
+                    src={assetUrl("/UI/Icon/Achievement/UI_AchievementIcon_1.webp")}
                     alt=""
                     width="32"
                     height="32"
@@ -78,7 +79,7 @@
             </span>
             <span class="flex items-center gap-2">
                 <img
-                    src="/UI/PlayerProfile/UI_PlayerProfile_LikeBtn_Pressed.png"
+                    src={assetUrl("/UI/PlayerProfile/UI_PlayerProfile_LikeBtn_Pressed.webp")}
                     alt=""
                     width="24"
                     height="24"
@@ -93,7 +94,7 @@
         >
             <small class="font-semibold">Blast Archer</small>
             <img
-                src="/UI/Icon/Class128/UI_IconClass128_06.png"
+                src={assetUrl("/UI/Icon/Class128/UI_IconClass128_06.webp")}
                 alt=""
                 width="48"
                 height="48"
@@ -115,16 +116,16 @@
             class="grid flex-1"
             style="grid-template-rows: 1fr 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr; align-items: center;"
         >
-            <img src="/UI/Icon/Weapon/UI_Icon_106001201.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_111002500.png" alt="" style="justify-self: end;" />
-            <img src="/UI/Icon/Imagine/Battle/UI_Icon_120000400.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_112001600.png" alt="" style="justify-self: end;" />
-            <img src="/UI/Icon/Imagine/Battle/UI_Icon_131001200.png" alt="" />
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_113000800.png" alt="" style="justify-self: end;" />
+            <img src={assetUrl("/UI/Icon/Weapon/UI_Icon_106001201.webp")} alt="" />
+            <img src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_111002500.webp")} alt="" style="justify-self: end;" />
+            <img src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_120000400.webp")} alt="" />
+            <img src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_112001600.webp")} alt="" style="justify-self: end;" />
+            <img src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_131001200.webp")} alt="" />
+            <img src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_113000800.webp")} alt="" style="justify-self: end;" />
             <div></div>
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_114002300.png" alt="" style="justify-self: end;" />
+            <img src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_114002300.webp")} alt="" style="justify-self: end;" />
             <div></div>
-            <img src="/UI/Icon/Imagine/Picture/UI_Icon_115002400.png" alt="" style="justify-self: end;" />
+            <img src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_115002400.webp")} alt="" style="justify-self: end;" />
             
             
         </div>

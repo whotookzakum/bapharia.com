@@ -38,10 +38,10 @@
     ];
 
     const elemental = {
-        120000410: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.png"), // Einrain β
-        131001600: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_1.png"), // Little Brawler
-        131001800: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_2.png"), // Valley Vanguard
-        131003300: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.png"), // Bandit Scout Fox
+        120000410: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.webp"), // Einrain β
+        131001600: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_1.webp"), // Little Brawler
+        131001800: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_2.webp"), // Valley Vanguard
+        131003300: assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.webp"), // Bandit Scout Fox
     };
 
     let players = [

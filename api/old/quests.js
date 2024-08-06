@@ -446,7 +446,7 @@ function getRewardItem(rewardData) {
         ja_JP: "報酬",
         en_US: "Reward"
     }
-    let thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
+    let thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.webp"
     let href = "/db"
     
     switch (rewardData.reward_type) {
@@ -455,7 +455,7 @@ function getRewardItem(rewardData) {
                 ja_JP: "ルーノ",
                 en_US: "Luno",
             }
-            thumb = "/UI/Icon/Reward/UI_Icon_0.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_0.webp"
             href = `/db`
             break;
         case 2:
@@ -463,7 +463,7 @@ function getRewardItem(rewardData) {
                 ja_JP: "経験値",
                 en_US: "EXP"
             },
-            thumb = "/UI/Icon/Reward/UI_Icon_2.png",
+            thumb = "/UI/Icon/Reward/UI_Icon_2.webp",
             href = `/db`
             break;
         case 3:
@@ -487,7 +487,7 @@ function getRewardItem(rewardData) {
         case 7:
             rewardItem = mountsData.find(item => item.id === rewardData.item_id)
             name = getText("master_mount_imagine_text", rewardItem.name)
-            thumb = `/UI/Icon/Imagine/Mount/UI_Icon_${rewardItem.id}.png`
+            thumb = `/UI/Icon/Imagine/Mount/UI_Icon_${rewardItem.id}.webp`
             href = `/db`
             break;
         case 9:
@@ -510,13 +510,13 @@ function getRewardItem(rewardData) {
                 ja_JP: rewardItem.name.ja_JP + "レシピ",
                 en_US: rewardItem.name.en_US + " Recipe"
             }
-            thumb = "/UI/Icon/Reward/UI_Icon_11.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_11.webp"
             href = `/db/imagine/${rewardItem.id}#recipe`
             break;
         case 14:
             rewardItem = achievementsData.find(item => item.id == rewardData.item_id)
             name = getText("achievements_text", rewardItem.name)
-            thumb = "/UI/Icon/Reward/UI_Icon_14.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_14.webp"
             href = `/db`
             break;
         case 15:
@@ -530,7 +530,7 @@ function getRewardItem(rewardData) {
                 ja_JP: "BPポイント",
                 en_US: "BP Points",
             },
-            thumb = "/UI/Icon/Reward/UI_Icon_17.png",
+            thumb = "/UI/Icon/Reward/UI_Icon_17.webp",
             href = `/db`
             break;
         case 18:
@@ -538,7 +538,7 @@ function getRewardItem(rewardData) {
                 ja_JP: "無償ローズオーブ",
                 en_US: "Free Rose Orbs",
             },
-            thumb = "/UI/Icon/Reward/UI_Icon_18.png",
+            thumb = "/UI/Icon/Reward/UI_Icon_18.webp",
             href = `/db`
             break;
         case 19:
@@ -567,33 +567,33 @@ function getRewardItem(rewardData) {
                 }
                 href = `/db/weapon/${weapon.id}#recipe`
             }
-            thumb = "/UI/Icon/Reward/UI_Icon_20.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_20.webp"
             break;
         case 24:
             name = {
                 ja_JP: "シーズンポイント", 
                 en_US: "Season Points"
             }
-            thumb = "/UI/Icon/Reward/UI_Icon_23.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_23.webp"
             href = "/db"
             break;
         case 27:
             rewardItem = craftingRecipeSetsData.find(item => item.id === rewardData.item_id)
             // Could add text for all recipes in this set, but the Recipe Set Name seems self explanatory for now
             name = getText("master_craft_recipe_set_text", rewardItem.name)
-            thumb = "/UI/Icon/Reward/UI_Icon_27.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_27.webp"
             href = "/db"
             break;
         case 28:
             rewardItem = adventureBoardsData.find(item => item.id === rewardData.item_id)
             name = getText("master_adventure_boards_text", rewardItem.name)
-            thumb = "/UI/Icon/Reward/UI_Icon_28.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_28.webp"
             href = `/db`
             break;
         case 30:
             rewardItem = warehouseAbilitiesData.find(item => item.recipe_id === rewardData.item_id)
             name = getText("master_warehouse_ability_recipes_text", rewardItem.id)
-            thumb = "/UI/Icon/Reward/UI_Icon_30.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_30.webp"
             href = `/db/item/${rewardItem.item_id}`
             break;
         case 32:
@@ -601,7 +601,7 @@ function getRewardItem(rewardData) {
                 ja_JP: "βスキル",
                 en_US: "β Skill"
             },
-            thumb = "/UI/Icon/Reward/UI_Icon_31.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_31.webp"
             href = `/db`
             break;
         case 33:
@@ -610,7 +610,7 @@ function getRewardItem(rewardData) {
                 ja_JP: "RNG",
                 en_US: "RNG"
             }
-            thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.png"
+            thumb = "/UI/Icon/Reward/UI_Icon_Unidentified.webp"
             href = "/db"
             break;
     }
@@ -625,13 +625,13 @@ function getRewardItem(rewardData) {
 function getThumbnail(prefix) {
     switch (prefix) {
         case "MQ":
-            return `/UI/Icon/Quest/UI_IconQuest_MainPop.png`
+            return `/UI/Icon/Quest/UI_IconQuest_MainPop.webp`
         // case "SQ":
-        //     return `/UI/Icon/Quest/UI_IconQuest_PlusSubPop.png`
+        //     return `/UI/Icon/Quest/UI_IconQuest_PlusSubPop.webp`
         // case "CQ":
-        //     return `/UI/Icon/Quest/UI_IconQuest_KeyChaPop.png`
+        //     return `/UI/Icon/Quest/UI_IconQuest_KeyChaPop.webp`
         default:
-            return `/UI/Icon/Quest/UI_IconQuest_SubPop.png`
+            return `/UI/Icon/Quest/UI_IconQuest_SubPop.webp`
     }
 }
 

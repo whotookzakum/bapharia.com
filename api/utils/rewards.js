@@ -24,12 +24,12 @@ export function getRewardItemBrief(type, id, lang) {
     switch (type) {
         case 0: // Luno
             name = getText("Common", 4, lang)
-            // "/UI/Icon/Currency/UI_Icon_Currency_01.png" // coin icon
-            assets = { icon: "/UI/Icon/Reward/UI_Icon_0.png" } // coin in bag icon
+            // "/UI/Icon/Currency/UI_Icon_Currency_01.webp" // coin icon
+            assets = { icon: "/UI/Icon/Reward/UI_Icon_0.webp" } // coin in bag icon
             break
         case 1:
             name = getText("Common", 5, lang)
-            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_02.png" }
+            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_02.webp" }
             break
         case 3:
             href = "/db/items/" + id
@@ -85,12 +85,12 @@ export function getRewardItemBrief(type, id, lang) {
             break
         case 17:
             name = "BPP"
-            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_04.png" }
+            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_04.webp" }
             break
         case 18:
             name = "無償ローズオーブ"
             // master_mail_format_text 295
-            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_03.png" }
+            assets = { icon: "/UI/Icon/Currency/UI_Icon_Currency_03.webp" }
             break
         case 19:
             href = "/db/tokens/" + id
@@ -101,7 +101,7 @@ export function getRewardItemBrief(type, id, lang) {
         case 24:
             if (id === 1) name = getText("Common", 11, lang)
             else if (id === 2) name = getText("Common", 12, lang)
-            assets = { icon: "/UI/Icon/Reward/UI_Icon_23.png" }
+            assets = { icon: "/UI/Icon/Reward/UI_Icon_23.webp" }
             break
         default:
             return {}

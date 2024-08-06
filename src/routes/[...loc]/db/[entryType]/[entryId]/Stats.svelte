@@ -348,7 +348,7 @@
                             <span>{stat.name}</span>
                             <Tooltip tooltipStyle="width: max-content">
                                 <img
-                                    src={assetUrl(`/UI/Icon/Attribute/UI_IconAttribute_${data.element}.png`)}
+                                    src={assetUrl(`/UI/Icon/Attribute/UI_IconAttribute_${data.element}.webp`)}
                                     alt=""
                                     width="24"
                                     height="24"

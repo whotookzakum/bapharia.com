@@ -31,7 +31,7 @@
                     src={assetUrl(`/UI/Icon/ClassXL/UI_IconClassXL_${href
                         .split('/')
                         .pop()
-                        .padStart(2, '0')}.png`)}
+                        .padStart(2, '0')}.webp`)}
                     alt=""
                     width="96"
                     height="96"

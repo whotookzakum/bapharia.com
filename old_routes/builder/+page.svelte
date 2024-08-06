@@ -16,7 +16,7 @@
     <article class="main-pane">
         <section class="grid gap-4">
             <div class="surface1 rounded-2xl p-4 grid gap-2">
-                <img src={assetUrl("/UI/Icon/Weapon/UI_Icon_106001201.png")} alt="" />
+                <img src={assetUrl("/UI/Icon/Weapon/UI_Icon_106001201.webp")} alt="" />
             </div>
 
             <div
@@ -24,11 +24,11 @@
                 style="grid-template-columns: 1fr 1fr"
             >
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_120000400.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_120000400.webp")}
                     alt=""
                 />
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_131001200.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Battle/UI_Icon_131001200.webp")}
                     alt=""
                 />
             </div>
@@ -38,23 +38,23 @@
                 style="grid-template-columns: 1fr 1fr"
             >
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_111002500.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_111002500.webp")}
                     alt=""
                 />
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_112001600.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_112001600.webp")}
                     alt=""
                 />
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_113000800.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_113000800.webp")}
                     alt=""
                 />
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_114002300.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_114002300.webp")}
                     alt=""
                 />
                 <img
-                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_115002400.png")}
+                    src={assetUrl("/UI/Icon/Imagine/Picture/UI_Icon_115002400.webp")}
                     alt=""
                 />
             </div>
@@ -77,7 +77,7 @@
                             <th>
                                 <div class="flex items-center gap-2">
                                     <img
-                                        src={assetUrl("/UI/Icon/Class/UI_IconClass_21.png")}
+                                        src={assetUrl("/UI/Icon/Class/UI_IconClass_21.webp")}
                                         alt="Beat Performer"
                                         width="32"
                                         height="32"
@@ -168,7 +168,7 @@
                     >
                         <span class="flex items-center gap-1">
                             <img
-                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_1.png")}
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_1.webp")}
                                 alt="Fire"
                                 width="24"
                                 height="24"
@@ -176,7 +176,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_2.png")}
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_2.webp")}
                                 alt="Thunder"
                                 width="24"
                                 height="24"
@@ -184,7 +184,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.png")}
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_3.webp")}
                                 alt="Ice"
                                 width="24"
                                 height="24"
@@ -192,7 +192,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_4.png")}
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_4.webp")}
                                 alt="Earth"
                                 width="24"
                                 height="24"
@@ -200,7 +200,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_5.png")}
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_5.webp")}
                                 alt="Light"
                                 width="24"
                                 height="24"
@@ -208,7 +208,7 @@
                         </span>
                         <span class="flex items-center gap-1">
                             <img
-                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_6.png")}
+                                src={assetUrl("/UI/Icon/Attribute/UI_IconAttribute_6.webp")}
                                 alt="Dark"
                                 width="24"
                                 height="24"

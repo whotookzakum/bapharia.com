@@ -55,7 +55,7 @@ const SkillDTs = await getSkillDTs()
 async function getSkillDTs() {
     function getIconPath(path) {
         if (!path || path.AssetPathName === "None") return
-        return path.AssetPathName.replace("/Game", "").split(".")[0] + ".png"
+        return path.AssetPathName.replace("/Game", "").split(".")[0] + ".webp"
     }
 
     const result = {}
@@ -235,12 +235,12 @@ async function getExtraIcons(BgType, ElementType, skillType, abilityType) {
 
     switch (skillType) {
         case 0: // base actions
-            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png"
-            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Main_normal.png"
+            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.webp"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Main_normal.webp"
             break;
         case 1:
-            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png"
-            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Sub_normal.png"
+            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.webp"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Sub_normal.webp"
             break;
         case 2:
         case 3:
@@ -251,23 +251,23 @@ async function getExtraIcons(BgType, ElementType, skillType, abilityType) {
             const wrapperObj = IconMappingFile.find(obj => obj.Type === "SkillTree_SkillIconTactical_C")
             const bgPathObj = wrapperObj.Properties.IconBgImageList.find(obj => Object.keys(obj).includes(BgType))
             const elementPathObj = wrapperObj.Properties.ElementIconImageList.find(obj => Object.keys(obj).includes(ElementType))
-            bgIcon = bgPathObj[BgType].ObjectPath.split("/Content")[1].split(".")[0] + ".png"
+            bgIcon = bgPathObj[BgType].ObjectPath.split("/Content")[1].split(".")[0] + ".webp"
             if (!ElementType.includes("::None")) {
-                elementIcon = elementPathObj[ElementType].ObjectPath.split("/Content")[1].split(".")[0] + ".png"
+                elementIcon = elementPathObj[ElementType].ObjectPath.split("/Content")[1].split(".")[0] + ".webp"
             }
-            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Tactical_normal.png"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_Tactical_normal.webp"
             break;
         case 6: // ultimate
-            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.png"
-            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_SP_normal.png"
+            bgIcon = "/UI/Icon/PlayerSkill/Type/UI_PlayerSkillType_Empty.webp"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_SP_normal.webp"
             break;
         case 7: // dodge
             break;
         case 8: // class ability
-            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_passive_normal.png"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_passive_normal.webp"
             break;
         case 9: // base ability
-            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_PassiveAlways_normal.png"
+            frameIcon = "/UI/SkillTree/UI_SkillTree_IconBG_PassiveAlways_normal.webp"
             break;
         case 10: // aerial attack
         case 11: // tactical skill ability

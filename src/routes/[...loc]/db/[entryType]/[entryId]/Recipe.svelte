@@ -25,7 +25,7 @@
     {/each}
     <Item
         name="Luno"
-        thumb="/UI/Icon/Reward/UI_Icon_0.png"
+        thumb="/UI/Icon/Reward/UI_Icon_0.webp"
         href="/db"
         amount={recipe.price || recipe.use_money}
         smallTag
@@ -53,7 +53,7 @@
     {#if recipe.great_success_tokens}
         <div class="flex align-center gap-1">
             <img
-                src={assetUrl("/UI/Icon/Token/UI_Icon_140000200.png")}
+                src={assetUrl("/UI/Icon/Token/UI_Icon_140000200.webp")}
                 alt="Great success ticket"
                 width="32"
                 height="32"

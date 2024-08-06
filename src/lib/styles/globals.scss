@@ -15,7 +15,9 @@ html {
     background-color: var(--bg);
 }
 
-* {
+*,
+*:hover,
+*:active {
     cursor: url('/images/cursor.png'), default !important;
 }
 
@@ -109,6 +111,7 @@ label input:where([type="text"], [type="number"]):where(:focus, :focus-visible) 
 }
 
 @for $i from 1 through 3 {
+
     .surface#{$i},
     .hover-surface#{$i}:hover,
     .focus-surface#{$i}:focus-visible,
@@ -154,7 +157,7 @@ a.area-link::after {
 }
 
 .area-link-wrapper:has(.area-link) {
-    @extend .outline-focus-within;   
+    @extend .outline-focus-within;
 }
 
 .h-pane {

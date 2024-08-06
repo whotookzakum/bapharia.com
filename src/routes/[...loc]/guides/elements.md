@@ -60,9 +60,9 @@ After Burst Bonus Time ends, a **Burst Finish** will occur, dealing massive dama
 Attacking with the element that an enemy is weak against will allow you to do increased damage, indicated by an icon next to your damage numbers. The icon has 3 versions, denoting how effective the damage increase is.
 
 <div class="flex">
-    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness1.png")} alt="Weakness 1" width="48" height="84" />
-    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness2.png")} alt="Weakness 2" width="48" height="84" /> 
-    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness3.png")} alt="Weakness 3" width="48" height="84" /> 
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness1.webp")} alt="Weakness 1" width="48" height="84" />
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness2.webp")} alt="Weakness 2" width="48" height="84" /> 
+    <img src={assetUrl("/UI/DamageUI/UI_DamageUIWeakness3.webp")} alt="Weakness 3" width="48" height="84" /> 
 </div>
 
 It's currently unknown what the damage multipliers are, or how they can be derived from an enemy's elemental weakness.

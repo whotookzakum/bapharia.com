@@ -1,6 +1,8 @@
 <script>
     import { userLocale } from "$lib/stores";
     import MatchedDescriptions from "./MatchedDescriptions.svelte";
+    import { assetUrl } from "$lib/utils"
+
     export let result = {};
     export let type = "";
     export let searchTerm = "";
@@ -10,8 +12,7 @@
 <li class="box gap-2">
     {#if type === "board"}
         <img
-            class="board-img"
-            src="/UI/Icon/Adventureboard/UI_Adventureboard_{result.icon_id}.png"
+            src={assetUrl(`/UI/Icon/Adventureboard/UI_Adventureboard_${result.icon_id}.webp`)}
             alt=""
             width="208"
             height="128"
@@ -36,10 +37,6 @@
     img {
         display: block;
         margin: auto;
-    }
-
-    .board-img {
-        background-image: url("/UI/AdventureBoard/UI_AdventureBoardBoardBg_copper.png");
     }
 
     .result-name {

@@ -37,7 +37,7 @@
             class:lit={hoveredStar >= star}
             class:glow={value >= star}
             style:background-image={assetUrl(
-                "/UI/TelopManager/UI_TelopManager_Star_Glow.png",
+                "/UI/TelopManager/UI_TelopManager_Star_Glow.webp",
             )}
         >
             <input
@@ -50,14 +50,14 @@
             <span class="visually-hidden">{star}</span>
             <img
                 class="star-yellow"
-                src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_1.png")}
+                src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_1.webp")}
                 alt=""
                 width="24"
                 height="24"
             />
             <img
                 class="star-black"
-                src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_0.png")}
+                src={assetUrl("/UI/TelopManager/UI_TelopManager_Star_0.webp")}
                 alt=""
                 width="24"
                 height="24"

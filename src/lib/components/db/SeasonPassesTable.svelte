@@ -24,7 +24,7 @@
                             >{pass.need_free}</span
                         >
                         <img
-                            src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.png")}
+                            src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.webp")}
                             alt="Rose Orbs"
                             height="24"
                             width="24"
@@ -44,7 +44,7 @@
                             >{pass.need_paid}</span
                         >
                         <img
-                            src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.png")}
+                            src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.webp")}
                             alt="Rose Orbs"
                             height="24"
                             width="24"
@@ -85,7 +85,7 @@
             <td colspan="3">
                 {data.rankup_point} points / {data.rankup_free} orbs
                 <img
-                    src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.png")}
+                    src={assetUrl("/UI/Icon/Currency/UI_Icon_Currency_03.webp")}
                     alt="Rose Orbs"
                     height="24"
                     width="24"

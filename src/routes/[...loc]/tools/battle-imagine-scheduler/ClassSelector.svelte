@@ -41,7 +41,7 @@
             <IconMask
                 src="/UI/Icon/Class/UI_IconClass_{classId
                     .toString()
-                    .padStart(2, '0')}.png"
+                    .padStart(2, '0')}.webp"
                 style={open ? "background-color: var(--accent1)" : ""}
                 width="40"
                 height="40"
@@ -78,7 +78,7 @@
                             <IconMask
                                 src="/UI/Icon/Class/UI_IconClass_{type
                                     .toString()
-                                    .padStart(2, '0')}.png"
+                                    .padStart(2, '0')}.webp"
                                 style="background-color: currentColor"
                             />
                             {text}

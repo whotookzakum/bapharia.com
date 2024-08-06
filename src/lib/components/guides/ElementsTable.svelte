@@ -10,10 +10,10 @@
             burst: "Small explosion & knockdown",
             finish: "Large explosion that deals heavy damage",
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_1.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1000.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1001.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1002.png",
+                "/UI/Icon/Attribute/UI_IconAttribute_1.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1000.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1001.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1002.webp",
             ],
             effects: {
                 onEnemy: {
@@ -36,10 +36,10 @@
             burst: "Freezes target",
             finish: "Shatters ice, dealing heavy damage",
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_3.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1003.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1004.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1005.png",
+                "/UI/Icon/Attribute/UI_IconAttribute_3.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1003.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1004.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1005.webp",
             ],
             effects: {
                 onEnemy: {
@@ -62,10 +62,10 @@
             burst: "Small explosion & knockdown",
             finish: "Large explosion that deals heavy damage and Paralyzes target",
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_2.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1006.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1007.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1008.png",
+                "/UI/Icon/Attribute/UI_IconAttribute_2.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1006.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1007.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1008.webp",
             ],
             effects: {
                 onEnemy: {
@@ -88,10 +88,10 @@
             burst: "Petrifies target",
             finish: "Destroys rock, dealing heavy damage",
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_4.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1009.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1010.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1011.png",
+                "/UI/Icon/Attribute/UI_IconAttribute_4.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1009.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1010.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1011.webp",
             ],
             effects: {
                 onEnemy: {
@@ -114,10 +114,10 @@
             burst: "Small explosion & knockdown",
             finish: "Large explosion that deals heavy damage and grants HP Regen to nearby players",
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_5.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1012.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1013.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1014.png",
+                "/UI/Icon/Attribute/UI_IconAttribute_5.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1012.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1013.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1014.webp",
             ],
             effects: {
                 onEnemy: {
@@ -140,10 +140,10 @@
             burst: "Small explosion & knockdown",
             finish: "Large explosion that deals heavy damage and inflicts Drained",
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_6.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1015.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1016.png",
-                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1017.png",
+                "/UI/Icon/Attribute/UI_IconAttribute_6.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1015.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1016.webp",
+                "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1017.webp",
             ],
             effects: {
                 onEnemy: {

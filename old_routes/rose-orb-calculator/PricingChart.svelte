@@ -3,6 +3,7 @@
     import { currency, platformId } from "./stores";
     import Icon from "@iconify/svelte";
     import InputText from "$lib/components/InputText.svelte";
+    import { assetUrl } from "$lib/utils"
 
     export let showDetails;
 
@@ -107,7 +108,7 @@
                 <tr class:custom={pack.isCustom}>
                     <td class="flex gap-2" style="align-items: center">
                         <img
-                            src="/UI/Gasha/UI_GashaBtnIconRoseOrb.png"
+                            src={assetUrl("/UI/Gasha/UI_GashaBtnIconRoseOrb.png")}
                             alt=""
                             width="20"
                             height="20"
