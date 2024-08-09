@@ -1,7 +1,7 @@
 import categories from "./categories.json"
 import { SUPPORTED_VERSIONS, LANG_CODES } from "../../src/lib/constants"
 import en_manual_translated from "../bp_api/text_overrides/en_US.json"
-import en_machine_translated from "../../bptranslatefiles/loc.json"
+import en_machine_translated from "../../bptranslatefiles/patch/en_US.json"
 
 const langs = {}
 const allTextFiles = import.meta.glob("../bp_api/**/texts/*.json", { import: "default" })
@@ -61,4 +61,10 @@ export function getCategory(ns, id, lang) {
     return categories[langCode][ns][id] || categories[langCode][ns].default
 }
 
-export default langs
+
+function getLangs(publisher, lang) {
+    if (publisher && lang) return langs[publisher][lang] // bno, en_US
+    return langs
+}
+
+export default getLangs

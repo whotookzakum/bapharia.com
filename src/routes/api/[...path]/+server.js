@@ -18,7 +18,22 @@ export const GET = async ({ params, url }) => {
     //     }
     // }
 
-    const data = await import(`../../../../api/${params.type}.js`)
-    const lang = url.searchParams.get("lang")
-    return json(await data.default())
+    if (dev) {
+        const [first, second] = params.path.split("/")
+        const id = second && parseInt(second)
+        
+        if (id) {
+            const file = await import(`../../../../api/${first}.js`)
+            const entry = await file.getEntry(id)
+            return json(entry)
+        }
+        
+        else if (second) {
+            const file = await import(`../../../../api/${first}/${second}.js`)
+            return json(await file.default())
+        }
+
+        const file = await import(`../../../../api/${first}.js`)
+        return json(await file.default())
+    }
 }
