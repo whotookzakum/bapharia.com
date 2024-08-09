@@ -12,7 +12,7 @@
     // If (open) then clicking an option will not close the modal, as users may like to edit multiple options without having to reopen the modal
 
     // TODO: esc to close; allow <Tooltip> to be a <dialog> ?
-    // TODO: set and cache userLocale from [...loc]
+    // TODO: set and cache userLocale from [[lang]]
     // TODO:
 
     let show = false;

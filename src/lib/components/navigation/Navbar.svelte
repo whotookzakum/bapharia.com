@@ -71,7 +71,7 @@
 			</a>
 		{/each}
 		<div class="extras flex items-center">
-			<TimeInJapan />
+			<!-- <TimeInJapan /> -->
 			<SiteSettings />
 		</div>
 	</div>

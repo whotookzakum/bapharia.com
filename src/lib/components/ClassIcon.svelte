@@ -1,7 +1,7 @@
 <script>
     import IconMask from "$lib/components/IconMask.svelte";
     import Tooltip from "./FloatingUI/Tooltip.svelte";
-    import CLASSES from "../../routes/[...loc]/classes/[classId]/classes.json"
+    import CLASSES from "../../routes/[[lang]]/classes/[classId]/classes.json"
 
     export let id = 7;
     export let width = 32;

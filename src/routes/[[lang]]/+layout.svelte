@@ -7,6 +7,7 @@
 
     export let data;
     $: ({ publisher, lang } = data)
+    $: console.log(lang)
 </script>
 
 <GoogleAnalytics properties={["G-WFYTLGB8B9"]} />
@@ -20,4 +21,4 @@
     <!-- <PageFooter /> -->
 {/if}
 
-<!-- <div class="ambience" /> -->
+<div class="ambience" />

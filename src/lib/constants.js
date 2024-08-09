@@ -1,6 +1,3 @@
-export const SUPPORTED_LANGS = ["en", "ja"]
-export const SUPPORTED_PUBLISHERS = ["bno"]
-
 export const SUPPORTED_VERSIONS = [
     {
         publisher: "bno",
@@ -19,6 +16,9 @@ export const SUPPORTED_VERSIONS = [
     //     locales: []
     // },
 ]
+
+export const SUPPORTED_LANGS = SUPPORTED_VERSIONS.flatMap(ver => ver.locales)
+export const SUPPORTED_PUBLISHERS = SUPPORTED_VERSIONS.map(ver => ver.publisher)
 
 export const LANG_CODES = {
     en: "en_US",

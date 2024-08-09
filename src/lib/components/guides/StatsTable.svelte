@@ -3,7 +3,7 @@
     import RadioSlider from "$lib/components/RadioSlider.svelte";
     import { math, display } from "mathlifier";
     import ClassIcon from "$lib/components/ClassIcon.svelte";
-    import CLASSES from "../../../routes/[...loc]/classes/[classId]/classes.json";
+    import CLASSES from "../../../routes/[[lang]]/classes/[classId]/classes.json";
 
     let viewMode = "brief";
 </script>
