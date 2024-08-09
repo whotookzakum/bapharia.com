@@ -1,4 +1,4 @@
-<table>
+<table class="stripes surface1 rounded">
     <thead>
         <tr>
             <th>Level Difference</th>
@@ -96,22 +96,8 @@
 </table>
 
 <style lang="scss">
-    tbody th, td {
-        text-align: left;
-        // padding-block: 0.5rem;
-    }
-
-    tr:nth-of-type(even) > * {
-        background: rgba(255, 255, 255, 0.02);
-    }
-
-    tr:last-of-type > * {
-        &:first-of-type {
-            border-bottom-left-radius: 1rem;
-        }
-
-        &:last-of-type {
-            border-bottom-right-radius: 1rem;
-        }
+    th, td {
+        font-size: var(--step-1);
+        padding: 0.75rem 1rem;
     }
 </style>

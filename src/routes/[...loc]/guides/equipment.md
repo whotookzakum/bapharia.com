@@ -33,6 +33,8 @@ You can transfer passive lines and ability plugs through the Limit Break system,
 
 Additionally, a max Limit Break item can still be fed duplicate copies to transfer passives, plugs, and sockets. Since it is already max Limit Break, the success rate is 100%.
 
+An item that has been Limit Broken will only count as 1 copy if used as a material.
+
 <StickyNote type="tip">
     Attach Ability Plugs on your duplicate weapons and transfer them to your main weapon through Limit Break to avoid having to spend Plug Removal Tickets!
 </StickyNote>
@@ -46,6 +48,9 @@ Weapons, Battle Imagine, and Enhance Imagine all have tickets that can be used t
 <StickyNote type="caution">
     Locked items are still be eligible to use as a Limit Break material. You will receive a warning message if you select an item that is locked.
 </StickyNote>
+
+### Discarding, Dismantling, and Selling Equipment
+Visit the storage NPC to dismantle your unused equipment for crafting materials or sell them for Luno. They can also be discarded from your inventory or storage.
 
 ## Weapons
 Weapons provide stats and often have an element. Switching weapon types will automatically change your class (after completing the Class Master's [quest](/db/quest/SQ101_001)). Base weapons for each class can be purchased from the vendor in Asterleeds.
@@ -115,7 +120,7 @@ As of v1.06.000, each Legendary line has a 1% chance of dropping, and there are 
             </tr>
         </tbody>
     </table>
-    <p>
+    <p style="margin-bottom: 0">
         There are also some Special Effects that only appear on weapons obtained from dungeon treasure chests. For the weapon above, it is a Boar Killer line.
     </p>
 </details>
@@ -148,13 +153,13 @@ Weapon **Battle Score** can be represented as the following formula:
         class="block mt-4 text-center"
         formula={`\\text{Weapon Battle Score} = (60 \\times \\text{Item Level}) + (120 \\times \\text{Limit Break Level})`}
     />
-    <p>
+    <p style="margin-bottom: 0">
         Before the Limit Break system was introduced, weapons gave <Formula inline formula={`(50 \\times \\text{Item Level})`} /> Battle Score.
     </p>
 </details>
 
 ### Ability Plugs
-Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) or strengthen specific skills (cooldown reduction, skill damage, etc.). They can be obtained through dungeons, events, Mount Caravan, quests and Adventure Boards.
+Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) or strengthen specific skills (cooldown reduction, skill damage, etc.). They are commonly obtained through dungeons, events, Mount Caravan, quests and Adventure Boards.
 
 <StickyNote type="tip">
     The value of attack plugs has diminished considerably since the v1.06.000 update introduced weapons with very high attack. Skill plugs can be efficiently obtained through Rush Battle 3 (G1), Rush Battle 5 (G2), and Rush Battle 7 (G3).

@@ -27,7 +27,7 @@
 		<h2>Where should I start?</h2>
 		<p>
 			If you're just beginning your journey in BLUE PROTOCOL, I
-			recommended checking out <a href="/guides/weapons-and-plugs"
+			recommend checking out <a href="/guides/weapons-and-plugs"
 				>Weapons</a
 			>,
 			<a href="/guides/imagine">Imagine</a>, and

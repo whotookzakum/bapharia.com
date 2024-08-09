@@ -18,33 +18,28 @@ thumbImg: "/guides/combat/thumb.jpg"
     import PartyChainTable from "$lib/components/guides/PartyChainTable.svelte";
     import ElementsTable from "$lib/components/guides/ElementsTable.svelte";
     import EleResistDamageTable from "$lib/components/guides/EleResistDamageTable.svelte";
+    import IconMask from "$lib/components/IconMask.svelte"
+    import ClassIcon from "$lib/components/ClassIcon.svelte"
     import { assetUrl } from "$lib/utils";
 </script>
 
-BLUE PROTOCOL has several aspects of combat that contribute to its fast-paced action.
-
-## Precursor
-
-The UI has an aggro icon whose color indicates <span style="color: orange">when enemies have sensed your presence</span> and <span style="color: red">when they are actively engaging you</span>.
-
-<div><img src={assetUrl("/UI/HateAlert/UI_HateAlertIcon1.webp")} alt="aggro indicator" width="80" height="40"></div>
-
-For the purposes of this guide, **being in combat** will refer to when a player has their weapon out (unsheathed and in a combatative stance), and **being targeted** will refer to either scenario that you have aggro. 
-
-When targed, various actions consume stamina and when in combat your jump height is reduced and you cannot sprint (you must sheathe your weapon). Your weapon can be sheathed by pressing the interact key, summoning a mount, or by initiating sprinting.
-
 **Ability** is a common term in the game referring to a passive effect. It's used in Skills to describe passive skills (such as Class-Shared Ability), in [Weapon "Ability" Plugs](/guides/weapons-and-plugs#ability-plugs), in [Battle Imagine and Enhance Imagine](/guides/imagine) (referring to their passive stat line). Just keep in mind that the keyword **Ability = passive**.
+
+## Aggro
+The battle HUD has an icon whose color indicates your state of aggro. This guide will use the phrasing "in combat" to refer to either of the two states.
+
+| Icon | State |
+|------|-------|
+| <IconMask src="/UI/HateAlert/UI_HateAlertIcon1.webp" width="80" height="40" style="background: var(--color-sensed)" /> | An enemy is aware of your presence |
+| <IconMask src="/UI/HateAlert/UI_HateAlertIcon1.webp" width="80" height="40" style="background: var(--color-targeted)" /> | An enemy is actively targeting you |
+
+When in combat, various actions consume stamina (see [stamina](/guides/combat#stamina)). When your weapon is unsheathed, your jump height is reduced and you cannot sprint until you sheathe your weapon. Your weapon can be sheathed by pressing the interact key, summoning a mount, or by initiating sprinting.
+
 
 ## Stats
 Each class has various stats that can be altered by equipping and upgrading [Weapons](/guides/weapons-and-plugs) and [Imagine](/guides/imagine). Base Stats in particular have different effects based on whether you are playing a physical class or a magic class.
 
-<img src="https://cdn.discordapp.com/attachments/862600196704829443/1092825223226732555/image.png" alt="Battle Build page showing stats and loadout">
-
 <StatsTable />
-
-For example, increasing STR on a physical class will increase its ATK as well (will be reflected on the character page). Refer to the table below for the "true value" formulas. **Decimal values will be truncated**.
-
-<BaseStatsConversionTable />
 
 ### HP
 Hit Points (or Health Points). When your HP reaches 0, your character will be downed and can be resurrected by other players interacting with you. Rescue time is decreased as more players interact with a downed player. 
@@ -58,33 +53,46 @@ When in fields or free exploration dungeons, **HP will continuously recover over
 HP can be recovered through various means such as [skills](/guides/combat#skills), [party chain](/guides/combat#party-chain), [buffs](/guides/combat#buffs--debuffs), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
 
 ### Stamina
-Stamina is consumed when performing certain actions. Stamina consumption can be reduced by certain skills and Enhance Imagine [abilities](/guides/imagine#abilities-1). Max stamina can be increased by certain skills, such as Heavy Smasher's [passive skill](/classes/19/skills#119501), and Enhance Imagine abilities.
+Stamina is consumed when performing certain actions. Certain Skills and Imagine abilities can increase Max Stamina or reduce Stamina Consumption.
 
 <StaminaConsumptionTable />
 
 Dodging provides a brief window of invulnerability, and can be used to cancel some player animations. To perform a **dodge attack**, press the basic attack and class action keys simultaneously after dodging. 
 
 <StickyNote type="note">
-    Dodges cannot be performed in the air.
+    In some patches, it was possible to dodge while mid-air, but this is currently disabled at the time of writing this guide.
 </StickyNote>
 
 If an enemy hits you during dodge invulnerability, you will perform a **perfect dodge**, indicated by a blue particle effect. Performing a dodge attack immediately after a perfect dodge will **increase the damage of the dodge attack** and may provide extra benefits such as restoring Shield Gauge (Aegis Fighter) or increasing dodge attack size (Spell Caster). 
 
-<!-- TODO: List all perfect dodge attack effects? -->
+| Class | Perfect Dodge Attack Effect |
+|-------|-----------------------------|
+| <ClassIcon id={12} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack and recover Shield Gauge |
+| <ClassIcon id={21} style="background-color: var(--outline-color)" /> | Increase damage, stagger effect, knockback, and Heat Gauge accumulation of the dodge attack shockwave |
+| <ClassIcon id={6} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack |
+| <ClassIcon id={20} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack and apply Void and Entanglement Marks |
+| <ClassIcon id={19} style="background-color: var(--outline-color)" /> | Increase damage and stagger effect of the dodge attack |
+| <ClassIcon id={11} style="background-color: var(--outline-color)" /> | Increase damage and size of the dodge attack and recover EP Gauge |
+| <ClassIcon id={7} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack |
 
-A **springboard jump** can be performed while pressing the jump key while in the air and near an enemy—you will jump off the enemy for added height. Melee classes will jump straight up, and ranged classes will jump backwards. The enemy will be staggered and aggro the player. 
+A **springboard jump** can be performed while pressing the jump key while in the air. When performed next to an enemy, you will jump off the enemy for added height. Melee classes will jump straight up, and ranged classes will jump backwards. The enemy will be staggered and aggro the player. 
 
-Jumping and Springboard jumping can be used to cancel some animations even when no enemy is nearby. 
+Jumping and Springboard jumping can be used to cancel some skill animations even when no enemy is nearby. 
 
 A **plunge attack** (or assault attack) can be performed by melee classes by pressing the basic attack and class action keys simultaneously while midair. If performed from a high enough altitude, the attack will receive an **elevation bonus**, dealing extra damage and providing extra benefits such as binding enemies (Aegis Fighter) or applying a movement speed down debuff (Heavy Smasher). 
 
-<!-- TODO: List all elevated plunge attack effects? -->
+| Class | Elevation Bonus Effect |
+|-------|------------------------|
+| <ClassIcon id={12} style="background-color: var(--outline-color)" /> | Increase damage of the plunge attack and apply Bind |
+| <ClassIcon id={20} style="background-color: var(--outline-color)" /> | Increase size and damage of the plunge attack, increase stagger effect of the plunge attack's second hit, and apply a Burst Mark |
+| <ClassIcon id={19} style="background-color: var(--outline-color)" /> | Increase damage of the plunge attack, which gains a second, wide-range hit that applies Reduced Movement Speed |
+| <ClassIcon id={7} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack |
 
 <StickyNote type="tip">
     Springboard jumping provides enough height to grant the elevation bonus.
 </StickyNote>
 
-Finally, all classes can utilize **Rebound** (Ukemi) by pressing the dodge key right when you land after getting knocked down. When performed correctly, your character will get up faster than usual.
+Finally, all classes can utilize **Rebound** (Ukemi) by pressing the dodge key right when you land after getting knocked down. When performed correctly, your character will perform a kip-up to get up faster than usual.
 
 <figure>
     <img src="/guides/combat/ukemi by panke.jpg" alt="Explanation of Ukemi from the in-game handbook">
