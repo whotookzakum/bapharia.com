@@ -4,7 +4,7 @@
 // TODO Recommended board quests (in the same map) (panels[0].quest.quest_achievement_condition.map_id)
 // TODO Search quests by description and return boards
 
-import { getText, icons } from "../utils"
+import { getText, icons } from "../../api/utils"
 import boardData from "./bp_api/bno/master_adventure_board.json"
 import boardPanelsData from "./bp_api/bno/master_adventure_board_panel.json"
 import boardQuestsData from "./bp_api/bno/master_adventure_board_quest.json"

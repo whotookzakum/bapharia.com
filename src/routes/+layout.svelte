@@ -6,12 +6,11 @@
     import { page } from "$app/stores";
 
     export let data;
-    $: ({ publisher, lang } = data)
-    $: console.log(lang)
+    $: ({ publisher, lang, availableLangs } = data)
 </script>
 
 <GoogleAnalytics properties={["G-WFYTLGB8B9"]} />
-<Navbar {publisher} {lang} />
+<Navbar currentPublisher={publisher} currentLang={lang} {availableLangs} />
 
 <main id="main" class="layout" tabindex="-1">
     <slot />

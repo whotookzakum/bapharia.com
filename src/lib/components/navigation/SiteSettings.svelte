@@ -6,7 +6,8 @@
     import LangLink from "./LangLink.svelte";
     import { browser } from "$app/environment";
     import { onMount } from "svelte";
-    import { SUPPORTED_PUBLISHERS, SUPPORTED_LANGS } from "$lib/constants";
+    import { SUPPORTED_VERSIONS } from "$lib/constants";
+    import LangLink2 from "./LangLink2.svelte";
 
     // Alternatively, a right side offcanvas could be used for a settings drawer
     // If (open) then clicking an option will not close the modal, as users may like to edit multiple options without having to reopen the modal
@@ -14,6 +15,10 @@
     // TODO: esc to close; allow <Tooltip> to be a <dialog> ?
     // TODO: set and cache userLocale from [[lang]]
     // TODO:
+
+    export let currentPublisher = "";
+    export let currentLang = "";
+    export let availableLangs = [];
 
     let show = false;
     let open = false;
@@ -38,8 +43,8 @@
         window.addEventListener("storage", (event) => {
             if (event.storageArea != localStorage) return;
             if (event.key === "theme-preference") {
-                theme = event.newValue
-                applyTheme(theme)
+                theme = event.newValue;
+                applyTheme(theme);
             }
         });
     });
@@ -59,48 +64,21 @@
         localStorage.setItem("theme-preference", theme);
     }
 
-    const langNames = {
-        en: {
-            href: "/en",
-            name: "English",
-        },
-        ja: {
-            href: "/ja",
-            name: "日本語",
-        },
-        fr: {
-            href: "/fr",
-            name: "Français",
-        },
-        de: {
-            href: "/de",
-            name: "Deutsch",
-        },
-        es: {
-            href: "/es",
-            name: "Español",
-        },
-        pt: {
-            href: "/pt",
-            name: "Português",
-        },
-    };
-
     const publisherNames = {
         bno: {
-            href: "/bno",
+            href: "https://bno.bapharia.com",
             name: "Bandai Namco Online",
         },
         ags: {
-            href: "/ags",
+            href: "https://bapharia.com",
             name: "Amazon Games",
         },
         sg: {
-            href: "/sg",
+            href: "https://sg.bapharia.com",
             name: "Smilegate",
         },
         ct: {
-            href: "/ct",
+            href: "https://ct.bapharia.com",
             name: "Cayenne Tech",
         },
     };
@@ -207,23 +185,21 @@
                     <hr />
                     <div class="grid gap-1 justify-items-start">
                         <span class="mini-header">Publisher</span>
-                        {#each SUPPORTED_PUBLISHERS as pub}
-                            <PublisherLink
-                                href={publisherNames[pub].href}
+                        {#each SUPPORTED_VERSIONS as ver}
+                            <a
+                                href={publisherNames[ver.publisher].href}
                                 class="styled-link static-link whitespace-nowrap"
-                                >{publisherNames[pub].name}</PublisherLink
+                                class:active={ver.publisher ===
+                                    currentPublisher}
+                                >{publisherNames[ver.publisher].name}</a
                             >
                         {/each}
                     </div>
                     <hr />
                     <div class="grid gap-1 justify-items-start">
                         <span class="mini-header">Language</span>
-                        {#each SUPPORTED_LANGS as lang}
-                            <LangLink
-                                href={langNames[lang].href}
-                                class="styled-link static-link whitespace-nowrap"
-                                >{langNames[lang].name}</LangLink
-                            >
+                        {#each availableLangs as lang}
+                            <LangLink2 {lang} {availableLangs} {currentLang} />
                         {/each}
                     </div>
                     <hr />

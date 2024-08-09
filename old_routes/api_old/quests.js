@@ -9,14 +9,14 @@ import craftingRecipesData from "./bp_api/bno/craft.json";
 import craftingRecipeSetsData from "./bp_api/bno/master_craft_recipe_sets.json";
 import warehouseAbilitiesData from "./bp_api/bno/master_warehouse_storing_abilities.json"
 
-import { getText } from '../utils';
-import weapons from "../weapons";
-import items from "../items";
-import stampSets from "../stamps";
-import tokens from "../tokens";
-import gestures from "../emotes";
-import costumes from "../costumes";
-import liquidMemories from "../liquidmemories";
+import { getText } from '../../api/utils';
+import weapons from "../../api/weapons";
+import items from "../../api/items";
+import stampSets from "../../api/stamps";
+import tokens from "../../api/tokens";
+import gestures from "../../api/emotes";
+import costumes from "../../api/costumes";
+import liquidMemories from "../../api/liquidmemories";
 import imagines from "./imagines"
 
 // EQ101_907 is a quest that has multiple conditions; I don't think any have multiple descriptions yet?

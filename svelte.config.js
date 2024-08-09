@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-cloudflare';
 // https://stackoverflow.com/questions/75056422/how-to-use-vitepreprocess-with-global-scss-mixins-in-sveltekit
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
@@ -51,9 +51,9 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$api: path.resolve('.', 'api'),
-			$bp_api: path.resolve('.', 'api/bp_api'),
-			$bp_client: path.resolve('.', 'api/bp_client'),
+			$api: path.resolve('.', '_api'),
+			$bp_api: path.resolve('.', '_api/bp_api'),
+			$bp_client: path.resolve('.', '_api/bp_client'),
 		},
 		prerender: {
 			handleHttpError: "ignore",
@@ -66,7 +66,8 @@ const config = {
 							.replace(`/${SUPPORTED_LANGS[0]}`, "")
 						if (route.length < 1) route = "/"
 						return route
-					}))
+					})),
+			entries: ["/api"]
 		}
 	},
 };

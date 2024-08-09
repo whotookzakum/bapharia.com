@@ -1,12 +1,12 @@
 export const SUPPORTED_VERSIONS = [
-    {
-        publisher: "bno",
-        locales: ["en", "ja"]
-    },
     // {
     //     publisher: "ags",
     //     locales: ["en", "fr", "de", "es", "pt"]
     // },
+    {
+        publisher: "bno",
+        locales: ["en", "ja"]
+    },
     // {
     //     publisher: "sg",
     //     locales: []

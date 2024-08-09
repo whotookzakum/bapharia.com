@@ -11,6 +11,10 @@
 
 	import SiteSettings from "./SiteSettings.svelte";
 
+	export let currentPublisher = "";
+	export let currentLang = "";
+	export let availableLangs = [];
+
 	let isMobileExpanded = false;
 
 	let randomMessage =
@@ -72,7 +76,7 @@
 		{/each}
 		<div class="extras flex items-center">
 			<!-- <TimeInJapan /> -->
-			<SiteSettings />
+			<SiteSettings {currentLang} {currentPublisher} {availableLangs} />
 		</div>
 	</div>
 </nav>
