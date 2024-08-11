@@ -1,365 +1,288 @@
 <script>
-    import Icon from "@iconify/svelte";
-    import StickyNote from "../StickyNote.svelte";
+    import { assetUrl } from "$lib/utils";
 
     const elements = [
         {
-            isOpen: true,
             name: "Fire",
-            desc: "Damage over time",
-            burst: "Small explosion & knockdown",
-            finish: "Large explosion that deals heavy damage",
+            id: 1,
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_1.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1000.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1001.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1002.webp",
             ],
-            effects: {
-                onEnemy: {
-                    level1: "Deals <strong>0.3%</strong> of Max HP as damage every <strong>3</strong> seconds",
-                    level2: "Deals <strong>0.4%</strong> of Max HP as damage every <strong>2</strong> seconds",
-                    level3: "Deals <strong>10%</strong> of Max HP and knocks down enemy",
-                    finish: "Deals <strong>5%/7%/10%/15%/20%</strong> of Max HP as damage",
-                },
-                onPlayer: {
-                    level1: "Deals <strong>2%</strong> of Max HP as damage every <strong>2</strong> seconds",
-                    level2: "Deals <strong>3%</strong> of Max HP as damage every <strong>2</strong> seconds",
-                    level3: "Deals <strong>20%</strong> of Max HP as damage and knocks down player",
-                },
-            },
+            onEnemies: [
+                "Deals <b>0.3%</b> of Max HP as damage every <b>3</b> seconds",
+                "Deals <b>0.4%</b> of Max HP as damage every <b>2</b> seconds",
+                "Deals <b>10%</b> of Max HP and knocks down enemy",
+                "Deals <b>5%/7%/10%/15%/20%</b> of Max HP as damage",
+            ],
+            onPlayers: [
+                "Deals <b>2%</b> of Max HP as damage every <b>2</b> seconds",
+                "Deals <b>3%</b> of Max HP as damage every <b>2</b> seconds",
+                "Deals <b>20%</b> of Max HP as damage and knocks down player",
+            ],
         },
         {
-            isOpen: true,
             name: "Ice",
-            desc: "Reduced movement speed",
-            burst: "Freezes target",
-            finish: "Shatters ice, dealing heavy damage",
+            id: 3,
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_3.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1003.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1004.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1005.webp",
             ],
-            effects: {
-                onEnemy: {
-                    level1: "Reduces movement speed by <strong>20%</strong>",
-                    level2: "Reduces movement speed by <strong>40%</strong>",
-                    level3: "Freezes enemy",
-                    finish: "Deals <strong>1%/3%/5%/7%/10%</strong> of Max HP as damage",
-                },
-                onPlayer: {
-                    level1: "Applies <strong>Movement Speed Down (small)</strong>",
-                    level2: "Applies <strong>Movement Speed Down (medium)</strong>",
-                    level3: "<strong>Freezes</strong> player (can be freed by ally attacks)",
-                },
-            },
+            onEnemies: [
+                "Reduces movement speed by <b>20%</b>",
+                "Reduces movement speed by <b>40%</b>",
+                "<b>Freezes</b> enemy",
+                "Deals <b>6%/9%/13%/19%/25%</b> of Max HP as damage",
+            ],
+            onPlayers: [
+                "Reduces movement speed by <b>20%</b>",
+                "Reduces movement speed by <b>40%</b>",
+                "<b>Freezes</b> player up to 10 seconds (attacks from allies reduce duration)",
+            ],
         },
         {
-            isOpen: true,
             name: "Thunder",
-            desc: "Periodically disrupt actions",
-            burst: "Small explosion & knockdown",
-            finish: "Large explosion that deals heavy damage and Paralyzes target",
+            id: 2,
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_2.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1006.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1007.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1008.webp",
             ],
-            effects: {
-                onEnemy: {
-                    level1: "Disrupt actions at a <strong>20%</strong> chance every <strong>5</strong> seconds",
-                    level2: "Disrupt actions at a <strong>40%</strong> chance every <strong>5</strong> seconds",
-                    level3: "Deals <strong>5%</strong> of Max HP as damage and disrupts actions at an <strong>80%</strong> chance every <strong>3</strong> seconds",
-                    finish: "Deals <strong>5%/6%/8%/11%/15%</strong> of Max HP as damage, and applies <strong>Paralysis</strong> (disrupts actions at a <strong>60%</strong> chance every <strong>4</strong> seconds for <strong>20</strong> seconds",
-                },
-                onPlayer: {
-                    level1: "Periodically disrupts actions at a chance",
-                    level2: "Periodically disrupts actions at a chance",
-                    level3: "Deals <strong>2.5%</strong> of Max HP as damage, knocks down player, and applies <strong>Paralysis</strong>",
-                },
-            },
+            onEnemies: [
+                "Disrupt actions at a <b>20%</b> chance every <b>5</b> seconds",
+                "Disrupt actions at a <b>40%</b> chance every <b>5</b> seconds",
+                "Deals <b>5%</b> of Max HP as damage and disrupts actions at an <b>80%</b> chance every <b>3</b> seconds",
+                "Deals <b>5%/7%/10%/15%/20%</b> of Max HP as damage, and applies <b>Paralysis</b> (disrupts actions at a <b>60%</b> chance every <b>4</b> seconds for <b>20</b> seconds)",
+            ],
+            onPlayers: [
+                "Disrupt actions at a <b>20%</b> chance every <b>3</b> seconds",
+                "Disrupt actions at a <b>40%</b> chance every <b>3</b> seconds",
+                "Deals <b>2.5%</b> of Max HP as damage, knocks down player, and applies <b>Paralysis</b> (disrupts actions at a <b>60%</b> chance every <b>4</b> seconds for <b>20</b> seconds)",
+            ],
         },
         {
-            isOpen: true,
             name: "Earth",
-            desc: "Receive increased damage",
-            burst: "Petrifies target",
-            finish: "Destroys rock, dealing heavy damage",
+            id: 4,
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_4.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1009.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1010.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1011.webp",
             ],
-            effects: {
-                onEnemy: {
-                    level1: "Increases damage received by <strong>10%</strong>",
-                    level2: "Increases damage recived by <strong>20%</strong>",
-                    level3: "<strong>Petrifies</strong> enemy",
-                    finish: "Deals <strong>1%/3%/5%/7%/10%</strong> of Max HP as damage",
-                },
-                onPlayer: {
-                    level1: "Increase damage taken",
-                    level2: "Increase damage taken",
-                    level3: "<strong>Petrifies</strong> player (can be freed by ally attacks)",
-                },
-            },
+            onEnemies: [
+                "Increases damage received by <b>10%</b>",
+                "Increases damage received by <b>20%</b>",
+                "<b>Petrifies</b> enemy",
+                "Deals <b>6%/9%/13%/19%/25%</b> of Max HP as damage",
+            ],
+            onPlayers: [
+                "Increases damage received by <b>10%</b>",
+                "Increases damage received by <b>20%</b>",
+                "<b>Petrifies</b> player up to 10 seconds (attacks from allies reduce duration)",
+            ],
         },
         {
-            isOpen: true,
             name: "Light",
-            desc: "Deal reduced damage",
-            burst: "Small explosion & knockdown",
-            finish: "Large explosion that deals heavy damage and grants HP Regen to nearby players",
+            id: 5,
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_5.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1012.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1013.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1014.webp",
             ],
-            effects: {
-                onEnemy: {
-                    level1: "Reduces damage dealt by <strong>15%</strong>",
-                    level2: "Reduces damage dealt by <strong>30%</strong>",
-                    level3: "Deals <strong>5%</strong> of Max HP as damage",
-                    finish: "Deals <strong>5%/6%/8%/11%/15%</strong> of Max HP as damage and grants HP Regen to nearby players (recover <strong>5%</strong> of Max HP every <strong>3</strong> seconds for <strong>30</strong> seconds)",
-                },
-                onPlayer: {
-                    level1: "Reduces damage dealt by <strong>15%</strong>",
-                    level2: "Reduces damage dealt by <strong>30%</strong>",
-                    level3: "Deals <strong>2.5%</strong> of Max HP as damage, knocks down player, and grants HP Regen to nearby enemies (recover <strong>0.6%</strong> of Max HP every <strong>3</strong> seconds for <strong>30</strong> seconds)",
-                },
-            },
+            onEnemies: [
+                "Reduces damage dealt by <b>15%</b>",
+                "Reduces damage dealt by <b>30%</b>",
+                "Deals <b>5%</b> of Max HP as damage",
+                "Deals <b>5%/7%/10%/15%/20%</b> of Max HP as damage and grants HP Regen to nearby players (recover <b>5%</b> of Max HP every <b>3</b> seconds for <b>30</b> seconds)",
+            ],
+            onPlayers: [
+                "Reduces damage dealt by <b>15%</b>",
+                "Reduces damage dealt by <b>30%</b>",
+                "Deals <b>2.5%</b> of Max HP as damage, knocks down player, and grants HP Regen to nearby enemies (recover <b>0.6%</b> of Max HP every <b>3</b> seconds for <b>30</b> seconds)",
+            ],
         },
         {
-            isOpen: true,
             name: "Dark",
-            desc: "Attacks may miss",
-            burst: "Small explosion & knockdown",
-            finish: "Large explosion that deals heavy damage and inflicts Drained",
+            id: 6,
             images: [
-                "/UI/Icon/Attribute/UI_IconAttribute_6.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1015.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1016.webp",
                 "/UI/Icon/StatusAilmentL/UI_StatusAilmentL_1017.webp",
             ],
-            effects: {
-                onEnemy: {
-                    level1: "Attacks have a <strong>10%</strong> chance to miss",
-                    level2: "Attacks have a <strong>30%</strong> chance to miss",
-                    level3: "Deals <strong>5%</strong> of Max HP as damage",
-                    finish: "Deals <strong>5%/6%/8%/11%/15%</strong> of Max HP as damage and applies HP Leak (when hit, the player regains <strong>5%</strong> of damage dealt as HP, minimum 1% of Max HP, for <strong>30</strong> seconds)",
-                },
-                onPlayer: {
-                    level1: "Attacks have a <strong>10%</strong> chance to miss",
-                    level2: "Attacks have a <strong>30%</strong> chance to miss",
-                    level3: "Deals <strong>2.5%</strong> of Max HP as damage, knocks down player, and applies HP Leak (when hit, the enemy regains <strong>?%</strong> of damage dealt as HP, minimum 1% of Max HP, for <strong>30</strong> seconds)",
-                },
-            },
+            onEnemies: [
+                "Attacks have a <b>10%</b> chance to miss",
+                "Attacks have a <b>30%</b> chance to miss",
+                "Deals <b>5%</b> of Max HP as damage",
+                "Deals <b>5%/7%/10%/15%/20%</b> of Max HP as damage and applies HP Leak (when hit, the player regains <b>5%</b> of damage dealt as HP, minimum 1% of Max HP, for <b>30</b> seconds)",
+            ],
+            onPlayers: [
+                "Attacks have a <b>10%</b> chance to miss",
+                "Attacks have a <b>30%</b> chance to miss",
+                "Deals <b>2.5%</b> of Max HP as damage, knocks down player, and applies HP Leak (when hit, the enemy regains <b>5%</b> of damage dealt as HP, minimum 1% of Max HP, for <b>30</b> seconds)",
+            ],
         },
     ];
+
+    let selectedIndex = 0;
 </script>
 
-<div class="grid gap-4">
-    {#each elements as element}
-        <details bind:open={element.isOpen} class="box {element.name}">
-            <summary class="flex gap-2">
-                <img src={element.images[0]} alt="" width="36" height="36" />
-                <span>{element.name}</span>
-                <Icon
-                    icon={element.isOpen
-                        ? "mdi:chevron-up"
-                        : "mdi:chevron-down"}
-                    width="28"
-                    style="margin-left: auto;"
-                />
-            </summary>
-            <div class="details-content grid gap-4">
-                <div class="grid gap-4">
-                    <p class="on-header">On Enemies</p>
-                    <ol>
-                        <li class="flex gap-2">
-                            <img
-                                src={element.images[1]}
-                                alt=""
-                                width="33"
-                                height="37"
-                            />
-                            <p>
-                                <span>Lv. 1</span>
-                                {@html element.effects.onEnemy.level1}
-                            </p>
-                        </li>
-                        <li class="flex gap-2">
-                            <img
-                                src={element.images[2]}
-                                alt=""
-                                width="33"
-                                height="37"
-                            />
-                            <p>
-                                <span>Lv. 2</span>
-                                {@html element.effects.onEnemy.level2}
-                            </p>
-                        </li>
-                        <li class="flex gap-2">
-                            <img
-                                src={element.images[3]}
-                                alt=""
-                                width="33"
-                                height="37"
-                            />
-                            <p>
-                                <span>Lv. 3</span>
-                                {@html element.effects.onEnemy.level3}
-                            </p>
-                        </li>
-                        <li class="flex gap-2">
-                            <p style="margin-left: 41px">
-                                <span style:color="#afb1ff">Burst Finish</span>
-                                {@html element.effects.onEnemy.finish}
-                            </p>
-                        </li>
-                    </ol>
-                </div>
-                <div class="grid gap-4">
-                    <p class="on-header">On Players</p>
-                    <ol>
-                        <li class="flex gap-2">
-                            <img
-                                src={element.images[1]}
-                                alt=""
-                                width="33"
-                                height="37"
-                            />
-                            <p>
-                                <span>Lv. 1</span>
-                                {@html element.effects.onPlayer.level1}
-                            </p>
-                        </li>
-                        <li class="flex gap-2">
-                            <img
-                                src={element.images[2]}
-                                alt=""
-                                width="33"
-                                height="37"
-                            />
-                            <p>
-                                <span>Lv. 2</span>
-                                {@html element.effects.onPlayer.level2}
-                            </p>
-                        </li>
-                        <li class="flex gap-2">
-                            <img
-                                src={element.images[3]}
-                                alt=""
-                                width="33"
-                                height="37"
-                            />
-                            <p>
-                                <span>Lv. 3</span>
-                                {@html element.effects.onPlayer.level3}
-                            </p>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </details>
+<div class="wrapper surface1 rounded-2xl overflow-clip relative">
+    {#each elements as _, index}
+        <div
+            class="colored-bg element-{index + 1}"
+            class:opacity-0={selectedIndex !== index}
+        />
     {/each}
+
+    <div class="p-4 flex gap-2">
+        {#each elements as { id, name }, index}
+            <label
+                class="flex select-none items-center gap-2 p-2 rounded-lg"
+                class:active={selectedIndex === index}
+            >
+                <input
+                    type="radio"
+                    class="visually-hidden"
+                    value={index}
+                    bind:group={selectedIndex}
+                />
+                <img
+                    src={assetUrl(
+                        `/UI/Icon/Attribute/UI_IconAttribute_${id}.webp`,
+                    )}
+                    alt=""
+                    width="32"
+                    height="32"
+                />
+                <span
+                    class="mini-header element-{index + 1}"
+                    style="color: hsl(var(--h), 50%, 62%);">{name}</span
+                >
+            </label>
+        {/each}
+    </div>
+    <div class="p-4 pt-0">
+        <hr class="w-full mb-4 element-{selectedIndex + 1}" />
+        <table style="vertical-align: middle;">
+            <thead>
+                <tr>
+                    <th>Effect</th>
+                    <th>On enemies</th>
+                    <th>On players</th>
+                </tr>
+            </thead>
+            <tbody>
+                {#each elements[selectedIndex].onPlayers as effect, index}
+                    <tr>
+                        <th>
+                            <div class="whitespace-nowrap items-center flex gap-2">
+                                <img
+                                    src={assetUrl(
+                                        elements[selectedIndex].images[index],
+                                    )}
+                                    alt=""
+                                    style="max-width: unset"
+                                    width="32.5"
+                                    height="37.5"
+                                />
+                                <span>Lv. {index + 1}</span>
+                            </div>
+                        </th>
+                        <td>
+                            <p>
+                                {@html elements[selectedIndex].onEnemies[index]}
+                            </p>
+                        </td>
+                        <td>
+                            <p>
+                                {@html effect}
+                            </p>
+                        </td>
+                    </tr>
+                {/each}
+                <tr>
+                    <th style:color="rgb(175, 177, 255)">Burst&nbsp;Finish</th>
+                    <td>
+                        <p>{@html elements[selectedIndex].onEnemies[3]}</p>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <style lang="scss">
-    .flex {
-        align-items: start;
+    td,
+    th {
+        padding-inline: 1rem;
     }
 
-    p {
-        line-height: 1.7 !important;
-        display: inline;
-        font-size: var(--step-0);
-        margin: 0;
-        padding: 0 !important;
-        max-inline-size: none;
-
-        span {
-            display: block;
-            color: var(--text2);
-            font-size: var(--step--1);
-            text-transform: uppercase;
-        }
-    }
-
-    details {
-        padding: 0;
-
-        summary,
-        .details-content {
-            padding: 1rem;
-        }
-    }
-
-    summary {
-        color: hsl(var(--h), 50%, 62%);
+    table {
         font-size: var(--step-1);
-        font-weight: bold;
-        align-items: center !important;
-        background: hsla(var(--h), 80%, 17%, 0.2);
-        max-inline-size: none;
     }
 
-    .on-header {
-        font-weight: 600;
-        color: var(--text2);
-        text-transform: uppercase;
+    .wrapper {
+        z-index: 1;
+        box-shadow:
+            0 8px 16px rgba(0, 0, 0, 0.2),
+            0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
-    .details-content {
-        border-top: 1px solid hsl(var(--h), 71%, 68%);
-        margin: 0;
-        grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
-        row-gap: 2rem;
-        align-items: start;
+    .colored-bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
         background: linear-gradient(
             to bottom,
-            hsla(var(--h), 71%, 18%, 0.1) 0%,
-            var(--surface1) 19%
+            hsla(var(--h), 71%, 18%, 0.2) 0%,
+            var(--surface1) 100%
         );
+        transition: all 0.2s var(--timing1);
     }
 
-    ol {
-        padding: 0;
+    td p {
+        min-width: 26ch;
         margin: 0;
-        list-style-type: none;
-        max-inline-size: none;
-
-        li {
-            max-inline-size: none;
-        }
     }
 
-    .Fire {
+    hr {
+        transition: all 0.2s var(--timing1);
+        height: 1px;
+        border: none;
+        background: hsl(var(--h), 71%, 38%);
+    }
+
+    label:hover {
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    .active {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .element-1 {
         --h: 14;
     }
 
-    .Ice {
+    .element-2 {
         --h: 194;
     }
 
-    .Thunder {
+    .element-3 {
         --h: 180;
     }
 
-    .Earth {
+    .element-4 {
         --h: 30;
     }
 
-    .Light {
+    .element-5 {
         --h: 60;
     }
 
-    .Dark {
+    .element-6 {
         --h: 260;
     }
 </style>

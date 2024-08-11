@@ -44,6 +44,7 @@ Stamina is consumed when performing certain actions. Certain Skills and Imagine 
 
 <StaminaConsumptionTable />
 
+### Dodge & Perfect Dodge
 Dodging provides a brief window of invulnerability, and can be used to cancel some player animations. To perform a **dodge attack**, press the basic attack and class action keys simultaneously after dodging. 
 
 <StickyNote type="note">
@@ -62,10 +63,12 @@ If an enemy hits you during dodge invulnerability, you will perform a **perfect 
 | <ClassIcon id={11} style="background-color: var(--outline-color)" /> | Increase damage and size of the dodge attack and recover EP Gauge |
 | <ClassIcon id={7} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack |
 
+### Springboard Jump
 A **springboard jump** can be performed while pressing the jump key while in the air. When performed next to an enemy, you will jump off the enemy for added height. Melee classes will jump straight up, and ranged classes will jump backwards. The enemy will be staggered and aggro the player. 
 
 Jumping and Springboard jumping can be used to cancel some skill animations even when no enemy is nearby. 
 
+### Plunge Attack & Elevation Bonus
 A **plunge attack** (or assault attack) can be performed by melee classes by pressing the basic attack and class action keys simultaneously while midair. If performed from a high enough altitude, the attack will receive an **elevation bonus**, dealing extra damage and providing extra benefits such as binding enemies (Aegis Fighter) or applying a movement speed down debuff (Heavy Smasher). 
 
 | Class | Elevation Bonus Effect |
@@ -79,6 +82,7 @@ A **plunge attack** (or assault attack) can be performed by melee classes by pre
     Springboard jumping provides enough height to grant the elevation bonus.
 </StickyNote>
 
+### Rebound
 Finally, all classes can utilize **Rebound** (Ukemi) by pressing the dodge key right when you land after getting knocked down. When performed correctly, your character will perform a kip-up to get up faster than usual.
 
 <figure>
@@ -95,26 +99,17 @@ The **level difference** between a player and an enemy influences how much **dam
 
 <LevelDifferenceTable />
 
-## Battle Score
-Battle Score is the rating of a player's equipment. While it doesn't directly convey how powerful a player is, it represents the level of equipment a player is using.
-
-| Equipment           | Post-Limit Break Update                       | Pre-Limit Break Update |
-|---------------------|-----------------------------------------------|------------------------|
-| **Weapon**          | (60 × Item Level) + (160 × Limit Break Level) | 50 × Item Level        |
-| **Battle Imagine**  | -                                             | 10 × Item Level        |
-| **Enhance Imagine** | (8 × Item Level) + (16 × Limit Break Level)   | 6 × Item Level         |
-
-Level and Battle Score are common requirements to entering [Missions](/guides/missions).
-
 ### Level Sync
-If an item's max level exceeds your class level, the item will be level synced down, **reducing all of its stats besides Vitality** to match your class level.
+All equipment can be worn at any level, however if an item's max level exceeds your class level the item will be level synced down, reducing its stats (besides VIT). Passive lines, plugs, and Battle Imagine skills are unaffected by Level Sync.
+
 Since VIT is not level synced, you will end up with higher HP and defense than usual. 
 
 Level syncs also exist in dungeons, forcefully adjusting all high level players' stats to an appropriate level for the content.
 
-<StickyNote type="tip">
-    Ability Plugs, Abilities (passive skills, Imagine passives), Special Effects (weapon lines), and Skills are not affected by level syncs.
-</StickyNote>
+## Battle Score
+Battle Score is the rating of a player's equipment. While it doesn't directly convey how powerful a player is, it represents the level of equipment a player is using.
+
+Level and Battle Score are common requirements to entering [Missions](/guides/missions).
 
 ## Adventurer Rank
 Raising your Adventurer Rank allows you to accept new quests (including continuing the main story quest), raises your maximum level cap, and provides some goodies. To raise your Adventurer Rank, you need to complete a Rank Up [Adventure Board](/guides/adventure-boards). Some ranks also require you to pass an exam (speak to NPC Millie at the Reclamation Bureau).

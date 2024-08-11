@@ -10,7 +10,7 @@
     let text = CLASSES.find(obj => obj.id === id).name
 </script>
 
-<Tooltip placement="top" inline tooltipStyle="width: max-content">
+<Tooltip placement="top" inline tooltipStyle="width: max-content" tooltipAriaHidden="false">
     <IconMask
         src="/UI/Icon/Class/UI_IconClass_{id.toString().padStart(2, '0')}.webp"
         {width}

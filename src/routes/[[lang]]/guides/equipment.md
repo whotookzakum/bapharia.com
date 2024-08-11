@@ -22,7 +22,7 @@ thumbImg: "/guides/weapons/thumb.webp"
 /> -->
 
 ## Overview
-Equipment in BLUE PROTOCOL comes in three distinct forms—weapons, Battle Imagine (skills), and Enhance Imagine (armor). All items can be equipped at any level but will <b style="color: var(--color-levelsync)">Level Sync</b> if your class level is lower than the item level, reducing its stats. Passive lines and Battle Imagine skills are unaffected by Level Sync.
+Equipment in BLUE PROTOCOL comes in three distinct forms—weapons, Battle Imagine (skills), and Enhance Imagine (armor). All items can be equipped at any level but will <b style="color: var(--color-levelsync)">Level Sync</b> if your class level is lower than the item level, reducing its stats (more details [here](/guides/stats#level-sync)).
 
 ### Limit Break
 Limit Breaking equipment involves consuming duplicate copies of an item for a chance to enhance its stats. The higher the Limit Break level, the more materials needed and the lower the chance. Failing a Limit Break attempt **will not consume the duplicate copies of the item**, but will consume Luno and Fusion Materia (a generic material for Limit Breaking).
@@ -132,17 +132,26 @@ At max Limit Break, weapons gain a Limit Break Effect which is simply an attack 
 Weapon **Battle Score** can be represented as the following formula:
 
 <Formula
-    formula={`
-        \\text{Weapon Battle Score} = 
-        (60 \\times \\text{Item Level}) + 
-        (120 \\times \\text{Limit Break Level}) + 
-        \\text{Battle Score Modifier} + 
-        (\\text{Rarity Coefficient} \\times \\text{Special Effect I Tier}) + 
-        (\\text{Rarity Coefficient} \\times \\text{Special Effect II Tier}) + 
-        (200 \\times \\text{Limit Break Effect Tier}) + 
-        \\text{Plug Battle Score}
-    `}
-    demo="WeaponBattleScore"
+    name="weaponBattleScore"
+    tabs={[{
+        label: "Formula",
+        value: "formula",
+        formula: `
+            \\text{Weapon Battle Score} = 
+            (60 \\times \\text{Item Level}) + 
+            (120 \\times \\text{Limit Break Level}) + 
+            \\text{Battle Score Modifier} + 
+            (\\text{Rarity Coefficient} \\times \\text{Special Effect I Tier}) + 
+            (\\text{Rarity Coefficient} \\times \\text{Special Effect II Tier}) + 
+            (200 \\times \\text{Limit Break Effect Tier}) + 
+            \\text{Plug Battle Score}
+        `
+    },
+    {
+        label: "Try it",
+        value: "try-it",
+        component: "WeaponBattleScore"
+    }]}
 />
 
 <details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
