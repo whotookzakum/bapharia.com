@@ -93,12 +93,18 @@
                     data: coords(0.04)
                         .map(([x, y]) => y / 2)
                         .filter((val) => val >= -20),
-                    backgroundColor: coords(0.04).map(([x, y]) =>
-                        [-40.0].some((val) => val == y) ? "limegreen" : `limegreen`, // gray : limegreen
+                    backgroundColor: coords(0.04).map(
+                        ([x, y]) =>
+                            [-40.0].some((val) => val == y)
+                                ? "limegreen"
+                                : `limegreen`, // gray : limegreen
                     ),
                     hoverBackgroundColor: `limegreen`, // 0.5 or 1 alpha
-                    borderColor: coords(0.04).map(([x, y]) =>
-                        [-40.0].some((val) => val == y) ? "limegreen" : `limegreen`, // gray : limegreen
+                    borderColor: coords(0.04).map(
+                        ([x, y]) =>
+                            [-40.0].some((val) => val == y)
+                                ? "limegreen"
+                                : `limegreen`, // gray : limegreen
                     ),
                     hoverBorderColor: `limegreen`,
                     pointRadius: pointRadii(0.04),
@@ -142,7 +148,7 @@
                     align: "start",
                     title: {
                         display: true,
-                        text: "Elemental Resistance's effect on damage",
+                        text: "Elemental Resistance effects on damage and elemental charge",
                         position: "start",
                     },
                     position: "chartArea",
@@ -172,7 +178,8 @@
                                 if (x === 50)
                                     return "Elemental-type enemy's base resistance";
                             } else if (
-                                ctx.dataset.label === "Elemental Charge (non-resistant)"
+                                ctx.dataset.label ===
+                                "Elemental Charge (non-resistant)"
                             ) {
                                 if (x === -12.5)
                                     return "Max accumulation increase against non-resistant enemy";
@@ -180,7 +187,8 @@
                                 if (x === 10)
                                     return "Max accumulation decrease against non-resistant enemy";
                             } else if (
-                                ctx.dataset.label === "Elemental Charge (resistant)"
+                                ctx.dataset.label ===
+                                "Elemental Charge (resistant)"
                             ) {
                                 if (x === -12.5)
                                     return "Max accumulation increase against resistant enemy";
@@ -194,7 +202,10 @@
                             ctxs.map((ctx) => `${ctx.parsed.x} resistance`),
                         label: (ctx) => {
                             const { y } = ctx.parsed;
-                            if (ctx.dataset.label.includes("Elemental Charge")) return y >= 0 ? `+${y}% elemental charge accumulation` : `${y}% elemental charge accumulation`;
+                            if (ctx.dataset.label.includes("Elemental Charge"))
+                                return y >= 0
+                                    ? `+${y}% elemental charge accumulation`
+                                    : `${y}% elemental charge accumulation`;
                             return y >= 0 ? `+${y}% damage` : `${y}% damage`;
                         },
                     },

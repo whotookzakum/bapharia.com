@@ -1,7 +1,7 @@
 ---
 title: 'Elements'
 author: 'Zakum'
-date: '2024-8-9'
+date: '2024-8-12'
 category: 'Game Systems'
 caption: 'Explanation of the elemental system and a list of elemental effects.'
 bannerImg: "/guides/elements/banner.jpg"
@@ -32,9 +32,7 @@ Filling the gauge to level 1 or 2 will apply an **Elemental Status Ailment** on 
     Named Enemies and Raid Bosses take 75% reduced damage from Fire Lv. 1 and Lv. 2.
 </small>
 
-<StickyNote type="tip">
-    Fire: Level 1 and 2 burn damage is affected by fire resistance at the time that the debuff was applied. After the burn is applied, the damage will not change even if the enemy's fire resistance changes. Aim to apply fire resistance down debuffs before the gauge reaches Level 1 or Level 2.
-</StickyNote>
+<!-- Aug 10 2024: Fire Lv1 Lv2 DoT damage is no longer affected by elemental resistance at the time of applying the debuff. Tested on War God's Training Ground with Hypnoblast and Little Brawler having no effect, only Dust Force because it's built in to the skill. -->
 
 When raising the gauge level, the previous status ailment is replaced by the new one. The active element can change at any point up until level 3, however the status ailment can only change after reaching the next level, i.e. Fire Lv. 1 → Earth Lv. 2.
 
@@ -50,29 +48,20 @@ If the gauge is not sufficiently charged within a certain amount of time, it wil
 ### Elemental Charge Accumulation
 Elemental Charge accumulation is influenced by your weapon element, skill element, elemental buffs, and the enemy's elemental resistance. The weapon stat "Elemental Attack" does not influence elemental charge. Elemental buffs are additive.
 
+<!-- Action refers to skill; not sure how Base Multiplier can be found, probably something to do with the weapon? -->
 <Formula
     name="chargeAccumFormula"
-    style="--slider-max-width: 360px"
-    tabs={[{
-        label: "Non-elemental Attack",
-        value: "non-elemental",
-        formula: `
-            \\text{Elemental Charge Accumulation} = 
-            (7 \\times \\text{Base Multiplier}) 
-            \\times \\text{Elemental Resistance}
-            \\times \\text{Elemental Buffs}
-        `
-    },
-    {
-        label: "Elemental Attack",
-        value: "elemental",
-        formula: `
-            \\text{Elemental Charge Accumulation} = 
-            (7 \\times \\text{Base Multiplier} \\times 0.3 \\times \\text{Attack's Elemental Charge}) 
-            \\times \\text{Elemental Resistance}
-            \\times \\text{Elemental Buffs}
-        `
-    }]}
+    style="--slider-max-width: 320px"
+    formula={`
+        \\text{If elemental skill: } Scale = 0.3\\\\ \\text{If non-elemental skill: } Scale = 1
+        \\\\ \\text{}
+        \\\\
+        \\text{Weapon Element Charge} = 
+        (7 \\times \\text{Skill Damage} \\times Scale) \\times \\text{Weapon Element Resistance} \\times \\text{Weapon Element Buffs}
+        \\\\
+        \\text{Skill Element Charge} = \\text{Skill Elemental Charge} \\times \\text{Skill Element Resistance} \\times \\text{Skill Element Buffs}
+    `}
+    footnote={`Non-elemental skills have an elemental charge of 0, so you can ignore the second formula.<br>The formula for "Elemental Resistance" is in the <a href='/guides/elements#elemental-charge-accumulation'>following section</a>.`}
 />
 
 <StickyNote type="note">
@@ -154,42 +143,34 @@ After Burst Bonus Time ends, a **Burst Finish** will occur, dealing damage based
 ## Elemental Resistance
 Players and enemies both have elemental resistance values for each element, influencing damage taken and elemental charge buildup. Negative resistance values indicate that the target is weak to that element. 
 
+<!-- ELEMENT_DAMAGE_SCALE_WEAPON_COEFFICIENT, ELEMENT_DAMAGE_SCALE_ATTACKACTION_COEFFICIENT, ELEMENT_ACCUM_SCALE_WEAPON_COEFFICIENT, ELEMENT_ACCUM_SCALE_ATTACKACTION_COEFFICIENT -->
+
 <Formula
     name="eleResistDmg"
     tabs={[
         {
             label: "Visualize",
             value: "graph",
-            component: "EleResistChart"
+            component: "EleResistChart",
+            footnote: "For simplicity, this graph assumes that weapon and skill element are matching. See formula for weapon and skill factors.<br>The dashed lines are theoretical and need testing."
         },
         {   
             label: "Formula",
             value: "formula",
             formula: `
-                \\text{Base Elemental Resistance} \\leq 0:
+                \\text{If base Elemental Resistance} \\leq 0 \\text{: } Coefficient = 0.04
                 \\\\
-                \\text{Damage Multiplier} = 1 - (0.04 \\times \\text{Elemental Resistance})
-                \\\\
-                \\text{Elemental Charge Multiplier} = 1 - (0.04 \\times \\text{Elemental Resistance} \\div 2)
+                \\text{If base Elemental Resistance} \\gt 0 \\text{: } Coefficient = 0.008
                 \\\\ \\text{}
                 \\\\
-                \\text{Base Elemental Resistance} > 0:
+                \\text{Damage Multiplier} = 1 - (0.3 \\times \\text{Weapon Element Resistance} \\times \\text{Weapon Element } Coefficient) - (0.7 \\times \\text{Skill Element Resistance} \\times \\text{Skill Element } Coefficient)
                 \\\\
-                \\text{Damage Multiplier} = 1 - (0.008 \\times \\text{Elemental Resistance})
-                \\\\
-                \\text{Elemental Charge Multiplier} = 1 - (0.008 \\times \\text{Elemental Resistance} \\div 2)
-            `
+                \\text{Elemental Charge Multiplier} = 1 - (\\text{Elemental Resistance} \\times \\text{Element } Coefficient \\div 2)
+            `,
+            footnote: "If weapon and skill element match, you can simplify: <b>Damage Multiplier = 1 - (Elemental Resistance &times; <i>Coefficient</i>)</b><br>For Elemental Charge, combine with the <a href='/guides/elements#elemental-charge-accumulation'>Elemental Charge Accumulation formula</a> in the \"Elemental Resistance\" slot."
         }
     ]}
 />
-
-<small class="mt-4 block accent1">
-    Base Elemental Resistance refers to the target's Elemental Resistance before any buffs or debuffs are applied.<br>
-    Debuffs that reduce Elemental Resistance are additive to the target's elemental resistance stat.<br>
-    <!-- Trinity Shot (-5) + Weakness element (-5) = -10 resistance -->
-    The effect on Elemental Charge accumulation is half of that on damage, i.e. +20% damage is +10% elemental charge.<br>
-    The dashed lines are theoretical and need testing.
-</small>
 
 Elemental Resistance debuffs lose 80% of their potency against a target's resistant element (notice in the formula above that the coefficient gets reduced to 1/5—from 0.04 to 0.008—when the enemy is resistant to the element). 
 
@@ -206,28 +187,11 @@ For example, on an enemy that is weak to fire, using Spell Caster's Trinity Shot
 </StickyNote>
 
 ## Weapon-Skill Interaction
-Skill element and weapon element **both** factor into your damage in regards to elemental weaknesses. In other words, on an enemy that is weak against fire, you will do more damage using a fire skill + fire weapon than a fire skill + ice weapon. The skill will retain its element (fire) even if equipped with a different element weapon (ice).
+Skill and weapon elements both factor into your damage through Elemental Resistances. Elemental skills will retain their element regardless of your weapon element. Non-elemental skills will take on the element of the weapon. Pretty much every weapon in the game has an element besides the starter weapon.
 
-If the weapon and skill **elements match**, the weapon's Elemental Attack stat is added to your attack when calculating damage. **Non-elemental skills** will always get this bonus because they **inherit the weapon element**.
+**If the weapon and skill elements match**, the weapon's Elemental Attack stat is added to your attack when calculating damage. **Non-elemental skills will always get this bonus because they inherit the weapon element.** 
+<!-- This is effectively a buff to non-elemental skills to make up for their elemental counterparts building more charge. Of course, elemental skills that match the weapon element get the best of both worlds. -->
 
-Most classes have a set of non-elemental skills if they wish to use their weapon's element.
-
-<StickyNote type="warning">
-    Spell Caster's tactical skills are almost entirely elemental, thus they may not be able to utilize certain elements effectively. 
-</StickyNote>
-
-If the weapon and skill **elements do not match**, damage from resistance is calculated at a **30/70 ratio of weapon/skill**. In other words, you may only get a portion of the damage increase/decrease mentioned in the [Elemental Resistance section](/guides/combat#elemental-resistance) based on which elements you use. Additionally, Elemental Charge is accumulated for both elements.
-
-<details>
-    <summary style="color: purple">Formula Examples</summary>
-    <p class="box">
-        Enemy resistant to Fire, not resistant to Ice; using Fire Weapon and Ice Skill.<br>
-        <code style="color:purple">Fire Weapon (0.8 damage) × (0.3 ratio) + Ice Skill (1.0 damage) × (0.7 ratio) = 0.94</code>
-    </p>
-    <p class="box">
-        Enemy weak to Ice, not resistant to Fire; debuffed to increase damage; using Fire Weapon and Ice Skill<br>
-        <code style="color:purple">Fire Weapon (1.2 damage) × (0.3 ratio) + Ice Skill (1.5 damage) × (0.7 ratio) = 1.41</code>
-    </p>
-</details>
+**If the weapon and skill elements do not match**, the Elemental Resistance multiplier for damage is calculated at a (weapon) 3 : 7 (skill) ratio. Elemental Charge is accumulated for both elements.
 
 <EleResistDamageTable />

@@ -7,13 +7,14 @@
     export let formula = "";
     export let tabs = [];
     export let inline = false;
-    export let name = ""
+    export let name = "";
+    export let footnote = "";
 
     let viewMode = tabs[0]?.value;
 
     const components = {
         WeaponBattleScore,
-        EleResistChart
+        EleResistChart,
     };
 </script>
 
@@ -40,11 +41,29 @@
                 {:else}
                     {@html display(tab.formula, { displayMode: true })}
                 {/if}
+
+                {#if tab.footnote}
+                    <p
+                        class="accent1"
+                        style="font-size: var(--step--1); margin-block: 1rem 0; line-height: 1.4; max-inline-size: none;"
+                    >
+                        {@html tab.footnote}
+                    </p>
+                {/if}
             {/if}
         {/each}
     {:else if inline}
         {@html math(formula)}
     {:else}
         {@html display(formula, { displayMode: true })}
+    {/if}
+
+    {#if footnote}
+        <p
+            class="accent1"
+            style="font-size: var(--step--1); margin-block: 1rem 0; line-height: 1.4; max-inline-size: none;"
+        >
+            {@html footnote}
+        </p>
     {/if}
 </svelte:element>
