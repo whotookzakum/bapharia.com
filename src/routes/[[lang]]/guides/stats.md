@@ -60,7 +60,7 @@ If an enemy hits you during dodge invulnerability, you will perform a **perfect 
 | <ClassIcon id={7} style="background-color: var(--outline-color)" /> | Increase damage of the dodge attack |
 
 ### Springboard Jump
-A **springboard jump** can be performed while pressing the jump key while in the air. When performed next to an enemy, you will jump off the enemy for added height. Melee classes will jump straight up, and ranged classes will jump backwards. The enemy will be staggered and aggro the player. 
+A **springboard jump** can be performed while pressing the jump key while in the air. When performed next to an enemy, you will jump off the enemy for added height. Melee classes will jump straight up, and ranged classes will jump backwards. The enemy may stagger/flinch and aggro the player. 
 
 Jumping and Springboard jumping can be used to cancel some skill animations even when no enemy is nearby. 
 

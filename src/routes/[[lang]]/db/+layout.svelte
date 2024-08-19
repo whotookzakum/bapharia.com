@@ -9,6 +9,7 @@
     import isEqual from "lodash/isEqual";
     import Skill from "$lib/components/Skill";
     import { assetUrl } from "$lib/utils";
+    import IconMask from "$lib/components/IconMask.svelte";
 
     export let data;
     // TODO save and cache preferences: filters
@@ -346,7 +347,11 @@
                         if (a[1] > b[1]) return 1;
                         return 0;
                     }, ) as [type, text]}
-                    <Tooltip placement="top" tooltipStyle="width: max-content">
+                    <Tooltip
+                        placement="top"
+                        tooltipStyle="width: max-content"
+                        tooltipAriaHidden="true"
+                    >
                         <label class="nav-button">
                             <input
                                 type="checkbox"
@@ -357,17 +362,13 @@
                                 on:click={(e) =>
                                     updateFilters(e, "Class", type)}
                             />
-                            <span class="visually-hidden">{text}</span>
-                            <span
-                                class="masked"
-                                aria-hidden="true"
-                                style:mask-image="url(${assetUrl(
-                                    `/UI/Icon/Class/UI_IconClass_${type.padStart(
-                                        2,
-                                        "0",
-                                    )}.webp`,
-                                )})"
+                            <IconMask
+                                src="/UI/Icon/Class/UI_IconClass_{type.padStart(
+                                    2,
+                                    '0',
+                                )}.webp"
                             />
+                            <span class="visually-hidden">{text}</span>
                         </label>
                         <svelte:fragment slot="tooltip">{text}</svelte:fragment>
                     </Tooltip>
@@ -394,18 +395,13 @@
                             />
                             <span class="visually-hidden">{text}</span>
                             {#if type === "0"}
-                                <span
-                                    class="masked"
-                                    style:mask-image="url({assetUrl(
-                                        `/UI/Icon/Attribute/UI_IconAttribute_Empty.webp`,
-                                    )})"
+                                <IconMask
+                                    src="/UI/Icon/Attribute/UI_IconAttribute_Empty.webp"
                                 />
                             {:else}
-                                <span
-                                    class="masked"
-                                    style:mask-image="url({assetUrl(
-                                        `/images/elements/UI_IconAttribute_${type}.webp`,
-                                    )})"
+                                <IconMask
+                                    src="/images/elements/UI_IconAttribute_{type}.png"
+                                    localAsset
                                 />
                             {/if}
                         </label>
@@ -520,7 +516,9 @@
                 {:else}
                     <img
                         src={item.icon ??
-                            assetUrl("/UI/Icon/Item/UI_Icon_UnidentifiedItem.webp")}
+                            assetUrl(
+                                "/UI/Icon/Item/UI_Icon_UnidentifiedItem.webp",
+                            )}
                         alt=""
                         width="64"
                         height="64"
@@ -639,19 +637,5 @@
     .result-item {
         content-visibility: auto;
         width: 100%;
-    }
-
-    .masked {
-        width: 32px;
-        height: 32px;
-        display: block;
-        background-color: var(--text2);
-        mask-size: contain;
-        -webkit-mask-size: contain;
-        transition: background-color 0.15s var(--timing1);
-    }
-
-    input:checked ~ .masked {
-        background-color: var(--accent1) !important;
     }
 </style>

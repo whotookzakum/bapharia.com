@@ -1,7 +1,7 @@
 ---
 title: 'Microtransactions'
 author: "Zakum"
-date: '2023-6-11'
+date: '2024-8-18'
 category: 'Game Systems'
 caption: "About features that are available when spending real-life money."
 bannerImg: "/guides/microtransactions/banner.webp"
@@ -10,19 +10,24 @@ thumbImg: "/guides/microtransactions/thumb.webp"
 
 <script>
     import StickyNote from "$lib/components/StickyNote.svelte";
-    
 </script>
 
 <StickyNote type="warning">
-    The following guide follows the Japanese version of BLUE PROTOCOL published by Bandai Namco, and contents may change.
+    The following guide follows the Japanese version of BLUE PROTOCOL published by Bandai Namco Online. Contents may differ for other regions.
 </StickyNote>
 
-BLUE PROTOCOL's monetization scheme is intended to not provide any "pay-to-win" advantage, but rather players can pay for convenience and cosmetics. Related aspects include Rose Orbs, Gacha, Season Passes, and BP Points.
+BLUE PROTOCOL's monetization scheme is intended to not provide any "pay-to-win" advantage, but rather pay-for-convenience and cosmetics. All Microtransaction shops are in the Regnas Store in the command menu.
 
 ## Rose Orbs
-Rose orbs are the paid currency in BLUE PROTOCOL. There are **Paid Rose Orbs** and **Free Rose Orbs**--at the time of writing, there doesn't seem to be a restriction on what can be purchased with either version, so for now we can assume that the free version can purchase anything that the paid version can.
+Rose Orbs are a currency in BLUE PROTOCOL, separated into **Paid Rose Orbs** and **Free Rose Orbs**. Some things can only be purchased with Paid Rose Orbs, such as Season Passes. 
 
-**Rose Orbs expire in 5 months** from the month you purchase them, on the last day of the month. For example, if you buy them in June, they will expire on October 31st.
+Paid Rose Orbs can be purchased with common payment methods such as Visa, Mastercard, WebMoney, and Amazon Pay. The shop occasionally has packs with cheaper orbs or bonus cosmetics and emotes.
+
+Free Rose Orbs can be obtained through events, login bonuses, Season Pass rewards, and more.
+
+<StickyNote type="warning">
+    <b>Rose Orbs expire in 5 months</b> from the month you obtain them, on the last day of the month. If you buy orbs in June, they will be deleted on October 31st. This is due to certain Japanese laws<sup><a href="https://monolith.law/en/general-corporate/game-regulation" target="_blank" rel="noopener nofollow noreferrer">1</a> <a href="https://www.japaneselawtranslation.go.jp/ja/laws/view/4477" target="_blank" rel="noopener nofollow noreferrer">2</a> <a href="https://topcourt-law.com/finance/fund_settlement_app_charges#i-14" target="_blank" rel="noopener nofollow noreferrer">3</a></sup>
+</StickyNote>
 
 <StickyNote type="note">
     There are payment limits based on age.<br />
@@ -31,68 +36,57 @@ Rose orbs are the paid currency in BLUE PROTOCOL. There are **Paid Rose Orbs** a
     Ages 18~999: limit 9,999,999
 </StickyNote>
 
-Find the latest pricing in the [Rose Orb Price Calculator](/rose-orb-calculator).
+Compare pack prices in the [Rose Orb Price Calculator](/tools/rose-orb-calculator).
 
-### Seasonal Sales
-The shop will occasionally have deals with a limited stock available for purchase. Once the sale period ends, they may be restocked.
+## Rose Orb Store
+A store that sells items for Rose Orbs. Contains outfits, mounts, accessories, stamps, emotes, misc. consumable items (such as firecrackers), and tickets.
 
-### How to buy Rose Orbs in BP Japan
-<StickyNote type="tip">
-    Coming soon!
-</StickyNote>
+## Gacha
+Every update has at least three gacha banners: Outfit (F), Outfit (M), and Mount. The rate of getting an S-rank item (outfit/mount) is 3%, and there are typically 6 outfits (0.5% each) and 3 mounts (1% each). 
 
-The accepted payment methods are:
-- Visa
-- Mastercard
-- JCB
-- American Express
-- WebMoney
-- PayPay
-- Rakuten Pay
-- d Harai
-- au/uq mobile
-- SoftBank
+For 50 Rose Orbs or 1 Gacha Ticket, you can spin the gacha once. For 500 Rose Orbs, you can spin the gacha 11 times. When using Rose Orbs, you will get 10 BPP per spin. Gacha Tickets can be acquired for free through events, one-time Mission clear rewards, Adventure Boards, login bonuses, Season Pass rewards, and more.
 
-## Regnas Store
-The Regnas Store contains all shops related to Rose Orbs and more. It can be accessed through the Command Menu <kbd>(ESC)</kbd>.
+Typically, outfit banners reward emotes at 10/40/70 spins and Mount banners reward an emote at 10 spins. They both have a pity at 110 and 220 spins where you can select which banner item you want.
 
-### Rose Orb Store
-A store that sells items for Rose Orbs. Contains packages, outfits, mounts, accessories, stamps, emotes, and misc. consumable items and tickets.
+Gacha rewards can be sent to another player (including your other characters) when:
+- The reward is eligible for sending (some items cannot be sent)
+- The reward was obtained by spending Rose Orbs on Gacha (not Gacha Tickets and not sent to you by another player)
+- The reward has not been claimed from your mailbox and its sending period has not expired
+- You have been friends with the recipient for at least 14 days
 
-### Gacha
-Consumes Gacha tickets to reward you with a random item in the gacha banner. Tickets can be acquired through clearing content, season pass rewards, events, and possibly more methods. **1 spin costs 50 Rose Orbs, while 11 spins cost 500 Rose Orbs.**
+Be careful when clicking claim all mail items.
 
-There are known to be outfit banners and mount banners at this time. The prized items on the banner (outfits, mounts) can only be obtained in S rank capsules. For outfits, you will get all pieces of the outfit.
+### Step-up Gacha
+A limited-time gacha that is occasionally held. The step-up consists of some number of steps with fixed prices that must be pulled in order, such as 250 orbs for step 1 (5 spins), 350 orbs for step 2 (7 spins), and 500 orbs for step 3 (11 spins). 
 
-Spinning a gacha banner 10 times will reward you with a gift depending on the banner. This can include emotes and accessories.
+Step-up banners typically have better rates, exclusive rewards, or guaranteed prizes at certain steps. Gacha Tickets cannot be used on these banners. Prizes can be exchanged for BPP, but often times they cannot be sent to other players. Same as the standard banner, spinning step up will grant you BPP every step. <!-- The number of spins may vary -->
 
-#### Duplicate Rewards
-If you obtain a duplicate item, you can mail it to another character on your account, or mail it to a friend.
+## BP Points Store
+A store where you can spend BP Points. Contains selection boxes for the outfits and mounts in the gacha banners, weapon skin pliers, weapon socket expansion tickets, and consumables. <!-- It used to contain Battle Imagine recipes and Ideas, and accessories. -->
 
-Some items cannot be mailed. Items can be mailed **within 7 days of obtaining the item** (a timer is shown in-game). Sending letters cannot be undone. Items claimed from mail cannot be sent again. **You can only send to people you have been friends with for 14 days.**
-
-Otherwise, you can **exchange the item for BP Points** for use at the BP Points Store.
-
-### BP Points Store
-A store where you can spend BP Points. BP Points are acquired from exchanging items for BP Points--not all items cannot be exchanged, and **items can only be exchanged if they have not been worn**.
-
-This store contains **selection boxes for the outfits and mounts** in the gacha banners, so you can buy the outfit you want if you got a different one. It also contains battle imagine recipes and materials, and accessories.
-
-### Season Store
-A store where you can spend Season Points. Contains outfits, accessories, weapon-related tickets, healing items, luno, etc. (some have purchase limits). 
+BP Points can be acquired through exchanging gacha rewards, spinning gacha with Rose Orbs, events, Season Pass rewards, login bonuses, and more. Gacha rewards must claimed from the mail to be exchanged and must not have been worn.
 
 ## Season Pass
-A season is **50~60** days long. Clear the indicated quests to get **Season Points**, which are used to rank up your pass level and claim rank rewards (will automatically rank up to a certain point). After reaching a certain rank, you can also spend Season Points at the Season Point Store. 
+<!-- Tuning Tickets, Ability Plug Lock Tickets, Gacha Tickets, Special Effect Randomizer/Upgrade tickets, Double Chest Drop Tickets, Battle Imagine Limit Break Substitute Tickets, Weapon Skin Tickets -->
+Season Passes commonly reward many valuable tickets, outfits, accessories, emotes, GC, Free Rose Orbs, and more. A season is roughly 30 days.
 
-Ranks can also be purchased with Rose Orbs: 30 orbs per rank. Specific rank rewards can be checked in-game or on the site. 
+The pass is automatically ranked up 1 time for every 100 Season Points, obtained by completing Season Pass Quests. All Season Pass Quests are available to everyone regardless if they pay for the pass or not. Quests are divided into daily, weekly, and seasonal quests. You can use tickets to auto complete dailies and weeklies, though they only take a few minutes each day. Season Points are only used to rank up the pass so you can ignore the quests after reaching rank 100.
 
-### Basic Plan
-Maxes at rank 60 and is available for free.
+Unlocking the full pass rewards costs 180 Paid Rose Orbs. Most of the good rewards are locked behind the paid pass. As of v1.06.000, the Season Pass can no longer be bought once and used forever—it must be repurchased every season.
 
-### Advanced & Royal Plans
-Maxes at rank 100. Advanced costs 180 Rose Orbs. Royal costs 550 Rose Orbs and grants an extra 25 ranks to start. Both of these add additional quests to get points.
-
-After maxing one of these passes, you get the Next-Season Paid Plan Discount, which discounts the next season pass by 180 Rose Orbs. So if you buy the Advanced Pass once and max it out each time, you won't have to pay for another pass.
-
-### Rewards
-Rewards include Luno, Gacha tickets, Free Rose Orbs, GC, BP Points, Weapon-related tickets, Rewards plus tickets, and more.
+<details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
+    <summary class="arrow accent2">Pre-Beyond: Season Passes</summary>
+    <small class="text3 font-semibold">The following section applies to Season Passes before the Beyond update (v1.06.000).</small>
+    <p>
+        A season is 50~60 days long. Clear the indicated quests to get Season Points, which are used to rank up your pass level (this is done automatically up until rank 70). Ranks can also be purchased for 30 Rose Orbs per rank. After reaching rank 70, you can also spend Season Points at the Season Point Store. The Season Points Store contains outfits, accessories, weapon-related tickets, healing items, luno, etc. (some have purchase limits).
+    </p>
+    <p>
+        The Basic Plan maxes at rank 60 and is available for free.
+    </p>
+    <p>
+        The Advanced & Royal Plans max at rank 100. Advanced costs 180 Rose Orbs. Royal costs 550 Rose Orbs and grants an extra 25 ranks to start. Both of these add additional quests to get points. Throughout these passes, you accumulate Next Season Paid Plan Discounts, which reduce the cost of the next Season Pass. So if you buy the Advanced Pass once and max it out each time, you won't have to pay for another pass.
+    </p>
+    <p>
+        Rewards include cosmetics, Luno, gacha tickets, Free Rose Orbs, GC, BP Points, Weapon-related tickets, Rewards plus tickets, EX Battle Imagine recipes and Ideas, season points for next season, and more.
+    </p>
+</details>

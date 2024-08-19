@@ -1,7 +1,7 @@
 ---
 title: 'Liquid Memories'
 author: 'Zakum'
-date: '2024-5-15'
+date: '2024-8-18'
 category: 'Game Systems'
 caption: 'Liquid Memories are passive buffs that aid you in combat, crafting, and resource gathering.'
 bannerImg: "/guides/liqmem/banner.webp"
@@ -19,7 +19,7 @@ thumbImg: "/guides/liqmem/thumb.webp"
     id="_q31d5P9-R0"
 />
 
-## What are Liquid Memories?
+## Overview
 Liquid Memories are buffs that assist the player in progression-related tasks. While they don't increase combat prowess, they provide convenient effects that can increase efficiency when collecting materials or selling items.
 
 ## How to unlock
@@ -39,13 +39,11 @@ Memory durations are either time-based or usage-based. Usage-based memories will
 ## Refilling Bottles
 Each buff has different conditions for refilling. The first bottle of each buff can be filled by simply waiting for 360 minutes to pass (you do not have to be online during this time). Subsequent bottles will require specific actions from the player.
 
-See the table below for a brief overview of the buffs, and click the links to see more details on each liquid memory.
-
 ## List of effects
 <LiqMemTable />
 
 ### Unused Effects
-Below are some liquid memory effects that exist but are not currently used. It's unknown whether or not these effects will be available in the future.
+Below are some liquid memory effects that existed but were never used. It's unknown whether or not these effects will be available in the future.
 - Increased chance to get a great success
 - Increased chance of more sockets when crafting weapons 
 - Increased respawn rate of resources

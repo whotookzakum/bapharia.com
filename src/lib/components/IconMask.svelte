@@ -4,14 +4,15 @@
     export let src = "";
     export let width = 32;
     export let height = 32;
+    export let localAsset = false;
 </script>
 
 <span
     class="icon-mask"
     style:width="{width}px"
     style:height="{height}px"
-    style:mask-image="url('{assetUrl(src)}')"
-    style:-webkit-mask-image="url('{assetUrl(src)}')"
+    style:mask-image="url('{localAsset ? src : assetUrl(src)}')"
+    style:-webkit-mask-image="url('{localAsset ? src : assetUrl(src)}')"
     {...$$restProps}
 />
 
@@ -28,7 +29,7 @@
         transition: background-color 0.15s var(--timing1);
     }
 
-    :global(input[type="radio"]:checked + .icon-mask) {
+    :global(input:checked ~ .icon-mask) {
         background-color: var(--accent1);
     }
 </style>

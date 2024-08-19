@@ -1,7 +1,7 @@
 ---
 title: 'Equipment'
 author: 'Zakum'
-date: '2024-6-27'
+date: '2024-8-18'
 category: 'Game Systems'
 caption: 'All about equipment in BLUE PROTOCOL, including weapons and imagine.'
 bannerImg: "/guides/weapons/banner.webp"

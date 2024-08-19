@@ -1,7 +1,7 @@
 ---
 title: 'Combat'
 author: "Zakum"
-date: '2023-6-5'
+date: '2024-8-18'
 category: 'Game Systems'
 caption: 'An overview of all combat-related mechanics.'
 bannerImg: "/guides/combat/banner.jpg"
