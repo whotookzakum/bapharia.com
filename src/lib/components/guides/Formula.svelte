@@ -3,6 +3,7 @@
     import RadioSlider from "$lib/components/RadioSlider.svelte";
     import WeaponBattleScore from "./formulas/WeaponBattleScore.svelte";
     import EleResistChart from "./formulas/EleResistChart.svelte";
+    import AbnormalStatusResistanceTable from "./formulas/AbnormalStatusResistanceTable.svelte";
 
     export let formula = "";
     export let tabs = [];
@@ -15,6 +16,7 @@
     const components = {
         WeaponBattleScore,
         EleResistChart,
+        AbnormalStatusResistanceTable
     };
 </script>
 

@@ -1,5 +1,5 @@
 <script>
-    import { assetUrl } from "$lib/utils"
+    import { assetUrl } from "$lib/utils";
     // Data found in Blueprints/Manager/DT_CommonStatusAilmentDB.uasset (search for PartyChainBonus)
 
     // chain 50 = heal (10, 1) 9s
@@ -17,296 +17,411 @@
     // chain 999 = RapidSkillCoolTime_ULT (300) 10s
 </script>
 
-<table>
-    <thead>
-        <tr>
-            <th>Chain</th>
-            <th>Damage<br> & Self-healing</th>
-            <th>Effect</th>
-            <th>Effect (Raid)</th>
-            <th>Reset Timer</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>0</th>
-            <td>100%</td>
-            <td>-</td>
-            <td rowspan="5">-</td>
-            <td rowspan="2">1.5s</td>
-        </tr>
-        <tr>
-            <th>50</th>
-            <td rowspan="2">101%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>HP Regen</span>
-                        <br />
-                        Recover <strong>1%</strong> of Max HP per second for
-                        <strong>10</strong> seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>100</th>
-            <td rowspan="2">1.4s</td>
-        </tr>
-        <tr>
-            <th>150</th>
-            <td rowspan="2">102%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>DEF Up</span>
-                        <br />
-                        Reduce received damage by <strong>15%</strong> for 10 seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>200</th>
-            <td rowspan="2">1.3s</td>
-        </tr>
-        <tr>
-            <th>250</th>
-            <td rowspan="2">103%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>SP Armor</span>
-                        <br />
-                        Become immune to stagger for <strong>10</strong> seconds.
-                    </p>
-                </div>
-            </td>
-            <td rowspan="6">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>HP Regen</span>
-                        <br />
-                        Recover <strong>2%</strong> of Max HP per second for
-                        <strong>15</strong> seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>300</th>
-            <td rowspan="2">1.2s</td>
-        </tr>
-        <tr>
-            <th>350</th>
-            <td rowspan="2">104%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>HP Regen</span>
-                        <br />
-                        Recover <strong>2%</strong> of Max HP per second for
-                        <strong>15</strong> seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>400</th>
-            <td rowspan="2">1.2s</td>
-        </tr>
-        <tr>
-            <th>450</th>
-            <td rowspan="2">105%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>DEF Up</span>
-                        <br />
-                        Reduce received damage by <strong>30%</strong> for 10 seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>500</th>
-            <td rowspan="2">1.0s</td>
-        </tr>
-        <tr>
-            <th>550</th>
-            <td rowspan="2">106%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>SP Armor</span>
-                        <br />
-                        Become immune to stagger for <strong>15</strong> seconds.
-                    </p>
-                </div>
-            </td>
-            <td rowspan="6">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>DEF Up</span>
-                        <br />
-                        Reduce received damage by <strong>30%</strong> for 10 seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>600</th>
-            <td rowspan="2">0.8s</td>
-        </tr>
-        <tr>
-            <th>650</th>
-            <td rowspan="2">107%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>HP Regen</span>
-                        <br />
-                        Recover <strong>2%</strong> of Max HP per second for
-                        <strong>10</strong> seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>700</th>
-            <td rowspan="2">0.6s</td>
-        </tr>
-        <tr>
-            <th>750</th>
-            <td rowspan="2">108%</td>
-            <td rowspan="2">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>DEF Up</span>
-                        <br />
-                        Reduce received damage by <strong>45%</strong> for 10 seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th>800</th>
-            <td rowspan="2">0.4s</td>
-        </tr>
-        <tr>
-            <th>850</th>
-            <td rowspan="2">109%</td>
-            <td rowspan="3">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>SP Armor</span>
-                        <br />
-                        Become immune to stagger for <strong>20</strong> seconds.
-                    </p>
-                </div>
-            </td>
-            <td rowspan="3">
-                <div class="flex gap-2">
-                    <img
-                        src={assetUrl("/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp")}
-                        alt=""
-                        width="26"
-                        height="30"
-                    />
-                    <p>
-                        <span>SP Armor</span>
-                        <br />
-                        Become immune to stagger for <strong>15</strong> seconds.
-                    </p>
-                </div>
-            </td>
-        </tr>
-        <tr class="remove-border">
-            <th>900</th>
-            <td rowspan="3">0.3s</td>
-        </tr>
-        <tr class="remove-border">
-            <th>950</th>
-            <td rowspan="2">110%</td>
-        </tr>
-        <tr class="remove-border">
-            <th>999</th>
-            <td colspan="2">ULT skills cooldowns will count down at 4x the normal speed for 10 seconds.</td>
-        </tr>
-    </tbody>
-</table>
+<div class="surface1 rounded-2xl">
+    <table>
+        <thead>
+            <tr>
+                <th>Chain</th>
+                <th>Damage & Healing</th>
+                <th>Timer</th>
+                <th>Effect</th>
+                <th>Effect (Raid)</th>
+                <th>Effect (Defense Battle)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>0</th>
+                <td>100%</td>
+                <td rowspan="2">1.5s</td>
+                <td>-</td>
+                <td rowspan="5">-</td>
+                <td rowspan="3">-</td>
+            </tr>
+            <tr>
+                <th>50</th>
+                <td rowspan="2">101%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>HP Regen</span>
+                            <br />
+                            Recover <strong>1%</strong> of Max HP per second for
+                            <strong>10</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>100</th>
+                <td rowspan="2">1.4s</td>
+            </tr>
+            <tr>
+                <th>150</th>
+                <td rowspan="2">102%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>DEF Up</span>
+                            <br />
+                            Reduce received damage by <strong>15%</strong> for 10
+                            seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="4">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>HP Regen</span>
+                            <br />
+                            Recover <strong>2%</strong> of Max HP per second for
+                            <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>200</th>
+                <td rowspan="2">1.3s</td>
+            </tr>
+            <tr>
+                <th>250</th>
+                <td rowspan="2">103%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>SP Armor</span>
+                            <br />
+                            Become immune to stagger for <strong>10</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="6">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>HP Regen</span>
+                            <br />
+                            Recover <strong>2%</strong> of Max HP per second for
+                            <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>300</th>
+                <td rowspan="2">1.2s</td>
+            </tr>
+            <tr>
+                <th>350</th>
+                <td rowspan="2">104%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>HP Regen</span>
+                            <br />
+                            Recover <strong>2%</strong> of Max HP per second for
+                            <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="4">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>DEF Up</span>
+                            <br />
+                            Reduce received damage by <strong>15%</strong> for 10
+                            seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>400</th>
+                <td rowspan="2">1.2s</td>
+            </tr>
+            <tr>
+                <th>450</th>
+                <td rowspan="2">105%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>DEF Up</span>
+                            <br />
+                            Reduce received damage by <strong>30%</strong> for 10
+                            seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>500</th>
+                <td rowspan="2">1.0s</td>
+            </tr>
+            <tr>
+                <th>550</th>
+                <td rowspan="2">106%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>SP Armor</span>
+                            <br />
+                            Become immune to stagger for <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="6">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>DEF Up</span>
+                            <br />
+                            Reduce received damage by <strong>30%</strong> for 10
+                            seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="4">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>SP Armor</span>
+                            <br />
+                            Become immune to stagger for <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>600</th>
+                <td rowspan="2">0.8s</td>
+            </tr>
+            <tr>
+                <th>650</th>
+                <td rowspan="2">107%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>HP Regen</span>
+                            <br />
+                            Recover <strong>2%</strong> of Max HP per second for
+                            <strong>10</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>700</th>
+                <td rowspan="2">0.6s</td>
+            </tr>
+            <tr>
+                <th>750</th>
+                <td rowspan="2">108%</td>
+                <td rowspan="2">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4003.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>DEF Up</span>
+                            <br />
+                            Reduce received damage by <strong>45%</strong> for 10
+                            seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="5">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4007.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>HP Regen</span>
+                            <br />
+                            Recover <strong>2%</strong> of Max HP per second for
+                            <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>800</th>
+                <td rowspan="2">0.4s</td>
+            </tr>
+            <tr>
+                <th>850</th>
+                <td rowspan="2">109%</td>
+                <td rowspan="3">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>SP Armor</span>
+                            <br />
+                            Become immune to stagger for <strong>20</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+                <td rowspan="3">
+                    <div class="flex gap-2">
+                        <img
+                            src={assetUrl(
+                                "/UI/Icon/StatusAilment/UI_StatusAilment_4006.webp",
+                            )}
+                            alt=""
+                            width="26"
+                            height="30"
+                        />
+                        <p>
+                            <span>SP Armor</span>
+                            <br />
+                            Become immune to stagger for <strong>15</strong> seconds.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+            <tr class="remove-border">
+                <th>900</th>
+                <td rowspan="3">0.3s</td>
+            </tr>
+            <tr class="remove-border">
+                <th>950</th>
+                <td rowspan="2">110%</td>
+            </tr>
+            <tr class="remove-border">
+                <th>999</th>
+                <td colspan="2"
+                    >ULT skills cooldowns will count down at 4x the normal speed
+                    for 10 seconds.</td
+                >
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 <style lang="scss">
+    table {
+        font-size: var(--step-0);
+    }
+
+    td,
+    th {
+        padding-inline: 1rem;
+    }
+
     td,
     tbody th {
         border: 1px solid var(--surface3);
-        padding: 0.75rem;
+        // padding: 0.75rem;
     }
 
     tr {
@@ -333,7 +448,8 @@
     }
 
     p {
-        font-size: inherit;
+        // font-size: inherit;
+        margin: 0;
         line-height: 1.2;
 
         span {

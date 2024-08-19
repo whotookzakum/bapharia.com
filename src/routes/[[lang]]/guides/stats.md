@@ -3,7 +3,7 @@ title: 'Stats'
 author: "Zakum"
 date: '2023-6-5'
 category: 'Game Systems'
-caption: 'An overview of all combat-related mechanics.'
+caption: 'Breakdown of the player stats in BLUE PROTOCOL.'
 bannerImg: "/guides/combat/banner.jpg"
 thumbImg: "/guides/combat/thumb.jpg"
 ---
@@ -14,12 +14,8 @@ thumbImg: "/guides/combat/thumb.jpg"
     import BaseStatsConversionTable from '$lib/components/guides/BaseStatsConversionTable.svelte';
     import LevelDifferenceTable from '$lib/components/guides/LevelDifferenceTable.svelte';
     import StaminaConsumptionTable from "$lib/components/guides/StaminaConsumptionTable.svelte";
-    import AbnormalStatusesTable from "$lib/components/guides/AbnormalStatusesTable.svelte";
-    import PartyChainTable from "$lib/components/guides/PartyChainTable.svelte";
-    import ElementsTable from "$lib/components/guides/ElementsTable.svelte";
-    import EleResistDamageTable from "$lib/components/guides/EleResistDamageTable.svelte";
-    import IconMask from "$lib/components/IconMask.svelte"
     import ClassIcon from "$lib/components/ClassIcon.svelte"
+    import Formula from "$lib/components/guides/Formula.svelte"
     import { assetUrl } from "$lib/utils";
 </script>
 
@@ -95,7 +91,7 @@ Learn more about each class' perfect dodge attack effects, plunge attack, and an
 ## Level
 Raising your class level will increase your stats and reduce the effects of equipment **level syncs** (details below). By raising your Adventurer Rank, you can increase the maximum level cap for your character.
 
-The **level difference** between a player and an enemy influences how much **damage and elemental charge** a player will deal and **EXP** they will gain by defeating that enemy. For enemies that are 8 or more levels higher than you, your attacks will do 0 damage (thus you won't be eligible for drops and won't be able to activate certain effects that require hitting an enemy). 
+The **level difference** between a player and an enemy influences how much **damage and elemental charge** a player will deal and **EXP** they will gain by defeating that enemy. Your attacks will do 0 damage against enemies that are 8 or more levels higher than you (thus you won't be eligible for drops and won't be able to activate certain effects that require hitting an enemy). 
 
 <LevelDifferenceTable />
 
@@ -113,3 +109,24 @@ Level and Battle Score are common requirements to entering [Missions](/guides/mi
 
 ## Adventurer Rank
 Raising your Adventurer Rank allows you to accept new quests (including continuing the main story quest), raises your maximum level cap, and provides some goodies. To raise your Adventurer Rank, you need to complete a Rank Up [Adventure Board](/guides/adventure-boards). Some ranks also require you to pass an exam (speak to NPC Millie at the Reclamation Bureau).
+
+## Enemy Stats
+Enemy HP, ATK, and DEF stats scale based on enemy level. In Missions, these stats are further multiplied by a Mission Scale.
+
+<Formula 
+    formula={`
+        \\text{Enemy Stat} =
+        (\\text{Base Stat} + \\text{Stat Factor} \\times (\\text{Enemy Level} - 1))
+        \\times \\text{Mission Scale}
+    `}
+/>
+
+Other enemy stats:
+- EXP: the amount of EXP an enemy gives--different from the amount of EXP you *gain* as a player (based on [level](/guides/stats#level) difference). There is a value at lv1 and lv100, with a curve value to interpolate numbers in between. 
+- Drops: item IDs and drop rates/percentages with amounts.
+- Elemental Resistance: see [Elements](/guides/elements#elemental-resistance).
+- Abnormal Status Resistances: see [Status Ailments](/guides/status-ailments).
+- Slash/Thrust/Blow Resistance: every attack is one of these 3 types. Enemies may have 25, 0, or -25 resistance; see [Combat](/guides/combat#damage-formula).
+- Race & Characteristics: found in the in-game Adventurer Log and includes things such as Tripod-type, Floating, and Bapharia which are used in [Weapon Special Effect](/guides/equipment#weapon-stats) bonuses such as Tripod Killer G1, Bapharia Killer G2, etc. <!-- Tripod-class, Boar-class? -->
+
+<!-- scale, weight, resist_rate, resist_dot, reaction_leveldiff: currently unknown. reaction can be 0, 1, 2, 3 but also unknown. -->

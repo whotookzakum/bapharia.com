@@ -50,22 +50,23 @@ Elemental Charge accumulation is influenced by your weapon element, skill elemen
 
 <!-- Action refers to skill; not sure how Base Multiplier can be found, probably something to do with the weapon? -->
 <Formula
-    name="chargeAccumFormula"
-    style="--slider-max-width: 320px"
     formula={`
         \\text{If elemental skill: } Scale = 0.3\\\\ \\text{If non-elemental skill: } Scale = 1
         \\\\ \\text{}
         \\\\
         \\text{Weapon Element Charge} = 
-        (7 \\times \\text{Skill Damage} \\times Scale) \\times \\text{Weapon Element Resistance} \\times \\text{Weapon Element Buffs}
+        (7 \\times \\text{Skill Base Damage} \\times Scale) \\times \\text{Weapon Element Resistance} \\times \\text{Weapon Element Buffs}
         \\\\
         \\text{Skill Element Charge} = \\text{Skill Elemental Charge} \\times \\text{Skill Element Resistance} \\times \\text{Skill Element Buffs}
     `}
-    footnote={`Non-elemental skills have an elemental charge of 0, so you can ignore the second formula.<br>The formula for "Elemental Resistance" is in the <a href='/guides/elements#elemental-charge-accumulation'>following section</a>.`}
+    footnote={`Non-elemental skills have an elemental charge of 0, so you can ignore the second formula.<br>The formula for Elemental Resistance is in the <a href='/guides/elements#elemental-charge-accumulation'>following section</a>.<br>For Weapon Element Charge, the skill's <i>base</i> damage is used (G1 damage without any G2+ damage increases).`}
 />
 
+<!-- For Weapon Element Charge, the skill's <i>base</i> damage is used (typically referring to the G1 damage without any G2/G3/G4 damage increases). This allows the devs to scale the skill's damage without making it give an exhuberant amount of elemental charge. -->
+
+<!-- elemdmg_bias -->
 <StickyNote type="note">
-    Named Enemies, Raid Bosses, and enemies in Missions can have a multiplier that reduces the charge accumulation, i.e. 0.16x accumulation in Survey/Advanced Survey and 0.33x in Rush Battle.
+    Some enemies such as Named Enemies, Raid Bosses, and Mission enemiess may have a multiplier that reduces the charge accumulation, i.e. 0.16x accumulation in Survey/Advanced Survey and 0.33x in Rush Battle.
 </StickyNote>
 
 ### Burst Bonus Time & Burst Finish

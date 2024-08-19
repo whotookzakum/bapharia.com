@@ -19,8 +19,8 @@
     export let editButton = false;
     export let inputStyle = "";
     let inputElement;
-
-    $: resetBtnEnabled = initialValue && value !== initialValue;
+    
+    $: resetBtnEnabled = initialValue !== null && value !== initialValue;
 </script>
 
 <label

@@ -24,7 +24,10 @@ thumbImg: "/guides/weapons/thumb.webp"
 ## Overview
 Equipment in BLUE PROTOCOL comes in three distinct forms—weapons, Battle Imagine (skills), and Enhance Imagine (armor). All items can be equipped at any level but will <b style="color: var(--color-levelsync)">Level Sync</b> if your class level is lower than the item level, reducing its stats (more details [here](/guides/stats#level-sync)).
 
-### Limit Break
+### Discarding, Dismantling, and Selling Equipment
+Visit the storage NPC to dismantle your unused equipment for crafting materials or sell them for Luno. They can also be discarded from your inventory or storage.
+
+## Limit Break
 Limit Breaking equipment involves consuming duplicate copies of an item for a chance to enhance its stats. The higher the Limit Break level, the more materials needed and the lower the chance. Failing a Limit Break attempt **will not consume the duplicate copies of the item**, but will consume Luno and Fusion Materia (a generic material for Limit Breaking).
 
 As of v1.06.100, the maximum Limit Break level is +5, which requires 1 base copy plus 11 duplicates. The only exception are the *EX Battle Imagine*, which are Battle Imagine of the story characters (such as Feste and Tyris), which require only 1 base copy plus 5 duplicates.
@@ -49,9 +52,6 @@ Weapons, Battle Imagine, and Enhance Imagine all have tickets that can be used t
     Locked items are still be eligible to use as a Limit Break material. You will receive a warning message if you select an item that is locked.
 </StickyNote>
 
-### Discarding, Dismantling, and Selling Equipment
-Visit the storage NPC to dismantle your unused equipment for crafting materials or sell them for Luno. They can also be discarded from your inventory or storage.
-
 ## Weapons
 Weapons provide stats and often have an element. Switching weapon types will automatically change your class (after completing the Class Master's [quest](/db/quest/SQ101_001)). Base weapons for each class can be purchased from the vendor in Asterleeds.
 
@@ -69,10 +69,10 @@ Weapons can be obtained from treasure chests dropped by enemies inside of dungeo
     </p>
 </details>
 
-### Weapon Stats
+## Weapon Stats
 Weapons can have an [element](/guides/combat#elements), so you can generate elemental charge even when using non-elemental skills. Both weapon element and skill element are [factors when determining damage](/guides/combat#weapon-skill-interaction). When your weapon element and skill element are the same, the Elemental Attack stat is added to your attack when calculating damage. 
 
-#### Legendary weapons and Special Effects
+### Legendary weapons and Special Effects
 Weapons come with a Normal, Rare, or Legendary rarity that determines which Special Effects it can have. Normal Special Effects are typically stat increases, while Rare introduces some unique mechanics such as perfect dodging to generate a healing AoE. Legendary Special Effects are class-specific bonuses, such as Twin Striker's Moving Master which reduces Stamina consumption when dodging and jumping by up to 100%.
 
 <p>
@@ -125,10 +125,10 @@ As of v1.06.000, each Legendary line has a 1% chance of dropping, and there are 
     </p>
 </details>
 
-#### Limit Break Effect
+### Limit Break Effect
 At max Limit Break, weapons gain a Limit Break Effect which is simply an attack bonus. The value is randomly selected from a range of five tiers: 100/250/400/550/700. Both the Limit Break Effect and Special Effect can be transferred to another weapon via Limit Break.
 
-#### Weapon Battle Score
+### Weapon Battle Score
 Weapon **Battle Score** can be represented as the following formula:
 
 <Formula
@@ -167,7 +167,7 @@ Weapon **Battle Score** can be represented as the following formula:
     </p>
 </details>
 
-### Ability Plugs
+## Ability Plugs
 Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) or strengthen specific skills (cooldown reduction, skill damage, etc.). They are commonly obtained through dungeons, events, Mount Caravan, quests and Adventure Boards.
 
 <StickyNote type="tip">
