@@ -71,6 +71,8 @@ Guaranteed to be applied every time without increasing Targeted Resistance. The 
 Some attacks that apply Targeted also Stagger enemies. Stagger is not the same as Targeted, so Targeted Resistance does not apply nor does it increase.
 <!-- TODO: Needs confirmation: Since Targeted is guaranteed to be applied, the Stagger is guaranteed to work (if it passes the conditions below), unlike Battle Imagines which only have a chance to Stagger(?). OneCard says the AF staggers are 100%, but we need to test Battle Imagine staggers. -->
 
+<!-- According to ses: https://ses-bp.hatenablog.com/entry/2024/03/01/165522 the interrupt (AF staggers?) work even against bosses that are immune to stagger. -->
+
 <!-- TODO: Elaborate on damage reaction resistances? resist_thrust/slash/blow are resistances against damage in the damage formula, but do they also play a role here, or is it just the generic "reaction" and "reaction_leveldiff" enemyparams? -->
 <!-- Not all actions can be interrupted, especially bosses that are in a powered-up state -->
 Stagger ignores most enemy Damage Reaction resistances, forcefully interrupting most enemy actions. Successfully staggering an enemy grants an invisible "Stagger Resistance" abnormal status that lasts 30 seconds.

@@ -41,7 +41,7 @@ This guide covers some general aspects of BLUE PROTOCOL's combat systems. **Make
         ]
             \\times \\text{Decimal Modifiers}
     `}
-    footnote={`Round: decimals are rounded to the nearest integer.<br>ATK: in the case of Battle Imagine skills, a hidden "Skill Effect Value" is used.<br>Elemental ATK: see <a href='/guides/elements#weapon-skill-interaction'>Elements</a>.<br>Total Skill Damage: the skill's base damage (G1) plus any damage increases from skill grade (G2+), calculated per hit (not the sum of all hits).<br>Crit Damage: set to 0 when calculating non-critical hits.<br>Elemental Resistance: see <a href='/guides/elements#elemental-resistance'>Elements</a>.<br>If final damage < 0, set damage to 0; else set damage floor to 1.`}
+    footnote={`Round: decimals are rounded to the nearest integer.<br>ATK: in the case of Battle Imagine skills, a hidden "Skill Effect Value" is used and Elemental ATK is 0.<br>Elemental ATK: see <a href='/guides/elements#weapon-skill-interaction'>Elements</a>.<br>Total Skill Damage: the skill's base damage (G1) plus any damage increases from skill grade (G2+), calculated per hit (not the sum of all hits).<br>Crit Damage: set to 0 when calculating non-critical hits.<br>Elemental Resistance: see <a href='/guides/elements#elemental-resistance'>Elements</a>.<br>If final damage < 0, set damage to 0; else set damage floor to 1.`}
 />
 <!-- If 0 ≤ final damage < 1, set damage to 1.  -->
 

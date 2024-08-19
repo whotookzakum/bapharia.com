@@ -12,6 +12,7 @@ thumbImg: "/guides/weapons/thumb.webp"
     import StickyNote from '$lib/components/StickyNote.svelte';
     import YouTube from '$lib/components/YouTube.svelte';
     import Formula from '$lib/components/guides/Formula.svelte';
+    import BattleImagineSkillBreakdown from '$lib/components/guides/BattleImagineSkillBreakdown.svelte';
     import { assetUrl } from "$lib/utils";
 </script>
 
@@ -24,13 +25,17 @@ thumbImg: "/guides/weapons/thumb.webp"
 ## Overview
 Equipment in BLUE PROTOCOL comes in three distinct forms—weapons, Battle Imagine (skills), and Enhance Imagine (armor). All items can be equipped at any level but will <b style="color: var(--color-levelsync)">Level Sync</b> if your class level is lower than the item level, reducing its stats (more details [here](/guides/stats#level-sync)).
 
-### Discarding, Dismantling, and Selling Equipment
+<blockquote class="italic text2" style="background: none; border-radius: 0; border-left: solid 6px var(--text3); padding: 0.5rem 1rem">
+    Imagine are the embodiment of spiritual elements, such as powerful emotions or thoughts of a living creature.
+</blockquote>
+
+<!-- ### Discarding, Dismantling, and Selling Equipment -->
 Visit the storage NPC to dismantle your unused equipment for crafting materials or sell them for Luno. They can also be discarded from your inventory or storage.
 
 ## Limit Break
 Limit Breaking equipment involves consuming duplicate copies of an item for a chance to enhance its stats. The higher the Limit Break level, the more materials needed and the lower the chance. Failing a Limit Break attempt **will not consume the duplicate copies of the item**, but will consume Luno and Fusion Materia (a generic material for Limit Breaking).
 
-As of v1.06.100, the maximum Limit Break level is +5, which requires 1 base copy plus 11 duplicates. The only exception are the *EX Battle Imagine*, which are Battle Imagine of the story characters (such as Feste and Tyris), which require only 1 base copy plus 5 duplicates.
+As of v1.06.100, the maximum Limit Break level is +5, which requires 1 base copy plus 11 duplicates. The only exception are the EX Battle Imagine which require only 1 base copy plus 5 duplicates.
 
 You can transfer passive lines and ability plugs through the Limit Break system, effectively letting you Limit Break now and optimize later. For example, if I had a 9% damage line on a weapon but later found one with 12% damage, I can simply transfer the 12% line over to my main weapon. Weapons will automatically take the highest socket count out of all of the duplicates and the base copy. 
 
@@ -144,8 +149,9 @@ Weapon **Battle Score** can be represented as the following formula:
             (\\text{Rarity Coefficient} \\times \\text{Special Effect I Tier}) + 
             (\\text{Rarity Coefficient} \\times \\text{Special Effect II Tier}) + 
             (200 \\times \\text{Limit Break Effect Tier}) + 
-            \\text{Plug Battle Score}
-        `
+            \\text{Battle Score from Plugs}
+        `,
+        footnote: "Battle Score Modifier: a fixed value assigned to each weapon (?)<br>Rarity Coefficient: based on rarity (normal/rare/legendary)"
     },
     {
         label: "Try it",
@@ -170,11 +176,21 @@ Weapon **Battle Score** can be represented as the following formula:
 ## Ability Plugs
 Ability Plugs are weapon attachments that provide stat bonuses (ATK/HP/Stamina, etc.) or strengthen specific skills (cooldown reduction, skill damage, etc.). They are commonly obtained through dungeons, events, Mount Caravan, quests and Adventure Boards.
 
+<Formula
+    style="gap: 0"
+    formula={`
+        \\text{Plug Battle Score} = 
+        [(5 \\times \\text{Precision}) + (25 \\times \\text{Grade} - 25)] \\times \\text{Sockets}
+    `}
+    footnote="For G3 Skill Plugs, set Grade to 5."
+/>
+<!-- G3 Skill Plugs are treated as the same grade as G5. -->
+
 <StickyNote type="tip">
     The value of attack plugs has diminished considerably since the v1.06.000 update introduced weapons with very high attack. Skill plugs can be efficiently obtained through Rush Battle 3 (G1), Rush Battle 5 (G2), and Rush Battle 7 (G3).
 </StickyNote>
 
-Speak to the [Weapon Reconstructor](/map) to attach plugs to empty sockets by using [Union Paste](/db/items/175100000). The number of empty sockets is determined by probability when obtaining the weapon, and can be increased through Socket Expansion Tickets or Limit Breaking.
+Speak to the Weapon Reconstructor to attach plugs to empty sockets by using [Union Paste](/db/items/175100000). The number of empty sockets is determined by probability when obtaining the weapon, and can be increased through Socket Expansion Tickets or Limit Breaking.
 
 | Sockets  | Probability |
 |----------|-------------|
@@ -240,3 +256,77 @@ A plug's effectiveness is based on its grade (G1, G2, etc.) and its precision (1
 </StickyNote>
 
 Plugs can be removed using [Plug Removal Tickets](/db/tokens/140000700), though if you wish to keep the plug, you will need [Plug Retrieval Tickets](/db/tokens/140000900). The number of tickets needed will vary based on the weapon. 
+
+## Battle Imagine
+Battle Imagine are equipment that provide base stats, a passive **Ability** (more stats), and an **active skill** to be used in combat. EX Battle Imagine are Battle Imagine of the story characters (such as Feste and Tyris). Players can equip up to 2 Battle Imagine, but they must be different Imagine.
+
+Battle Imagine recipes are unlocked by obtaining the Imagine's "Idea", a crafting material. Ideas drop from their respective Named Enemies in the overworld and can sometimes be found in treasure chests dropped by enemies. Additionally, Named Enemies can drop their pre-crafted Battle Imagine at a low chance. EX Battle Imagine Ideas and Recipes can be obtained through the GC shop, Season Passes, and the BPP store.
+
+## Battle Imagine Stats
+Battle Imagine come with a passive Ability that is randomly selected from their possible abilities. Abilities can be flat stat boosts, such as DEX +13, or can be percentage stats, such as Melee Damage +11%. 
+
+Limit Breaking Battle Imagine will increase their base stats, but not the power of their ability.
+
+### Battle Imagine Skills
+Every Battle Imagine has either an attack, heal, or support-type skill. Examples including skills that bind or stun, skills that reduce Elemental Resistance, and temporary party buffs. Skills that deal elemental damage have a fixed Elemental Charge value.
+
+Imagine damage and healing are based on a hidden stat referred to as [Skill Effect Value](/guides/combat#damage-formula). Skill Effect Value is subject to level sync—reducing damage and healing—and does not increase through Limit Breaking.
+
+Battle Imagine Skills are subject to various strengthening multiplier, such as when they are not affected by level sync and at +5 Limit Break.
+
+<BattleImagineSkillBreakdown />
+
+The Flare & Frost Demidragon Battle Imagine have a hybrid skill; when the skill button is pressed normally it performs a fire/ice breath attack, and when the skill button is held down it provides the [Imajinn Triggered](/guides/status-ailments#buffs--debuffs) buff.
+
+### Battle Imagine Battle Score
+Battle Imagine do not provide battle score, so you are free to switch them out without worrying about being locked out of content.
+
+<details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
+    <summary class="arrow accent2">Pre-Limit Break: Battle Score</summary>
+    <small class="text3 font-semibold">The following section applies to weapons added to the game before the Limit Break update.</small>
+    <Formula
+        inline
+        class="block mt-4 text-center"
+        formula={`\\text{Battle Imagine Battle Score} = 10 \\times \\text{Item Level}`}
+    />
+</details>
+
+## Awakened Battle Imagine
+The Flare Demidragon is the first Awakened Battle Imagine, introduced in v1.07.000. When equipped, your weapon's Limit Break Effect is doubled. The recipe requires far more materials than normal Battle Imagine.
+
+## Enhance Imagine
+Enhance Imagine are equippable items that provide base stats and Abilities, similar to armor in other games. They do not alter your character's appearance. Up to 5 Enhance Imagine can be worn, each in their respective, uniquely-shaped slots. 
+
+Enhance Imagine recipes can be acquired through quests and Adventure Boards. After acquiring the recipe, head to the Imagine Research Institute to craft the Imagine.
+
+## Enhance Imagine Stats
+Like Battle Imagine, Enhance Imagine each come with a randomly selected Ability from their available abilities list. Post-Beyond update Enhance Imagine abilities have tiers (1-5★) that determine its strength and battle score. Crafting an Enhance Imagine will always result in a middle-tier (3★) ability. Some abilities, such as SP G6, give increased battle score.
+
+Limit Breaking Enhance Imagine will increase their base stats, but not the power of their ability. As of v1.06.100, there is currently no way to alter an Enhance Imagine's ability or ability tier (other than transferring them via Limit Break).
+
+### Enhance Imagine Battle score
+Enhance Imagine Battle Score formula is currently unknown.
+
+<details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
+    <summary class="arrow accent2">Pre-Beyond: Battle Score</summary>
+    <small class="text3 font-semibold">The following section applies to Enhance Imagine added to the game before the Beyond update (v1.06.000).</small>
+    <Formula
+        inline
+        class="block mt-4 text-center"
+        formula={`\\text{Enhance Imagine Battle Score} = (8 \\times \\text{Item Level}) + (16 \\times \\text{Limit Break Level})`}
+    />
+    <p style="margin-bottom: 0">
+        Before the Limit Break system was introduced, Enhance Imagine gave <Formula inline formula={`(6 \\times \\text{Item Level})`} /> Battle Score.
+    </p>
+</details>
+
+## Mount Imagine
+<small class="accent1">Although they do not affect your stats, mounts are still considered Imagine.</small>
+
+Mount Imagine are rideable creatures useful in traversing the open world.
+
+Mounts have a standard running speed which is faster than player movement. They also have a faster dashing speed which consumes energy. Energy will quickly recover while not dashing. Additionally, Mount Drive potions allow your mount to dash without consuming energy for some time.
+
+A free Land Fox mount can be obtained by playing through the main story. More mounts can be acquired in the Exchange Shop and through Gacha/BPP Store.
+
+Mounts can be dispatched to the [Mount Caravan](/guides/mount-caravan) to collect materials, equipment, plugs, and more in the background.
