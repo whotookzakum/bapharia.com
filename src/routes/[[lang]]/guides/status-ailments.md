@@ -1,7 +1,7 @@
 ---
 title: 'Status Ailments'
 author: "Zakum"
-date: '2023-6-5'
+date: '2024-8-19'
 category: 'Game Systems'
 caption: 'An explanation of the Buffs, Debuffs, and Abnormal Statuses in BLUE PROTOCOL.'
 bannerImg: "/guides/combat/banner.jpg"

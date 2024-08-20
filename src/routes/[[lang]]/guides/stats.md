@@ -1,7 +1,7 @@
 ---
 title: 'Stats'
 author: "Zakum"
-date: '2023-6-5'
+date: '2024-8-19'
 category: 'Game Systems'
 caption: 'Breakdown of the player stats in BLUE PROTOCOL.'
 bannerImg: "/guides/combat/banner.jpg"
@@ -130,3 +130,8 @@ Other enemy stats:
 - Race & Characteristics: found in the in-game Adventurer Log and includes things such as Tripod-type, Floating, and Bapharia which are used in [Weapon Special Effect](/guides/equipment#weapon-stats) bonuses such as Tripod Killer G1, Bapharia Killer G2, etc. <!-- Tripod-class, Boar-class? -->
 
 <!-- scale, weight, resist_rate, resist_dot, reaction_leveldiff: currently unknown. reaction can be 0, 1, 2, 3 but also unknown. -->
+
+## Expert Rank
+Expert Rank is a system where leveling up each class to 50/60/70/80 grants a passive stat boost to all classes. The stats vary per class.
+
+<img src="/guides/stats/stats-expert-rank.jpg" alt="Expert Rank UI">

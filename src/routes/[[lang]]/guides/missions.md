@@ -1,7 +1,7 @@
 ---
 title: 'Missions'
 author: 'Zakum'
-date: '2023-6-11'
+date: '2024-8-19'
 category: 'Game Systems'
 caption: 'Missions are an umbrella term for dungeons, raids, and various other dungeon-like content.'
 bannerImg: "/guides/missions/banner.webp"
@@ -13,41 +13,65 @@ thumbImg: "/guides/missions/thumb.webp"
     import StickyNote from '$lib/components/StickyNote.svelte';
 </script>
 
-All missions can be entered solo or with a party (up to 6 players) with exception to Raids, which match you with up to 30 players.
+## Intro
+Missions are the general word for dungeons in BLUE PROTOCOL. All missions can be entered solo or with a party (up to 6 players) with exception to Raids, which match you with up to 30 players. 
 
-After clearing a mission, the results screen will show your clear rewards and bonus rewards that can be claimed by using the Rewards Plus tickets. 
-<StickyNote type="caution">
-    Be careful as bonus rewards are set to be claimed by default, so you have to manually select the other box if you wish to not use your tickets.
-</StickyNote>
+Missions typically have a time limit and a maximum number of revives that is shared between all players. A revive count is used when a player is knocked down and does not get rescued before the rescue timer ends. The number of revives provided per player depends on the mission difficulty. 
 
-Missions typically have a **time limit** and a maximum **number of revives** that is shared between all players. A revive count is used when a player is knocked down and does not get rescued before the rescue timer ends. Missions provide **2 revives per player**.
+Players are provided with potions and buff consumables that can only be used in that mission and are deleted after exiting.
 
-<StickyNote type="tip">
-    Rescue downed players by interacting with them to conserve your revives! 
-</StickyNote>
+End-game missions currently do not reward any progression-related gear; they only reward cosmetic items such as decorative medals for your player card.
 
-## Dungeons
-Dungeons are instances where up to 6 players can attempt to clear the dungeon boss before the timer runs out. They are not to be confused with **Free Exploration dungeons**, which are overworld instances of some dungeons--up to 30 players per channel can freely enter and leave.
+## Survey, Additional Survey, and Advanced Survey
+These are traditional dungeon instances which reward better equipment in higher difficulties. Survey missions typically appear in the main story quest, after which you unlock an Additional Survey of that same mission, allowing you to reenter it whenever. Some missions have Advanced Survey counterparts which grant stronger equipment.
+
+**Additional Survey and Advanced Survey missions have a chance to drop [beta skills](/guides/combat#skill-variants).** Advanced Survey has a higher chance than Additional Survey.
+
+A new difficulty, Advanced Survey Plus, was introduced in v1.06.100 with the strongest weapons to date.
+
+These missions are not to be confused with Free Exploration dungeons, which are overworld versions of certain Survey missions.
 
 <YouTube 
-    title="Dragon Claw Valley from the Closed Beta Test" 
-    id="3zFExLwb4nw"
+    title="Advanced Survey Plus example" 
+    id="jma9ib69pr0"
     bleed
 />
 
-Battle Areas are special areas in dungeons where some enemies need to be defeated before proceeding, to prevent players from rushing straight to the boss.  Dungeon minibosses also have a very low chance to drop a [chest that can contain a weapon](/guides/weapons-and-plugs#weapon-drops).
+Enemies have a chance of dropping treasure chests containing Enhance Imagine and Weapons from the mission's possible rewards pool. Chests placed throughout Dungeons can contain extra consumables.
 
-Players are provided with potions and buff consumables that can only be used in that dungeon and are deleted after exiting. Chests placed throughout Dungeons can contain extra potions.
+**Lucky Enemies**, which also appear in the overworld and have sparkles around them, are guaranteed to drop at least one treasure chest. 
 
-After clearing the Survey difficulty of a dungeon in the main story quest, the Additional Survey difficulty can be accessed through the Missions page on the Command Menu (and subsequently the Advanced Survey).
+**Silver Nappos** have a chance of replacing some enemies in the mission and are guaranteed to drop five treasure chests. 
+
+An **Enemy Rush** can occur at a fixed location in the dungeon at a 5% chance, spawning tons of Nappos that have a high chance of dropping chests for 1 minute straight (the dungeon timer is extended to compensate).
+
+You must clear the dungeon to get the rewards from the treasure chests.
+
+On the result screen, you can use Rewards Plus Tickets to double the mission's base rewards, and Double Chest Tickets to double the amount of items you get from chests (items are randomized, not duplicates).
+
+## Rush Battle, EX Rush, and EX Rush SP
+Rush Battle is a party mission where players fight continuous waves of enemies. Clear all the waves to complete the mission.
+
+EX Rush Battle is a harder version of Rush Battle that changes every update. Enemies have a 1/1,000,000 chance of dropping a treasure chest that contains a Golden Land Fox mount.
+
+<YouTube 
+    title="The first EX Rush Battle" 
+    id="l_kJmtTnG1A"
+    bleed
+/>
+
+EX Rush SP is a limited-time, high-difficulty game mode released as SP Party and later SP Solo (per-class). The goal is to defeat a powerful boss(es) within the time limit. The rewards were a unique bronze Medal for party, and a silver Medal for every class in solo.
+
+<YouTube 
+    title="EX Rush SP Party" 
+    id="cDEjL9kR968"
+    bleed
+/>
 
 ## Raids
-Raids consist of a single boss fight with up to 30 players. Party leaders and solo players can queue for raid matchmaking at the raid's entrance. The revives are shared between all players in the raid.
+Raids consist of a single boss fight with up to 30 players. They mainly reward GC and EXP, and Raids have the **highest chance to drop [beta skills](/guides/combat#skill-variants).** Raids can have [Enemy Strengthening Devices](/guides/combat#enemy-strengthening-device) and Engram Cannons which instantly fill the boss' Elemental Gauge.
 
-Raids can have various mechanics and provide various ways for players to contribute. For example, the Demidragon raid has Engram Cannons that can freeze the boss and deal significant damage. After being fired, they go on cooldown.
-
-### Raid Entry Times
-Raids open at fixed periods to facilitate higher activity and easier matchmaking. All times are in JST.
+Two types of Raids are active at a time; a low-level Raid that is always the same, and a high-level raid that changes every update. The entry times are as follows, in JST:
 
 | Weekdays      | Weekends      |
 |---------------|---------------|
@@ -57,33 +81,37 @@ Raids open at fixed periods to facilitate higher activity and easier matchmaking
 |               | 20:00 ~ 21:00 |
 |               | 1:00 ~ 2:00   |
 
-The standard Void's Island raid, where you fight the Demidragon, will always be available. A higher difficulty raid of will also be available, and its boss will be alternated with monthly updates, such as Ice Demidragon in June, then Fire Demidragon in July. 
-
 <YouTube 
-    title="Raid from the Closed Beta Test" 
+    title="Raid from the Network Test" 
     id="hffWt-K1yZE"
     bleed
 />
 
-### Raid Rewards
-
 Rewards are distributed to all players if the raid is cleared within the time limit. In addition to the clear rewards, extra rewards can be earned in various categories:
-- Overall rank reward
-- Class rank reward
-- Most damage reward
-- Highest damage reward
-- Support reward
-- Rescue reward (x2)
-- Last hit reward
-- Obstruction reward (disrupting enemy?)
-- Artillery reward (Engram Cannons?)
 
-<img src="https://cdn.discordapp.com/attachments/598568347826651146/1092264626386907207/image.png" alt="Example of the Raid Results rankings">
+| Category | Details |
+|----------|-------------|
+| Overall Rank Award | Get a high ranking in the Raid |
+| Class Rank Award | Get a high ranking for your class in the Raid |
+| Most Damage Award | Deal the most damage |
+| Highest Damage Award | Deal the highest damage in a single hit |
+| Support Award | Provide the most support through healing and buffs |
+| Rescue Award | Rescue the most players (2 people eligible) |
+| Obstruction Award | Apply the most debuffs | 
+| Artillery Award | Fire the most Engram Cannons |
+| Last Attack Award | Finish the boss with the final hit |
+| Ironclad Award | Receive the most damage |
 
-## Time Attack & Score Attack
-These two dungeon types have leaderboards (found in cities) where players can compete. They are solo dungeons, and the rankings are separated by class.
+Extra GC can be earned by opening treasure chests dropped by enemies in the Raid.
 
-The available dungeon will alternate every two weeks. For example, week 1 will be Time Attack on Map A, week 3 will be Score Attack on Map B, week 5 will be Time Attack on Map C, and so on. 
+## Time & Score Attack
+Time Attack and Score Attack are two solo game modes where players can compete in getting the fastest time or highest score for their class. The seasons are roughly 2 weeks and typically alternate between Time Attack and Score Attack. 
+
+<!-- Time Attack is about getting the fastest time, and Score Attack is about dealing the highest damage hit to as many mobs as possible while upkeeping combo multipliers. -->
+
+The rankings are one-time for each unique mission, though some are occassionally rerun so players can get past titles. The top 50 players on each class will receive a small crown and the rank 1 player for each class will receive a large crown. Other ranking rewards include Battle Maiden <!-- Valkyrie? --> Coins and temporary titles. These rewards will last for 4 weeks, when the next Time Attack/Score Attack champions are crowned.
+
+Permanent rewards for getting bronze/silver/gold scores for the first time on a mission include GC and a title.
 
 <figure class="full-bleed">
     <YouTube 
@@ -92,39 +120,51 @@ The available dungeon will alternate every two weeks. For example, week 1 will b
         bleed
         style="margin: 0"
     />
-    <figcaption>The only available Time Attack dungeon in the Closed Beta Test.</figcaption>
+    <figcaption>The only available Time Attack mission in the Closed Beta Test. There was a party Time Attack as well, but this has yet to be reintroduced into the live service.</figcaption>
 </figure>
 
-In Time Attack, players will race to complete the dungeon as fast as possible. In Score Attack, players must attempt to get the highest score possible by dealing great amounts of damage and upkeeping a combo multiplier by attacking enemies and breaking objects, while picking up time limit-extending orbs.
-
-### Time/Score Attack Rewards
-There are one-time rewards for clearing these dungeons with a bronze/silver/gold rank. There are also rewards for the top ranked players: 
-
-| Rank | Title                          | Crown                        | Currency                      |
-|------|--------------------------------|------------------------------|-------------------------------|
-| 1    | King of the [class weapon]     | Grand Crown,<br>Mellow Crown | Battle Maiden Coin - Red x900 |
-| 2    | Selected by the [class weapon] | Mellow Crown                 | Battle Maiden Coin - Red x600 |
-| 3    | Selected by the [class weapon] | Mellow Crown                 | Battle Maiden Coin - Red x300 |
-| 4~50 | Selected by the [class weapon] | Mellow Crown                 |                               |
-
-These rewards will last for 4 weeks, when the next Time Attack/Score Attack champions are crowned.
-
-## Rush Battle
-Rush Battle is held in the Asterliese Arena, where players fight continuous waves of enemies. Clear all the waves to complete the mission.
+## Infinity Tower
+The Infinity Tower is a series of party missions where players aim to complete all floors of enemies within the time limit. Floors may require you to defeat specific enemies, break objects, or carry keys to the lock to clear. Every 5 floors is a rest area where players can use Suppliers to buff and recover, though the timer does not pause on these floors. First time clear rewards include Gacha Tickets and cosmetics.
 
 <YouTube 
-    title="Rush Battle 2 in the NT" 
-    id="ekgVVaCvHow"
+    title="Third difficulty of the Infinity Tower" 
+    id="rzKJU33KWrM"
     bleed
 />
 
-## Endless Tower
-The Endless Tower is a series of dungeons where players aim to complete all 20 floors of enemies within the time limit. Some floors contain bosses alongside normal enemies. Every 5 floors is a rest area where players can use buff beacons and recover, though the timer does not pause on these floors.
+## Sudden Death Battle
+Sudden Death Battle is a limited-time party mission where enemies are guaranteed to 1 hit players. This mission does not give any notable rewards. Work together and survive until the time runs out to clear the mission!
 
 <YouTube 
-    title="Tower of Beginnings in the NT" 
-    id="JdQ0vTocqBM"
+    title="Sudden Death Battle" 
+    id="-RtciNzUUU0"
     bleed
 />
 
-The Tower of Beginnings was available in the Network Test. Not much else is known about this dungeon type yet.
+## Valiant Arena
+An end-game, ranked party mission where players clear waves of bosses. The bosses and [Enemy Strengthening Devices](/guides/combat#enemy-strengthening-device) have various spawn conditions, allowing for teams to formulate unique strategies. Rewards include a unique Gold medal and outfit set. The later you clear the dungeon, the lower quality medal you can earn, i.e. Silver and Bronze after the first few months.
+
+Leaderboards are tallied 4 months after the release of this mission, and the top 100 parties will receive **permanent** small crowns, with the rank 1 party receiving large crowns as well.
+
+<YouTube 
+    title="Valiant Arena" 
+    id="mAHo0ETQjFg"
+    bleed
+/>
+
+## War God's Training Ground
+An end-game party mission consisting of a single boss fight, and rewards a unique Gold medal and weapon skins. The later you clear the dungeon, the lower quality medal you can earn, i.e. Silver and Bronze after the first few months. The fight includes unique skills:
+
+- **Breaker Bullet**: fires a bullet that interrupts the boss when they are charging an attack; melee classes fire a short range bullet and ranged classes fire a long-range bullet; successful interrupts will fill the Heavenly Shield gauge
+- **Heavenly Shield**: consumes 1 charge to protect against powerful attacks
+
+These skills are explained and can be practiced in a separate Tutorial mission.
+
+<YouTube 
+    title="War God Arena" 
+    id="wI94C4bq4Jw"
+    bleed
+/>
+
+## Matching Support
+Matching Support missions queue you into a random Additional Survey from a list. Every day, you get 3 Support Special Rewards (max. 5) which give an large amount of EXP and 5 Battle Maiden Coins. These can be helpful for leveling up your other classes. Matching Support missions appear to be broken up into different level groups, requiring increasing amounts of battle score to enter, but the details are unknown.

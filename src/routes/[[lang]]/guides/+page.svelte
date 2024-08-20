@@ -22,21 +22,14 @@
 		>Additional guides are available in our <a href="/discord">Discord</a>,
 		covering more nuanced content.</small
 	>
-	
+
 	<section>
 		<h2>Where should I start?</h2>
 		<p>
-			If you're just beginning your journey in BLUE PROTOCOL, I
-			recommend checking out <a href="/guides/weapons-and-plugs"
-				>Weapons</a
-			>,
-			<a href="/guides/imagine">Imagine</a>, and
-			<a href="/guides/combat#elements">Elements</a> first.
-		</p>
-		<p>
-			The <a href="/guides/combat">Combat</a> guide is quite lengthy, but it
-			has a lot of useful details and formulas, so you may want to skim through
-			it.
+			If you're just beginning your journey in BLUE PROTOCOL, I recommend
+			checking out <a href="/guides/equipment">Equipment</a>,
+			<a href="/guides/elements">Elements</a>, and
+			<a href="/guides/stats">Stats</a> first.
 		</p>
 		<p>
 			These articles are meant to give you a brief overview. Combining
