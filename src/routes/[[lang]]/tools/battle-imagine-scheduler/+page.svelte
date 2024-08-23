@@ -12,6 +12,8 @@
     // TODO: Save & load player profiles, including their inventory
     // TODO: Add a total of all of the buffs, such as Reduce Damage Received (42%)
     // TODO: Rewrite showWarning() to give a proper warning message
+    // TODO: showWarning(): Caution if 2 of the same B-imagine at the same time
+    // TODO: showWarning(): Warning if user has same B-imagine at 0 and 30
 
     let col1text = "0s";
     let col2text = "30s";
@@ -21,19 +23,23 @@
             name: "Party Buffs",
             ids: [
                 120000300, 120000110, 120000400, 133001000, 131005100,
-                120000510,
+                120000510, 120000520
             ],
         },
         {
             name: "Enemy Debuffs",
             ids: [
                 120000410, 131002100, 131000500, 131001600, 131001800,
-                131003300,
+                131003300, 120000530
             ],
         },
         {
             name: "Self Buffs",
             ids: [120000010, 131003800],
+        },
+        {
+            name: "Other",
+            ids: [131004600],
         },
     ];
 

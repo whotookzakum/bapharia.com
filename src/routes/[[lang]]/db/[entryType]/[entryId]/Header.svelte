@@ -132,11 +132,11 @@
 
 <style lang="scss">
     header {
-        position: sticky;
+        // position: sticky;
         top: 0;
-        background: var(--bg);
+        // background: var(--bg);
         padding-bottom: 0.25rem;
-        box-shadow: 0 0 10px 14px var(--bg);
+        // box-shadow: 0 0 10px 14px var(--bg);
         z-index: 3;
     }
 

@@ -3,7 +3,7 @@ import { PUBLIC_PUBLISHER } from '$env/static/public';
 import { error } from "@sveltejs/kit"
 
 export function getSkillNotes(skillId) {
-    const allNotesFiles = import.meta.glob("../routes/\\[...loc\\]/classes/\\[classId\\]/skills/*.md", { eager: true, import: "default" })
+    const allNotesFiles = import.meta.glob("../routes/\\[\\[lang\\]\\]/classes/\\[classId\\]/skills/*.md", { eager: true, import: "default" })
     return allNotesFiles[`../routes/[[lang]]/classes/[classId]/skills/${skillId}.md`]
 }
 

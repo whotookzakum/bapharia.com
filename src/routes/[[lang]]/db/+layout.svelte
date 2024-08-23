@@ -585,9 +585,9 @@
     }
 
     .search-section {
-        background: var(--bg);
+        // background: var(--bg);
         margin: 0 -0.5rem;
-        box-shadow: 0 0 10px 14px var(--bg);
+        // box-shadow: 0 0 10px 14px var(--bg);
         border-bottom: 1px solid var(--surface1);
     }
 
@@ -601,10 +601,10 @@
 
     .results-section-header {
         grid-column: 1/-1;
-        background: var(--bg);
+        // background: var(--bg);
         padding-top: 1rem;
         margin-bottom: 0rem;
-        box-shadow: 0 0 10px 14px var(--bg);
+        // box-shadow: 0 0 10px 14px var(--bg);
     }
 
     .results-section:not(.list) {
