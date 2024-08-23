@@ -14,11 +14,19 @@ thumbImg: "/guides/social-features/thumb.webp"
     // TODO 今すぐパーティ 1:17:55 on dev stream
 </script>
 
-## Life Skills
-### Housing
-Housing was confirmed as a planned feature in the CBT Feedback Report. It will be added after the official release. Trading may be implemented *only* for housing materials.
 
-### Fishing
+## Housing
+Housing is a planned feature, and an early concept was shown in a February 2024 stream.
+
+<YouTube 
+    title="A very early preview of housing features" 
+    id="q_2H29yAzqM?start=5019"
+    bleed
+/>
+
+It was stated in an early livestream that trading may be implemented *only* for housing materials.
+
+## Fishing
 Fishing is a mini-game that can be performed at designated locations with other players or by yourself. Once a fish has bitten onto the hook, a gauge will appear at the bottom indicating line tension and fish's distance. Reel the fish in by carefully adjusting your fishing rod--good positioning will result in lower line tension. High line tension will break the line. Once successfully caught, your character will hold the fish with its length displayed.
 
 <YouTube 
@@ -29,12 +37,9 @@ Fishing is a mini-game that can be performed at designated locations with other 
 
 Caught fish can be sold, and more incentives will be introduced in the future to make it more life skill-like.
 
-## Player Interaction
-### Gestures
-Below is a list of gestures and interactions you can perform by yourself, with other players, or with NPCs.
-- Hand Holding
-- Rock, Paper, Scissors
-- Gestures (emotes)
+## Character Interactions
+Below is are some interactions you can perform by yourself, with other players, or with NPCs.
+- Emotes: Hand Holding; Rock, Paper, Scissors
 - Petting animals
 - Misc consumables (such as firecrackers)
 
@@ -45,9 +50,7 @@ Below is a list of gestures and interactions you can perform by yourself, with o
 
 ### Talk Mode
 The basic chat feature of the game. You can send stamps in chat, use gestures, change text size, switch chat tabs, and select chat targets that you want your messages to be visible to. 
-<StickyNote type="note">
-    Only premade parties can chat while in a dungeon. This is to avoid abusive behavior towards other players while in a party formed via matchmaking.
-</StickyNote>
+
 
 There are also settings in the Command Menu to configure automatic messages. These messages allow you to automatically send text into configured chat channels upon certain triggers, such as getting downed, when you use your ultimate skill, when an enemy has reached elemental burst, when your HP is low, and more. You can set fixed messages or send stamps with auto messages.
 

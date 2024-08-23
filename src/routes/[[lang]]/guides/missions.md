@@ -22,6 +22,14 @@ Players are provided with potions and buff consumables that can only be used in 
 
 End-game missions currently do not reward any progression-related gear; they only reward cosmetic items such as decorative medals for your player card.
 
+### Matchmaking
+If the queue has the minimum number of players and matchmaking takes longer than 1 minute, the dungeon will start and other players can join midway through.
+Level sync will not apply when entering immediately solo or in a premade party, but will apply if you queue matchmaking with the premade party.
+
+<StickyNote type="note">
+    Only premade parties can chat while in a dungeon. This is to avoid abusive behavior towards other players while in a party formed via matchmaking.
+</StickyNote>
+
 ## Survey, Additional Survey, and Advanced Survey
 These are traditional dungeon instances which reward better equipment in higher difficulties. Survey missions typically appear in the main story quest, after which you unlock an Additional Survey of that same mission, allowing you to reenter it whenever. Some missions have Advanced Survey counterparts which grant stronger equipment.
 

@@ -74,6 +74,8 @@ The pass is automatically ranked up 1 time for every 100 Season Points, obtained
 
 Unlocking the full pass rewards costs 180 Paid Rose Orbs. Most of the good rewards are locked behind the paid pass. As of v1.06.000, the Season Pass can no longer be bought once and used forever—it must be repurchased every season.
 
+The paid Season Pass also grants unlimited access to the regular course of the [Beauty Salon](/guides/cosmetics#beauty-salon).
+
 <details class="surface1 p-4 rounded-2xl" style="max-inline-size: var(--text-length)">
     <summary class="arrow accent2">Pre-Beyond: Season Passes</summary>
     <small class="text3 font-semibold">The following section applies to Season Passes before the Beyond update (v1.06.000).</small>
