@@ -33,13 +33,14 @@ export const GET = async ({ params, url, platform }) => {
     const [first, second] = params.path.split("/")
     const id = second && parseInt(second)
     // const file = await import(`./../../../../_api/json/${publisher}/${lang}/${first}.json`)
-    const file = await platform?.env[`${publisher}_${lang}`].get(first)
-
+    const file = await platform?.env[`${publisher}_${lang}`].get(first).then(res => JSON.parse(res))
+    
     if (id) {
         // const entry = await file.default.find(obj => obj.id === id || obj.skill_id === id)
         const entry = await file.find(obj => obj.id === id || obj.skill_id === id)
         return json(entry)
     }
-
-    return json(file.default)
+    
+    // return json(file.default)
+    return json(file)
 }
