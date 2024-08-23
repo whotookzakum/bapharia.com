@@ -1,13 +1,10 @@
-1. `npm run updateAll`
-2. Push submodule `bp assets`
+1. `npm run upd` updates bp_api, bp_client, bpassets
 3. Pull submodule `bptranslatefiles` 
-
-5. Visit `/api/create` to output api routes
-6. Move `api` folder out of `routes`
-7. `npm run build`
-8. Deploy via wrangler
+4. Move `/old_routes/create` to `/routes/api/create` and visit `/api/create` to update the API; move back to `/old_routes` afterwards
 
 In the `/api/create`, I delete SkillInfo from skills, as it's not needed in the final .json and takes a lot of data. This fixed running out of memory when building. May be needed for other jsons as well.
+
+If SSR and caching don't work, prerender each page locally and deploy via wrangler CLI.
 
 ## Update checklist
 1. **Fetch and decrypt API**

@@ -93,8 +93,9 @@ Skill components include:
 </StickyNote>
 
 <StickyNote type="warning">
-    Cooldown reduction is multiplicative, not additive, so it has diminishing returns. For example, using 20% + 15% cooldown reduction on a 20s skill results in 20 * 0.8 * 0.85 = 13.6s. It would be incorrect to add these Cooldown values to 35% before doing the calculation, i.e. 20s * 0.65 = 13s.
+    Cooldown reduction has diminishing returns.
 </StickyNote>
+<!-- It would be incorrect to add these Cooldown values to 35% before doing the calculation, i.e. 20s * 0.65 = 13s, or multiplying them 20 * 0.8 * 0.85 = 13.6s. -->
 
 The developers have stated that they prefer to add more skill diversity to existing classes than create new classes that aren't very unique.
 

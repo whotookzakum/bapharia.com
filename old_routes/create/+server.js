@@ -12,11 +12,11 @@ export const GET = async ({ params, url }) => {
 
         const versionsData = {}
 
-        await SUPPORTED_VERSIONS.forEach(version => {
+        for (const version of SUPPORTED_VERSIONS) {
             const { publisher, locales } = version
 
-            locales.forEach(lang => {
-                Object.entries(files).forEach(async ([path, resolver]) => {
+            for (const lang of locales) {
+                for (const [path, resolver] of Object.entries(files)) {
                     const fileName = path.split("/").pop().split(".")[0]
                     console.log(`${publisher}/${lang}:`, fileName)
                     let data = await resolver(lang)
@@ -34,23 +34,23 @@ export const GET = async ({ params, url }) => {
                     // Write to local JSON file
                     // if (!fs.existsSync(`./_api/json/${publisher}/${lang}`)) fs.mkdirSync(`./_api/json/${publisher}/${lang}`, { recursive: true });
                     // fs.writeFileSync(`./_api/json/${publisher}/${lang}/${fileName}.json`, JSON.stringify(data))
-                })
-            })
-        })
+                }
+            }
+        }
 
         // Write to Cloudflare KV
         Object.entries(versionsData).forEach(([version, namespaces]) => {
             let namespaceId;
             switch (version) {
-                case "bno_en": 
+                case "bno_en":
                     namespaceId = PRIVATE_KV_NAMESPACE_ID_BNO_EN
                     break;
-                case "bno_ja": 
+                case "bno_ja":
                     namespaceId = PRIVATE_KV_NAMESPACE_ID_BNO_JA
                     break;
             }
 
-            console.log(version)
+            console.log("Updating KV for:", version)
 
             fetch(`https://api.cloudflare.com/client/v4/accounts/${PRIVATE_WORKERS_ACCOUNT_ID}/storage/kv/namespaces/${namespaceId}/bulk`, {
                 method: 'PUT',
