@@ -65,6 +65,7 @@ Step-up banners typically have better rates, exclusive rewards, or guaranteed pr
 A store where you can spend BP Points. Contains selection boxes for the outfits and mounts in the gacha banners, weapon skin pliers, weapon socket expansion tickets, and consumables. <!-- It used to contain Battle Imagine recipes and Ideas, and accessories. -->
 
 BP Points can be acquired through exchanging gacha rewards, spinning gacha with Rose Orbs, events, Season Pass rewards, login bonuses, and more. Gacha rewards must claimed from the mail to be exchanged and must not have been worn.
+<!-- Not sure if you can exchange items received from others. Maybe you could have before but not anymore? -->
 
 ## Season Pass
 <!-- Tuning Tickets, Ability Plug Lock Tickets, Gacha Tickets, Special Effect Randomizer/Upgrade tickets, Double Chest Drop Tickets, Battle Imagine Limit Break Substitute Tickets, Weapon Skin Tickets -->

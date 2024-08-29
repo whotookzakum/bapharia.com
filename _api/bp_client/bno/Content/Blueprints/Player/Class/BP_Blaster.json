@@ -14,7 +14,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_IsValid_ReturnValue",
+        "Name": "K2Node_Event_IsVisible",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -79,6 +79,18 @@
       {
         "Type": "BoolProperty",
         "Name": "K2Node_SwitchEnum_CmpSuccess",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -171,9 +183,51 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsValid_ReturnValue_8",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+  },
+  {
+    "Type": "Function",
+    "Name": "OnSetAimUIVisibility",
+    "Outer": "BP_Blaster_C",
+    "Class": "UScriptClass'Function'",
+    "Super": {
+      "ObjectName": "Function'BP_PlayerCharacter_C:OnSetAimUIVisibility'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+    },
+    "SuperStruct": {
+      "ObjectName": "Function'BP_PlayerCharacter_C:OnSetAimUIVisibility'",
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+    },
+    "ChildProperties": [
+      {
+        "Type": "BoolProperty",
+        "Name": "IsVisible",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm",
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      }
+    ],
+    "FunctionFlags": "FUNC_Public | FUNC_BlueprintCallable | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -609,30 +663,30 @@
     "Class": "UScriptClass'BlueprintGeneratedClass'",
     "Super": {
       "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.66"
     },
     "Properties": {
       "ComponentTemplates": [
         {
           "ObjectName": "BP_PlayerAimHUDComponent_C'BP_Blaster_C:NODE_AddBP_PlayerAimHUDComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.14"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.15"
         },
         {
           "ObjectName": "CommonBattleHudComponent_C'BP_Blaster_C:NODE_AddCommonBattleHudComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.17"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.18"
         },
         {
           "ObjectName": "BP_P006HUDComponent_C'BP_Blaster_C:NODE_AddBP_BlastArcherHUDComponent-0'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.13"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.14"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_Blaster_C:SimpleConstructionScript_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.68"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.69"
       },
       "InheritableComponentHandler": {
         "ObjectName": "InheritableComponentHandler'BP_Blaster_C:InheritableComponentHandler'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.18"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.19"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'BP_Blaster_C:ExecuteUbergraph_BP_Blaster'",
@@ -641,35 +695,39 @@
     },
     "SuperStruct": {
       "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.66"
     },
     "Children": [
       {
         "ObjectName": "Function'BP_Blaster_C:CreateHUD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.8"
       },
       {
         "ObjectName": "Function'BP_Blaster_C:DebugPrintCurrentBowChargeLevel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.7"
       },
       {
         "ObjectName": "Function'BP_Blaster_C:OnHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.6"
       },
       {
         "ObjectName": "Function'BP_Blaster_C:OnRayHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.5"
       },
       {
         "ObjectName": "Function'BP_Blaster_C:Sheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.4"
       },
       {
         "ObjectName": "Function'BP_Blaster_C:Unsheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.3"
       },
       {
         "ObjectName": "Function'BP_Blaster_C:CreateClassHUD'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.2"
+      },
+      {
+        "ObjectName": "Function'BP_Blaster_C:OnSetAimUIVisibility'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.1"
       },
       {
@@ -739,33 +797,37 @@
         "ObjectName": "Function'BP_Blaster_C:ExecuteUbergraph_BP_Blaster'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.0"
       },
+      "OnSetAimUIVisibility": {
+        "ObjectName": "Function'BP_Blaster_C:OnSetAimUIVisibility'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.1"
+      },
       "CreateClassHUD": {
         "ObjectName": "Function'BP_Blaster_C:CreateClassHUD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.1"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.2"
       },
       "Unsheathe": {
         "ObjectName": "Function'BP_Blaster_C:Unsheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.3"
       },
       "Sheathe": {
         "ObjectName": "Function'BP_Blaster_C:Sheathe'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.4"
       },
       "OnRayHitForPlayerReticle": {
         "ObjectName": "Function'BP_Blaster_C:OnRayHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.5"
       },
       "OnHitForPlayerReticle": {
         "ObjectName": "Function'BP_Blaster_C:OnHitForPlayerReticle'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.6"
       },
       "DebugPrintCurrentBowChargeLevel": {
         "ObjectName": "Function'BP_Blaster_C:DebugPrintCurrentBowChargeLevel'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.7"
       },
       "CreateHUD": {
         "ObjectName": "Function'BP_Blaster_C:CreateHUD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.8"
       }
     },
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
@@ -777,7 +839,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_Blaster_C'Default__BP_Blaster_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.9"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.10"
     }
   },
   {
@@ -786,21 +848,21 @@
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.BP_Blaster_C'",
     "Template": {
       "ObjectName": "BP_PlayerCharacter_C'Default__BP_PlayerCharacter_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.66"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.67"
     },
     "Properties": {
       "UberGraphFrame": {},
       "AnimationSamplingComp": {
         "ObjectName": "SBCharacterAnimationSamplingComponent'Default__BP_Blaster_C:PlayerAnimationSamplingComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.27"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.28"
       },
       "CharacterTrackingComponent": {
         "ObjectName": "SBCharacterTrackingComponent'Default__BP_Blaster_C:CharacterTrackingComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.28"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.29"
       },
       "m_pPresetEquipComponent": {
         "ObjectName": "SBPlayerPresetEquipComponent'Default__BP_Blaster_C:PlayerPresetEquipComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.52"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.53"
       },
       "RoleType": "ESBRoleType::Attacker",
       "StaminaSettings": {
@@ -811,15 +873,15 @@
       },
       "m_pPlayerRaidBattleComponent": {
         "ObjectName": "SBRaidBattleComponent'Default__BP_Blaster_C:PlayerRaidBattleComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.62"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.63"
       },
       "CliffComponent": {
         "ObjectName": "SBPlayerCliffComponent'Default__BP_Blaster_C:CliffComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.47"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.48"
       },
       "m_pSkillMarkerComponent": {
         "ObjectName": "SBPlayerSkillMarker'Default__BP_Blaster_C:SkillMarker'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.55"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.56"
       },
       "AttackHitRecastSettingList": [
         {
@@ -1352,36 +1414,36 @@
       },
       "m_pPlayerFishingComponent": {
         "ObjectName": "SBPlayerFishingComponent'Default__BP_Blaster_C:PlayerFishingComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.50"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.51"
       },
       "ProjectileHitTargetLimitComponent": {
         "ObjectName": "SBProjectileHitTargetLimitComponent'Default__BP_Blaster_C:ProjectileHitTargetLimitComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.57"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.58"
       },
       "ClassType": "ESBClassType::P006",
       "LevelSyncComponent": {
         "ObjectName": "SBPlayerCharacterLevelSyncComponent'Default__BP_Blaster_C:LevelSyncComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.45"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.46"
       },
       "ContentActionComponent": {
         "ObjectName": "SBPlayerContentActionComponent'Default__BP_Blaster_C:ContentActionComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.48"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.49"
       },
       "VoiceComponent": {
         "ObjectName": "AkComponent'Default__BP_Blaster_C:VoiceComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.11"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.12"
       },
       "FaceLODComp": {
         "ObjectName": "StaticMeshComponent'Default__BP_Blaster_C:FaceLOD'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.70"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.71"
       },
       "m_pPlayerCheerfulItemComponent": {
         "ObjectName": "SBPlayerCheerfulItemComponent'Default__BP_Blaster_C:CheerfulItemComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.46"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.47"
       },
       "DebugComponent": {
         "ObjectName": "SBPlayerDebugComponent'Default__BP_Blaster_C:DebugComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.49"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.50"
       },
       "CharaCreateParameter": {
         "Gender": "ESBCharacterGender::Female",
@@ -1389,23 +1451,23 @@
       },
       "CharaCreateComponent": {
         "ObjectName": "SBCharaCreateComponent'Default__BP_Blaster_C:CharaCreate'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.26"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.27"
       },
       "FaceComp": {
         "ObjectName": "SBCharaPartsFaceComponent'Default__BP_Blaster_C:FaceSlot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.30"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.31"
       },
       "AestheShopComp": {
         "ObjectName": "SBAestheShopComponent'Default__BP_Blaster_C:AestheShopComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.20"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.21"
       },
       "ColoringShopComp": {
         "ObjectName": "SBColoringShopComponent'Default__BP_Blaster_C:ColoringShopComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.34"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.35"
       },
       "PartsDamageAnimParamter": {
         "ObjectName": "SBPartsDamageAnimParamter'Default__BP_Blaster_C:PartsDamageAnimParamter'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.42"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.43"
       },
       "InventoryWeapons": [
         {
@@ -1494,27 +1556,27 @@
       "WeaponAttachPoint": "Sheath_Spine1_LeftDown",
       "WeaponVisibilityComponent": {
         "ObjectName": "SBWeaponVisibilityComponent'Default__BP_Blaster_C:WeaponVisibilityComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.64"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.65"
       },
       "SpawnComp": {
         "ObjectName": "SBProjectileSpawnComponent'Default__BP_Blaster_C:ProjectileSpawnComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.60"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.61"
       },
       "BattleStatusComp": {
         "ObjectName": "SBBattleStatusComponent'Default__BP_Blaster_C:BattleStatusComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.23"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.24"
       },
       "ProjectileShareHitComp": {
         "ObjectName": "SBProjectileShareHitComponent'Default__BP_Blaster_C:ProjectileShareHitComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.59"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.60"
       },
       "SendNetDataComp": {
         "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_Blaster_C:ProjectileSendNetDataComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.58"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.59"
       },
       "StateManageComp": {
         "ObjectName": "SBProjectileStateManageComponent'Default__BP_Blaster_C:ProjectileStateManageComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.61"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.62"
       },
       "m_MoveSpeedSetting": [
         {
@@ -1526,59 +1588,59 @@
       ],
       "AnimationControlComp": {
         "ObjectName": "SBAnimationControlComponent'Default__BP_Blaster_C:AnimationControlComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.22"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.23"
       },
       "DemoParameterComp": {
         "ObjectName": "SBDemoParameterComponent'Default__BP_Blaster_C:DemoParameterComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.36"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.37"
       },
       "FactionComponent": {
         "ObjectName": "AIFwFactionComponent'Default__BP_Blaster_C:FactionComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.11"
       },
       "FactionInfluenceComponent": {
         "ObjectName": "SBFactionInfluenceSourceComponent'Default__BP_Blaster_C:FactionInfluenceComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.39"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.40"
       },
       "AISharedInfoComponent": {
         "ObjectName": "SBAISharedInfoComponent'Default__BP_Blaster_C:AISharedInfoComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.21"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.22"
       },
       "MovePredictComponent": {
         "ObjectName": "SBMovementPredictComponent'Default__BP_Blaster_C:MovementPredictComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.40"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.41"
       },
       "ActorVisibilityComponent": {
         "ObjectName": "SBActorVisibilityComponent'Default__BP_Blaster_C:ActorVisibilityComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.19"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.20"
       },
       "DebugFunctionComponent": {
         "ObjectName": "SBDebugFunctionComponent'Default__BP_Blaster_C:DebugFunctionComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.35"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.36"
       },
       "CollisionGroup": {
         "ObjectName": "SBCollisionGroupComponent'Default__BP_Blaster_C:CollisionGroup'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.33"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.34"
       },
       "DamageCollision": {
         "ObjectName": "ASCollisionSphereComponent'Default__BP_Blaster_C:DamageCollision'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.12"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.13"
       },
       "Mesh": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_Blaster_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.30"
       },
       "CharacterMovement": {
         "ObjectName": "SBPlayerMovementComponent'Default__BP_Blaster_C:CharMoveComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.51"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.52"
       },
       "CapsuleComponent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Blaster_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.53"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.54"
       },
       "RootComponent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Blaster_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.53"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.54"
       },
       "Tags": [
         "Player",
@@ -1593,7 +1655,7 @@
     "Class": "UScriptClass'AIFwFactionComponent'",
     "Template": {
       "ObjectName": "AIFwFactionComponent'Default__BP_PlayerCharacter_C:FactionComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.67"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.68"
     }
   },
   {
@@ -1603,12 +1665,12 @@
     "Class": "UScriptClass'AkComponent'",
     "Template": {
       "ObjectName": "AkComponent'Default__BP_PlayerCharacter_C:VoiceComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.68"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.69"
     },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCharaPartsFaceComponent'Default__BP_Blaster_C:FaceSlot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.30"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.31"
       }
     }
   },
@@ -1619,12 +1681,12 @@
     "Class": "UScriptClass'ASCollisionSphereComponent'",
     "Template": {
       "ObjectName": "ASCollisionSphereComponent'Default__BP_PlayerCharacter_C:DamageCollision'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.70"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.71"
     },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCollisionGroupComponent'Default__BP_Blaster_C:CollisionGroup'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.33"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.34"
       }
     }
   },
@@ -1655,7 +1717,7 @@
     "Class": "BlueprintGeneratedClass'BLUEPROTOCOL/Content/Blueprints/Player/Components/BP_PlayerCameraComponent.BP_PlayerCameraComponent_C'",
     "Template": {
       "ObjectName": "BP_PlayerCameraComponent_C'BP_PlayerCharacter_C:BP_PlayerCameraComponent_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.73"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.74"
     },
     "Properties": {
       "ClassGameplayCameraSettingsDataTable": [
@@ -1663,17 +1725,7 @@
           "ObjectName": "DataTable'GCS_Blaster'",
           "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Camera/GameplayCameraSettings/GCS_Blaster.0"
         }
-      ],
-      "NearTargetCameraAngle": 10.0,
-      "NearTargetCameraSpeedCurve": {
-        "AssetPathName": "/Game/Blueprints/Player/Camera/CameraCurve/AimCurve/CV_CameraSpeedNearTarget.CV_CameraSpeedNearTarget",
-        "SubPathString": ""
-      },
-      "FollowTargetAngleRange": 10.0,
-      "NearTargetCameraFollowCurve": {
-        "AssetPathName": "/Game/Blueprints/Player/Camera/CameraCurve/AimCurve/CV_CameraSpeedFollowTarget.CV_CameraSpeedFollowTarget",
-        "SubPathString": ""
-      }
+      ]
     }
   },
   {
@@ -1683,7 +1735,7 @@
     "Class": "UScriptClass'CameraComponent'",
     "Template": {
       "ObjectName": "CameraComponent'BP_PlayerCharacter_C:BP_PlayerCameraComponent_GEN_VARIABLE.CameraComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.79"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.80"
     }
   },
   {
@@ -1710,12 +1762,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SphereComponent'BP_Blaster_C:EnemyStepJumpCollision_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.69"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.70"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.66"
             },
             "SCSVariableName": "EnemyStepJumpCollision",
             "AssociatedGuid": "2A4F9090-450A5BD1-F781A08B-6FAD663E"
@@ -1732,12 +1784,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "SBPlayerTargetingComponent'BP_Blaster_C:SBPlayerTargeting_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.56"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.57"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.66"
             },
             "SCSVariableName": "SBPlayerTargeting",
             "AssociatedGuid": "AC7D8ACF-49B105F8-A23D87BF-DBCD53CB"
@@ -1754,12 +1806,12 @@
           },
           "ComponentTemplate": {
             "ObjectName": "BP_PlayerCameraComponent_C'BP_Blaster_C:BP_PlayerCameraComponent_GEN_VARIABLE'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.15"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.16"
           },
           "ComponentKey": {
             "OwnerClass": {
               "ObjectName": "BlueprintGeneratedClass'BP_PlayerCharacter_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.65"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.66"
             },
             "SCSVariableName": "BP_PlayerCameraComponent",
             "AssociatedGuid": "DB33836B-49A0F729-9D4B5EB5-DBB3F0AE"
@@ -1779,7 +1831,7 @@
     "Class": "UScriptClass'SBActorVisibilityComponent'",
     "Template": {
       "ObjectName": "SBActorVisibilityComponent'Default__BP_PlayerCharacter_C:ActorVisibilityComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.86"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.87"
     }
   },
   {
@@ -1789,7 +1841,7 @@
     "Class": "UScriptClass'SBAestheShopComponent'",
     "Template": {
       "ObjectName": "SBAestheShopComponent'Default__BP_PlayerCharacter_C:AestheShopComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.88"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.89"
     }
   },
   {
@@ -1799,7 +1851,7 @@
     "Class": "UScriptClass'SBAISharedInfoComponent'",
     "Template": {
       "ObjectName": "SBAISharedInfoComponent'Default__BP_PlayerCharacter_C:AISharedInfoComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.89"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.90"
     }
   },
   {
@@ -1809,7 +1861,7 @@
     "Class": "UScriptClass'SBAnimationControlComponent'",
     "Template": {
       "ObjectName": "SBAnimationControlComponent'Default__BP_PlayerCharacter_C:AnimationControlComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.90"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.91"
     }
   },
   {
@@ -1819,7 +1871,7 @@
     "Class": "UScriptClass'SBBattleStatusComponent'",
     "Template": {
       "ObjectName": "SBBattleStatusComponent'Default__BP_PlayerCharacter_C:BattleStatusComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.93"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.94"
     },
     "Properties": {
       "OnClientSendEffectiveBattleStatusParamDelegete": {
@@ -1827,7 +1879,7 @@
           {
             "Object": {
               "ObjectName": "BP_Blaster_C'Default__BP_Blaster_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.9"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.10"
             },
             "FunctionName": "OnClientSendEffectiveBattleStatusParam"
           }
@@ -1838,7 +1890,7 @@
           {
             "Object": {
               "ObjectName": "BP_Blaster_C'Default__BP_Blaster_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.9"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.10"
             },
             "FunctionName": "OnClientSendImportantBattleEffective"
           }
@@ -1873,7 +1925,7 @@
     "Class": "UScriptClass'SBBoneScaleCacheData'",
     "Template": {
       "ObjectName": "SBBoneScaleCacheData'Default__BP_PlayerCharacter_C:CharaCreate.BoneScaleChacheData'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.94"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.95"
     }
   },
   {
@@ -1883,7 +1935,7 @@
     "Class": "UScriptClass'SBCharaBodyCapsuleGroupComponent'",
     "Template": {
       "ObjectName": "SBCharaBodyCapsuleGroupComponent'Default__BP_PlayerCharacter_C:CharaBodyCapsuleGroupComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.96"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.98"
     }
   },
   {
@@ -1893,7 +1945,7 @@
     "Class": "UScriptClass'SBCharaCreateComponent'",
     "Template": {
       "ObjectName": "SBCharaCreateComponent'Default__BP_PlayerCharacter_C:CharaCreate'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.97"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.99"
     },
     "Properties": {
       "DefaultCharaCreateData": {
@@ -1909,7 +1961,7 @@
     "Class": "UScriptClass'SBCharacterAnimationSamplingComponent'",
     "Template": {
       "ObjectName": "SBCharacterAnimationSamplingComponent'Default__BP_PlayerCharacter_C:PlayerAnimationSamplingComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.98"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.100"
     }
   },
   {
@@ -1919,7 +1971,7 @@
     "Class": "UScriptClass'SBCharacterTrackingComponent'",
     "Template": {
       "ObjectName": "SBCharacterTrackingComponent'Default__BP_PlayerCharacter_C:CharacterTrackingComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.99"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.101"
     }
   },
   {
@@ -1929,7 +1981,7 @@
     "Class": "UScriptClass'SBCharaPartsBodyComponent'",
     "Template": {
       "ObjectName": "SBCharaPartsBodyComponent'Default__BP_PlayerCharacter_C:CharacterMesh0'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.100"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.102"
     },
     "Properties": {
       "SkeletalMesh": {
@@ -1942,7 +1994,7 @@
       ],
       "AttachParent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Blaster_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.53"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.54"
       }
     }
   },
@@ -1953,7 +2005,7 @@
     "Class": "UScriptClass'SBCharaPartsFaceComponent'",
     "Template": {
       "ObjectName": "SBCharaPartsFaceComponent'Default__BP_PlayerCharacter_C:FaceSlot'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.101"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.103"
     },
     "Properties": {
       "SkeletalMesh": {
@@ -1965,7 +2017,7 @@
       ],
       "AttachParent": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_Blaster_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.30"
       }
     }
   },
@@ -1976,7 +2028,7 @@
     "Class": "UScriptClass'SBCharaPartsMaterial'",
     "Template": {
       "ObjectName": "SBCharaPartsMaterial'Default__BP_PlayerCharacter_C:CharacterMesh0.CharaPartsMaterial'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.102"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.104"
     }
   },
   {
@@ -1986,7 +2038,7 @@
     "Class": "UScriptClass'SBCharaPartsMaterial'",
     "Template": {
       "ObjectName": "SBCharaPartsMaterial'Default__BP_PlayerCharacter_C:FaceSlot.CharaPartsMaterial'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.103"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.105"
     }
   },
   {
@@ -1996,12 +2048,12 @@
     "Class": "UScriptClass'SBCollisionGroupComponent'",
     "Template": {
       "ObjectName": "SBCollisionGroupComponent'Default__BP_PlayerCharacter_C:CollisionGroup'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.104"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.106"
     },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_Blaster_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.53"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.54"
       }
     }
   },
@@ -2012,7 +2064,7 @@
     "Class": "UScriptClass'SBColoringShopComponent'",
     "Template": {
       "ObjectName": "SBColoringShopComponent'Default__BP_PlayerCharacter_C:ColoringShopComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.105"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.107"
     }
   },
   {
@@ -2022,7 +2074,7 @@
     "Class": "UScriptClass'SBDebugFunctionComponent'",
     "Template": {
       "ObjectName": "SBDebugFunctionComponent'Default__BP_PlayerCharacter_C:DebugFunctionComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.106"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.108"
     }
   },
   {
@@ -2032,7 +2084,7 @@
     "Class": "UScriptClass'SBDemoParameterComponent'",
     "Template": {
       "ObjectName": "SBDemoParameterComponent'Default__BP_PlayerCharacter_C:DemoParameterComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.107"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.109"
     }
   },
   {
@@ -2042,7 +2094,7 @@
     "Class": "UScriptClass'SBDhcBattleComponent'",
     "Template": {
       "ObjectName": "SBDhcBattleComponent'Default__BP_PlayerCharacter_C:DhcBattleComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.108"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.110"
     }
   },
   {
@@ -2052,7 +2104,7 @@
     "Class": "UScriptClass'SBFacialAnimationDataHolder'",
     "Template": {
       "ObjectName": "SBFacialAnimationDataHolder'Default__BP_PlayerCharacter_C:CharaCreate.FacialAnimationDataHolder'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.109"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.111"
     }
   },
   {
@@ -2062,7 +2114,7 @@
     "Class": "UScriptClass'SBFactionInfluenceSourceComponent'",
     "Template": {
       "ObjectName": "SBFactionInfluenceSourceComponent'Default__BP_PlayerCharacter_C:FactionInfluenceComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.110"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.112"
     }
   },
   {
@@ -2072,7 +2124,7 @@
     "Class": "UScriptClass'SBMovementPredictComponent'",
     "Template": {
       "ObjectName": "SBMovementPredictComponent'Default__BP_PlayerCharacter_C:MovementPredictComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.112"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.114"
     }
   },
   {
@@ -2082,7 +2134,7 @@
     "Class": "UScriptClass'SBNetworkSmoothMoveComponent'",
     "Template": {
       "ObjectName": "SBNetworkSmoothMoveComponent'Default__BP_PlayerCharacter_C:NetworkSmoothMoveComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.115"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.117"
     }
   },
   {
@@ -2092,7 +2144,7 @@
     "Class": "UScriptClass'SBPartsDamageAnimParamter'",
     "Template": {
       "ObjectName": "SBPartsDamageAnimParamter'Default__BP_PlayerCharacter_C:PartsDamageAnimParamter'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.117"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.119"
     }
   },
   {
@@ -2269,7 +2321,7 @@
     "Class": "UScriptClass'SBPlayerAppearEffectComponent'",
     "Template": {
       "ObjectName": "SBPlayerAppearEffectComponent'Default__BP_PlayerCharacter_C:AppearEffectComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.118"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.120"
     }
   },
   {
@@ -2279,7 +2331,7 @@
     "Class": "UScriptClass'SBPlayerCharacterLevelSyncComponent'",
     "Template": {
       "ObjectName": "SBPlayerCharacterLevelSyncComponent'Default__BP_PlayerCharacter_C:LevelSyncComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.119"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.121"
     }
   },
   {
@@ -2289,7 +2341,7 @@
     "Class": "UScriptClass'SBPlayerCheerfulItemComponent'",
     "Template": {
       "ObjectName": "SBPlayerCheerfulItemComponent'Default__BP_PlayerCharacter_C:CheerfulItemComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.120"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.122"
     }
   },
   {
@@ -2299,7 +2351,7 @@
     "Class": "UScriptClass'SBPlayerCliffComponent'",
     "Template": {
       "ObjectName": "SBPlayerCliffComponent'Default__BP_PlayerCharacter_C:CliffComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.121"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.123"
     }
   },
   {
@@ -2309,7 +2361,7 @@
     "Class": "UScriptClass'SBPlayerContentActionComponent'",
     "Template": {
       "ObjectName": "SBPlayerContentActionComponent'Default__BP_PlayerCharacter_C:ContentActionComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.122"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.124"
     }
   },
   {
@@ -2319,7 +2371,7 @@
     "Class": "UScriptClass'SBPlayerDebugComponent'",
     "Template": {
       "ObjectName": "SBPlayerDebugComponent'Default__BP_PlayerCharacter_C:DebugComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.123"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.125"
     }
   },
   {
@@ -2329,7 +2381,7 @@
     "Class": "UScriptClass'SBPlayerFishingComponent'",
     "Template": {
       "ObjectName": "SBPlayerFishingComponent'Default__BP_PlayerCharacter_C:PlayerFishingComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.124"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.126"
     }
   },
   {
@@ -2339,7 +2391,7 @@
     "Class": "UScriptClass'SBPlayerMovementComponent'",
     "Template": {
       "ObjectName": "SBPlayerMovementComponent'Default__BP_PlayerCharacter_C:CharMoveComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.126"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.128"
     }
   },
   {
@@ -2349,7 +2401,7 @@
     "Class": "UScriptClass'SBPlayerPresetEquipComponent'",
     "Template": {
       "ObjectName": "SBPlayerPresetEquipComponent'Default__BP_PlayerCharacter_C:PlayerPresetEquipComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.127"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.129"
     }
   },
   {
@@ -2359,7 +2411,7 @@
     "Class": "UScriptClass'SBPlayerRootCollisionComponent'",
     "Template": {
       "ObjectName": "SBPlayerRootCollisionComponent'Default__BP_PlayerCharacter_C:CollisionCylinder'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.128"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.130"
     },
     "Properties": {
       "OnComponentBeginOverlap": {
@@ -2367,7 +2419,7 @@
           {
             "Object": {
               "ObjectName": "BP_Blaster_C'Default__BP_Blaster_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.9"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.10"
             },
             "FunctionName": "OnCapsuleComponentBeginOverlapCallback"
           }
@@ -2378,7 +2430,7 @@
           {
             "Object": {
               "ObjectName": "BP_Blaster_C'Default__BP_Blaster_C'",
-              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.9"
+              "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.10"
             },
             "FunctionName": "OnCapsuleComponentEndOverlapCallback"
           }
@@ -2393,7 +2445,7 @@
     "Class": "UScriptClass'SBPlayerSkillActionComponent'",
     "Template": {
       "ObjectName": "SBPlayerSkillActionComponent'Default__BP_PlayerCharacter_C:SkillActionComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.129"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.131"
     }
   },
   {
@@ -2403,7 +2455,7 @@
     "Class": "UScriptClass'SBPlayerSkillMarker'",
     "Template": {
       "ObjectName": "SBPlayerSkillMarker'Default__BP_PlayerCharacter_C:SkillMarker'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.130"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.132"
     }
   },
   {
@@ -2413,7 +2465,7 @@
     "Class": "UScriptClass'SBPlayerTargetingComponent'",
     "Template": {
       "ObjectName": "SBPlayerTargetingComponent'BP_PlayerCharacter_C:SBPlayerTargeting_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.132"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.134"
     },
     "Properties": {
       "TargetingInfo": {
@@ -2450,7 +2502,7 @@
     "Class": "UScriptClass'SBProjectileHitTargetLimitComponent'",
     "Template": {
       "ObjectName": "SBProjectileHitTargetLimitComponent'Default__BP_PlayerCharacter_C:ProjectileHitTargetLimitComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.133"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.135"
     }
   },
   {
@@ -2460,7 +2512,7 @@
     "Class": "UScriptClass'SBProjectileSendNetDataComponent'",
     "Template": {
       "ObjectName": "SBProjectileSendNetDataComponent'Default__BP_PlayerCharacter_C:ProjectileSendNetDataComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.134"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.136"
     }
   },
   {
@@ -2470,7 +2522,7 @@
     "Class": "UScriptClass'SBProjectileShareHitComponent'",
     "Template": {
       "ObjectName": "SBProjectileShareHitComponent'Default__BP_PlayerCharacter_C:ProjectileShareHitComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.135"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.137"
     }
   },
   {
@@ -2480,7 +2532,7 @@
     "Class": "UScriptClass'SBProjectileSpawnComponent'",
     "Template": {
       "ObjectName": "SBProjectileSpawnComponent'Default__BP_PlayerCharacter_C:ProjectileSpawnComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.136"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.138"
     },
     "Properties": {
       "ProjectileBuildResource": [
@@ -2524,7 +2576,7 @@
     "Class": "UScriptClass'SBProjectileStateManageComponent'",
     "Template": {
       "ObjectName": "SBProjectileStateManageComponent'Default__BP_PlayerCharacter_C:ProjectileStateManageComp'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.137"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.139"
     }
   },
   {
@@ -2534,7 +2586,7 @@
     "Class": "UScriptClass'SBRaidBattleComponent'",
     "Template": {
       "ObjectName": "SBRaidBattleComponent'Default__BP_PlayerCharacter_C:PlayerRaidBattleComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.138"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.140"
     }
   },
   {
@@ -2544,7 +2596,7 @@
     "Class": "UScriptClass'SBSpringArmComponent'",
     "Template": {
       "ObjectName": "SBSpringArmComponent'BP_PlayerCharacter_C:BP_PlayerCameraComponent_GEN_VARIABLE.CameraArmComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.139"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.141"
     }
   },
   {
@@ -2554,7 +2606,7 @@
     "Class": "UScriptClass'SBWeaponVisibilityComponent'",
     "Template": {
       "ObjectName": "SBWeaponVisibilityComponent'Default__BP_PlayerCharacter_C:WeaponVisibilityComponent'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.141"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.143"
     },
     "Properties": {
       "bTreatLeftAsShield": false
@@ -2578,7 +2630,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_Blaster_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.65"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.66"
       },
       "VariableGuid": "44B60E87-4BA31FF5-0C0E7A82-CE8FD7BB",
       "InternalVariableName": "DefaultSceneRoot"
@@ -2596,7 +2648,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SBPCBlasterComponent'BP_Blaster_C:SBPCBlaster_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.43"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.44"
       },
       "VariableGuid": "2FFCFA39-4659F3D5-B7D94BB1-EAB1FDAB",
       "InternalVariableName": "SBPCBlaster"
@@ -2611,18 +2663,18 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_Blaster_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.67"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.68"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_Blaster_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.67"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.68"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_Blaster_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.66"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.67"
       }
     }
   },
@@ -2633,7 +2685,7 @@
     "Class": "UScriptClass'SphereComponent'",
     "Template": {
       "ObjectName": "SphereComponent'BP_PlayerCharacter_C:EnemyStepJumpCollision_GEN_VARIABLE'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.172"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.175"
     },
     "Properties": {
       "RelativeLocation": {
@@ -2650,12 +2702,12 @@
     "Class": "UScriptClass'StaticMeshComponent'",
     "Template": {
       "ObjectName": "StaticMeshComponent'Default__BP_PlayerCharacter_C:FaceLOD'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.173"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/BP_PlayerCharacter.176"
     },
     "Properties": {
       "AttachParent": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_Blaster_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Player/Class/BP_Blaster.30"
       }
     }
   }

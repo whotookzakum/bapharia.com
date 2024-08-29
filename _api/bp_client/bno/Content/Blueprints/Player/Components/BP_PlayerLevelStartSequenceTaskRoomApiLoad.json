@@ -13,16 +13,15 @@
         "PropertyFlags": "BlueprintVisible | BlueprintReadOnly | Parm"
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_IsEditor_ReturnValue",
+        "Type": "ObjectProperty",
+        "Name": "K2Node_Event_Owner",
         "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
+        "ElementSize": 8,
+        "PropertyFlags": "InstancedReference",
+        "PropertyClass": {
+          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
       },
       {
         "Type": "BoolProperty",
@@ -48,18 +47,6 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_ValidOrnament_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
-        "Type": "BoolProperty",
         "Name": "CallFunc_IsValid_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
@@ -82,15 +69,16 @@
         }
       },
       {
-        "Type": "ObjectProperty",
-        "Name": "K2Node_Event_Owner",
+        "Type": "BoolProperty",
+        "Name": "CallFunc_ValidOrnament_ReturnValue",
         "Flags": "RF_Public",
-        "ElementSize": 8,
-        "PropertyFlags": "InstancedReference",
-        "PropertyClass": {
-          "ObjectName": "Class'SBPlayerLevelStartSequenceComponent'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "IntProperty",
@@ -105,6 +93,56 @@
         "Flags": "RF_Public",
         "ElementSize": 4,
         "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetSBRetMessage_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "StrProperty",
+        "Name": "CallFunc_GetSBRetMessage_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 16,
+        "PropertyFlags": "ConstParm"
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 24
+      },
+      {
+        "Type": "TextProperty",
+        "Name": "CallFunc_Conv_StringToText_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 24
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_EqualEqual_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       },
       {
         "Type": "BoolProperty",
@@ -129,8 +167,30 @@
         }
       },
       {
+        "Type": "DelegateProperty",
+        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Flags": "RF_Public",
+        "ElementSize": 20,
+        "SignatureFunction": {
+          "ObjectName": "DelegateFunction'SBPlayerOrnamentComponent:OnCompleteRoomListDelegate__DelegateSignature'",
+          "ObjectPath": "/Script/SkyBlue"
+        }
+      },
+      {
         "Type": "BoolProperty",
-        "Name": "CallFunc_IsInCoinPubPrivateRoom_ReturnValue",
+        "Name": "CallFunc_IsOverlapAreaTrigger_CoinPub_ReturnValue",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_IsEditor_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -142,7 +202,7 @@
       },
       {
         "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate",
+        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
         "Flags": "RF_Public",
         "ElementSize": 20,
         "SignatureFunction": {
@@ -175,16 +235,6 @@
         "bIsNativeBool": true
       },
       {
-        "Type": "DelegateProperty",
-        "Name": "K2Node_CreateDelegate_OutputDelegate_1",
-        "Flags": "RF_Public",
-        "ElementSize": 20,
-        "SignatureFunction": {
-          "ObjectName": "DelegateFunction'SBPlayerOrnamentComponent:OnCompleteRoomListDelegate__DelegateSignature'",
-          "ObjectPath": "/Script/SkyBlue"
-        }
-      },
-      {
         "Type": "BoolProperty",
         "Name": "CallFunc_BooleanOR_ReturnValue_1",
         "Flags": "RF_Public",
@@ -197,7 +247,7 @@
         "bIsNativeBool": true
       }
     ],
-    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction"
+    "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
   },
   {
     "Type": "Function",

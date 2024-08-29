@@ -20,12 +20,6 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "IntProperty",
         "Name": "CallFunc_Add_IntInt_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 4
@@ -37,18 +31,6 @@
         "ElementSize": 4
       },
       {
-        "Type": "BoolProperty",
-        "Name": "CallFunc_Less_IntInt_ReturnValue",
-        "Flags": "RF_Public",
-        "ElementSize": 1,
-        "FieldSize": 1,
-        "ByteOffset": 0,
-        "ByteMask": 1,
-        "FieldMask": 255,
-        "BoolSize": 1,
-        "bIsNativeBool": true
-      },
-      {
         "Type": "IntProperty",
         "Name": "CallFunc_Add_IntInt_ReturnValue_1",
         "Flags": "RF_Public",
@@ -57,12 +39,6 @@
       {
         "Type": "IntProperty",
         "Name": "Temp_int_Array_Index_Variable",
-        "Flags": "RF_Public",
-        "ElementSize": 4
-      },
-      {
-        "Type": "IntProperty",
-        "Name": "CallFunc_Array_Get_Item",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
@@ -290,7 +266,7 @@
       },
       {
         "Type": "ObjectProperty",
-        "Name": "CallFunc_Array_Get_Item_1",
+        "Name": "CallFunc_Array_Get_Item",
         "Flags": "RF_Public",
         "ElementSize": 8,
         "PropertyFlags": "InstancedReference",
@@ -301,7 +277,7 @@
       },
       {
         "Type": "IntProperty",
-        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Name": "CallFunc_Array_Length_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 4
       },
@@ -319,7 +295,7 @@
       },
       {
         "Type": "BoolProperty",
-        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
+        "Name": "CallFunc_Less_IntInt_ReturnValue",
         "Flags": "RF_Public",
         "ElementSize": 1,
         "FieldSize": 1,
@@ -363,9 +339,44 @@
         "FieldMask": 255,
         "BoolSize": 1,
         "bIsNativeBool": true
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Get_Item_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "IntProperty",
+        "Name": "CallFunc_Array_Length_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 4
+      },
+      {
+        "Type": "BoolProperty",
+        "Name": "CallFunc_Less_IntInt_ReturnValue_1",
+        "Flags": "RF_Public",
+        "ElementSize": 1,
+        "FieldSize": 1,
+        "ByteOffset": 0,
+        "ByteMask": 1,
+        "FieldMask": 255,
+        "BoolSize": 1,
+        "bIsNativeBool": true
       }
     ],
     "FunctionFlags": "FUNC_Final | FUNC_UbergraphFunction | FUNC_HasDefaults"
+  },
+  {
+    "Type": "Function",
+    "Name": "SetTransparent",
+    "Outer": "BP_ImagineBase_C",
+    "Class": "UScriptClass'Function'",
+    "SuperStruct": {
+      "ObjectName": "Function'SBProjectileImagineCharacter:SetTransparent'",
+      "ObjectPath": "/Script/SkyBlue"
+    },
+    "FunctionFlags": "FUNC_Event | FUNC_Public | FUNC_BlueprintEvent"
   },
   {
     "Type": "Function",
@@ -593,16 +604,16 @@
       "Timelines": [
         {
           "ObjectName": "TimelineTemplate'BP_ImagineBase_C:バトルイマジン退場時タイムライン（固定時間）_Template'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.34"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.35"
         },
         {
           "ObjectName": "TimelineTemplate'BP_ImagineBase_C:バトルイマジン登場時タイムライン（固定時間）_Template'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.33"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.34"
         }
       ],
       "SimpleConstructionScript": {
         "ObjectName": "SimpleConstructionScript'BP_ImagineBase_C:SimpleConstructionScript_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.32"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.33"
       },
       "UberGraphFunction": {
         "ObjectName": "Function'BP_ImagineBase_C:ExecuteUbergraph_BP_ImagineBase'",
@@ -616,42 +627,46 @@
     "Children": [
       {
         "ObjectName": "Function'BP_ImagineBase_C:GetInstigatorMeshComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.11"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:PlayAudio'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.9"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.10"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン登場時タイムライン（固定時間）__FinishedFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.8"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.9"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン登場時タイムライン（固定時間）__UpdateFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.8"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン退場時タイムライン（固定時間）__FinishedFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.7"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン退場時タイムライン（固定時間）__UpdateFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.6"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:SelfDeath'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.5"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:StartSummonEffect'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.4"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:ReceiveTick'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.3"
       },
       {
         "ObjectName": "Function'BP_ImagineBase_C:ReceiveBeginPlay'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.2"
+      },
+      {
+        "ObjectName": "Function'BP_ImagineBase_C:SetTransparent'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.1"
       },
       {
@@ -795,45 +810,49 @@
         "ObjectName": "Function'BP_ImagineBase_C:ExecuteUbergraph_BP_ImagineBase'",
         "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.0"
       },
+      "SetTransparent": {
+        "ObjectName": "Function'BP_ImagineBase_C:SetTransparent'",
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.1"
+      },
       "ReceiveBeginPlay": {
         "ObjectName": "Function'BP_ImagineBase_C:ReceiveBeginPlay'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.1"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.2"
       },
       "ReceiveTick": {
         "ObjectName": "Function'BP_ImagineBase_C:ReceiveTick'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.2"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.3"
       },
       "StartSummonEffect": {
         "ObjectName": "Function'BP_ImagineBase_C:StartSummonEffect'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.3"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.4"
       },
       "SelfDeath": {
         "ObjectName": "Function'BP_ImagineBase_C:SelfDeath'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.4"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.5"
       },
       "バトルイマジン退場時タイムライン（固定時間）__UpdateFunc": {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン退場時タイムライン（固定時間）__UpdateFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.5"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.6"
       },
       "バトルイマジン退場時タイムライン（固定時間）__FinishedFunc": {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン退場時タイムライン（固定時間）__FinishedFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.6"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.7"
       },
       "バトルイマジン登場時タイムライン（固定時間）__UpdateFunc": {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン登場時タイムライン（固定時間）__UpdateFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.7"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.8"
       },
       "バトルイマジン登場時タイムライン（固定時間）__FinishedFunc": {
         "ObjectName": "Function'BP_ImagineBase_C:バトルイマジン登場時タイムライン（固定時間）__FinishedFunc'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.8"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.9"
       },
       "PlayAudio": {
         "ObjectName": "Function'BP_ImagineBase_C:PlayAudio'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.9"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.10"
       },
       "GetInstigatorMeshComponent": {
         "ObjectName": "Function'BP_ImagineBase_C:GetInstigatorMeshComponent'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.10"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.11"
       }
     },
     "ClassFlags": "CLASS_Config | CLASS_Optional | CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint | CLASS_HasInstancedReference",
@@ -845,7 +864,7 @@
     "bCooked": true,
     "ClassDefaultObject": {
       "ObjectName": "BP_ImagineBase_C'Default__BP_ImagineBase_C'",
-      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.12"
+      "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.13"
     }
   },
   {
@@ -866,38 +885,38 @@
       "bIsEnableSummonEffect": true,
       "CharaCreateComponent": {
         "ObjectName": "SBCharaCreateComponent'Default__BP_ImagineBase_C:CharaCreate'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.19"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.20"
       },
       "FaceComp": {
         "ObjectName": "SBCharaPartsFaceComponent'Default__BP_ImagineBase_C:FaceSlot'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.21"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.22"
       },
       "SpawnComp": {
         "ObjectName": "SBProjectileSpawnComponent'Default__BP_ImagineBase_C:ProjectileSpawnComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.27"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.28"
       },
       "CheckSwimmingAreaComp": {
         "ObjectName": "SBCheckSwimmingAreaBImagine'Default__BP_ImagineBase_C:CheckSwimmingAreaBImagine'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.24"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.25"
       },
       "Mesh": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_ImagineBase_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.20"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.21"
       },
       "CharacterMovement": {
         "ObjectName": "CharacterMovementComponent'Default__BP_ImagineBase_C:CharMoveComp'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.15"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.16"
       },
       "CapsuleComponent": {
         "ObjectName": "CapsuleComponent'Default__BP_ImagineBase_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.15"
       },
       "bReplicateMovement": false,
       "bCanBeDamaged": false,
       "bReplicates": false,
       "RootComponent": {
         "ObjectName": "CapsuleComponent'Default__BP_ImagineBase_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.15"
       }
     }
   },
@@ -1258,7 +1277,7 @@
       },
       "AttachParent": {
         "ObjectName": "CapsuleComponent'Default__BP_ImagineBase_C:CollisionCylinder'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.14"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.15"
       },
       "RelativeRotation": {
         "Pitch": 0.0,
@@ -1283,7 +1302,7 @@
       },
       "AttachParent": {
         "ObjectName": "SBCharaPartsBodyComponent'Default__BP_ImagineBase_C:CharacterMesh0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.20"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.21"
       }
     }
   },
@@ -1341,7 +1360,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SceneComponent'BP_ImagineBase_C:DefaultSceneRoot_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.28"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.29"
       },
       "VariableGuid": "ED494404-4B9FA71F-F502C389-C4416067",
       "InternalVariableName": "DefaultSceneRoot"
@@ -1359,7 +1378,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "BP_EF_ImagineSpawn_C'BP_ImagineBase_C:BP_EF_ImagineSpawn_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.13"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.14"
       },
       "ParentComponentOrVariableName": "CollisionCylinder",
       "bIsParentComponentNative": true,
@@ -1379,7 +1398,7 @@
       },
       "ComponentTemplate": {
         "ObjectName": "SBFootprintComponent'BP_ImagineBase_C:SBFootprint_GEN_VARIABLE'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.26"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.27"
       },
       "VariableGuid": "81707107-4660499E-CBED77B9-03226B7F",
       "InternalVariableName": "SBFootprint"
@@ -1394,26 +1413,26 @@
       "RootNodes": [
         {
           "ObjectName": "SCS_Node'BP_ImagineBase_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.30"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.31"
         },
         {
           "ObjectName": "SCS_Node'BP_ImagineBase_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.31"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.32"
         }
       ],
       "AllNodes": [
         {
           "ObjectName": "SCS_Node'BP_ImagineBase_C:SimpleConstructionScript_0.SCS_Node_1'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.30"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.31"
         },
         {
           "ObjectName": "SCS_Node'BP_ImagineBase_C:SimpleConstructionScript_0.SCS_Node_2'",
-          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.31"
+          "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.32"
         }
       ],
       "DefaultSceneRootNode": {
         "ObjectName": "SCS_Node'BP_ImagineBase_C:SimpleConstructionScript_0.SCS_Node_0'",
-        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.29"
+        "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.30"
       }
     }
   },
@@ -1428,7 +1447,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat'BP_ImagineBase_C:CurveFloat_0'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.16"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.17"
           },
           "PropertyName": "_______________________SpawnShaderAnim_28B828674687F0AD18CEE0A8AB0C03EF",
           "TrackName": "SpawnShaderAnim",
@@ -1453,7 +1472,7 @@
         {
           "CurveFloat": {
             "ObjectName": "CurveFloat'BP_ImagineBase_C:CurveFloat_0_1'",
-            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.17"
+            "ObjectPath": "BLUEPROTOCOL/Content/Blueprints/Magic/Imagine/BP_ImagineBase.18"
           },
           "PropertyName": "_______________________SpawnShaderAnim_A055AF2F433F3AAE6B898BB2EE2CA8EE",
           "TrackName": "SpawnShaderAnim",

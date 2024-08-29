@@ -432,6 +432,99 @@
           ]
         },
         {
+          "EnemyWaveId": "EW_dng023_BossWave",
+          "Steps": [
+            {
+              "Index": 1,
+              "EnemySetId": "ES_dng023_Boss_1",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "Dng_ClearBoss",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "None",
+                  "ParamInt1": 1,
+                  "NextStep": 2,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 2,
+              "EnemySetId": "ES_dng023_Boss_Sub1",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "Dng_ClearBoss",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "None",
+                  "ParamInt1": 1,
+                  "NextStep": 3,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 3,
+              "EnemySetId": "ES_dng023_Boss_Sub2",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "Dng_ClearBoss",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "None",
+                  "ParamInt1": 1,
+                  "NextStep": 4,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 4,
+              "EnemySetId": "ES_dng023_Boss_Sub3",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "Dng_ClearBoss",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "None",
+                  "ParamInt1": 1,
+                  "NextStep": 2,
+                  "DelaySec": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
           "EnemyWaveId": "EW_pat0106_BossWave",
           "Steps": [
             {
@@ -1839,16 +1932,16 @@
               "IdentificationTag": "None",
               "Conditions": [
                 {
-                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
                   "Tag": "Dng_KeyEnemy1",
-                  "ParamInt1": 0,
+                  "ParamInt1": 50,
                   "NextStep": 2,
                   "DelaySec": 0.0
                 },
                 {
-                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
                   "Tag": "Dng_KeyEnemy2",
-                  "ParamInt1": 0,
+                  "ParamInt1": 50,
                   "NextStep": 3,
                   "DelaySec": 0.0
                 }
@@ -1861,10 +1954,10 @@
               "IdentificationTag": "None",
               "Conditions": [
                 {
-                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
-                  "Tag": "None",
-                  "ParamInt1": 0,
-                  "NextStep": -1,
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_KeyEnemy2",
+                  "ParamInt1": 50,
+                  "NextStep": 4,
                   "DelaySec": 0.0
                 },
                 {
@@ -1878,7 +1971,29 @@
             },
             {
               "Index": 3,
-              "EnemySetId": "ES_twr001_NormalB2_32F_Add2",
+              "EnemySetId": "ES_twr001_NormalB2_32F_Add1",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_KeyEnemy1",
+                  "ParamInt1": 50,
+                  "NextStep": 4,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 4,
+              "EnemySetId": "ES_twr001_NormalB2_32F_Add1",
               "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
               "IdentificationTag": "None",
               "Conditions": [
@@ -10296,6 +10411,87 @@
           ]
         },
         {
+          "EnemyWaveId": "EW_sks003_1",
+          "Steps": [
+            {
+              "Index": 1,
+              "EnemySetId": "ES_sks003_1",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Center",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "EnemyWaveId": "EW_sks003_2",
+          "Steps": [
+            {
+              "Index": 1,
+              "EnemySetId": "ES_sks003_2",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Center",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "EnemyWaveId": "EW_sks003_3",
+          "Steps": [
+            {
+              "Index": 1,
+              "EnemySetId": "ES_sks003_3",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Center",
+              "IdentificationTag": "None",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
           "EnemyWaveId": "EW_kwm001_solo",
           "Steps": [
             {
@@ -10548,6 +10744,165 @@
             {
               "Index": 7,
               "EnemySetId": "ES_kwm001_party_Step7",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_ClearBoss",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "EnemyWaveId": "EW_kwm002_party",
+          "Steps": [
+            {
+              "Index": 1,
+              "EnemySetId": "ES_kwm002_party_Step1",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_kwm001_party_Step1",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_kwm001_party_Step1",
+                  "ParamInt1": 80,
+                  "NextStep": 2,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_ElapsedTime",
+                  "Tag": "None",
+                  "ParamInt1": 30,
+                  "NextStep": 4,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 2,
+              "EnemySetId": "ES_kwm002_party_Step2",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_kwm001_party_Step2",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_Step2_Enemy",
+                  "ParamInt1": 80,
+                  "NextStep": 3,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_kwm001_party_Step1",
+                  "ParamInt1": 60,
+                  "NextStep": 5,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 3,
+              "EnemySetId": "ES_kwm002_party_Step3",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_kwm001_party_Step3",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": 6,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 4,
+              "EnemySetId": "ES_kwm002_party_Step4",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_kwm001_party_Step4",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_kwm001_party_Step1",
+                  "ParamInt1": 85,
+                  "NextStep": 2,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 5,
+              "EnemySetId": "ES_kwm002_party_Step5",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_kwm001_party_Step5",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyHpRatio",
+                  "Tag": "Dng_Step2_Enemy",
+                  "ParamInt1": 85,
+                  "NextStep": 3,
+                  "DelaySec": 0.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 6,
+              "EnemySetId": "ES_kwm002_party_Step6",
+              "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
+              "IdentificationTag": "Dng_kwm001_party_Step6",
+              "Conditions": [
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_RemainingEnemyNum",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": 7,
+                  "DelaySec": 3.0
+                },
+                {
+                  "Type": "ESBEnemyWaveStepConditionType::EWSCType_None",
+                  "Tag": "None",
+                  "ParamInt1": 0,
+                  "NextStep": -1,
+                  "DelaySec": 0.0
+                }
+              ]
+            },
+            {
+              "Index": 7,
+              "EnemySetId": "ES_kwm002_party_Step7",
               "SpawnLocation": "ESBEnemyWaveSpawnLocation::EWSLoc_Random",
               "IdentificationTag": "Dng_ClearBoss",
               "Conditions": [

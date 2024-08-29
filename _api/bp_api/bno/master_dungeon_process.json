@@ -184,6 +184,83 @@
             ]
         },
         {
+            "name": "DungeonProcess_puyotest",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "GameStart",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "GameStart",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Boss",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "playerA1",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_playerA1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"killEnemyA_1\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"playerA1\", DungeonProcessStatus_Ready)\nend"
+                },
+                {
+                    "ProcessId": "playerB1",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_playerB1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"killEnemyB_1\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"playerB1\", DungeonProcessStatus_Ready)\nend"
+                },
+                {
+                    "ProcessId": "playerGin",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_gin",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"ginnappo\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"playerGin\", DungeonProcessStatus_Ready)\nend"
+                }
+            ]
+        },
+        {
             "name": "P_208_001_001",
             "params": [
                 {
@@ -3112,6 +3189,51 @@
                     "ClearType": "PostResult",
                     "ClearParameter": "",
                     "Scripts": "CQ107_005_DngClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_203_080_000",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "CQ108_005_DngStart",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "Wave1",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDestroy",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "CQ108_005_DngClear",
                     "ExecScriptCode": ""
                 },
                 {
@@ -6845,6 +6967,14 @@
                     "ExecScriptCode": ""
                 },
                 {
+                    "ProcessId": "areaAWave1",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_areaAWave1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Wave\")\nend"
+                },
+                {
                     "ProcessId": "MidBoss1",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemyDead",
@@ -6944,6 +7074,14 @@
                     "ClearParameter": "",
                     "Scripts": "",
                     "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "areaAWave1",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_areaAWave1",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"Wave\")\nend"
                 },
                 {
                     "ProcessId": "MidBoss1",
@@ -9505,7 +9643,7 @@
                     "ProcessStatus": "Ready",
                     "ClearType": "PostLoad",
                     "ClearParameter": "",
-                    "Scripts": "MQ107_050 _DngStart",
+                    "Scripts": "MQ107_050_Dng01Start",
                     "ExecScriptCode": ""
                 },
                 {
@@ -9521,7 +9659,7 @@
                     "ProcessStatus": "Ready",
                     "ClearType": "PostResult",
                     "ClearParameter": "",
-                    "Scripts": "MQ107_050 _DngClear",
+                    "Scripts": "MQ107_050_Dng01Clear",
                     "ExecScriptCode": ""
                 },
                 {
@@ -9655,14 +9793,6 @@
                     "ExecScriptCode": ""
                 },
                 {
-                    "ProcessId": "BossSpawned",
-                    "ProcessStatus": "Ready",
-                    "ClearType": "EnemySpawned",
-                    "ClearParameter": "Dng_ClearBoss",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\nend"
-                },
-                {
                     "ProcessId": "P1S2_BuffEnemy",
                     "ProcessStatus": "Ready",
                     "ClearType": "EnemySpawned",
@@ -9703,10 +9833,10 @@
                     "ExecScriptCode": ""
                 },
                 {
-                    "ProcessId": "CheckBossHP50",
-                    "ProcessStatus": "Wait",
-                    "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "ProcessId": "CloseInstance",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyWaveFinished",
+                    "ClearParameter": "Dng_kwm001party_6",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
@@ -10086,6 +10216,43 @@
                     "ClearType": "PostLoad",
                     "ClearParameter": "",
                     "Scripts": "MQ105_030_step0_02",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "GameStart",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "GameStart",
+                    "ClearParameter": "",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_105_007_101",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "MQ107_050_step1_01",
                     "ExecScriptCode": ""
                 },
                 {
@@ -15627,7 +15794,7 @@
                     "ClearType": "EnemySpawned",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP28\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP48\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP78\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP80\", DungeonProcessStatus_Ready)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP28\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP48\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP78\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP80\", DungeonProcessStatus_Ready)\nend"
                 },
                 {
                     "ProcessId": "BossArea",
@@ -15636,14 +15803,6 @@
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "DungeonClear",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
-                },
-                {
-                    "ProcessId": "CheckBossHP20",
-                    "ProcessStatus": "Wait",
-                    "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
                 {
                     "ProcessId": "CheckBossHP80",
@@ -15667,7 +15826,7 @@
                     "ClearType": "ScriptCheck",
                     "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossHelpEnemys\")\nend"
+                    "ExecScriptCode": "function ProcMain()\n   SBDS.CloseInstanceDungeonProcess()\n   --- SendMessage\n   SBDS.SendDungeonProcessMessage(\"BossHelpEnemys\")\nend"
                 },
                 {
                     "ProcessId": "CheckBossHP48",
@@ -15720,6 +15879,67 @@
             ]
         },
         {
+            "name": "P_207_006_001",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "RAI_E526_00_00_Intro",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\nend"
+                },
+                {
+                    "ProcessId": "BossArea",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP50",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   SBDS.CloseInstanceDungeonProcess()\nend"
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
             "name": "P_207_008_002",
             "params": [
                 {
@@ -15736,7 +15956,7 @@
                     "ClearType": "EnemySpawned",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP25\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP25\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\nend"
                 },
                 {
                     "ProcessId": "BossArea",
@@ -15745,14 +15965,6 @@
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "DungeonClear",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
-                },
-                {
-                    "ProcessId": "CheckBossHP20",
-                    "ProcessStatus": "Wait",
-                    "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
                 {
                     "ProcessId": "CheckBossHP25",
@@ -15768,7 +15980,7 @@
                     "ClearType": "ScriptCheck",
                     "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_EnemySupplier1\", FieldStatus_Available)\nend"
+                    "ExecScriptCode": "function ProcMain()\n   SBDS.CloseInstanceDungeonProcess()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_EnemySupplier1\", FieldStatus_Available)\nend"
                 },
                 {
                     "ProcessId": "PreResult",
@@ -15813,7 +16025,7 @@
                     "ClearType": "EnemySpawned",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP60\", DungeonProcessStatus_Ready)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP60\", DungeonProcessStatus_Ready)\nend"
                 },
                 {
                     "ProcessId": "BossArea",
@@ -15824,10 +16036,10 @@
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
                 },
                 {
-                    "ProcessId": "CheckBossHP20",
+                    "ProcessId": "CheckBossHP50",
                     "ProcessStatus": "Wait",
                     "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
@@ -15890,7 +16102,7 @@
                     "ClearType": "EnemySpawned",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP25\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP75\", DungeonProcessStatus_Ready)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP25\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP75\", DungeonProcessStatus_Ready)\nend"
                 },
                 {
                     "ProcessId": "BossArea",
@@ -15899,14 +16111,6 @@
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "DungeonClear",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
-                },
-                {
-                    "ProcessId": "CheckBossHP20",
-                    "ProcessStatus": "Wait",
-                    "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
-                    "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
                 {
                     "ProcessId": "CheckBossHP75",
@@ -15922,7 +16126,7 @@
                     "ClearType": "ScriptCheck",
                     "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_PopOn1\", FieldStatus_Available)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  SBDS.CloseInstanceDungeonProcess()\n   --- SendMessage\n   SBDS.SetFieldStatusByTag(\"Dng_PopOn1\", FieldStatus_Available)\nend"
                 },
                 {
                     "ProcessId": "CheckBossHP25",
@@ -15975,7 +16179,7 @@
                     "ClearType": "EnemySpawned",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP70\", DungeonProcessStatus_Ready)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP40\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP70\", DungeonProcessStatus_Ready)\nend"
                 },
                 {
                     "ProcessId": "BossArea",
@@ -15986,10 +16190,10 @@
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
                 },
                 {
-                    "ProcessId": "CheckBossHP20",
+                    "ProcessId": "CheckBossHP50",
                     "ProcessStatus": "Wait",
                     "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
@@ -16002,12 +16206,73 @@
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n    SBDS.SetFieldStatusByTag(\"Dng_PopEnemy1\", FieldStatus_Available)\n    SBDS.SetFieldStatusByTag(\"Dng_PopOn1\", FieldStatus_Available)\nend"
                 },
                 {
-                    "ProcessId": "CheckBossHP30",
+                    "ProcessId": "CheckBossHP40",
                     "ProcessStatus": "Wait",
                     "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 30％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.3  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 40％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.4  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n  SBDS.SetFieldStatusByTag(\"Dng_PopEnemy2\", FieldStatus_Available)\n   SBDS.SetFieldStatusByTag(\"Dng_PopOn2\", FieldStatus_Available)\n SBDS.SendDungeonProcessMessage(\"Mission_BreakEnemySup_rai013\")\nend"
+                },
+                {
+                    "ProcessId": "PreResult",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PostResut",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostResult",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "PreExit",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PreExit",
+                    "ClearParameter": "",
+                    "Scripts": "",
+                    "ExecScriptCode": ""
+                }
+            ]
+        },
+        {
+            "name": "P_207_015_001",
+            "params": [
+                {
+                    "ProcessId": "PostLoad",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "PostLoad",
+                    "ClearParameter": "",
+                    "Scripts": "RAI_E526_00_02_Intro",
+                    "ExecScriptCode": ""
+                },
+                {
+                    "ProcessId": "BossSpawned",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemySpawned",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\nend"
+                },
+                {
+                    "ProcessId": "BossArea",
+                    "ProcessStatus": "Ready",
+                    "ClearType": "EnemyDead",
+                    "ClearParameter": "Dng_ClearBoss",
+                    "Scripts": "DungeonClear",
+                    "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
+                },
+                {
+                    "ProcessId": "CheckBossHP50",
+                    "ProcessStatus": "Wait",
+                    "ClearType": "ScriptCheck",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "Scripts": "",
+                    "ExecScriptCode": "function ProcMain()\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },
                 {
                     "ProcessId": "PreResult",
@@ -16052,7 +16317,7 @@
                     "ClearType": "EnemySpawned",
                     "ClearParameter": "Dng_ClearBoss",
                     "Scripts": "",
-                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP20\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP60\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP90\", DungeonProcessStatus_Ready)\nend"
+                    "ExecScriptCode": "function ProcMain()\n  --- ダメージ監視の追加\n   SBDS.StartEnemyDamageCheck(\"Dng_ClearBoss\")\n  --- リトライに備えてProcessを初期化\n   SBDS.SetDungeonProcessStatus(\"BossSpawned\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP50\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP30\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP60\", DungeonProcessStatus_Ready)\n   SBDS.SetDungeonProcessStatus(\"CheckBossHP90\", DungeonProcessStatus_Ready)\nend"
                 },
                 {
                     "ProcessId": "BossArea",
@@ -16063,10 +16328,10 @@
                     "ExecScriptCode": "function ProcMain()\n   --- SendMessage\n   SBDS.SetDungeonResultStartDelay(0.8)\n   SBDS.SendDungeonProcessMessage(\"BossDeadCamera\")\nend"
                 },
                 {
-                    "ProcessId": "CheckBossHP20",
+                    "ProcessId": "CheckBossHP50",
                     "ProcessStatus": "Wait",
                     "ClearType": "ScriptCheck",
-                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 20％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.2  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
+                    "ClearParameter": "function ProcMain()\n  --- ダメージ監視 50％以下になったら成功\n   if  SBDS.GetEnemyHitPointRate(\"Dng_ClearBoss\") <= 0.5  then\n    SBDS.ClearCurrentDungeonProcess()\n  end\nend",
                     "Scripts": "",
                     "ExecScriptCode": "function ProcMain()\n   --- CloseInstance\n   SBDS.CloseInstanceDungeonProcess()\nend"
                 },

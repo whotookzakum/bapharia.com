@@ -32,8 +32,8 @@ git push
 git checkout main
 cd ..
 
-@REM Move client data to /api/bp_client
-robocopy .\scripts\UnrealExporter\bno\BLUEPROTOCOL ..\api\bp_client\bno /e /mov /xd Content\UI
+@REM Move client data to /_api/bp_client
+robocopy .\scripts\UnrealExporter\bno\BLUEPROTOCOL ..\_api\bp_client\bno /e /mov /xd Content\UI
 rm -rf .\scripts\UnrealExporter\bno
 
 echo Finished exporting client to /api/bp_client/bno and /bpassets
