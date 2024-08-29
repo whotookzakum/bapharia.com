@@ -2,6 +2,15 @@ import fs from "fs"
 import { PRIVATE_CLOUDFLARE_API_KEY, PRIVATE_WORKERS_ACCOUNT_ID, PRIVATE_KV_NAMESPACE_ID_BNO_JA, PRIVATE_KV_NAMESPACE_ID_BNO_EN } from '$env/static/private';
 import { SUPPORTED_VERSIONS } from "$lib/constants"
 
+// Used in /src/routes/api/create
+// import { json } from '@sveltejs/kit'
+// import { consolidateDb, updateKv } from '../../../../scripts/update-kv.js';
+// export const GET = async ({ params, url }) => {
+//     const db = await consolidateDb()
+//     updateKv(db)
+//     return json(db)
+// }
+
 // Gather all API endpoints into objects with keys such as bno_ja, bno_en to efficiently bulk write to Cloudflare KV
 export async function consolidateDb() {
     const files = import.meta.glob("../_api/*.js", { import: "default", eager: true })

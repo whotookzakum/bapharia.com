@@ -17,9 +17,6 @@ export const SUPPORTED_VERSIONS = [
     // },
 ]
 
-export const SUPPORTED_LANGS = SUPPORTED_VERSIONS.flatMap(ver => ver.locales)
-export const SUPPORTED_PUBLISHERS = SUPPORTED_VERSIONS.map(ver => ver.publisher)
-
 export const LANG_CODES = {
     en: "en_US",
     ja: "ja_JP",

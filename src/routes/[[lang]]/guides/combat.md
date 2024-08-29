@@ -76,6 +76,8 @@ When in combat, various actions consume stamina (see [stamina](/guides/stats#sta
 
 When your weapon is unsheathed, your jump height is reduced and you cannot sprint until you sheathe your weapon. Your weapon can be sheathed by pressing the interact key, summoning a mount, or by initiating sprinting.
 
+There is a [Bandai developers conference talk](https://www.youtube.com/watch?v=YFBdHjE2ek4) that briefly explains enemy AI, such as action decision trees.
+
 ## Skills
 Skills can be unlocked by leveling up. Learn more about skills on the [classes](/classes) page. 
 
@@ -93,7 +95,7 @@ Skill components include:
 </StickyNote>
 
 <StickyNote type="warning">
-    Cooldown reduction has diminishing returns.
+    Cooldown reduction has diminishing returns. On a 30s skill with 20% + 15% cooldown reduction plugs, the result is <Formula inline formula="30 \div 1.35 = 22.22" /> seconds.
 </StickyNote>
 <!-- It would be incorrect to add these Cooldown values to 35% before doing the calculation, i.e. 20s * 0.65 = 13s, or multiplying them 20 * 0.8 * 0.85 = 13.6s. -->
 

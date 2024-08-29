@@ -35,6 +35,9 @@ When in fields or free exploration dungeons, **HP will continuously recover over
 
 HP can be recovered through various means such as consumables, [skills](/guides/combat#skills), [buffs](/guides/combat#buffs--debuffs), suppliers, and [Battle Imagine](/guides/imagine#battle-imagine).
 
+## Crit Damage
+Crit damage appears to have a cap of +100% from abilities (passive lines). Base crit damage can still be increased by raising the appropriate stats.
+
 ## Stamina
 Stamina is consumed when performing certain actions. Certain Skills and Imagine abilities can increase Max Stamina or reduce Stamina Consumption.
 

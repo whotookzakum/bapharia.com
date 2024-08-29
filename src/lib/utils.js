@@ -1,4 +1,4 @@
-import { SUPPORTED_LANGS, SUPPORTED_PUBLISHERS, SUPPORTED_VERSIONS } from '$lib/constants'
+import { SUPPORTED_VERSIONS } from '$lib/constants'
 import { PUBLIC_PUBLISHER } from '$env/static/public';
 import { error } from "@sveltejs/kit"
 
