@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import { page } from "$app/stores";
     import { SUPPORTED_LANGS, SUPPORTED_PUBLISHERS } from "$lib/constants";
     import uniq from "lodash/uniq";
@@ -33,4 +33,4 @@
     {...$$restProps}
 >
     <slot />
-</a>
+</a> -->
