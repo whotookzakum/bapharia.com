@@ -8,6 +8,7 @@ const ids = [
     131005100, // Elite Knight
     120000510, // Electra β
     120000520, // Einrain γ
+    120000540, // Milene β
     
     120000410, // Einrain β
     131002100, // Providence Eye
@@ -16,10 +17,12 @@ const ids = [
     131001800, // Valley Vanguard
     131003300, // Bandit Scout Fox
     120000530, // Einrain δ
+    121000220, // Kapakuku β
 
     120000010, // Feste β
     131003800, // Prairie Anima
-    131004600, // Bloodthirsty Nightwolf 
+    134001000, // Flare Demidragon
+    // 131004600, // Bloodthirsty Nightwolf 
 ]
 
 export const load = async ({ params, fetch }) => {

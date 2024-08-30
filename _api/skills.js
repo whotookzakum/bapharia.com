@@ -299,7 +299,7 @@ async function processSkill(skill, lang) {
         const { skill_type, ability_type, class_type, skill_id, skill_name } = skill
         const name = getText("master_skill_data_text", skill_name, lang)
         const category = getCategory("Skill", skill_type === 8 ? `${skill_type}_${ability_type}` : skill_type, lang)
-        const { SkillInfo, assets, SkillName, BgType, ElementType } = await SkillDTs[skill_id]
+        const { SkillInfo, assets, SkillName, BgType, ElementType } = await SkillDTs[skill_id] || {}
         const skillLevels = await getSkillLevels(skill, SkillInfo, lang)
         const animation_cancels = AnimationCancels[skill.skill_id]
         const hiddenSkillData = skillLevels.length < 1 ? getSkillLevelData(SkillInfo, {}) : undefined // for springboard jump, dodge, ukemi, etc.
