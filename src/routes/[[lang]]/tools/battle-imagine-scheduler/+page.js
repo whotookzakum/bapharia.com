@@ -22,6 +22,7 @@ const ids = [
     120000010, // Feste β
     131003800, // Prairie Anima
     134001000, // Flare Demidragon
+    131007300, // Overdraug Arma β
     // 131004600, // Bloodthirsty Nightwolf 
 ]
 
